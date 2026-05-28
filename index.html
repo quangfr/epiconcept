@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation ESIS-3D - Hub Métier</title>
+    <meta name="description" content="Développez vos compétences métiers de Product Owner (PO) et d'ergonomie User Experience (UX) avec nos simulateurs interactifs d'entraînement.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Design System / Root Variables */
+        :root {
+            --bg-dark: #f8fafc;
+            --bg-deep: #f1f5f9;
+            --bg-card: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(15, 23, 42, 0.06);
+            
+            --color-primary: #4f46e5; /* Indigo */
+            --color-primary-glow: rgba(99, 102, 241, 0.08);
+            --color-secondary: #0891b2; /* Cyan */
+            --color-secondary-glow: rgba(6, 182, 212, 0.08);
+            --color-emerald: #10b981;
+            
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-low: #64748b;
+            
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, #f1f5f9 0%, #f8fafc 100%);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 1.25rem 2rem;
+            line-height: 1.5;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        /* Top Bar Layout (Header + Stats horizontal) */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+            padding-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            flex-shrink: 0;
+            animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        header {
+            text-align: left;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-badge span.pulse-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-emerald);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--color-emerald);
+            animation: pulse-glow 2s infinite;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.15rem;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #0f172a 30%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            font-weight: 500;
+        }
+
+        /* Compact Horizontal Stats Summary */
+        .global-stats-container {
+            display: flex;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .stat-bar-card {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            border-radius: 1.25rem;
+            padding: 0.6rem 1.25rem;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.01);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 140px;
+        }
+
+        .stat-bar-card:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.6rem;
+            color: var(--text-low);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-top: 0.15rem;
+        }
+
+        /* Core Simulator Cards Grid (Full Screen dynamic height) */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            flex-grow: 1;
+            min-height: 0; /* Critical for grid nested scrolling or filling */
+            margin-bottom: 1.25rem;
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                overflow: auto;
+                height: auto;
+            }
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .global-stats-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+
+        /* Glassmorphism Card Style */
+        .simulator-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 2rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            transition: var(--transition-smooth);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.03);
+            justify-content: space-between;
+        }
+
+        /* Dynamic Border lighting */
+        .simulator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .simulator-card.po-theme::before {
+            background: linear-gradient(90deg, var(--color-primary), #818cf8);
+        }
+
+        .simulator-card.ux-theme::before {
+            background: linear-gradient(90deg, var(--color-secondary), #22d3ee);
+        }
+
+        /* Hover States for Cards */
+        .simulator-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(15, 23, 42, 0.1);
+        }
+
+        .simulator-card.po-theme:hover {
+            box-shadow: 
+                0 20px 40px rgba(15, 23, 42, 0.06),
+                0 0 35px rgba(99, 102, 241, 0.05);
+        }
+
+        .simulator-card.ux-theme:hover {
+            box-shadow: 
+                0 20px 40px rgba(15, 23, 42, 0.06),
+                0 0 35px rgba(6, 182, 212, 0.05);
+        }
+
+        /* Backlight glows behind icons */
+        .backlight {
+            position: absolute;
+            top: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.04;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .po-theme .backlight {
+            background: var(--color-primary);
+        }
+
+        .ux-theme .backlight {
+            background: var(--color-secondary);
+        }
+
+        .simulator-card:hover .backlight {
+            opacity: 0.08;
+            transform: scale(1.1);
+        }
+
+        /* Card Content Layout */
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .card-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            border-radius: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .po-theme .card-icon-wrapper {
+            background: rgba(99, 102, 241, 0.06);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            color: #4f46e5;
+        }
+
+        .ux-theme .card-icon-wrapper {
+            background: rgba(6, 182, 212, 0.06);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+            color: #0891b2;
+        }
+
+        .simulator-card:hover .card-icon-wrapper {
+            transform: scale(1.08) rotate(5deg);
+        }
+
+        .card-status {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: rgba(16, 185, 129, 0.06);
+            color: #047857;
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.01);
+        }
+
+        .card-status span.status-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--color-emerald);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 6px var(--color-emerald);
+        }
+
+        .card-body-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: flex-start;
+        }
+
+        .card-meta {
+            margin-bottom: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .po-theme .card-meta { color: #4f46e5; }
+        .ux-theme .card-meta { color: #0891b2; }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-description {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Card Specifications (Extremely compact spacing) */
+        .card-specs {
+            background: rgba(15, 23, 42, 0.02);
+            border-radius: 1rem;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            margin-top: auto; /* Push down to align card bottom structures */
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .spec-label {
+            color: var(--text-low);
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        /* Dynamic Score display inside specs */
+        .score-pill {
+            background: rgba(99, 102, 241, 0.06);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            padding: 0.1rem 0.5rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #4f46e5;
+            font-weight: 700;
+        }
+
+        /* Buttons / Action styles */
+        .cta-button {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+            flex-shrink: 0;
+        }
+
+        .po-theme .cta-button {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #4338ca 100%);
+            color: #ffffff;
+        }
+
+        .po-theme .cta-button:hover {
+            background: linear-gradient(135deg, #5b53e6 0%, #3730a3 100%);
+            box-shadow: 
+                0 8px 20px rgba(99, 102, 241, 0.2);
+            transform: scale(1.01);
+        }
+
+        .ux-theme .cta-button {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #06b6d4 100%);
+            color: #ffffff;
+        }
+
+        .ux-theme .cta-button:hover {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
+            box-shadow: 
+                0 8px 20px rgba(6, 182, 212, 0.2);
+            transform: scale(1.01);
+        }
+
+        .cta-button svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            transition: var(--transition-smooth);
+        }
+
+        .cta-button:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Tiny Horizontal Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.75rem;
+            color: var(--text-low);
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-top: 1px solid rgba(15, 23, 42, 0.04);
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+            animation: fadeIn 0.8s ease-out both;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        footer a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Core Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+                box-shadow: 0 0 6px var(--color-emerald);
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.6;
+                box-shadow: 0 0 10px var(--color-emerald);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Dashboard Top Bar Layout -->
+        <div class="top-bar">
+            <!-- Header Section -->
+            <header id="main-header">
+                <div class="logo-badge" id="logo">
+                    <span class="pulse-dot"></span>
+                    <span>Simulation Métier</span>
+                </div>
+                <h1 id="title">Simulation ESIS-3D</h1>
+                <p class="subtitle" id="desc">
+                    Développez vos réflexes Product à travers des défis interactifs basés sur des cas réels du terrain.
+                </p>
+            </header>
+
+            <!-- Compact Global Statistics -->
+            <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux">
+                <div class="stat-bar-card">
+                    <div class="stat-number" id="po-total-score">0 / 36</div>
+                    <div class="stat-label">Progression PO</div>
+                </div>
+                <div class="stat-bar-card">
+                    <div class="stat-number" id="ux-total-score">0 / 36</div>
+                    <div class="stat-label">Progression UX</div>
+                </div>
+                <div class="stat-bar-card">
+                    <div class="stat-number" id="overall-completion">0%</div>
+                    <div class="stat-label">Progression Globale</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Core Simulators Grid -->
+        <main class="cards-grid">
+            
+            <!-- Card 1: Product Owner (PO) -->
+            <article class="simulator-card po-theme" id="po-card">
+                <div class="backlight"></div>
+                
+                <div class="card-header">
+                    <div class="card-icon-wrapper" aria-hidden="true">🎯</div>
+                    <div class="card-status">
+                        <span class="status-dot"></span>
+                        <span>Opérationnel</span>
+                    </div>
+                </div>
+
+                <div class="card-body-content">
+                    <span class="card-meta">Postures Stratégiques</span>
+                    <h2>A - Réflexes PO avec le client</h2>
+                    <p class="card-description">
+                        Maîtrisez les 12 réflexes du PO face aux frictions clients et arbitrages de roadmap. Apprenez à creuser l'intention, quantifier l'irritant, et valoriser le minimal pour guider le produit.
+                    </p>
+                </div>
+
+                <div class="card-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">Méthodologie</span>
+                        <span class="spec-value">12 Réflexes Clés</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Difficulté</span>
+                        <span class="spec-value">3 Niveaux de Série</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Votre Progression</span>
+                        <span class="spec-value score-pill" id="po-local-score">0 / 36</span>
+                    </div>
+                </div>
+
+                <a href="./po.html" class="cta-button" id="po-btn" aria-label="Lancer le simulateur de Product Owner">
+                    <span>Lancer la Simulation</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </article>
+
+            <!-- Card 2: User Experience (UX) -->
+            <article class="simulator-card ux-theme" id="ux-card">
+                <div class="backlight"></div>
+                
+                <div class="card-header">
+                    <div class="card-icon-wrapper" aria-hidden="true">🎨</div>
+                    <div class="card-status">
+                        <span class="status-dot"></span>
+                        <span>Opérationnel</span>
+                    </div>
+                </div>
+
+                <div class="card-body-content">
+                    <span class="card-meta">Ergonomie Visuelle</span>
+                    <h2>B - Réflexes UX/UI en conception</h2>
+                    <p class="card-description">
+                        Validez vos choix d'interface médicale. Identifiez les 12 principes fondamentaux de design (saisie assistée, prévention d'erreurs, double-codage) appliqués au quotidien du personnel de santé.
+                    </p>
+                </div>
+
+                <div class="card-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">Méthodologie</span>
+                        <span class="spec-value">12 Principes Clés</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Format</span>
+                        <span class="spec-value">Maquettes Interactives</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Votre Progression</span>
+                        <span class="spec-value score-pill" id="ux-local-score">0 / 36</span>
+                    </div>
+                </div>
+
+                <a href="./ux.html" class="cta-button" id="ux-btn" aria-label="Lancer le simulateur de User Experience">
+                    <span>Lancer la Simulation</span>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </article>
+
+        </main>
+
+        <!-- Compact Horizontal Footer -->
+        <footer>
+            <p>© 2026 ESIS-3D · Excellence opérationnelle en santé</p>
+            <p>
+                <a href="https://github.com/epiconcept" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a> · 
+                <span id="system-time">Session Active</span>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Script to Load Score and Progress dynamically -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load Product Owner scores from localStorage
+            let poLv0 = localStorage.getItem('po-score-lv0');
+            let poLv1 = localStorage.getItem('po-score-lv1');
+            let poLv2 = localStorage.getItem('po-score-lv2');
+
+            // Load UX scores from localStorage
+            let uxLv0 = localStorage.getItem('ux-score-lv0');
+            let uxLv1 = localStorage.getItem('ux-score-lv1');
+            let uxLv2 = localStorage.getItem('ux-score-lv2');
+
+            // Parse values
+            let po0 = poLv0 ? parseInt(poLv0, 10) : 0;
+            let po1 = poLv1 ? parseInt(poLv1, 10) : 0;
+            let po2 = poLv2 ? parseInt(poLv2, 10) : 0;
+
+            let ux0 = uxLv0 ? parseInt(uxLv0, 10) : 0;
+            let ux1 = uxLv1 ? parseInt(uxLv1, 10) : 0;
+            let ux2 = uxLv2 ? parseInt(uxLv2, 10) : 0;
+
+            let totalPoScore = po0 + po1 + po2;
+            let totalUxScore = ux0 + ux1 + ux2;
+
+            let maxPoScore = 36;
+            let maxUxScore = 36;
+            let totalMaxScore = maxPoScore + maxUxScore;
+
+            // Update UI stats elements
+            document.getElementById('po-total-score').innerText = `${totalPoScore} / ${maxPoScore}`;
+            document.getElementById('ux-total-score').innerText = `${totalUxScore} / ${maxUxScore}`;
+            
+            document.getElementById('po-local-score').innerText = `${totalPoScore} / ${maxPoScore}`;
+            document.getElementById('ux-local-score').innerText = `${totalUxScore} / ${maxUxScore}`;
+
+            // Progression rate
+            let progressPercent = Math.round(((totalPoScore + totalUxScore) / totalMaxScore) * 100);
+            document.getElementById('overall-completion').innerText = `${progressPercent}%`;
+
+            // Display time metadata if available
+            try {
+                const now = new Date();
+                const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                document.getElementById('system-time').innerText = `Session active · Connecté à ${now.toLocaleTimeString('fr-FR', options)}`;
+            } catch(e) {}
+
+            // Rendre les cartes entières cliquables
+            const poCard = document.getElementById('po-card');
+            if (poCard) {
+                poCard.style.cursor = 'pointer';
+                poCard.addEventListener('click', (e) => {
+                    if (e.target.closest('#po-btn')) return;
+                    document.getElementById('po-btn').click();
+                });
+            }
+
+            const uxCard = document.getElementById('ux-card');
+            if (uxCard) {
+                uxCard.style.cursor = 'pointer';
+                uxCard.addEventListener('click', (e) => {
+                    if (e.target.closest('#ux-btn')) return;
+                    document.getElementById('ux-btn').click();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
