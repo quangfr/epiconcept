@@ -34,6 +34,39 @@
         
         /* Protection anti-clic dans les maquettes */
         .mockup-container { pointer-events: none; }
+
+        /* Responsive vertical scroll support on mobile */
+        @media (max-width: 767px) {
+            body {
+                overflow: auto !important;
+                height: auto !important;
+            }
+            main {
+                height: auto !important;
+                overflow: visible !important;
+            }
+            main > div {
+                height: auto !important;
+                overflow: visible !important;
+            }
+            #scenario-card, #options-container, #reflex-grid, #ui-grid, #questions-wrapper, #question-list {
+                height: auto !important;
+                overflow: visible !important;
+            }
+            #reflex-grid {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            #debriefing-card {
+                position: relative !important;
+                z-index: 20 !important;
+                inset: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 400px !important;
+                padding: 1.5rem !important;
+            }
+        }
     </style>
 </head>
 <body class="flex flex-col">
