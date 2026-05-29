@@ -314,13 +314,13 @@ function updateProgress() {
         if (answeredSteps[i]) completedCount++;
         
         const btn = document.createElement('button');
-        let stateClass = "bg-slate-100 text-slate-400 border-slate-200 hover:bg-slate-200"; 
+        let stateClass = "bg-white text-slate-400 border-2 border-slate-200 hover:bg-slate-50"; 
         
-        if (answeredSteps[i]) stateClass = "bg-emerald-500 text-white border-emerald-600 shadow-sm";
+        if (answeredSteps[i]) stateClass = "bg-slate-900 text-white border-2 border-slate-900 shadow-sm hover:bg-slate-800";
         if (i === currentStepIdx) {
             stateClass = answeredSteps[i] 
-                ? "bg-emerald-600 text-white border-emerald-700 ring-2 ring-emerald-200" 
-                : "bg-blue-900 text-white border-slate-800 ring-2 ring-slate-300 shadow-sm transform scale-110";
+                ? "bg-slate-900 text-white border-2 border-slate-900 ring-2 ring-slate-300 transform scale-110" 
+                : "bg-slate-900 text-white border-2 border-slate-900 ring-2 ring-slate-300 shadow-sm transform scale-110";
         }
 
         btn.className = `w-5 h-5 sm:w-6 sm:h-6 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center justify-center transition-all border cursor-pointer ${stateClass}`;
