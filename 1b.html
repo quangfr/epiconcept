@@ -121,38 +121,44 @@
         </button>
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
-        <div class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">B - Conception <span class="text-slate-800">UX/UI</span></h1>
-            <p class="text-slate-500 font-bold uppercase text-sm">Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).</p>
+        <div class="text-center mb-6 md:mb-12">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">B - Conception <span class="text-slate-800">UX/UI</span></h1>
+            <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).</p>
         </div>
 
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div onclick="startLevel(0)" class="level-card bg-white p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
-                <i data-lucide="star" class="w-12 h-12 mb-4 text-slate-800"></i>
-                <h2 class="text-xl font-black uppercase text-slate-800">Niveau 1</h2>
-                <p class="text-slate-500 text-sm mt-2 flex-grow">Composants d'interface simples et interactions directes au quotidien.</p>
-                <div class="mt-6 pt-4 border-t border-slate-50 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
+            <div onclick="startLevel(0)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                <i data-lucide="star" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <div class="flex-grow flex flex-col md:items-center">
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 1</h2>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Composants d'interface simples et interactions directes au quotidien.</p>
+                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv0" class="text-2xl font-black text-slate-800">-- / 13</span>
+                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 13</span>
+                </div>
                 </div>
             </div>
-            <div onclick="startLevel(1)" class="level-card bg-white p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
-                <i data-lucide="zap" class="w-12 h-12 mb-4 text-slate-800"></i>
-                <h2 class="text-xl font-black uppercase text-slate-800">Niveau 2</h2>
-                <p class="text-slate-500 text-sm mt-2 flex-grow">Parcours complexes, personnalisation et prévention des erreurs.</p>
-                <div class="mt-6 pt-4 border-t border-slate-50 w-full">
+            <div onclick="startLevel(1)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                <i data-lucide="zap" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <div class="flex-grow flex flex-col md:items-center">
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 2</h2>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Parcours complexes, personnalisation et prévention des erreurs.</p>
+                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv1" class="text-2xl font-black text-slate-800">-- / 13</span>
+                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 13</span>
+                </div>
                 </div>
             </div>
-            <div onclick="startLevel(2)" class="level-card bg-white p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
-                <i data-lucide="trophy" class="w-12 h-12 mb-4 text-slate-800"></i>
-                <h2 class="text-xl font-black uppercase text-slate-800">Niveau 3</h2>
-                <p class="text-slate-500 text-sm mt-2 flex-grow">Architecture d'information, accessibilité et continuité de service.</p>
-                <div class="mt-6 pt-4 border-t border-slate-50 w-full">
+            <div onclick="startLevel(2)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                <i data-lucide="trophy" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <div class="flex-grow flex flex-col md:items-center">
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 3</h2>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Architecture d'information, accessibilité et continuité de service.</p>
+                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv2" class="text-2xl font-black text-slate-800">-- / 13</span>
+                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 13</span>
+                </div>
                 </div>
             </div>
         </div>
