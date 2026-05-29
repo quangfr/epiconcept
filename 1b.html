@@ -150,21 +150,31 @@
 </div>
 
 <header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
-    <div class="w-full flex items-center justify-between">
+    <div class="w-full flex items-center justify-between gap-4">
         <button onclick="goHome()" class="flex items-center gap-2 group shrink-0" aria-label="Quitter">
             <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
             </div>
         </button>
-        <div class="flex flex-col items-center">
+        
+        <div class="text-center flex-grow">
             <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">ESIS-3D UX Designer</span>
-            <span class="text-sm font-bold text-slate-900" id="level-title-display">Niveau 1</span>
+            <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Niveau 1</span>
         </div>
-        <div class="flex items-center gap-4">
-            <button onclick="openModal()" class="text-xl hover:scale-110 transition-transform bg-slate-50 p-2 rounded-lg" title="Référentiel">📚</button>
-            <div class="flex flex-col items-end gap-1">
-                <!-- Traceur Breadcrumb dynamique (10 points) -->
-                <div id="breadcrumb-nav" class="flex flex-wrap justify-end gap-1"></div>
+
+        <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
+            <!-- Referentiel Button -->
+            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel UX">
+                <i data-lucide="library" class="w-4 h-4"></i>
+            </button>
+            
+            <!-- Breadcrumb / Fil d'Ariane -->
+            <div id="breadcrumb-container" class="flex gap-1.5 hidden lg:flex flex-row items-center">
+                <!-- Généré par JS -->
+            </div>
+            
+            <div class="text-right whitespace-nowrap">
+                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 13</div>
             </div>
         </div>
     </div>
@@ -346,7 +356,7 @@ function goHome() {
 function updateProgress() {
     document.getElementById('step-label').innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
     
-    const container = document.getElementById('breadcrumb-nav');
+    const container = document.getElementById('breadcrumb-container');
     container.innerHTML = '';
     
     let completedCount = 0;
@@ -367,6 +377,11 @@ function updateProgress() {
         btn.innerText = i + 1;
         btn.onclick = () => jumpToStep(i);
         container.appendChild(btn);
+    }
+    
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreDisplay) {
+        scoreDisplay.innerText = `${completedCount} / ${TOTAL_STEPS}`;
     }
     
     // Enregistre la progression en temps réel pour le Hub index.html
