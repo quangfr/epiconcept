@@ -5,88 +5,88 @@
     "intent": "Remplacer la frappe clavier et les menus cachés par des clics directs pour limiter la fatigue cognitive.",
     "scenarios": [
       {
-        "text": "L'infirmière d'accueil perd un temps précieux à chaque patient. Elle doit cliquer sur une liste déroulante, scroller, puis sélectionner le 'Type de prélèvement' parmi seulement 3 options courantes. Elle aimerait un moyen d'effectuer ce choix récurrent en un seul clic direct sur des options visibles en permanence, sans aucune frappe clavier et sans déplier de menu caché.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"w-full border border-slate-300 bg-white rounded p-1.5 text-xs text-slate-600 flex justify-between items-center\"><span>-- Choisir le prélèvement --</span><span>▼</span></div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ Perte de temps (2 clics et défilement pour seulement 3 choix)</div></div>",
+        "text": "L'infirmière doit sélectionner le 'Type de prélèvement' parmi seulement 3 options courantes. Elle souhaite un sélecteur à choix multiple clair avec une valeur par défaut pré-cochée pour valider en un instant sans ouvrir de menu.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"w-full border border-slate-300 bg-white rounded p-1.5 text-xs text-slate-600 flex justify-between items-center\"><span>-- Choisir le prélèvement --</span><span>▼</span></div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ Perte de temps (2 clics pour seulement 3 choix)</div></div>",
         "correct": {
-          "title": "Boutons Segmentés",
-          "visual": "<div class=\"flex bg-slate-100 p-1 rounded-lg w-full\"><div class=\"flex-1 bg-white shadow-sm rounded text-center py-1.5 text-xs font-black text-slate-800\">Frottis</div><div class=\"flex-1 text-center py-1.5 text-xs font-bold text-slate-500\">Sanguin</div><div class=\"flex-1 text-center py-1.5 text-xs font-bold text-slate-500\">Selles</div></div>",
-          "expl": "Présente toutes les options disponibles côte à côte en boutons cliquables directement.",
-          "debriefExpl": "Les boutons segmentés exposent l'intégralité des options en permanence.",
+          "title": "Sélecteur à choix multiple",
+          "visual": "<div class=\"flex gap-2 w-full\"><button class=\"flex-1 bg-blue-50 border-2 border-blue-600 text-blue-800 rounded-lg text-center py-2 text-xs font-black\">Frottis (défaut)</button><button class=\"flex-1 bg-white border border-slate-200 text-slate-500 rounded-lg text-center py-2 text-xs font-bold\">Sanguin</button><button class=\"flex-1 bg-white border border-slate-200 text-slate-500 rounded-lg text-center py-2 text-xs font-bold\">Urine</button></div>",
+          "expl": "Présente 3-4 options claires directement visibles avec un choix par défaut pré-sélectionné.",
+          "debriefExpl": "Propose les options côte à côte avec une valeur par défaut pré-cochée pour réduire l'action à un simple contrôle visuel.",
           "icon": "toggle-left"
         },
         "wrong": [
           {
             "title": "Liste déroulante classique",
             "visual": "<div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center\"><span>-- Choisir le prélèvement --</span><span>▼</span></div>",
-            "expl": "Utilise un menu déroulant standard qui masque les options jusqu'au clic d'ouverture.",
-            "debriefExpl": "Force l'utilisateur à faire deux clics précis et un mouvement oculaire vertical inutile pour un jeu d'options très ré...",
+            "expl": "Masque les options sous un menu déroulant classique à déplier.",
+            "debriefExpl": "Force l'utilisateur à faire deux clics précis et un mouvement vertical pour seulement 3 choix.",
             "icon": "layout"
           },
           {
             "title": "Saisie texte libre",
             "visual": "<div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-400 italic\">Taper le type ici...</div>",
-            "expl": "Laisse un champ de saisie vide pour taper directement le texte au clavier.",
-            "debriefExpl": "Génère de la fatigue cognitive, des fautes de frappe et des erreurs d'indexation en base de données dues à la frappe ...",
+            "expl": "Champ vide forçant l'utilisateur à saisir manuellement la valeur au clavier.",
+            "debriefExpl": "Génère de la fatigue, des fautes de frappe et des incohérences en base de données.",
             "icon": "layout"
           }
         ],
-        "expl": "Les boutons segmentés (Segmented Controls) exposent directement toutes les options en permanence. Un seul grand clic suffit au lieu de deux clics précis pour un menu déroulant."
+        "expl": "Le sélecteur à choix multiple avec valeur par défaut réduit la saisie à une simple validation visuelle pour 90% des dossiers."
       },
       {
-        "text": "Pour lier un compte-rendu médical, la secrétaire doit retrouver le Dr. Martin parmi une base ESIS de 12 000 médecins de la région. Elle souhaite éviter l'ouverture d'une fenêtre de recherche lourde et recherche un outil prédictif intelligent qui filtre la liste à la volée dès ses premières frappes au clavier.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"w-full border border-slate-300 bg-white rounded p-1.5 text-xs text-slate-600 flex justify-between items-center\"><span>Sélectionner Médecin (12000 options)</span><span>▼</span></div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ Navigateur ralenti, recherche impossible manuellement</div></div>",
+        "text": "Pour lier un compte-rendu médical, la secrétaire doit retrouver le Dr. Martin parmi une base ESIS de 12 000 médecins de la région. Elle souhaite une zone d'auto-complétion avec recherche texte dynamique à la volée dès ses premières frappes.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"w-full border border-slate-300 bg-white rounded p-1.5 text-xs text-slate-600 flex justify-between items-center\"><span>Sélectionner Médecin (12000 options)</span><span>▼</span></div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ Recherche complexe impossible manuellement dans un menu standard</div></div>",
         "correct": {
-          "title": "Auto-complétion prédictive",
-          "visual": "<div class=\"relative w-full\"><div class=\"border border-slate-300 bg-white rounded p-2 text-xs font-bold text-slate-800 flex items-center gap-2\"><span><i data-lucide=\"search\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span> Mart|</div><div class=\"absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 shadow-lg rounded-lg overflow-hidden\"><div class=\"px-3 py-2 text-xs border-b hover:bg-slate-50\">Dr. <span class=\"font-black text-slate-800\">Mart</span>in Sophie</div><div class=\"px-3 py-2 text-xs hover:bg-slate-50\">Dr. <span class=\"font-black text-slate-800\">Mart</span>inez Luc</div></div></div>",
-          "expl": "Propose des suggestions de résultats dynamiques sous le champ de saisie en direct penda...",
-          "debriefExpl": "Filtre instantanément la base de données pendant la frappe clavier sans jamais masquer le formulaire en cours ni impo...",
+          "title": "Auto-complétion",
+          "visual": "<div class=\"relative w-full\"><div class=\"border border-slate-300 bg-white rounded p-2 text-xs font-bold text-slate-800 flex items-center gap-2\"><span>🔍</span> <span>Mart|</span></div><div class=\"absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 shadow-lg rounded-lg overflow-hidden z-10\"><div class=\"px-3 py-1.5 text-xs border-b hover:bg-slate-50\">Dr. <span class=\"font-black text-slate-800\">Mart</span>in Sophie</div><div class=\"px-3 py-1.5 text-xs hover:bg-slate-50\">Dr. <span class=\"font-black text-slate-800\">Mart</span>inez Luc</div></div></div>",
+          "expl": "Suggestions textuelles dynamiques filtrant la base à la volée pendant la saisie.",
+          "debriefExpl": "Suggestions textuelles dynamiques filtrant la base à la volée pendant la saisie.",
           "icon": "keyboard"
         },
         "wrong": [
           {
             "title": "Pop-up Recherche Avancée",
             "visual": "<div class=\"w-full border-2 border-dashed border-slate-300 rounded-lg p-3 text-center bg-slate-50 text-xs font-bold text-slate-600\">Ouvrir la fenêtre de recherche ↗️</div>",
-            "expl": "Nécessite de cliquer sur un bouton pour ouvrir un cadre de recherche en superposition.",
-            "debriefExpl": "Interrompt le flux de travail (effet tunnel) en superposant une fenêtre modale intrusive qui nécessite d'être ouverte...",
+            "expl": "Ouvre une fenêtre modale lourde en superposition pour la recherche.",
+            "debriefExpl": "Effet tunnel : interrompt la saisie en imposant l'ouverture d'un pop-up.",
             "icon": "layout"
           },
           {
             "title": "Liste infinie",
             "visual": "<div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center\"><span>Dr. Aaron... (12000 options)</span><span>▼</span></div>",
-            "expl": "Affiche un menu déroulant unique contenant la totalité des 12 000 entrées.",
-            "debriefExpl": "Une aberration technique et ergonomique qui fait planter le navigateur et force à scroller indéfiniment.",
+            "expl": "Déroule les 12 000 options dans un seul menu interminable.",
+            "debriefExpl": "Fait ramer l'application et force à faire défiler des milliers de lignes.",
             "icon": "layout"
           }
         ],
-        "expl": "La recherche prédictive (Typeahead) croise la frappe avec la base instantanément sans sortir l'utilisateur de son contexte visuel ni ouvrir de nouvelles fenêtres."
+        "expl": "L'auto-complétion filtre la base en direct et évite de sortir l'utilisateur de sa tâche."
       },
       {
-        "text": "Lors de l'enregistrement d'une coloscopie, les agents saisissent toujours les mêmes valeurs : Anesthésie=Générale, Salle=Endo 1. Pour accélérer massivement ce flux quotidien, le système devrait anticiper sa saisie en pré-remplissant ces informations par défaut, ne lui laissant qu'un simple contrôle visuel à effectuer.",
+        "text": "Lors de l'enregistrement d'une coloscopie, les agents saisissent toujours les mêmes valeurs que les dossiers précédents. Le système doit effectuer un pré-remplissage avec des suggestions basées sur l'historique de saisie de l'utilisateur.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"space-y-1.5\"><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Anesthésie :</span> <span class=\"text-red-700 italic\">Non renseigné *</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Salle :</span> <span class=\"text-red-700 italic\">Non renseigné *</span></div></div></div>",
         "correct": {
-          "title": "Pré-remplissage intelligent",
-          "visual": "<div class=\"bg-white border border-emerald-300 p-3 rounded-lg w-full space-y-2 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-emerald-100 text-emerald-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Auto</div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Anesthésie</span> <span class=\"font-bold text-slate-800\">Générale</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Salle</span> <span class=\"font-bold text-slate-800\">Endoscopie 1</span></div></div>",
-          "expl": "Affiche les champs déjà renseignés avec les valeurs statistiquement les plus courantes.",
-          "debriefExpl": "Le système pré-remplit les valeurs statistiquement ultra-majoritaires.",
+          "title": "Pré-remplissage",
+          "visual": "<div class=\"bg-white border border-emerald-300 p-3 rounded-lg w-full space-y-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-emerald-100 text-emerald-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Historique</div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-400\">Anesthésie</span> <span class=\"font-bold text-slate-700\">Générale (saisie fréquente)</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-400\">Salle</span> <span class=\"font-bold text-slate-700\">Endo 1</span></div></div>",
+          "expl": "Pré-remplit les champs avec des suggestions intelligentes basées sur l'historique récent.",
+          "debriefExpl": "Pré-remplit automatiquement les champs avec des suggestions basées sur l'historique récent.",
           "icon": "sparkles"
         },
         "wrong": [
           {
             "title": "Champs obligatoires vides",
             "visual": "<div class=\"w-full space-y-2\"><div class=\"text-[10px] font-bold text-red-700\">Anesthésie *</div><div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center\"><span>- Choisir -</span><span>▼</span></div></div>",
-            "expl": "Présente des champs requiss vierges identifiés par une astérisque rouge.",
-            "debriefExpl": "Force l'utilisateur à réitérer des clics mécaniques et absurdes pour chaque acte, générant frustration et perte de te...",
+            "expl": "Laisse les champs obligatoires vides à remplir manuellement à chaque fois.",
+            "debriefExpl": "Force à faire des clics mécaniques inutiles à chaque dossier.",
             "icon": "layout"
           },
           {
             "title": "Bouton Copier",
             "visual": "<div class=\"p-3 bg-slate-100 rounded text-center text-xs font-bold text-slate-600\">Copier les données du dossier N-1</div>",
-            "expl": "Propose un bouton permettant de dupliquer manuellement les données du dernier acte enre...",
-            "debriefExpl": "Impose une action manuelle consciente ('cliquer pour copier') au lieu de rendre la fluidité automatique par défaut.",
+            "expl": "Bouton pour dupliquer manuellement les données du dossier précédent.",
+            "debriefExpl": "Impose une action manuelle consciente au lieu d'une fluidité automatisée par défaut.",
             "icon": "layout"
           }
         ],
-        "expl": "Si 90% des cas utilisent la même donnée, l'interface doit la pré-remplir par défaut. L'humain ne doit intervenir que pour modifier l'exception, accélérant massivement la saisie."
+        "expl": "Le pré-remplissage intelligent basé sur l'historique permet d'anticiper 90% des saisies récurrentes sans action clavier."
       }
     ],
     "icon": "mouse-pointer-click"
@@ -401,60 +401,60 @@
         "expl": "Le tooltip affiche la définition exacte au survol (hover) du terme complexe. Il apporte l'aide précisément au point de friction sans quitter la tâche."
       },
       {
-        "text": "Lorsqu'un médecin valide l'envoi d'un dossier, il veut s'assurer que c'est bien parti sans devoir cliquer sur 'OK' sur une boîte de dialogue à chaque fois. Pour fluidifier son enchaînement, il souhaite une confirmation visuelle rapide qui glisse éphémèrement en bas de l'écran, puis disparaît d'elle-même au bout de quelques secondes.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Validation bloquante</div><div class=\"bg-white border rounded p-2 text-center text-xs\">Envoi Réussi ! <br><button class=\"bg-slate-700 text-white text-[8px] px-2 py-0.5 mt-1 rounded font-bold\">Fermer le dialogue</button></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Clic obligatoire requis pour chaque dossier validé</div></div>",
+        "text": "Lorsqu'un médecin clique sur un bouton d'action pour valider un dossier ou lors d'un événement important, il souhaite une confirmation visuelle immédiate et non bloquante qui s'affiche éphémèrement sans interrompre sa saisie.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Validation bloquante</div><div class=\"bg-white border rounded p-2 text-center text-xs\">Action Réussie ! <br><button class=\"bg-slate-700 text-white text-[8px] px-2 py-0.5 mt-1 rounded font-bold\">Fermer le dialogue</button></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Clic obligatoire requis pour chaque dossier validé</div></div>",
         "correct": {
           "title": "Notification Éphémère (Toast)",
           "visual": "<div class=\"w-full h-full bg-slate-50 border border-slate-200 rounded relative overflow-hidden flex flex-col justify-end p-2\"><div class=\"w-full bg-slate-800 text-white px-3 py-2 rounded-lg flex items-center justify-between shadow-lg transform transition-transform\"><div class=\"flex items-center gap-2\"><span class=\"text-emerald-400\">✓</span><span class=\"text-[10px] font-bold\">Dossier transmis</span></div></div></div>",
-          "expl": "Affiche un bandeau informatif temporaire en bas de l'écran qui s'estompe automatiquement.",
-          "debriefExpl": "Glisse en bas d'écran, confirme visuellement la réussite et s'estompe d'elle-même sans exiger le moindre clic de ferm...",
+          "expl": "Affiche un bandeau informatif temporaire suite au clic sur un bouton d'action.",
+          "debriefExpl": "Confirme le succès d'une action immédiatement lors du clic sans forcer un popup bloquant.",
           "icon": "bell"
         },
         "wrong": [
           {
             "title": "Fenêtre de Confirmation",
             "visual": "<div class=\"bg-white border p-3 rounded shadow text-center w-full text-xs font-bold\">Envoi réussi.<br><button class=\"mt-2 bg-slate-200 px-3 py-1 rounded\">Fermer</button></div>",
-            "expl": "Affiche une boîte de dialogue modale centrée exigeant une action de validation.",
-            "debriefExpl": "Impose une confirmation modale bloquante au milieu de l'écran, obligeant à cliquer sur 'OK' à chaque validation.",
+            "expl": "Ouvre une fenêtre modale au milieu de l'écran bloquant l'arrière-plan.",
+            "debriefExpl": "Impose une confirmation modale bloquante au milieu de l'écran, obligeant à cliquer sur 'OK' à chaque fois.",
             "icon": "layout"
           },
           {
             "title": "Page de Succès",
             "visual": "<div class=\"bg-emerald-50 text-emerald-700 border border-emerald-300 p-4 rounded text-center w-full\"><div class=\"text-2xl mb-1\">✅</div><div class=\"text-[10px] font-bold\">Succès</div></div>",
-            "expl": "Redirige l'utilisateur vers un nouvel écran confirmant la réussite de l'action.",
-            "debriefExpl": "Redirige l'utilisateur vers une page dédiée, lui faisant perdre le fil et l'obligeant à recharger ou revenir à la lis...",
+            "expl": "Redirige l'utilisateur vers une page dédiée confirmant la validation.",
+            "debriefExpl": "Redirige l'utilisateur vers une nouvelle page dédiée, lui faisant perdre le fil de son travail.",
             "icon": "layout"
           }
         ],
-        "expl": "Un 'Toaster' glisse discrètement en bas d'écran, confirme le succès, et disparait seul au bout de 3 secondes, permettant d'enchaîner le travail instantanément."
+        "expl": "Le Toast s'affiche en direct au clic d'un bouton pour rassurer immédiatement l'utilisateur sur la réussite de l'action."
       },
       {
-        "text": "Le gestionnaire doit vérifier qu'un dossier patient est 'complet' avant de le valider, mais les informations sont éparpillées sur 4 onglets différents. Pour lui éviter cette inspection manuelle laborieuse, l'interface doit synthétiser l'état global du dossier sous forme d'un indicateur macroscopique permanent (jauge de complétude) résumant d'un coup d'œil les pièces restantes.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Dossier éclaté</div><div class=\"flex gap-1 text-[8px] font-bold bg-slate-100 p-1 rounded\"><div class=\"p-0.5 border-r\">Onglet 1</div><div class=\"p-0.5 border-r\">Onglet 2</div><div class=\"p-0.5\">Onglet 3</div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligation de cliquer sur chaque onglet pour vérifier la complétude</div></div>",
+        "text": "Le médecin doit vérifier en un clin d'œil l'état de validation ou l'urgence d'un dossier patient sans chercher les informations dans tous les onglets. Il souhaite un indicateur visuel immédiat qui résume l'état du dossier.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Dossier éclaté</div><div class=\"flex gap-1 text-[8px] font-bold bg-slate-100 p-1 rounded\"><div class=\"p-0.5 border-r\">Onglet 1</div><div class=\"p-0.5 border-r\">Onglet 2</div><div class=\"p-0.5\">Onglet 3</div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligation de naviguer dans les onglets pour comprendre l'état</div></div>",
         "correct": {
-          "title": "Indicateur Global de Statut",
-          "visual": "<div class=\"bg-white border border-slate-200 p-3 rounded-lg w-full flex items-center justify-between shadow-sm\"><div class=\"flex items-center gap-2\"><div class=\"w-8 h-8 rounded-full border-4 border-emerald-300 border-r-slate-100 flex items-center justify-center text-[8px] font-black text-slate-600\">75%</div><div class=\"text-xs font-bold text-slate-800 leading-tight\">Complétude<br><span class=\"text-[9px] text-slate-500 font-normal\">Manque imagerie</span></div></div><div class=\"text-xl\">⚠️</div></div>",
-          "expl": "Affiche un widget ou composant d'état synthétique permanent résumant le niveau global d...",
-          "debriefExpl": "Affiche une jauge de complétude globale en permanence à l'écran, listant précisément les pièces manquantes en un coup...",
+          "title": "Indicateur de Statut",
+          "visual": "<div class=\"bg-white border border-slate-200 p-2 rounded-lg w-full flex items-center justify-between shadow-sm\"><span class=\"text-xs font-bold text-slate-800\">Statut du Dossier :</span> <span class=\"bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-1 rounded-full font-black flex items-center gap-1\">● Complet (Transmis)</span></div>",
+          "expl": "Affiche une icône et/ou un code couleur clair indiquant instantanément l'état selon la situation.",
+          "debriefExpl": "L'indicateur de statut utilise un code couleur et une icône explicite pour une reconnaissance en 100ms.",
           "icon": "activity"
         },
         "wrong": [
           {
             "title": "Erreur Post-validation",
             "visual": "<div class=\"text-[10px] bg-red-50 text-red-700 border border-red-300 p-2 rounded text-center font-bold w-full\">Erreur : Veuillez ouvrir l'onglet 3 pour voir ce qu'il manque.</div>",
-            "expl": "Affiche un message d'erreur détaillé uniquement après avoir tenté de valider le dossier.",
-            "debriefExpl": "Laisse le gestionnaire tenter de soumettre le dossier à l'aveugle, puis renvoie une alerte frustrante l'obligeant à c...",
+            "expl": "Renvoie une notification d'erreur uniquement lors de la soumission globale.",
+            "debriefExpl": "La validation tardive laisse l'utilisateur valider à l'aveugle puis le force à corriger les erreurs après coup.",
             "icon": "layout"
           },
           {
             "title": "Checklist Manuelle",
-            "visual": "<div class=\"text-[10px] space-y-1 bg-white p-2 border rounded w-full\"><div class=\"flex gap-1\">☑️ Identité</div><div class=\"flex gap-1\">☑️ Biologie</div><div class=\"flex gap-1\"><i data-lucide=\"square\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Radio</div></div>",
-            "expl": "Affiche une liste de cases à cocher à cocher individuellement à la main.",
-            "debriefExpl": "Force le gestionnaire à lire et pointer mentalement une liste d'éléments secondaires, sans automatisation du statut d...",
+            "visual": "<div class=\"text-[10px] space-y-1 bg-white p-2 border rounded w-full\"><div class=\"flex gap-1\">☑️ Identité</div><div class=\"flex gap-1\">☑️ Biologie</div><div class=\"flex gap-1\">⬜ Radio</div></div>",
+            "expl": "Affiche une liste de cases à cocher à valider individuellement de manière manuelle.",
+            "debriefExpl": "Impose une lecture et un pointage manuel fastidieux des différents critères d'avancement.",
             "icon": "layout"
           }
         ],
-        "expl": "Un indicateur macroscopique (jauge circulaire) synthétise l'état global du dossier en un clin d'œil, dispensant l'utilisateur de chercher lui-même les trous raquettes."
+        "expl": "L'indicateur de statut par icône et code couleur résume instantanément l'état global du dossier sans effort cognitif."
       }
     ],
     "icon": "lightbulb"
