@@ -1017,13 +1017,13 @@
     "intent": "Optimiser l'espace d'écran en utilisant des panneaux rétractables, des onglets dynamiques et des modales éphémères pour garder le contexte d'activité principal intact.",
     "scenarios": [
       {
-        "text": "Le médecin a besoin de consulter l'historique d'imagerie d'une patiente tout en rédigeant son compte-rendu clinique actif à l'écran. S'il doit constamment naviguer entre deux pages distinctes, il perd le fil. L'interface doit proposer un panneau d'historique rétractable latéral (sidebar), dépliable d'un clic, permettant de garder l'imagerie sous les yeux à côté de sa zone de saisie.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Allers-retours</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Double écran ou alt-tab</div><div class=\"bg-white border p-1.5 text-xs text-center font-bold\">Rupture de contexte à chaque changement de page</div></div>",
+        "text": "Le clinicien a besoin d'accéder au menu principal ou d'afficher le détail complet du patient sans perdre de vue son espace de travail central. L'interface doit proposer un menu de navigation structuré à gauche ou un volet de détails contextuel à droite pour optimiser l'espace.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Allers-retours</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Navigation éclatée</div><div class=\"bg-white border p-1.5 text-xs text-center font-bold\">Menus éparpillés et informations de détails cachées ou sur une autre page</div></div>",
         "correct": {
-          "title": "Barre Latérale Rétractable",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2 flex gap-1.5 shadow-sm h-16\"><div class=\"flex-grow bg-slate-50 rounded p-1 text-[8px] text-slate-400 italic\">Saisie compte-rendu...</div><div class=\"w-1/3 bg-slate-100 border border-slate-300 rounded p-1 text-[7px] text-slate-800 font-black uppercase\"><i data-lucide=\"camera\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Hist. Imagerie</div></div>",
-          "expl": "Intègre un panneau latéral qui glisse sur le côté de l'écran pour afficher des données ...",
-          "debriefExpl": "Conserve l'historique patient sous les yeux du médecin grâce à un volet latéral rétractable, éliminant totalement les...",
+          "title": "Menu de navigation (à gauche) ou affichage du détail d'un objet (à droite)",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2 flex gap-1.5 shadow-sm h-16\"><div class=\"w-1/4 bg-slate-50 border-r border-slate-100 rounded p-1 flex flex-col justify-between\"><span class=\"text-[6px] font-black text-slate-800 uppercase block\"><i data-lucide=\"menu\" style=\"display:inline-block; width:1em; height:1em;\"></i> Menu</span><div class=\"space-y-0.5\"><div class=\"h-1 bg-slate-300 w-full rounded\"></div><div class=\"h-1 bg-slate-300 w-3/4 rounded\"></div></div></div><div class=\"flex-grow bg-slate-50 rounded p-1 text-[8px] text-slate-400 italic\">Espace central</div><div class=\"w-1/3 bg-slate-100 border-l border-slate-200 rounded p-1 flex flex-col justify-between\"><span class=\"text-[6px] font-black text-indigo-700 uppercase block\"><i data-lucide=\"info\" style=\"display:inline-block; width:1em; height:1em;\"></i> Détail</span><div class=\"space-y-0.5\"><div class=\"h-1 bg-indigo-300 w-full rounded\"></div><div class=\"h-1 bg-indigo-300 w-2/3 rounded\"></div></div></div></div>",
+          "expl": "Menu fixe ou pliable à gauche, combiné à un volet de détails contextuel à droite.",
+          "debriefExpl": "Optimise l'espace en plaçant la navigation globale à gauche et les détails de l'objet sélectionné à droite.",
           "icon": "sidebar"
         },
         "wrong": [
@@ -1042,16 +1042,16 @@
             "icon": "layout"
           }
         ],
-        "expl": "Les panneaux latéraux rétractables permettent d'afficher une double information (travail actif + historique) sans saturer l'écran ni forcer à changer de page."
+        "expl": "La navigation à gauche et le détail d'objet à droite structurent l'espace de manière claire et prévisible sans encombrer la zone centrale de travail."
       },
       {
-        "text": "Un dossier patient contient 8 sous-dossiers différents (Biologie, Radio, Comptes-rendus, Factures...). Si l'application affiche tout sur une seule et immense page, l'utilisateur passe son temps à scroller vers le bas. L'interface doit découper ces informations de manière compacte sous forme d'onglets dynamiques horizontaux, classant proprement la donnée et permettant d'y accéder instantanément d'un simple clic.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Scrolling</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Page unique infinie</div><div class=\"h-10 bg-slate-100 rounded p-1 opacity-50 space-y-1\"><div class=\"h-2 bg-slate-300 rounded\"></div><div class=\"h-2 bg-slate-300 rounded\"></div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Perte de temps à scroller à la recherche de la bonne section</div></div>",
+        "text": "Un dossier patient contient de multiples rubriques (Biologie, Radio, Comptes-rendus...) et nécessite des actions de validation globales. Le système doit structurer ces rubriques et regrouper les actions clés d'enregistrement pour éviter la surcharge visuelle et le scrolling infini.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Surchargé</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Scrolling infini</div><div class=\"h-10 bg-slate-100 rounded p-1 opacity-50 space-y-1\"><div class=\"h-2 bg-slate-300 rounded\"></div><div class=\"h-2 bg-slate-300 rounded\"></div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Boutons d'actions perdus au milieu de dizaines de rubriques denses</div></div>",
         "correct": {
-          "title": "Navigation par Onglets (Tabs)",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-sm flex flex-col gap-1.5\"><div class=\"flex gap-1 border-b pb-1 text-[8px] font-bold\"><span class=\"text-slate-800 border-b-2 border-slate-300 pb-0.5\">Biologie</span><span class=\"text-slate-400\">Radiologie</span><span class=\"text-slate-400\">CR</span></div><div class=\"h-6 bg-slate-50 rounded p-1 text-[7px] text-slate-500 italic\">Détails de biologie...</div></div>",
-          "expl": "Répartit la donnée dans des sections de contenu superposées et activables par des bouto...",
-          "debriefExpl": "Organise le dossier patient en intercalaires virtuels.",
+          "title": "Barre d'actions en haut et navigation par onglets",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-sm flex flex-col gap-1.5\"><div class=\"flex justify-between items-center bg-slate-50 p-1 rounded\"><span class=\"text-[7px] font-black text-slate-600 uppercase\">Actions globales :</span><div class=\"flex gap-1\"><button class=\"bg-slate-700 text-white text-[6px] px-1.5 py-0.5 rounded font-bold\">Enregistrer</button></div></div><div class=\"flex gap-1.5 border-b pb-0.5 text-[8px] font-bold\"><span class=\"text-slate-800 border-b-2 border-slate-700 pb-0.5\">Biologie</span><span class=\"text-slate-400\">Radiologie</span><span class=\"text-slate-400\">Factures</span></div></div>",
+          "expl": "Barre d'actions globales persistant en haut et classement du contenu sous forme d'onglets.",
+          "debriefExpl": "Regroupe les boutons d'action clés en haut et structure les rubriques sous forme d'onglets pour un accès immédiat.",
           "icon": "folder"
         },
         "wrong": [
@@ -1070,16 +1070,16 @@
             "icon": "layout"
           }
         ],
-        "expl": "Les onglets horizontaux clairs agissent comme des intercalaires physiques de classeur : ils offrent une navigation rapide, plate et prévisible."
+        "expl": "La barre d'actions supérieure combinée aux onglets horizontaux offre un accès permanent aux raccourcis et structure l'information comme un classeur."
       },
       {
-        "text": "Lors de la consultation du dossier, le médecin veut simplement modifier rapidement le numéro de téléphone du patient. S'il doit ouvrir une page complète d'édition de fiche, le chargement est lent et il perd son contexte de lecture. L'interface doit proposer un Popover contextuel (mini-modale éphémère surgissant juste au-dessus du clic) permettant de modifier la donnée en 3 secondes sans jamais quitter l'écran principal.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Lenteur</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Chargement écran complet</div><div class=\"bg-white border p-2 text-xs font-bold text-center\">Chargement du profil édition patient en cours...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Attente et perte de la page de lecture d'origine</div></div>",
+        "text": "L'utilisateur souhaite ajouter ou éditer un acte ou un objet clinique secondaire sans recharger tout l'écran principal et sans perdre le contexte d'affichage en cours.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Lenteur</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Chargement écran complet</div><div class=\"bg-white border p-2 text-xs font-bold text-center\">Redirection vers un autre écran de saisie en cours...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Attente, lenteur et perte complète de la page d'origine</div></div>",
         "correct": {
-          "title": "Popover Contextuel d'Édition",
-          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 p-2 rounded-xl relative h-16\"><span class=\"text-[8px] font-black text-slate-800 block\"><i data-lucide=\"phone\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Téléphone</span><div class=\"absolute inset-1 bg-white border shadow-lg rounded p-1 flex items-center justify-between gap-1 z-10\"><input type=\"text\" class=\"border text-[7px] p-0.5 w-2/3\" value=\"06 12 34 56 78\"><button class=\"bg-slate-700 text-white text-[7px] font-black px-1.5 py-0.5 rounded shadow-sm\">OK</button></div></div>",
-          "expl": "Fait apparaître un petit cadre d'édition éphémère en superposition juste à côté de la d...",
-          "debriefExpl": "Permet de modifier rapidement une information secondaire sans recharger la page entière ni perdre son point de lectur...",
+          "title": "Modal d'édition d'un objet",
+          "visual": "<div class=\"w-full bg-slate-100/70 border border-slate-200 rounded-xl relative h-16 flex items-center justify-center\"><div class=\"bg-white border shadow-lg rounded-lg p-1.5 w-5/6 flex flex-col gap-1 z-10\"><div class=\"text-[7px] font-black text-slate-700 uppercase tracking-tight flex justify-between\"><span>Édition Acte</span> <span>✕</span></div><div class=\"flex gap-1\"><input type=\"text\" class=\"border text-[7px] p-0.5 flex-grow\" value=\"Coloscopie\"><button class=\"bg-slate-700 text-white text-[6px] font-black px-1.5 py-0.5 rounded shadow-sm\">Enregistrer</button></div></div></div>",
+          "expl": "Affiche une boîte de dialogue modale focalisée pour éditer ou créer l'objet.",
+          "debriefExpl": "Ouvre une fenêtre modale focalisée pour éditer l'objet ciblé sans recharger l'écran parent sous-jacent.",
           "icon": "edit-3"
         },
         "wrong": [
@@ -1098,7 +1098,7 @@
             "icon": "layout"
           }
         ],
-        "expl": "Les popovers et modales éphémères légères permettent des micro-actions rapides au plus près de la donnée sans casser le contexte de lecture de l'utilisateur."
+        "expl": "La modal d'édition d'un objet permet de concentrer l'attention sur la tâche de saisie sans casser la continuité du flux de travail."
       }
     ],
     "icon": "archive"
