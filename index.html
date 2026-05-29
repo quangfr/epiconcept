@@ -453,12 +453,13 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
-            background: rgba(16, 185, 129, 0.06);
+            background: linear-gradient(to right, rgba(16, 185, 129, 0.22) var(--progress, 0%), rgba(16, 185, 129, 0.05) var(--progress, 0%));
             color: #047857;
-            border: 1px solid rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.22);
             padding: 0.25rem 0.6rem;
             border-radius: 9999px;
             box-shadow: 0 4px 10px rgba(15, 23, 42, 0.01);
+            transition: background 0.3s ease;
         }
 
         .card-status span.status-dot {
@@ -1274,8 +1275,18 @@
             // Update UI status badges with percentages
             const poPercent = Math.round((totalPoScore / maxPoScore) * 100);
             const uxPercent = Math.round((totalUxScore / maxUxScore) * 100);
-            document.getElementById('po-status-label').innerText = `Pratique (${poPercent}%)`;
-            document.getElementById('ux-status-label').innerText = `Pratique (${uxPercent}%)`;
+            
+            const poLabel = document.getElementById('po-status-label');
+            if (poLabel) {
+                poLabel.innerText = `Pratique (${poPercent}%)`;
+                poLabel.parentElement.style.setProperty('--progress', `${poPercent}%`);
+            }
+            
+            const uxLabel = document.getElementById('ux-status-label');
+            if (uxLabel) {
+                uxLabel.innerText = `Pratique (${uxPercent}%)`;
+                uxLabel.parentElement.style.setProperty('--progress', `${uxPercent}%`);
+            }
 
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : 0;
@@ -1283,6 +1294,7 @@
             const dtStatusLabel = document.getElementById('dt-status-label');
             if (dtStatusLabel) {
                 dtStatusLabel.innerText = `Théorie (${dtPercent}%)`;
+                dtStatusLabel.parentElement.style.setProperty('--progress', `${dtPercent}%`);
             }
 
             // Progression rate
@@ -1801,6 +1813,7 @@ function updateSlides() {
     if (dtStatusLabel) {
         const percent = Math.round(((currentSlide + 1) / slides.length) * 100);
         dtStatusLabel.innerText = `Théorie (${percent}%)`;
+        dtStatusLabel.parentElement.style.setProperty('--progress', `${percent}%`);
     }
     
     // Render Mermaid on Slide 4
