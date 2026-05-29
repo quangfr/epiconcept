@@ -401,32 +401,32 @@
         "expl": "Le tooltip affiche la définition exacte au survol (hover) du terme complexe. Il apporte l'aide précisément au point de friction sans quitter la tâche."
       },
       {
-        "text": "Lorsqu'un médecin clique sur un bouton d'action pour valider un dossier ou lors d'un événement important, il souhaite une confirmation visuelle immédiate et non bloquante qui s'affiche éphémèrement sans interrompre sa saisie.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Validation bloquante</div><div class=\"bg-white border rounded p-2 text-center text-xs\">Action Réussie ! <br><button class=\"bg-slate-700 text-white text-[8px] px-2 py-0.5 mt-1 rounded font-bold\">Fermer le dialogue</button></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Clic obligatoire requis pour chaque dossier validé</div></div>",
+        "text": "Lors de la saisie, l'utilisateur a besoin d'indications en direct pour remplir un champ complexe (ex: format du mot de passe ou NIRS) sans faire d'erreur et sans ouvrir l'aide générale.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"w-full border border-slate-300 bg-white rounded p-1.5 text-xs text-slate-400 italic\">Saisir NIRS...</div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ Aucune aide ni exemple lors de la saisie</div></div>",
         "correct": {
-          "title": "Notification Éphémère (Toast)",
-          "visual": "<div class=\"w-full h-full bg-slate-50 border border-slate-200 rounded relative overflow-hidden flex flex-col justify-end p-2\"><div class=\"w-full bg-slate-800 text-white px-3 py-2 rounded-lg flex items-center justify-between shadow-lg transform transition-transform\"><div class=\"flex items-center gap-2\"><span class=\"text-emerald-400\">✓</span><span class=\"text-[10px] font-bold\">Dossier transmis</span></div></div></div>",
-          "expl": "Affiche un bandeau informatif temporaire suite au clic sur un bouton d'action.",
-          "debriefExpl": "Confirme le succès d'une action immédiatement lors du clic sans forcer un popup bloquant.",
-          "icon": "bell"
+          "title": "Aides à la saisie",
+          "visual": "<div class=\"w-full space-y-1.5\"><label class=\"text-[10px] font-bold text-slate-500\">Numéro NIRS <span style=\"cursor:help; border-b:1px dashed #64748b;\">(i)</span></label><input type=\"text\" class=\"w-full border-2 border-emerald-500 rounded p-1.5 text-xs bg-emerald-50/10\" placeholder=\"1 80 12 75 001 002\"><div class=\"text-[9px] text-emerald-600 font-bold\">✓ Format correct (ex: 1 80...)</div></div>",
+          "expl": "Affiche des input helpers, motifs d'erreurs, placeholders d'exemples, codes couleurs et boutons d'info.",
+          "debriefExpl": "Intègre les motifs d'erreurs, placeholders d'exemples, codes couleurs et info-bulles directement sur le champ.",
+          "icon": "help-circle"
         },
         "wrong": [
           {
-            "title": "Fenêtre de Confirmation",
-            "visual": "<div class=\"bg-white border p-3 rounded shadow text-center w-full text-xs font-bold\">Envoi réussi.<br><button class=\"mt-2 bg-slate-200 px-3 py-1 rounded\">Fermer</button></div>",
-            "expl": "Ouvre une fenêtre modale au milieu de l'écran bloquant l'arrière-plan.",
-            "debriefExpl": "Impose une confirmation modale bloquante au milieu de l'écran, obligeant à cliquer sur 'OK' à chaque fois.",
+            "title": "Aide déportée en PDF",
+            "visual": "<div class=\"p-2.5 bg-slate-50 border rounded text-xs text-slate-600 text-center underline\">Ouvrir le guide utilisateur (page 14)</div>",
+            "expl": "Renvoie à un guide PDF externe pour lire les consignes de format.",
+            "debriefExpl": "Interrompt le flux de travail en obligeant l'utilisateur à sortir de la page pour comprendre la consigne.",
             "icon": "layout"
           },
           {
-            "title": "Page de Succès",
-            "visual": "<div class=\"bg-emerald-50 text-emerald-700 border border-emerald-300 p-4 rounded text-center w-full\"><div class=\"text-2xl mb-1\">✅</div><div class=\"text-[10px] font-bold\">Succès</div></div>",
-            "expl": "Redirige l'utilisateur vers une page dédiée confirmant la validation.",
-            "debriefExpl": "Redirige l'utilisateur vers une nouvelle page dédiée, lui faisant perdre le fil de son travail.",
+            "title": "Bloquer la validation au clic",
+            "visual": "<div class=\"bg-red-50 text-red-700 border border-red-300 p-2 rounded text-center text-[10px] font-bold\">Format invalide détecté. Veuillez recommencer.</div>",
+            "expl": "Affiche une alerte bloquante après avoir validé le formulaire sans indiquer le bon format.",
+            "debriefExpl": "Génère de la frustration car le système n'aide pas proactivement à saisir la bonne donnée en amont.",
             "icon": "layout"
           }
         ],
-        "expl": "Le Toast s'affiche en direct au clic d'un bouton pour rassurer immédiatement l'utilisateur sur la réussite de l'action."
+        "expl": "Les input helpers, placeholders d'exemples, info-bulles contextuelles et indicateurs de validité par couleur assistent l'utilisateur à la source de sa saisie."
       },
       {
         "text": "Le médecin doit vérifier en un clin d'œil l'état de validation ou l'urgence d'un dossier patient sans chercher les informations dans tous les onglets. Il souhaite un indicateur visuel immédiat qui résume l'état du dossier.",
@@ -468,7 +468,7 @@
         "text": "La coordinatrice filtre tous les matins sa file d'attente pour ne voir que les dossiers 'Sein' urgents. Elle doit refaire ces 4 clics chaque jour. Pour lui épargner ce rituel fastidieux, le système devrait mémoriser automatiquement sa dernière configuration de session en tâche de fond et la restaurer dès son arrivée.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Répétition</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Démarrage à blanc</div><div class=\"border border-dashed p-2 bg-white rounded text-[10px] text-slate-400\">Filtres : Aucun. (Affichage global des 5 000 dossiers)</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligée de reconstruire sa vue métier tous les matins</div></div>",
         "correct": {
-          "title": "Mémoire de Session",
+          "title": "Mémoire des paramétrages",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded p-3 flex justify-between items-center shadow-sm\"><div class=\"flex gap-1\"><span class=\"bg-slate-100 text-slate-800 text-[9px] px-2 py-0.5 rounded font-bold uppercase\">Sein</span><span class=\"bg-red-100 text-red-700 text-[9px] px-2 py-0.5 rounded font-bold uppercase\">Urgent</span></div><span class=\"text-[8px] text-slate-400 font-bold italic border-b border-dashed\">Filtres mémorisés</span></div>",
           "expl": "Sauvegarde automatiquement l'état des filtres du tableau dans le stockage local du navi...",
           "debriefExpl": "Sauvegarde l'état des filtres à la fermeture et les réapplique à l'ouverture de la session, libérant l'utilisateur d'...",
@@ -496,7 +496,7 @@
         "text": "Un gastro-entérologue doit systématiquement sélectionner sa spécialité et le type d'acte (Coloscopie) dans d'immenses listes lors de chaque saisie. L'interface devrait s'adapter à son profil métier en pré-remplissant par défaut ces deux valeurs à l'ouverture, tout en lui permettant de modifier l'exception si nécessaire.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Saisie</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Listes non filtrées</div><div class=\"w-full border p-1 text-[10px] text-slate-600 bg-white\">Spécialité: - Choisir parmi 120 -</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Saisie identique requise pour chaque patient</div></div>",
         "correct": {
-          "title": "Valeurs Profil par Défaut",
+          "title": "Valeurs paramétrées par défaut",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded p-3\"><label class=\"text-[9px] uppercase font-bold text-slate-400\">Spécialité & Acte</label><div class=\"text-sm font-black text-slate-800 mt-1\">Gastro / Coloscopie</div><div class=\"text-[8px] text-emerald-700 font-bold mt-1\">✨ Pré-rempli selon votre profil (Modifiable)</div></div>",
           "expl": "Configure le profil utilisateur pour injecter d'office sa spécialité et son acte dans l...",
           "debriefExpl": "Injecte par défaut la spécialité et l'acte associés au compte du médecin connecté, simplifiant la saisie en une simpl...",
@@ -524,8 +524,8 @@
         "text": "L'hôpital ouvre un portail de résultats aux patientes. Si on affiche la vue technique 'Médecin' brute avec ses 25 colonnes codées de base de données, la patiente panique. Le logiciel doit proposer une vue personnalisée et vulgarisée selon le profil de l'utilisateur connecté (patiente ou clinicien) pour masquer la complexité par défaut.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Panique</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Vue Patiente Non-filtrée</div><div class=\"text-[8px] bg-slate-900 text-green-400 font-mono p-1 rounded\">HL7_OBX_4: ACR5 | INCL_FLG: TRUE | VAL: SUSPECT</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ La patiente est confrontée à des codes barbares anxiogènes</div></div>",
         "correct": {
-          "title": "Vues Profilées Adaptatives",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-3 shadow-sm flex flex-col gap-2\"><div class=\"flex items-center justify-between border-b pb-1 border-slate-100\"><span class=\"text-[9px] font-black text-slate-800 uppercase tracking-tight\">Vues Profilées Adaptatives</span><span class=\"text-[8px] bg-slate-100 text-slate-600 font-bold px-1.5 py-0.5 rounded\">Rôles</span></div><div class=\"grid grid-cols-3 gap-1.5\"><!-- Profil Patient --><div class=\"bg-emerald-50/70 border border-emerald-100 rounded p-1.5 text-center flex flex-col justify-between min-h-[55px]\"><span class=\"text-[7px] font-black text-emerald-700 uppercase block\">Patient</span><span class=\"text-[12px] block\"><i data-lucide=\"smile\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><span class=\"text-[6px] text-emerald-700 font-bold leading-none block\">Bilan simple & vulgarisé</span></div><!-- Profil Médecin --><div class=\"bg-slate-100/70 border border-indigo-100 rounded p-1.5 text-center flex flex-col justify-between min-h-[55px]\"><span class=\"text-[7px] font-black text-slate-800 uppercase block\">Médecin</span><span class=\"text-[12px] block\"><i data-lucide=\"activity\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><span class=\"text-[6px] text-slate-800 font-bold leading-none block\">Détails cliniques bruts</span></div><!-- Profil Gestionnaire --><div class=\"bg-amber-50/70 border border-amber-100 rounded p-1.5 text-center flex flex-col justify-between min-h-[55px]\"><span class=\"text-[7px] font-black text-amber-800 uppercase block\">Gestionnaire</span><span class=\"text-[12px] block\"><i data-lucide=\"briefcase\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><span class=\"text-[6px] text-amber-800 font-bold leading-none block\">Indicateurs de pilotage</span></div></div></div>",
+          "title": "Interface personnalisée par profil",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-3 shadow-sm flex flex-col gap-2\"><div class=\"flex items-center justify-between border-b pb-1 border-slate-100\"><span class=\"text-[9px] font-black text-slate-800 uppercase tracking-tight\">Interface personnalisée par profil</span><span class=\"text-[8px] bg-slate-100 text-slate-600 font-bold px-1.5 py-0.5 rounded\">Rôles</span></div><div class=\"grid grid-cols-3 gap-1.5\"><!-- Profil Patient --><div class=\"bg-emerald-50/70 border border-emerald-100 rounded p-1.5 text-center flex flex-col justify-between min-h-[55px]\"><span class=\"text-[7px] font-black text-emerald-700 uppercase block\">Patient</span><span class=\"text-[12px] block\"><i data-lucide=\"smile\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><span class=\"text-[6px] text-emerald-700 font-bold leading-none block\">Bilan simple & vulgarisé</span></div><!-- Profil Médecin --><div class=\"bg-slate-100/70 border border-indigo-100 rounded p-1.5 text-center flex flex-col justify-between min-h-[55px]\"><span class=\"text-[7px] font-black text-slate-800 uppercase block\">Médecin</span><span class=\"text-[12px] block\"><i data-lucide=\"activity\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><span class=\"text-[6px] text-slate-800 font-bold leading-none block\">Détails cliniques bruts</span></div><!-- Profil Gestionnaire --><div class=\"bg-amber-50/70 border border-amber-100 rounded p-1.5 text-center flex flex-col justify-between min-h-[55px]\"><span class=\"text-[7px] font-black text-amber-800 uppercase block\">Gestionnaire</span><span class=\"text-[12px] block\"><i data-lucide=\"briefcase\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><span class=\"text-[6px] text-amber-800 font-bold leading-none block\">Indicateurs de pilotage</span></div></div></div>",
           "expl": "Adapte la mise en page et les termes sémantiques selon le rôle ou profil de l'utilisate...",
           "debriefExpl": "Masque la complexité technique et adapte le vocabulaire en fonction du profil de l'utilisateur (vulgarisation pour la...",
           "icon": "layout-dashboard"
@@ -585,32 +585,32 @@
         "expl": "La sauvegarde locale (ou serveur) automatique à chaque frappe protège l'investissement en temps de l'utilisateur. Le petit texte rassure psychologiquement."
       },
       {
-        "text": "Dans une unité mobile de mammographie, le réseau 4G coupe par intermittence, provoquant un blocage de l'interface et une page d'erreur. L'application doit adopter une architecture hors-ligne (Offline-First) mettant en cache l'interface de saisie pour sauvegarder localement les données avant de les synchroniser dès le retour du réseau.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Crash</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Perte de Connexion</div><div class=\"bg-white border p-2 rounded text-center text-[10px] text-red-700 font-bold\">❌ Erreur 500 : Pas de réseau internet</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ L'application se bloque et interdit la saisie locale</div></div>",
+        "text": "L'utilisateur clique sur le bouton d'action pour envoyer un dossier lourd et craint un double-clic accidentel ou un manque de retour visuel. Le système doit immédiatement désactiver le bouton tout en affichant un toast de confirmation dès la réussite.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"w-full border border-slate-300 bg-white rounded p-1.5 text-xs text-slate-600 flex justify-between items-center\"><span>Valider l'envoi</span></div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ Bouton cliquable plusieurs fois de suite sans aucun retour</div></div>",
         "correct": {
-          "title": "Mode Offline-First",
-          "visual": "<div class=\"w-full bg-amber-50 border border-amber-300 p-3 rounded-lg flex items-center justify-between\"><div class=\"flex items-center gap-2\"><span class=\"text-xl animate-pulse\"><i data-lucide=\"wifi\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span> <span class=\"text-[10px] font-black text-orange-800 uppercase\">Hors Ligne</span></div><span class=\"text-[9px] font-bold text-amber-800 bg-orange-200 px-2 rounded-full\">Saisie possible</span></div>",
-          "expl": "Conçoit l'architecture technique (Service Workers) pour maintenir l'application active ...",
-          "debriefExpl": "Met l'application en cache local (PWA) et autorise la saisie de données hors-ligne, qui seront synchronisées dès le r...",
-          "icon": "wifi-off"
+          "title": "Feedback d'état et Notification",
+          "visual": "<div class=\"bg-white border border-slate-200 p-2.5 rounded-lg w-full flex flex-col gap-1.5 shadow-sm\"><button class=\"w-full bg-slate-100 text-slate-500 border border-slate-200 text-xs py-2 rounded-lg font-black flex items-center justify-center gap-1.5 cursor-not-allowed\"><span>⏳ Envoi en cours...</span></button><div class=\"bg-slate-800 text-white px-2.5 py-1.5 rounded-md text-[9px] font-black flex items-center justify-between mt-1\"><span>✓ Dossier envoyé avec succès</span></div></div>",
+          "expl": "Désactive le bouton après clic et affiche une notification éphémère (toast) de succès.",
+          "debriefExpl": "Empêche le double-clic accidentel en désactivant le bouton et rassure via un toast de succès non bloquant.",
+          "icon": "loader"
         },
         "wrong": [
           {
-            "title": "Page de Crash",
-            "visual": "<div class=\"w-full bg-slate-100 p-4 rounded text-center\"><span class=\"text-2xl grayscale\"><i data-lucide=\"alert-triangle\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><div class=\"text-[10px] font-bold mt-1\">Pas d'internet</div></div>",
-            "expl": "Affiche un écran d'erreur bloquant standard lorsque le serveur distant ne répond plus.",
-            "debriefExpl": "Bloque totalement le travail médical en coupant l'accès à l'interface de saisie au moindre micro-décrochage de réseau...",
+            "title": "Double-clic non bloqué",
+            "visual": "<div class=\"w-full\"><button class=\"w-full bg-blue-600 text-white text-xs py-2 rounded-lg font-black\">Valider l'envoi</button></div>",
+            "expl": "Laisse le bouton actif pendant le traitement sans aucune confirmation visuelle.",
+            "debriefExpl": "Génère des doublons de requêtes et de l'anxiété car l'utilisateur reclique par doute.",
             "icon": "layout"
           },
           {
-            "title": "Blocage de l'interface",
-            "visual": "<div class=\"w-full bg-white border border-red-300 p-3 rounded text-center opacity-50\"><div class=\"text-xs text-red-700 font-bold\">Reconnexion requise...</div></div>",
-            "expl": "Grise les formulaires et empêche toute interaction tant que la connexion réseau n'est p...",
-            "debriefExpl": "Affiche l'interface en lecture seule, ce qui empêche l'agent d'avancer sa saisie et le contraint à attendre le réseau.",
+            "title": "Fenêtre de succès bloquante",
+            "visual": "<div class=\"bg-white border p-3 rounded shadow text-center w-full text-xs font-bold\">Traitement réussi !<br><button class=\"mt-2 bg-slate-200 px-3 py-1 rounded\">Fermer</button></div>",
+            "expl": "Ouvre une modale bloquante au milieu de l'écran forçant à cliquer pour fermer.",
+            "debriefExpl": "Surcharge le flux clinique en forçant l'utilisateur à effectuer un clic de fermeture superflu.",
             "icon": "layout"
           }
         ],
-        "expl": "Une architecture moderne (PWA) met l'interface en cache. Elle prévient l'utilisateur de la perte réseau, mais autorise la saisie qui sera synchronisée plus tard."
+        "expl": "L'inactivité du bouton de validation au clic combinée à l'apparition d'un Toast assure le bon enchaînement des tâches cliniques sans interruption."
       },
       {
         "text": "La secrétaire classe un dossier 'Atypique' par erreur de clic et panique sans savoir comment annuler. Pour lui éviter de devoir chercher et éditer le dossier, l'interface doit afficher une notification éphémère lui offrant une fenêtre d'annulation instantanée (Undo) en un clic pour faire machine arrière.",
@@ -677,32 +677,32 @@
         "expl": "La donnée vitale médicale doit dicter la taille de la police (18px+ et contraste élevé). Elle doit être lisible instantanément par un médecin debout à 1 mètre de l'écran."
       },
       {
-        "text": "L'utilisateur clique sur le bouton de génération du compte-rendu PDF, mais le traitement lourd prend 5 secondes. En l'absence de retour visuel immédiat, il clique à répétition, pensant que le système est bloqué, ce qui lance 5 processus concurrents et fait planter le serveur. Le bouton doit changer d'état à l'instant du clic pour afficher un indicateur 'En cours de traitement...' et se désactiver temporairement.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Spam</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Bouton inerte</div><div class=\"bg-slate-700 text-white px-4 py-2 rounded text-xs font-bold text-center w-full shadow-sm cursor-pointer\">Générer le PDF <i data-lucide=\"file-text\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ L'utilisateur clique 5 fois (aucun feedback visuel) et sature le serveur.</div></div>",
+        "text": "L'utilisateur doit rechercher un dossier dans un tableau de 10 000 lignes. Par défaut, la liste devrait être triée par pertinence d'urgence clinique, avec des filtres intelligents pré-configurés basés sur son usage quotidien.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"border p-2 bg-white rounded text-[10px] text-slate-400\">Filtres : Aucun. (Tri par ID croissant par défaut)</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligé de scroller et filtrer manuellement la liste à chaque fois</div></div>",
         "correct": {
-          "title": "Feedback d'État Actif",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 p-4 rounded-xl shadow-sm flex items-center justify-center\"><button disabled class=\"bg-indigo-400 text-white px-4 py-2.5 rounded-lg text-xs font-bold w-full flex items-center justify-center gap-2 cursor-not-allowed\"><svg class=\"animate-spin h-4 w-4 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\"><circle class=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" stroke-width=\"4\"></circle><path class=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\"></path></svg> Génération en cours...</button></div>",
-          "expl": "Désactive le bouton après le premier clic et affiche un indicateur de chargement animé ...",
-          "debriefExpl": "Le bouton passe instantanément en état désactivé avec un spinner animé.",
-          "icon": "mouse-pointer-2"
+          "title": "Tri, recherche et filtres intelligents",
+          "visual": "<div class=\"bg-white border p-2 rounded-lg text-xs space-y-1.5 w-full\"><div class=\"flex justify-between items-center bg-slate-50 p-1.5 rounded\"><span>Tri : Urgence ▽ (défaut)</span> <span class=\"text-[9px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded font-bold\">Actif</span></div><div class=\"flex gap-1.5 text-[9px]\"><span class=\"border px-2 py-0.5 rounded-full\">Dossiers non-lus</span><span class=\"border bg-slate-100 px-2 py-0.5 rounded-full\">Urgent ✔</span></div></div>",
+          "expl": "Faire le bon choix du tri par défaut et des critères de recherche et de filtre selon l'usage.",
+          "debriefExpl": "Trie automatiquement par urgence et pré-configure les filtres pour un accès immédiat en 1 clic.",
+          "icon": "sliders"
         },
         "wrong": [
           {
-            "title": "Pop-up d'Avertissement",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 p-3 rounded-lg text-center text-[10px] font-bold text-slate-600\">Patientez, traitement en cours...</div>",
-            "expl": "Ouvre une fenêtre modale d'alerte intrusive forçant l'utilisateur à attendre la fin du ...",
-            "debriefExpl": "Bloque l'écran entier avec une pop-up agressive pour un chargement de seulement quelques secondes, ce qui irrite inut...",
+            "title": "Liste brute brute",
+            "visual": "<div class=\"w-full border p-2 rounded bg-white text-[10px] text-slate-400\">ID: #0001, Patient: Dupont... ID: #0002...</div>",
+            "expl": "Affiche les dossiers dans l'ordre brut d'enregistrement en base sans filtres rapides.",
+            "debriefExpl": "Force à faire des recherches complexes pour chaque dossier courant sans anticiper l'usage.",
             "icon": "layout"
           },
           {
-            "title": "Aucun Changement d'État",
-            "visual": "<div class=\"w-full bg-slate-50 border p-3 rounded text-center text-xs font-bold text-slate-400\">Générer le PDF (Pas de changement au clic)</div>",
-            "expl": "Conserve l'état visuel initial du bouton identique tout au long de l'exécution du proce...",
-            "debriefExpl": "Laisse planer le doute sur l'activité du système, provoquant la frustration de l'utilisateur qui clique compulsivemen...",
+            "title": "Module de recherche avancée complexe",
+            "visual": "<div class=\"p-2.5 bg-slate-100 rounded text-center text-xs font-bold text-slate-600\">Formulaire de recherche (15 critères)</div>",
+            "expl": "Surcharge l'écran d'un lourd panneau de filtres à configurer manuellement.",
+            "debriefExpl": "Transforme une simple recherche de dossier en tâche fastidieuse de paramétrage multicritères.",
             "icon": "layout"
           }
         ],
-        "expl": "Un bouton qui change d'état dès le clic (désactivation + spinner) fournit un feedback instantané qui rassure et protège les serveurs contre les clics répétés."
+        "expl": "Choisir le bon tri par défaut et proposer des filtres métier pré-configurés permet de cibler immédiatement les dossiers critiques sans effort."
       },
       {
         "text": "Dans un tableau listant les 80 patientes du jour, l'œil de la secrétaire décroche en suivant les lignes horizontales sur les grands écrans larges. Pour guider son regard de manière fluide et sécuriser sa lecture sans surcharger le design de bordures épaisses, le tableau doit alterner de couleur de fond à chaque ligne (tableau zébré).",
@@ -925,38 +925,38 @@
     "intent": "Intégrer l'intelligence artificielle (agents conversationnels, lecture de documents, analyse de données) pour accélérer le traitement clinique sans jamais imposer de décision.",
     "scenarios": [
       {
-        "text": "Pour coder un dossier patient complexe, le médecin doit chercher manuellement les codes CIM-10 correspondants à travers des centaines de pages d'un thésaurus médical. Pour lui faire gagner un temps précieux, l'interface doit intégrer un agent conversationnel (chatbot copilote) qui analyse sa description en langage naturel et lui propose instantanément les codes pertinents à valider.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Perte</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Thésaurus papier/PDF</div><div class=\"bg-white border p-1.5 text-[9px] text-slate-500\">Rechercher code pour : 'Tumeur maligne du quadrant supéro-externe...'</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Saisie ralentie par des recherches manuelles répétitives de codes cliniques</div></div>",
+        "text": "Le médecin recherche des consignes cliniques précises ou des aides à la cotation dans les manuels officiels sans perdre de temps dans les dossiers. Il souhaite un chatbot d'assistance qui répond de manière personnalisée sur la base des règles du dépistage.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Manuels papier</div><div class=\"text-[9px] text-slate-500 italic\">Consulter classeur cotation (400 pages)</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligé de chercher l'info manuellement hors écran</div></div>",
         "correct": {
-          "title": "Copilote IA Conversationnel",
-          "visual": "<div class=\"w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 shadow-lg flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 border-b border-slate-800 pb-1\"><span class=\"text-xs\"><i data-lucide=\"bot\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><span class=\"text-[8px] font-black text-slate-300 uppercase tracking-widest\">ESIS-3D Copilote</span></div><div class=\"bg-slate-800 text-[8px] text-slate-300 p-1.5 rounded\">Recommandation CIM-10 : <strong class=\"text-emerald-400 font-black\">C50.4</strong> pour quadrant sup-externe.<br><span class=\"text-slate-800 cursor-pointer hover:underline\">✔️ Appliquer d'un clic</span></div></div>",
-          "expl": "Met à disposition un agent conversationnel qui traduit les descriptions cliniques natur...",
-          "debriefExpl": "Fournit une assistance contextuelle en langage naturel.",
-          "icon": "bot"
+          "title": "Chatbot d'assistance",
+          "visual": "<div class=\"bg-white border border-slate-200 p-2.5 rounded-lg w-full flex flex-col gap-2 shadow-sm\"><div class=\"bg-blue-50 text-blue-800 p-1.5 rounded text-[9px] font-bold\">Dr: Comment coter une mamo de type ACR5 ?</div><div class=\"bg-slate-100 text-slate-700 p-1.5 rounded text-[9px] font-bold\">IA: Selon l'annexe IV, l'ACR5 impose un avis oncologique prioritaire sous 48h.</div></div>",
+          "expl": "Répondre aux questions de manière personnalisée sur la base de la documentation officielle.",
+          "debriefExpl": "Répond de manière ciblée à chaque question complexe sur la base de la documentation officielle.",
+          "icon": "message-circle"
         },
         "wrong": [
           {
-            "title": "Formulaire de Recherche Avancée",
-            "visual": "<div class=\"w-full bg-white border p-2 rounded flex flex-col gap-1\"><div class=\"border rounded p-1 text-[8px] text-slate-400 italic\">Code ou mot...</div><button class=\"bg-slate-200 text-slate-600 text-[8px] font-bold py-0.5 rounded\">Rechercher</button></div>",
-            "expl": "Affiche un formulaire de recherche classique avec filtres cumulatifs (code, mot-clé, ch...",
-            "debriefExpl": "Impose à l'utilisateur de connaître la nomenclature ou de formuler des requêtes ultra-précises, ralentissant le travail.",
+            "title": "Recherche classique par mots-clés",
+            "visual": "<div class=\"w-full border p-1 text-[10px] text-slate-400 bg-white\">Taper un mot-clé...</div>",
+            "expl": "Recherche par occurrences exactes au milieu d'un long lexique général.",
+            "debriefExpl": "Renvoie des centaines de résultats bruts non qualifiés, forçant à tout lire pour trouver l'info.",
             "icon": "layout"
           },
           {
-            "title": "Redirection Web",
-            "visual": "<div class=\"w-full bg-slate-50 border p-2 rounded text-center text-xs text-slate-800 underline\">Ouvrir le portail national CIM-10 ↗️</div>",
-            "expl": "Ajoute un simple lien hypertexte redirigeant le médecin vers le site officiel national ...",
-            "debriefExpl": "Sort brutalement le médecin de son application, provoquant des ruptures de tâche et des pertes de contexte fréquentes.",
+            "title": "Lien vers la documentation",
+            "visual": "<div class=\"p-2 bg-slate-50 border rounded text-xs text-center text-slate-600 underline\">Consulter le Guide Officiel (PDF)</div>",
+            "expl": "Intègre un simple lien hypertexte ouvrant le manuel officiel complet en PDF.",
+            "debriefExpl": "Exige une navigation fastidieuse et chronophage de la part de l'interne.",
             "icon": "layout"
           }
         ],
-        "expl": "Un agent conversationnel bien intégré assiste sans contraindre : il propose les codes sémantiques les plus probables d'un simple clic."
+        "expl": "Le chatbot d'assistance médicale synthétise la règle métier complexe et l'applique instantanément au cas précis sans quitter l'interface."
       },
       {
         "text": "La secrétaire reçoit par courrier des résultats d'analyses sanguines scannés en PDF. Elle doit ressaisir manuellement les 15 valeurs biologiques dans ESIS-3D. Pour éliminer cette corvée sujette aux fautes de frappe, le système doit intégrer un moteur de lecture de documents (OCR/IA) qui analyse le PDF et pré-remplit automatiquement les champs correspondants après validation visuelle.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Corvée</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Saisie manuelle double</div><div class=\"bg-white border p-1 text-[10px] text-red-700 italic\">Valeur Plaquettes : [Taper ici...]</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Risque de fautes de frappe et perte de temps administrative</div></div>",
         "correct": {
-          "title": "Lecture & Pré-remplissage PDF",
+          "title": "Reconnaissance de texte et pré-remplissage",
           "visual": "<div class=\"w-full bg-white border border-slate-200 p-2.5 rounded-lg flex flex-col gap-1.5 shadow-sm\"><span class=\"text-[8px] font-black text-slate-800 uppercase tracking-wider\"><i data-lucide=\"file-text\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> OCR & IA Active</span><div class=\"bg-emerald-50 border border-emerald-100 p-1.5 rounded flex justify-between items-center\"><span class=\"text-[8px] text-slate-600\">Plaquettes : <strong class=\"text-emerald-700 font-black\">250 000 /mm3</strong></span><span class=\"text-[8px] bg-emerald-200 text-emerald-700 px-1.5 rounded font-black uppercase\">Vérifié</span></div></div>",
           "expl": "Extrait automatiquement les entités nommées et valeurs numériques des documents importé...",
           "debriefExpl": "L'IA analyse le document importé pour en extraire la structure.",
@@ -981,32 +981,32 @@
         "expl": "La reconnaissance intelligente de documents (OCR + IA sémantique) libère les agents des tâches de saisie robotiques pour les concentrer sur le contrôle qualité."
       },
       {
-        "text": "Un patient présente des résultats d'analyses sanguines complexes étalés sur 5 ans avec des dizaines de variations biologiques mineures. Pour aider le médecin à détecter une anomalie naissante, le système doit analyser l'ensemble des tendances croisées de la base de données pour générer un diagnostic d'assistance prédictif mettant en avant les anomalies statistiques silencieuses.",
-        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Invisible</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Données denses brutes</div><div class=\"bg-white border p-1 text-[9px] text-slate-500 font-mono\">Globules: 4.8 | Lympho: 32% | Hémato: 42%...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Risque de passer à côté d'une micro-déviation de tendance croisée silencieuse</div></div>",
+        "text": "Le médecin souhaite réaliser des actions d'extraction ou de filtrage complexes sur sa file d'attente (ex: 'Montrer les patientes à relancer qui ont un résultat suspect') d'un seul geste sans configurer 10 filtres complexes.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Lenteur</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Requête multicritères</div><div class=\"text-[8px] text-slate-500 font-bold bg-slate-100 p-1.5 rounded\">1. Ouvrir Filtres > 2. Cocher Suspect > 3. Cocher Relances...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Enchaînement de clics et réglages manuels fastidieux</div></div>",
         "correct": {
-          "title": "Diagnostic d'Assistance IA",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 p-2.5 rounded-lg flex flex-col gap-1 shadow-sm\"><span class=\"text-[8px] font-black text-rose-600 uppercase tracking-wider\"><i data-lucide=\"microscope\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Analyse de Tendances</span><div class=\"bg-rose-50 border border-rose-100 p-1.5 rounded text-[8px] text-slate-700 leading-tight\"><i data-lucide=\"trending-up\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Baisse constante de 4% des plaquettes/an.<br><span class=\"font-bold text-rose-700\">Alerte : Risque d'anémie naissante suspecté.</span></div></div>",
-          "expl": "Analyse les séries temporelles et croise les données pour alerter sur des dérives stati...",
-          "debriefExpl": "Sert de garde-fou clinique intelligent en signalant des anomalies faibles qui auraient pu échapper à un médecin débordé.",
-          "icon": "stethoscope"
+          "title": "Commande par texte",
+          "visual": "<div class=\"bg-white border border-slate-200 p-2.5 rounded-lg w-full flex flex-col gap-1.5 shadow-sm\"><div class=\"border rounded p-1 text-[9px] font-bold text-slate-700 bg-slate-50 flex items-center gap-1\"><span>🤖 Saisie libre:</span> <span class=\"font-normal\">'Patientes suspectes à relancer'</span></div><div class=\"bg-emerald-50 text-emerald-700 border border-emerald-100 text-[8px] px-2 py-0.5 rounded font-black mt-1\">✓ Filtres configurés : Urgence=Critique & Relances=Oui</div></div>",
+          "expl": "Réaliser des actions ou des recherches plus ou moins complexes en saisie libre.",
+          "debriefExpl": "Traduit instantanément des requêtes formulées en langage naturel en actions ou filtres complexes.",
+          "icon": "terminal"
         },
         "wrong": [
           {
-            "title": "Tableau de Données Global",
-            "visual": "<div class=\"w-full bg-white border p-1.5 rounded text-[7px] font-mono space-y-0.5 opacity-55\"><div>2022: Globules 4.8</div><div>2023: Globules 4.6</div></div>",
-            "expl": "Génère un tableau chronologique complet de l'ensemble des examens biologiques passés.",
-            "debriefExpl": "Force le médecin à comparer manuellement des lignes et des colonnes de chiffres denses, ce qui prend du temps et génè...",
+            "title": "Formulaire de requête SQL brute",
+            "visual": "<div class=\"w-full bg-slate-900 text-green-400 font-mono text-[8px] p-2 rounded\">SELECT * FROM patients WHERE stat='SUSPECT' AND pending='TRUE'</div>",
+            "expl": "Laisse le clinicien formuler lui-même sa requête en langage informatique SQL.",
+            "debriefExpl": "Une solution technique absurde et inadaptée au personnel soignant n'ayant aucune compétence de code.",
             "icon": "layout"
           },
           {
-            "title": "Indicateurs de Normes Bruts",
-            "visual": "<div class=\"w-full bg-white border p-2 rounded text-[9px] text-slate-700\">Créatinine: <span class=\"text-red-700 font-bold\">1.4 (Hors Norme)</span></div>",
-            "expl": "Met simplement en rouge ou en gras les valeurs qui dépassent les bornes de normalité dé...",
-            "debriefExpl": "Aide à court terme, mais ne détecte aucune dérive chronologique si le patient reste dans les normes minimales d'une a...",
+            "title": "Surcharge de boutons d'action statiques",
+            "visual": "<div class=\"grid grid-cols-2 gap-1 text-[8px] font-bold\"><div class=\"border p-1 bg-white\">Alerter suspects</div><div class=\"border p-1 bg-white\">Imprimer relances</div></div>",
+            "expl": "Multiplie les boutons d'actions statiques et rigides sur la barre de tâches.",
+            "debriefExpl": "Surcharge l'interface visuellement de boutons secondaires qui ne servent que très rarement.",
             "icon": "layout"
           }
         ],
-        "expl": "L'analyse prédictive croisée de l'IA agit comme un co-pilote silencieux : elle n'impose rien, mais attire l'attention sur des dérives chronologiques suspectes."
+        "expl": "La commande textuelle en langage naturel permet au clinicien de s'adresser au logiciel comme à un collègue, éliminant les formulaires de filtres complexes."
       }
     ],
     "icon": "bot"
