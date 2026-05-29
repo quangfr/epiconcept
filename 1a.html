@@ -26,7 +26,8 @@
         
         /* Styles pour le breadcrumb */
         .breadcrumb-dot { transition: all 0.2s ease; }
-        .dot-pending { background-color: white; color: #94A3B8; border: 2px solid #E2E8F0; cursor: not-allowed; }
+        .dot-pending { background-color: white; color: #94A3B8; border: 2px solid #E2E8F0; cursor: pointer; }
+        .dot-pending:hover { background-color: #F8FAFC; border-color: #CBD5E1; transform: scale(1.1); }
         .dot-current { background-color: #0f172a; color: white; border: 2px solid #0f172a; box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.2); cursor: default; transform: scale(1.1); }
         .dot-completed { background-color: #0f172a; color: white; border: 2px solid #0f172a; cursor: pointer; }
         .dot-completed:hover { background-color: #1e293b; border-color: #1e293b; transform: scale(1.1); }
@@ -185,7 +186,11 @@
             </div>
 
             <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-8 flex flex-col">
-                <div class="flex items-center gap-4 mb-4">
+                <!-- Bouton de retour en haut à gauche -->
+                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retourner au défi en cours">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </button>
+                <div class="flex items-center gap-4 mb-4 mt-4">
                     <div id="debrief-emoji" class="text-6xl bg-slate-100 w-20 h-20 flex items-center justify-center rounded-2xl shrink-0">🎯</div>
                     <div>
                         <h2 id="debrief-title" class="text-2xl font-black text-slate-900 uppercase mb-1">Titre</h2>
@@ -513,15 +518,30 @@ function showDebriefing() {
     // Gestion du libellé du bouton suivant selon l'état de progression
     const nextPendingIdx = levelSteps.findIndex(s => s.status === 'pending');
     const isCompleted = levelSteps.every(s => s.status === 'completed');
+    const backBtn = document.getElementById('debrief-back-btn');
+    
+    if (nextPendingIdx !== -1 && nextPendingIdx !== currentStepIdx) {
+        backBtn.classList.remove('hidden');
+    } else {
+        backBtn.classList.add('hidden');
+    }
     
     if (isCompleted) {
         document.getElementById('btn-next').innerText = "Terminer la Série";
-    } else if (nextPendingIdx !== -1 && nextPendingIdx !== currentStepIdx) {
-        document.getElementById('btn-next').innerText = "Retourner au défi en cours";
     } else {
         document.getElementById('btn-next').innerText = "Défi Suivant";
     }
     lucide.createIcons();
+}
+
+function goBackFromDebrief() {
+    const pendingIdx = levelSteps.findIndex(s => s.status === 'pending');
+    if (pendingIdx !== -1) {
+        currentStepIdx = pendingIdx;
+        loadStep();
+    } else {
+        goHome();
+    }
 }
 
 function nextStep() {
@@ -563,6 +583,7 @@ function renderBreadcrumbs() {
             btn.onclick = () => reviewStep(idx);
         } else {
             styleClass += "dot-pending";
+            btn.onclick = () => reviewStep(idx);
         }
         
         btn.className = styleClass;
