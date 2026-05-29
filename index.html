@@ -1281,15 +1281,24 @@
     </script>
 
 <!-- Comprendre Modal -->
-<div id="comprendre-modal" class="fixed inset-0 bg-slate-50 z-[100] hidden flex-col text-slate-900" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #f8fafc; z-index: 100; display: none; flex-direction: column; overflow-y: auto; font-family: var(--font-body);">
+<div id="comprendre-modal" class="controls-visible">
     
-    <!-- Bouton de fermeture absolu (Header supprimé) -->
-    <button onclick="closeComprendre()" style="position: absolute; top: 1.5rem; right: 1.5rem; z-index: 110; background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'">
-        <i data-lucide="x"></i>
-    </button>
+    <!-- Header with progress bar placed ABOVE slide content -->
+    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; z-index: 110; height: 60px; shrink-0;">
+        <div style="width: 44px;"></div> <!-- spacer -->
+        <div id="slide-progress-header" class="slide-control">
+            <div id="slide-page-number" style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.15em; text-transform: uppercase;">Page 1 / 6</div>
+            <div id="notched-progress-bar" style="display: flex; gap: 4px; width: 100%; height: 5px; background: transparent; border-radius: 9999px; overflow: hidden;">
+                <!-- Generated dynamically -->
+            </div>
+        </div>
+        <!-- Close Button -->
+        <button onclick="closeComprendre()" class="slide-control" style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'">
+            <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+    </div>
 
-    
-    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; padding: 6rem 3rem 4rem 3rem; height: calc(100vh - 100px); width: 100%; overflow-y: auto;">
+    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; width: 100%; height: calc(100vh - 80px); overflow: hidden; margin-top: 10px;">
         
         <!-- Slide 1 : Le Double Diamant -->
         <div class="comprendre-slide" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 900px; animation: fadeIn 0.3s; width: 100%;">
@@ -1592,10 +1601,10 @@
             </div>
         </div>
         <!-- Navigation Buttons -->
-        <button id="slide-prev-btn" onclick="changeSlide(-1)" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; z-index: 105;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'">
+        <button id="slide-prev-btn" onclick="changeSlide(-1)" class="slide-control">
             <i data-lucide="chevron-left" style="width: 32px; height: 32px;"></i>
         </button>
-        <button id="slide-next-btn" onclick="changeSlide(1)" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: #1e3a8a; border: none; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; box-shadow: 0 6px 20px rgba(30,58,138,0.3); z-index: 105;" onmouseover="this.style.background='#2563eb'" onmouseout="this.style.background='#1e3a8a'">
+        <button id="slide-next-btn" onclick="changeSlide(1)" class="slide-control" style="background: #1e3a8a !important; color: white !important;">
             <i data-lucide="chevron-right" style="width: 32px; height: 32px;"></i>
         </button>
     </div>
@@ -1617,17 +1626,42 @@
 let currentSlide = 0;
 
 
+let controlsTimeout;
+function showControls() {
+    const modal = document.getElementById('comprendre-modal');
+    modal.classList.add('controls-visible');
+    
+    // Clear previous timeout and set new one to hide after 2.5 seconds of inactivity
+    clearTimeout(controlsTimeout);
+    controlsTimeout = setTimeout(() => {
+        modal.classList.remove('controls-visible');
+    }, 2500);
+}
+
 function openComprendre(atelierId) {
     if(atelierId !== 1) return;
-    document.getElementById('comprendre-modal').style.display = 'flex';
+    const modal = document.getElementById('comprendre-modal');
+    modal.style.display = 'flex';
+    
+    // Bind mousemove and click to show controls
+    modal.addEventListener('mousemove', showControls);
+    modal.addEventListener('click', showControls);
+    showControls();
+
     // Load last viewed slide from localStorage
     const saved = localStorage.getItem('design-thinking-last-slide');
     currentSlide = saved ? parseInt(saved, 10) : 0;
     updateSlides();
 }
+
 function closeComprendre() {
-    document.getElementById('comprendre-modal').style.display = 'none';
+    const modal = document.getElementById('comprendre-modal');
+    modal.style.display = 'none';
+    modal.removeEventListener('mousemove', showControls);
+    modal.removeEventListener('click', showControls);
+    clearTimeout(controlsTimeout);
 }
+
 function changeSlide(dir) {
     const slides = document.querySelectorAll('.comprendre-slide');
     currentSlide += dir;
