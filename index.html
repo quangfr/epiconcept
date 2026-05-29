@@ -760,20 +760,17 @@
             pointer-events: none !important;
         }
 
-        #comprendre-modal.controls-visible .slide-control,
-        #comprendre-modal:hover .slide-control {
+        #comprendre-modal.controls-visible .slide-control {
             opacity: 1 !important;
             pointer-events: auto !important;
         }
 
-        /* Custom override for navigation buttons to keep them subtle on hover */
+        /* Custom override for navigation buttons to keep them subtle when active */
         #slide-prev-btn, #slide-next-btn {
             pointer-events: none !important;
         }
         #comprendre-modal.controls-visible #slide-prev-btn,
-        #comprendre-modal.controls-visible #slide-next-btn,
-        #comprendre-modal:hover #slide-prev-btn,
-        #comprendre-modal:hover #slide-next-btn {
+        #comprendre-modal.controls-visible #slide-next-btn {
             opacity: 0.35 !important;
             pointer-events: auto !important;
         }
