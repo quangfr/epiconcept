@@ -465,14 +465,10 @@ function renderQuestionChoices() {
     wrapper.innerHTML = '';
     const step = levelSteps[currentStepIdx];
     
-    // Trois icônes de questions distinctes et élégantes
-    const choiceIcons = ["help-circle", "message-circle", "help-circle"];
-    
-    step.options.forEach((opt, idx) => {
+    step.options.forEach((opt) => {
         const btn = document.createElement('button');
         btn.className = "group w-full bg-white border-2 border-slate-100 p-5 rounded-2xl text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base";
-        const iconName = choiceIcons[idx % choiceIcons.length];
-        btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="${iconName}" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
+        btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
         btn.onclick = () => { 
             if(currentPhase === 2) { 
                 if (opt.isCorrect) {
@@ -500,7 +496,7 @@ function showDebriefing() {
     const reflexData = reflexes.find(r => r.id === step.reflexId);
     
     document.getElementById('debrief-emoji').innerHTML = `<i data-lucide="${reflexData.icon}" class="w-12 h-12 text-slate-800"></i>`;
-    document.getElementById('debrief-main-title').innerText = reflexData.title; document.getElementById('debrief-title').innerText = "Réflexe Validé";
+    document.getElementById('debrief-title').innerText = reflexData.title;
     document.getElementById('debrief-question').innerText = `“ ${step.correctQuestion} ”`;
     document.getElementById('debrief-text').innerText = step.explanation;
     
