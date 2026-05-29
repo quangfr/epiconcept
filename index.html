@@ -849,7 +849,7 @@
         <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">1 - Design Thinking</h2>
         <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
             <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status"><span class="status-dot"></span><span id="dt-status-label">Théorie (0%)</span></div>
+                            <div class="card-status"><span id="dt-status-label">0 / 7</span></div>
                         </div>
         </div>
     </div>
@@ -865,7 +865,7 @@
         <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">A - Besoins utilisateurs</h2>
         <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
             <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status"><span class="status-dot"></span><span id="po-status-label">Pratique (0%)</span></div>
+                            <div class="card-status"><span id="po-status-label">0 / 36</span></div>
                         </div>
         </div>
     </div>
@@ -881,7 +881,7 @@
         <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">B - Conception UX/UI</h2>
         <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
             <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status"><span class="status-dot"></span><span id="ux-status-label">Pratique (0%)</span></div>
+                            <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
                         </div>
         </div>
     </div>
@@ -1222,6 +1222,31 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
+        window.updateCardStatusBadge = function(labelEl, x, y) {
+            if (!labelEl) return;
+            const parent = labelEl.parentElement;
+            if (!parent) return;
+
+            labelEl.innerText = `${x} / ${y}`;
+            const percent = y > 0 ? Math.round((x / y) * 100) : 0;
+            
+            parent.style.setProperty('--progress', `${percent}%`);
+            
+            if (percent === 100) {
+                parent.style.color = '#047857';
+                parent.style.borderColor = 'rgba(16, 185, 129, 0.25)';
+                parent.style.background = `linear-gradient(to right, rgba(16, 185, 129, 0.22) ${percent}%, rgba(16, 185, 129, 0.05) ${percent}%)`;
+            } else if (percent === 0) {
+                parent.style.color = '#b91c1c';
+                parent.style.borderColor = 'rgba(239, 68, 68, 0.25)';
+                parent.style.background = `linear-gradient(to right, rgba(239, 68, 68, 0.22) ${percent}%, rgba(239, 68, 68, 0.05) ${percent}%)`;
+            } else {
+                parent.style.color = '#b45309';
+                parent.style.borderColor = 'rgba(245, 158, 11, 0.25)';
+                parent.style.background = `linear-gradient(to right, rgba(245, 158, 11, 0.22) ${percent}%, rgba(245, 158, 11, 0.05) ${percent}%)`;
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             // Load Product Owner scores from localStorage
             let poLv0 = localStorage.getItem('po-score-lv0');
@@ -1272,29 +1297,22 @@
                 updateArrows();
             }
 
-            // Update UI status badges with percentages
-            const poPercent = Math.round((totalPoScore / maxPoScore) * 100);
-            const uxPercent = Math.round((totalUxScore / maxUxScore) * 100);
-            
+            // Update UI status badges with dynamic colors and x/y format
             const poLabel = document.getElementById('po-status-label');
             if (poLabel) {
-                poLabel.innerText = `Pratique (${poPercent}%)`;
-                poLabel.parentElement.style.setProperty('--progress', `${poPercent}%`);
+                window.updateCardStatusBadge(poLabel, totalPoScore, maxPoScore);
             }
             
             const uxLabel = document.getElementById('ux-status-label');
             if (uxLabel) {
-                uxLabel.innerText = `Pratique (${uxPercent}%)`;
-                uxLabel.parentElement.style.setProperty('--progress', `${uxPercent}%`);
+                window.updateCardStatusBadge(uxLabel, totalUxScore, maxUxScore);
             }
 
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : 0;
-            const dtPercent = Math.round(((dtSlideIdx + 1) / 7) * 100);
             const dtStatusLabel = document.getElementById('dt-status-label');
             if (dtStatusLabel) {
-                dtStatusLabel.innerText = `Théorie (${dtPercent}%)`;
-                dtStatusLabel.parentElement.style.setProperty('--progress', `${dtPercent}%`);
+                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 7);
             }
 
             // Progression rate
@@ -1811,9 +1829,7 @@ function updateSlides() {
     // Update progress badge on the card status dot
     const dtStatusLabel = document.getElementById('dt-status-label');
     if (dtStatusLabel) {
-        const percent = Math.round(((currentSlide + 1) / slides.length) * 100);
-        dtStatusLabel.innerText = `Théorie (${percent}%)`;
-        dtStatusLabel.parentElement.style.setProperty('--progress', `${percent}%`);
+        window.updateCardStatusBadge(dtStatusLabel, currentSlide + 1, slides.length);
     }
     
     // Render Mermaid on Slide 4
