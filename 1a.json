@@ -2,7 +2,6 @@
   {
     "id": 1,
     "title": "A1. Dépasser la demande",
-    "emoji": "🎯",
     "intent": "Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.",
     "questions": [
       "Quel est l'objectif final que vous visez en faisant cela ?",
@@ -18,19 +17,19 @@
       {
         "text": "La DSI exige un export CSV complexe quotidien de tous les logs de connexion des médecins. Face à la lourdeur de la demande, vous devez évaluer la criticité du besoin en les interrogeant sur ce qui se passerait concrètement si vous refusiez ce développement.",
         "explanation": "En demandant l'impact direct d'un refus sur leur métier, la DSI admet que sans cet export, ils ne peuvent pas réaliser l'audit de sécurité obligatoire exigé par la certification. Cela valide l'obligation légale et ouvre la voie à un outil d'audit intégré plus adapté.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Console Admin DSI</div><div class=\"p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col gap-2\"><div class=\"flex justify-between items-center text-[10px] font-mono\"><span class=\"text-slate-500\">Fichier:</span> <span class=\"font-bold\">audit_logs_12000.csv</span></div><div class=\"bg-indigo-600 text-white py-1.5 px-3 rounded text-center text-xs font-bold shadow-sm\">Télécharger l'export (4.2 Go)</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Console Admin DSI</div><div class=\"p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col gap-2\"><div class=\"flex justify-between items-center text-[10px] font-mono\"><span class=\"text-slate-500\">Fichier:</span> <span class=\"font-bold\">audit_logs_12000.csv</span></div><div class=\"bg-slate-700 text-white py-1.5 px-3 rounded text-center text-xs font-bold shadow-sm\">Télécharger l'export (4.2 Go)</div></div></div>"
       },
       {
         "text": "Une secrétaire gérant 200 dossiers par jour demande de faire clignoter en rouge vif le fond des fiches en attente. Pour dépasser ce choix d'interface anxiogène, vous lui demandez de décrire le dysfonctionnement quotidien précis qu'elle espère éradiquer avec ce visuel.",
         "explanation": "Cette question permet à l'utilisatrice d'exprimer que son vrai problème est la peur d'oublier des dossiers urgents dans la masse. Le clignotement rouge n'est qu'un pansement ; la vraie solution est un tri automatique par degré de priorité.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Liste des Dossiers</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-red-500 border border-red-600 p-2 rounded text-white flex justify-between items-center text-xs font-black animate-pulse\"><span>Dossier #901</span> <span>EN ATTENTE !!!</span></div><div class=\"bg-red-500 border border-red-600 p-2 rounded text-white flex justify-between items-center text-xs font-black animate-pulse\"><span>Dossier #902</span> <span>EN ATTENTE !!!</span></div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Liste des Dossiers</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-red-500 border border-red-300 p-2 rounded text-white flex justify-between items-center text-xs font-black animate-pulse\"><span>Dossier #901</span> <span>EN ATTENTE !!!</span></div><div class=\"bg-red-500 border border-red-300 p-2 rounded text-white flex justify-between items-center text-xs font-black animate-pulse\"><span>Dossier #902</span> <span>EN ATTENTE !!!</span></div></div></div>"
       }
-    ]
+    ],
+    "icon": "target"
   },
   {
     "id": 2,
     "title": "A2. Quantifier le problème",
-    "emoji": "📊",
     "intent": "Obtenir des données précises sur la fréquence et l'impact réel pour évaluer le coût du statu quo.",
     "questions": [
       "Sur une échelle de 1 à 10, quel est l'impact de ce problème sur votre productivité ?",
@@ -41,24 +40,24 @@
       {
         "text": "Le centre signale que l'import des fichiers de biologie est 'lent'. L'équipe technique ne voit rien d'anormal. Pour prioriser ou non ce sujet dans votre sprint, vous demandez à l'utilisateur de mesurer précisément le frein quotidien sur son rythme de travail.",
         "explanation": "L'utilisateur attribue une note d'impact de 9/10, expliquant qu'il perd 45 minutes par jour à attendre devant l'écran, ce qui retarde la sortie des patients. La productivité est lourdement impactée, justifiant une action immédiate.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Module d'Importation</div><div class=\"p-3 bg-slate-50 rounded-lg text-center flex flex-col items-center justify-center\"><div class=\"w-8 h-8 rounded-full border-4 border-indigo-600 border-t-transparent animate-spin mb-2\"></div><span class=\"text-xs font-black text-slate-800\">Temps restant : 12 min</span></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Module d'Importation</div><div class=\"p-3 bg-slate-50 rounded-lg text-center flex flex-col items-center justify-center\"><div class=\"w-8 h-8 rounded-full border-4 border-slate-300 border-t-transparent animate-spin mb-2\"></div><span class=\"text-xs font-black text-slate-800\">Temps restant : 12 min</span></div></div>"
       },
       {
         "text": "Un médecin signale que le nom de jeune fille disparaît parfois de l'affichage. Le ticket est marqué 'BLOQUANT'. Vous devez catégoriser le danger de ce bug pour le centre afin de valider cette urgence.",
         "explanation": "Cette question permet d'identifier le risque majeur : une erreur fatale d'identification du patient (risque médical et juridique extrême). Le qualificatif 'Bloquant' est ici pleinement légitimé par la gravité de l'impact.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Fiche Patient</div><div class=\"border-l-4 border-red-500 bg-red-50 p-2 rounded\"><span class=\"text-[9px] font-black text-red-700 uppercase\">Erreur d'identitovigilance</span><div class=\"text-xs font-mono font-bold text-slate-800 mt-1\">DUPONT J. (Née : [INCONNU])</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Fiche Patient</div><div class=\"border-l-4 border-red-300 bg-red-50 p-2 rounded\"><span class=\"text-[9px] font-black text-red-700 uppercase\">Erreur d'identitovigilance</span><div class=\"text-xs font-mono font-bold text-slate-800 mt-1\">DUPONT J. (Née : [INCONNU])</div></div></div>"
       },
       {
         "text": "Un client majeur affirme que l'absence de SMS de rappel de rendez-vous est 'inacceptable' car l'absentéisme est catastrophique. Avant de financer ce module, vous voulez évaluer l'évolution du préjudice financier et organisationnel si rien ne changeait dans les prochains mois.",
         "explanation": "Se projeter dans le temps permet de chiffrer la perte financière cumulée sur un an (estimée à 15 000 €). Cette quantification du statu quo à long terme démontre la rentabilité immédiate du développement du module SMS.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Statistiques d'Absence</div><div class=\"flex justify-between items-center\"><div class=\"text-left\"><div class=\"text-2xl font-black text-red-600\">28%</div><div class=\"text-[8px] text-slate-400 font-bold uppercase\">Rendez-vous manqués</div></div><div class=\"text-right bg-red-50 border border-red-100 p-2 rounded\"><span class=\"text-xs font-bold text-red-700\">-1 250€ / mois</span></div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Statistiques d'Absence</div><div class=\"flex justify-between items-center\"><div class=\"text-left\"><div class=\"text-2xl font-black text-red-700\">28%</div><div class=\"text-[8px] text-slate-400 font-bold uppercase\">Rendez-vous manqués</div></div><div class=\"text-right bg-red-50 border border-red-100 p-2 rounded\"><span class=\"text-xs font-bold text-red-700\">-1 250€ / mois</span></div></div></div>"
       }
-    ]
+    ],
+    "icon": "bar-chart-2"
   },
   {
     "id": 3,
     "title": "A3. Reproduire l'irritant",
-    "emoji": "🖱️",
     "intent": "Observer le flux réel de l'utilisateur pour révéler des points de friction invisibles ou des bugs non exprimés.",
     "questions": [
       "Pouvez-vous me montrer précisément le moment où cela devient frustrant ?",
@@ -69,24 +68,24 @@
       {
         "text": "Une manipulatrice affirme en colère qu'elle 'perd ses données' lors de la validation. Le support n'a aucune trace d'erreur. Vous organisez un appel pour qu'elle reproduise l'action sous vos yeux au moment exact du blocage.",
         "explanation": "En observant le moment précis de la frustration, vous découvrez qu'elle clique frénétiquement à double reprise sur le bouton de validation, ce qui vide accidentellement les champs saisis en relançant la soumission.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Bouton Enregistrer</div><div class=\"relative bg-slate-50 border p-3 rounded text-center\"><span class=\"text-xs font-black text-slate-700\">Enregistrer le Dossier</span><div class=\"absolute right-4 top-2 bg-indigo-600 text-white text-[8px] font-bold p-1 rounded animate-bounce\">Clic x2 !</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Bouton Enregistrer</div><div class=\"relative bg-slate-50 border p-3 rounded text-center\"><span class=\"text-xs font-black text-slate-700\">Enregistrer le Dossier</span><div class=\"absolute right-4 top-2 bg-slate-700 text-white text-[8px] font-bold p-1 rounded animate-bounce\">Clic x2 !</div></div></div>"
       },
       {
         "text": "Un médecin trouve le parcours de validation 'inutilement long' et réclame une refonte ergonomique majeure. Vous souhaitez analyser sa navigation en direct, dans ses conditions habituelles de stress, sans le guider.",
         "explanation": "L'observation passive révèle que le médecin perd 80% de son temps à scroller pour chercher des boutons d'actions excentrés. Cela valide un besoin de raccourcis ou de boutons ancrés, plutôt qu'une refonte complète.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Parcours Utilisateur</div><div class=\"h-24 bg-slate-100 rounded-lg p-2 overflow-y-auto space-y-4\"><div class=\"h-12 bg-slate-300 rounded\"></div><div class=\"h-12 bg-slate-300 rounded\"></div><div class=\"bg-indigo-600 text-white text-center py-2 rounded text-xs font-bold\">Enregistrer (Enfin !)</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Parcours Utilisateur</div><div class=\"h-24 bg-slate-100 rounded-lg p-2 overflow-y-auto space-y-4\"><div class=\"h-12 bg-slate-300 rounded\"></div><div class=\"h-12 bg-slate-300 rounded\"></div><div class=\"bg-slate-700 text-white text-center py-2 rounded text-xs font-bold\">Enregistrer (Enfin !)</div></div></div>"
       },
       {
         "text": "La secrétaire affirme que le logiciel 'se fige' systématiquement à l'enregistrement du dossier. Pour isoler la cause technique invisible pour le support, vous lui demandez de situer l'instant exact où le système ne répond plus à ses actions.",
         "explanation": "La secrétaire indique qu'elle perd le contrôle juste après le clic de signature électronique. Cela permet de pointer le lecteur de cartes SESAM-Vitale local comme coupable du freeze, et non l'application elle-même.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Lecteur de Carte CPS</div><div class=\"bg-orange-50 border border-orange-200 p-2.5 rounded flex items-center gap-3\"><span class=\"text-2xl animate-pulse\">💳</span><div class=\"text-left\"><div class=\"text-[10px] font-black text-orange-800 uppercase\">Lecteur Occupé</div><div class=\"text-[9px] text-slate-600\">Timeout USB 120s</div></div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Lecteur de Carte CPS</div><div class=\"bg-amber-50 border border-amber-300 p-2.5 rounded flex items-center gap-3\"><span class=\"text-2xl animate-pulse\">💳</span><div class=\"text-left\"><div class=\"text-[10px] font-black text-orange-800 uppercase\">Lecteur Occupé</div><div class=\"text-[9px] text-slate-600\">Timeout USB 120s</div></div></div></div>"
       }
-    ]
+    ],
+    "icon": "mouse-pointer-click"
   },
   {
     "id": 4,
     "title": "A4. Vérifier l'existant",
-    "emoji": "📂",
     "intent": "Éviter de développer une nouvelle fonction si le problème peut être résolu par du paramétrage ou de la formation.",
     "questions": [
       "Aujourd'hui, comment faites-vous pour contourner ce manque ?",
@@ -107,14 +106,14 @@
       {
         "text": "Le responsable qualité réclame un outil de reporting sur mesure pour extraire la liste des fiches non conformes. Avant de lancer l'équipe sur ce développement, vous vérifiez si notre guide utilisateur détaille déjà la marche à suivre.",
         "explanation": "La documentation décrit précisément comment générer cet export via les 'Filtres Dynamiques d'Audit'. Il s'agit d'un besoin d'accompagnement et de formation du client sur l'existant documenté, pas d'une demande de code.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Guide de Configuration</div><div class=\"p-2 bg-indigo-50 border border-indigo-100 rounded text-xs text-indigo-900 font-medium\">💡 Voir page 12 : \"Générer des exports d'audit personnalisés\"</div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Guide de Configuration</div><div class=\"p-2 bg-slate-100 border border-indigo-100 rounded text-xs text-slate-800 font-medium\">💡 Voir page 12 : \"Générer des exports d'audit personnalisés\"</div></div>"
       }
-    ]
+    ],
+    "icon": "folder-open"
   },
   {
     "id": 5,
     "title": "A5. Vérifier l'historique",
-    "emoji": "📜",
     "intent": "Comprendre les échecs passés pour éviter de proposer une solution qui a déjà échoué ou qui a été rejetée.",
     "questions": [
       "Est-ce que cette demande a déjà été formulée ou rejetée auparavant ?",
@@ -125,24 +124,24 @@
       {
         "text": "Le service marketing propose d'intégrer une IA de détection automatique de nodules. L'idée semble géniale, mais vous avez une forte impression de déjà-vu et souhaitez vérifier si cette piste a déjà été explorée et écartée par le passé.",
         "explanation": "Les archives révèlent qu'un projet similaire a été rejeté l'an dernier car l'IA générait trop de faux positifs, stressant inutilement les patientes. Connaître ce refus évite de répéter la même erreur coûteuse.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Rapports Historiques</div><div class=\"bg-red-50 border border-red-200 p-3 rounded-lg text-center\"><span class=\"text-[9px] font-black text-red-700 uppercase\">Pilote IA Nodules (2025)</span><div class=\"text-xs text-red-900 font-bold mt-1\">Statut : Échec / Rejet Technique</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Rapports Historiques</div><div class=\"bg-red-50 border border-red-300 p-3 rounded-lg text-center\"><span class=\"text-[9px] font-black text-red-700 uppercase\">Pilote IA Nodules (2025)</span><div class=\"text-xs text-red-900 font-bold mt-1\">Statut : Échec / Rejet Technique</div></div></div>"
       },
       {
         "text": "Un nouveau client veut supprimer le système de double validation pour l'envoi des comptes-rendus. Avant de supprimer cette sécurité, vous interrogez l'équipe historique pour comprendre les raisons initiales de son implémentation.",
         "explanation": "L'historique montre que ce verrou a été mis en place suite à un incident grave de transmission d'un mauvais diagnostic. Connaître les freins du passé permet de justifier la conservation de cette sécurité auprès du nouveau client.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Incident de Sécurité</div><div class=\"bg-amber-50 border border-amber-200 p-3 rounded-lg flex items-center gap-2\"><span class=\"text-2xl\">⚠️</span><div class=\"text-xs text-amber-900 font-bold leading-tight\">Transmission Erronée (2024)<br><span class=\"text-[9px] font-normal text-slate-500\">Cause : Pas de double validation</span></div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Incident de Sécurité</div><div class=\"bg-amber-50 border border-amber-300 p-3 rounded-lg flex items-center gap-2\"><span class=\"text-2xl\">⚠️</span><div class=\"text-xs text-amber-900 font-bold leading-tight\">Transmission Erronée (2024)<br><span class=\"text-[9px] font-normal text-slate-500\">Cause : Pas de double validation</span></div></div></div>"
       },
       {
         "text": "L'équipe technique propose d'adopter une nouvelle base de stockage pour les clichés lourds. Emballé, vous fouillez les backlogs Jira pour voir si une étude ou un ticket d'architecture similaire est déjà en attente d'arbitrage.",
         "explanation": "Vous découvrez un ticket ouvert il y a 6 mois décrivant exactement les spécifications de cette migration de base. L'historique évite de repartir de zéro et permet de réactiver un travail d'analyse déjà qualifié.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Ticket Backlog Jira</div><div class=\"p-2 bg-slate-50 border rounded flex justify-between items-center\"><div class=\"text-left\"><span class=\"text-xs font-black text-indigo-600\">ESIS-1082</span><div class=\"text-[10px] font-bold text-slate-800\">Migration Stockage Image</div></div><span class=\"bg-slate-200 text-[8px] font-black uppercase py-0.5 px-2 rounded text-slate-600\">Backlog</span></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Ticket Backlog Jira</div><div class=\"p-2 bg-slate-50 border rounded flex justify-between items-center\"><div class=\"text-left\"><span class=\"text-xs font-black text-slate-800\">ESIS-1082</span><div class=\"text-[10px] font-bold text-slate-800\">Migration Stockage Image</div></div><span class=\"bg-slate-200 text-[8px] font-black uppercase py-0.5 px-2 rounded text-slate-600\">Backlog</span></div></div>"
       }
-    ]
+    ],
+    "icon": "file-text"
   },
   {
     "id": 6,
     "title": "A6. Évaluer la spécificité",
-    "emoji": "🌍",
     "intent": "Déterminer si le besoin est localisé à un seul client ou s'il s'agit d'une tendance marché qui bénéficiera à tous.",
     "questions": [
       "Pensez-vous que ce besoin est propre à votre façon de travailler ?",
@@ -163,14 +162,14 @@
       {
         "text": "Une secrétaire demande d'imprimer les courriers de convocation au format A5 pour économiser le papier, affirmant que c'est l'avenir du dépistage. Avant de modifier le moteur d'édition globale, vous interrogez vos statistiques de support pour voir si cette demande est largement partagée.",
         "explanation": "L'analyse des retours montre que moins de 0.5% des centres souhaitent du A5, la majorité étant équipée uniquement d'imprimantes A4. La demande est trop marginale pour justifier une modification structurelle du produit.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Format d'Impression</div><div class=\"flex gap-4 justify-center items-end h-16\"><div class=\"w-12 h-16 border-2 border-indigo-500 bg-indigo-50 text-[9px] font-black text-indigo-700 flex items-center justify-center rounded\">A4</div><div class=\"w-12 h-10 border-2 border-dashed border-slate-300 bg-slate-50 text-[9px] font-bold text-slate-400 flex items-center justify-center rounded\">A5</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Format d'Impression</div><div class=\"flex gap-4 justify-center items-end h-16\"><div class=\"w-12 h-16 border-2 border-slate-300 bg-slate-100 text-[9px] font-black text-slate-800 flex items-center justify-center rounded\">A4</div><div class=\"w-12 h-10 border-2 border-dashed border-slate-300 bg-slate-50 text-[9px] font-bold text-slate-400 flex items-center justify-center rounded\">A5</div></div></div>"
       }
-    ]
+    ],
+    "icon": "globe"
   },
   {
     "id": 7,
     "title": "A7. Comparer les approches",
-    "emoji": "⚖️",
     "intent": "Ouvrir le champ des possibles pour éviter de s'enfermer dans une solution unique et trouver la plus efficiente.",
     "questions": [
       "Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ?",
@@ -181,24 +180,24 @@
       {
         "text": "L'utilisateur exige un popup bloquant au milieu de l'écran à chaque arrivée de dossier critique. Pour le faire réagir sur la pénibilité, vous lui demandez de comparer cette approche intrusive A avec une notification latérale persistante B.",
         "explanation": "En comparant activement les deux options, l'utilisateur réalise que le popup A couperait sa saisie en cours et provoquerait des erreurs. Il valide l'option B, beaucoup plus fluide au quotidien.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Choix A/B</div><div class=\"grid grid-cols-2 gap-2 text-[10px]\"><div class=\"border-2 border-red-400 bg-red-50 p-2 rounded text-center font-bold text-red-700\">Popup A (Bloquant)</div><div class=\"border-2 border-emerald-400 bg-emerald-50 p-2 rounded text-center font-bold text-emerald-700\">Notification B (Discret)</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Choix A/B</div><div class=\"grid grid-cols-2 gap-2 text-[10px]\"><div class=\"border-2 border-red-300 bg-red-50 p-2 rounded text-center font-bold text-red-700\">Popup A (Bloquant)</div><div class=\"border-2 border-emerald-300 bg-emerald-50 p-2 rounded text-center font-bold text-emerald-700\">Notification B (Discret)</div></div></div>"
       },
       {
         "text": "L'équipe hésite pour sécuriser la connexion entre intégrer un lecteur de cartes physiques CPS (très lourd à coder), forcer un mot de passe fort (simple) ou installer de la biométrie (complexe). Vous devez faire arbitrer la solution la plus rentable.",
         "explanation": "L'arbitrage démontre que l'option du mot de passe renforcé combiné à un code OTP par email offre 90% de la sécurité pour 10% de l'effort technique. Cette comparaison pragmatique préserve la roadmap.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Analyse Ratios</div><div class=\"space-y-1.5 text-[9px] font-bold\"><div class=\"flex justify-between bg-slate-50 p-1.5 rounded\"><span>Lecteur CPS</span> <span class=\"text-red-600\">40j (Faible ROI)</span></div><div class=\"flex justify-between bg-emerald-50 p-1.5 rounded\"><span>Mot de passe OTP</span> <span class=\"text-emerald-600\">4j (Fort ROI)</span></div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Analyse Ratios</div><div class=\"space-y-1.5 text-[9px] font-bold\"><div class=\"flex justify-between bg-slate-50 p-1.5 rounded\"><span>Lecteur CPS</span> <span class=\"text-red-700\">40j (Faible ROI)</span></div><div class=\"flex justify-between bg-emerald-50 p-1.5 rounded\"><span>Mot de passe OTP</span> <span class=\"text-emerald-700\">4j (Fort ROI)</span></div></div></div>"
       },
       {
         "text": "Le client réclame un chat interne. Certains veulent un outil de messagerie complet type Slack, d'autres une simple zone de commentaires partagée sur la fiche. Vous réunissez un panel d'utilisateurs pour évaluer l'ergonomie de ces deux flux.",
         "explanation": "Les secrétaires déclarent à l'unanimité que la zone de commentaires contextuelle sur la fiche patient est infiniment plus intuitive pour leur travail que de gérer un outil de chat externe. L'approche simple l'emporte.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Messagerie Interne</div><div class=\"bg-indigo-50 border border-indigo-200 p-2 rounded flex justify-between items-center text-xs font-bold text-indigo-700\"><div class=\"flex items-center gap-1.5\"><span>💬</span> <span>Zone de Commentaires</span></div> <span class=\"bg-indigo-600 text-white text-[8px] py-0.5 px-2 rounded\">Inclus</span></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Messagerie Interne</div><div class=\"bg-slate-100 border border-slate-300 p-2 rounded flex justify-between items-center text-xs font-bold text-slate-800\"><div class=\"flex items-center gap-1.5\"><span>💬</span> <span>Zone de Commentaires</span></div> <span class=\"bg-slate-700 text-white text-[8px] py-0.5 px-2 rounded\">Inclus</span></div></div>"
       }
-    ]
+    ],
+    "icon": "scale"
   },
   {
     "id": 8,
     "title": "A8. Raccrocher aux besoins",
-    "emoji": "🔗",
     "intent": "Maximiser l'impact d'un développement en résolvant plusieurs problèmes à la fois par une vision transverse.",
     "questions": [
       "Est-ce que cette approche ne réglerait pas aussi le souci de X ?",
@@ -214,19 +213,19 @@
       {
         "text": "La biologie réclame un outil pour téléverser ses résultats. La radiologie veut un stockage de clichés. Vous interrogez les utilisateurs sur la globalité de leur flux quotidien pour voir si ces imports partagent le même parcours de validation.",
         "explanation": "L'analyse montre que le flux de validation final est strictement identique. Vous concevez donc une 'Passerelle d'importation universelle' qui s'intègre parfaitement avec leurs tâches de relecture communes.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Passerelle d'Importation</div><div class=\"bg-emerald-50 border border-emerald-200 p-3 rounded-lg text-center\"><div class=\"text-xs font-black text-emerald-800\">IMPORT UNIVERSEL PIVOT</div><div class=\"text-[8px] text-slate-500 font-bold uppercase mt-1\">Format HL7 Standard</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Passerelle d'Importation</div><div class=\"bg-emerald-50 border border-emerald-300 p-3 rounded-lg text-center\"><div class=\"text-xs font-black text-emerald-700\">IMPORT UNIVERSEL PIVOT</div><div class=\"text-[8px] text-slate-500 font-bold uppercase mt-1\">Format HL7 Standard</div></div></div>"
       },
       {
         "text": "La DSI demande un script pour supprimer automatiquement les comptes utilisateurs inactifs. La RH a besoin d'un registre d'accès pour le RGPD. Vous cherchez à élargir le périmètre de la demande pour créer une solution globale d'administration.",
         "explanation": "En élargissant le sujet, vous développez un module complet d'IAM (Identity & Access Management) qui gère à la fois les purges d'inactivité de la DSI et les exports de conformité de la RH, mutualisant l'effort de développement.",
         "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">IAM Administrator</div><div class=\"p-2 bg-slate-50 rounded border space-y-1.5 text-[10px] font-bold text-slate-700\"><div class=\"flex justify-between\"><span>Purger Inactifs (DSI)</span> <span>[ON]</span></div><div class=\"flex justify-between\"><span>Registre RGPD (RH)</span> <span>[ON]</span></div></div></div>"
       }
-    ]
+    ],
+    "icon": "link"
   },
   {
     "id": 9,
     "title": "A9. Aligner avec la Roadmap",
-    "emoji": "📅",
     "intent": "Vérifier si des solutions planifiées rendent le problème obsolète ou si la demande peut enrichir une conception future.",
     "questions": [
       "Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ?",
@@ -237,24 +236,24 @@
       {
         "text": "Un client majeur exige une refonte immédiate du module de prise de rendez-vous. Or, la roadmap prévoit une migration totale vers un partenaire d'agenda externe dans six mois. Vous devez décider du calendrier de traitement.",
         "explanation": "Le client accepte de repousser la refonte en comprenant qu'inclure sa demande dans la migration future garantira un outil plus moderne et évitera de jeter un code spécifique dans six mois.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Roadmap Intégration</div><div class=\"flex justify-between items-center text-[10px] font-bold text-slate-500 bg-slate-50 p-2 rounded\"><span class=\"text-red-500\">Patch temporaire</span> <span>➔</span> <span class=\"text-emerald-500\">Nouvel Agenda (M+6)</span></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Roadmap Intégration</div><div class=\"flex justify-between items-center text-[10px] font-bold text-slate-500 bg-slate-50 p-2 rounded\"><span class=\"text-red-700\">Patch temporaire</span> <span>➔</span> <span class=\"text-emerald-700\">Nouvel Agenda (M+6)</span></div></div>"
       },
       {
         "text": "On vous réclame un patch pour faire fonctionner l'application hors-ligne sur les tablettes de dépistage mobile. Or, la roadmap prévoit une refonte complète de l'application mobile le trimestre prochain. Vous évaluez l'intérêt de ce patch.",
         "explanation": "La nouvelle application mobile intègre nativement un moteur de synchronisation hors-ligne performant, ce qui rend le patch temporaire obsolète. On choisit de concentrer l'effort sur la livraison de la nouvelle version.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Refonte Mobile T1</div><div class=\"bg-indigo-50 border border-indigo-200 p-2.5 rounded-lg text-center\"><div class=\"text-xs font-black text-indigo-800\">MOTEUR DE SYNCHRO INTERNE</div><div class=\"text-[8px] text-emerald-600 font-bold uppercase mt-1\">Livré dans la refonte mobile T1</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Refonte Mobile T1</div><div class=\"bg-slate-100 border border-slate-300 p-2.5 rounded-lg text-center\"><div class=\"text-xs font-black text-slate-800\">MOTEUR DE SYNCHRO INTERNE</div><div class=\"text-[8px] text-emerald-700 font-bold uppercase mt-1\">Livré dans la refonte mobile T1</div></div></div>"
       },
       {
         "text": "Un groupe de centres réclame des exports PDF ultra-personnalisés. Votre roadmap planifie un moteur de templates universel pour l'an prochain. Vous étudiez comment leur demande concrète peut affiner les spécifications de ce futur moteur.",
         "explanation": "Utiliser cette demande client comme cas d'usage réel permet de concevoir le moteur de templates avec la flexibilité exacte requise par le terrain. La demande client enrichit directement le projet de la roadmap.",
         "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Moteur de Documents</div><div class=\"bg-slate-50 border p-3 rounded-lg text-center\"><span class=\"text-xs font-black text-slate-800\">Moteur de Templates (M+12)</span><div class=\"text-[8px] text-slate-400 font-bold uppercase mt-1\">Ajusté pour couvrir les PDFs spécifiques</div></div></div>"
       }
-    ]
+    ],
+    "icon": "calendar"
   },
   {
     "id": 10,
     "title": "A10. Vérifier la complexité",
-    "emoji": "⚙️",
     "intent": "Anticiper les effets de bord, la dette technique et les contradictions avec l'existant avant de s'engager.",
     "questions": [
       "Quel est l'impact de ce changement sur la performance ou la maintenance ?",
@@ -265,24 +264,24 @@
       {
         "text": "Le marketing veut afficher en temps réel le calcul complexe du score de risque sur la liste globale des 50 000 dossiers. Face à cette idée en apparence simple, vous devez évaluer le coût en temps de chargement et en ressources serveur.",
         "explanation": "Le calcul en direct sur 50 000 lignes ferait crasher la base de données. Poser la question de la performance réoriente la solution vers un calcul asynchrone affiché uniquement lors de l'ouverture d'un dossier unique.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Performance Base de données</div><div class=\"bg-red-50 border border-red-200 p-2 rounded text-center\"><div class=\"text-xs font-black text-red-700\">[SQL TIMEOUT ERROR]</div><div class=\"text-[8px] text-slate-500 font-bold uppercase mt-1\">Requête lourde sur 50 000 lignes</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Performance Base de données</div><div class=\"bg-red-50 border border-red-300 p-2 rounded text-center\"><div class=\"text-xs font-black text-red-700\">[SQL TIMEOUT ERROR]</div><div class=\"text-[8px] text-slate-500 font-bold uppercase mt-1\">Requête lourde sur 50 000 lignes</div></div></div>"
       },
       {
         "text": "Le client demande de pouvoir modifier librement le numéro de sécurité sociale d'un dossier déjà validé. Vous devez lui exposer l'impact structurel de cette action, le numéro servant de clé unique dans toute l'architecture de la base.",
         "explanation": "Comprendre que changer cette clé unique briserait toutes les liaisons historiques avec les examens de biologie et d'imagerie fait réaliser au client la dangerosité technique de sa demande. On opte pour une procédure de correction sécurisée.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Schéma Base de Données</div><div class=\"flex justify-center items-center gap-3 h-14 bg-red-50 border border-red-200 rounded text-[9px] font-mono font-bold text-red-800\"><div class=\"p-1 bg-white border\">Clé: SSN</div> <span class=\"text-xs\">✖</span> <div class=\"p-1 bg-white border\">Dossier Médical</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Schéma Base de Données</div><div class=\"flex justify-center items-center gap-3 h-14 bg-red-50 border border-red-300 rounded text-[9px] font-mono font-bold text-red-700\"><div class=\"p-1 bg-white border\">Clé: SSN</div> <span class=\"text-xs\">✖</span> <div class=\"p-1 bg-white border\">Dossier Médical</div></div></div>"
       },
       {
         "text": "Un grand centre exige qu'ESIS-3D soit compatible avec Internet Explorer 11 pour éviter de mettre à jour son parc informatique. Vous devez analyser si supporter ce navigateur obsolète ne va pas briser les composants modernes pour tous les autres utilisateurs.",
         "explanation": "L'analyse montre que coder pour IE11 imposerait de désactiver des protocoles de sécurité modernes, créant de graves failles de sécurité et des bugs d'affichage majeurs sur Chrome et Firefox. Le risque d'erreur globale est trop grand, la demande est refusée.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Compatibilité Navigateurs</div><div class=\"flex justify-between items-center text-[10px] font-bold\"><span class=\"text-emerald-600\">Chrome / Firefox (OK)</span> <span class=\"text-red-500\">IE11 (Crash CSS)</span></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Compatibilité Navigateurs</div><div class=\"flex justify-between items-center text-[10px] font-bold\"><span class=\"text-emerald-700\">Chrome / Firefox (OK)</span> <span class=\"text-red-700\">IE11 (Crash CSS)</span></div></div>"
       }
-    ]
+    ],
+    "icon": "settings"
   },
   {
     "id": 11,
     "title": "A11. Chercher les marges",
-    "emoji": "🤝",
     "intent": "Identifier ce que l'utilisateur est prêt à céder (délai, confort, coût) pour obtenir de la valeur plus rapidement.",
     "questions": [
       "Seriez-vous prêt à attendre plus longtemps pour une version complète ?",
@@ -293,24 +292,24 @@
       {
         "text": "Le client exige une automatisation complète de l'envoi postal des résultats, ce qui demande 4 mois de développement d'API avec un prestataire. Vous testez sa flexibilité sur les délais de livraison par rapport au périmètre.",
         "explanation": "Le client préfère avoir immédiatement un bouton 'Générer le PDF de publipostage' pour imprimer lui-même le lendemain, plutôt que d'attendre 4 mois pour l'envoi 100% automatique. La marge temporelle is trouvée.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Mode Publipostage</div><div class=\"bg-emerald-50 border border-emerald-200 p-2.5 rounded-lg text-center\"><div class=\"text-xs font-black text-emerald-800\">EXPORTER PDF IMPRIMABLE</div><div class=\"text-[8px] text-emerald-600 font-bold uppercase mt-1\">Disponible immédiatement</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Mode Publipostage</div><div class=\"bg-emerald-50 border border-emerald-300 p-2.5 rounded-lg text-center\"><div class=\"text-xs font-black text-emerald-700\">EXPORTER PDF IMPRIMABLE</div><div class=\"text-[8px] text-emerald-700 font-bold uppercase mt-1\">Disponible immédiatement</div></div></div>"
       },
       {
         "text": "L'hôpital exige un module de facturation automatique complexe pour le 1er janvier. L'équipe est saturée. Vous leur proposez une version simplifiée où la saisie est assistée mais la télétransmission requiert une validation manuelle temporaire.",
         "explanation": "L'hôpital accepte la validation manuelle pour tenir l'échéance du 1er janvier. Cette marge opérationnelle évite le burnout de l'équipe de développement et assure une livraison à l'heure.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Calendrier Facturation</div><div class=\"flex justify-between text-[8px] font-black uppercase text-slate-400 bg-slate-50 p-2 rounded\"><span class=\"text-indigo-600\">1 Janv: Saisie simple</span> <span>➔</span> <span>1 Mars: Envoi Auto</span></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Calendrier Facturation</div><div class=\"flex justify-between text-[8px] font-black uppercase text-slate-400 bg-slate-50 p-2 rounded\"><span class=\"text-slate-800\">1 Janv: Saisie simple</span> <span>➔</span> <span>1 Mars: Envoi Auto</span></div></div>"
       },
       {
         "text": "Le client réclame un système d'IA autonome qui valide automatiquement les dossiers sains sans aucune intervention humaine. Face au risque médical, vous l'invitez à isoler le noyau indispensable de sa demande.",
         "explanation": "Le client admet que la vraie valeur est de trier automatiquement les 95% de dossiers évidents pour libérer du temps médical. Il accepte que l'IA ne fasse que 50% du chemin et laisse la validation finale à l'humain pour la sécurité.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Périmètre IA</div><div class=\"bg-indigo-50 border border-indigo-200 p-2.5 rounded-lg text-center\"><div class=\"text-xs font-black text-indigo-800\">IA TRICHERIE DOSSIERS SAINS 95%</div><div class=\"text-[8px] text-slate-500 font-bold uppercase mt-1\">Validation finale par le clinicien</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Périmètre IA</div><div class=\"bg-slate-100 border border-slate-300 p-2.5 rounded-lg text-center\"><div class=\"text-xs font-black text-slate-800\">IA TRICHERIE DOSSIERS SAINS 95%</div><div class=\"text-[8px] text-slate-500 font-bold uppercase mt-1\">Validation finale par le clinicien</div></div></div>"
       }
-    ]
+    ],
+    "icon": "users"
   },
   {
     "id": 12,
     "title": "A12. Valider la solution mini",
-    "emoji": "💡",
     "intent": "Identifier le plus petit incrément capable de générer de la valeur immédiate avec le moins d'effort possible.",
     "questions": [
       "Existe-t-il une approche qui demande zéro modification de code ?",
@@ -326,13 +325,14 @@
       {
         "text": "Un médecin exige un algorithme complexe basé sur 15 critères croisés pour détecter les doublons à la saisie. Vous cherchez à définir le seuil minimal de détection qui réglerait son angoisse immédiate d'erreur.",
         "explanation": "Le médecin valide qu'une simple alerte sur l'exactitude stricte 'Nom + Date de naissance' lui sauve déjà la journée en bloquant 99% des doublons accidentels. L'algorithme complexe à 15 critères est abandonné au profit de ce MVP.",
-        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Détecteur de doublons</div><div class=\"bg-orange-50 border border-orange-200 p-2 rounded\"><span class=\"text-[8px] font-black text-orange-800 uppercase\">Doublon Détecté (Exact)</span><div class=\"text-[10px] font-bold text-slate-700 mt-1\">MARTIN S. (12/04/1980)</div></div></div>"
+        "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Détecteur de doublons</div><div class=\"bg-amber-50 border border-amber-300 p-2 rounded\"><span class=\"text-[8px] font-black text-orange-800 uppercase\">Doublon Détecté (Exact)</span><div class=\"text-[10px] font-bold text-slate-700 mt-1\">MARTIN S. (12/04/1980)</div></div></div>"
       },
       {
         "text": "La direction réclame un tableau de bord décisionnel en 3D composé de 25 indicateurs statistiques croisés. Vous leur proposez de livrer uniquement les 3 indicateurs de flux vitaux sous forme de tableau simple.",
         "explanation": "La direction convient que ces 3 indicateurs clés résolvent 80% de leur besoin de pilotage hebdomadaire. Vous évitez un développement d'interface lourd en livrant la valeur essentielle en un temps record.",
         "visual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Dashboard Pivot</div><div class=\"p-2 bg-slate-50 rounded border space-y-1.5 text-[10px] font-bold text-slate-800\"><div class=\"flex justify-between\"><span>Total Fiches</span> <span>1,209</span></div><div class=\"flex justify-between\"><span>En cours</span> <span>84</span></div></div></div>"
       }
-    ]
+    ],
+    "icon": "lightbulb"
   }
 ]

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulation ESIS-3D - Hub Métier</title>
+    <title>WORKSHOPS EPICONCEPT DEPISTAGE - Hub Métier</title>
     <meta name="description" content="Développez vos compétences métiers de Product Owner (PO) et d'ergonomie User Experience (UX) avec nos simulateurs interactifs d'entraînement.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         /* Design System / Root Variables */
@@ -17,10 +18,10 @@
             --bg-dark: #f8fafc;
             --bg-deep: #f1f5f9;
             --bg-card: rgba(255, 255, 255, 0.75);
-            --card-border: rgba(15, 23, 42, 0.06);
+            --card-border: rgba(255, 255, 255, 0.6);
             
-            --color-primary: #4f46e5; /* Indigo */
-            --color-primary-glow: rgba(99, 102, 241, 0.08);
+            --color-primary: #1e3a8a; /* Slate 700 - Pale Dark Blue */
+            --color-primary-glow: rgba(30, 58, 138, 0.08);
             --color-secondary: #0891b2; /* Cyan */
             --color-secondary-glow: rgba(6, 182, 212, 0.08);
             --color-emerald: #10b981;
@@ -44,10 +45,6 @@
 
         body {
             background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, #f1f5f9 0%, #f8fafc 100%);
             color: var(--text-main);
             font-family: var(--font-body);
             height: 100vh;
@@ -98,7 +95,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--color-secondary);
+            color: var(--text-main);
             margin-bottom: 0.25rem;
             box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
             backdrop-filter: blur(10px);
@@ -107,10 +104,10 @@
         .logo-badge span.pulse-dot {
             width: 6px;
             height: 6px;
-            background-color: var(--color-emerald);
+            background-color: var(--text-main);
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 8px var(--color-emerald);
+            box-shadow: 0 0 8px var(--text-main);
             animation: pulse-glow 2s infinite;
         }
 
@@ -122,9 +119,7 @@
             letter-spacing: -0.02em;
             margin-bottom: 0.15rem;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #0f172a 30%, #4f46e5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--color-primary);
         }
 
         .subtitle {
@@ -354,16 +349,19 @@
         }
 
         @media (max-width: 800px) {
-            body { overflow: auto; height: auto; }
+            body { overflow: auto; height: auto; padding: 1rem; }
+            .container { padding: 0; }
             .top-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .global-stats-container { width: 100%; justify-content: space-between; }
-            .atelier-col { flex: 0 0 calc(100% - 1rem); }
+            .ateliers-scroll { flex-direction: column; overflow-x: visible; gap: 2rem; }
+            .atelier-col { flex: 0 0 auto; width: 100%; min-width: 0; }
+            .scroll-nav { display: none; }
         }
 
         /* Glassmorphism Card Style */
-        .simulator-card {
+        .simulator-card { padding: 1rem; gap: 0.5rem;
             background: var(--bg-card);
-            border: 1px solid var(--card-border);
+            border: 1px solid rgba(255, 255, 255, 0.6); /* override dark border */
             border-radius: 1.5rem;
             padding: 1.25rem;
             position: relative;
@@ -385,53 +383,15 @@
             left: 0;
             right: 0;
             height: 4px;
+            background: var(--color-primary);
             transition: var(--transition-smooth);
-        }
-
-        .simulator-card.po-theme::before {
-            background: linear-gradient(90deg, var(--color-primary), #818cf8);
-        }
-
-        .simulator-card.ux-theme::before {
-            background: linear-gradient(90deg, var(--color-secondary), #22d3ee);
-        }
-
-        .simulator-card.bug-theme::before {
-            background: linear-gradient(90deg, #f97316, #fb923c);
-        }
-
-        .simulator-card.evo-theme::before {
-            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
         }
 
         /* Hover States for Cards */
         .simulator-card:hover {
             transform: translateY(-4px);
             border-color: rgba(15, 23, 42, 0.1);
-        }
-
-        .simulator-card.po-theme:hover {
-            box-shadow: 
-                0 20px 40px rgba(15, 23, 42, 0.06),
-                0 0 35px rgba(99, 102, 241, 0.05);
-        }
-
-        .simulator-card.ux-theme:hover {
-            box-shadow: 
-                0 20px 40px rgba(15, 23, 42, 0.06),
-                0 0 35px rgba(6, 182, 212, 0.05);
-        }
-
-        .simulator-card.bug-theme:hover {
-            box-shadow: 
-                0 20px 40px rgba(15, 23, 42, 0.06),
-                0 0 35px rgba(249, 115, 22, 0.05);
-        }
-
-        .simulator-card.evo-theme:hover {
-            box-shadow: 
-                0 20px 40px rgba(15, 23, 42, 0.06),
-                0 0 35px rgba(139, 92, 246, 0.05);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06), 0 0 35px rgba(30, 58, 138, 0.05);
         }
 
         /* Backlight glows behind icons */
@@ -442,16 +402,12 @@
             width: 250px;
             height: 250px;
             border-radius: 50%;
+            background: var(--color-primary);
             filter: blur(60px);
             opacity: 0.04;
             pointer-events: none;
             transition: var(--transition-smooth);
         }
-
-        .po-theme .backlight { background: var(--color-primary); }
-        .ux-theme .backlight { background: var(--color-secondary); }
-        .bug-theme .backlight { background: #f97316; }
-        .evo-theme .backlight { background: #8b5cf6; }
 
         .simulator-card:hover .backlight {
             opacity: 0.08;
@@ -480,30 +436,9 @@
             box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
             position: relative;
             transition: var(--transition-smooth);
-        }
-
-        .po-theme .card-icon-wrapper {
-            background: rgba(99, 102, 241, 0.06);
-            border: 1px solid rgba(99, 102, 241, 0.15);
-            color: #4f46e5;
-        }
-
-        .ux-theme .card-icon-wrapper {
-            background: rgba(6, 182, 212, 0.06);
-            border: 1px solid rgba(6, 182, 212, 0.15);
-            color: #0891b2;
-        }
-
-        .bug-theme .card-icon-wrapper {
-            background: rgba(249, 115, 22, 0.06);
-            border: 1px solid rgba(249, 115, 22, 0.15);
-            color: #ea580c;
-        }
-
-        .evo-theme .card-icon-wrapper {
-            background: rgba(139, 92, 246, 0.06);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            color: #7c3aed;
+            background: rgba(30, 58, 138, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: var(--text-main);
         }
 
         .simulator-card:hover .card-icon-wrapper {
@@ -529,10 +464,10 @@
         .card-status span.status-dot {
             width: 5px;
             height: 5px;
-            background: var(--color-emerald);
+            background: #047857;
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 6px var(--color-emerald);
+            box-shadow: 0 0 6px #047857;
         }
 
         /* Statut "À venir" */
@@ -543,8 +478,8 @@
         }
 
         .card-status.coming span.status-dot {
-            background: #f59e0b;
-            box-shadow: 0 0 6px #f59e0b;
+            background: #92400e;
+            box-shadow: 0 0 6px #92400e;
             animation: none;
         }
 
@@ -564,12 +499,8 @@
             letter-spacing: 0.08em;
             position: relative;
             z-index: 2;
+            color: var(--text-main);
         }
-
-        .po-theme .card-meta  { color: #4f46e5; }
-        .ux-theme .card-meta  { color: #0891b2; }
-        .bug-theme .card-meta { color: #ea580c; }
-        .evo-theme .card-meta { color: #7c3aed; }
 
         h2 {
             font-family: var(--font-display);
@@ -626,13 +557,13 @@
 
         /* Dynamic Score display inside specs */
         .score-pill {
-            background: rgba(99, 102, 241, 0.06);
-            border: 1px solid rgba(99, 102, 241, 0.15);
+            background: rgba(30, 58, 138, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             padding: 0.1rem 0.5rem;
             border-radius: 6px;
             font-family: monospace;
             font-size: 0.75rem;
-            color: #4f46e5;
+            color: var(--text-main);
             font-weight: 700;
         }
 
@@ -658,63 +589,15 @@
             border: none;
             box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
             flex-shrink: 0;
-        }
-
-        .po-theme .cta-button {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #4338ca 100%);
+            background: var(--color-primary);
             color: #ffffff;
         }
-        .po-theme .cta-button:hover {
-            background: linear-gradient(135deg, #5b53e6 0%, #3730a3 100%);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+        
+        .cta-button:hover {
+            background: #1e40af;
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
             transform: scale(1.01);
         }
-
-        .ux-theme .cta-button {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #06b6d4 100%);
-            color: #ffffff;
-        }
-        .ux-theme .cta-button:hover {
-            background: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
-            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2);
-            transform: scale(1.01);
-        }
-
-        /* Vision Product theme (Atelier 3 — émeraude) */
-        .simulator-card.vision-theme::before { background: linear-gradient(90deg, #10b981, #34d399); }
-        .simulator-card.vision-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(16,185,129,0.05); }
-        .vision-theme .backlight { background: #10b981; }
-        .vision-theme .card-icon-wrapper { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.15); color: #059669; }
-        .vision-theme .card-meta { color: #059669; }
-        .vision-theme .cta-button { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
-        .vision-theme .cta-button:hover { background: linear-gradient(135deg, #059669, #047857); box-shadow: 0 8px 20px rgba(16,185,129,0.2); transform: scale(1.01); }
-
-        /* Support Product theme (Atelier 4 — rose) */
-        .simulator-card.run-support-theme::before { background: linear-gradient(90deg, #f43f5e, #fb7185); }
-        .simulator-card.run-support-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(244,63,94,0.05); }
-        .run-support-theme .backlight { background: #f43f5e; }
-        .run-support-theme .card-icon-wrapper { background: rgba(244,63,94,0.06); border: 1px solid rgba(244,63,94,0.15); color: #e11d48; }
-        .run-support-theme .card-meta { color: #e11d48; }
-        .run-support-theme .cta-button { background: linear-gradient(135deg, #f43f5e, #e11d48); color: #fff; }
-        .run-support-theme .cta-button:hover { background: linear-gradient(135deg, #e11d48, #be123c); box-shadow: 0 8px 20px rgba(244,63,94,0.2); transform: scale(1.01); }
-
-        /* Innovation Product theme (Atelier 5 — or chaud) */
-        .simulator-card.innov-theme::before { background: linear-gradient(90deg, #d97706, #fbbf24); }
-        .simulator-card.innov-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(217,119,6,0.05); }
-        .innov-theme .backlight { background: #d97706; }
-        .innov-theme .card-icon-wrapper { background: rgba(217,119,6,0.06); border: 1px solid rgba(217,119,6,0.15); color: #b45309; }
-        .innov-theme .card-meta { color: #b45309; }
-        .innov-theme .cta-button { background: linear-gradient(135deg, #d97706, #b45309); color: #fff; }
-        .innov-theme .cta-button:hover { background: linear-gradient(135deg, #b45309, #92400e); box-shadow: 0 8px 20px rgba(217,119,6,0.2); transform: scale(1.01); }
-
-        /* Data Product theme (Atelier 6 — ciel) */
-        .simulator-card.data-theme::before { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
-        .simulator-card.data-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(14,165,233,0.05); }
-        .data-theme .backlight { background: #0ea5e9; }
-        .data-theme .card-icon-wrapper { background: rgba(14,165,233,0.06); border: 1px solid rgba(14,165,233,0.15); color: #0284c7; }
-        .data-theme .card-meta { color: #0284c7; }
-        .data-theme .cta-button { background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; }
-        .data-theme .cta-button:hover { background: linear-gradient(135deg, #0284c7, #0369a1); box-shadow: 0 8px 20px rgba(14,165,233,0.2); transform: scale(1.01); }
 
         /* Boutons "À venir" — désactivés */
         .cta-button.disabled {
@@ -766,7 +649,7 @@
         }
 
         footer a:hover {
-            color: var(--color-secondary);
+            color: var(--color-primary);
         }
 
         /* Core Animations */
@@ -801,16 +684,17 @@
             0%, 100% {
                 transform: scale(1);
                 opacity: 1;
-                box-shadow: 0 0 6px var(--color-emerald);
+                box-shadow: 0 0 6px #047857;
             }
             50% {
                 transform: scale(1.2);
                 opacity: 0.6;
-                box-shadow: 0 0 10px var(--color-emerald);
+                box-shadow: 0 0 10px #047857;
             }
         }
     </style>
-</head>
+
+    </head>
 <body>
 
     <div class="container">
@@ -823,7 +707,7 @@
                     <span class="pulse-dot"></span>
                     <span>Simulation Métier</span>
                 </div>
-                <h1 id="title">Simulation ESIS-3D</h1>
+                <h1 id="title">WORKSHOPS EPICONCEPT DEPISTAGE</h1>
                 <p class="subtitle" id="desc">
                     Développez vos réflexes Product sur des cas concrets.
                 </p>
@@ -860,43 +744,67 @@
                         <span class="atelier-phase">Phase Discovery I</span>
                     </div>
                     <p class="atelier-objective">Réfléchir sur les besoins réels des utilisateurs via la démarche Design Thinking.</p>
+                    
                 </div>
+                
+                <article class="simulator-card po-theme" style="border-top: 4px solid var(--color-primary); border-left: none; border-right: none; border-bottom: none;">
+                    <div class="backlight"></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15, 23, 42, 0.06); color: var(--text-main);"><i data-lucide="lightbulb"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">1 - Design Thinking</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <div class="card-status"><span class="status-dot"></span><span>Théorie</span></div>
+                        </div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Principes du Design Thinking (Empathie, Définition, Idéation, Prototype, Test).</p>
+    </div>
+                    <button onclick="openComprendre(1)" class="cta-button">
+                        <span>Comprendre</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </article>
                 <article class="simulator-card po-theme" id="po-card">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">🎯</div>
-                        <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <span class="score-pill" id="po-local-score">0 / 36</span>
-                            <div class="card-status"><span class="status-dot"></span><span>Opérationnel</span></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="target"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">A - Besoins utilisateurs</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <div class="card-status"><span class="status-dot"></span><span>Pratique</span></div>
                         </div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Design Product</span>
-                        <h2>A - Besoins utilisateurs</h2>
-                        <p class="card-description">Maîtrisez les 12 réflexes du PO face aux frictions clients et arbitrages de roadmap. Apprenez à creuser l'intention, quantifier l'irritant, et valoriser le minimal pour guider le produit.</p>
-                    </div>
-                    <a href="./po.html" class="cta-button" id="po-btn" aria-label="Lancer le simulateur PO">
-                        <span>Lancer</span>
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Maîtrisez les réflexes PO face aux frictions : creusez l'intention et quantifiez l'irritant.</p>
+    </div>
+                    <a href="./1a.html" class="cta-button" id="po-btn" aria-label="Lancer le simulateur PO" style="position: relative; display: flex; align-items: center; justify-content: center; padding-right: 4.5rem; padding-left: 4.5rem;">
+                        <span style="display: flex; align-items: center; gap: 0.4rem;">Explorer <i data-lucide="arrow-right"></i></span>
+                        <span id="po-local-score" style="font-size: 0.8rem; font-weight: 600; background: rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);; position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%);">0 / 36</span>
                     </a>
                 </article>
                 <article class="simulator-card ux-theme" id="ux-card">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">🎨</div>
-                        <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <span class="score-pill" id="ux-local-score">0 / 36</span>
-                            <div class="card-status"><span class="status-dot"></span><span>Opérationnel</span></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="palette"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">B - Conception UX/UI</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <div class="card-status"><span class="status-dot"></span><span>Pratique</span></div>
                         </div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Design Product</span>
-                        <h2>B - Conception UX/UI</h2>
-                        <p class="card-description">Validez vos choix d'interface médicale. Identifiez les 12 principes fondamentaux de design (saisie assistée, prévention d'erreurs, double-codage) appliqués au quotidien du personnel de santé.</p>
-                    </div>
-                    <a href="./ux.html" class="cta-button" id="ux-btn" aria-label="Lancer le simulateur UX">
-                        <span>Lancer</span>
-                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).</p>
+    </div>
+                    <a href="./1b.html" class="cta-button" id="ux-btn" aria-label="Lancer le simulateur UX" style="position: relative; display: flex; align-items: center; justify-content: center; padding-right: 4.5rem; padding-left: 4.5rem;">
+                        <span style="display: flex; align-items: center; gap: 0.4rem;">Explorer <i data-lucide="arrow-right"></i></span>
+                        <span id="ux-local-score" style="font-size: 0.8rem; font-weight: 600; background: rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);; position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%);">0 / 36</span>
                     </a>
                 </article>
             </section>
@@ -912,31 +820,57 @@
                         <span class="atelier-phase">Phase Delivery I</span>
                     </div>
                     <p class="atelier-objective">Transformer le besoin en unités de développement actionnables et garantir la qualité.</p>
+                    
                 </div>
-                <article class="simulator-card bug-theme" id="bug-card">
+                
+                <article class="simulator-card bug-theme disabled-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">🐞</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Cadrage Produit</span>
-                        <h2>C - Bugs &amp; Qualité</h2>
-                        <p class="card-description">Structurez votre approche face aux anomalies : reproduire l'incident, évaluer l'impact métier, proposer un contournement et piloter la correction jusqu'à la validation.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="rocket"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">2 - Minimal Viable Product</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        </div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Méthodologie du Delivery (Scrum, Kanban, QA) pour sécuriser le développement.</p>
+    </div>
+                    <button class="cta-button disabled">
+                        <span>Bientôt disponible</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </article>
+                <article class="simulator-card bug-theme disabled-card" id="bug-card" style="opacity: 0.7;">
+                    <div class="backlight"></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="bug"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">C - Bugs &amp; Qualité</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Gérez les anomalies : évaluation de l'impact, contournement et suivi de correction.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
-                <article class="simulator-card evo-theme" id="evo-card">
+                <article class="simulator-card evo-theme disabled-card" id="evo-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">✨</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Cadrage Produit</span>
-                        <h2>D - Évolutions &amp; Specs</h2>
-                        <p class="card-description">Transformez les besoins terrain en fonctionnalités actionnables : cadrez l'intention, découpez en stories, rédigez des critères d'acceptation clairs et priorisez par impact métier.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="sparkles"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">D - Évolutions &amp; Specs</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
             </section>
@@ -953,30 +887,52 @@
                     </div>
                     <p class="atelier-objective">Anticiper les évolutions stratégiques et construire la trajectoire produit long terme.</p>
                 </div>
-                <article class="simulator-card vision-theme" id="roadmap-card">
+                
+                <article class="simulator-card vision-theme disabled-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">🗻</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="layers"></i></div>
+                        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">3 - Product Backlog</h2>
+                        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        </div>
                     </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Vision Produit</span>
-                        <h2>E - Roadmap &amp; Jalons</h2>
-                        <p class="card-description">Priorisez les fonctionnalités à fort impact, découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques selon la vision produit long terme.</p>
+                    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.</p>
                     </div>
+                    <button class="cta-button disabled">
+                        <span>Bientôt disponible</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </article>
+                <article class="simulator-card vision-theme disabled-card" id="roadmap-card" style="opacity: 0.7;">
+                    <div class="backlight"></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="mountain"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">E - Roadmap &amp; Jalons</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
-                <article class="simulator-card vision-theme" id="features-card">
+                <article class="simulator-card vision-theme disabled-card" id="features-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">🔭</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Vision Produit</span>
-                        <h2>F - Features Discovery</h2>
-                        <p class="card-description">Explorez les nouvelles opportunités de valeur : qualifier les signaux terrain, investiguer les besoins émergents et formuler des hypothèses de fonctionnalités actionnables.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="telescope"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">F - Features Discovery</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
             </section>
@@ -993,30 +949,55 @@
                     </div>
                     <p class="atelier-objective">Assurer la stabilité opérationnelle et l'assistance aux utilisateurs au quotidien.</p>
                 </div>
-                <article class="simulator-card run-support-theme" id="run-card">
+                
+                <article class="simulator-card run-support-theme disabled-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">🔧</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Support Produit</span>
-                        <h2>G - Run &amp; Error Tracking</h2>
-                        <p class="card-description">Surveillez la santé du produit en production : analyser les logs, identifier les anomalies critiques et déclencher les actions correctives au bon niveau d'escalade.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="shield-check"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">4 - Service-Level-Agreement</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        </div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Comprendre comment organiser le run, prioriser les anomalies en production et communiquer avec les utilisateurs impactés.</p>
+    </div>
+                    <button class="cta-button disabled">
+                        <span>Bientôt disponible</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </article>
+                <article class="simulator-card run-support-theme disabled-card" id="run-card" style="opacity: 0.7;">
+                    <div class="backlight"></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="wrench"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">G - Run &amp; Error Tracking</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Surveillez les logs, analysez les incidents et déclenchez les actions de maintenance.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
-                <article class="simulator-card run-support-theme" id="support-card">
+                <article class="simulator-card run-support-theme disabled-card" id="support-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">📋</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Support Produit</span>
-                        <h2>H - Ticketing &amp; Documentation</h2>
-                        <p class="card-description">Structurez la relation utilisateur post-livraison : gérer le ticketing, rédiger une base de connaissance claire et mesurer la satisfaction terrain au quotidien.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="clipboard-list"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">H - Ticketing &amp; Documentation</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
             </section>
@@ -1033,30 +1014,55 @@
                     </div>
                     <p class="atelier-objective">Explorer de nouveaux horizons et valider des idées en rupture sans risque.</p>
                 </div>
-                <article class="simulator-card innov-theme" id="veille-card">
+                
+                <article class="simulator-card innov-theme disabled-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">🔍</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Innovation Produit</span>
-                        <h2>I - Veille &amp; Benchmark</h2>
-                        <p class="card-description">Observez les tendances métier et technologiques, analysez la concurrence et identifiez les signaux faibles pour positionner le produit et nourrir la vision stratégique.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="flask-conical"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">5 - Lean Startup</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        </div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses disruptives sans gaspiller de ressources.</p>
+    </div>
+                    <button class="cta-button disabled">
+                        <span>Bientôt disponible</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </article>
+                <article class="simulator-card innov-theme disabled-card" id="veille-card" style="opacity: 0.7;">
+                    <div class="backlight"></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="search"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">I - Veille &amp; Benchmark</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
-                <article class="simulator-card innov-theme" id="poc-card">
+                <article class="simulator-card innov-theme disabled-card" id="poc-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">⚗️</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Innovation Produit</span>
-                        <h2>J - Preuve de Concept (POC)</h2>
-                        <p class="card-description">Testez une idée innovante rapidement avec un prototype simplifié : définir l'hypothèse, cadrer le périmètre minimal et valider par l'expérimentation terrain sans risque.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="flask-conical"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">J - Preuve de Concept (POC)</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Expérimentez vos idées avec un POC rapide pour valider les hypothèses sans risque.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
             </section>
@@ -1073,30 +1079,55 @@
                     </div>
                     <p class="atelier-objective">Piloter le produit par la preuve et mesurer l'impact des fonctionnalités.</p>
                 </div>
-                <article class="simulator-card data-theme" id="analytics-card">
+                
+                <article class="simulator-card data-theme disabled-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">📊</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Data Produit</span>
-                        <h2>K - Analytics &amp; Parcours</h2>
-                        <p class="card-description">Explorez les données d'usage pour comprendre le comportement utilisateur, identifier les points de friction et valider les hypothèses produit par la donnée terrain.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="pie-chart"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">6 - Data Driven</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        </div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.</p>
+    </div>
+                    <button class="cta-button disabled">
+                        <span>Bientôt disponible</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </article>
+                <article class="simulator-card data-theme disabled-card" id="analytics-card" style="opacity: 0.7;">
+                    <div class="backlight"></div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="bar-chart-2"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">K - Analytics &amp; Parcours</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Analysez les données d'usage, identifiez les frictions et validez par les KPIs.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
-                <article class="simulator-card data-theme" id="kpi-card">
+                <article class="simulator-card data-theme disabled-card" id="kpi-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
-                    <div class="card-header">
-                        <div class="card-icon-wrapper" aria-hidden="true">📈</div>
-                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-                    </div>
-                    <div class="card-body-content">
-                        <span class="card-meta">Data Produit</span>
-                        <h2>L - KPIs &amp; Tableaux de Bord</h2>
-                        <p class="card-description">Construisez un système de mesure pertinent : définir les indicateurs clés, concevoir des dashboards lisibles et piloter les décisions produit par la preuve et l'impact mesurable.</p>
-                    </div>
+                    
+    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="line-chart"></i></div>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">L - KPIs &amp; Tableaux de Bord</h2>
+        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+        </div>
+    </div>
+    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Définissez les indicateurs clés et construisez des tableaux de bord décisionnels efficaces.</p>
+    </div>
                     <button class="cta-button disabled" disabled>Bientôt disponible</button>
                 </article>
             </section>
@@ -1192,7 +1223,286 @@
                     document.getElementById('ux-btn').click();
                 });
             }
+            
+            lucide.createIcons();
         });
     </script>
+
+<!-- Comprendre Modal -->
+<div id="comprendre-modal" class="fixed inset-0 bg-slate-900 z-[100] hidden flex-col text-white" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0f172a; z-index: 100; display: none; flex-direction: column; overflow: hidden; font-family: var(--font-body);">
+    
+    <!-- Bouton de fermeture absolu (Header supprimé) -->
+    <button onclick="closeComprendre()" style="position: absolute; top: 2rem; right: 2rem; z-index: 110; background: rgba(255,255,255,0.1); border: none; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+        <i data-lucide="x"></i>
+    </button>
+
+    
+    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; padding: 2rem;">
+        
+        <!-- Slide 1 : Le Double Diamant -->
+        <div class="comprendre-slide" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 900px; animation: fadeIn 0.3s; width: 100%;">
+            <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem;">Le Double Diamant</h2>
+            <p style="font-size: 1.2rem; color: #94a3b8; margin-bottom: 2rem;">Le processus s'articule autour de deux phases de divergence et convergence.</p>
+            
+            <div style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 1rem;">
+                <svg viewBox="0 0 800 350" width="100%" height="100%" style="max-height: 350px;">
+                    <!-- Definitions for gradients or dashed patterns if needed -->
+                    <!-- Left Diamond (Le Problème) -->
+                    <polygon points="200,70 350,200 200,330 50,200" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="4" stroke-dasharray="8,8"/>
+                    <line x1="200" y1="70" x2="200" y2="330" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+                    
+                    <text x="125" y="205" fill="white" font-weight="bold" font-size="14" text-anchor="middle">EXPLORER</text>
+                    <text x="275" y="205" fill="white" font-weight="bold" font-size="14" text-anchor="middle">PRÉCISER</text>
+
+                    <!-- Text below left diamond -->
+                    <text x="125" y="280" fill="#f87171" font-weight="bold" font-size="10" text-anchor="middle">S'ÉLARGIT</text>
+                    <text x="275" y="280" fill="#f87171" font-weight="bold" font-size="10" text-anchor="middle">SE RÉTRÉCIT</text>
+
+                    <!-- Right Diamond (La Solution) -->
+                    <polygon points="500,70 650,200 500,330 350,200" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="4" stroke-dasharray="8,8"/>
+                    <line x1="500" y1="70" x2="500" y2="330" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+
+                    <text x="425" y="205" fill="white" font-weight="bold" font-size="14" text-anchor="middle">DÉVELOPPER</text>
+                    <text x="575" y="205" fill="white" font-weight="bold" font-size="14" text-anchor="middle">LIVRER</text>
+
+                    <!-- Text below right diamond -->
+                    <text x="425" y="280" fill="#f87171" font-weight="bold" font-size="10" text-anchor="middle">S'ÉLARGIT</text>
+                    <text x="575" y="280" fill="#f87171" font-weight="bold" font-size="10" text-anchor="middle">SE RÉTRÉCIT</text>
+
+                    <!-- Main Titles -->
+                    <text x="200" y="40" fill="white" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="1">LE PROBLÈME</text>
+                    <text x="500" y="40" fill="white" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="1">LA SOLUTION</text>
+                    
+                    <!-- Arrows at intersection points -->
+                    <text x="50" y="180" fill="#94a3b8" font-weight="bold" font-size="10" text-anchor="middle">DONNÉES</text>
+                    <path d="M50,185 L45,195 L55,195 Z" fill="#94a3b8" />
+                    
+                    <text x="350" y="180" fill="#94a3b8" font-weight="bold" font-size="10" text-anchor="middle">DÉFINITION</text>
+                    <path d="M350,185 L345,195 L355,195 Z" fill="#94a3b8" />
+                    
+                    <text x="650" y="180" fill="#94a3b8" font-weight="bold" font-size="10" text-anchor="middle">SOLUTION</text>
+                    <path d="M650,185 L645,195 L655,195 Z" fill="#94a3b8" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Slide 2 : Le Cercle d'Or -->
+        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 900px; animation: fadeIn 0.3s; width: 100%;">
+            <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 2rem;">Le Cercle d'Or</h2>
+            <p style="font-size: 1.2rem; color: #94a3b8; margin-bottom: 3rem;">Penser de l'intérieur vers l'extérieur pour garantir l'impact (Golden Circle - Simon Sinek).</p>
+            <div style="position: relative; width: 400px; height: 400px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                <div style="position: absolute; width: 400px; height: 400px; border-radius: 50%; background: rgba(59, 130, 246, 0.05); border: 2px dashed #3b82f6; display: flex; align-items: flex-start; justify-content: center; padding-top: 2rem; font-weight: 900; font-size: 1.5rem; color: #60a5fa; letter-spacing: 0.1em;">QUOI ?</div>
+                <div style="position: absolute; width: 280px; height: 280px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); border: 2px dashed #10b981; display: flex; align-items: flex-start; justify-content: center; padding-top: 2rem; font-weight: 900; font-size: 1.5rem; color: #34d399; letter-spacing: 0.1em;">COMMENT ?</div>
+                <div style="position: absolute; width: 160px; height: 160px; border-radius: 50%; background: #fbbf24; border: 4px solid #f59e0b; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #78350f; font-size: 1.5rem; letter-spacing: 0.1em; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);">POURQUOI ?</div>
+            </div>
+            <p style="font-size: 1.1rem; color: #94a3b8; margin-top: 2rem; max-width: 600px;">On ne commence pas par construire les fonctionnalités (Quoi), ni par définir la technologie (Comment). On commence toujours par le but et le sens (Pourquoi).</p>
+        </div>
+
+        <!-- Slide 3 : Personas -->
+        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 1100px; animation: fadeIn 0.3s; width: 100%;">
+            <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 1.5rem;">Les Personas Clés (Dépistage)</h2>
+            <p style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 2rem;">La conception doit répondre aux besoins spécifiques des 6 acteurs interagissant avec le logiciel.</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; width: 100%; text-align: left;">
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1);"><i data-lucide="user" style="color:#3b82f6; width:32px; height:32px; margin-bottom:1rem;"></i><h4 style="font-weight:900; font-size:1.2rem; margin-bottom:0.5rem; color: white;">Le Patient</h4><p style="font-size:0.95rem; color:#cbd5e1; line-height: 1.4;">Au centre du dispositif. Cherche à comprendre et suivre son parcours de dépistage de façon sécurisée, claire et sans stress.</p></div>
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1);"><i data-lucide="users" style="color:#f59e0b; width:32px; height:32px; margin-bottom:1rem;"></i><h4 style="font-weight:900; font-size:1.2rem; margin-bottom:0.5rem; color: white;">Le Proche</h4><p style="font-size:0.95rem; color:#cbd5e1; line-height: 1.4;">L'accompagnateur. A besoin d'être rassuré sur la prise en charge et nécessite souvent un accès délégué strictement contrôlé.</p></div>
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1);"><i data-lucide="stethoscope" style="color:#10b981; width:32px; height:32px; margin-bottom:1rem;"></i><h4 style="font-weight:900; font-size:1.2rem; margin-bottom:0.5rem; color: white;">Le Médecin</h4><p style="font-size:0.95rem; color:#cbd5e1; line-height: 1.4;">Le décideur clinique. Souhaite des alertes immédiates sur les résultats anormaux et un accès très rapide au dossier médical.</p></div>
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1);"><i data-lucide="syringe" style="color:#ec4899; width:32px; height:32px; margin-bottom:1rem;"></i><h4 style="font-weight:900; font-size:1.2rem; margin-bottom:0.5rem; color: white;">L'Infirmier(e)</h4><p style="font-size:0.95rem; color:#cbd5e1; line-height: 1.4;">Sur le terrain. Effectue l'acte de prélèvement. A besoin d'une interface de saisie ultra-rapide pour ne pas perdre de temps.</p></div>
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1);"><i data-lucide="clipboard-check" style="color:#8b5cf6; width:32px; height:32px; margin-bottom:1rem;"></i><h4 style="font-weight:900; font-size:1.2rem; margin-bottom:0.5rem; color: white;">Le Gestionnaire</h4><p style="font-size:0.95rem; color:#cbd5e1; line-height: 1.4;">L'administratif. Organise les flux, les rendez-vous, les envois de courriers et la gestion logistique des kits de dépistage.</p></div>
+                <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1);"><i data-lucide="pie-chart" style="color:#06b6d4; width:32px; height:32px; margin-bottom:1rem;"></i><h4 style="font-weight:900; font-size:1.2rem; margin-bottom:0.5rem; color: white;">Le Rapporteur</h4><p style="font-size:0.95rem; color:#cbd5e1; line-height: 1.4;">L'analyste de santé publique. Consolide les données massives pour produire des statistiques et piloter les campagnes nationales.</p></div>
+            </div>
+        </div>
+
+        <!-- Slide 4 : User Mapping (SVG) -->
+        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 1200px; animation: fadeIn 0.3s; width: 100%;">
+            <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem;">User Mapping : Le Parcours</h2>
+            <p style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 2rem;">Scénarios, décisions et interactions entre les différents acteurs du système.</p>
+            <div style="width: 100%; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; overflow: visible;">
+                <svg viewBox="0 0 950 520" width="100%" height="100%" style="max-height: 520px; font-family: var(--font-body), sans-serif; overflow: visible;">
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+                        </marker>
+                        <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+                        </marker>
+                        <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
+                        </marker>
+                    </defs>
+
+                    <!-- A -> B -->
+                    <path d="M 210 80 L 275 80" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+                    <text x="245" y="70" fill="#94a3b8" font-size="12" text-anchor="middle">Invitation</text>
+
+                    <!-- B -> Z (Non) -->
+                    <path d="M 440 80 L 505 80" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)" />
+                    <text x="475" y="70" fill="#ef4444" font-size="12" font-weight="bold" text-anchor="middle">Non</text>
+
+                    <!-- B -> C (Oui) -->
+                    <path d="M 360 130 L 360 145" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow-green)" />
+                    <text x="370" y="142" fill="#10b981" font-size="12" font-weight="bold" text-anchor="start">Oui</text>
+
+                    <!-- C -> D -->
+                    <path d="M 440 180 L 505 180" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+                    <!-- D -> E -->
+                    <path d="M 670 180 L 735 180" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+                    <!-- E -> F -->
+                    <path d="M 820 210 L 820 245" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+                    <text x="830" y="232" fill="#94a3b8" font-size="12" text-anchor="start">Prélèvement</text>
+
+                    <!-- F -> G -->
+                    <path d="M 740 280 L 675 280" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+                    <text x="707" y="270" fill="#94a3b8" font-size="12" text-anchor="middle">Analyse</text>
+
+                    <!-- G -> H (Positif) -->
+                    <path d="M 510 280 L 445 280" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)" />
+                    <text x="477" y="270" fill="#ef4444" font-size="12" font-weight="bold" text-anchor="middle">Positif</text>
+
+                    <!-- G -> I (Négatif) -->
+                    <path d="M 590 330 L 590 345" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow-green)" />
+                    <text x="600" y="342" fill="#10b981" font-size="12" font-weight="bold" text-anchor="start">Négatif</text>
+
+                    <!-- H -> J -->
+                    <path d="M 280 280 L 215 280" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+                    <!-- I -> K -->
+                    <path d="M 670 380 L 735 380" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+                    <!-- J -> L -->
+                    <path d="M 130 310 L 130 480 L 390 480" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+                    
+                    <!-- K -> L -->
+                    <path d="M 820 410 L 820 480 L 560 480" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+
+                    <!-- Nodes -->
+                    <!-- A -->
+                    <rect x="50" y="50" width="160" height="60" rx="30" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="130" y="85" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Patient / Proche</text>
+
+                    <!-- B -->
+                    <polygon points="360,30 440,80 360,130 280,80" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="360" y="85" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Consentement?</text>
+
+                    <!-- Z -->
+                    <rect x="510" y="50" width="160" height="60" rx="30" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="2"/>
+                    <text x="590" y="85" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Fin du parcours</text>
+
+                    <!-- C -->
+                    <rect x="280" y="150" width="160" height="60" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="#94a3b8" stroke-width="2"/>
+                    <text x="360" y="185" fill="white" font-size="14" text-anchor="middle">Saisie d'infos</text>
+
+                    <!-- D -->
+                    <rect x="510" y="150" width="160" height="60" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="#94a3b8" stroke-width="2"/>
+                    <text x="590" y="185" fill="white" font-size="14" text-anchor="middle">Génération Kit</text>
+
+                    <!-- E -->
+                    <rect x="740" y="150" width="160" height="60" rx="30" fill="rgba(236, 72, 153, 0.2)" stroke="#ec4899" stroke-width="2"/>
+                    <text x="820" y="185" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Infirmier(e)</text>
+
+                    <!-- F -->
+                    <rect x="740" y="250" width="160" height="60" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="#94a3b8" stroke-width="2"/>
+                    <text x="820" y="285" fill="white" font-size="14" text-anchor="middle">Laboratoire</text>
+
+                    <!-- G -->
+                    <polygon points="590,230 670,280 590,330 510,280" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="590" y="285" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Résultat?</text>
+
+                    <!-- H -->
+                    <rect x="280" y="250" width="160" height="60" rx="8" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="2"/>
+                    <text x="360" y="285" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Alerte Médecin</text>
+
+                    <!-- J -->
+                    <rect x="50" y="250" width="160" height="60" rx="30" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
+                    <text x="130" y="285" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Prise en charge</text>
+
+                    <!-- I -->
+                    <rect x="510" y="350" width="160" height="60" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="#94a3b8" stroke-width="2"/>
+                    <text x="590" y="385" fill="white" font-size="14" text-anchor="middle">Notification Patient</text>
+
+                    <!-- K -->
+                    <rect x="740" y="350" width="160" height="60" rx="30" fill="rgba(255, 255, 255, 0.1)" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="820" y="385" fill="white" font-size="14" text-anchor="middle">Clôture Dossier</text>
+
+                    <!-- L (Database Cylinder) -->
+                    <path d="M 395 465 L 395 495 C 395 510, 555 510, 555 495 L 555 465" fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" stroke-width="2"/>
+                    <ellipse cx="475" cy="465" rx="80" ry="10" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="475" y="490" fill="white" font-weight="bold" font-size="14" text-anchor="middle">Base Rapporteur</text>
+                </svg>
+            </div>
+        </div>
+        <!-- Navigation Buttons -->
+        <button onclick="changeSlide(-1)" style="position: absolute; left: 2rem; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <i data-lucide="chevron-left" style="width: 32px; height: 32px;"></i>
+        </button>
+        <button onclick="changeSlide(1)" style="position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); background: #1e3a8a; border: none; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; box-shadow: 0 10px 25px rgba(30,58,138,0.5);" onmouseover="this.style.background='#2563eb'" onmouseout="this.style.background='#1e3a8a'">
+            <i data-lucide="chevron-right" style="width: 32px; height: 32px;"></i>
+        </button>
+    </div>
+    
+    <!-- Progress Dots -->
+    <div style="display: flex; justify-content: center; gap: 0.5rem; padding: 2rem;">
+        <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: #3b82f6; transition: 0.3s;"></div>
+        <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: 0.3s;"></div>
+        <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: 0.3s;"></div>
+        <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: 0.3s;"></div>
+    </div>
+</div>
+
+<script>
+let currentSlide = 0;
+
+
+function openComprendre(atelierId) {
+    if(atelierId !== 1) return;
+    document.getElementById('comprendre-modal').style.display = 'flex';
+    currentSlide = 0;
+    updateSlides();
+}
+function closeComprendre() {
+    document.getElementById('comprendre-modal').style.display = 'none';
+}
+function changeSlide(dir) {
+    const slides = document.querySelectorAll('.comprendre-slide');
+    currentSlide += dir;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+    updateSlides();
+}
+function updateSlides() {
+    const slides = document.querySelectorAll('.comprendre-slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    slides.forEach((s, i) => {
+        s.style.display = (i === currentSlide) ? 'flex' : 'none';
+        if (dots[i]) {
+            dots[i].style.background = (i === currentSlide) ? '#3b82f6' : 'rgba(255,255,255,0.2)';
+        }
+    });
+    
+    // Render Mermaid on Slide 4
+    if (currentSlide === 3 && !mermaidRendered && window.mermaid) {
+        mermaidRendered = true;
+        setTimeout(() => {
+            mermaid.initialize({ startOnLoad: false, theme: 'base', themeVariables: { darkMode: true, primaryColor: '#1e3a8a', primaryTextColor: '#fff', lineColor: '#3b82f6' } });
+            mermaid.init(undefined, document.getElementById('mermaid-diagram'));
+        }, 100);
+    }
+}
+
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('comprendre-modal');
+    if (modal && modal.style.display === 'flex') {
+        if (e.key === 'ArrowRight') {
+            changeSlide(1);
+        } else if (e.key === 'ArrowLeft') {
+            changeSlide(-1);
+        } else if (e.key === 'Escape') {
+            closeComprendre();
+        }
+    }
+});
+
+</script>
 </body>
 </html>

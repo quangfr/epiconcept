@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B - Conception UX/UI - ESIS-3D</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; color: #1E293B; overflow: hidden; height: 100vh; }
@@ -14,7 +15,7 @@
         
         /* Boutons de Phase 1 */
         .reflex-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #F8FAFC; }
-        .reflex-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #818CF8; box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1); }
+        .reflex-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #818CF8; box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.15); }
         
         /* Boutons UI de Phase 2 */
         .ui-btn { transition: all 0.2s; border: 2px solid #F1F5F9; background: #FAFAF9; }
@@ -22,15 +23,15 @@
         
         /* Animations de Validation/Erreur */
         @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-        .shake { animation: shake 0.3s ease-in-out; border-color: #EF4444 !important; background-color: #FEF2F2 !important; }
-        .correct { border-color: #10B981 !important; background-color: #ECFDF5 !important; }
+        .shake { animation: shake 0.3s ease-in-out; border-color: #b91c1c !important; background-color: #FEF2F2 !important; }
+        .correct { border-color: #047857 !important; background-color: #ECFDF5 !important; }
         
         .scenario-text { font-size: clamp(0.9rem, 1.1vw, 1.15rem); line-height: 1.6; }
         .explanation-overlay { animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
         
         .level-card { transition: all 0.3s ease; cursor: pointer; }
-        .level-card:hover { transform: scale(1.02); border-color: #6366F1; }
+        .level-card:hover { transform: scale(1.02); border-color: #1e3a8a; }
         
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -52,7 +53,7 @@
                     <h2 class="text-2xl font-black text-slate-800 uppercase tracking-tight">📚 Référentiel UX ESIS-3D</h2>
                     <p class="text-slate-500 text-sm font-medium">Les 10 principes et leurs applications concrètes</p>
                 </div>
-                <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-1000">
                     <option value="">-- Aller au Réflexe --</option>
                 </select>
             </div>
@@ -64,59 +65,63 @@
     </div>
 </div>
 
-<div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center justify-center p-6 hidden">
+<div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 hidden overflow-y-auto">
+    <div class="w-full max-w-6xl flex justify-between items-center mb-8 shrink-0">
+        <a href="./index.html" class="flex items-center justify-center bg-white border-2 border-slate-200 w-12 h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" aria-label="Retour au Hub">
+            <i data-lucide="arrow-left"></i>
+        </a>
+        <button onclick="openModal()" class="flex items-center gap-3 bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all">
+            <i data-lucide="library" class="w-5 h-5"></i> Référentiel UX
+        </button>
+    </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
         <div class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">B - Conception <span class="text-indigo-600">UX/UI</span></h1>
+            <h1 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">B - Conception <span class="text-slate-800">UX/UI</span></h1>
             <p class="text-slate-500 font-bold tracking-widest uppercase text-sm">Simulateur de Design d'Interface pour ESIS-3D</p>
         </div>
 
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div onclick="startLevel(0)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
-                <div class="text-5xl mb-4">🐣</div>
+                <i data-lucide="star" class="w-12 h-12 mb-4 text-slate-800"></i>
                 <h2 class="text-xl font-black uppercase text-slate-800">Niveau 1</h2>
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Composants d'interface simples et interactions directes au quotidien.</p>
                 <div class="mt-6 pt-4 border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv0" class="text-2xl font-black text-indigo-600">-- / 12</span>
+                    <span id="score-lv0" class="text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
             </div>
             <div onclick="startLevel(1)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
-                <div class="text-5xl mb-4">🚀</div>
+                <i data-lucide="zap" class="w-12 h-12 mb-4 text-slate-800"></i>
                 <h2 class="text-xl font-black uppercase text-slate-800">Niveau 2</h2>
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Parcours complexes, personnalisation et prévention des erreurs.</p>
                 <div class="mt-6 pt-4 border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv1" class="text-2xl font-black text-indigo-600">-- / 12</span>
+                    <span id="score-lv1" class="text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
             </div>
             <div onclick="startLevel(2)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
-                <div class="text-5xl mb-4">🏆</div>
+                <i data-lucide="trophy" class="w-12 h-12 mb-4 text-slate-800"></i>
                 <h2 class="text-xl font-black uppercase text-slate-800">Niveau 3</h2>
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Architecture d'information, accessibilité et continuité de service.</p>
                 <div class="mt-6 pt-4 border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv2" class="text-2xl font-black text-indigo-600">-- / 12</span>
+                    <span id="score-lv2" class="text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
             </div>
         </div>
+
+        </div>
     </div>
-    
-    <div class="mb-8 flex gap-4">
-        <a href="./index.html" class="flex items-center gap-3 bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-sm transition-all" style="text-decoration: none;">
-            <span class="text-xl">🏠</span> Retour au Hub
-        </a>
-        <button onclick="openModal()" class="flex items-center gap-3 bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-sm transition-all">
-            <span class="text-xl">📚</span> Consulter le Référentiel des Maquettes
-        </button>
-    </div>
+</div>
 </div>
 
 <header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
     <div class="w-full flex items-center justify-between">
-        <button onclick="goHome()" class="flex items-center gap-2 group">
-            <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-indigo-600 group-hover:text-white transition-colors text-xs">🔙</div>
-            <span class="text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-slate-900 hidden md:inline">Quitter</span>
+        <button onclick="goHome()" class="flex items-center gap-2 group shrink-0" aria-label="Quitter">
+            <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </div>
         </button>
         <div class="flex flex-col items-center">
             <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">ESIS-3D UX Designer</span>
@@ -137,14 +142,14 @@
     <!-- Zone GAUCHE : Contexte (1/3) -->
     <div class="w-full md:w-4/12 flex flex-col gap-3 h-full">
         <!-- Bannière Contexte Maximisée -->
-        <div id="scenario-card" class="glass-panel rounded-3xl p-6 shadow-sm border-indigo-50 flex-grow overflow-hidden relative">
+        <div id="scenario-card" class="glass-panel rounded-3xl p-6 shadow-sm border-slate-100 flex-grow overflow-hidden relative">
             <div class="flex items-center justify-between mb-4 shrink-0">
-                <div class="bg-indigo-600 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse de Situation</div>
-                <div class="text-indigo-400 text-xs font-black uppercase tracking-widest bg-indigo-50 px-2 py-1 rounded" id="step-label">1 / 12</div>
+                <div class="bg-slate-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse de Situation</div>
+                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 12</div>
             </div>
             <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏥</div>
             <div class="overflow-y-auto h-full pr-2 pb-4 flex flex-col gap-4">
-                <div id="scenario-text" class="scenario-text text-slate-700 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-indigo-600 first-letter:mr-3 first-letter:float-left">
+                <div id="scenario-text" class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left">
                     Chargement du scénario...
                 </div>
                 <div id="scenario-visual" class="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex justify-center items-center mockup-container mt-4 hidden"></div>
@@ -183,7 +188,7 @@
                     <div class="flex items-center gap-4 mb-6 shrink-0">
                         <div id="debrief-emoji" class="text-4xl bg-emerald-100 w-16 h-16 flex items-center justify-center rounded-2xl shadow-sm">🎯</div>
                         <div>
-                            <h2 class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight text-emerald-600 mb-0.5">Visuel UX Validé !</h2>
+                            <h2 id="debrief-main-title" class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight mb-0.5">Visuel UX Validé !</h2>
                             <p id="debrief-title" class="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Principe appliqué</p>
                         </div>
                     </div>
@@ -203,14 +208,14 @@
                         <!-- Explication Métier -->
                         <div class="w-full sm:w-7/12 flex flex-col gap-2 min-h-0">
                             <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact Métier ESIS-3D</span>
-                            <div class="bg-indigo-50/70 p-6 rounded-2xl border border-indigo-100 text-sm text-slate-700 font-medium leading-relaxed overflow-y-auto h-full relative">
+                            <div class="bg-slate-100/70 p-6 rounded-2xl border border-slate-200 text-sm text-slate-800 font-medium leading-relaxed overflow-y-auto h-full relative">
                                 <div class="absolute top-4 right-4 text-3xl opacity-20">💡</div>
                                 <div id="debrief-text" class="relative z-10"></div>
                             </div>
                         </div>
                     </div>
 
-                    <button id="btn-next" onclick="nextStep()" class="mt-6 bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0">
+                    <button id="btn-next" onclick="nextStep()" class="mt-6 bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0">
                         Situation Suivante <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </button>
                 </div>
@@ -220,12 +225,13 @@
 </main>
 
 <script>
+
 // Générateurs de mockups Tailwind compacts pour éviter de polluer le JSON
 const M = {
-    radioList: (opts, selIdx) => `<div class="flex flex-col gap-2 w-full">${opts.map((o,i) => `<div class="flex items-center gap-2 p-2 rounded border ${i===selIdx?'border-indigo-500 bg-indigo-50':'border-slate-200 bg-white'}"><div class="w-4 h-4 rounded-full border-2 ${i===selIdx?'border-indigo-500 bg-indigo-500 flex items-center justify-center':''}">${i===selIdx?'<div class="w-1.5 h-1.5 bg-white rounded-full"></div>':''}</div><span class="text-xs font-bold text-slate-700">${o}</span></div>`).join('')}</div>`,
+    radioList: (opts, selIdx) => `<div class="flex flex-col gap-2 w-full">${opts.map((o,i) => `<div class="flex items-center gap-2 p-2 rounded border ${i===selIdx?'border-slate-1000 bg-slate-100':'border-slate-200 bg-white'}"><div class="w-4 h-4 rounded-full border-2 ${i===selIdx?'border-slate-1000 bg-slate-1000 flex items-center justify-center':''}">${i===selIdx?'<div class="w-1.5 h-1.5 bg-white rounded-full"></div>':''}</div><span class="text-xs font-bold text-slate-800">${o}</span></div>`).join('')}</div>`,
     selectBox: (text) => `<div class="w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center"><span>${text}</span><span>▼</span></div>`,
     inputBox: (text) => `<div class="w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-400 italic">${text}</div>`,
-    button: (text, colorClass="bg-indigo-600 text-white") => `<div class="${colorClass} px-4 py-2 rounded text-xs font-bold uppercase tracking-wide text-center w-full shadow-sm">${text}</div>`,
+    button: (text, colorClass="bg-blue-900 text-white") => `<div class="${colorClass} px-4 py-2 rounded text-xs font-bold uppercase tracking-wide text-center w-full shadow-sm">${text}</div>`,
     badge: (text, color) => `<span class="bg-${color}-100 text-${color}-800 border border-${color}-200 px-2 py-0.5 rounded text-[10px] font-bold uppercase">${text}</span>`
 };
 
@@ -314,7 +320,7 @@ function updateProgress() {
         if (i === currentStepIdx) {
             stateClass = answeredSteps[i] 
                 ? "bg-emerald-600 text-white border-emerald-700 ring-2 ring-emerald-200" 
-                : "bg-indigo-600 text-white border-indigo-700 ring-2 ring-indigo-200 shadow-sm transform scale-110";
+                : "bg-blue-900 text-white border-slate-800 ring-2 ring-slate-300 shadow-sm transform scale-110";
         }
 
         btn.className = `w-5 h-5 sm:w-6 sm:h-6 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center justify-center transition-all border cursor-pointer ${stateClass}`;
@@ -360,7 +366,7 @@ function loadStepPhase1() {
     document.getElementById('debriefing-card').classList.add('hidden');
     
     document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du principe UX";
-    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-800 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-900 text-white shrink-0 shadow-md transition-colors";
     
     renderReflexChoices();
 }
@@ -381,7 +387,7 @@ function renderReflexChoices() {
         btn.innerHTML = `
             <div class="text-4xl sm:text-5xl shrink-0 filter drop-shadow-sm">${opt.emoji}</div>
             <div class="flex-grow">
-                <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-indigo-600 leading-tight mb-1">${opt.title}</div>
+                <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
             <span class="info-btn text-2xl opacity-35 hover:opacity-100 hover:scale-110 transition-all p-1.5 bg-slate-50 rounded-full shadow-sm shrink-0" title="Voir la définition dans le référentiel">ℹ️</span>
@@ -413,7 +419,7 @@ function loadStepPhase2() {
     document.getElementById('ui-grid').classList.remove('hidden');
     
     document.getElementById('phase-label-container').innerText = "Phase 2 : Traduction Visuelle";
-    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-500 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-900 text-white shrink-0 shadow-md transition-colors";
     
     // Affiche la validation du principe à gauche
     document.getElementById('phase2-question-container').classList.remove('hidden');
@@ -437,8 +443,8 @@ function renderUIChoices() {
         const btn = document.createElement('button');
         btn.className = "ui-btn p-5 sm:p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6 group w-full text-left relative overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
         btn.innerHTML = `
-            <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2">
-                <div class="font-black text-indigo-600 text-base sm:text-lg uppercase tracking-tight leading-tight">${opt.title}</div>
+            <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2"><div class="flex items-center gap-2 mb-1"><i data-lucide="layout" class="w-5 h-5 text-slate-400 group-hover:text-blue-800"></i></div>
+                <div class="font-black text-slate-800 text-base sm:text-lg uppercase tracking-tight leading-tight">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal pr-3">${opt.expl}</div>
             </div>
             <div class="w-full sm:w-7/12 flex items-center justify-center p-4 sm:p-5 bg-white border border-slate-200 rounded-2xl shadow-sm z-10 mockup-container">
@@ -477,20 +483,20 @@ function showDebriefing(correctOpt) {
     document.getElementById('debrief-title').innerText = `${reflex.emoji} ${reflex.title}`;
     document.getElementById('debrief-ui-title').innerText = correctOpt.title;
     document.getElementById('debrief-ui-visual').innerHTML = correctOpt.visual;
-    let compHtml = `<p class="mb-4 font-semibold text-slate-700">${step.scenario.expl}</p>`;
+    let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl}</p>`;
     compHtml += `
-        <div class="mt-4 pt-4 border-t border-indigo-100/60 space-y-3">
-            <div class="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-2">Analyse comparative des choix :</div>
+        <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
+            <div class="text-[10px] font-black text-slate-1000 uppercase tracking-widest mb-2">Analyse comparative des choix :</div>
             <div class="space-y-2">
-                <div class="text-xs text-slate-700 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
+                <div class="text-xs text-slate-800 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
                     <strong class="text-emerald-700 font-black">🟢 ${step.scenario.correct.title} (Recommandé) :</strong>
                     <p class="mt-0.5 text-slate-600 font-medium">${step.scenario.correct.debriefExpl || step.scenario.correct.expl}</p>
                 </div>
-                <div class="text-xs text-slate-700 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
                     <strong class="text-red-600 font-black">🔴 ${step.scenario.wrong[0].title} :</strong>
                     <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[0].debriefExpl || step.scenario.wrong[0].expl}</p>
                 </div>
-                <div class="text-xs text-slate-700 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
                     <strong class="text-red-600 font-black">🔴 ${step.scenario.wrong[1].title} :</strong>
                     <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[1].debriefExpl || step.scenario.wrong[1].expl}</p>
                 </div>
@@ -513,7 +519,7 @@ function showDebriefing(correctOpt) {
         nextBtn.className = "mt-6 bg-emerald-600 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
     } else {
         nextBtn.innerHTML = "Situation Suivante <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
-        nextBtn.className = "mt-6 bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
+        nextBtn.className = "mt-6 bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
     }
 }
 
@@ -557,7 +563,7 @@ function buildModalContent() {
             <div id="ref-${r.id}" class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex items-center gap-2 mb-1.5">
                     <span class="text-3xl">${r.emoji}</span>
-                    <h3 class="text-lg font-black uppercase text-indigo-600 tracking-tight">${r.title}</h3>
+                    <h3 class="text-lg font-black uppercase text-slate-800 tracking-tight">${r.title}</h3>
                 </div>
                 <p class="text-xs text-slate-600 font-medium mb-3 pb-2 border-b border-slate-100">${r.intent}</p>
                 <div class="space-y-3">
@@ -572,13 +578,13 @@ function buildModalContent() {
                         <div class="absolute inset-0 bg-emerald-500/[0.01] z-0"></div>
                         <div class="w-full relative z-10 transform scale-95">${scen.correct.visual}</div>
                     </div>
-                    <!-- Description sémantique ultra compacte -->
-                    <div class="w-full md:w-8/12 flex flex-col gap-1">
-                        <div class="flex items-center gap-1">
-                            <span class="bg-emerald-500 text-white w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0">✓</span>
-                            <span class="text-xs font-black text-emerald-800 uppercase tracking-tight">${scen.correct.title}</span>
+                    <!-- Description sémantique -->
+                    <div class="w-full md:w-8/12 flex flex-col gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-500 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                            <span class="text-base font-black text-emerald-800 uppercase tracking-tight">${scen.correct.title}</span>
                         </div>
-                        <p class="text-[10px] text-slate-500 font-semibold leading-snug">${scen.correct.expl}</p>
+                        <p class="text-sm text-slate-600 font-medium leading-relaxed">${scen.correct.expl}</p>
                     </div>
                 </div>
             `;
@@ -634,13 +640,16 @@ window.addEventListener('keydown', function(e) {
 
 async function initApp() {
     try {
-        const response = await fetch('./ux.json?v=' + new Date().getTime());
+        const response = await fetch('./1b.json?v=' + new Date().getTime());
         reflexes = await response.json();
         initHome();
+        lucide.createIcons();
     } catch (error) {
         console.error("Error loading reflexes:", error);
     }
 }
+
+
 
 window.onload = initApp;
 </script>
