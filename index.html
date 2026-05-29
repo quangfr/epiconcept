@@ -180,48 +180,197 @@
             margin-top: 0.15rem;
         }
 
-        /* Core Simulator Cards Grid (Full Screen dynamic height) */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+        /* Horizontal Ateliers Scroll */
+        .ateliers-scroll {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            overflow-x: auto;
             flex-grow: 1;
-            min-height: 0; /* Critical for grid nested scrolling or filling */
-            margin-bottom: 1.25rem;
+            min-height: 0;
+            padding-bottom: 0.5rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(15, 23, 42, 0.1) transparent;
             animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+        }
+        .ateliers-scroll::-webkit-scrollbar { height: 4px; }
+        .ateliers-scroll::-webkit-scrollbar-track { background: transparent; }
+        .ateliers-scroll::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.1); border-radius: 2px; }
+
+        .atelier-col {
+            flex: 0 0 calc(33.333% - 0.667rem);
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            scroll-snap-align: start;
+        }
+
+        .atelier-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0.3rem 0.25rem 0.6rem;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+            gap: 0.5rem;
+        }
+
+        .atelier-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .atelier-number {
+            font-size: 0.58rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-low);
+        }
+
+        .atelier-name {
+            font-family: var(--font-display);
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .atelier-phase {
+            font-size: 0.58rem;
+            font-weight: 600;
+            color: var(--text-low);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Scroll navigation wrapper */
+        .scroll-wrapper {
+            position: relative;
+            flex-grow: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scroll-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(12px);
+            flex-shrink: 0;
+        }
+        .scroll-nav:hover {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.2);
+        }
+        .scroll-nav:disabled {
+            opacity: 0.25;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .scroll-nav svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .scroll-nav.prev { left: -14px; }
+        .scroll-nav.next { right: -14px; }
+
+        /* Atelier header — titre une ligne + sous-titre objectif */
+        .atelier-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding: 0.25rem 0.25rem 0.55rem;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+        }
+
+        .atelier-title-line {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .atelier-number {
+            font-size: 0.58rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-low);
+            white-space: nowrap;
+        }
+
+        .atelier-name {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .atelier-sep {
+            color: var(--text-low);
+            font-size: 0.75rem;
+        }
+
+        .atelier-phase {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--text-low);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        .atelier-objective {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.4;
         }
 
         @media (max-width: 800px) {
-            body {
-                overflow: auto;
-                height: auto;
-            }
-            .top-bar {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            .global-stats-container {
-                width: 100%;
-                justify-content: space-between;
-            }
-            .cards-grid {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
+            body { overflow: auto; height: auto; }
+            .top-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .global-stats-container { width: 100%; justify-content: space-between; }
+            .atelier-col { flex: 0 0 calc(100% - 1rem); }
         }
 
         /* Glassmorphism Card Style */
         .simulator-card {
             background: var(--bg-card);
             border: 1px solid var(--card-border);
-            border-radius: 2rem;
-            padding: 2rem;
+            border-radius: 1.5rem;
+            padding: 1.25rem;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            flex: 1;
             backdrop-filter: blur(20px);
             transition: var(--transition-smooth);
             box-shadow: 0 15px 35px rgba(15, 23, 42, 0.03);
@@ -247,6 +396,14 @@
             background: linear-gradient(90deg, var(--color-secondary), #22d3ee);
         }
 
+        .simulator-card.bug-theme::before {
+            background: linear-gradient(90deg, #f97316, #fb923c);
+        }
+
+        .simulator-card.evo-theme::before {
+            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+        }
+
         /* Hover States for Cards */
         .simulator-card:hover {
             transform: translateY(-4px);
@@ -265,6 +422,18 @@
                 0 0 35px rgba(6, 182, 212, 0.05);
         }
 
+        .simulator-card.bug-theme:hover {
+            box-shadow: 
+                0 20px 40px rgba(15, 23, 42, 0.06),
+                0 0 35px rgba(249, 115, 22, 0.05);
+        }
+
+        .simulator-card.evo-theme:hover {
+            box-shadow: 
+                0 20px 40px rgba(15, 23, 42, 0.06),
+                0 0 35px rgba(139, 92, 246, 0.05);
+        }
+
         /* Backlight glows behind icons */
         .backlight {
             position: absolute;
@@ -279,13 +448,10 @@
             transition: var(--transition-smooth);
         }
 
-        .po-theme .backlight {
-            background: var(--color-primary);
-        }
-
-        .ux-theme .backlight {
-            background: var(--color-secondary);
-        }
+        .po-theme .backlight { background: var(--color-primary); }
+        .ux-theme .backlight { background: var(--color-secondary); }
+        .bug-theme .backlight { background: #f97316; }
+        .evo-theme .backlight { background: #8b5cf6; }
 
         .simulator-card:hover .backlight {
             opacity: 0.08;
@@ -297,20 +463,20 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.75rem;
             position: relative;
             z-index: 2;
             flex-shrink: 0;
         }
 
         .card-icon-wrapper {
-            width: 56px;
-            height: 56px;
-            border-radius: 1.25rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 0.9rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
+            font-size: 1.25rem;
             box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
             position: relative;
             transition: var(--transition-smooth);
@@ -326,6 +492,18 @@
             background: rgba(6, 182, 212, 0.06);
             border: 1px solid rgba(6, 182, 212, 0.15);
             color: #0891b2;
+        }
+
+        .bug-theme .card-icon-wrapper {
+            background: rgba(249, 115, 22, 0.06);
+            border: 1px solid rgba(249, 115, 22, 0.15);
+            color: #ea580c;
+        }
+
+        .evo-theme .card-icon-wrapper {
+            background: rgba(139, 92, 246, 0.06);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            color: #7c3aed;
         }
 
         .simulator-card:hover .card-icon-wrapper {
@@ -357,6 +535,19 @@
             box-shadow: 0 0 6px var(--color-emerald);
         }
 
+        /* Statut "À venir" */
+        .card-status.coming {
+            background: rgba(245, 158, 11, 0.06);
+            color: #92400e;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .card-status.coming span.status-dot {
+            background: #f59e0b;
+            box-shadow: 0 0 6px #f59e0b;
+            animation: none;
+        }
+
         .card-body-content {
             display: flex;
             flex-direction: column;
@@ -365,6 +556,7 @@
         }
 
         .card-meta {
+            display: none;
             margin-bottom: 0.4rem;
             font-size: 0.75rem;
             font-weight: 700;
@@ -374,16 +566,18 @@
             z-index: 2;
         }
 
-        .po-theme .card-meta { color: #4f46e5; }
-        .ux-theme .card-meta { color: #0891b2; }
+        .po-theme .card-meta  { color: #4f46e5; }
+        .ux-theme .card-meta  { color: #0891b2; }
+        .bug-theme .card-meta { color: #ea580c; }
+        .evo-theme .card-meta { color: #7c3aed; }
 
         h2 {
             font-family: var(--font-display);
-            font-size: 1.75rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: var(--text-main);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
             line-height: 1.2;
             position: relative;
             z-index: 2;
@@ -393,7 +587,7 @@
             color: var(--text-muted);
             font-size: 0.85rem;
             line-height: 1.5;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
             position: relative;
             z-index: 2;
         }
@@ -401,16 +595,16 @@
         /* Card Specifications (Extremely compact spacing) */
         .card-specs {
             background: rgba(15, 23, 42, 0.02);
-            border-radius: 1rem;
-            padding: 0.85rem 1.25rem;
-            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            padding: 0.5rem 0.85rem;
+            margin-bottom: 0.75rem;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.3rem;
             position: relative;
             z-index: 2;
             border: 1px solid rgba(15, 23, 42, 0.04);
-            margin-top: auto; /* Push down to align card bottom structures */
+            margin-top: auto;
         }
 
         .spec-item {
@@ -449,11 +643,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
             width: 100%;
-            padding: 1rem 1.5rem;
-            border-radius: 1rem;
-            font-size: 0.85rem;
+            padding: 0.65rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.78rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -470,11 +664,9 @@
             background: linear-gradient(135deg, var(--color-primary) 0%, #4338ca 100%);
             color: #ffffff;
         }
-
         .po-theme .cta-button:hover {
             background: linear-gradient(135deg, #5b53e6 0%, #3730a3 100%);
-            box-shadow: 
-                0 8px 20px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
             transform: scale(1.01);
         }
 
@@ -482,12 +674,56 @@
             background: linear-gradient(135deg, var(--color-secondary) 0%, #06b6d4 100%);
             color: #ffffff;
         }
-
         .ux-theme .cta-button:hover {
             background: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
-            box-shadow: 
-                0 8px 20px rgba(6, 182, 212, 0.2);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2);
             transform: scale(1.01);
+        }
+
+        /* Vision Product theme (Atelier 3 — émeraude) */
+        .simulator-card.vision-theme::before { background: linear-gradient(90deg, #10b981, #34d399); }
+        .simulator-card.vision-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(16,185,129,0.05); }
+        .vision-theme .backlight { background: #10b981; }
+        .vision-theme .card-icon-wrapper { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.15); color: #059669; }
+        .vision-theme .card-meta { color: #059669; }
+        .vision-theme .cta-button { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
+        .vision-theme .cta-button:hover { background: linear-gradient(135deg, #059669, #047857); box-shadow: 0 8px 20px rgba(16,185,129,0.2); transform: scale(1.01); }
+
+        /* Support Product theme (Atelier 4 — rose) */
+        .simulator-card.run-support-theme::before { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+        .simulator-card.run-support-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(244,63,94,0.05); }
+        .run-support-theme .backlight { background: #f43f5e; }
+        .run-support-theme .card-icon-wrapper { background: rgba(244,63,94,0.06); border: 1px solid rgba(244,63,94,0.15); color: #e11d48; }
+        .run-support-theme .card-meta { color: #e11d48; }
+        .run-support-theme .cta-button { background: linear-gradient(135deg, #f43f5e, #e11d48); color: #fff; }
+        .run-support-theme .cta-button:hover { background: linear-gradient(135deg, #e11d48, #be123c); box-shadow: 0 8px 20px rgba(244,63,94,0.2); transform: scale(1.01); }
+
+        /* Innovation Product theme (Atelier 5 — or chaud) */
+        .simulator-card.innov-theme::before { background: linear-gradient(90deg, #d97706, #fbbf24); }
+        .simulator-card.innov-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(217,119,6,0.05); }
+        .innov-theme .backlight { background: #d97706; }
+        .innov-theme .card-icon-wrapper { background: rgba(217,119,6,0.06); border: 1px solid rgba(217,119,6,0.15); color: #b45309; }
+        .innov-theme .card-meta { color: #b45309; }
+        .innov-theme .cta-button { background: linear-gradient(135deg, #d97706, #b45309); color: #fff; }
+        .innov-theme .cta-button:hover { background: linear-gradient(135deg, #b45309, #92400e); box-shadow: 0 8px 20px rgba(217,119,6,0.2); transform: scale(1.01); }
+
+        /* Data Product theme (Atelier 6 — ciel) */
+        .simulator-card.data-theme::before { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
+        .simulator-card.data-theme:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.06), 0 0 35px rgba(14,165,233,0.05); }
+        .data-theme .backlight { background: #0ea5e9; }
+        .data-theme .card-icon-wrapper { background: rgba(14,165,233,0.06); border: 1px solid rgba(14,165,233,0.15); color: #0284c7; }
+        .data-theme .card-meta { color: #0284c7; }
+        .data-theme .cta-button { background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; }
+        .data-theme .cta-button:hover { background: linear-gradient(135deg, #0284c7, #0369a1); box-shadow: 0 8px 20px rgba(14,165,233,0.2); transform: scale(1.01); }
+
+        /* Boutons "À venir" — désactivés */
+        .cta-button.disabled {
+            background: rgba(15, 23, 42, 0.05);
+            color: var(--text-low);
+            cursor: not-allowed;
+            box-shadow: none;
+            pointer-events: none;
+            border: 1px solid rgba(15, 23, 42, 0.08);
         }
 
         .cta-button svg {
@@ -498,7 +734,6 @@
             stroke-width: 2.5;
             transition: var(--transition-smooth);
         }
-
         .cta-button:hover svg {
             transform: translateX(3px);
         }
@@ -590,20 +825,12 @@
                 </div>
                 <h1 id="title">Simulation ESIS-3D</h1>
                 <p class="subtitle" id="desc">
-                    Développez vos réflexes Product à travers des défis interactifs basés sur des cas réels du terrain.
+                    Développez vos réflexes Product sur des cas concrets.
                 </p>
             </header>
 
             <!-- Compact Global Statistics -->
             <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux">
-                <div class="stat-bar-card">
-                    <div class="stat-number" id="po-total-score">0 / 36</div>
-                    <div class="stat-label">Progression PO</div>
-                </div>
-                <div class="stat-bar-card">
-                    <div class="stat-number" id="ux-total-score">0 / 36</div>
-                    <div class="stat-label">Progression UX</div>
-                </div>
                 <div class="stat-bar-card">
                     <div class="stat-number" id="overall-completion">0%</div>
                     <div class="stat-label">Progression Globale</div>
@@ -611,103 +838,274 @@
             </section>
         </div>
 
-        <!-- Core Simulators Grid -->
-        <main class="cards-grid">
-            
-            <!-- Card 1: Product Owner (PO) -->
-            <article class="simulator-card po-theme" id="po-card">
-                <div class="backlight"></div>
-                
-                <div class="card-header">
-                    <div class="card-icon-wrapper" aria-hidden="true">🎯</div>
-                    <div class="card-status">
-                        <span class="status-dot"></span>
-                        <span>Opérationnel</span>
+        <!-- Horizontal Ateliers Scroll -->
+        <div class="scroll-wrapper">
+            <button class="scroll-nav prev" id="scroll-prev" aria-label="Atelier précédent" disabled>
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="scroll-nav next" id="scroll-next" aria-label="Atelier suivant">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+
+            <main class="ateliers-scroll" id="ateliers-scroll">
+
+            <!-- ═══ ATELIER 1 ═══ -->
+            <section class="atelier-col" id="atelier-1">
+                <div class="atelier-header">
+                    <div class="atelier-title-line">
+                        <span class="atelier-number">Atelier #1</span>
+                        <span class="atelier-sep">·</span>
+                        <span class="atelier-name">Design Product</span>
+                        <span class="atelier-sep">—</span>
+                        <span class="atelier-phase">Phase Discovery I</span>
                     </div>
+                    <p class="atelier-objective">Réfléchir sur les besoins réels des utilisateurs via la démarche Design Thinking.</p>
                 </div>
+                <article class="simulator-card po-theme" id="po-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">🎯</div>
+                        <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <span class="score-pill" id="po-local-score">0 / 36</span>
+                            <div class="card-status"><span class="status-dot"></span><span>Opérationnel</span></div>
+                        </div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Design Product</span>
+                        <h2>A - Besoins utilisateurs</h2>
+                        <p class="card-description">Maîtrisez les 12 réflexes du PO face aux frictions clients et arbitrages de roadmap. Apprenez à creuser l'intention, quantifier l'irritant, et valoriser le minimal pour guider le produit.</p>
+                    </div>
+                    <a href="./po.html" class="cta-button" id="po-btn" aria-label="Lancer le simulateur PO">
+                        <span>Lancer</span>
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </article>
+                <article class="simulator-card ux-theme" id="ux-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">🎨</div>
+                        <div style="display:flex;align-items:center;gap:0.4rem;">
+                            <span class="score-pill" id="ux-local-score">0 / 36</span>
+                            <div class="card-status"><span class="status-dot"></span><span>Opérationnel</span></div>
+                        </div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Design Product</span>
+                        <h2>B - Conception UX/UI</h2>
+                        <p class="card-description">Validez vos choix d'interface médicale. Identifiez les 12 principes fondamentaux de design (saisie assistée, prévention d'erreurs, double-codage) appliqués au quotidien du personnel de santé.</p>
+                    </div>
+                    <a href="./ux.html" class="cta-button" id="ux-btn" aria-label="Lancer le simulateur UX">
+                        <span>Lancer</span>
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </article>
+            </section>
 
-                <div class="card-body-content">
-                    <span class="card-meta">Postures Stratégiques</span>
-                    <h2>A - Réflexes PO avec le client</h2>
-                    <p class="card-description">
-                        Maîtrisez les 12 réflexes du PO face aux frictions clients et arbitrages de roadmap. Apprenez à creuser l'intention, quantifier l'irritant, et valoriser le minimal pour guider le produit.
-                    </p>
+            <!-- ═══ ATELIER 2 ═══ -->
+            <section class="atelier-col" id="atelier-2">
+                <div class="atelier-header">
+                    <div class="atelier-title-line">
+                        <span class="atelier-number">Atelier #2</span>
+                        <span class="atelier-sep">·</span>
+                        <span class="atelier-name">Cadrage Product</span>
+                        <span class="atelier-sep">—</span>
+                        <span class="atelier-phase">Phase Delivery I</span>
+                    </div>
+                    <p class="atelier-objective">Transformer le besoin en unités de développement actionnables et garantir la qualité.</p>
                 </div>
+                <article class="simulator-card bug-theme" id="bug-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">🐞</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Cadrage Produit</span>
+                        <h2>C - Bugs &amp; Qualité</h2>
+                        <p class="card-description">Structurez votre approche face aux anomalies : reproduire l'incident, évaluer l'impact métier, proposer un contournement et piloter la correction jusqu'à la validation.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+                <article class="simulator-card evo-theme" id="evo-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">✨</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Cadrage Produit</span>
+                        <h2>D - Évolutions &amp; Specs</h2>
+                        <p class="card-description">Transformez les besoins terrain en fonctionnalités actionnables : cadrez l'intention, découpez en stories, rédigez des critères d'acceptation clairs et priorisez par impact métier.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+            </section>
 
-                <div class="card-specs">
-                    <div class="spec-item">
-                        <span class="spec-label">Méthodologie</span>
-                        <span class="spec-value">12 Réflexes Clés</span>
+            <!-- ═══ ATELIER 3 ═══ -->
+            <section class="atelier-col" id="atelier-3">
+                <div class="atelier-header">
+                    <div class="atelier-title-line">
+                        <span class="atelier-number">Atelier #3</span>
+                        <span class="atelier-sep">·</span>
+                        <span class="atelier-name">Vision Product</span>
+                        <span class="atelier-sep">—</span>
+                        <span class="atelier-phase">Phase Discovery II</span>
                     </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Difficulté</span>
-                        <span class="spec-value">3 Niveaux de Série</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Votre Progression</span>
-                        <span class="spec-value score-pill" id="po-local-score">0 / 36</span>
-                    </div>
+                    <p class="atelier-objective">Anticiper les évolutions stratégiques et construire la trajectoire produit long terme.</p>
                 </div>
-
-                <a href="./po.html" class="cta-button" id="po-btn" aria-label="Lancer le simulateur de Product Owner">
-                    <span>Lancer la Simulation</span>
-                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-            </article>
-
-            <!-- Card 2: User Experience (UX) -->
-            <article class="simulator-card ux-theme" id="ux-card">
-                <div class="backlight"></div>
-                
-                <div class="card-header">
-                    <div class="card-icon-wrapper" aria-hidden="true">🎨</div>
-                    <div class="card-status">
-                        <span class="status-dot"></span>
-                        <span>Opérationnel</span>
+                <article class="simulator-card vision-theme" id="roadmap-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">🗻</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
                     </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Vision Produit</span>
+                        <h2>E - Roadmap &amp; Jalons</h2>
+                        <p class="card-description">Priorisez les fonctionnalités à fort impact, découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques selon la vision produit long terme.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+                <article class="simulator-card vision-theme" id="features-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">🔭</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Vision Produit</span>
+                        <h2>F - Features Discovery</h2>
+                        <p class="card-description">Explorez les nouvelles opportunités de valeur : qualifier les signaux terrain, investiguer les besoins émergents et formuler des hypothèses de fonctionnalités actionnables.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+            </section>
+
+            <!-- ═══ ATELIER 4 ═══ -->
+            <section class="atelier-col" id="atelier-4">
+                <div class="atelier-header">
+                    <div class="atelier-title-line">
+                        <span class="atelier-number">Atelier #4</span>
+                        <span class="atelier-sep">·</span>
+                        <span class="atelier-name">Support Product</span>
+                        <span class="atelier-sep">—</span>
+                        <span class="atelier-phase">Phase Delivery II</span>
+                    </div>
+                    <p class="atelier-objective">Assurer la stabilité opérationnelle et l'assistance aux utilisateurs au quotidien.</p>
                 </div>
+                <article class="simulator-card run-support-theme" id="run-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">🔧</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Support Produit</span>
+                        <h2>G - Run &amp; Error Tracking</h2>
+                        <p class="card-description">Surveillez la santé du produit en production : analyser les logs, identifier les anomalies critiques et déclencher les actions correctives au bon niveau d'escalade.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+                <article class="simulator-card run-support-theme" id="support-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">📋</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Support Produit</span>
+                        <h2>H - Ticketing &amp; Documentation</h2>
+                        <p class="card-description">Structurez la relation utilisateur post-livraison : gérer le ticketing, rédiger une base de connaissance claire et mesurer la satisfaction terrain au quotidien.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+            </section>
 
-                <div class="card-body-content">
-                    <span class="card-meta">Ergonomie Visuelle</span>
-                    <h2>B - Réflexes UX/UI en conception</h2>
-                    <p class="card-description">
-                        Validez vos choix d'interface médicale. Identifiez les 12 principes fondamentaux de design (saisie assistée, prévention d'erreurs, double-codage) appliqués au quotidien du personnel de santé.
-                    </p>
+            <!-- ═══ ATELIER 5 ═══ -->
+            <section class="atelier-col" id="atelier-5">
+                <div class="atelier-header">
+                    <div class="atelier-title-line">
+                        <span class="atelier-number">Atelier #5</span>
+                        <span class="atelier-sep">·</span>
+                        <span class="atelier-name">Innovation Product</span>
+                        <span class="atelier-sep">—</span>
+                        <span class="atelier-phase">Phase Discovery III</span>
+                    </div>
+                    <p class="atelier-objective">Explorer de nouveaux horizons et valider des idées en rupture sans risque.</p>
                 </div>
+                <article class="simulator-card innov-theme" id="veille-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">🔍</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Innovation Produit</span>
+                        <h2>I - Veille &amp; Benchmark</h2>
+                        <p class="card-description">Observez les tendances métier et technologiques, analysez la concurrence et identifiez les signaux faibles pour positionner le produit et nourrir la vision stratégique.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+                <article class="simulator-card innov-theme" id="poc-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">⚗️</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Innovation Produit</span>
+                        <h2>J - Preuve de Concept (POC)</h2>
+                        <p class="card-description">Testez une idée innovante rapidement avec un prototype simplifié : définir l'hypothèse, cadrer le périmètre minimal et valider par l'expérimentation terrain sans risque.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+            </section>
 
-                <div class="card-specs">
-                    <div class="spec-item">
-                        <span class="spec-label">Méthodologie</span>
-                        <span class="spec-value">12 Principes Clés</span>
+            <!-- ═══ ATELIER 6 ═══ -->
+            <section class="atelier-col" id="atelier-6">
+                <div class="atelier-header">
+                    <div class="atelier-title-line">
+                        <span class="atelier-number">Atelier #6</span>
+                        <span class="atelier-sep">·</span>
+                        <span class="atelier-name">Data Product</span>
+                        <span class="atelier-sep">—</span>
+                        <span class="atelier-phase">Phase Delivery III</span>
                     </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Format</span>
-                        <span class="spec-value">Maquettes Interactives</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Votre Progression</span>
-                        <span class="spec-value score-pill" id="ux-local-score">0 / 36</span>
-                    </div>
+                    <p class="atelier-objective">Piloter le produit par la preuve et mesurer l'impact des fonctionnalités.</p>
                 </div>
+                <article class="simulator-card data-theme" id="analytics-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">📊</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Data Produit</span>
+                        <h2>K - Analytics &amp; Parcours</h2>
+                        <p class="card-description">Explorez les données d'usage pour comprendre le comportement utilisateur, identifier les points de friction et valider les hypothèses produit par la donnée terrain.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+                <article class="simulator-card data-theme" id="kpi-card">
+                    <div class="backlight"></div>
+                    <div class="card-header">
+                        <div class="card-icon-wrapper" aria-hidden="true">📈</div>
+                        <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                    </div>
+                    <div class="card-body-content">
+                        <span class="card-meta">Data Produit</span>
+                        <h2>L - KPIs &amp; Tableaux de Bord</h2>
+                        <p class="card-description">Construisez un système de mesure pertinent : définir les indicateurs clés, concevoir des dashboards lisibles et piloter les décisions produit par la preuve et l'impact mesurable.</p>
+                    </div>
+                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                </article>
+            </section>
 
-                <a href="./ux.html" class="cta-button" id="ux-btn" aria-label="Lancer le simulateur de User Experience">
-                    <span>Lancer la Simulation</span>
-                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-            </article>
+            </main>
+        </div><!-- /.scroll-wrapper -->
 
-        </main>
+    </div><!-- /.container -->
 
-        <!-- Compact Horizontal Footer -->
-        <footer>
-            <p>© 2026 ESIS-3D · Excellence opérationnelle en santé</p>
-            <p>
-                <a href="https://github.com/epiconcept" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a> · 
-                <span id="system-time">Session Active</span>
-            </p>
-        </footer>
-
-    </div>
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
@@ -738,10 +1136,30 @@
             let maxUxScore = 36;
             let totalMaxScore = maxPoScore + maxUxScore;
 
+            // Scroll arrows
+            const scrollEl = document.getElementById('ateliers-scroll');
+            const prevBtn = document.getElementById('scroll-prev');
+            const nextBtn = document.getElementById('scroll-next');
+            function updateArrows() {
+                if (!scrollEl) return;
+                prevBtn.disabled = scrollEl.scrollLeft <= 0;
+                const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
+                nextBtn.disabled = scrollEl.scrollLeft >= maxScroll - 1;
+            }
+            if (scrollEl && prevBtn && nextBtn) {
+                scrollEl.addEventListener('scroll', updateArrows, { passive: true });
+                prevBtn.addEventListener('click', () => {
+                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
+                    scrollEl.scrollBy({ left: -((colW + 10) * 3), behavior: 'smooth' });
+                });
+                nextBtn.addEventListener('click', () => {
+                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
+                    scrollEl.scrollBy({ left: ((colW + 10) * 3), behavior: 'smooth' });
+                });
+                updateArrows();
+            }
+
             // Update UI stats elements
-            document.getElementById('po-total-score').innerText = `${totalPoScore} / ${maxPoScore}`;
-            document.getElementById('ux-total-score').innerText = `${totalUxScore} / ${maxUxScore}`;
-            
             document.getElementById('po-local-score').innerText = `${totalPoScore} / ${maxPoScore}`;
             document.getElementById('ux-local-score').innerText = `${totalUxScore} / ${maxUxScore}`;
 
