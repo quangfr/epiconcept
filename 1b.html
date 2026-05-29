@@ -385,7 +385,7 @@ function renderReflexChoices() {
         const btn = document.createElement('button');
         btn.className = "reflex-btn bg-white p-5 rounded-3xl text-left border-2 flex flex-row items-center gap-5 group w-full relative shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
         btn.innerHTML = `
-            <div class="text-4xl sm:text-5xl shrink-0 filter drop-shadow-sm">${opt.emoji}</div>
+            <div class="text-4xl sm:text-5xl shrink-0 filter drop-shadow-sm"><i data-lucide="${opt.icon}" class="w-12 h-12 text-slate-800"></i></div>
             <div class="flex-grow">
                 <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal">${opt.intent}</div>
@@ -397,6 +397,7 @@ function renderReflexChoices() {
         btn.onclick = () => handleReflexSelection(opt.id, btn);
         grid.appendChild(btn);
     });
+    lucide.createIcons(); // added in renderReflexChoices
 }
 
 function handleReflexSelection(id, btn) {
@@ -423,7 +424,7 @@ function loadStepPhase2() {
     
     // Affiche la validation du principe à gauche
     document.getElementById('phase2-question-container').classList.remove('hidden');
-    document.getElementById('validated-principle-title').innerText = `${reflex.emoji} ${reflex.title}`;
+    document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
     
     renderUIChoices();
 }
@@ -554,7 +555,7 @@ function buildModalContent() {
         if (selector) {
             const opt = document.createElement('option');
             opt.value = r.id;
-            opt.innerText = `${r.emoji} ${r.title}`;
+            opt.innerText = `${r.title}`;
             selector.appendChild(opt);
         }
         
@@ -562,7 +563,7 @@ function buildModalContent() {
         let reflexHtml = `
             <div id="ref-${r.id}" class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex items-center gap-2 mb-1.5">
-                    <span class="text-3xl">${r.emoji}</span>
+                    <span class="text-3xl"><i data-lucide="${r.icon}" class="w-8 h-8 text-slate-800"></i></span>
                     <h3 class="text-lg font-black uppercase text-slate-800 tracking-tight">${r.title}</h3>
                 </div>
                 <p class="text-xs text-slate-600 font-medium mb-3 pb-2 border-b border-slate-100">${r.intent}</p>
