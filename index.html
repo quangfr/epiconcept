@@ -1805,6 +1805,14 @@ function updateSlides() {
 }
 
 document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const refModal = document.getElementById('ref-modal');
+        if (refModal && refModal.style.display === 'flex') {
+            closeRefModal();
+            return;
+        }
+    }
+
     const modal = document.getElementById('comprendre-modal');
     if (modal && modal.style.display === 'flex') {
         if (e.key === 'ArrowRight') {
