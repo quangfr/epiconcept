@@ -163,7 +163,10 @@
                 <span id="phase2-icon-container" class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
                 <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Principe Validé</span>
             </div>
-            <h3 id="validated-principle-title" class="text-sm font-black text-emerald-800 uppercase tracking-tight mb-1 leading-tight">Titre</h3>
+            <div class="flex items-center gap-2 mb-1">
+                <span id="phase2-reflex-icon" class="text-emerald-700"></span>
+                <h3 id="validated-principle-title" class="text-sm font-black text-emerald-800 uppercase tracking-tight leading-tight">Titre</h3>
+            </div>
             <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Identifiez la maquette UI correspondante à droite ➡️</p>
         </div>
     </div>
@@ -425,6 +428,7 @@ function loadStepPhase2() {
     // Affiche la validation du principe à gauche
     document.getElementById('phase2-question-container').classList.remove('hidden');
     document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+      document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon}" class="w-5 h-5"></i>`;
     document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
     lucide.createIcons();
     
