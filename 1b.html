@@ -187,8 +187,12 @@
 
             <!-- Phase 3 : Débriefing -->
             <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-6 flex flex-col justify-between overflow-y-auto">
+                <!-- Bouton de retour en haut à gauche -->
+                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retourner au défi en cours">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </button>
                 <div class="flex flex-col h-full">
-                    <div class="flex items-center gap-4 mb-6 shrink-0">
+                    <div class="flex items-center gap-4 mb-6 mt-4 shrink-0">
                         <div id="debrief-emoji" class="text-4xl bg-emerald-100 w-16 h-16 flex items-center justify-center rounded-2xl shadow-sm">🎯</div>
                         <div>
                             <h2 id="debrief-main-title" class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight mb-0.5">Visuel UX Validé !</h2>
@@ -516,6 +520,15 @@ function showDebriefing(correctOpt) {
     document.getElementById('phase2-question-container').classList.add('hidden');
     document.getElementById('debriefing-card').classList.remove('hidden');
     
+    // Back button visibility
+    const nextPendingIdx = answeredSteps.findIndex(v => !v);
+    const backBtn = document.getElementById('debrief-back-btn');
+    if (nextPendingIdx !== -1 && nextPendingIdx !== currentStepIdx) {
+        backBtn.classList.remove('hidden');
+    } else {
+        backBtn.classList.add('hidden');
+    }
+    
     const phaseLabel = document.getElementById('phase-label-container');
     phaseLabel.innerText = "Débriefing UX Validé";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-700 text-white shadow-md shrink-0 transition-colors";
@@ -527,6 +540,17 @@ function showDebriefing(correctOpt) {
     } else {
         nextBtn.innerHTML = "Situation Suivante <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
         nextBtn.className = "mt-6 bg-slate-900 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
+    }
+}
+
+function goBackFromDebrief() {
+    const pendingIdx = answeredSteps.findIndex(v => !v);
+    if (pendingIdx !== -1) {
+        currentStepIdx = pendingIdx;
+        updateProgress();
+        loadStepPhase1();
+    } else {
+        goHome();
     }
 }
 
