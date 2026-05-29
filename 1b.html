@@ -98,6 +98,19 @@
     </div>
 </div>
 
+<!-- MODAL D'INFO (POUR LE JEU) -->
+<div id="info-modal" class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative">
+        <button onclick="closeInfoModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div id="info-modal-content">
+            <!-- Injecté par JS -->
+        </div>
+        <button onclick="closeInfoModal()" class="mt-8 w-full bg-slate-900 text-white py-4 rounded-2xl font-black uppercase tracking-widest">J'ai compris</button>
+    </div>
+</div>
+
 <div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 hidden overflow-y-auto">
     <div class="w-full max-w-6xl flex justify-between items-center mb-8 shrink-0">
         <a href="./index.html" class="flex items-center justify-center bg-white border-2 border-slate-200 w-12 h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" aria-label="Retour au Hub">
@@ -445,10 +458,11 @@ function renderReflexChoices() {
                 <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <span class="info-btn text-2xl opacity-35 hover:opacity-100 hover:scale-110 transition-all p-1.5 bg-slate-50 rounded-full shadow-sm shrink-0" title="Voir la définition dans le référentiel">ℹ️</span>
+            <button onclick="event.stopPropagation(); showReflexDetail(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Principe">
+                <i data-lucide="info" class="w-4 h-4"></i>
+            </button>
         `;
         
-        btn.querySelector('.info-btn').onclick = (e) => { e.stopPropagation(); openModal(opt.id); };
         btn.onclick = () => handleReflexSelection(opt.id, btn);
         grid.appendChild(btn);
     });
@@ -710,10 +724,45 @@ function closeModal() {
     document.getElementById('modal-referentiel').classList.add('hidden');
 }
 
+function showReflexDetail(id) {
+    const reflex = reflexes.find(r => r.id === id);
+    const content = document.getElementById('info-modal-content');
+    
+    // Collect all unique correct UI titles from scenarios of this reflex
+    const examples = [...new Set(reflex.scenarios.map(s => s.correct.title))];
+    
+    content.innerHTML = `
+        <div class="flex items-center gap-4 mb-6">
+            <span class="text-6xl"><i data-lucide="${reflex.icon || 'palette'}" class="w-16 h-16 text-slate-800"></i></span>
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 uppercase">${reflex.title}</h3>
+                <p class="text-slate-800 font-bold text-xs uppercase tracking-widest">Principe de Conception UX</p>
+            </div>
+        </div>
+        <p class="text-lg text-slate-600 font-medium leading-relaxed mb-6">${reflex.intent}</p>
+        <div class="bg-slate-100 p-6 rounded-2xl">
+            <p class="text-[10px] font-black uppercase text-slate-500 mb-4 tracking-widest">Applications types dans l'interface</p>
+            <ul class="space-y-3">
+                ${examples.map(ex => `<li class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
+                    ${ex}
+                </li>`).join('')}
+            </ul>
+        </div>
+    `;
+    document.getElementById('info-modal').classList.remove('hidden');
+    lucide.createIcons();
+}
+
+function closeInfoModal() {
+    document.getElementById('info-modal').classList.add('hidden');
+}
+
 // Support fermeture par la touche Echap
 window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeModal();
+        closeInfoModal();
     }
 });
 
