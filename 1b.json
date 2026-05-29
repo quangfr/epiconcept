@@ -245,13 +245,13 @@
         "expl": "La validation Inline affiche l'erreur (rouge) ou le succès (vert) immédiatement dès que l'utilisateur sort du champ (onBlur), sans attendre la soumission globale."
       },
       {
-        "text": "L'accueil crée un dossier pour 'MARTIN Jeanne' née le 12/04/1980. Ils ignorent qu'un dossier existe déjà sous son nom de jeune fille. Pour éviter cette création erronée, l'interface doit effectuer une recherche silencieuse en arrière-plan pendant la saisie et alerter instantanément de la présence d'un doublon avant la validation finale.",
+        "text": "L'accueil crée un dossier pour 'MARTIN Jeanne' née le 12/04/1980. Un dossier existe déjà sous son nom de jeune fille. Pour éviter cette création erronée tout en fluidifiant le travail, l'interface doit afficher une alerte avec suggestion d'actions à choix multiples (fusionner, consulter ou forcer la création d'un homonyme).",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Doublon</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Création directe</div><div class=\"text-xs text-slate-800 font-bold\">Créer le dossier : MARTIN Jeanne</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Doublon créé en base (Dossier existant sous nom d'épouse non détecté)</div></div>",
         "correct": {
-          "title": "Alerte de Doublon Instantanée",
-          "visual": "<div class=\"bg-amber-50 border border-amber-300 rounded-lg p-3 w-full shadow-sm\"><div class=\"flex items-center gap-2 mb-2\"><span class=\"text-xl\">⚠️</span> <span class=\"text-[10px] font-black text-orange-800 uppercase\">Patient Existant ?</span></div><div class=\"text-xs bg-white p-2 border border-orange-100 rounded font-medium text-slate-700\">Dossier #8892 trouvé : <br>MARTIN (née DUPONT) Jeanne.</div><button class=\"w-full mt-2 bg-orange-600 text-white text-[10px] font-bold py-1.5 rounded\">Fusionner ce dossier</button></div>",
-          "expl": "Affiche un avertissement dynamique contenant les fiches homonymes similaires détectées ...",
-          "debriefExpl": "Interroge la base de données en arrière-plan pendant la saisie et propose une fusion dès qu'une corrélation d'identit...",
+          "title": "Alerte avec suggestion d'actions",
+          "visual": "<div class=\"bg-amber-50 border border-amber-300 rounded-lg p-2.5 w-full shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1.5\"><span class=\"text-xs\">⚠️</span> <span class=\"text-[9px] font-black text-orange-800 uppercase\">Doublon Suspecté</span></div><div class=\"text-[8px] bg-white p-1.5 border border-orange-100 rounded font-medium text-slate-700 leading-tight\">Dossier existant :<br>MARTIN (née DUPONT) Jeanne</div><div class=\"grid grid-cols-3 gap-1 mt-2 text-[8px] font-black\"><button class=\"bg-orange-600 text-white p-1 rounded shadow-sm\">Fusionner</button><button class=\"bg-white border border-slate-200 text-slate-700 p-1 rounded\">Consulter</button><button class=\"bg-white border border-slate-200 text-slate-400 p-1 rounded\">Forcer</button></div></div>",
+          "expl": "Affiche un avertissement proposant plusieurs choix d'actions intelligentes (fusionner, consulter ou forcer).",
+          "debriefExpl": "Assiste l'utilisateur en lui offrant des suggestions d'actions adaptées à choix multiples au lieu de bloquer.",
           "icon": "alert-triangle"
         },
         "wrong": [
@@ -270,7 +270,7 @@
             "icon": "layout"
           }
         ],
-        "expl": "Au lieu d'attendre l'erreur, le système lance une recherche silencieuse en arrière-plan pendant la saisie et propose proactivement la fusion si une correspondance forte est trouvée."
+        "expl": "L'alerte avec suggestion d'actions permet d'aider l'utilisateur à la source de sa saisie en lui proposant plusieurs choix de résolutions adaptés plutôt qu'une erreur ou un blocage."
       }
     ],
     "icon": "check-circle"
