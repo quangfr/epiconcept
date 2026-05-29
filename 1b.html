@@ -446,7 +446,7 @@ function renderUIChoices() {
         const btn = document.createElement('button');
         btn.className = "ui-btn p-5 sm:p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6 group w-full text-left relative overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
         btn.innerHTML = `
-            <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2"><div class="flex items-center gap-2 mb-1"><i data-lucide="layout" class="w-5 h-5 text-slate-400 group-hover:text-blue-800"></i></div>
+            <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2"><div class="flex items-center gap-2 mb-1"><i data-lucide="${opt.icon || 'layout'}" class="w-5 h-5 text-slate-400 group-hover:text-blue-800"></i></div>
                 <div class="font-black text-slate-800 text-base sm:text-lg uppercase tracking-tight leading-tight">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal pr-3">${opt.expl}</div>
             </div>
