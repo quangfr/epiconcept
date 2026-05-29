@@ -163,7 +163,7 @@
                 <span class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
                 <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Principe Validé</span>
             </div>
-            <h3 id="validated-principle-title" class="text-sm font-black text-slate-900 uppercase tracking-tight mb-1 leading-tight">Titre</h3>
+            <h3 id="validated-principle-title" class="text-sm font-black text-emerald-800 uppercase tracking-tight mb-1 leading-tight">Titre</h3>
             <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Identifiez la maquette UI correspondante à droite ➡️</p>
         </div>
     </div>
@@ -425,6 +425,8 @@ function loadStepPhase2() {
     // Affiche la validation du principe à gauche
     document.getElementById('phase2-question-container').classList.remove('hidden');
     document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
+    lucide.createIcons();
     
     renderUIChoices();
 }
@@ -482,7 +484,7 @@ function showDebriefing(correctOpt) {
     const reflex = reflexes.find(r => r.id === step.reflexId);
     
     document.getElementById('debrief-title').innerText = `${reflex.emoji} ${reflex.title}`;
-    document.getElementById('debrief-ui-title').innerText = correctOpt.title;
+    document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title}</span></div>`;
     document.getElementById('debrief-ui-visual').innerHTML = correctOpt.visual;
     let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl}</p>`;
     compHtml += `
