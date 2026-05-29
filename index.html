@@ -460,6 +460,17 @@
             border-radius: 9999px;
             box-shadow: 0 4px 10px rgba(15, 23, 42, 0.01);
             transition: background 0.3s ease;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+            .card-header h2 {
+                font-size: 0.85rem !important;
+            }
+            .card-status {
+                padding: 0.15rem 0.45rem !important;
+                font-size: 0.65rem !important;
+            }
         }
 
         .card-status span.status-dot {
@@ -762,10 +773,8 @@
     <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
         <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15, 23, 42, 0.06); color: var(--text-main);"><i data-lucide="lightbulb"></i></div>
         <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">1 - Design Thinking</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status"><span id="dt-status-label">0 / 7</span></div>
-                        </div>
+        <div style="margin-left: auto; flex-shrink: 0;">
+            <div class="card-status"><span id="dt-status-label">0 / 7</span></div>
         </div>
     </div>
     <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
@@ -778,10 +787,8 @@
     <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
         <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="target"></i></div>
         <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">A - Besoins utilisateurs</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status"><span id="po-status-label">0 / 36</span></div>
-                        </div>
+        <div style="margin-left: auto; flex-shrink: 0;">
+            <div class="card-status"><span id="po-status-label">0 / 36</span></div>
         </div>
     </div>
     <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
@@ -794,10 +801,8 @@
     <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
         <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="palette"></i></div>
         <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">B - Conception UX/UI</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
-                        </div>
+        <div style="margin-left: auto; flex-shrink: 0;">
+            <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
         </div>
     </div>
     <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
