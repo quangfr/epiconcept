@@ -89,7 +89,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div onclick="startLevel(0)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
+            <div onclick="startLevel(0)" class="level-card bg-white p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
                 <i data-lucide="star" class="w-12 h-12 mb-4 text-slate-800"></i>
                 <h2 class="text-xl font-black uppercase text-slate-800">Niveau 1</h2>
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Situations de terrain directes et frictions utilisateurs classiques.</p>
@@ -98,7 +98,7 @@
                     <span id="score-lv0" class="text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
             </div>
-            <div onclick="startLevel(1)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
+            <div onclick="startLevel(1)" class="level-card bg-white p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
                 <i data-lucide="zap" class="w-12 h-12 mb-4 text-slate-800"></i>
                 <h2 class="text-xl font-black uppercase text-slate-800">Niveau 2</h2>
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Complexité hospitalière, vision multi-clients et historique.</p>
@@ -107,7 +107,7 @@
                     <span id="score-lv1" class="text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
             </div>
-            <div onclick="startLevel(2)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
+            <div onclick="startLevel(2)" class="level-card bg-white p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
                 <i data-lucide="trophy" class="w-12 h-12 mb-4 text-slate-800"></i>
                 <h2 class="text-xl font-black uppercase text-slate-800">Niveau 3</h2>
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Négociations critiques, arbitrages Roadmap et VMA complexes.</p>
@@ -143,14 +143,14 @@
 
 <!-- MODAL D'INFO (POUR LE JEU) -->
 <div id="info-modal" class="hidden fixed inset-0 z-[100] modal-backdrop flex items-center justify-center p-6">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative">
+    <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
         <button onclick="closeInfoModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <div id="info-modal-content">
             <!-- Injecté par JS -->
         </div>
-        <button onclick="closeInfoModal()" class="mt-8 w-full bg-slate-900 text-white py-4 rounded-2xl font-black uppercase tracking-widest">J'ai compris</button>
+        <button onclick="closeInfoModal()" class="mt-8 w-full bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest">J'ai compris</button>
     </div>
 </div>
 
@@ -187,14 +187,14 @@
     <!-- Zone de gauche : Étude de cas -->
     <div class="w-full md:w-5/12 flex flex-col gap-3 h-full">
         <div class="bg-slate-800 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit">Analyse de Situation</div>
-        <div id="scenario-card" class="glass-panel rounded-3xl p-8 shadow-sm border-slate-100 overflow-y-auto flex-grow">
+        <div id="scenario-card" class="glass-panel rounded-xl p-8 shadow-sm border-slate-100 overflow-y-auto flex-grow">
             <div id="step-label" class="text-slate-500 text-xs font-black uppercase tracking-widest mb-4">Défi 1 / 12</div>
             <div id="scenario-text" class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left mb-6"></div>
-            <div id="scenario-visual" class="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex justify-center items-center mockup-container hidden"></div>
+            <div id="scenario-visual" class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex justify-center items-center mockup-container hidden"></div>
         </div>
 
         <!-- Bloc Phase 2 Ancré en bas (Très compact) -->
-        <div id="phase2-question-container" class="glass-panel rounded-2xl p-4 shadow-sm border-emerald-200 bg-emerald-50 shrink-0 hidden flex-col justify-center transition-all duration-300 relative overflow-hidden" style="height: auto !important;">
+        <div id="phase2-question-container" class="glass-panel rounded-lg p-4 shadow-sm border-emerald-200 bg-emerald-50 shrink-0 hidden flex-col justify-center transition-all duration-300 relative overflow-hidden" style="height: auto !important;">
             <div class="absolute right-2 top-2 text-4xl opacity-10">🎯</div>
             <div class="flex items-center gap-1.5 mb-1.5">
                 <span id="phase2-icon-container" class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
@@ -211,7 +211,7 @@
             Phase 1 : Identification du réflexe
         </div>
         
-        <div id="options-container" class="glass-panel rounded-3xl p-4 shadow-sm border-slate-100 relative overflow-hidden">
+        <div id="options-container" class="glass-panel rounded-xl p-4 shadow-sm border-slate-100 relative overflow-hidden">
             <div id="reflex-grid" class="grid grid-cols-1 grid-rows-4 gap-3 h-full"></div>
 
             <div id="question-list" class="hidden flex flex-col gap-4 h-full">
@@ -224,7 +224,7 @@
                     <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 </button>
                 <div class="flex items-center gap-4 mb-4 mt-4">
-                    <div id="debrief-emoji" class="text-6xl bg-slate-100 w-20 h-20 flex items-center justify-center rounded-2xl shrink-0">🎯</div>
+                    <div id="debrief-emoji" class="text-6xl bg-slate-100 w-20 h-20 flex items-center justify-center rounded-xl shrink-0">🎯</div>
                     <div>
                         <h2 id="debrief-title" class="text-2xl font-black text-slate-900 uppercase mb-1">Titre</h2>
                         <p class="text-slate-800 font-bold uppercase tracking-wider text-[10px]">Débriefing ESIS-3D</p>
@@ -232,7 +232,7 @@
                 </div>
                 
                 <!-- Bloc rappel de la question choisie -->
-                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-4 shrink-0">
+                <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 mb-4 shrink-0">
                     <p class="text-[10px] font-black uppercase text-emerald-600 mb-1 tracking-widest">Question sélectionnée :</p>
                     <p id="debrief-question" class="text-emerald-900 font-bold italic text-sm"></p>
                 </div>
@@ -241,7 +241,7 @@
                     <div id="debrief-text" class="text-base text-slate-600 leading-relaxed font-medium"></div>
                 </div>
                 
-                <button id="btn-next" onclick="nextStep()" class="shrink-0 bg-blue-900 text-white py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-800 transition-colors shadow-lg flex items-center justify-center gap-3">
+                <button id="btn-next" onclick="nextStep()" class="shrink-0 bg-blue-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-800 transition-colors shadow-lg flex items-center justify-center gap-3">
                     Défi Suivant
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </button>
@@ -287,14 +287,14 @@ function showReferential() {
         
         const card = document.createElement('div');
         card.id = `ref-${reflex.id}`;
-        card.className = "bg-white p-6 rounded-3xl border-2 border-slate-100 shadow-sm flex flex-col gap-4";
+        card.className = "bg-white p-6 rounded-xl border-2 border-slate-100 shadow-sm flex flex-col gap-4";
         card.innerHTML = `
             <div class="flex items-center gap-4 border-b border-slate-50 pb-4">
                 <span class="text-4xl"><i data-lucide="${reflex.icon}" class="w-10 h-10 text-slate-800"></i></span>
                 <h3 class="text-xl font-black text-slate-800 uppercase tracking-tight">${reflex.title}</h3>
             </div>
             <p class="text-slate-800 font-bold text-base leading-snug lowercase first-letter:uppercase">${reflex.intent}</p>
-            <div class="bg-slate-50 p-4 rounded-2xl">
+            <div class="bg-slate-50 p-4 rounded-lg">
                 <ul class="space-y-2">
                     ${reflex.questions.map(q => `<li class="text-xs font-medium text-slate-600 italic">“ ${q} ”</li>`).join('')}
                 </ul>
@@ -349,7 +349,7 @@ function showReflexDetail(id) {
             </div>
         </div>
         <p class="text-lg text-slate-600 font-medium leading-relaxed mb-6">${reflex.intent}</p>
-        <div class="bg-slate-100 p-6 rounded-2xl">
+        <div class="bg-slate-100 p-6 rounded-lg">
             <p class="text-[10px] font-black uppercase text-slate-500 mb-4 tracking-widest">Questions Types Associées</p>
             <ul class="space-y-3">
                 ${reflex.questions.map(q => `<li class="text-sm font-bold text-slate-900 italic">“ ${q} ”</li>`).join('')}
@@ -449,7 +449,7 @@ function renderReflexChoices() {
     
     options.forEach(opt => {
         const btn = document.createElement('button');
-        btn.className = "reflex-btn bg-white p-4 rounded-2xl text-left flex items-center gap-4 h-full overflow-hidden";
+        btn.className = "reflex-btn bg-white p-4 rounded-xl text-left flex items-center gap-4 h-full overflow-hidden";
         btn.innerHTML = `
             <button onclick="event.stopPropagation(); showReflexDetail(${opt.id})" class="info-btn text-slate-300 hover:text-blue-900">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
@@ -505,7 +505,7 @@ function renderQuestionChoices() {
     
     step.options.forEach((opt) => {
         const btn = document.createElement('button');
-        btn.className = "group w-full bg-white border-2 border-slate-100 p-5 rounded-2xl text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base";
+        btn.className = "group w-full bg-white border-2 border-slate-100 p-5 rounded-lg text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base";
         btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
         btn.onclick = () => { 
             if(currentPhase === 2) { 
