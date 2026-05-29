@@ -465,10 +465,14 @@ function renderQuestionChoices() {
     wrapper.innerHTML = '';
     const step = levelSteps[currentStepIdx];
     
-    step.options.forEach((opt) => {
+    // Trois icônes de questions distinctes et élégantes
+    const choiceIcons = ["help-circle", "message-circle", "help-circle"];
+    
+    step.options.forEach((opt, idx) => {
         const btn = document.createElement('button');
         btn.className = "group w-full bg-white border-2 border-slate-100 p-5 rounded-2xl text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base";
-        btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
+        const iconName = choiceIcons[idx % choiceIcons.length];
+        btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="${iconName}" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
         btn.onclick = () => { 
             if(currentPhase === 2) { 
                 if (opt.isCorrect) {
