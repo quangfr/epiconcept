@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "B1. Saisie Assistée (No-Typing)",
+    "title": "B1. Saisie Assistée",
     "intent": "Remplacer la frappe clavier et les menus cachés par des clics directs pour limiter la fatigue cognitive.",
     "scenarios": [
       {
@@ -1101,6 +1101,97 @@
         "expl": "La modal d'édition d'un objet permet de concentrer l'attention sur la tâche de saisie sans casser la continuité du flux de travail."
       }
     ],
-    "icon": "archive"
+  },
+  {
+    "id": 13,
+    "title": "B13. Traitement en masse",
+    "intent": "Permettre d'éditer, de dupliquer ou de traiter plusieurs données simultanément pour accélérer le travail répétitif.",
+    "scenarios": [
+      {
+        "text": "L'utilisateur gère une file d'attente de patientes très dense et chaque profil métier a besoin d'afficher des données différentes (ex: tel, mail, date d'examen) sans surcharger l'écran. L'interface doit proposer un tableau avec colonnes personnalisables que chacun peut masquer ou afficher d'un clic.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Surcharge</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Tableau fixe géant</div><div class=\"text-[8px] text-slate-500 bg-white p-1.5 rounded\">18 colonnes affichées dont 12 inutiles pour le profil connecté...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Surcharge visuelle et scrolling horizontal permanent fatigant</div></div>",
+        "correct": {
+          "title": "Tableau avec colonnes personnalisables",
+          "visual": "<div class=\"bg-white border border-slate-200 rounded-xl p-2 w-full shadow-sm flex flex-col gap-1.5 text-[8px] font-medium text-slate-700\"><div class=\"flex justify-between items-center bg-slate-50 p-1 rounded\"><span class=\"font-bold flex items-center gap-1\"><i data-lucide=\"sliders\" style=\"width:8px; height:8px;\"></i> Colonnes :</span><div class=\"flex gap-1\"><span class=\"bg-slate-200 px-1 py-0.5 rounded text-[5px]\">☑ ID</span><span class=\"bg-slate-200 px-1 py-0.5 rounded text-[5px]\">☑ Tel</span><span class=\"bg-white border px-1 py-0.5 rounded text-[5px] text-slate-400\">☐ Mail</span></div></div><table class=\"w-full text-left font-mono text-[6px] border-t mt-1\"><thead><tr class=\"border-b\"><th class=\"py-0.5\">ID</th><th class=\"py-0.5\">Patient</th><th class=\"py-0.5\">Tel</th></tr></thead><tbody><tr><td class=\"py-0.5\">#01</td><td class=\"py-0.5\">Martin S.</td><td class=\"py-0.5\">0612...</td></tr></tbody></table></div>",
+          "expl": "Permet à l'utilisateur de configurer et de sauvegarder les colonnes du tableau de bord selon son besoin.",
+          "debriefExpl": "Permet d'adapter l'affichage des tableaux à chaque cas métier en masquant les colonnes inutiles.",
+          "icon": "sliders"
+        },
+        "wrong": [
+          {
+            "title": "Double Tableau Dédié",
+            "visual": "<div class=\"w-full flex gap-1\"><div class=\"w-1/2 bg-slate-50 p-1 text-[6px] border rounded\">Tableau A</div><div class=\"w-1/2 bg-slate-50 p-1 text-[6px] border rounded\">Tableau B</div></div>",
+            "expl": "Développe plusieurs pages de tableaux distinctes pour chaque type de profil utilisateur.",
+            "debriefExpl": "Sépare et duplique le code inutilement, rendant la maintenance extrêmement lourde.",
+            "icon": "layout"
+          },
+          {
+            "title": "Scrolling Horizontal libre",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[7px] text-slate-400 italic\">Scroll horizontal --> --></div>",
+            "expl": "Affiche toutes les colonnes possibles et laisse l'utilisateur scroller indéfiniment.",
+            "debriefExpl": "Provoque de la fatigue visuelle et ralentit la lecture rapide des informations essentielles du patient.",
+            "icon": "layout"
+          }
+        ],
+        "expl": "Les colonnes personnalisables permettent de configurer le tableau de bord précisément pour chaque usage métier, sans modifier le code."
+      },
+      {
+        "text": "La secrétaire doit envoyer 50 courriers de relance à la fois. Si elle doit ouvrir et relancer chaque dossier individuellement, cela lui prend une heure. Elle souhaite pouvoir cocher plusieurs lignes dans son tableau pour déclencher une action groupée (actions multiples dans un tableau) en un seul clic.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Lenteur</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Traitement unitaire</div><div class=\"text-[8px] text-slate-500 bg-white p-1.5 rounded\">Ouvrir #01 > Cliquer Relance > Fermer > Ouvrir #02...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ 50 répétitions identiques de clics manuels fatigantes</div></div>",
+        "correct": {
+          "title": "Actions multiples dans un tableau",
+          "visual": "<div class=\"bg-white border border-slate-200 rounded-xl p-2 w-full shadow-sm flex flex-col gap-1.5 text-[8px] font-medium text-slate-700\"><div class=\"flex justify-between items-center bg-indigo-50 border border-indigo-150 p-1.5 rounded\"><span class=\"font-bold text-indigo-850 text-[6px]\">12 sélectionnés</span><button class=\"bg-indigo-650 text-white px-1.5 py-0.5 rounded text-[5px] font-black flex items-center gap-0.5\"><i data-lucide=\"mail\" style=\"width:6px; height:6px;\"></i> Relancer</button></div><div class=\"space-y-0.5 mt-1 text-[6px]\"><div class=\"flex items-center gap-1.5\"><input type=\"checkbox\" checked> <span>MARTIN S.</span></div><div class=\"flex items-center gap-1.5\"><input type=\"checkbox\" checked> <span>DUPONT J.</span></div></div></div>",
+          "expl": "Permet de sélectionner plusieurs lignes d'un tableau pour exécuter une action groupée en un clic.",
+          "debriefExpl": "Élimine le travail répétitif de traitement individuel en autorisant les actions en lot (bulk actions).",
+          "icon": "check-square"
+        },
+        "wrong": [
+          {
+            "title": "Script Automatique en tâche de fond",
+            "visual": "<div class=\"w-full bg-slate-900 text-green-400 text-[6px] font-mono p-2 rounded\">run cron_relances.sh... (exécuté à 23h00)</div>",
+            "expl": "Lance un script serveur automatique la nuit pour traiter tous les dossiers en attente.",
+            "debriefExpl": "Enlève le contrôle à l'utilisateur qui ne peut pas décider d'une relance urgente en cours de journée.",
+            "icon": "layout"
+          },
+          {
+            "title": "Raccourcis Clavier ultra-rapides",
+            "visual": "<div class=\"p-2 bg-slate-100 rounded text-center text-[7px] text-slate-500 font-bold\">Appuyer sur Alt+R pour chaque ligne</div>",
+            "expl": "Intègre un raccourci clavier pour exécuter l'action sur la ligne sélectionnée.",
+            "debriefExpl": "Même si le raccourci accélère l'action unitaire, il force quand même à répéter le geste 50 fois de suite.",
+            "icon": "layout"
+          }
+        ],
+        "expl": "La sélection multiple et les actions en lot (bulk actions) transforment 50 tâches unitaires répétitives en une seule action de validation en 2 secondes."
+      },
+      {
+        "text": "Lors de la planification de plusieurs sessions de dépistage identiques, le gestionnaire doit ressaisir à chaque fois les mêmes 15 critères (salle, horaires, médecin...). Pour éviter cette saisie répétitive, l'interface doit permettre de dupliquer un objet existant pour créer les suivants en 2 secondes.",
+        "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Saisie</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Nouveau Formulaire</div><div class=\"w-full border p-1 text-[10px] text-slate-400 bg-white italic\">Saisir critères (15 champs vides)...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Saisie lourde et redondante pour chaque nouvelle session identique</div></div>",
+        "correct": {
+          "title": "Dupliquer un objet existant",
+          "visual": "<div class=\"bg-white border border-slate-200 rounded-xl p-2 w-full shadow-sm flex flex-col gap-1.5 text-[8px] font-medium text-slate-700\"><div class=\"border rounded p-1.5 bg-slate-50 flex justify-between items-center\"><div><div class=\"font-bold text-slate-800 text-[7px]\">Session Dr. Martin</div><div class=\"text-slate-400 text-[5px]\">12/04 - Salle A (15 critères)</div></div><button class=\"bg-slate-700 text-white text-[6px] font-bold px-1.5 py-0.5 rounded shadow-sm flex items-center gap-0.5\"><i data-lucide=\"copy\" style=\"width:6px; height:6px;\"></i> Dupliquer</button></div></div>",
+          "expl": "Permet de cloner une fiche ou un paramétrage existant pour s'en servir de base et éviter la ressaisie.",
+          "debriefExpl": "Accélère la création en proposant de dupliquer des configurations denses en un seul clic.",
+          "icon": "copy"
+        },
+        "wrong": [
+          {
+            "title": "Modèles de Formulaires statiques",
+            "visual": "<div class=\"w-full bg-white border p-2 rounded text-[7px] text-slate-500 font-bold flex justify-between\">Modèles <span>▼</span></div>",
+            "expl": "Permet d'enregistrer des structures vides comme modèles à charger dans le formulaire.",
+            "debriefExpl": "Exige de configurer un modèle en amont, ce qui est trop lourd pour des duplications ponctuelles courantes.",
+            "icon": "layout"
+          },
+          {
+            "title": "Saisie Multi-onglets",
+            "visual": "<div class=\"w-full flex gap-1 text-[6px] font-bold opacity-50\"><div class=\"bg-slate-200 p-1 rounded\">Session 1</div><div class=\"bg-slate-200 p-1 rounded\">Session 2</div></div>",
+            "expl": "Permet d'ouvrir plusieurs formulaires vierges dans des onglets pour saisir en parallèle.",
+            "debriefExpl": "Surcharge le navigateur et n'évite en aucun cas de devoir ressaisir les 15 champs clavier dans chaque onglet.",
+            "icon": "layout"
+          }
+        ],
+        "expl": "La duplication directe (clonage) permet d'utiliser le travail déjà effectué sur un objet comme modèle dynamique immédiat, supprimant l'effort de ressaisie."
+      }
+    ],
+    "icon": "copy"
   }
 ]

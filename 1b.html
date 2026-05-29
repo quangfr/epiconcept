@@ -51,7 +51,7 @@
             <div class="flex items-center gap-4">
                 <div>
                     <h2 class="text-2xl font-black text-slate-800 uppercase tracking-tight">📚 Référentiel UX ESIS-3D</h2>
-                    <p class="text-slate-500 text-sm font-medium">Les 10 principes et leurs applications concrètes</p>
+                    <p class="text-slate-500 text-sm font-medium">Les 13 principes et leurs applications concrètes</p>
                 </div>
                 <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-1000">
                     <option value="">-- Aller au Réflexe --</option>
@@ -88,7 +88,7 @@
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Composants d'interface simples et interactions directes au quotidien.</p>
                 <div class="mt-6 pt-4 border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv0" class="text-2xl font-black text-slate-800">-- / 12</span>
+                    <span id="score-lv0" class="text-2xl font-black text-slate-800">-- / 13</span>
                 </div>
             </div>
             <div onclick="startLevel(1)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
@@ -97,7 +97,7 @@
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Parcours complexes, personnalisation et prévention des erreurs.</p>
                 <div class="mt-6 pt-4 border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv1" class="text-2xl font-black text-slate-800">-- / 12</span>
+                    <span id="score-lv1" class="text-2xl font-black text-slate-800">-- / 13</span>
                 </div>
             </div>
             <div onclick="startLevel(2)" class="level-card bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-xl flex flex-col items-center text-center">
@@ -106,7 +106,7 @@
                 <p class="text-slate-500 text-sm mt-2 flex-grow">Architecture d'information, accessibilité et continuité de service.</p>
                 <div class="mt-6 pt-4 border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv2" class="text-2xl font-black text-slate-800">-- / 12</span>
+                    <span id="score-lv2" class="text-2xl font-black text-slate-800">-- / 13</span>
                 </div>
             </div>
         </div>
@@ -145,7 +145,7 @@
         <div id="scenario-card" class="glass-panel rounded-3xl p-6 shadow-sm border-slate-100 flex-grow overflow-hidden relative">
             <div class="flex items-center justify-between mb-4 shrink-0">
                 <div class="bg-slate-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse de Situation</div>
-                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 12</div>
+                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 13</div>
             </div>
             <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏥</div>
             <div class="overflow-y-auto h-full pr-2 pb-4 flex flex-col gap-4">
@@ -244,7 +244,7 @@ const M = {
 
 let reflexes = [];
 
-const TOTAL_STEPS = 12;
+const TOTAL_STEPS = 13;
 let currentLevel = 0;
 let currentStepIdx = 0;
 let levelSteps = [];
@@ -259,7 +259,7 @@ function initHome() {
     // Met à jour la progression affichée sur la page d'accueil
     for (let i = 0; i < 3; i++) {
         const score = localStorage.getItem(`ux-score-lv${i}`);
-        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 12` : "-- / 12";
+        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 13` : "-- / 13";
     }
 }
 
