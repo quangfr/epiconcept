@@ -1375,6 +1375,65 @@
             </div>
         </div>
 
+        <!-- Slide 5 : Objectifs d'Ergonomie UI & 12 Principes UX -->
+        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 1100px; animation: fadeIn 0.3s; width: 100%; overflow-y: auto; max-height: 80vh; padding: 0.5rem;">
+            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Ergonomie UI & Réflexes UX</h2>
+            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">Les 3 objectifs ergonomiques majeurs rattachés aux 12 principes UX d'Epiconcept.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; width: 100%; text-align: left;">
+                <!-- Pilier 1 : Saisie Assistée -->
+                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #3b82f6;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <i data-lucide="keyboard" style="color:#3b82f6; width:24px; height:24px;"></i>
+                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">1. Saisie Assistée (No-Typing)</h4>
+                    </div>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer les actions claviers redondantes pour accélérer le flux de travail clinique sur le terrain.</p>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #3b82f6;">B1 :</strong> Saisie sans clavier (boutons segmentés, auto-remplissage)</li>
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #3b82f6;">B2 :</strong> Rappel visuel fluide (sommaire, en-tête patient fixe)</li>
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #3b82f6;">B12 :</strong> Interface compacte & extensible (onglets, popovers)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pilier 2 : Prévention Active d'Erreurs -->
+                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #10b981;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <i data-lucide="shield-check" style="color:#10b981; width:24px; height:24px;"></i>
+                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">2. Prévention Active d'Erreurs</h4>
+                    </div>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Sécuriser la saisie à la source pour interdire la validation de données incohérentes ou erronées.</p>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #10b981;">B3 :</strong> Validation active (inline, alerte doublon, masque)</li>
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #10b981;">B7 :</strong> Continuité de tâche (auto-sauvegarde, undo, offline)</li>
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #10b981;">B9 :</strong> Sécurité & Traçabilité (rôles, MFA, journal audit)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pilier 3 : Sobriété & Guidage -->
+                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #f59e0b;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <i data-lucide="eye" style="color:#f59e0b; width:24px; height:24px;"></i>
+                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">3. Sobriété & Guidage Visuel</h4>
+                    </div>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer les éléments parasites visuels pour se concentrer sur l'essentiel et guider l'utilisateur.</p>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.25rem;">
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #f59e0b;">B4 :</strong> Sobriété sémantique (monochrome, design épuré)</li>
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #f59e0b;">B5 :</strong> Aides visuelles contextuelles (tooltips, toasts, statuts)</li>
+                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #f59e0b;">B10 :</strong> Fil d'Ariane & Steppers (découpage en étapes, wizard)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Slide 4 : User Mapping (SVG) -->
         <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 1200px; animation: fadeIn 0.3s; width: 100%;">
             <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">User Mapping</h2>
@@ -1515,6 +1574,7 @@
         <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(15,23,42,0.15); transition: 0.3s;"></div>
         <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(15,23,42,0.15); transition: 0.3s;"></div>
         <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(15,23,42,0.15); transition: 0.3s;"></div>
+        <div class="slide-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(15,23,42,0.15); transition: 0.3s;"></div>
     </div>
 </div>
 
@@ -1560,7 +1620,7 @@ function updateSlides() {
     }
     
     // Render Mermaid on Slide 4
-    if (currentSlide === 4 && !mermaidRendered && window.mermaid) {
+    if (currentSlide === 5 && !mermaidRendered && window.mermaid) {
         mermaidRendered = true;
         setTimeout(() => {
             mermaid.initialize({ startOnLoad: false, theme: 'base', themeVariables: { darkMode: true, primaryColor: '#1e3a8a', primaryTextColor: '#fff', lineColor: '#3b82f6' } });
