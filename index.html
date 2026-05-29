@@ -800,10 +800,6 @@
         <div class="top-bar">
             <!-- Header Section -->
             <header id="main-header">
-                <div class="logo-badge" id="logo">
-                    <span class="pulse-dot"></span>
-                    <span>Simulation Métier</span>
-                </div>
                 <h1 id="title">WORKSHOPS EPICONCEPT DEPISTAGE</h1>
                 <p class="subtitle" id="desc">
                     Développez vos réflexes Product sur des cas concrets.
@@ -861,7 +857,7 @@
     </div>
                     <button onclick="openComprendre(1)" class="cta-button" style="position: relative; display: flex; align-items: center; justify-content: center; padding-right: 4.5rem; padding-left: 4.5rem;">
                         <span style="display: flex; align-items: center; gap: 0.4rem;">Comprendre <i data-lucide="arrow-right"></i></span>
-                        <span id="slides-progress" style="font-size: 0.8rem; font-weight: 600; background: rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.3); position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%); color: #ffffff;">1 / 4</span>
+                        <span id="slides-progress" style="font-size: 0.8rem; font-weight: 600; background: rgba(255,255,255,0.15); padding: 0.2rem 0.6rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.3); position: absolute; right: 0.4rem; top: 50%; transform: translateY(-50%); color: #ffffff;">1 / 7</span>
                     </button>
                 </article>
                 <article class="simulator-card po-theme" id="po-card">
@@ -1466,7 +1462,66 @@
             </div>
         </div>
 
-        <!-- Slide 5 : Objectifs d'Ergonomie UI & 12 Principes UX -->
+        <!-- Slide 5 : Récapitulatif des Réflexes PO (Posture & Besoins) -->
+        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 1100px; animation: fadeIn 0.3s; width: 100%; overflow-y: auto; max-height: 80vh; padding: 0.5rem;">
+            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Réflexes Produit & Cadrage PO</h2>
+            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">Les 3 piliers stratégiques rattachés aux 12 réflexes d'analyse de besoins d'Epiconcept.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; width: 100%; text-align: left;">
+                <!-- Pilier 1 : Cadrage & Intention -->
+                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #3b82f6;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <i data-lucide="target" style="color:#3b82f6; width:24px; height:24px;"></i>
+                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">1. Cadrage & Intention</h4>
+                    </div>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Identifier la valeur métier réelle derrière chaque demande d'évolution.</p>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Réflexes associés (cliquez) :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                            <li onclick="showRef('A1')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">A1 :</strong> Dépasser la demande (l'intention)</li>
+                            <li onclick="showRef('A2')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">A2 :</strong> Quantifier le problème (criticité)</li>
+                            <li onclick="showRef('A8')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">A8 :</strong> Raccrocher aux besoins (valeur)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pilier 2 : Contextualisation Terrain -->
+                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #10b981;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <i data-lucide="eye" style="color:#10b981; width:24px; height:24px;"></i>
+                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">2. Contextualisation Terrain</h4>
+                    </div>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Étudier le problème en conditions réelles d'utilisation.</p>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Réflexes associés (cliquez) :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                            <li onclick="showRef('A3')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">A3 :</strong> Reproduire l'irritant (observation)</li>
+                            <li onclick="showRef('A4')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">A4 :</strong> Vérifier l'existant (contournements)</li>
+                            <li onclick="showRef('A5')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">A5 :</strong> Vérifier l'historique (décisions)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pilier 3 : Conception & MVP -->
+                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #f59e0b;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <i data-lucide="award" style="color:#f59e0b; width:24px; height:24px;"></i>
+                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">3. Conception & MVP</h4>
+                    </div>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Prioriser l'impact maximum pour une complexité maîtrisée.</p>
+                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Réflexes associés (cliquez) :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                            <li onclick="showRef('A9')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">A9 :</strong> Aligner avec la Roadmap (vision)</li>
+                            <li onclick="showRef('A11')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">A11 :</strong> Chercher les marges (scope)</li>
+                            <li onclick="showRef('A12')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">A12 :</strong> Valider la solution mini (MVP)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6 : Objectifs d'Ergonomie UI & 12 Principes UX (Simplified & Cliquable) -->
         <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 1100px; animation: fadeIn 0.3s; width: 100%; overflow-y: auto; max-height: 80vh; padding: 0.5rem;">
             <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Ergonomie UI & Réflexes UX</h2>
             <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">Les 3 objectifs ergonomiques majeurs rattachés aux 12 principes UX d'Epiconcept.</p>
@@ -1478,13 +1533,13 @@
                         <i data-lucide="keyboard" style="color:#3b82f6; width:24px; height:24px;"></i>
                         <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">1. Saisie Assistée (No-Typing)</h4>
                     </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer les actions claviers redondantes pour accélérer le flux de travail clinique sur le terrain.</p>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer la frappe clavier redondante pour accélérer le travail clinique.</p>
                     <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.25rem;">
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #3b82f6;">B1 :</strong> Saisie sans clavier (boutons segmentés, auto-remplissage)</li>
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #3b82f6;">B2 :</strong> Rappel visuel fluide (sommaire, en-tête patient fixe)</li>
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #3b82f6;">B12 :</strong> Interface compacte & extensible (onglets, popovers)</li>
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés (cliquez) :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                            <li onclick="showRef('B1')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B1 :</strong> Saisie sans clavier (clic direct, auto-remplissage)</li>
+                            <li onclick="showRef('B2')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B2 :</strong> Rappel visuel fluide (sticky, en-tête patient)</li>
+                            <li onclick="showRef('B12')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B12 :</strong> Interface compacte & extensible (onglets, popovers)</li>
                         </ul>
                     </div>
                 </div>
@@ -1495,13 +1550,13 @@
                         <i data-lucide="shield-check" style="color:#10b981; width:24px; height:24px;"></i>
                         <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">2. Prévention Active d'Erreurs</h4>
                     </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Sécuriser la saisie à la source pour interdire la validation de données incohérentes ou erronées.</p>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Sécuriser la saisie en temps réel pour interdire les données incohérentes.</p>
                     <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.25rem;">
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #10b981;">B3 :</strong> Validation active (inline, alerte doublon, masque)</li>
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #10b981;">B7 :</strong> Continuité de tâche (auto-sauvegarde, undo, offline)</li>
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #10b981;">B9 :</strong> Sécurité & Traçabilité (rôles, MFA, journal audit)</li>
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés (cliquez) :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                            <li onclick="showRef('B3')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">B3 :</strong> Validation active (inline, alerte doublon, masque)</li>
+                            <li onclick="showRef('B7')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">B7 :</strong> Continuité de tâche (auto-sauvegarde, undo, offline)</li>
+                            <li onclick="showRef('B9')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">B9 :</strong> Sécurité & Traçabilité (rôles, MFA, audit)</li>
                         </ul>
                     </div>
                 </div>
@@ -1512,13 +1567,13 @@
                         <i data-lucide="eye" style="color:#f59e0b; width:24px; height:24px;"></i>
                         <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">3. Sobriété & Guidage Visuel</h4>
                     </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer les éléments parasites visuels pour se concentrer sur l'essentiel et guider l'utilisateur.</p>
+                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer le bruit visuel inutile pour guider l'œil vers l'action essentielle.</p>
                     <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.25rem;">
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #f59e0b;">B4 :</strong> Sobriété sémantique (monochrome, design épuré)</li>
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #f59e0b;">B5 :</strong> Aides visuelles contextuelles (tooltips, toasts, statuts)</li>
-                            <li style="display: flex; gap: 0.4rem;"><strong style="color: #f59e0b;">B10 :</strong> Fil d'Ariane & Steppers (découpage en étapes, wizard)</li>
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés (cliquez) :</span>
+                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                            <li onclick="showRef('B4')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">B4 :</strong> Sobriété sémantique (monochrome, design épuré)</li>
+                            <li onclick="showRef('B5')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">B5 :</strong> Aides visuelles contextuelles (tooltips, toasts, statuts)</li>
+                            <li onclick="showRef('B10')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">B10 :</strong> Fil d'Ariane & Steppers (découpage en étapes, wizard)</li>
                         </ul>
                     </div>
                 </div>
@@ -1762,6 +1817,148 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// PO & UX Reflexes Reference Loader and Modal Logic
+let reflexesData = null;
+async function showRef(reflexId) {
+    if (!reflexesData) {
+        try {
+            const v = new Date().getTime();
+            const [poRes, uxRes] = await Promise.all([
+                fetch('1a.json?v=' + v),
+                fetch('1b.json?v=' + v)
+            ]);
+            const poData = await poRes.json();
+            const uxData = await uxRes.json();
+            reflexesData = {
+                po: poData,
+                ux: uxData
+            };
+        } catch (e) {
+            console.error("Error loading reflex data:", e);
+            alert("Erreur de chargement des données de référence.");
+            return;
+        }
+    }
+    
+    let title = "";
+    let description = "";
+    let examples = [];
+    let badgeText = "";
+    let iconName = "lightbulb";
+    
+    if (reflexId.startsWith('A')) {
+        const num = parseInt(reflexId.substring(1), 10);
+        const item = reflexesData.po.find(x => x.id === num);
+        if (item) {
+            title = item.title;
+            description = item.intent;
+            examples = item.questions || [];
+            badgeText = "Réflexe PO (Posture)";
+            iconName = "target";
+        }
+    } else if (reflexId.startsWith('B')) {
+        const num = parseInt(reflexId.substring(1), 10);
+        const item = reflexesData.ux.find(x => x.id === num);
+        if (item) {
+            title = item.title;
+            description = item.intent || "Principe d'ergonomie et de conception d'interface.";
+            examples = [];
+            if (item.scenarios && item.scenarios.length > 0) {
+                item.scenarios.forEach(sc => {
+                    if (sc.correct && sc.correct.title) {
+                        examples.push(`${sc.correct.title} : ${sc.correct.expl}`);
+                    }
+                });
+            }
+            badgeText = "Réflexe UX (Conception)";
+            iconName = "mouse-pointer-click";
+        }
+    }
+    
+    if (title) {
+        openRefModal(title, description, examples, badgeText, iconName);
+    }
+}
+
+function openRefModal(title, description, examples, badgeText, iconName) {
+    const modal = document.getElementById('ref-modal');
+    document.getElementById('ref-title').innerText = title;
+    document.getElementById('ref-intent').innerText = description;
+    document.getElementById('ref-badge').innerText = badgeText;
+    
+    const iconWrapper = document.getElementById('ref-icon-wrapper');
+    iconWrapper.innerHTML = `<i id="ref-icon" data-lucide="${iconName}" style="width: 24px; height: 24px;"></i>`;
+    
+    const list = document.getElementById('ref-examples-list');
+    list.innerHTML = '';
+    
+    const label = document.getElementById('ref-examples-label');
+    if (badgeText.startsWith('Réflexe PO')) {
+        label.innerText = "Questions Métier Clés";
+        examples.forEach(q => {
+            const li = document.createElement('li');
+            li.style.display = 'flex';
+            li.style.gap = '0.5rem';
+            li.innerHTML = `<span style="color: var(--color-primary); font-weight: bold;">•</span> <span>${q}</span>`;
+            list.appendChild(li);
+        });
+    } else {
+        label.innerText = "Applications Pratiques UI";
+        examples.forEach(e => {
+            const li = document.createElement('li');
+            li.style.display = 'flex';
+            li.style.gap = '0.5rem';
+            li.innerHTML = `<span style="color: var(--color-emerald); font-weight: bold;">✓</span> <span>${e}</span>`;
+            list.appendChild(li);
+        });
+    }
+    
+    modal.style.display = 'flex';
+    lucide.createIcons(); // Re-render Lucide icons dynamically
+}
+
+function closeRefModal() {
+    document.getElementById('ref-modal').style.display = 'none';
+}
 </script>
+
+<!-- Reference Modal (Glassmorphic pop-up) -->
+<div id="ref-modal" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px; transition: opacity 0.3s ease;">
+    <div style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); max-width: 500px; width: 100%; border-radius: 1.5rem; padding: 2rem; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15); display: flex; flex-direction: column; gap: 1.25rem; position: relative;">
+        <!-- Close Button -->
+        <button onclick="closeRefModal()" style="position: absolute; top: 1.25rem; right: 1.25rem; background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'">
+            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+        
+        <!-- Header / Title -->
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div id="ref-icon-wrapper" style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <i id="ref-icon" data-lucide="lightbulb" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div>
+                <span id="ref-badge" style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Réflexe PO</span>
+                <h3 id="ref-title" style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">A1. Dépasser la demande</h3>
+            </div>
+        </div>
+        
+        <!-- Intent / Description -->
+        <div style="background: #f8fafc; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.04);">
+            <h4 style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Intention & Philosophie</h4>
+            <p id="ref-intent" style="font-size: 0.85rem; color: #334155; line-height: 1.5; font-weight: 500;">Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.</p>
+        </div>
+        
+        <!-- Examples / Questions -->
+        <div id="ref-examples-container" style="display: flex; flex-direction: column; gap: 0.25rem;">
+            <h4 id="ref-examples-label" style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Questions Clés</h4>
+            <ul id="ref-examples-list" style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+                <!-- Filled dynamically -->
+            </ul>
+        </div>
+        
+        <!-- Action Button -->
+        <button onclick="closeRefModal()" class="cta-button" style="margin-top: 0.5rem;">J'ai compris</button>
+    </div>
+</div>
+
 </body>
 </html>
