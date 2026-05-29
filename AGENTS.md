@@ -32,6 +32,7 @@ Ce document fournit le contexte, l'architecture et les règles de conception du 
 3. **Modification (HTML/JS)** : Repérer les identifiants DOM (`getElementById`). Faire très attention aux ID manquants (qui peuvent générer des erreurs `Cannot set properties of null (setting 'innerHTML')`).
 4. **Validation de la logique dynamique** : Toute modification de rendu (ex: Phase 1 vers Phase 2) doit s'assurer que le contenu JSON sous-jacent est robuste et contient les clés nécessaires.
 5. **Nettoyage et Commit** : Effectuer des commits locaux (`git add`, `git commit`). **TRÈS IMPORTANT** : Ne **JAMAIS** faire de `git push` vers le serveur distant sauf si l'utilisateur le demande explicitement. Informer l'utilisateur des modifications locales effectuées.
+6. **Déploiement** : Ne **JAMAIS** lancer de déploiement automatique (`firebase deploy`, `git push`, etc.) sans demande **expresse et explicite** de l'utilisateur. Après chaque modification, se contenter d'informer l'utilisateur que les changements sont prêts et disponibles en local, et lui proposer de déployer si il le souhaite. Le projet de déploiement Firebase est **`goepico`** (URL : https://goepico.web.app) — toujours utiliser `firebase deploy --project goepico`.
 
 ## 6. Structure Commune des Ateliers (Template de Cours)
 Les ateliers (`1a.html` et `1b.html`) partagent un pattern d'architecture identique. Toute création d'un nouvel atelier doit suivre ce template standardisé pour assurer la cohérence esthétique et technique.
