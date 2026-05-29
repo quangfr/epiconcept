@@ -1101,6 +1101,7 @@
         "expl": "La modal d'édition d'un objet permet de concentrer l'attention sur la tâche de saisie sans casser la continuité du flux de travail."
       }
     ],
+    "icon": "sidebar"
   },
   {
     "id": 13,
