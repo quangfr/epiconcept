@@ -32,3 +32,30 @@ Ce document fournit le contexte, l'architecture et les règles de conception du 
 3. **Modification (HTML/JS)** : Repérer les identifiants DOM (`getElementById`). Faire très attention aux ID manquants (qui peuvent générer des erreurs `Cannot set properties of null (setting 'innerHTML')`).
 4. **Validation de la logique dynamique** : Toute modification de rendu (ex: Phase 1 vers Phase 2) doit s'assurer que le contenu JSON sous-jacent est robuste et contient les clés nécessaires.
 5. **Nettoyage et Commit** : Utiliser Git pour valider les modifications (`git add`, `git commit`, `git push`) et informer l'utilisateur.
+
+## 6. Structure Commune des Ateliers (Template de Cours)
+Les ateliers (`1a.html` et `1b.html`) partagent un pattern d'architecture identique. Toute création d'un nouvel atelier doit suivre ce template standardisé pour assurer la cohérence esthétique et technique.
+
+### A. Disposition de l'Écran (Grid Layout)
+L'écran de jeu est un flex conteneur de hauteur fixe (`h-[calc(100vh-70px)]`) divisé en deux zones principales :
+1. **Zone Gauche (1/3 ou 5/12 de largeur)** :
+   - **Haut** : Une carte descriptive de situation (`#scenario-card`) qui s'adapte en hauteur (`flex-grow`).
+   - **Bas** : Le volet de rappel `#phase2-question-container` (masqué en phase 1, visible en phase 2) qui s'adapte au contenu (`style="height: auto !important;"`).
+2. **Zone Droite (2/3 ou 7/12 de largeur)** :
+   - Un conteneur parent flexible (`#options-container`) hébergeant les différentes phases :
+     - **Phase 1** : La grille de sélection des réflexes de base (`#reflex-grid`).
+     - **Phase 2** : Le choix d'une question type (`#questions-wrapper` pour 1a) ou l'identification de la maquette d'interface correspondante (`#ui-grid` pour 1b).
+     - **Phase 3** : La carte explicative finale (`#debriefing-card`).
+
+### B. Cycle de Vie d'un Défi (Étape)
+Chaque étape suit une progression stricte en 3 phases gérées par les variables `currentPhase` (1, 2 ou 3) :
+- **Phase 1 (Identification du Réflexe)** : L'utilisateur lit la situation et sélectionne le réflexe UX/Stratégique approprié parmi 4 choix (1 correct, 3 distracteurs).
+- **Phase 2 (Traduction Pratique)** : Le réflexe s'ancre à gauche dans `#phase2-question-container` avec son icône. À droite, l'utilisateur identifie l'application pratique (soit la question clé dans `1a`, soit la maquette d'écran dans `1b`).
+- **Phase 3 (Débriefing)** : La solution correcte est validée, la progression locale s'enregistre (`localStorage`), et le panneau de débriefing final s'affiche avec les explications détaillées et l'impact métier ESIS-3D.
+
+### C. Structure de Données (Fichier JSON)
+Les données sont chargées dynamiquement depuis un fichier JSON :
+- **Atelier 1a (Posture/Besoins)** : Chaque scénario propose une liste de `questions` (la bonne question est déterminée par l'indice du niveau actuel).
+- **Atelier 1b (Conception/UI)** : Chaque scénario propose une structure `correct` (maquette, explication et icône spécifique) et un tableau `wrong` de distracteurs graphiques.
+- Tout nouveau format de cours doit stocker son contenu dans un JSON structuré de façon similaire à `1a.json` ou `1b.json`.
+
