@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A - Réflexes PO avec le client - ESIS-3D</title>
+    <title>A - Besoins utilisateurs - ESIS-3D</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; overflow: hidden; height: 100vh; }
+        body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; color: #1E293B; overflow: hidden; height: 100vh; }
         .glass-panel { background: white; border: 1px solid #E2E8F0; height: 100%; display: flex; flex-direction: column; }
         .reflex-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #F1F5F9; position: relative; }
         .reflex-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #6366F1; box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1); }
@@ -38,10 +38,10 @@
 
 
 <!-- ÉCRAN D'ACCUEIL -->
-<div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex items-center justify-center p-6 overflow-y-auto">
-    <div class="max-w-4xl w-full py-12">
+<div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center justify-center p-6 overflow-y-auto">
+    <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
         <div class="text-center mb-12">
-            <h1 class="text-5xl font-black text-slate-900 tracking-tighter uppercase mb-2">A - Réflexes <span class="text-indigo-600">PO avec le client</span></h1>
+            <h1 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">A - Besoins <span class="text-indigo-600">utilisateurs</span></h1>
             <p class="text-slate-500 font-bold tracking-widest uppercase text-sm">Simulateur de Posture Stratégique pour ESIS-3D</p>
         </div>
 
@@ -75,24 +75,12 @@
             </div>
         </div>
 
-        <div class="flex justify-center gap-6">
-            <a href="./index.html" class="group flex items-center gap-4 bg-white border-2 border-slate-200 px-8 py-4 rounded-2xl hover:border-indigo-600 hover:shadow-lg transition-all" style="text-decoration: none;">
-                <div class="bg-indigo-50 p-3 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors text-slate-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                </div>
-                <div class="text-left">
-                    <div class="text-xs font-black uppercase text-slate-400 tracking-widest">Menu Principal</div>
-                    <div class="text-lg font-black text-slate-800">Retour au Hub</div>
-                </div>
+        <div class="mb-8 flex gap-4 justify-center">
+            <a href="./index.html" class="flex items-center gap-3 bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-sm transition-all" style="text-decoration: none;">
+                <span class="text-xl">🏠</span> Retour au Hub
             </a>
-            <button onclick="showReferential()" class="group flex items-center gap-4 bg-white border-2 border-slate-200 px-8 py-4 rounded-2xl hover:border-indigo-600 hover:shadow-lg transition-all">
-                <div class="bg-indigo-50 p-3 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors text-slate-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                </div>
-                <div class="text-left">
-                    <div class="text-xs font-black uppercase text-slate-400 tracking-widest">Aide à l'analyse</div>
-                    <div class="text-lg font-black text-slate-800">Consulter le Référentiel</div>
-                </div>
+            <button onclick="showReferential()" class="flex items-center gap-3 bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600 hover:border-indigo-400 hover:text-indigo-600 shadow-sm transition-all">
+                <span class="text-xl">📚</span> Consulter le Référentiel PO
             </button>
         </div>
     </div>
@@ -160,9 +148,9 @@
 
 
 <!-- MAIN JEU -->
-<main class="flex-grow flex overflow-hidden p-4 gap-4 h-[calc(100vh-70px)]">
+<main class="flex-grow flex flex-col md:flex-row overflow-hidden p-4 gap-4 h-[calc(100vh-70px)]">
     <!-- Zone de gauche : Étude de cas -->
-    <div class="w-5/12 flex flex-col gap-3 h-full">
+    <div class="w-full md:w-5/12 flex flex-col gap-3 h-full">
         <div class="bg-indigo-600 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit">Analyse de Situation</div>
         <div id="scenario-card" class="glass-panel rounded-3xl p-8 shadow-sm border-indigo-50 overflow-y-auto">
             <div id="step-label" class="text-indigo-400 text-xs font-black uppercase tracking-widest mb-4">Défi 1 / 12</div>
@@ -172,7 +160,7 @@
     </div>
 
     <!-- Zone de droite : Réflexes et Questions -->
-    <div class="w-7/12 flex flex-col gap-3 h-full relative">
+    <div class="w-full md:w-7/12 flex flex-col gap-3 h-full relative">
         <div id="phase-label-container" class="px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-200 text-slate-600 transition-colors">
             Phase 1 : Identification du réflexe
         </div>
