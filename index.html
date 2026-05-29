@@ -1332,8 +1332,8 @@
 <div id="comprendre-modal" class="controls-visible">
     
     <!-- Header with progress bar placed ABOVE slide content -->
-    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; z-index: 110; height: 60px; shrink-0;">
-        <div style="width: 44px;"></div> <!-- spacer -->
+    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; z-index: 110; height: 40px; shrink-0;">
+        <div style="width: 36px;"></div> <!-- spacer -->
         <div id="slide-progress-header" class="slide-control">
             <div id="slide-page-number" style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.15em; text-transform: uppercase;">Page 1 / 6</div>
             <div id="notched-progress-bar" style="display: flex; gap: 4px; width: 100%; height: 5px; background: transparent; border-radius: 9999px; overflow: hidden;">
@@ -1341,12 +1341,12 @@
             </div>
         </div>
         <!-- Close Button -->
-        <button onclick="closeComprendre()" class="slide-control" style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'">
-            <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        <button onclick="closeComprendre()" class="slide-control" style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'">
+            <i data-lucide="x" style="width: 18px; height: 18px;"></i>
         </button>
     </div>
 
-    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; width: 100%; height: calc(100vh - 80px); overflow: hidden; margin-top: 10px;">
+    <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; position: relative; width: 100%; height: calc(100vh - 90px); overflow: hidden; margin-top: 5px;">
         
         <!-- Slide 1 : Le Double Diamant -->
         <div class="comprendre-slide" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 900px; animation: fadeIn 0.3s; width: 100%;">
@@ -1667,11 +1667,11 @@ function showControls() {
     const modal = document.getElementById('comprendre-modal');
     modal.classList.add('controls-visible');
     
-    // Clear previous timeout and set new one to hide after 2.5 seconds of inactivity
+    // Clear previous timeout and set new one to hide after 2 seconds of inactivity
     clearTimeout(controlsTimeout);
     controlsTimeout = setTimeout(() => {
         modal.classList.remove('controls-visible');
-    }, 2500);
+    }, 2000);
 }
 
 function openComprendre(atelierId) {
