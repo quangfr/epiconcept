@@ -17,15 +17,18 @@
         "subOptions": [
           {
             "text": "Stocker la valeur du résultat, la règle d'alerte et l'affichage dans trois champs distincts ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Stocker la valeur du résultat, la règle d'alerte et l'affi…</div></div>"
           },
           {
             "text": "Augmenter la taille du champ texte pour éviter les troncatures ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Augmenter la taille du champ texte pour éviter les troncat…</div></div>"
           },
           {
             "text": "Ajouter une validation manuelle par le médecin responsable ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Ajouter une validation manuelle par le médecin responsable </div></div>"
           }
         ]
       },
@@ -36,15 +39,18 @@
         "subOptions": [
           {
             "text": "Stocker la règle de calcul séparément de la donnée pour pouvoir retracer les versions ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Stocker la règle de calcul séparément de la donnée pour po…</div></div>"
           },
           {
             "text": "Recalculer manuellement tous les dossiers chaque trimestre ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Recalculer manuellement tous les dossiers chaque trimestre </div></div>"
           },
           {
             "text": "Ajouter un commentaire libre sur chaque dossier pour tracer le changement ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Ajouter un commentaire libre sur chaque dossier pour trace…</div></div>"
           }
         ]
       },
@@ -55,15 +61,18 @@
         "subOptions": [
           {
             "text": "Découpler les données, règles et interfaces en couches indépendantes avant d'ajouter un nouveau dépistage ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Découpler les données, règles et interfaces en couches ind…</div></div>"
           },
           {
             "text": "Externaliser le développement à une équipe spécialisée en dépistage pulmonaire ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Externaliser le développement à une équipe spécialisée en …</div></div>"
           },
           {
             "text": "Ajouter le module poumon dans la même base sans rien changer à l'architecture ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🧱</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Architecture</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Ajouter le module poumon dans la même base sans rien chang…</div></div>"
           }
         ]
       }
@@ -87,15 +96,18 @@
         "subOptions": [
           {
             "text": "Décrire le flux nominal (invitation → RDV → test → résultat) puis lister les variantes connues ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🟢</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Flux</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Décrire le flux nominal (invitation → RDV → test → résulta…</div></div>"
           },
           {
             "text": "Tout de suite corriger le cas des courriers perdus avant de documenter les autres flux ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔀</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Cas</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Tout de suite corriger le cas des courriers perdus avant d…</div></div>"
           },
           {
             "text": "Concevoir un seul écran qui gère tous les cas en même temps ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔀</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Cas</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Concevoir un seul écran qui gère tous les cas en même temps </div></div>"
           }
         ]
       },
@@ -106,15 +118,18 @@
         "subOptions": [
           {
             "text": "Documenter le cas nominal (validation → envoi) puis lister séparément les variantes (2e lecture, cliché NIL) ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🟢</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Flux</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Documenter le cas nominal (validation → envoi) puis lister…</div></div>"
           },
           {
             "text": "Envoyer le résultat par SMS dans tous les cas même si la lecture n'est pas finalisée ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔀</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Cas</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Envoyer le résultat par SMS dans tous les cas même si la l…</div></div>"
           },
           {
             "text": "Supprimer l'envoi automatique et tout faire en manuel pour gérer les exceptions ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🟡</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Variante</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Supprimer l'envoi automatique et tout faire en manuel pour…</div></div>"
           }
         ]
       },
@@ -125,15 +140,18 @@
         "subOptions": [
           {
             "text": "Cartographier l'arbre complet des chemins avant de spécifier le module de relance ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔀</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Cas</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Cartographier l'arbre complet des chemins avant de spécifi…</div></div>"
           },
           {
             "text": "D'abord développer le happy path et traiter les exceptions plus tard dans un second projet ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🟢</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Flux</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">D'abord développer le happy path et traiter les exceptions…</div></div>"
           },
           {
             "text": "Exclure les cas complexes du périmètre pour simplifier la première version ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚠️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Précipité</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Exclure les cas complexes du périmètre pour simplifier la …</div></div>"
           }
         ]
       }
@@ -157,15 +175,18 @@
         "subOptions": [
           {
             "text": "Spécifier pour chaque champ son format, sa règle de validation et le message d'erreur associé ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier pour chaque champ son format, sa règle de valida…</div></div>"
           },
           {
             "text": "Laisser le système enregistrer et prévenir le médecin par email en cas d'erreur ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser le système enregistrer et prévenir le médecin par …</div></div>"
           },
           {
             "text": "Réduire le nombre de champs obligatoires pour diminuer les risques d'erreur ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Réduire le nombre de champs obligatoires pour diminuer les…</div></div>"
           }
         ]
       },
@@ -176,15 +197,18 @@
         "subOptions": [
           {
             "text": "Valider l'âge au moment de la prescription et proposer une alternative quand la règle bloque ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Valider l'âge au moment de la prescription et proposer une…</div></div>"
           },
           {
             "text": "Enregistrer la prescription et laisser le CRDC gérer le rejet manuellement ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Enregistrer la prescription et laisser le CRDC gérer le re…</div></div>"
           },
           {
             "text": "Étendre la tranche d'âge du dépistage organisé pour éviter les rejets ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Étendre la tranche d'âge du dépistage organisé pour éviter…</div></div>"
           }
         ]
       },
@@ -195,15 +219,18 @@
         "subOptions": [
           {
             "text": "Spécifier les règles de validation par colonne, les tolérances acceptables et leformat du rapport d'erreurs ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier les règles de validation par colonne, les toléra…</div></div>"
           },
           {
             "text": "Imposer un format de fichier unique à tous les laboratoires sans exception ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Imposer un format de fichier unique à tous les laboratoire…</div></div>"
           },
           {
             "text": "Automatiser l'import sans validation et corriger les anomalies après intégration ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">✅</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Validation</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Automatiser l'import sans validation et corriger les anoma…</div></div>"
           }
         ]
       }
@@ -227,15 +254,18 @@
         "subOptions": [
           {
             "text": "Mettre le type le plus fréquent en valeur par défaut pré-sélectionnée et vérifiable en un clic ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🤖</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Auto</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Mettre le type le plus fréquent en valeur par défaut pré-s…</div></div>"
           },
           {
             "text": "Laisser le champ vide pour forcer le choix conscient à chaque prescription ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🚫</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Rigide</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser le champ vide pour forcer le choix conscient à cha…</div></div>"
           },
           {
             "text": "Supprimer le choix et automatiser la sélection du test sans possibilité de dérogation ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🚫</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Rigide</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Supprimer le choix et automatiser la sélection du test san…</div></div>"
           }
         ]
       },
@@ -246,15 +276,18 @@
         "subOptions": [
           {
             "text": "Pré-remplir automatiquement la date du jour en laissant la main pour la modifier si nécessaire ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🤖</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Auto</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Pré-remplir automatiquement la date du jour en laissant la…</div></div>"
           },
           {
             "text": "Laisser le champ obligatoire vide et alerter l'opérateur par un rappel visuel clignotant ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🚫</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Rigide</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser le champ obligatoire vide et alerter l'opérateur p…</div></div>"
           },
           {
             "text": "Supprimer le champ date et considérer que l'envoi a toujours lieu le jour même ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚙️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Config</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Supprimer le champ date et considérer que l'envoi a toujou…</div></div>"
           }
         ]
       },
@@ -265,15 +298,18 @@
         "subOptions": [
           {
             "text": "Spécifier un moteur de règles qui calcule le code et le propose par défaut en validation ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🤖</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Auto</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier un moteur de règles qui calcule le code et le pr…</div></div>"
           },
           {
             "text": "Réduire la liste des codes à ceux les plus utilisés pour simplifier le choix manuel ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚙️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Config</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Réduire la liste des codes à ceux les plus utilisés pour s…</div></div>"
           },
           {
             "text": "Laisser le gestionnaire choisir librement et ajouter un contrôle a posteriori par le comptable ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚙️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Config</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser le gestionnaire choisir librement et ajouter un co…</div></div>"
           }
         ]
       }
@@ -297,15 +333,18 @@
         "subOptions": [
           {
             "text": "Lister les prérequis (fichier adresse à jour) et bloquer l'action tant qu'ils ne sont pas satisfaits ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Lister les prérequis (fichier adresse à jour) et bloquer l…</div></div>"
           },
           {
             "text": "Lancer l'envoi et gérer les retours NPAI un par un après coup ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Lancer l'envoi et gérer les retours NPAI un par un après c…</div></div>"
           },
           {
             "text": "Supprimer l'envoi groupé pour ne faire que des envois individuels plus fiables ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Supprimer l'envoi groupé pour ne faire que des envois indi…</div></div>"
           }
         ]
       },
@@ -316,15 +355,18 @@
         "subOptions": [
           {
             "text": "Spécifier toutes les dépendances techniques et les vérifier avant le début du développement ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier toutes les dépendances techniques et les vérifie…</div></div>"
           },
           {
             "text": "Développer le module en ignorant les dépendances et les corriger au fur et à mesure des blocages ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Développer le module en ignorant les dépendances et les co…</div></div>"
           },
           {
             "text": "Remplacer le SIH existant par un nouveau système compatible ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Remplacer le SIH existant par un nouveau système compatible </div></div>"
           }
         ]
       },
@@ -335,15 +377,18 @@
         "subOptions": [
           {
             "text": "Cartographier les dépendances avec leurs fournisseurs et calendriers avant de figer le planning ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Cartographier les dépendances avec leurs fournisseurs et c…</div></div>"
           },
           {
             "text": "Développer tout le portail et le mettre en ligne quand toutes les dépendances seront disponibles ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Développer tout le portail et le mettre en ligne quand tou…</div></div>"
           },
           {
             "text": "Lancer le projet sans attendre les dépendances et les intégrer au fil de l'eau ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔗</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Dépendance</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Lancer le projet sans attendre les dépendances et les inté…</div></div>"
           }
         ]
       }
@@ -367,15 +412,18 @@
         "subOptions": [
           {
             "text": "Définir le périmètre de visibilité par profil (médecin traitant → ses patients uniquement) ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🛡️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">RBAC</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Définir le périmètre de visibilité par profil (médecin tra…</div></div>"
           },
           {
             "text": "Laisser tous les médecins voir tous les patients et instaurer une charte de bonne conduite ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚠️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Risqué</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser tous les médecins voir tous les patients et instau…</div></div>"
           },
           {
             "text": "Supprimer l'accès aux résultats à tous les médecins et centraliser au CRDC ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔒</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Sécurité</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Supprimer l'accès aux résultats à tous les médecins et cen…</div></div>"
           }
         ]
       },
@@ -386,15 +434,18 @@
         "subOptions": [
           {
             "text": "Spécifier pour chaque champ le ou les profils autorisés à le modifier ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🛡️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">RBAC</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier pour chaque champ le ou les profils autorisés à …</div></div>"
           },
           {
             "text": "Donner les mêmes droits à tous les utilisateurs pour simplifier la gestion des permissions ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚠️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Risqué</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Donner les mêmes droits à tous les utilisateurs pour simpl…</div></div>"
           },
           {
             "text": "Journaliser toutes les modifications et les vérifier manuellement chaque semaine ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔒</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Sécurité</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Journaliser toutes les modifications et les vérifier manue…</div></div>"
           }
         ]
       },
@@ -405,15 +456,18 @@
         "subOptions": [
           {
             "text": "Définir des profils d'export différents selon le destinataire avec les colonnes autorisées ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🛡️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">RBAC</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Définir des profils d'export différents selon le destinata…</div></div>"
           },
           {
             "text": "Transmettre les données complètes et laisser l'ARS faire la pseudonymisation de son côté ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔒</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Sécurité</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Transmettre les données complètes et laisser l'ARS faire l…</div></div>"
           },
           {
             "text": "Demander le consentement explicite de chaque patient avant chaque transmission à l'ARS ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔒</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Sécurité</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Demander le consentement explicite de chaque patient avant…</div></div>"
           }
         ]
       }
@@ -437,15 +491,18 @@
         "subOptions": [
           {
             "text": "Définir la structure de l'objet Patient (identifiant unique, attributs) et ses relations avec les autres objets ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Définir la structure de l'objet Patient (identifiant uniqu…</div></div>"
           },
           {
             "text": "Laisser chaque laboratoire envoyer ses données dans son propre format sans structure commune ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser chaque laboratoire envoyer ses données dans son pr…</div></div>"
           },
           {
             "text": "Créer un champ texte libre \"Remarque\" sur chaque résultat pour désambiguïser les homonymes ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Créer un champ texte libre \"Remarque\" sur chaque résultat …</div></div>"
           }
         ]
       },
@@ -456,15 +513,18 @@
         "subOptions": [
           {
             "text": "Modéliser les objets Campagne, Envoi et Patient avec leurs relations explicites (1-N) ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Modéliser les objets Campagne, Envoi et Patient avec leurs…</div></div>"
           },
           {
             "text": "Conserver le fichier CSV comme seule source de vérité des invitations ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Conserver le fichier CSV comme seule source de vérité des …</div></div>"
           },
           {
             "text": "Lier la Campagne directement aux Patients via une table pivot sans créer d'objet Envoi ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Lier la Campagne directement aux Patients via une table pi…</div></div>"
           }
         ]
       },
@@ -475,15 +535,18 @@
         "subOptions": [
           {
             "text": "Unifier les dépistages sous un objet Patient unique avec une relation 1-N vers chaque type de dépistage ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Unifier les dépistages sous un objet Patient unique avec u…</div></div>"
           },
           {
             "text": "Garder les bases séparées et créer une super-application qui interroge les trois bases à la fois ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Garder les bases séparées et créer une super-application q…</div></div>"
           },
           {
             "text": "Fusionner les trois dépistages dans un seul objet générique avec un champ \"Type\" ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🗂️</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Modèle</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Fusionner les trois dépistages dans un seul objet génériqu…</div></div>"
           }
         ]
       }
@@ -507,15 +570,18 @@
         "subOptions": [
           {
             "text": "Modéliser le workflow avec des états et transitions explicites, chacun avec un déclencheur ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Modéliser le workflow avec des états et transitions explic…</div></div>"
           },
           {
             "text": "Tout laisser en processus papier et numériser seulement les résultats finaux ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Tout laisser en processus papier et numériser seulement le…</div></div>"
           },
           {
             "text": "Créer un seul état \"En cours\" et laisser le médecin gérer le suivi comme il l'entend ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Créer un seul état \"En cours\" et laisser le médecin gérer …</div></div>"
           }
         ]
       },
@@ -526,15 +592,18 @@
         "subOptions": [
           {
             "text": "Spécifier le workflow automatisé avec enchaînements, délais et relances par étape ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier le workflow automatisé avec enchaînements, délai…</div></div>"
           },
           {
             "text": "Recruter un coordinateur de parcours pour vérifier manuellement chaque dossier suspect ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Recruter un coordinateur de parcours pour vérifier manuell…</div></div>"
           },
           {
             "text": "Laisser le radiologue gérer les trois étapes dans l'ordre qu'il préfère sans contrainte ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser le radiologue gérer les trois étapes dans l'ordre …</div></div>"
           }
         ]
       },
@@ -545,15 +614,18 @@
         "subOptions": [
           {
             "text": "Spécifier un workflow automatisé avec déclencheur temporel, actions séquencées et mise à jour d'état ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier un workflow automatisé avec déclencheur temporel…</div></div>"
           },
           {
             "text": "Sous-traiter les relances à un prestataire externe spécialisé dans l'envoi de courriers ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Sous-traiter les relances à un prestataire externe spécial…</div></div>"
           },
           {
             "text": "Doubler les effectifs du CRDC pour réaliser les relances manuellement à 100% ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔁</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Workflow</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Doubler les effectifs du CRDC pour réaliser les relances m…</div></div>"
           }
         ]
       }
@@ -577,15 +649,18 @@
         "subOptions": [
           {
             "text": "Spécifier des règles de notification basées sur des délais (J-2 patient, J+15 médecin) ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier des règles de notification basées sur des délais…</div></div>"
           },
           {
             "text": "Envoyer un rappel quotidien à tous les patients ayant une prescription en cours ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Envoyer un rappel quotidien à tous les patients ayant une …</div></div>"
           },
           {
             "text": "Réduire le délai de validité de l'échantillon à 7 jours pour forcer la réactivité ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Réduire le délai de validité de l'échantillon à 7 jours po…</div></div>"
           }
         ]
       },
@@ -596,15 +671,18 @@
         "subOptions": [
           {
             "text": "Spécifier des seuils d'alerte avec escalade (J+5 → responsable, J+8 → alarme critique) ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier des seuils d'alerte avec escalade (J+5 → respons…</div></div>"
           },
           {
             "text": "Envoyer un SMS quotidien au radiologue tant que le CR n'est pas transmis ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Envoyer un SMS quotidien au radiologue tant que le CR n'es…</div></div>"
           },
           {
             "text": "Recruter un assistant dédié au suivi de transmission des comptes-rendus ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Recruter un assistant dédié au suivi de transmission des c…</div></div>"
           }
         ]
       },
@@ -615,15 +693,18 @@
         "subOptions": [
           {
             "text": "Spécifier des règles de notification paramétrables par seuil, délai et destinataire ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier des règles de notification paramétrables par seu…</div></div>"
           },
           {
             "text": "Attendre la fin du trimestre pour calculer le taux de participation et agir après ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Attendre la fin du trimestre pour calculer le taux de part…</div></div>"
           },
           {
             "text": "Notifier tous les gestionnaires dès qu'un patient refuse son dépistage ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⏰</span><span class=\"text-[7px] font-black uppercase text-slate-800\">Alerte</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Notifier tous les gestionnaires dès qu'un patient refuse s…</div></div>"
           }
         ]
       }
@@ -647,15 +728,18 @@
         "subOptions": [
           {
             "text": "Rédiger un critère Given/When/Then pour expliciter le comportement exact du filtre ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Rédiger un critère Given/When/Then pour expliciter le comp…</div></div>"
           },
           {
             "text": "Laisser le développeur interpréter le besoin et livrer ce qui lui semble le plus pertinent ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Laisser le développeur interpréter le besoin et livrer ce …</div></div>"
           },
           {
             "text": "Faire une maquette UI détaillée du filtre pour éviter les ambiguïtés ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Faire une maquette UI détaillée du filtre pour éviter les …</div></div>"
           }
         ]
       },
@@ -666,15 +750,18 @@
         "subOptions": [
           {
             "text": "Spécifier les conditions précises (Given : patient vivant, sans refus, en retard) en BDD ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Spécifier les conditions précises (Given : patient vivant,…</div></div>"
           },
           {
             "text": "Faire valider chaque envoi de relance par un gestionnaire avant de l'expédier ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Faire valider chaque envoi de relance par un gestionnaire …</div></div>"
           },
           {
             "text": "Limiter les relances aux patients de moins de 75 ans pour simplifier la règle ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Limiter les relances aux patients de moins de 75 ans pour …</div></div>"
           }
         ]
       },
@@ -685,15 +772,18 @@
         "subOptions": [
           {
             "text": "Rédiger un scénario BDD Given/When/Then pour chaque cas (annulation partielle, totale, avec déjà-envoyés) ",
-            "isCorrect": true
+            "isCorrect": true,
+            "visual": "<div class=\"w-full border border-emerald-400 bg-white shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Rédiger un scénario BDD Given/When/Then pour chaque cas (a…</div></div>"
           },
           {
             "text": "Empêcher l'annulation si des invitations ont déjà été envoyées, pour simplifier ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Empêcher l'annulation si des invitations ont déjà été envo…</div></div>"
           },
           {
             "text": "Limiter l'annulation au bouton d'arrêt d'urgence sans gérer les conséquences métier ",
-            "isCorrect": false
+            "isCorrect": false,
+            "visual": "<div class=\"w-full border border-red-400 bg-red-50 border-red-400 shadow-sm rounded-lg p-1.5 flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📋</span><span class=\"text-[7px] font-black uppercase text-slate-800\">BDD</span></div><div class=\"text-[7px] text-slate-600 leading-tight font-medium\">Limiter l'annulation au bouton d'arrêt d'urgence sans gére…</div></div>"
           }
         ]
       }

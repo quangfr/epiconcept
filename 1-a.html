@@ -629,7 +629,8 @@
             // Initialisation intelligente des étapes avec restauration du localStorage
             levelSteps = reflexes.map(r => {
                 const options = r.questions.map((q, idx) => ({
-                    text: q,
+                    text: q.text,
+                    visual: q.visual,
                     isCorrect: (idx === lv)
                 })).sort(() => Math.random() - 0.5);
 
@@ -642,7 +643,7 @@
                     explanation: r.scenarios[lv].explanation,
                     visual: r.scenarios[lv].visual,
                     options: options,
-                    correctQuestion: r.questions[lv],
+                    correctQuestion: r.questions[lv].text,
                     status: isCompleted ? 'completed' : 'pending'
                 };
             }).sort(() => Math.random() - 0.5);
@@ -758,15 +759,6 @@
             renderQuestionChoices();
         }
 
-        function genSubVisual(text, refId) {
-            const short = text.length > 50 ? text.substring(0, 50) + '\u2026' : text;
-            const palettes = ['#3b82f6','#f59e0b','#ef4444','#10b981','#8b5cf6','#0ea5e9','#06b6d4','#6366f1','#d97706','#059669','#dc2626','#0d9488'];
-            const bgs = ['#eff6ff','#fffbeb','#fef2f2','#ecfdf5','#f5f3ff','#f0f9ff','#ecfeff','#eef2ff','#fff7ed','#ecfdf5','#fef2f2','#f0fdfa'];
-            const c = palettes[(refId - 1) % 12];
-            const bg = bgs[(refId - 1) % 12];
-            return '<div style="display:flex;align-items:flex-start;gap:0.3rem;width:100%;"><div style="width:20px;height:20px;border-radius:50%;background:'+c+';display:flex;align-items:center;justify-content:center;flex-shrink:0;color:white;font-size:8px;font-weight:900;">?</div><div style="flex:1;background:'+bg+';border:1px solid '+c+'33;border-radius:0 0.4rem 0.4rem 0.4rem;padding:0.2rem 0.35rem;"><div style="font-size:0.45rem;font-weight:700;color:'+c+';text-transform:uppercase;margin-bottom:0.05rem;">Question</div><div style="font-size:0.55rem;color:#0f172a;font-weight:600;line-height:1.15;word-break:break-word;">'+short+'</div></div></div>';
-        }
-
         function renderQuestionChoices(readOnly = false) {
             const wrapper = document.getElementById('questions-wrapper');
             wrapper.innerHTML = '';
@@ -779,7 +771,7 @@
                 if (readOnly && opt.isCorrect) {
                     btn.className = baseCls.replace('bg-white border-2 border-slate-100 text-slate-800', 'bg-emerald-600 border-2 border-emerald-600 text-white');
                 }
-                const mockupHtml = '<div class="visual-mockup shrink-0" style="width:120px;min-height:44px;padding:0.3rem 0.4rem;"><div class="mockup-container">' + genSubVisual(opt.text, step.reflexId) + '</div></div>';
+                const mockupHtml = '<div class="visual-mockup shrink-0" style="width:140px;min-height:50px;padding:0.3rem 0.4rem;"><div class="mockup-container">' + (opt.visual || '') + '</div></div>';
                 const iconCls = 'w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0' + (readOnly && opt.isCorrect ? ' text-white' : '');
                 btn.innerHTML = '<div class="flex items-center gap-3 flex-grow min-w-0"><i data-lucide="message-circle" class="' + iconCls + '"></i><div class="flex-grow min-w-0"><span class="text-emerald-700 mr-2">\u201c</span>' + opt.text + '<span class="text-emerald-700 ml-2">\u201d</span></div></div>' + mockupHtml;
                 if (!readOnly) {

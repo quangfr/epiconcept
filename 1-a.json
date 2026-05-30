@@ -4,9 +4,18 @@
     "title": "A1. Dépasser la demande",
     "intent": "Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.",
     "questions": [
-      "Quel est l'objectif final que vous visez en faisant cela ?",
-      "Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre métier ?",
-      "Quel problème concret aujourd'hui disparaîtrait si cette fonction existait ?"
+      {
+        "text": "Quel est l'objectif final que vous visez en faisant cela ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">❓</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Clé</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Quel est l'objectif final que vous visez en faisant cela ?</div></div>"
+      },
+      {
+        "text": "Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre métier ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">❓</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Clé</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Si nous ne pouvions pas le faire, quelle serait la conséqu…</div></div>"
+      },
+      {
+        "text": "Quel problème concret aujourd'hui disparaîtrait si cette fonction existait ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">❓</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Clé</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Quel problème concret aujourd'hui disparaîtrait si cette f…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -32,9 +41,18 @@
     "title": "A2. Quantifier le problème",
     "intent": "Obtenir des données précises sur la fréquence et l'impact réel pour évaluer le coût du statu quo.",
     "questions": [
-      "Sur une échelle de 1 à 10, quel est l'impact de ce problème sur votre productivité ?",
-      "Quelle serait la nature précise de l'impact en cas de non-traitement (risque, perte, démotivation) ?",
-      "Que se passerait-il concrètement à long terme si la situation actuelle perdurait ?"
+      {
+        "text": "Sur une échelle de 1 à 10, quel est l'impact de ce problème sur votre productivité ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔎</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Métier</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Sur une échelle de 1 à 10, quel est l'impact de ce problèm…</div></div>"
+      },
+      {
+        "text": "Quelle serait la nature précise de l'impact en cas de non-traitement (risque, perte, démotivation) ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔎</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Métier</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Quelle serait la nature précise de l'impact en cas de non-…</div></div>"
+      },
+      {
+        "text": "Que se passerait-il concrètement à long terme si la situation actuelle perdurait ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔎</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Métier</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Que se passerait-il concrètement à long terme si la situat…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -60,9 +78,18 @@
     "title": "A3. Reproduire l'irritant",
     "intent": "Observer le flux réel de l'utilisateur pour révéler des points de friction invisibles ou des bugs non exprimés.",
     "questions": [
-      "Pouvez-vous me montrer précisément le moment où cela devient frustrant ?",
-      "Est-ce que je peux vous regarder effectuer la tâche sans intervenir ?",
-      "À quelle étape précise avez-vous l'impression de perdre le contrôle ?"
+      {
+        "text": "Pouvez-vous me montrer précisément le moment où cela devient frustrant ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🎯</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Stratégique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Pouvez-vous me montrer précisément le moment où cela devie…</div></div>"
+      },
+      {
+        "text": "Est-ce que je peux vous regarder effectuer la tâche sans intervenir ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🎯</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Stratégique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Est-ce que je peux vous regarder effectuer la tâche sans i…</div></div>"
+      },
+      {
+        "text": "À quelle étape précise avez-vous l'impression de perdre le contrôle ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🎯</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Stratégique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">À quelle étape précise avez-vous l'impression de perdre le…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -88,9 +115,18 @@
     "title": "A4. Vérifier l'existant",
     "intent": "Éviter de développer une nouvelle fonction si le problème peut être résolu par du paramétrage ou de la formation.",
     "questions": [
-      "Aujourd'hui, comment faites-vous pour contourner ce manque ?",
-      "Existe-t-il une 'astuce' ou un moyen détourné pour y arriver ?",
-      "Est-ce que notre documentation mentionne déjà une solution ?"
+      {
+        "text": "Aujourd'hui, comment faites-vous pour contourner ce manque ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📍</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Terrain</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Aujourd'hui, comment faites-vous pour contourner ce manque ?</div></div>"
+      },
+      {
+        "text": "Existe-t-il une 'astuce' ou un moyen détourné pour y arriver ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📍</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Terrain</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Existe-t-il une 'astuce' ou un moyen détourné pour y arriv…</div></div>"
+      },
+      {
+        "text": "Est-ce que notre documentation mentionne déjà une solution ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📍</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Terrain</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Est-ce que notre documentation mentionne déjà une solution ?</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -116,9 +152,18 @@
     "title": "A5. Vérifier l'historique",
     "intent": "Comprendre les échecs passés pour éviter de proposer une solution qui a déjà échoué ou qui a été rejetée.",
     "questions": [
-      "Est-ce que cette demande a déjà été formulée ou rejetée auparavant ?",
-      "Qu'est-ce qui a empêché l'adoption d'une solution similaire par le passé ?",
-      "Existe-t-il un ticket ou une demande en cours dans le backlog ?"
+      {
+        "text": "Est-ce que cette demande a déjà été formulée ou rejetée auparavant ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📊</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Impact</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Est-ce que cette demande a déjà été formulée ou rejetée au…</div></div>"
+      },
+      {
+        "text": "Qu'est-ce qui a empêché l'adoption d'une solution similaire par le passé ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📊</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Impact</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Qu'est-ce qui a empêché l'adoption d'une solution similair…</div></div>"
+      },
+      {
+        "text": "Existe-t-il un ticket ou une demande en cours dans le backlog ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">📊</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Impact</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Existe-t-il un ticket ou une demande en cours dans le back…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -144,9 +189,18 @@
     "title": "A6. Évaluer la spécificité",
     "intent": "Déterminer si le besoin est spécifique au client et comment le généraliser pour d'autres utilisateurs.",
     "questions": [
-      "Pensez-vous que ce besoin est propre à votre façon de travailler ?",
-      "Comment vos confrères d'autres centres gèrent-ils ce point ?",
-      "Est-ce qu'un pourcentage significatif de clients a exprimé ce besoin ?"
+      {
+        "text": "Pensez-vous que ce besoin est propre à votre façon de travailler ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔧</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Pratique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Pensez-vous que ce besoin est propre à votre façon de trav…</div></div>"
+      },
+      {
+        "text": "Comment vos confrères d'autres centres gèrent-ils ce point ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔧</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Pratique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Comment vos confrères d'autres centres gèrent-ils ce point ?</div></div>"
+      },
+      {
+        "text": "Est-ce qu'un pourcentage significatif de clients a exprimé ce besoin ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔧</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Pratique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Est-ce qu'un pourcentage significatif de clients a exprimé…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -172,9 +226,18 @@
     "title": "A7. Comparer les approches",
     "intent": "Ouvrir le champ des possibles pour éviter de s'enfermer dans une solution unique et trouver la plus efficiente.",
     "questions": [
-      "Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ?",
-      "Quelle option offre le meilleur ratio Valeur / Effort ?",
-      "Laquelle de ces approches vous semble la plus intuitive au quotidien ?"
+      {
+        "text": "Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">👥</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Cible</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Si on traitait le problème via l'option A plutôt que B, qu…</div></div>"
+      },
+      {
+        "text": "Quelle option offre le meilleur ratio Valeur / Effort ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">👥</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Cible</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Quelle option offre le meilleur ratio Valeur / Effort ?</div></div>"
+      },
+      {
+        "text": "Laquelle de ces approches vous semble la plus intuitive au quotidien ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">👥</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Cible</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Laquelle de ces approches vous semble la plus intuitive au…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -200,9 +263,18 @@
     "title": "A8. Raccrocher aux besoins",
     "intent": "Maximiser l'impact d'un développement en résolvant plusieurs problèmes à la fois par une vision transverse.",
     "questions": [
-      "Est-ce que cette approche ne réglerait pas aussi le souci de X ?",
-      "Comment cette solution s'intègre-t-elle avec vos autres tâches ?",
-      "Peut-on en profiter pour couvrir également d'autres cas ?"
+      {
+        "text": "Est-ce que cette approche ne réglerait pas aussi le souci de X ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚙️</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Technique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Est-ce que cette approche ne réglerait pas aussi le souci …</div></div>"
+      },
+      {
+        "text": "Comment cette solution s'intègre-t-elle avec vos autres tâches ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚙️</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Technique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Comment cette solution s'intègre-t-elle avec vos autres tâ…</div></div>"
+      },
+      {
+        "text": "Peut-on en profiter pour couvrir également d'autres cas ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⚙️</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Technique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Peut-on en profiter pour couvrir également d'autres cas ?</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -228,9 +300,18 @@
     "title": "A9. Aligner avec la Roadmap",
     "intent": "Vérifier si des solutions planifiées rendent le problème obsolète ou si la demande peut enrichir une conception future.",
     "questions": [
-      "Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ?",
-      "Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ?",
-      "Comment cette demande permet-elle d'ajuster la conception de la suite ?"
+      {
+        "text": "Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⭐</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Priorité</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Doit-on traiter ce besoin séparément ou l'inclure dans le …</div></div>"
+      },
+      {
+        "text": "Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⭐</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Priorité</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Est-ce que la fonctionnalité prévue Z rendrait ce problème…</div></div>"
+      },
+      {
+        "text": "Comment cette demande permet-elle d'ajuster la conception de la suite ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">⭐</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Priorité</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Comment cette demande permet-elle d'ajuster la conception …</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -256,9 +337,18 @@
     "title": "A10. Vérifier la complexité",
     "intent": "Anticiper les effets de bord, la dette technique et les contradictions avec l'existant avant de s'engager.",
     "questions": [
-      "Quel est l'impact de ce changement sur la performance ou la maintenance ?",
-      "Êtes-vous conscient de la contrainte technique que cela impose ?",
-      "Est-ce que cette solution ne crée pas de nouveaux cas d'erreur ?"
+      {
+        "text": "Quel est l'impact de ce changement sur la performance ou la maintenance ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔥</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Critique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Quel est l'impact de ce changement sur la performance ou l…</div></div>"
+      },
+      {
+        "text": "Êtes-vous conscient de la contrainte technique que cela impose ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔥</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Critique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Êtes-vous conscient de la contrainte technique que cela im…</div></div>"
+      },
+      {
+        "text": "Est-ce que cette solution ne crée pas de nouveaux cas d'erreur ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">🔥</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Critique</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Est-ce que cette solution ne crée pas de nouveaux cas d'er…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -284,9 +374,18 @@
     "title": "A11. Chercher les marges",
     "intent": "Identifier ce que l'utilisateur est prêt à céder (délai, confort, coût) pour obtenir de la valeur plus rapidement.",
     "questions": [
-      "Seriez-vous prêt à attendre plus longtemps pour une version complète ?",
-      "La solution convient-elle si elle demande des étapes manuelles en plus ?",
-      "Si nous ne pouvions faire que 50% du besoin, quelle partie est vitale ?"
+      {
+        "text": "Seriez-vous prêt à attendre plus longtemps pour une version complète ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">💬</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Humaine</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Seriez-vous prêt à attendre plus longtemps pour une versio…</div></div>"
+      },
+      {
+        "text": "La solution convient-elle si elle demande des étapes manuelles en plus ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">💬</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Humaine</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">La solution convient-elle si elle demande des étapes manue…</div></div>"
+      },
+      {
+        "text": "Si nous ne pouvions faire que 50% du besoin, quelle partie est vitale ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">💬</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Humaine</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Si nous ne pouvions faire que 50% du besoin, quelle partie…</div></div>"
+      }
     ],
     "scenarios": [
       {
@@ -312,9 +411,18 @@
     "title": "A12. Valider la solution mini",
     "intent": "Identifier le plus petit incrément capable de générer de la valeur immédiate avec le moins d'effort possible.",
     "questions": [
-      "Existe-t-il une approche qui demande zéro modification de code ?",
-      "Sous quelles conditions la solution proposée vous sauve-t-elle la journée ?",
-      "Si on ne fait que X, est-ce que cela règle déjà 80% du problème ?"
+      {
+        "text": "Existe-t-il une approche qui demande zéro modification de code ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">💡</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Produit</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Existe-t-il une approche qui demande zéro modification de …</div></div>"
+      },
+      {
+        "text": "Sous quelles conditions la solution proposée vous sauve-t-elle la journée ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">💡</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Produit</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Sous quelles conditions la solution proposée vous sauve-t-…</div></div>"
+      },
+      {
+        "text": "Si on ne fait que X, est-ce que cela règle déjà 80% du problème ?",
+        "visual": "<div class=\"w-full bg-blue-50 border border-blue-200 rounded-lg p-1.5 flex flex-col gap-0.5 shadow-sm\"><div class=\"flex items-center gap-1\"><span class=\"text-[10px]\">💡</span><span class=\"text-[7px] font-black uppercase text-blue-800\">Question Produit</span></div><div class=\"text-[7px] text-slate-700 leading-tight font-medium italic\">Si on ne fait que X, est-ce que cela règle déjà 80% du pro…</div></div>"
+      }
     ],
     "scenarios": [
       {
