@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORKSHOPS EPICONCEPT ESIS-3D - Hub Métier</title>
-    <meta name="description" content="Développez vos compétences métiers de Product Owner (PO) et d'ergonomie User Experience (UX) avec nos simulateurs interactifs d'entraînement.">
-    
+    <meta name="description"
+        content="Développez vos compétences métiers de Product Owner (PO) et d'ergonomie User Experience (UX) avec nos simulateurs interactifs d'entraînement.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        corePlugins: {
-          preflight: false,
-        }
-      }
-    </script>
-    
+
     <style>
-        /* Design System / Root Variables loaded from style.css */
+        /* Design System / Root Variables */
+        :root {
+            --bg-dark: #f8fafc;
+            --bg-deep: #f1f5f9;
+            --bg-card: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(255, 255, 255, 0.6);
+
+            --color-primary: #1e3a8a;
+            /* Slate 700 - Pale Dark Blue */
+            --color-primary-glow: rgba(30, 58, 138, 0.08);
+            --color-secondary: #0891b2;
+            /* Cyan */
+            --color-secondary-glow: rgba(6, 182, 212, 0.08);
+            --color-emerald: #10b981;
+
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-low: #64748b;
+
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
         /* Base Reset */
         * {
@@ -174,11 +192,23 @@
             padding-bottom: 0.5rem;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(15, 23, 42, 0.1) transparent;
             animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
         }
-        .ateliers-scroll::-webkit-scrollbar { display: none; }
+
+        .ateliers-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .ateliers-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .ateliers-scroll::-webkit-scrollbar-thumb {
+            background: rgba(15, 23, 42, 0.1);
+            border-radius: 2px;
+        }
 
         .atelier-col {
             flex: 0 0 calc(33.333% - 0.667rem);
@@ -257,17 +287,20 @@
             backdrop-filter: blur(12px);
             flex-shrink: 0;
         }
+
         .scroll-nav:hover {
             background: var(--color-primary);
             border-color: var(--color-primary);
             color: #fff;
             box-shadow: 0 6px 16px rgba(99, 102, 241, 0.2);
         }
+
         .scroll-nav:disabled {
             opacity: 0.25;
             cursor: not-allowed;
             pointer-events: none;
         }
+
         .scroll-nav svg {
             width: 14px;
             height: 14px;
@@ -277,8 +310,14 @@
             stroke-linecap: round;
             stroke-linejoin: round;
         }
-        .scroll-nav.prev { left: -14px; }
-        .scroll-nav.next { right: -14px; }
+
+        .scroll-nav.prev {
+            left: -14px;
+        }
+
+        .scroll-nav.next {
+            right: -14px;
+        }
 
         /* Atelier header — titre une ligne + sous-titre objectif */
         .atelier-header {
@@ -335,23 +374,56 @@
         }
 
         @media (max-width: 800px) {
-            body { overflow: auto; height: auto; padding: 0.5rem 1rem !important; }
-            .container { padding: 0; }
-            .top-bar { flex-direction: column; align-items: flex-start; gap: 0.75rem !important; }
-            .global-stats-container { width: 100%; justify-content: space-between; }
-            .ateliers-scroll { flex-direction: column; overflow-x: visible; gap: 1rem !important; }
-            .atelier-col { flex: 0 0 auto; width: 100%; min-width: 0; gap: 0.5rem !important; }
-            .scroll-nav { display: none; }
-            .simulator-card { padding: 1rem !important; }
+            body {
+                overflow: auto;
+                height: auto;
+                padding: 0.5rem 1rem !important;
+            }
+
+            .container {
+                padding: 0;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem !important;
+            }
+
+            .global-stats-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .ateliers-scroll {
+                flex-direction: column;
+                overflow-x: visible;
+                gap: 1rem !important;
+            }
+
+            .atelier-col {
+                flex: 0 0 auto;
+                width: 100%;
+                min-width: 0;
+                gap: 0.5rem !important;
+            }
+
+            .scroll-nav {
+                display: none;
+            }
+
+            .simulator-card {
+                padding: 1rem !important;
+            }
         }
 
         /* Glassmorphism Card Style */
-        .simulator-card { padding: 1rem; gap: 0.5rem;
+        .simulator-card {
+            padding: 1rem;
+            gap: 0.5rem;
             background: var(--bg-card);
-            border-top: 4px solid #cbd5e1;
-            border-left: none;
-            border-right: none;
-            border-bottom: none;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            /* override dark border */
             border-radius: 0.75rem;
             padding: 1.25rem;
             position: relative;
@@ -363,6 +435,18 @@
             transition: var(--transition-smooth);
             box-shadow: 0 15px 35px rgba(15, 23, 42, 0.03);
             justify-content: space-between;
+        }
+
+        /* Dynamic Border lighting */
+        .simulator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-primary);
+            transition: var(--transition-smooth);
         }
 
         /* Hover States for Cards */
@@ -445,6 +529,7 @@
             .card-header h2 {
                 font-size: 0.85rem !important;
             }
+
             .card-status {
                 padding: 0.15rem 0.45rem !important;
                 font-size: 0.65rem !important;
@@ -582,10 +667,10 @@
             background: var(--color-primary);
             color: #ffffff;
         }
-        
+
         .cta-button:hover {
-            background: var(--color-primary-dark);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+            background: #1e40af;
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
             transform: scale(1.01);
         }
 
@@ -607,6 +692,7 @@
             stroke-width: 2.5;
             transition: var(--transition-smooth);
         }
+
         .cta-button:hover svg {
             transform: translateX(3px);
         }
@@ -648,6 +734,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -659,6 +746,7 @@
                 opacity: 0;
                 transform: translateY(15px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -666,50 +754,63 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes pulse-glow {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 opacity: 1;
                 box-shadow: 0 0 6px #047857;
             }
+
             50% {
                 transform: scale(1.2);
                 opacity: 0.6;
                 box-shadow: 0 0 10px #047857;
             }
         }
+
         /* Responsive adjustments for Comprendre slides */
         .comprendre-slide {
             width: 100%;
             height: auto;
             min-height: min-content;
-            display: none; /* Managed by JS, starts hidden or shown appropriately */
+            display: none;
+            /* Managed by JS, starts hidden or shown appropriately */
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             padding: 10px 10px 40px 10px;
             box-sizing: border-box;
         }
+
         @media (max-width: 768px) {
             #comprendre-modal {
                 padding: 5px 0px !important;
             }
+
             .comprendre-slide svg {
                 margin: 0 !important;
                 padding: 0 !important;
                 max-height: 55vh !important;
             }
-            .comprendre-slide > div {
+
+            .comprendre-slide>div {
                 padding: 2px !important;
                 border-radius: 4px !important;
                 border: none !important;
             }
         }
-        
+
         /* Zoom Overlay Styles */
         .zoom-overlay {
             position: fixed;
@@ -726,6 +827,7 @@
             cursor: zoom-out;
             animation: fadeIn 0.25s ease-out;
         }
+
         .zoom-content {
             width: 95%;
             max-width: 1000px;
@@ -733,19 +835,23 @@
             background: white;
             padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .comprendre-slide svg, .mockup-container svg {
+
+        .comprendre-slide svg,
+        .mockup-container svg {
             cursor: zoom-in;
             transition: transform 0.2s ease;
         }
-        .comprendre-slide svg:hover, .mockup-container svg:hover {
+
+        .comprendre-slide svg:hover,
+        .mockup-container svg:hover {
             transform: scale(1.02);
         }
-        
+
         /* Reflex Modal Responsive Layout Styles */
         .ref-modal-card {
             width: 100%;
@@ -756,10 +862,12 @@
             border-radius: 1.5rem;
             box-sizing: border-box;
         }
+
         @media (max-width: 640px) {
             #ref-modal {
                 padding: 0 !important;
             }
+
             .ref-modal-card {
                 padding: 1rem !important;
                 margin: 0 !important;
@@ -782,45 +890,44 @@
             align-items: center;
             gap: 1.5rem;
             width: 100%;
-            box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
             transition: all 0.2s ease;
         }
+
         .ref-visual-card:hover {
             border-color: #cbd5e1;
-            box-shadow: 0 4px 12px rgba(15,23,42,0.06);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
         }
+
         .ref-visual-card .visual-mockup {
             width: 33.333%;
             background: white;
-            border: 1px solid #d1fae5; /* border-emerald-100 */
+            border: 1px solid #e2e8f0;
             border-radius: 0.75rem;
             padding: 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            box-shadow: 0 1px 4px rgba(15,23,42,0.04);
+            box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
             min-height: 120px;
             pointer-events: none;
             flex-shrink: 0;
-            position: relative;
-            transition: all 0.2s ease;
         }
-        .ref-visual-card:hover .visual-mockup {
-            border-color: #10b981;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
-        }
+
         .ref-visual-card .visual-content {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
         }
+
         .ref-visual-card .visual-content .visual-header {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
+
         .ref-visual-card .visual-content .visual-title {
             font-size: 0.85rem;
             font-weight: 800;
@@ -828,6 +935,7 @@
             text-transform: uppercase;
             letter-spacing: 0.02em;
         }
+
         .ref-visual-card .visual-content .visual-expl {
             font-size: 0.78rem;
             color: #475569;
@@ -835,6 +943,7 @@
             margin: 0;
             line-height: 1.5;
         }
+
         .ref-visual-card .check-badge {
             background: #10b981;
             color: white;
@@ -856,68 +965,20 @@
                 align-items: flex-start;
                 padding: 1rem;
             }
+
             .ref-visual-card .visual-mockup {
                 width: 100%;
                 min-height: 100px;
             }
         }
-
-        /* Discrete Hover Navigation Arrows */
-        .hover-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-low);
-            opacity: 0;
-            transition: opacity 0.3s ease, color 0.2s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            pointer-events: auto;
-        }
-        .hover-arrow svg {
-            width: 32px;
-            height: 32px;
-            stroke-width: 1.5;
-        }
-        .hover-arrow:hover {
-            color: var(--color-primary);
-            transform: translateY(-50%) scale(1.1);
-        }
-        .hover-arrow.show {
-            opacity: 0.55;
-        }
-        .hover-arrow.show:hover {
-            opacity: 1;
-        }
-        .hover-arrow.left-arrow, .hover-arrow.modal-left-arrow {
-            left: 15px;
-        }
-        .hover-arrow.right-arrow, .hover-arrow.modal-right-arrow {
-            right: 15px;
-        }
-        .hover-arrow.hub-arrow {
-            position: fixed;
-            top: 58%;
-        }
-        @media (hover: none) {
-            .hover-arrow {
-                display: none;
-            }
-        }
     </style>
 
-    </head>
+</head>
+
 <body>
 
     <div class="container">
-        
+
         <!-- Dashboard Top Bar Layout -->
         <div class="top-bar">
             <!-- Header Section -->
@@ -939,382 +1000,572 @@
 
         <!-- Horizontal Ateliers Scroll -->
         <div class="scroll-wrapper">
-            <button class="hover-arrow left-arrow hub-arrow" onclick="scrollHub(-1)" aria-label="Ateliers précédents">
-                <i data-lucide="chevron-left"></i>
+            <button class="scroll-nav prev" id="scroll-prev" aria-label="Atelier précédent" disabled>
+                <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                </svg>
             </button>
-            <button class="hover-arrow right-arrow hub-arrow" onclick="scrollHub(1)" aria-label="Ateliers suivants">
-                <i data-lucide="chevron-right"></i>
+            <button class="scroll-nav next" id="scroll-next" aria-label="Atelier suivant">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg>
             </button>
+
             <main class="ateliers-scroll" id="ateliers-scroll">
 
-            <!-- ═══ ATELIER 1 ═══ -->
-            <section class="atelier-col" id="atelier-1">
-                <div class="atelier-header">
-                    <div class="atelier-title-line">
-                        <span class="atelier-number">Atelier #1</span>
-                        <span class="atelier-sep">·</span>
-                        <span class="atelier-name">Design Product</span>
-                        <span class="atelier-sep">—</span>
-                        <span class="atelier-phase">Phase Discovery I</span>
-                    </div>
-                    <p class="atelier-objective">Réfléchir sur les besoins réels des utilisateurs via la démarche Design Thinking.</p>
-                    
-                </div>
-                
-                <article class="simulator-card po-theme" id="dt-card" style="border-top: 4px solid var(--color-primary); border-left: none; border-right: none; border-bottom: none; cursor: pointer;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15, 23, 42, 0.06); color: var(--text-main);"><i data-lucide="lightbulb"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">1 - Design Thinking</h2>
-        <div style="margin-left: auto; flex-shrink: 0;">
-            <div class="card-status"><span id="dt-status-label">0 / 7</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Principes du Design Thinking (Empathie, Définition, Idéation, Prototype, Test).</p>
-    </div>
-                </article>
-                <article class="simulator-card po-theme" id="po-card" style="cursor: pointer;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="target"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">A - Cadrage Besoins</h2>
-        <div style="margin-left: auto; flex-shrink: 0;">
-            <div class="card-status"><span id="po-status-label">0 / 36</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Maîtrisez les réflexes PO face aux frictions : creusez l'intention et quantifiez l'irritant.</p>
-    </div>
-                </article>
-                <article class="simulator-card ux-theme" id="ux-card" style="cursor: pointer;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="palette"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">B - Ergonomie UI/UX</h2>
-        <div style="margin-left: auto; flex-shrink: 0;">
-            <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).</p>
-    </div>
-                </article>
-            </section>
-
-            <!-- ═══ ATELIER 2 ═══ -->
-            <section class="atelier-col" id="atelier-2">
-                <div class="atelier-header">
-                    <div class="atelier-title-line">
-                        <span class="atelier-number">Atelier #2</span>
-                        <span class="atelier-sep">·</span>
-                        <span class="atelier-name">Cadrage Product</span>
-                        <span class="atelier-sep">—</span>
-                        <span class="atelier-phase">Phase Delivery I</span>
-                    </div>
-                    <p class="atelier-objective">Transformer le besoin en unités de développement actionnables et garantir la qualité.</p>
-                    
-                </div>
-                
-                <article class="simulator-card bug-theme disabled-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="rocket"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">2 - Minimal Viable Product</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                <!-- ═══ ATELIER 1 ═══ -->
+                <section class="atelier-col" id="atelier-1">
+                    <div class="atelier-header">
+                        <div class="atelier-title-line">
+                            <span class="atelier-number">Atelier #1</span>
+                            <span class="atelier-sep">·</span>
+                            <span class="atelier-name">Design Product</span>
+                            <span class="atelier-sep">—</span>
+                            <span class="atelier-phase">Phase Discovery I</span>
                         </div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Méthode pour qualifier et découper un problème afin d'élaborer un premier incrément minimal.</p>
-    </div>
+                        <p class="atelier-objective">Réfléchir sur les besoins réels des utilisateurs via la démarche
+                            Design Thinking.</p>
 
-                </article>
-                <article class="simulator-card bug-theme disabled-card" id="bug-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="bug"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">C - Bugs &amp; Qualité</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Gérez les anomalies : évaluation de l'impact, contournement et suivi de correction.</p>
-    </div>
-
-                </article>
-                <article class="simulator-card evo-theme disabled-card" id="evo-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="sparkles"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">D - Évolutions &amp; Specs</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.</p>
-    </div>
-
-                </article>
-            </section>
-
-            <!-- ═══ ATELIER 3 ═══ -->
-            <section class="atelier-col" id="atelier-3">
-                <div class="atelier-header">
-                    <div class="atelier-title-line">
-                        <span class="atelier-number">Atelier #3</span>
-                        <span class="atelier-sep">·</span>
-                        <span class="atelier-name">Vision Product</span>
-                        <span class="atelier-sep">—</span>
-                        <span class="atelier-phase">Phase Discovery II</span>
                     </div>
-                    <p class="atelier-objective">Anticiper les évolutions stratégiques et construire la trajectoire produit long terme.</p>
-                </div>
-                
-                <article class="simulator-card vision-theme disabled-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-                        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="layers"></i></div>
-                        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">3 - Product Backlog</h2>
-                        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+
+                    <article class="simulator-card po-theme" id="dt-card"
+                        style="border-top: 4px solid var(--color-primary); border-left: none; border-right: none; border-bottom: none; cursor: pointer;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15, 23, 42, 0.06); color: var(--text-main);"><i
+                                    data-lucide="lightbulb"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                1 - Design Thinking</h2>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="dt-status-label">0 / 7</span></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-                        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.</p>
-                    </div>
-
-                </article>
-                <article class="simulator-card vision-theme disabled-card" id="roadmap-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="mountain"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">E - Roadmap &amp; Jalons</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
-    </div>
-
-                </article>
-                <article class="simulator-card vision-theme disabled-card" id="features-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="telescope"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">F - Features Discovery</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.</p>
-    </div>
-
-                </article>
-            </section>
-
-            <!-- ═══ ATELIER 4 ═══ -->
-            <section class="atelier-col" id="atelier-4">
-                <div class="atelier-header">
-                    <div class="atelier-title-line">
-                        <span class="atelier-number">Atelier #4</span>
-                        <span class="atelier-sep">·</span>
-                        <span class="atelier-name">Support Product</span>
-                        <span class="atelier-sep">—</span>
-                        <span class="atelier-phase">Phase Delivery II</span>
-                    </div>
-                    <p class="atelier-objective">Assurer la stabilité opérationnelle et l'assistance aux utilisateurs au quotidien.</p>
-                </div>
-                
-                <article class="simulator-card run-support-theme disabled-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="shield-check"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">4 - Service-Level-Agreement</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Principes du Design Thinking (Empathie, Définition, Idéation, Prototype, Test).</p>
                         </div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Comprendre comment organiser le run, prioriser les anomalies en production et communiquer avec les utilisateurs impactés.</p>
-    </div>
+                    </article>
+                    <article class="simulator-card po-theme" id="po-card" style="cursor: pointer;">
+                        <div class="backlight"></div>
 
-                </article>
-                <article class="simulator-card run-support-theme disabled-card" id="run-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="wrench"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">G - Run &amp; Error Tracking</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Surveillez les logs, analysez les incidents et déclenchez les actions de maintenance.</p>
-    </div>
-
-                </article>
-                <article class="simulator-card run-support-theme disabled-card" id="support-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="clipboard-list"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">H - Ticketing &amp; Documentation</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.</p>
-    </div>
-
-                </article>
-            </section>
-
-            <!-- ═══ ATELIER 5 ═══ -->
-            <section class="atelier-col" id="atelier-5">
-                <div class="atelier-header">
-                    <div class="atelier-title-line">
-                        <span class="atelier-number">Atelier #5</span>
-                        <span class="atelier-sep">·</span>
-                        <span class="atelier-name">Innovation Product</span>
-                        <span class="atelier-sep">—</span>
-                        <span class="atelier-phase">Phase Discovery III</span>
-                    </div>
-                    <p class="atelier-objective">Explorer de nouveaux horizons et valider des idées en rupture sans risque.</p>
-                </div>
-                
-                <article class="simulator-card innov-theme disabled-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="flask-conical"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">5 - Lean Startup</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="target"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                A - Besoins utilisateurs</h2>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="po-status-label">0 / 36</span></div>
+                            </div>
                         </div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses disruptives sans gaspiller de ressources.</p>
-    </div>
-
-                </article>
-                <article class="simulator-card innov-theme disabled-card" id="veille-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="search"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">I - Veille &amp; Benchmark</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.</p>
-    </div>
-
-                </article>
-                <article class="simulator-card innov-theme disabled-card" id="poc-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="flask-conical"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">J - Preuve de Concept (POC)</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Expérimentez vos idées avec un POC rapide pour valider les hypothèses sans risque.</p>
-    </div>
-
-                </article>
-            </section>
-
-            <!-- ═══ ATELIER 6 ═══ -->
-            <section class="atelier-col" id="atelier-6">
-                <div class="atelier-header">
-                    <div class="atelier-title-line">
-                        <span class="atelier-number">Atelier #6</span>
-                        <span class="atelier-sep">·</span>
-                        <span class="atelier-name">Data Product</span>
-                        <span class="atelier-sep">—</span>
-                        <span class="atelier-phase">Phase Delivery III</span>
-                    </div>
-                    <p class="atelier-objective">Piloter le produit par la preuve et mesurer l'impact des fonctionnalités.</p>
-                </div>
-                
-                <article class="simulator-card data-theme disabled-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="pie-chart"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">6 - Data Driven</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div style="display:flex;align-items:center;gap:0.4rem;">
-                            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Maîtrisez les réflexes PO face aux frictions : creusez l'intention et quantifiez
+                                l'irritant.</p>
                         </div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.</p>
-    </div>
+                    </article>
+                    <article class="simulator-card ux-theme" id="ux-card" style="cursor: pointer;">
+                        <div class="backlight"></div>
 
-                </article>
-                <article class="simulator-card data-theme disabled-card" id="analytics-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="bar-chart-2"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">K - Analytics &amp; Parcours</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Analysez les données d'usage, identifiez les frictions et validez par les KPIs.</p>
-    </div>
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="palette"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                B - Conception UX/UI</h2>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Validez les choix d'interface via les principes fondamentaux (saisie assistée,
+                                prévention).</p>
+                        </div>
+                    </article>
+                </section>
 
-                </article>
-                <article class="simulator-card data-theme disabled-card" id="kpi-card" style="opacity: 0.7;">
-                    <div class="backlight"></div>
-                    
-    <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
-        <div class="card-icon-wrapper" aria-hidden="true" style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i data-lucide="line-chart"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">L - KPIs &amp; Tableaux de Bord</h2>
-        <div style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-            <div class="card-status coming"><span class="status-dot"></span><span>À venir</span></div>
-        </div>
-    </div>
-    <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Définissez les indicateurs clés et construisez des tableaux de bord décisionnels efficaces.</p>
-    </div>
+                <!-- ═══ ATELIER 2 ═══ -->
+                <section class="atelier-col" id="atelier-2">
+                    <div class="atelier-header">
+                        <div class="atelier-title-line">
+                            <span class="atelier-number">Atelier #2</span>
+                            <span class="atelier-sep">·</span>
+                            <span class="atelier-name">Cadrage Product</span>
+                            <span class="atelier-sep">—</span>
+                            <span class="atelier-phase">Phase Delivery I</span>
+                        </div>
+                        <p class="atelier-objective">Transformer le besoin en unités de développement actionnables et
+                            garantir la qualité.</p>
 
-                </article>
-            </section>
+                    </div>
+
+                    <article class="simulator-card bug-theme disabled-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="rocket"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                2 - Minimal Viable Product</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div style="display:flex;align-items:center;gap:0.4rem;">
+                                    <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Méthodologie du Delivery (Scrum, Kanban, QA) pour sécuriser le développement.</p>
+                        </div>
+                        <button class="cta-button disabled">
+                            <span>Bientôt disponible</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </article>
+                    <article class="simulator-card bug-theme disabled-card" id="bug-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="bug"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                C - Bugs &amp; Qualité</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Gérez
+                                les anomalies : évaluation de l'impact, contournement et suivi de correction.</p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                    <article class="simulator-card evo-theme disabled-card" id="evo-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="sparkles"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                D - Évolutions &amp; Specs</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.
+                            </p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                </section>
+
+                <!-- ═══ ATELIER 3 ═══ -->
+                <section class="atelier-col" id="atelier-3">
+                    <div class="atelier-header">
+                        <div class="atelier-title-line">
+                            <span class="atelier-number">Atelier #3</span>
+                            <span class="atelier-sep">·</span>
+                            <span class="atelier-name">Vision Product</span>
+                            <span class="atelier-sep">—</span>
+                            <span class="atelier-phase">Phase Discovery II</span>
+                        </div>
+                        <p class="atelier-objective">Anticiper les évolutions stratégiques et construire la trajectoire
+                            produit long terme.</p>
+                    </div>
+
+                    <article class="simulator-card vision-theme disabled-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="layers"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                3 - Product Backlog</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les
+                                techniques de priorisation avancées pour construire une vision produit long terme
+                                équilibrée.</p>
+                        </div>
+                        <button class="cta-button disabled">
+                            <span>Bientôt disponible</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </article>
+                    <article class="simulator-card vision-theme disabled-card" id="roadmap-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="mountain"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                E - Roadmap &amp; Jalons</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                    <article class="simulator-card vision-theme disabled-card" id="features-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="telescope"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                F - Features Discovery</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.
+                            </p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                </section>
+
+                <!-- ═══ ATELIER 4 ═══ -->
+                <section class="atelier-col" id="atelier-4">
+                    <div class="atelier-header">
+                        <div class="atelier-title-line">
+                            <span class="atelier-number">Atelier #4</span>
+                            <span class="atelier-sep">·</span>
+                            <span class="atelier-name">Support Product</span>
+                            <span class="atelier-sep">—</span>
+                            <span class="atelier-phase">Phase Delivery II</span>
+                        </div>
+                        <p class="atelier-objective">Assurer la stabilité opérationnelle et l'assistance aux
+                            utilisateurs au quotidien.</p>
+                    </div>
+
+                    <article class="simulator-card run-support-theme disabled-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="shield-check"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                4 - Service-Level-Agreement</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div style="display:flex;align-items:center;gap:0.4rem;">
+                                    <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Comprendre comment organiser le run, prioriser les anomalies en production et
+                                communiquer avec les utilisateurs impactés.</p>
+                        </div>
+                        <button class="cta-button disabled">
+                            <span>Bientôt disponible</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </article>
+                    <article class="simulator-card run-support-theme disabled-card" id="run-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="wrench"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                G - Run &amp; Error Tracking</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Surveillez les logs, analysez les incidents et déclenchez les actions de maintenance.
+                            </p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                    <article class="simulator-card run-support-theme disabled-card" id="support-card"
+                        style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="clipboard-list"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                H - Ticketing &amp; Documentation</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.
+                            </p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                </section>
+
+                <!-- ═══ ATELIER 5 ═══ -->
+                <section class="atelier-col" id="atelier-5">
+                    <div class="atelier-header">
+                        <div class="atelier-title-line">
+                            <span class="atelier-number">Atelier #5</span>
+                            <span class="atelier-sep">·</span>
+                            <span class="atelier-name">Innovation Product</span>
+                            <span class="atelier-sep">—</span>
+                            <span class="atelier-phase">Phase Discovery III</span>
+                        </div>
+                        <p class="atelier-objective">Explorer de nouveaux horizons et valider des idées en rupture sans
+                            risque.</p>
+                    </div>
+
+                    <article class="simulator-card innov-theme disabled-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="flask-conical"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                5 - Lean Startup</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div style="display:flex;align-items:center;gap:0.4rem;">
+                                    <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les
+                                principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses
+                                disruptives sans gaspiller de ressources.</p>
+                        </div>
+                        <button class="cta-button disabled">
+                            <span>Bientôt disponible</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </article>
+                    <article class="simulator-card innov-theme disabled-card" id="veille-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="search"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                I - Veille &amp; Benchmark</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.</p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                    <article class="simulator-card innov-theme disabled-card" id="poc-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="flask-conical"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                J - Preuve de Concept (POC)</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Expérimentez vos idées avec un POC rapide pour valider les hypothèses sans risque.</p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                </section>
+
+                <!-- ═══ ATELIER 6 ═══ -->
+                <section class="atelier-col" id="atelier-6">
+                    <div class="atelier-header">
+                        <div class="atelier-title-line">
+                            <span class="atelier-number">Atelier #6</span>
+                            <span class="atelier-sep">·</span>
+                            <span class="atelier-name">Data Product</span>
+                            <span class="atelier-sep">—</span>
+                            <span class="atelier-phase">Phase Delivery III</span>
+                        </div>
+                        <p class="atelier-objective">Piloter le produit par la preuve et mesurer l'impact des
+                            fonctionnalités.</p>
+                    </div>
+
+                    <article class="simulator-card data-theme disabled-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="pie-chart"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                6 - Data Driven</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div style="display:flex;align-items:center;gap:0.4rem;">
+                                    <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.
+                            </p>
+                        </div>
+                        <button class="cta-button disabled">
+                            <span>Bientôt disponible</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </article>
+                    <article class="simulator-card data-theme disabled-card" id="analytics-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="bar-chart-2"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                K - Analytics &amp; Parcours</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Analysez les données d'usage, identifiez les frictions et validez par les KPIs.</p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                    <article class="simulator-card data-theme disabled-card" id="kpi-card" style="opacity: 0.7;">
+                        <div class="backlight"></div>
+
+                        <div class="card-header"
+                            style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
+                            <div class="card-icon-wrapper" aria-hidden="true"
+                                style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
+                                    data-lucide="line-chart"></i></div>
+                            <h2
+                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                L - KPIs &amp; Tableaux de Bord</h2>
+                            <div
+                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
+                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                            <p class="card-description"
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Définissez les indicateurs clés et construisez des tableaux de bord décisionnels
+                                efficaces.</p>
+                        </div>
+                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
+                    </article>
+                </section>
 
             </main>
-            <div id="atelier-dots-container" style="display: flex; justify-content: center; gap: 8px; margin-top: 15px; margin-bottom: 5px;"></div>
         </div><!-- /.scroll-wrapper -->
 
     </div><!-- /.container -->
@@ -1322,30 +1573,15 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        window.updateCardStatusBadge = function(labelEl, x, y) {
+        window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
             const parent = labelEl.parentElement;
             if (!parent) return;
 
             labelEl.innerText = `${x} / ${y}`;
             const percent = y > 0 ? Math.round((x / y) * 100) : 0;
-            
+
             parent.style.setProperty('--progress', `${percent}%`);
-            
-            // Find closest simulator-card and update its top border color
-            const card = labelEl.closest('.simulator-card');
-            if (card) {
-                card.style.borderLeft = 'none';
-                card.style.borderRight = 'none';
-                card.style.borderBottom = 'none';
-                if (percent === 100) {
-                    card.style.borderTop = '4px solid var(--color-emerald)';
-                } else if (percent === 0) {
-                    card.style.borderTop = '4px solid var(--color-rose)';
-                } else {
-                    card.style.borderTop = '4px solid var(--color-amber)';
-                }
-            }
 
             if (percent === 100) {
                 parent.style.color = '#047857';
@@ -1389,52 +1625,27 @@
             let maxUxScore = 39; // Updated from 36 to 39 for 13 reflexes
             let totalMaxScore = maxPoScore + maxUxScore;
 
-            // Atelier Scroll Dots
+            // Scroll arrows
             const scrollEl = document.getElementById('ateliers-scroll');
-            const dotsContainer = document.getElementById('atelier-dots-container');
-            if (scrollEl && dotsContainer) {
-                const cols = scrollEl.querySelectorAll('.atelier-col');
-                const totalCols = cols.length;
-
-                function updateAtelierDots() {
-                    const scrollLeft = scrollEl.scrollLeft;
-                    const containerWidth = scrollEl.clientWidth;
-                    const firstCol = scrollEl.querySelector('.atelier-col');
-                    if (!firstCol) return;
-                    
-                    const colWidth = firstCol.offsetWidth;
-                    // Calculate columns visible per screen page (including gap spacing)
-                    const colsPerPage = Math.max(1, Math.round(containerWidth / (colWidth + 10)));
-                    const totalPages = Math.ceil(totalCols / colsPerPage);
-                    
-                    // Identify the active page/screen index based on scroll position
-                    const activePage = Math.min(totalPages - 1, Math.round(scrollLeft / containerWidth));
-
-                    dotsContainer.innerHTML = '';
-                    for (let i = 0; i < totalPages; i++) {
-                        const dot = document.createElement('div');
-                        dot.style.width = '8px';
-                        dot.style.height = '8px';
-                        dot.style.borderRadius = '50%';
-                        dot.style.cursor = 'pointer';
-                        dot.style.background = (i === activePage) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.15)';
-                        dot.style.transition = 'all 0.3s ease';
-                        if (i === activePage) {
-                            dot.style.transform = 'scale(1.25)';
-                        }
-                        dot.onclick = () => {
-                            scrollEl.scrollTo({
-                                left: i * containerWidth,
-                                behavior: 'smooth'
-                            });
-                        };
-                        dotsContainer.appendChild(dot);
-                    }
-                }
-
-                scrollEl.addEventListener('scroll', updateAtelierDots, { passive: true });
-                updateAtelierDots();
-                window.addEventListener('resize', updateAtelierDots);
+            const prevBtn = document.getElementById('scroll-prev');
+            const nextBtn = document.getElementById('scroll-next');
+            function updateArrows() {
+                if (!scrollEl) return;
+                prevBtn.disabled = scrollEl.scrollLeft <= 0;
+                const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
+                nextBtn.disabled = scrollEl.scrollLeft >= maxScroll - 1;
+            }
+            if (scrollEl && prevBtn && nextBtn) {
+                scrollEl.addEventListener('scroll', updateArrows, { passive: true });
+                prevBtn.addEventListener('click', () => {
+                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
+                    scrollEl.scrollBy({ left: -((colW + 10) * 3), behavior: 'smooth' });
+                });
+                nextBtn.addEventListener('click', () => {
+                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
+                    scrollEl.scrollBy({ left: ((colW + 10) * 3), behavior: 'smooth' });
+                });
+                updateArrows();
             }
 
             // Update UI status badges with dynamic colors and x/y format
@@ -1442,7 +1653,7 @@
             if (poLabel) {
                 window.updateCardStatusBadge(poLabel, totalPoScore, maxPoScore);
             }
-            
+
             const uxLabel = document.getElementById('ux-status-label');
             if (uxLabel) {
                 window.updateCardStatusBadge(uxLabel, totalUxScore, maxUxScore);
@@ -1452,7 +1663,7 @@
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : 0;
             const dtStatusLabel = document.getElementById('dt-status-label');
             if (dtStatusLabel) {
-                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 8);
+                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 7);
             }
 
             // Progression rate
@@ -1464,7 +1675,7 @@
                 const now = new Date();
                 const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
                 document.getElementById('system-time').innerText = `Session active · Connecté à ${now.toLocaleTimeString('fr-FR', options)}`;
-            } catch(e) {}
+            } catch (e) { }
 
             // Rendre les cartes entières cliquables
             const dtCard = document.getElementById('dt-card');
@@ -1487,517 +1698,485 @@
                     window.location.href = './1-b.html';
                 });
             }
-            
+
             lucide.createIcons();
         });
     </script>
 
-<!-- Comprendre Modal -->
-<div id="comprendre-modal" style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 15px; margin: 0; box-sizing: border-box;">
-    
-    <!-- Discrete Hover Modal Arrows -->
-    <button class="hover-arrow modal-left-arrow modal-arrow" onclick="changeSlide(-1)" aria-label="Slide précédente">
-        <i data-lucide="chevron-left"></i>
-    </button>
-    <button class="hover-arrow modal-right-arrow modal-arrow" onclick="changeSlide(1)" aria-label="Slide suivante">
-        <i data-lucide="chevron-right"></i>
-    </button>
-    
-    <!-- Header with progress dots placed ABOVE slide content -->
-    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 32px; flex-shrink: 0; gap: 1rem; border-bottom: 1px solid rgba(15, 23, 42, 0.05); padding-bottom: 8px;">
-        <!-- Progress Header -->
-        <div id="slide-progress-header" style="display: flex; flex-direction: row; align-items: center; gap: 12px; flex-grow: 1;">
-            <div id="slide-page-number" style="font-size: 0.6rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;">Page 1 / 6</div>
-            <div id="dots-progress-container" style="display: flex; gap: 6px; align-items: center;">
-                <!-- Generated dynamically as dots -->
+    <!-- Comprendre Modal -->
+    <div id="comprendre-modal"
+        style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 15px; margin: 0; box-sizing: border-box;">
+
+        <!-- Header with progress bar placed ABOVE slide content -->
+        <div
+            style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 32px; flex-shrink: 0; gap: 1rem; border-bottom: 1px solid rgba(15, 23, 42, 0.05); padding-bottom: 8px;">
+            <!-- Left Nav Arrow -->
+            <button onclick="changeSlide(-1)"
+                style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                onmouseover="this.style.background='rgba(15,23,42,0.12)'"
+                onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Page précédente">
+                <i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i>
+            </button>
+
+            <!-- Progress Header -->
+            <div id="slide-progress-header"
+                style="display: flex; flex-direction: row; align-items: center; gap: 10px; flex-grow: 1; max-width: 320px;">
+                <div id="slide-page-number"
+                    style="font-size: 0.6rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;">
+                    Page 1 / 6</div>
+                <div id="notched-progress-bar"
+                    style="display: flex; gap: 3px; flex-grow: 1; height: 4px; background: transparent; border-radius: 9999px; overflow: hidden;">
+                    <!-- Generated dynamically -->
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0;">
+                <!-- Right Nav Arrow -->
+                <button onclick="changeSlide(1)"
+                    style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                    onmouseover="this.style.background='rgba(15,23,42,0.12)'"
+                    onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Page suivante">
+                    <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                </button>
+                <!-- Close Button -->
+                <button onclick="closeComprendre()"
+                    style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                    onmouseover="this.style.background='rgba(15,23,42,0.12)'"
+                    onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Fermer la modal">
+                    <i data-lucide="x" style="width: 14px; height: 14px;"></i>
+                </button>
             </div>
         </div>
 
-        <div style="display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0;">
-            <!-- Close Button -->
-            <button onclick="closeComprendre()" style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Fermer la modal">
-                <i data-lucide="x" style="width: 14px; height: 14px;"></i>
-            </button>
+        <div id="comprendre-slides-container"
+            style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 15px;">
+            <!-- Generated dynamically from 1-0.json -->
         </div>
     </div>
 
-    <div id="comprendre-slides-container" style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 15px;">
-        <!-- Generated dynamically from 1-0.json -->
-    </div>
-</div>
+    <script>
+        let currentSlide = 0;
+        let touchstartX = 0;
+        let touchendX = 0;
 
-<script>
-let currentSlide = 0;
-let touchstartX = 0;
-let touchendX = 0;
-
-function handleGesture() {
-    if (touchendX < touchstartX - 50) {
-        changeSlide(1);
-    }
-    if (touchendX > touchstartX + 50) {
-        changeSlide(-1);
-    }
-}
-
-let slidesData = null;
-
-async function openComprendre(atelierId) {
-    if(atelierId !== 1) return;
-    const modal = document.getElementById('comprendre-modal');
-    modal.style.display = 'flex';
-    
-    // Swipe gestures
-    modal.addEventListener('touchstart', e => {
-        touchstartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    
-    modal.addEventListener('touchend', e => {
-        touchendX = e.changedTouches[0].screenX;
-        handleGesture();
-    }, { passive: true });
-
-    // Load slides dynamically from 1-0.md if not already loaded
-    if (!slidesData) {
-        try {
-            const res = await fetch('1-0.md?v=' + new Date().getTime());
-            const markdownText = await res.text();
-            slidesData = parseMarp(markdownText);
-            renderDynamicSlides();
-        } catch (e) {
-            console.error("Error loading Comprendre slides:", e);
-            document.getElementById('comprendre-slides-container').innerHTML = 
-                `<div style="color:#b91c1c; padding: 20px; font-weight: bold; text-align: center;">Erreur de chargement du contenu.</div>`;
-            return;
-        }
-    }
-
-    // Load last viewed slide from localStorage
-    const saved = localStorage.getItem('design-thinking-last-slide');
-    currentSlide = saved ? parseInt(saved, 10) : 0;
-    updateSlides();
-}
-
-function parseMarp(markdownText) {
-    const rawSlides = markdownText.split(/\n---\s*\n/);
-    const slides = [];
-    let slideId = 1;
-    
-    rawSlides.forEach(raw => {
-        const trimmed = raw.trim();
-        if (!trimmed) return;
-        if (trimmed.includes('marp: true')) return;
-        
-        const titleMatch = trimmed.match(/^#\s+(.+)$/m);
-        const title = titleMatch ? titleMatch[1].trim() : '';
-        
-        let body = trimmed.replace(/^#\s+.+$/m, '').trim();
-        let type = 'html';
-        let footer = '';
-        let description = '';
-        
-        const commentMatch = body.match(/<!--\s*([\s\S]*?)\s*-->/);
-        if (commentMatch) {
-            const commentContent = commentMatch[1];
-            body = body.replace(/<!--\s*[\s\S]*?\s*-->/, '').trim();
-            
-            const typeMatch = commentContent.match(/type:\s*(\w+)/);
-            if (typeMatch) type = typeMatch[1].trim();
-            
-            const footerMatch = commentContent.match(/footer:\s*([\s\S]+?)(?=\n\w+:|$)/);
-            if (footerMatch) footer = footerMatch[1].trim();
-            
-            const descMatch = commentContent.match(/description:\s*([\s\S]+?)(?=\n\w+:|$)/);
-            if (descMatch) description = descMatch[1].trim();
-        }
-        
-        if (!description) {
-            const contentStartIndex = body.search(/<(svg|div)/i);
-            if (contentStartIndex !== -1) {
-                description = body.substring(0, contentStartIndex).trim();
-                body = body.substring(contentStartIndex).trim();
-            } else {
-                description = body;
-                body = '';
+        function handleGesture() {
+            if (touchendX < touchstartX - 50) {
+                changeSlide(1);
+            }
+            if (touchendX > touchstartX + 50) {
+                changeSlide(-1);
             }
         }
-        
-        slides.push({
-            id: slideId++,
-            title: title,
-            description: description.replace(/\r?\n/g, ' '),
-            type: type,
-            content: body,
-            footer: footer
-        });
-    });
-    
-    return slides;
-}
 
-function renderDynamicSlides() {
-    const container = document.getElementById('comprendre-slides-container');
-    if (!container) return;
-    container.innerHTML = '';
-    
-    slidesData.forEach((slide, idx) => {
-        const slideDiv = document.createElement('div');
-        slideDiv.className = 'comprendre-slide';
-        slideDiv.style.display = 'none';
-        slideDiv.style.flexDirection = 'column';
-        slideDiv.style.alignItems = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? 'stretch' : 'center';
-        slideDiv.style.textAlign = 'center';
-        slideDiv.style.maxWidth = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? '1100px' : (slide.id === 5 ? '1200px' : '900px');
-        slideDiv.style.animation = 'fadeIn 0.3s';
-        slideDiv.style.width = '100%';
-        if (slide.id === 4 || slide.id === 6 || slide.id === 7) {
-            slideDiv.style.padding = '0.5rem';
+        let slidesData = null;
+
+        async function openComprendre(atelierId) {
+            if (atelierId !== 1) return;
+            const modal = document.getElementById('comprendre-modal');
+            modal.style.display = 'flex';
+
+            // Swipe gestures
+            modal.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            modal.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleGesture();
+            }, { passive: true });
+
+            // Load slides dynamically from 1-0.md if not already loaded
+            if (!slidesData) {
+                try {
+                    const res = await fetch('1-0.md?v=' + new Date().getTime());
+                    const markdownText = await res.text();
+                    slidesData = parseMarp(markdownText);
+                    renderDynamicSlides();
+                } catch (e) {
+                    console.error("Error loading Comprendre slides:", e);
+                    document.getElementById('comprendre-slides-container').innerHTML =
+                        `<div style="color:#b91c1c; padding: 20px; font-weight: bold; text-align: center;">Erreur de chargement du contenu.</div>`;
+                    return;
+                }
+            }
+
+            // Load last viewed slide from localStorage
+            const saved = localStorage.getItem('design-thinking-last-slide');
+            currentSlide = saved ? parseInt(saved, 10) : 0;
+            updateSlides();
         }
-        
-        let html = `
+
+        function parseMarp(markdownText) {
+            const rawSlides = markdownText.split(/\n---\s*\n/);
+            const slides = [];
+            let slideId = 1;
+
+            rawSlides.forEach(raw => {
+                const trimmed = raw.trim();
+                if (!trimmed) return;
+                if (trimmed.includes('marp: true')) return;
+
+                const titleMatch = trimmed.match(/^#\s+(.+)$/m);
+                const title = titleMatch ? titleMatch[1].trim() : '';
+
+                let body = trimmed.replace(/^#\s+.+$/m, '').trim();
+                let type = 'html';
+                let footer = '';
+                let description = '';
+
+                const commentMatch = body.match(/<!--\s*([\s\S]*?)\s*-->/);
+        if (commentMatch) {
+                    const commentContent = commentMatch[1];
+                    body = body.replace(/<!--\s*[\s\S]*?\s*-->/, '').trim();
+
+                    const typeMatch = commentContent.match(/type:\s*(\w+)/);
+                    if (typeMatch) type = typeMatch[1].trim();
+
+                    const footerMatch = commentContent.match(/footer:\s*([\s\S]+?)(?=\n\w+:|$)/);
+                    if (footerMatch) footer = footerMatch[1].trim();
+
+                    const descMatch = commentContent.match(/description:\s*([\s\S]+?)(?=\n\w+:|$)/);
+                    if (descMatch) description = descMatch[1].trim();
+                }
+
+                if (!description) {
+                    const contentStartIndex = body.search(/<(svg|div)/i);
+                    if (contentStartIndex !== -1) {
+                        description = body.substring(0, contentStartIndex).trim();
+                        body = body.substring(contentStartIndex).trim();
+                    } else {
+                        description = body;
+                        body = '';
+                    }
+                }
+
+                slides.push({
+                    id: slideId++,
+                    title: title,
+                    description: description.replace(/\r?\n/g, ' '),
+                    type: type,
+                    content: body,
+                    footer: footer
+                });
+            });
+
+            return slides;
+        }
+
+        function renderDynamicSlides() {
+            const container = document.getElementById('comprendre-slides-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            slidesData.forEach((slide, idx) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'comprendre-slide';
+                slideDiv.style.display = 'none';
+                slideDiv.style.flexDirection = 'column';
+                slideDiv.style.alignItems = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? 'stretch' : 'center';
+                slideDiv.style.textAlign = 'center';
+                slideDiv.style.maxWidth = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? '1100px' : (slide.id === 5 ? '1200px' : '900px');
+                slideDiv.style.animation = 'fadeIn 0.3s';
+                slideDiv.style.width = '100%';
+                if (slide.id === 4 || slide.id === 6 || slide.id === 7) {
+                    slideDiv.style.padding = '0.5rem';
+                }
+
+                let html = `
             <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">${slide.title}</h2>
             <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">${slide.description}</p>
             <div style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 1rem; box-sizing: border-box;">
                 ${slide.content}
             </div>
         `;
-        
-        if (slide.footer) {
-            if (slide.footer.trim().startsWith("<div")) {
-                html += `
+
+                if (slide.footer) {
+                    if (slide.footer.trim().startsWith("<div")) {
+                        html += `
                     <div style="width: 100%; display: flex; justify-content: center; margin-top: 1.5rem;">
                         ${slide.footer}
                     </div>
                 `;
-            } else {
-                html += `
+                    } else {
+                        html += `
                     <p style="font-size: 0.9rem; color: #475569; margin-top: 1.5rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
                         ${slide.footer}
                     </p>
                 `;
+                    }
+                }
+
+                slideDiv.innerHTML = html;
+                container.appendChild(slideDiv);
+            });
+
+            if (window.lucide) {
+                lucide.createIcons();
             }
         }
-        
-        slideDiv.innerHTML = html;
-        container.appendChild(slideDiv);
-    });
-    
-    if (window.lucide) {
-        lucide.createIcons();
-    }
-}
 
-function closeComprendre() {
-    const modal = document.getElementById('comprendre-modal');
-    modal.style.display = 'none';
-}
+        function closeComprendre() {
+            const modal = document.getElementById('comprendre-modal');
+            modal.style.display = 'none';
+        }
 
-function changeSlide(dir) {
-    const slides = document.querySelectorAll('.comprendre-slide');
-    if (slides.length === 0) return;
-    currentSlide += dir;
-    if (currentSlide < 0) currentSlide = 0;
-    if (currentSlide >= slides.length) currentSlide = slides.length - 1;
-    
-    // Save last viewed slide
-    localStorage.setItem('design-thinking-last-slide', currentSlide);
-    updateSlides();
-}
+        function changeSlide(dir) {
+            const slides = document.querySelectorAll('.comprendre-slide');
+            if (slides.length === 0) return;
+            currentSlide += dir;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
 
-function scrollHub(dir) {
-    const scrollEl = document.getElementById('ateliers-scroll');
-    if (scrollEl) {
-        const containerWidth = scrollEl.clientWidth;
-        scrollEl.scrollBy({ left: dir * containerWidth, behavior: 'smooth' });
-    }
-}
+            // Save last viewed slide
+            localStorage.setItem('design-thinking-last-slide', currentSlide);
+            updateSlides();
+        }
+        function updateSlides() {
+            const slides = document.querySelectorAll('.comprendre-slide');
 
-let hoverArrowTimeout;
-function handleArrowVisibility(e) {
-    const modal = document.getElementById('comprendre-modal');
-    const isModalOpen = modal && modal.style.display === 'flex';
-    
-    const hubArrows = document.querySelectorAll('.hub-arrow');
-    const modalArrows = document.querySelectorAll('.modal-arrow');
-    
-    if (isModalOpen) {
-        hubArrows.forEach(a => a.classList.remove('show'));
-        modalArrows.forEach(a => a.classList.add('show'));
-    } else {
-        modalArrows.forEach(a => a.classList.remove('show'));
-        hubArrows.forEach(a => a.classList.add('show'));
-    }
-    
-    clearTimeout(hoverArrowTimeout);
-    hoverArrowTimeout = setTimeout(() => {
-        hubArrows.forEach(a => a.classList.remove('show'));
-        modalArrows.forEach(a => a.classList.remove('show'));
-    }, 4000);
-}
-document.addEventListener('mousemove', handleArrowVisibility);
-function updateSlides() {
-    const slides = document.querySelectorAll('.comprendre-slide');
-    
-    // Reset scroll position of the container to start each slide at the top
-    const container = document.getElementById('comprendre-slides-container');
-    if (container) {
-        container.scrollTop = 0;
-    }
-
-    slides.forEach((s, i) => {
-        s.style.display = (i === currentSlide) ? 'flex' : 'none';
-    });
-    
-    // Generate and color the progress dots
-    const dotsContainer = document.getElementById('dots-progress-container');
-    if (dotsContainer) {
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i < slides.length; i++) {
-            const dot = document.createElement('div');
-            dot.style.width = '8px';
-            dot.style.height = '8px';
-            dot.style.borderRadius = '50%';
-            dot.style.cursor = 'pointer';
-            dot.style.background = (i === currentSlide) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.15)';
-            dot.style.transition = 'all 0.3s ease';
-            if (i === currentSlide) {
-                dot.style.transform = 'scale(1.25)';
+            // Reset scroll position of the container to start each slide at the top
+            const container = document.getElementById('comprendre-slides-container');
+            if (container) {
+                container.scrollTop = 0;
             }
-            dot.onclick = () => {
-                currentSlide = i;
-                showSlide();
-            };
-            dotsContainer.appendChild(dot);
-        }
-    }
-    
-    // Update the page number
-    const pageNum = document.getElementById('slide-page-number');
-    if (pageNum) {
-        pageNum.innerText = `Page ${currentSlide + 1} / ${slides.length}`;
-    }
-    
-    // Update progress badge on the card status dot
-    const dtStatusLabel = document.getElementById('dt-status-label');
-    if (dtStatusLabel) {
-        window.updateCardStatusBadge(dtStatusLabel, currentSlide + 1, slides.length);
-    }
-}
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const refModal = document.getElementById('ref-modal');
-        if (refModal && refModal.style.display === 'flex') {
-            closeRefModal();
-            return;
-        }
-    }
+            slides.forEach((s, i) => {
+                s.style.display = (i === currentSlide) ? 'flex' : 'none';
+            });
 
-    const modal = document.getElementById('comprendre-modal');
-    if (modal && modal.style.display === 'flex') {
-        if (e.key === 'ArrowRight') {
-            changeSlide(1);
-        } else if (e.key === 'ArrowLeft') {
-            changeSlide(-1);
-        } else if (e.key === 'Escape') {
-            closeComprendre();
-        }
-    } else {
-        const scrollEl = document.getElementById('ateliers-scroll');
-        if (scrollEl) {
-            const containerWidth = scrollEl.clientWidth;
-            if (e.key === 'ArrowRight') {
-                scrollEl.scrollBy({ left: containerWidth, behavior: 'smooth' });
-            } else if (e.key === 'ArrowLeft') {
-                scrollEl.scrollBy({ left: -containerWidth, behavior: 'smooth' });
+            // Generate and color the notched progress bar segments
+            const bar = document.getElementById('notched-progress-bar');
+            if (bar) {
+                bar.innerHTML = '';
+                for (let i = 0; i < slides.length; i++) {
+                    const notch = document.createElement('div');
+                    notch.style.flex = '1';
+                    notch.style.height = '100%';
+                    notch.style.borderRadius = '2px';
+                    // Primary blue of Epiconcept (--color-primary is #1e3a8a / Slate 800)
+                    notch.style.background = (i <= currentSlide) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.1)';
+                    notch.style.transition = 'background 0.3s ease';
+                    bar.appendChild(notch);
+                }
+            }
+
+            // Update the page number
+            const pageNum = document.getElementById('slide-page-number');
+            if (pageNum) {
+                pageNum.innerText = `Page ${currentSlide + 1} / ${slides.length}`;
+            }
+
+            // Update progress badge on the card status dot
+            const dtStatusLabel = document.getElementById('dt-status-label');
+            if (dtStatusLabel) {
+                window.updateCardStatusBadge(dtStatusLabel, currentSlide + 1, slides.length);
             }
         }
-    }
-});
 
-// Zoom logic for SVGs in Comprendre slides
-document.addEventListener('click', (e) => {
-    // If the click is on an SVG within the comprendre container
-    const svg = e.target.closest('#comprendre-slides-container svg');
-    if (svg) {
-        // Create overlay
-        const overlay = document.createElement('div');
-        overlay.className = 'zoom-overlay';
-        
-        const content = document.createElement('div');
-        content.className = 'zoom-content';
-        
-        // Clone the SVG so it stays in the slide
-        const clonedSvg = svg.cloneNode(true);
-        clonedSvg.style.width = '100%';
-        clonedSvg.style.height = 'auto';
-        clonedSvg.style.maxHeight = '75vh';
-        clonedSvg.style.transform = 'none';
-        
-        content.appendChild(clonedSvg);
-        overlay.appendChild(content);
-        
-        // Create close button (x) for zoom overlay
-        const closeBtn = document.createElement('button');
-        closeBtn.style.position = 'absolute';
-        closeBtn.style.top = '1rem';
-        closeBtn.style.right = '1rem';
-        closeBtn.style.background = 'none';
-        closeBtn.style.border = 'none';
-        closeBtn.style.color = '#ffffff';
-        closeBtn.style.cursor = 'pointer';
-        closeBtn.style.padding = '6px';
-        closeBtn.style.display = 'flex';
-        closeBtn.style.alignItems = 'center';
-        closeBtn.style.justifyContent = 'center';
-        closeBtn.style.opacity = '0.6';
-        closeBtn.style.transition = 'opacity 0.2s, transform 0.2s';
-        closeBtn.innerHTML = '<i data-lucide="x" style="width: 20px; height: 20px;"></i>';
-        
-        closeBtn.onmouseover = () => { 
-            closeBtn.style.opacity = '1'; 
-            closeBtn.style.transform = 'scale(1.1)';
-        };
-        closeBtn.onmouseout = () => { 
-            closeBtn.style.opacity = '0.6'; 
-            closeBtn.style.transform = 'scale(1)';
-        };
-        
-        overlay.appendChild(closeBtn);
-        document.body.appendChild(overlay);
-        
-        if (window.lucide) {
-            lucide.createIcons();
-        }
-        
-        overlay.onclick = () => {
-            overlay.remove();
-        };
-    }
-});
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const refModal = document.getElementById('ref-modal');
+                if (refModal && refModal.style.display === 'flex') {
+                    closeRefModal();
+                    return;
+                }
+            }
 
-// PO & UX Reflexes Reference Loader and Modal Logic
-let reflexesData = null;
-async function showRef(reflexId) {
-    if (!reflexesData) {
-        try {
-            const v = new Date().getTime();
-            const [poRes, uxRes] = await Promise.all([
-                fetch('1-a.json?v=' + v),
-                fetch('1-b.json?v=' + v)
-            ]);
-            const poData = await poRes.json();
-            const uxData = await uxRes.json();
-            reflexesData = {
-                po: poData,
-                ux: uxData
-            };
-        } catch (e) {
-            console.error("Error loading reflex data:", e);
-            alert("Erreur de chargement des données de référence.");
-            return;
-        }
-    }
-    
-    let title = "";
-    let description = "";
-    let examples = [];
-    let badgeText = "";
-    let iconName = "lightbulb";
-    let visuals = [];
-    
-    if (reflexId.startsWith('A')) {
-        const num = parseInt(reflexId.substring(1), 10);
-        const item = reflexesData.po.find(x => x.id === num);
-        if (item) {
-            title = item.title;
-            description = item.intent;
-            examples = item.questions || [];
-            badgeText = "Réflexe PO (Posture)";
-            iconName = "target";
-            
-            // Load visuals from scenarios
-            if (item.scenarios && item.scenarios.length > 0) {
-                item.scenarios.forEach((sc, idx) => {
-                    if (sc.visual) {
-                        visuals.push({
-                            title: `Illustration Cas ${idx + 1}`,
-                            expl: sc.explanation || "",
-                            html: sc.visual
+            const modal = document.getElementById('comprendre-modal');
+            if (modal && modal.style.display === 'flex') {
+                if (e.key === 'ArrowRight') {
+                    changeSlide(1);
+                } else if (e.key === 'ArrowLeft') {
+                    changeSlide(-1);
+                } else if (e.key === 'Escape') {
+                    closeComprendre();
+                }
+            }
+        });
+
+        // Zoom logic for SVGs in Comprendre slides
+        document.addEventListener('click', (e) => {
+            // If the click is on an SVG within the comprendre container
+            const svg = e.target.closest('#comprendre-slides-container svg');
+            if (svg) {
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'zoom-overlay';
+
+                const content = document.createElement('div');
+                content.className = 'zoom-content';
+
+                // Clone the SVG so it stays in the slide
+                const clonedSvg = svg.cloneNode(true);
+                clonedSvg.style.width = '100%';
+                clonedSvg.style.height = 'auto';
+                clonedSvg.style.maxHeight = '75vh';
+                clonedSvg.style.transform = 'none';
+
+                content.appendChild(clonedSvg);
+                overlay.appendChild(content);
+
+                // Create close button (x) for zoom overlay
+                const closeBtn = document.createElement('button');
+                closeBtn.style.position = 'absolute';
+                closeBtn.style.top = '1rem';
+                closeBtn.style.right = '1rem';
+                closeBtn.style.background = 'none';
+                closeBtn.style.border = 'none';
+                closeBtn.style.color = '#ffffff';
+                closeBtn.style.cursor = 'pointer';
+                closeBtn.style.padding = '6px';
+                closeBtn.style.display = 'flex';
+                closeBtn.style.alignItems = 'center';
+                closeBtn.style.justifyContent = 'center';
+                closeBtn.style.opacity = '0.6';
+                closeBtn.style.transition = 'opacity 0.2s, transform 0.2s';
+                closeBtn.innerHTML = '<i data-lucide="x" style="width: 20px; height: 20px;"></i>';
+
+                closeBtn.onmouseover = () => {
+                    closeBtn.style.opacity = '1';
+                    closeBtn.style.transform = 'scale(1.1)';
+                };
+                closeBtn.onmouseout = () => {
+                    closeBtn.style.opacity = '0.6';
+                    closeBtn.style.transform = 'scale(1)';
+                };
+
+                overlay.appendChild(closeBtn);
+                document.body.appendChild(overlay);
+
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+
+                overlay.onclick = () => {
+                    overlay.remove();
+                };
+            }
+        });
+
+        // PO & UX Reflexes Reference Loader and Modal Logic
+        let reflexesData = null;
+        async function showRef(reflexId) {
+            if (!reflexesData) {
+                try {
+                    const v = new Date().getTime();
+                    const [poRes, uxRes] = await Promise.all([
+                        fetch('1-a.json?v=' + v),
+                        fetch('1-b.json?v=' + v)
+                    ]);
+                    const poData = await poRes.json();
+                    const uxData = await uxRes.json();
+                    reflexesData = {
+                        po: poData,
+                        ux: uxData
+                    };
+                } catch (e) {
+                    console.error("Error loading reflex data:", e);
+                    alert("Erreur de chargement des données de référence.");
+                    return;
+                }
+            }
+
+            let title = "";
+            let description = "";
+            let examples = [];
+            let badgeText = "";
+            let iconName = "lightbulb";
+            let visuals = [];
+
+            if (reflexId.startsWith('A')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.po.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    examples = item.questions || [];
+                    badgeText = "Réflexe PO (Posture)";
+                    iconName = "target";
+
+                    // Load visuals from scenarios
+                    if (item.scenarios && item.scenarios.length > 0) {
+                        item.scenarios.forEach((sc, idx) => {
+                            if (sc.visual) {
+                                visuals.push({
+                                    title: `Illustration Cas ${idx + 1}`,
+                                    expl: sc.explanation || "",
+                                    html: sc.visual
+                                });
+                            }
                         });
                     }
-                });
-            }
-        }
-    } else if (reflexId.startsWith('B')) {
-        const num = parseInt(reflexId.substring(1), 10);
-        const item = reflexesData.ux.find(x => x.id === num);
-        if (item) {
-            title = item.title;
-            description = item.intent || "Principe d'ergonomie et de conception d'interface.";
-            examples = [];
-            if (item.scenarios && item.scenarios.length > 0) {
-                item.scenarios.forEach((sc, idx) => {
-                    if (sc.correct && sc.correct.title) {
-                        examples.push(`${sc.correct.title} : ${sc.correct.expl}`);
-                        if (sc.correct.visual) {
-                            visuals.push({
-                                title: sc.correct.title,
-                                expl: sc.correct.expl,
-                                html: sc.correct.visual
-                            });
-                        }
+                }
+            } else if (reflexId.startsWith('B')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.ux.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent || "Principe d'ergonomie et de conception d'interface.";
+                    examples = [];
+                    if (item.scenarios && item.scenarios.length > 0) {
+                        item.scenarios.forEach((sc, idx) => {
+                            if (sc.correct && sc.correct.title) {
+                                examples.push(`${sc.correct.title} : ${sc.correct.expl}`);
+                                if (sc.correct.visual) {
+                                    visuals.push({
+                                        title: sc.correct.title,
+                                        expl: sc.correct.expl,
+                                        html: sc.correct.visual
+                                    });
+                                }
+                            }
+                        });
                     }
-                });
+                    badgeText = "Réflexe UX (Conception)";
+                    iconName = "mouse-pointer-click";
+                }
             }
-            badgeText = "Réflexe UX (Conception)";
-            iconName = "mouse-pointer-click";
-        }
-    }
-    
-    if (title) {
-        openRefModal(title, description, examples, badgeText, iconName, visuals);
-    }
-}
 
-function openRefModal(title, description, examples, badgeText, iconName, visuals) {
-    const modal = document.getElementById('ref-modal');
-    document.getElementById('ref-title').innerText = title;
-    document.getElementById('ref-intent').innerText = description;
-    document.getElementById('ref-badge').innerText = badgeText;
-    
-    const iconWrapper = document.getElementById('ref-icon-wrapper');
-    iconWrapper.innerHTML = `<i id="ref-icon" data-lucide="${iconName}" style="width: 24px; height: 24px;"></i>`;
-    
-    const list = document.getElementById('ref-examples-list');
-    list.innerHTML = '';
-    
-    const label = document.getElementById('ref-examples-label');
-    const examplesContainer = document.getElementById('ref-examples-container');
-    const visualsContainer = document.getElementById('ref-visuals-container');
-    const visualsList = document.getElementById('ref-visuals-list');
-    
-    if (badgeText.startsWith('Réflexe PO')) {
-        examplesContainer.style.display = 'flex';
-        if (visualsContainer) visualsContainer.style.display = 'none';
-        label.innerText = "Questions Métier Clés";
-        examples.forEach(q => {
-            const li = document.createElement('li');
-            li.style.display = 'flex';
-            li.style.gap = '0.5rem';
-            li.innerHTML = `<span style="color: var(--color-primary); font-weight: bold;">•</span> <span>${q}</span>`;
-            list.appendChild(li);
-        });
-    } else {
-        examplesContainer.style.display = 'none';
-        if (visualsContainer) visualsContainer.style.display = 'flex';
-        if (visualsList) {
-            visualsList.innerHTML = '';
-            visuals.forEach(v => {
-                const card = document.createElement('div');
-                card.className = 'ref-visual-card';
-                
-                card.innerHTML = `
+            if (title) {
+                openRefModal(title, description, examples, badgeText, iconName, visuals);
+            }
+        }
+
+        function openRefModal(title, description, examples, badgeText, iconName, visuals) {
+            const modal = document.getElementById('ref-modal');
+            document.getElementById('ref-title').innerText = title;
+            document.getElementById('ref-intent').innerText = description;
+            document.getElementById('ref-badge').innerText = badgeText;
+
+            const iconWrapper = document.getElementById('ref-icon-wrapper');
+            iconWrapper.innerHTML = `<i id="ref-icon" data-lucide="${iconName}" style="width: 24px; height: 24px;"></i>`;
+
+            const list = document.getElementById('ref-examples-list');
+            list.innerHTML = '';
+
+            const label = document.getElementById('ref-examples-label');
+            const examplesContainer = document.getElementById('ref-examples-container');
+            const visualsContainer = document.getElementById('ref-visuals-container');
+            const visualsList = document.getElementById('ref-visuals-list');
+
+            if (badgeText.startsWith('Réflexe PO')) {
+                examplesContainer.style.display = 'flex';
+                if (visualsContainer) visualsContainer.style.display = 'none';
+                label.innerText = "Questions Métier Clés";
+                examples.forEach(q => {
+                    const li = document.createElement('li');
+                    li.style.display = 'flex';
+                    li.style.gap = '0.5rem';
+                    li.innerHTML = `<span style="color: var(--color-primary); font-weight: bold;">•</span> <span>${q}</span>`;
+                    list.appendChild(li);
+                });
+            } else {
+                examplesContainer.style.display = 'none';
+                if (visualsContainer) visualsContainer.style.display = 'flex';
+                if (visualsList) {
+                    visualsList.innerHTML = '';
+                    visuals.forEach(v => {
+                        const card = document.createElement('div');
+                        card.className = 'ref-visual-card';
+
+                        card.innerHTML = `
                     <div class="visual-mockup">
                         <div style="width: 100%; transform: scale(0.9); transform-origin: center center; display: flex; justify-content: center; align-items: center;">
                             ${v.html}
@@ -2011,63 +2190,82 @@ function openRefModal(title, description, examples, badgeText, iconName, visuals
                         <p class="visual-expl">${v.expl}</p>
                     </div>
                 `;
-                visualsList.appendChild(card);
-            });
+                        visualsList.appendChild(card);
+                    });
+                }
+            }
+
+            modal.style.display = 'flex';
+            lucide.createIcons(); // Re-render Lucide icons dynamically
         }
-    }
-    
-    modal.style.display = 'flex';
-    lucide.createIcons(); // Re-render Lucide icons dynamically
-}
 
-function closeRefModal() {
-    document.getElementById('ref-modal').style.display = 'none';
-}
-</script>
+        function closeRefModal() {
+            document.getElementById('ref-modal').style.display = 'none';
+        }
+    </script>
 
-<!-- Reference Modal (Glassmorphic pop-up) -->
-<div id="ref-modal" class="ref-modal-overlay" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; transition: opacity 0.3s ease; padding: 1rem; box-sizing: border-box;">
-    <div class="ref-modal-card" style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);">
-        <!-- Close Button (Positioned higher, small, no background) -->
-        <button onclick="closeRefModal()" style="position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#0f172a'" onmouseout="this.style.color='#64748b'">
-            <i data-lucide="x" style="width: 14px; height: 14px;"></i>
-        </button>
-        
-        <!-- Header / Title -->
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <div id="ref-icon-wrapper" style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                <i id="ref-icon" data-lucide="lightbulb" style="width: 24px; height: 24px;"></i>
-            </div>
-            <div>
-                <span id="ref-badge" style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Réflexe PO</span>
-                <h3 id="ref-title" style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">A1. Dépasser la demande</h3>
-            </div>
-        </div>
-        
-        <!-- Intent / Description -->
-        <div style="background: #f8fafc; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.04);">
-            <h4 style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Intention & Philosophie</h4>
-            <p id="ref-intent" style="font-size: 0.85rem; color: #334155; line-height: 1.5; font-weight: 500;">Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.</p>
-        </div>
-        
-        <!-- Visual Examples (For UX reflexes) -->
-        <div id="ref-visuals-container" style="display: none; flex-direction: column; gap: 0.25rem;">
-            <h4 style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Exemples Visuels Recommandés</h4>
-            <div id="ref-visuals-list" style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
-                <!-- Filled dynamically -->
-            </div>
-        </div>
-        
-        <!-- Examples / Questions -->
-        <div id="ref-examples-container" style="display: flex; flex-direction: column; gap: 0.25rem;">
-            <h4 id="ref-examples-label" style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Questions Clés</h4>
-            <ul id="ref-examples-list" style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem;">
-                <!-- Filled dynamically -->
-            </ul>
-        </div>
+    <!-- Reference Modal (Glassmorphic pop-up) -->
+    <div id="ref-modal" class="ref-modal-overlay"
+        style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; transition: opacity 0.3s ease; padding: 1rem; box-sizing: border-box;">
+        <div class="ref-modal-card"
+            style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);">
+            <!-- Close Button (Positioned higher, small, no background) -->
+            <button onclick="closeRefModal()"
+                style="position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;"
+                onmouseover="this.style.color='#0f172a'" onmouseout="this.style.color='#64748b'">
+                <i data-lucide="x" style="width: 14px; height: 14px;"></i>
+            </button>
 
+            <!-- Header / Title -->
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div id="ref-icon-wrapper"
+                    style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i id="ref-icon" data-lucide="lightbulb" style="width: 24px; height: 24px;"></i>
+                </div>
+                <div>
+                    <span id="ref-badge"
+                        style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Réflexe
+                        PO</span>
+                    <h3 id="ref-title" style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">A1.
+                        Dépasser la demande</h3>
+                </div>
+            </div>
+
+            <!-- Intent / Description -->
+            <div
+                style="background: #f8fafc; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.04);">
+                <h4
+                    style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+                    Intention & Philosophie</h4>
+                <p id="ref-intent" style="font-size: 0.85rem; color: #334155; line-height: 1.5; font-weight: 500;">
+                    Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une
+                    commande directe.</p>
+            </div>
+
+            <!-- Visual Examples (For UX reflexes) -->
+            <div id="ref-visuals-container" style="display: none; flex-direction: column; gap: 0.25rem;">
+                <h4
+                    style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+                    Exemples Visuels Recommandés</h4>
+                <div id="ref-visuals-list" style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
+                    <!-- Filled dynamically -->
+                </div>
+            </div>
+
+            <!-- Examples / Questions -->
+            <div id="ref-examples-container" style="display: flex; flex-direction: column; gap: 0.25rem;">
+                <h4 id="ref-examples-label"
+                    style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+                    Questions Clés</h4>
+                <ul id="ref-examples-list"
+                    style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <!-- Filled dynamically -->
+                </ul>
+            </div>
+
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>
