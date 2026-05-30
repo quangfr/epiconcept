@@ -13,8 +13,8 @@
                 extend: {
                     colors: {
                         blue: {
-                            900: '#3b82f6',
-                            800: '#2563eb',
+                            900: '#1e3a8a',
+                            800: '#1e40af',
                         }
                     }
                 }
@@ -148,24 +148,24 @@
         }
 
         .dot-current {
-            background-color: #0f172a;
+            background-color: #1e3a8a;
             color: white;
-            border: 2px solid #0f172a;
-            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.2);
+            border: 2px solid #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
             cursor: default;
             transform: scale(1.1);
         }
 
         .dot-completed {
-            background-color: #0f172a;
+            background-color: #1e3a8a;
             color: white;
-            border: 2px solid #0f172a;
+            border: 2px solid #1e3a8a;
             cursor: pointer;
         }
 
         .dot-completed:hover {
-            background-color: #1e293b;
-            border-color: #1e293b;
+            background-color: #1e40af;
+            border-color: #1e40af;
             transform: scale(1.1);
         }
 
@@ -379,6 +379,10 @@
             </div>
 
             <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
+                <!-- Reset Niveau -->
+                <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                </button>
                 <!-- Breadcrumb / Fil d'Ariane -->
                 <div id="breadcrumb-container" class="flex gap-1.5 hidden lg:flex flex-row items-center">
                     <!-- Généré par JS -->
@@ -397,7 +401,7 @@
         <!-- Zone de gauche : Étude de cas -->
         <div class="w-full md:w-5/12 flex flex-col gap-3 h-full">
             <div
-                class="bg-slate-800 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit">
+                class="bg-blue-900 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit">
                 Analyse de Situation</div>
             <div id="scenario-card"
                 class="glass-panel rounded-xl p-8 shadow-sm border-slate-100 overflow-y-auto flex-grow">
@@ -432,7 +436,7 @@
         <!-- Zone de droite : Réflexes et Questions -->
         <div class="w-full md:w-7/12 flex flex-col gap-3 h-full relative">
             <div id="phase-label-container"
-                class="px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-200 text-slate-600 transition-colors">
+                class="px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors">
                 Phase 1 : Identification du réflexe
             </div>
 
@@ -441,6 +445,11 @@
                 <div id="reflex-grid" class="grid grid-cols-1 grid-rows-4 gap-3 h-full"></div>
 
                 <div id="question-list" class="hidden flex flex-col gap-4 h-full">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
+                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
                     <div id="questions-wrapper" class="grid grid-rows-3 gap-3 flex-grow"></div>
                 </div>
 
@@ -449,8 +458,8 @@
                     <!-- Bouton de retour en haut à gauche -->
                     <button id="debrief-back-btn" onclick="goBackFromDebrief()"
                         class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden"
-                        title="Retourner au défi en cours">
-                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        title="Retour">
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
                     </button>
                     <div class="flex items-center gap-4 mb-4 mt-4">
                         <div id="debrief-emoji"
@@ -679,14 +688,14 @@
 
                 const phaseLabel = document.getElementById('phase-label-container');
                 phaseLabel.innerText = "Phase 1 : Identification du réflexe";
-                phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-200 text-slate-600 transition-colors";
+                phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
 
                 renderReflexChoices();
             }
             renderBreadcrumbs();
         }
 
-        function renderReflexChoices() {
+        function renderReflexChoices(readOnly = false) {
             const grid = document.getElementById('reflex-grid');
             grid.innerHTML = '';
             const correctId = levelSteps[currentStepIdx].reflexId;
@@ -697,6 +706,9 @@
             options.forEach(opt => {
                 const btn = document.createElement('button');
                 btn.className = "reflex-btn bg-white p-4 rounded-xl text-left flex items-center gap-4 h-full overflow-hidden";
+                if (readOnly && opt.id === correctId) {
+                    btn.classList.add('correct');
+                }
                 btn.innerHTML = `
             <button onclick="event.stopPropagation(); showReferential(${opt.id})" class="info-btn text-slate-300 hover:text-blue-900">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
@@ -707,10 +719,11 @@
                 <div class="text-sm text-slate-500 font-bold leading-tight lowercase first-letter:uppercase line-clamp-2">${opt.intent}</div>
             </div>
         `;
-                btn.onclick = () => handleReflexSelection(opt.id, btn);
+                if (!readOnly) {
+                    btn.onclick = () => handleReflexSelection(opt.id, btn);
+                }
                 grid.appendChild(btn);
             });
-            lucide.createIcons();
             lucide.createIcons();
         }
 
@@ -732,8 +745,8 @@
             document.getElementById('question-list').classList.remove('hidden');
             const phaseLabel = document.getElementById('phase-label-container');
             phaseLabel.innerText = "Phase 2 : Choix de la question type";
-            phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-900 text-white transition-colors";
-
+            phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
+ 
             // Affiche la validation du réflexe à gauche avec son icône
             const step = levelSteps[currentStepIdx];
             const reflex = reflexes.find(r => r.id === step.reflexId);
@@ -745,7 +758,7 @@
             renderQuestionChoices();
         }
 
-        function renderQuestionChoices() {
+        function renderQuestionChoices(readOnly = false) {
             const wrapper = document.getElementById('questions-wrapper');
             wrapper.innerHTML = '';
             const step = levelSteps[currentStepIdx];
@@ -753,26 +766,42 @@
             step.options.forEach((opt) => {
                 const btn = document.createElement('button');
                 btn.className = "group w-full bg-white border-2 border-slate-100 p-5 rounded-lg text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base";
-                btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
-                btn.onclick = () => {
-                    if (currentPhase === 2) {
-                        if (opt.isCorrect) {
-                            btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
-                            step.status = 'completed';
-                            step.correctQuestion = opt.text; // Enregistre la question choisie par l'utilisateur
-                            // Sauvegarde la progression de cette question dans le localStorage
-                            localStorage.setItem('po-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
-                            setTimeout(showDebriefing, 500);
-                        } else {
-                            // Blocage en cas de mauvaise réponse (Tremblement + Style Erreur)
-                            btn.classList.add('shake', 'bg-red-50', 'border-red-500', 'text-red-700');
-                            setTimeout(() => btn.classList.remove('shake', 'bg-red-50', 'border-red-500', 'text-red-700'), 500);
+                if (readOnly && opt.isCorrect) {
+                    btn.className = "group w-full bg-emerald-600 text-white border-2 border-emerald-600 p-5 rounded-lg text-left font-bold text-base";
+                }
+                btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0 ${readOnly && opt.isCorrect ? 'text-white' : ''}"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
+                if (!readOnly) {
+                    btn.onclick = () => {
+                        if (currentPhase === 2) {
+                            if (opt.isCorrect) {
+                                btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+                                step.status = 'completed';
+                                step.correctQuestion = opt.text;
+                                localStorage.setItem('po-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
+                                setTimeout(showDebriefing, 500);
+                            } else {
+                                btn.classList.add('shake', 'bg-red-50', 'border-red-500', 'text-red-700');
+                                setTimeout(() => btn.classList.remove('shake', 'bg-red-50', 'border-red-500', 'text-red-700'), 500);
+                            }
                         }
-                    }
-                };
+                    };
+                }
                 wrapper.appendChild(btn);
             });
             lucide.createIcons();
+        }
+
+        function goBackToPhase1() {
+            document.getElementById('question-list').classList.add('hidden');
+            document.getElementById('phase2-question-container').classList.add('hidden');
+            document.getElementById('reflex-grid').classList.remove('hidden');
+
+            const phaseLabel = document.getElementById('phase-label-container');
+            phaseLabel.innerText = "Phase 1 : Identification du réflexe";
+            phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
+
+            currentPhase = 1;
+            renderReflexChoices();
         }
 
         function showDebriefing() {
@@ -791,20 +820,12 @@
             document.getElementById('debriefing-card').classList.remove('hidden');
             lucide.createIcons();
             document.getElementById('phase-label-container').innerText = "Débriefing Posture ESIS-3D";
-            document.getElementById('phase-label-container').className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-800 text-white transition-colors";
+            document.getElementById('phase-label-container').className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
 
             updateProgress();
 
-            // Gestion du libellé du bouton suivant selon l'état de progression
-            const nextPendingIdx = levelSteps.findIndex(s => s.status === 'pending');
-            const isCompleted = levelSteps.every(s => s.status === 'completed');
-            const backBtn = document.getElementById('debrief-back-btn');
-
-            if (nextPendingIdx !== -1 && nextPendingIdx !== currentStepIdx) {
-                backBtn.classList.remove('hidden');
-            } else {
-                backBtn.classList.add('hidden');
-            }
+            // Toujours afficher le bouton Retour pour revenir en Phase 2
+            document.getElementById('debrief-back-btn').classList.remove('hidden');
 
             if (isCompleted) {
                 document.getElementById('btn-next').innerText = "Terminer la Série";
@@ -815,13 +836,22 @@
         }
 
         function goBackFromDebrief() {
-            const pendingIdx = levelSteps.findIndex(s => s.status === 'pending');
-            if (pendingIdx !== -1) {
-                currentStepIdx = pendingIdx;
-                loadStep();
-            } else {
-                goHome();
-            }
+            const step = levelSteps[currentStepIdx];
+            const reflex = reflexes.find(r => r.id === step.reflexId);
+
+            document.getElementById('debriefing-card').classList.add('hidden');
+            document.getElementById('question-list').classList.remove('hidden');
+            document.getElementById('phase2-question-container').classList.remove('hidden');
+            document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+            document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${reflex.icon}" class="w-4 h-4 text-white"></i>`;
+
+            const phaseLabel = document.getElementById('phase-label-container');
+            phaseLabel.innerText = "Phase 2 : Choix de la question type";
+            phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
+
+            currentPhase = 2;
+            renderQuestionChoices();
+            lucide.createIcons();
         }
 
         function nextStep() {
@@ -883,6 +913,19 @@
                         localStorage.removeItem(key);
                     }
                 });
+                location.reload();
+            }
+        }
+
+        function resetLevelProgress() {
+            if (confirm("Réinitialiser uniquement ce niveau ?")) {
+                const prefix = 'po-progress-lv' + currentLevel;
+                Object.keys(localStorage).forEach(key => {
+                    if (key.startsWith(prefix)) {
+                        localStorage.removeItem(key);
+                    }
+                });
+                localStorage.removeItem('po-score-lv' + currentLevel);
                 location.reload();
             }
         }

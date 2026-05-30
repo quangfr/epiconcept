@@ -12,8 +12,8 @@
           extend: {
             colors: {
               blue: {
-                900: '#3b82f6',
-                800: '#2563eb',
+                900: '#1e3a8a',
+                800: '#1e40af',
               }
             }
           }
@@ -218,8 +218,8 @@
         </div>
 
         <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
-            <!-- Reset Button -->
-            <button onclick="resetProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser la progression">
+            <!-- Reset Niveau -->
+            <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             </button>
             <!-- Referentiel Button -->
@@ -246,7 +246,7 @@
         <!-- Bannière Contexte Maximisée -->
         <div id="scenario-card" class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
             <div class="flex items-center justify-between mb-4 shrink-0">
-                <div class="bg-slate-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse de Situation</div>
+                <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse de Situation</div>
                 <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 13</div>
             </div>
             <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏥</div>
@@ -275,7 +275,7 @@
 
     <!-- Zone DROITE : Interactions (2/3) -->
     <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
-        <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-800 text-white shrink-0 shadow-md">
+        <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md">
             Phase 1 : Identification du principe UX
         </div>
         
@@ -285,14 +285,19 @@
             <div id="reflex-grid" class="flex flex-col gap-3.5 h-full overflow-y-auto pr-2 pb-4"></div>
 
             <!-- Phase 2 : QCM Maquettes UI (Liste verticale) -->
-            <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pr-2 pb-4"></div>
+            <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pr-2 pb-4">
+                <div class="flex items-center gap-2 shrink-0">
+                    <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+                <div id="ui-choices-wrapper" class="flex flex-col gap-3 flex-grow"></div>
+            </div>
 
             <!-- Phase 3 : Débriefing -->
             <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-6 flex flex-col justify-between overflow-y-auto">
                 <!-- Bouton de retour en haut à gauche -->
-                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retourner au défi en cours">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                </button>
+                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retour"><i data-lucide="arrow-left" class="w-3.5 h-3.5"></i></button>
                 <div class="flex flex-col h-full">
                     <div class="flex items-center gap-4 mb-6 mt-4 shrink-0">
                         <div id="debrief-emoji" class="text-4xl bg-emerald-100 w-16 h-16 flex items-center justify-center rounded-2xl shadow-sm">🎯</div>
@@ -401,7 +406,7 @@ function startLevel(lv) {
     updateProgress();
     if (answeredSteps[currentStepIdx]) {
         const step = levelSteps[currentStepIdx];
-        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual });
+        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon });
     } else {
         loadStepPhase1();
     }
@@ -414,6 +419,19 @@ function resetProgress() {
                 localStorage.removeItem(key);
             }
         });
+        location.reload();
+    }
+}
+
+function resetLevelProgress() {
+    if (confirm("Réinitialiser uniquement ce niveau ?")) {
+        const prefix = 'ux-progress-lv' + currentLevel;
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith(prefix)) {
+                localStorage.removeItem(key);
+            }
+        });
+        localStorage.removeItem('ux-score-lv' + currentLevel);
         location.reload();
     }
 }
@@ -436,11 +454,11 @@ function updateProgress() {
         const btn = document.createElement('button');
         let stateClass = "bg-white text-slate-400 border-2 border-slate-200 hover:bg-slate-50"; 
         
-        if (answeredSteps[i]) stateClass = "bg-slate-900 text-white border-2 border-slate-900 shadow-sm hover:bg-slate-800";
+        if (answeredSteps[i]) stateClass = "bg-blue-900 text-white border-2 border-blue-900 shadow-sm hover:bg-blue-800";
         if (i === currentStepIdx) {
             stateClass = answeredSteps[i] 
-                ? "bg-slate-900 text-white border-2 border-slate-900 ring-2 ring-slate-300 transform scale-110" 
-                : "bg-slate-900 text-white border-2 border-slate-900 ring-2 ring-slate-300 shadow-sm transform scale-110";
+                ? "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 transform scale-110" 
+                : "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 shadow-sm transform scale-110";
         }
 
         btn.className = `w-5 h-5 sm:w-6 sm:h-6 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center justify-center transition-all border cursor-pointer ${stateClass}`;
@@ -463,7 +481,7 @@ function jumpToStep(idx) {
     updateProgress();
     if (answeredSteps[idx]) {
         const step = levelSteps[idx];
-        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual });
+        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon });
     } else {
         loadStepPhase1();
     }
@@ -491,12 +509,12 @@ function loadStepPhase1() {
     document.getElementById('debriefing-card').classList.add('hidden');
     
     document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du principe UX";
-    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-900 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     renderReflexChoices();
 }
 
-function renderReflexChoices() {
+function renderReflexChoices(readOnly) {
     const grid = document.getElementById('reflex-grid');
     grid.innerHTML = '';
     const correctId = levelSteps[currentStepIdx].reflexId;
@@ -509,6 +527,9 @@ function renderReflexChoices() {
     options.forEach(opt => {
         const btn = document.createElement('button');
         btn.className = "reflex-btn bg-white p-5 rounded-3xl text-left border-2 flex flex-row items-center gap-5 group w-full relative shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
+        if (readOnly && opt.id === correctId) {
+            btn.classList.add('correct');
+        }
         btn.innerHTML = `
             <div class="text-4xl sm:text-5xl shrink-0 filter drop-shadow-sm"><i data-lucide="${opt.icon}" class="w-12 h-12 text-slate-800"></i></div>
             <div class="flex-grow">
@@ -520,10 +541,12 @@ function renderReflexChoices() {
             </button>
         `;
         
-        btn.onclick = () => handleReflexSelection(opt.id, btn);
+        if (!readOnly) {
+            btn.onclick = () => handleReflexSelection(opt.id, btn);
+        }
         grid.appendChild(btn);
     });
-    lucide.createIcons(); // added in renderReflexChoices
+    lucide.createIcons();
 }
 
 function handleReflexSelection(id, btn) {
@@ -546,7 +569,7 @@ function loadStepPhase2() {
     document.getElementById('ui-grid').classList.remove('hidden');
     
     document.getElementById('phase-label-container').innerText = "Phase 2 : Traduction Visuelle";
-    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-slate-900 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     // Affiche la validation du principe à gauche
     document.getElementById('phase2-question-container').classList.remove('hidden');
@@ -558,20 +581,23 @@ function loadStepPhase2() {
     renderUIChoices();
 }
 
-function renderUIChoices() {
-    const grid = document.getElementById('ui-grid');
+function renderUIChoices(readOnly) {
+    const grid = document.getElementById('ui-choices-wrapper');
     grid.innerHTML = '';
     const step = levelSteps[currentStepIdx];
     
     let uiOptions = [
-        { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl },
-        { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl },
-        { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl }
+        { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl, icon: step.scenario.correct.icon },
+        { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl, icon: step.scenario.wrong[0].icon },
+        { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl, icon: step.scenario.wrong[1].icon }
     ].sort(() => Math.random() - 0.5);
 
     uiOptions.forEach(opt => {
         const btn = document.createElement('button');
         btn.className = "ui-btn p-5 sm:p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6 group w-full text-left relative overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
+        if (readOnly && opt.isCorrect) {
+            btn.classList.add('correct');
+        }
         btn.innerHTML = `
             <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2"><div class="flex items-center gap-2 mb-1"><i data-lucide="${opt.icon || 'layout'}" class="w-5 h-5 text-slate-400 group-hover:text-blue-800"></i></div>
                 <div class="font-black text-slate-800 text-base sm:text-lg uppercase tracking-tight leading-tight">${opt.title}</div>
@@ -582,9 +608,12 @@ function renderUIChoices() {
             </div>
         `;
         
-        btn.onclick = () => handleUISelection(opt, btn);
+        if (!readOnly) {
+            btn.onclick = () => handleUISelection(opt, btn);
+        }
         grid.appendChild(btn);
     });
+    lucide.createIcons();
 }
 
 function handleUISelection(opt, btn) {
@@ -639,14 +668,8 @@ function showDebriefing(correctOpt) {
     document.getElementById('phase2-question-container').classList.add('hidden');
     document.getElementById('debriefing-card').classList.remove('hidden');
     
-    // Back button visibility
-    const nextPendingIdx = answeredSteps.findIndex(v => !v);
-    const backBtn = document.getElementById('debrief-back-btn');
-    if (nextPendingIdx !== -1 && nextPendingIdx !== currentStepIdx) {
-        backBtn.classList.remove('hidden');
-    } else {
-        backBtn.classList.add('hidden');
-    }
+    // Toujours afficher le bouton Retour pour revenir en Phase 2
+    document.getElementById('debrief-back-btn').classList.remove('hidden');
     
     const phaseLabel = document.getElementById('phase-label-container');
     phaseLabel.innerText = "Débriefing UX Validé";
@@ -663,14 +686,36 @@ function showDebriefing(correctOpt) {
 }
 
 function goBackFromDebrief() {
-    const pendingIdx = answeredSteps.findIndex(v => !v);
-    if (pendingIdx !== -1) {
-        currentStepIdx = pendingIdx;
-        updateProgress();
-        loadStepPhase1();
-    } else {
-        goHome();
-    }
+    const step = levelSteps[currentStepIdx];
+    const reflex = reflexes.find(r => r.id === step.reflexId);
+
+    document.getElementById('debriefing-card').classList.add('hidden');
+    document.getElementById('ui-grid').classList.remove('hidden');
+    document.getElementById('phase2-question-container').classList.remove('hidden');
+    document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon}" class="w-5 h-5"></i>`;
+    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
+
+    const phaseLabel = document.getElementById('phase-label-container');
+    phaseLabel.innerText = "Phase 2 : Traduction Visuelle";
+    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+
+    currentPhase = 2;
+    renderUIChoices();
+    lucide.createIcons();
+}
+
+function goBackToPhase1() {
+    document.getElementById('ui-grid').classList.add('hidden');
+    document.getElementById('phase2-question-container').classList.add('hidden');
+    document.getElementById('reflex-grid').classList.remove('hidden');
+
+    const phaseLabel = document.getElementById('phase-label-container');
+    phaseLabel.innerText = "Phase 1 : Identification du principe UX";
+    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+
+    currentPhase = 1;
+    renderReflexChoices();
 }
 
 function nextStep() {

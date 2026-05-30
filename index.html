@@ -1160,7 +1160,7 @@
                         </div>
                         <button class="cta-button disabled" disabled>Bientôt disponible</button>
                     </article>
-                    <article class="simulator-card evo-theme disabled-card" id="evo-card" style="opacity: 0.7;">
+                    <article class="simulator-card evo-theme" id="evo-card" style="cursor: pointer;">
                         <div class="backlight"></div>
 
                         <div class="card-header"
@@ -1171,10 +1171,8 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 D - Évolutions &amp; Specs</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="evo-status-label">0 / 30</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1183,7 +1181,6 @@
                                 Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.
                             </p>
                         </div>
-                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
                     </article>
                 </section>
 
@@ -1620,10 +1617,15 @@
 
             let totalPoScore = po0 + po1 + po2;
             let totalUxScore = ux0 + ux1 + ux2;
+            let evo0 = parseInt(localStorage.getItem('evo-score-lv0') || '0', 10);
+            let evo1 = parseInt(localStorage.getItem('evo-score-lv1') || '0', 10);
+            let evo2 = parseInt(localStorage.getItem('evo-score-lv2') || '0', 10);
+            let totalEvoScore = evo0 + evo1 + evo2;
 
             let maxPoScore = 36;
-            let maxUxScore = 39; // Updated from 36 to 39 for 13 reflexes
-            let totalMaxScore = maxPoScore + maxUxScore;
+            let maxUxScore = 39;
+            let maxEvoScore = 30;
+            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore;
 
             // Scroll arrows
             const scrollEl = document.getElementById('ateliers-scroll');
@@ -1659,6 +1661,11 @@
                 window.updateCardStatusBadge(uxLabel, totalUxScore, maxUxScore);
             }
 
+            const evoLabel = document.getElementById('evo-status-label');
+            if (evoLabel) {
+                window.updateCardStatusBadge(evoLabel, totalEvoScore, maxEvoScore);
+            }
+
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : 0;
             const dtStatusLabel = document.getElementById('dt-status-label');
@@ -1667,7 +1674,7 @@
             }
 
             // Progression rate
-            let progressPercent = Math.round(((totalPoScore + totalUxScore) / totalMaxScore) * 100);
+            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore) / totalMaxScore) * 100);
             document.getElementById('overall-completion').innerText = `${progressPercent}%`;
 
             // Display time metadata if available
@@ -1696,6 +1703,13 @@
             if (uxCard) {
                 uxCard.addEventListener('click', () => {
                     window.location.href = './1-b.html';
+                });
+            }
+
+            const evoCard = document.getElementById('evo-card');
+            if (evoCard) {
+                evoCard.addEventListener('click', () => {
+                    window.location.href = './2-d.html';
                 });
             }
 
