@@ -2278,15 +2278,15 @@
                     visualsList.innerHTML = '';
                     visuals.forEach(v => {
                         const card = document.createElement('div');
-                        card.className = 'ref-visual-card';
+                        card.className = 'ref-visual-card-ux';
 
                         card.innerHTML = `
-                    <div class="visual-mockup">
+                    <div class="visual-mockup" style="width:100%;min-height:80px;padding:1rem 1.25rem;">
                         <div class="mockup-container">
                             ${v.html}
                         </div>
                     </div>
-                    <div class="visual-content">
+                    <div class="visual-content" style="padding:0 0.25rem;">
                         <div class="visual-header">
                             <span class="check-badge">✓</span>
                             <strong class="visual-title">${v.title}</strong>

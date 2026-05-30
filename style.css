@@ -27,6 +27,18 @@
     transform-origin: center center;
 }
 
+/* Full-width mockup variant for UX reflex cards (matches 1-b.html style) */
+.ref-visual-card-ux {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
 /* Thumbnail variant inside ref-visual-card */
 .ref-visual-card .visual-mockup {
     width: 33.333%;
