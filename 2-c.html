@@ -500,11 +500,14 @@
 
             step.subOptions.forEach((opt) => {
                 const btn = document.createElement('button');
-                btn.className = "group w-full bg-white border-2 border-slate-100 p-5 rounded-lg text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base";
+                const baseCls = "group w-full bg-white border-2 border-slate-100 p-5 rounded-lg text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base flex flex-col sm:flex-row items-stretch gap-4";
+                btn.className = baseCls;
                 if (readOnly && opt.isCorrect) {
-                    btn.className = "group w-full bg-emerald-600 text-white border-2 border-emerald-600 p-5 rounded-lg text-left font-bold text-base";
+                    btn.className = baseCls.replace('bg-white border-2 border-slate-100 text-slate-800', 'bg-emerald-600 border-2 border-emerald-600 text-white');
                 }
-                btn.innerHTML = `<div class="flex items-center gap-3"><i data-lucide="message-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0 ${readOnly && opt.isCorrect ? 'text-white' : ''}"></i><div class="flex-grow"><span class="text-emerald-700 mr-2">“</span>${opt.text}<span class="text-emerald-700 ml-2">”</span></div></div>`;
+                const mockupHtml = '<div class="visual-mockup shrink-0" style="width:120px;min-height:44px;padding:0.3rem 0.4rem;"><div class="mockup-container"><div style="background:#f8fafc;border-radius:0.4rem;border:1px solid #bfdbfe;padding:0.3rem 0.5rem;width:100%;border-left:3px solid #3b82f6;"><div style="font-size:0.5rem;font-weight:700;color:#3b82f6;text-transform:uppercase;margin-bottom:0.1rem;letter-spacing:0.02em;">Action</div><div style="font-size:0.6rem;color:#0f172a;font-weight:600;line-height:1.2;word-break:break-word;">' + (opt.text.length > 40 ? opt.text.substring(0,40)+'\u2026' : opt.text) + '</div></div></div></div>';
+                const iconCls = 'w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0' + (readOnly && opt.isCorrect ? ' text-white' : '');
+                btn.innerHTML = '<div class="flex items-center gap-3 flex-grow min-w-0"><i data-lucide="message-circle" class="' + iconCls + '"></i><div class="flex-grow min-w-0"><span class="text-emerald-700 mr-2">“</span>' + opt.text + '<span class="text-emerald-700 ml-2">”</span></div></div>' + mockupHtml;
                 if (!readOnly) {
                     btn.onclick = () => {
                         if (currentPhase === 2) {

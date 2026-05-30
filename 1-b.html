@@ -603,8 +603,10 @@ function renderUIChoices(readOnly) {
                 <div class="font-black text-slate-800 text-base sm:text-lg uppercase tracking-tight leading-tight">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal pr-3">${opt.expl}</div>
             </div>
-            <div class="w-full sm:w-7/12 flex items-center justify-center p-4 sm:p-5 bg-white border border-slate-200 rounded-2xl shadow-sm z-10 mockup-container">
-                ${opt.visual}
+            <div class="w-full sm:w-7/12 visual-mockup z-10" style="min-height:80px;">
+                <div class="mockup-container">
+                    ${opt.visual}
+                </div>
             </div>
         `;
         

@@ -3,9 +3,8 @@
     pointer-events: none;
 }
 
-/* Visual mockup thumbnail in reflex cards (from 1-b.html Phase 2 mockup-container) */
+/* Visual mockup base style (from 1-b.html Phase 2 mockup-container) */
 .visual-mockup {
-    width: 33.333%;
     background: white;
     border: 1px solid #e2e8f0;
     border-radius: 1rem;
@@ -15,7 +14,6 @@
     align-items: center;
     overflow: hidden;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    min-height: 120px;
     pointer-events: none;
     flex-shrink: 0;
 }
@@ -28,8 +26,14 @@
     transform: scale(0.9);
     transform-origin: center center;
 }
+
+/* Thumbnail variant inside ref-visual-card */
+.ref-visual-card .visual-mockup {
+    width: 33.333%;
+    min-height: 120px;
+}
 @media (max-width: 640px) {
-    .visual-mockup {
+    .ref-visual-card .visual-mockup {
         width: 100%;
         min-height: 100px;
     }
