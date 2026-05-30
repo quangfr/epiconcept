@@ -78,21 +78,27 @@
 </head>
 <body class="flex flex-col relative">
 
-<div id="modal-referentiel" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6">
-    <div class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[90vh] flex flex-col overflow-hidden">
-        <div class="p-6 border-b border-slate-100 flex flex-wrap gap-4 justify-between items-center bg-slate-50 shrink-0">
-            <div class="flex items-center gap-4">
-                <div>
-                    <h2 class="text-2xl font-black text-slate-800 uppercase tracking-tight">📚 Référentiel UX ESIS-3D</h2>
-                    <p class="text-slate-500 text-sm font-medium">Les 13 principes et leurs applications concrètes</p>
-                </div>
-                <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-1000">
-                    <option value="">-- Aller au Réflexe --</option>
-                </select>
+<div id="modal-referentiel" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
+        <!-- Bouton X en haut à droite -->
+        <button onclick="closeModal()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">
+            ✕
+        </button>
+        
+        <!-- En-tête compacte -->
+        <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
+            <div>
+                <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">📚 Référentiel UX ESIS-3D</h2>
+                <p class="text-slate-500 text-xs font-medium leading-none">Les 13 principes et leurs applications concrètes</p>
             </div>
-            <button onclick="closeModal()" class="bg-white border border-slate-200 p-3 rounded-xl hover:bg-slate-100 transition-colors text-xl leading-none">✖️</button>
+            <!-- Sélecteur pleine largeur -->
+            <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
+                <option value="">-- Aller au Réflexe --</option>
+            </select>
         </div>
-        <div id="modal-content" class="p-6 overflow-y-auto flex-grow flex flex-col gap-8 bg-slate-100/50">
+        
+        <!-- Contenu de référentiel avec marges resserrées sur les côtés -->
+        <div id="modal-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50">
             <!-- Rempli dynamiquement en JS -->
         </div>
     </div>
@@ -659,31 +665,31 @@ function buildModalContent() {
         
         // Pour chaque réflexe, on crée la carte globale de manière très compacte
         let reflexHtml = `
-            <div id="ref-${r.id}" class="bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-slate-200">
-                <div class="flex items-center gap-2 mb-1.5">
-                    <span class="text-3xl"><i data-lucide="${r.icon}" class="w-8 h-8 text-slate-800"></i></span>
-                    <h3 class="text-lg font-black uppercase text-slate-800 tracking-tight">${r.title}</h3>
+            <div id="ref-${r.id}" class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-2xl shrink-0"><i data-lucide="${r.icon}" class="w-6 h-6 text-slate-800"></i></span>
+                    <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">${r.title}</h3>
                 </div>
-                <p class="text-xs text-slate-600 font-medium mb-3 pb-2 border-b border-slate-100">${r.intent}</p>
-                <div class="space-y-3">
+                <p class="text-[11px] text-slate-500 font-semibold mb-2.5 pb-1.5 border-b border-slate-100">${r.intent}</p>
+                <div class="space-y-2">
         `;
 
         // Pour chaque scénario, on affiche uniquement la Bonne UI avec son explication en format ligne compacte
         r.scenarios.forEach((scen, idx) => {
             reflexHtml += `
-                <div class="bg-slate-50 rounded-lg p-3 border border-slate-200 flex flex-col md:flex-row gap-4 items-center">
+                <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 flex flex-col md:flex-row gap-3 items-center">
                     <!-- Visuel compact de la solution recommandée -->
-                    <div class="w-full md:w-4/12 flex items-center justify-center mockup-container p-2 bg-white border border-emerald-100 rounded-md shadow-sm relative overflow-hidden min-h-[90px] shrink-0">
+                    <div class="w-full md:w-4/12 flex items-center justify-center mockup-container p-1.5 bg-white border border-emerald-100 rounded-md shadow-sm relative overflow-hidden min-h-[80px] shrink-0">
                         <div class="absolute inset-0 bg-emerald-500/[0.01] z-0"></div>
-                        <div class="w-full relative z-10 transform scale-95">${scen.correct.visual}</div>
+                        <div class="w-full relative z-10 transform scale-90">${scen.correct.visual}</div>
                     </div>
                     <!-- Description sémantique -->
-                    <div class="w-full md:w-8/12 flex flex-col gap-2">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-emerald-500 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0">✓</span>
-                            <span class="text-base font-black text-emerald-800 uppercase tracking-tight">${scen.correct.title}</span>
+                    <div class="w-full md:w-8/12 flex flex-col gap-1.5">
+                        <div class="flex items-center gap-1.5">
+                            <span class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                            <span class="text-sm font-black text-emerald-800 uppercase tracking-tight">${scen.correct.title}</span>
                         </div>
-                        <p class="text-sm text-slate-600 font-medium leading-relaxed">${scen.correct.expl}</p>
+                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">${scen.correct.expl}</p>
                     </div>
                 </div>
             `;

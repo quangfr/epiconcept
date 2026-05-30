@@ -129,21 +129,27 @@
 </div>
 
 <!-- ÉCRAN RÉFÉRENTIEL -->
-<div id="referential-screen" class="hidden fixed inset-0 z-[60] bg-slate-50 flex flex-col p-6 overflow-hidden">
-    <div class="max-w-6xl w-full mx-auto flex flex-col h-full">
-        <div class="flex items-center justify-between mb-8 shrink-0 flex-wrap gap-4">
-            <div class="flex items-center gap-4">
-                <div>
-                    <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">Référentiel des <span class="text-slate-900">12 Réflexes</span></h2>
-                    <p class="text-slate-500 font-bold uppercase text-[10px] tracking-widest">Guide des intentions ESIS-3D</p>
-                </div>
-                <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-1000">
-                    <option value="">-- Aller au Réflexe --</option>
-                </select>
+<div id="referential-screen" class="hidden fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-6xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
+        <!-- Bouton X en haut à droite -->
+        <button onclick="hideReferential()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">
+            ✕
+        </button>
+        
+        <!-- En-tête compacte -->
+        <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
+            <div>
+                <h2 class="text-base sm:text-lg font-black text-slate-900 uppercase tracking-tight">Référentiel des <span class="text-slate-800">12 Réflexes</span></h2>
+                <p class="text-slate-500 font-bold uppercase text-[9px] tracking-wider leading-none">Guide des intentions ESIS-3D</p>
             </div>
-            <button onclick="hideReferential()" class="bg-white border-2 border-slate-200 p-4 rounded-2xl hover:bg-blue-800 hover:text-white transition-all font-black uppercase text-xs tracking-widest">Retour</button>
+            <!-- Sélecteur pleine largeur -->
+            <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
+                <option value="">-- Aller au Réflexe --</option>
+            </select>
         </div>
-        <div id="referential-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-y-auto pr-4 pb-12 flex-grow content-start"></div>
+        
+        <!-- Grille de référentiel compacte avec marges resserrées sur les côtés -->
+        <div id="referential-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 overflow-y-auto px-4 py-4 pb-12 flex-grow content-start bg-slate-100/40"></div>
     </div>
 </div>
 
@@ -293,16 +299,16 @@ function showReferential() {
         
         const card = document.createElement('div');
         card.id = `ref-${reflex.id}`;
-        card.className = "bg-white p-6 rounded-xl border-2 border-slate-100 shadow-sm flex flex-col gap-4";
+        card.className = "bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col gap-3";
         card.innerHTML = `
-            <div class="flex items-center gap-4 border-b border-slate-50 pb-4">
-                <span class="text-4xl"><i data-lucide="${reflex.icon}" class="w-10 h-10 text-slate-800"></i></span>
-                <h3 class="text-xl font-black text-slate-800 uppercase tracking-tight">${reflex.title}</h3>
+            <div class="flex items-center gap-3 border-b border-slate-50 pb-3">
+                <span class="text-2xl shrink-0"><i data-lucide="${reflex.icon}" class="w-6 h-6 text-slate-800"></i></span>
+                <h3 class="text-base font-black text-slate-800 uppercase tracking-tight">${reflex.title}</h3>
             </div>
-            <p class="text-slate-800 font-bold text-base leading-snug lowercase first-letter:uppercase">${reflex.intent}</p>
-            <div class="bg-slate-50 p-4 rounded-lg">
-                <ul class="space-y-2">
-                    ${reflex.questions.map(q => `<li class="text-xs font-medium text-slate-600 italic">“ ${q} ”</li>`).join('')}
+            <p class="text-xs text-slate-600 font-semibold leading-snug lowercase first-letter:uppercase">${reflex.intent}</p>
+            <div class="bg-slate-50 p-3 rounded-lg">
+                <ul class="space-y-1.5">
+                    ${reflex.questions.map(q => `<li class="text-[11px] font-semibold text-slate-500 italic">“ ${q} ”</li>`).join('')}
                 </ul>
             </div>
         `;
