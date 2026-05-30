@@ -1438,11 +1438,19 @@ function renderDynamicSlides() {
         `;
         
         if (slide.footer) {
-            html += `
-                <p style="font-size: 0.9rem; color: #475569; margin-top: 1.5rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
-                    ${slide.footer}
-                </p>
-            `;
+            if (slide.footer.trim().startsWith("<div")) {
+                html += `
+                    <div style="width: 100%; display: flex; justify-content: center; margin-top: 1.5rem;">
+                        ${slide.footer}
+                    </div>
+                `;
+            } else {
+                html += `
+                    <p style="font-size: 0.9rem; color: #475569; margin-top: 1.5rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
+                        ${slide.footer}
+                    </p>
+                `;
+            }
         }
         
         slideDiv.innerHTML = html;
