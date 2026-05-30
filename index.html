@@ -1790,29 +1790,6 @@ function openRefModal(title, description, examples, badgeText, iconName, visuals
         examplesContainer.style.display = 'none';
     }
     
-    // Inject visuals
-    const visualsContainer = document.getElementById('ref-visuals-container');
-    const visualsList = document.getElementById('ref-visuals-list');
-    if (visuals && visuals.length > 0) {
-        visualsList.innerHTML = '';
-        visuals.forEach(vis => {
-            const wrapper = document.createElement('div');
-            wrapper.style.width = '100%';
-            wrapper.style.display = 'flex';
-            wrapper.style.flexDirection = 'column';
-            wrapper.style.alignItems = 'center';
-            wrapper.style.gap = '0.4rem';
-            wrapper.innerHTML = `
-                <div style="font-size: 0.65rem; font-weight: 800; color: #64748b; text-transform: uppercase; text-align: center; margin-top: 0.5rem;">${vis.label}</div>
-                <div style="width: 100%; display: flex; justify-content: center; font-family: var(--font-body), sans-serif;">${vis.html}</div>
-            `;
-            visualsList.appendChild(wrapper);
-        });
-        visualsContainer.style.display = 'flex';
-    } else {
-        visualsContainer.style.display = 'none';
-    }
-    
     modal.style.display = 'flex';
     lucide.createIcons(); // Re-render Lucide icons dynamically
 }
@@ -1854,11 +1831,7 @@ function closeRefModal() {
                 <!-- Filled dynamically -->
             </ul>
         </div>
-        
-        <!-- Hidden Visual Container placeholders to prevent Javascript null references -->
-        <div id="ref-visuals-container" style="display: none !important;">
-            <div id="ref-visuals-list"></div>
-        </div>
+
     </div>
 </div>
 
