@@ -642,7 +642,7 @@ function goHome() {
 
 async function initApp() {
     try {
-        const response = await fetch('./1a.json?v=' + new Date().getTime());
+        const response = await fetch('./1-a.json?v=' + new Date().getTime());
         reflexes = await response.json();
         initHome();
         lucide.createIcons();

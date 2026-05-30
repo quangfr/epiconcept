@@ -708,14 +708,65 @@
         /* Responsive adjustments for Comprendre slides */
         .comprendre-slide {
             width: 100%;
-            height: 100%;
+            height: auto;
+            min-height: min-content;
+            display: none; /* Managed by JS, starts hidden or shown appropriately */
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 10px 40px 10px;
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            #comprendre-modal {
+                padding: 5px 0px !important;
+            }
+            .comprendre-slide svg {
+                margin: 0 !important;
+                padding: 0 !important;
+                max-height: 55vh !important;
+            }
+            .comprendre-slide > div {
+                padding: 2px !important;
+                border-radius: 4px !important;
+                border: none !important;
+            }
+        }
+        
+        /* Zoom Overlay Styles */
+        .zoom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            animation: fadeIn 0.25s ease-out;
+        }
+        .zoom-content {
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90vh;
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            overflow-y: auto;
-            padding: 10px;
-            box-sizing: border-box;
+        }
+        .comprendre-slide svg, .mockup-container svg {
+            cursor: zoom-in;
+            transition: transform 0.2s ease;
+        }
+        .comprendre-slide svg:hover, .mockup-container svg:hover {
+            transform: scale(1.02);
         }
     </style>
 
@@ -1258,14 +1309,14 @@
             const poCard = document.getElementById('po-card');
             if (poCard) {
                 poCard.addEventListener('click', () => {
-                    window.location.href = './1a.html';
+                    window.location.href = './1-a.html';
                 });
             }
 
             const uxCard = document.getElementById('ux-card');
             if (uxCard) {
                 uxCard.addEventListener('click', () => {
-                    window.location.href = './1b.html';
+                    window.location.href = './1-b.html';
                 });
             }
             
@@ -1304,373 +1355,7 @@
     </div>
 
     <div id="comprendre-slides-container" style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 15px;">
-        
-        <!-- Slide 1 : Le Double Diamant -->
-        <div class="comprendre-slide" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 900px; animation: fadeIn 0.3s; width: 100%;">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Le Double Diamant</h2>
-            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem; max-width: 650px;">Le processus s'articule autour de deux phases de divergence et de convergence.</p>
-            
-            <div style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 1rem;">
-                <svg viewBox="0 0 800 350" width="100%" height="100%" style="max-height: 350px;">
-                    <!-- Definitions for gradients or dashed patterns if needed -->
-                    <!-- Left Diamond (Le Problème) -->
-                    <polygon points="200,70 350,200 200,330 50,200" fill="rgba(59, 130, 246, 0.05)" stroke="#3b82f6" stroke-width="3" stroke-dasharray="6,6"/>
-                    <line x1="200" y1="70" x2="200" y2="330" stroke="rgba(15, 23, 42, 0.15)" stroke-width="1.5" />
-                    
-                    <text x="125" y="205" fill="#1e3a8a" font-weight="800" font-size="13" text-anchor="middle">EXPLORER</text>
-                    <text x="275" y="205" fill="#1e3a8a" font-weight="800" font-size="13" text-anchor="middle">PRÉCISER</text>
-
-                    <!-- Text below left diamond -->
-                    <text x="125" y="280" fill="#dc2626" font-weight="800" font-size="10" text-anchor="middle">S'ÉLARGIT</text>
-                    <text x="275" y="280" fill="#dc2626" font-weight="800" font-size="10" text-anchor="middle">SE RÉTRÉCIT</text>
-
-                    <!-- Right Diamond (La Solution) -->
-                    <polygon points="500,70 650,200 500,330 350,200" fill="rgba(16, 185, 129, 0.05)" stroke="#10b981" stroke-width="3" stroke-dasharray="6,6"/>
-                    <line x1="500" y1="70" x2="500" y2="330" stroke="rgba(15, 23, 42, 0.15)" stroke-width="1.5" />
-
-                    <text x="425" y="205" fill="#065f46" font-weight="800" font-size="13" text-anchor="middle">DÉVELOPPER</text>
-                    <text x="575" y="205" fill="#065f46" font-weight="800" font-size="13" text-anchor="middle">LIVRER</text>
-
-                    <!-- Text below right diamond -->
-                    <text x="425" y="280" fill="#dc2626" font-weight="800" font-size="10" text-anchor="middle">S'ÉLARGIT</text>
-                    <text x="575" y="280" fill="#dc2626" font-weight="800" font-size="10" text-anchor="middle">SE RÉTRÉCIT</text>
-
-                    <!-- Main Titles -->
-                    <text x="200" y="40" fill="#0f172a" font-weight="900" font-size="18" text-anchor="middle" letter-spacing="1">LE PROBLÈME</text>
-                    <text x="500" y="40" fill="#0f172a" font-weight="900" font-size="18" text-anchor="middle" letter-spacing="1">LA SOLUTION</text>
-                    
-                    <!-- Arrows at intersection points -->
-                    <text x="50" y="180" fill="#94a3b8" font-weight="bold" font-size="10" text-anchor="middle">DONNÉES</text>
-                    <path d="M50,185 L45,195 L55,195 Z" fill="#94a3b8" />
-                    
-                    <text x="350" y="180" fill="#94a3b8" font-weight="bold" font-size="10" text-anchor="middle">DÉFINITION</text>
-                    <path d="M350,185 L345,195 L355,195 Z" fill="#94a3b8" />
-                    
-                    <text x="650" y="180" fill="#94a3b8" font-weight="bold" font-size="10" text-anchor="middle">SOLUTION</text>
-                    <path d="M650,185 L645,195 L655,195 Z" fill="#94a3b8" />
-                </svg>
-            </div>
-            <p style="font-size: 0.9rem; color: #475569; margin-top: 1.5rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
-                <strong>Application Dépistage :</strong> Comprendre les freins psychologiques et matériels des patients et soignants (Explorer & Préciser) pour leur livrer des parcours d'examen sans frictions (Développer & Livrer).
-            </p>
-        </div>
-
-        <!-- Slide 2 : Le Cercle d'Or -->
-        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 900px; animation: fadeIn 0.3s; width: 100%;">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Le Cercle d'Or</h2>
-            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 2rem;">Penser du sens (Pourquoi) vers les fonctionnalités (Quoi).</p>
-            <div style="position: relative; width: 280px; height: 280px; display: flex; align-items: center; justify-content: center; margin: 0 auto; flex-shrink: 0;">
-                <div style="position: absolute; width: 280px; height: 280px; border-radius: 50%; background: rgba(59, 130, 246, 0.04); border: 2px dashed #3b82f6; display: flex; align-items: flex-start; justify-content: center; padding-top: 1rem; font-weight: 900; font-size: 0.95rem; color: #1e40af; letter-spacing: 0.1em;">QUOI ?</div>
-                <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(16, 185, 129, 0.05); border: 2px dashed #10b981; display: flex; align-items: flex-start; justify-content: center; padding-top: 1rem; font-weight: 900; font-size: 0.95rem; color: #065f46; letter-spacing: 0.1em;">COMMENT ?</div>
-                <div style="position: absolute; width: 120px; height: 120px; border-radius: 50%; background: #fbbf24; border: 4px solid #f59e0b; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #78350f; font-size: 1.1rem; letter-spacing: 0.1em; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);">POURQUOI ?</div>
-            </div>
-            <div style="font-size: 0.9rem; color: #475569; margin-top: 1.5rem; max-width: 750px; font-weight: 500; line-height: 1.5; text-align: left; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; background: white; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03);">
-                <div><strong style="color: #d97706; text-transform: uppercase;">1. Pourquoi :</strong> Sauver des vies et fiabiliser la santé publique en favorisant une détection précoce simple et rassurante pour le patient.</div>
-                <div><strong style="color: #059669; text-transform: uppercase;">2. Comment :</strong> Sécuriser la collecte des données, minimiser les erreurs de prélèvement et simplifier l'accès soignant.</div>
-                <div><strong style="color: #2563eb; text-transform: uppercase;">3. Quoi :</strong> Un portail web de suivi de dépistage interopérable, ergonomique et transparent pour tous.</div>
-            </div>
-        </div>
-
-        <!-- Slide 3 : La Méthode des 5 Pourquoi -->
-        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 900px; animation: fadeIn 0.3s; width: 100%;">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Les 5 Pourquoi</h2>
-            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem; max-width: 650px;">Remonter à la source d'un problème pour concevoir le bon produit.</p>
-            
-            <div style="width: 100%; display: flex; flex-direction: column; gap: 0.5rem; background: white; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); padding: 1.5rem; box-shadow: 0 4px 12px rgba(15,23,42,0.03); text-align: left; max-height: 60vh; overflow-y: auto;">
-                <div style="background: #f1f5f9; padding: 0.75rem 1rem; border-radius: 0.5rem; border-left: 4px solid #64748b; margin-bottom: 0.5rem;">
-                    <span style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase;">Problème Terrain :</span>
-                    <p style="font-size: 0.9rem; font-weight: 700; color: #1e293b; margin-top: 0.1rem;">"Le patient ne renvoie pas son kit de dépistage à temps."</p>
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 0.4rem; padding-left: 0.5rem;">
-                    <div style="display: flex; align-items: flex-start; gap: 0.75rem; background: rgba(59, 130, 246, 0.03); padding: 0.6rem 0.8rem; border-radius: 0.5rem; border-left: 3px solid #3b82f6;">
-                        <span style="font-weight: 900; color: #3b82f6; font-size: 0.9rem; shrink-0">1. Pourquoi ?</span>
-                        <p style="font-size: 0.85rem; color: #334155; font-weight: 600;">Il a égaré la notice d'instructions jointe au kit.</p>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: 0.75rem; background: rgba(59, 130, 246, 0.03); padding: 0.6rem 0.8rem; border-radius: 0.5rem; border-left: 3px solid #2563eb; margin-left: 0.75rem;">
-                        <span style="font-weight: 900; color: #2563eb; font-size: 0.9rem; shrink-0">2. Pourquoi ?</span>
-                        <p style="font-size: 0.85rem; color: #334155; font-weight: 600;">La notice était imprimée sur un petit dépliant volant séparé.</p>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: 0.75rem; background: rgba(59, 130, 246, 0.03); padding: 0.6rem 0.8rem; border-radius: 0.5rem; border-left: 3px solid #1d4ed8; margin-left: 1.5rem;">
-                        <span style="font-weight: 900; color: #1d4ed8; font-size: 0.9rem; shrink-0">3. Pourquoi ?</span>
-                        <p style="font-size: 0.85rem; color: #334155; font-weight: 600;">Le patient a ouvert l'enveloppe à la va-vite et a jeté le dépliant par mégarde.</p>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: 0.75rem; background: rgba(59, 130, 246, 0.03); padding: 0.6rem 0.8rem; border-radius: 0.5rem; border-left: 3px solid #1e3a8a; margin-left: 2.25rem;">
-                        <span style="font-weight: 900; color: #1e3a8a; font-size: 0.9rem; shrink-0">4. Pourquoi ?</span>
-                        <p style="font-size: 0.85rem; color: #334155; font-weight: 600;">La notice n'a pas été pensée comme un élément structurel de l'emballage.</p>
-                    </div>
-                    <div style="display: flex; align-items: flex-start; gap: 0.75rem; background: rgba(16, 185, 129, 0.05); padding: 0.6rem 0.8rem; border-radius: 0.5rem; border-left: 3px solid #10b981; margin-left: 3rem;">
-                        <span style="font-weight: 900; color: #10b981; font-size: 0.9rem; shrink-0">5. Pourquoi ?</span>
-                        <p style="font-size: 0.85rem; color: #065f46; font-weight: 700;">(Cause Racine) : Nous avons conçu la boîte logistique séparément de l'expérience utilisateur.</p>
-                    </div>
-                </div>
-
-                <div style="background: rgba(16, 185, 129, 0.08); padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px dashed #10b981; margin-top: 0.5rem;">
-                    <span style="font-size: 0.75rem; font-weight: 800; color: #065f46; text-transform: uppercase;">Solution PO / UX :</span>
-                    <p style="font-size: 0.85rem; font-weight: 700; color: #065f46; margin-top: 0.1rem;">Intégrer les instructions de dépistage directement à l'intérieur du rabat de la boîte pour qu'elles s'ouvrent sous les yeux du patient.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3 : Personas -->
-        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: stretch; text-align: center; max-width: 1100px; animation: fadeIn 0.3s; width: 100%; padding: 0.5rem;">
-            <h2 style="font-size: clamp(1.3rem, 4vw, 2.5rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Les Personas Clés</h2>
-            <p style="font-size: clamp(0.9rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">Les 6 acteurs cibles au cœur du dispositif de dépistage.</p>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; text-align: left;">
-                <div style="background: white; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03);"><i data-lucide="user" style="color:#3b82f6; width:28px; height:28px; margin-bottom:0.5rem;"></i><h4 style="font-weight:900; font-size:1.1rem; margin-bottom:0.25rem; color: #0f172a;">Le Patient</h4><p style="font-size:0.85rem; color:#475569; line-height: 1.4;">Au centre du parcours. Cherche à comprendre et suivre son dépistage de façon claire et sereine.</p></div>
-                <div style="background: white; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03);"><i data-lucide="users" style="color:#f59e0b; width:28px; height:28px; margin-bottom:0.5rem;"></i><h4 style="font-weight:900; font-size:1.1rem; margin-bottom:0.25rem; color: #0f172a;">Le Proche</h4><p style="font-size:0.85rem; color:#475569; line-height: 1.4;">L'accompagnateur. A besoin d'être rassuré et d'accéder aux informations via un accès sécurisé.</p></div>
-                <div style="background: white; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03);"><i data-lucide="stethoscope" style="color:#10b981; width:28px; height:28px; margin-bottom:0.5rem;"></i><h4 style="font-weight:900; font-size:1.1rem; margin-bottom:0.25rem; color: #0f172a;">Le Médecin</h4><p style="font-size:0.85rem; color:#475569; line-height: 1.4;">Décideur clinique. Reçoit les alertes de résultats anormaux et accède rapidement aux dossiers.</p></div>
-                <div style="background: white; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03);"><i data-lucide="syringe" style="color:#ec4899; width:28px; height:28px; margin-bottom:0.5rem;"></i><h4 style="font-weight:900; font-size:1.1rem; margin-bottom:0.25rem; color: #0f172a;">L'Infirmier(e)</h4><p style="font-size:0.85rem; color:#475569; line-height: 1.4;">Acteur terrain. Réalise le prélèvement et nécessite une interface de saisie ultra-fluide.</p></div>
-                <div style="background: white; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03);"><i data-lucide="clipboard-check" style="color:#8b5cf6; width:28px; height:28px; margin-bottom:0.5rem;"></i><h4 style="font-weight:900; font-size:1.1rem; margin-bottom:0.25rem; color: #0f172a;">Le Gestionnaire</h4><p style="font-size:0.85rem; color:#475569; line-height: 1.4;">Administratif. Organise les flux de rendez-vous, la logistique et les envois de kits.</p></div>
-                <div style="background: white; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03);"><i data-lucide="pie-chart" style="color:#06b6d4; width:28px; height:28px; margin-bottom:0.5rem;"></i><h4 style="font-weight:900; font-size:1.1rem; margin-bottom:0.25rem; color: #0f172a;">Le Rapporteur</h4><p style="font-size:0.85rem; color:#475569; line-height: 1.4;">Analyste. Consolide les données massives pour piloter les statistiques de santé publique.</p></div>
-            </div>
-        </div>
-
-        <!-- Slide 5 : Récapitulatif des Réflexes PO (Posture & Besoins) -->
-        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: stretch; text-align: center; max-width: 1100px; animation: fadeIn 0.3s; width: 100%; padding: 0.5rem;">
-            <h2 style="font-size: clamp(1.3rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Réflexes Produit & Cadrage PO</h2>
-            <p style="font-size: clamp(0.9rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">Les 3 piliers stratégiques rattachés aux 12 réflexes d'analyse de besoins d'Epiconcept.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; width: 100%; text-align: left;">
-                <!-- Pilier 1 : Cadrage & Intention -->
-                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #3b82f6;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                        <i data-lucide="target" style="color:#3b82f6; width:24px; height:24px;"></i>
-                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">1. Cadrage & Intention</h4>
-                    </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Identifier la valeur métier réelle derrière chaque demande d'évolution.</p>
-                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Réflexes associés (cliquez) :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                            <li onclick="showRef('A1')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">A1 :</strong> Dépasser la demande (l'intention)</li>
-                            <li onclick="showRef('A2')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">A2 :</strong> Quantifier le problème (criticité)</li>
-                            <li onclick="showRef('A8')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">A8 :</strong> Raccrocher aux besoins (valeur transverse)</li>
-                            <li onclick="showRef('A9')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">A9 :</strong> Aligner avec la Roadmap (vision produit)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Pilier 2 : Contextualisation Terrain -->
-                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #10b981;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                        <i data-lucide="eye" style="color:#10b981; width:24px; height:24px;"></i>
-                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">2. Contextualisation Terrain</h4>
-                    </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Étudier le problème en conditions réelles d'utilisation.</p>
-                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Réflexes associés (cliquez) :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                            <li onclick="showRef('A3')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">A3 :</strong> Reproduire l'irritant (observation passive)</li>
-                            <li onclick="showRef('A4')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">A4 :</strong> Vérifier l'existant (contournements métier)</li>
-                            <li onclick="showRef('A5')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">A5 :</strong> Vérifier l'historique (décisions passées)</li>
-                            <li onclick="showRef('A6')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">A6 :</strong> Évaluer la spécificité (usage global vs local)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Pilier 3 : Conception & MVP -->
-                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #f59e0b;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                        <i data-lucide="award" style="color:#f59e0b; width:24px; height:24px;"></i>
-                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">3. Conception & MVP</h4>
-                    </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Prioriser l'impact maximum pour une complexité maîtrisée.</p>
-                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Réflexes associés (cliquez) :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                            <li onclick="showRef('A7')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">A7 :</strong> Comparer les approches (arbitrage d'options)</li>
-                            <li onclick="showRef('A10')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">A10 :</strong> Vérifier la complexité (dette & contraintes)</li>
-                            <li onclick="showRef('A11')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">A11 :</strong> Chercher les marges (scope négotiable)</li>
-                            <li onclick="showRef('A12')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">A12 :</strong> Valider la solution mini (MVP & efficience)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 6 : Objectifs d'Ergonomie UI & 13 Principes UX (Simplified & Cliquable) -->
-        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: stretch; text-align: center; max-width: 1100px; animation: fadeIn 0.3s; width: 100%; padding: 0.5rem;">
-            <h2 style="font-size: clamp(1.3rem, 4vw, 2.5rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">Ergonomie UI & Réflexes UX</h2>
-            <p style="font-size: clamp(0.9rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">Les 3 objectifs ergonomiques majeurs rattachés aux 13 principes UX d'Epiconcept.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; width: 100%; text-align: left;">
-                <!-- Pilier 1 : Saisie Assistée -->
-                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #3b82f6;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                        <i data-lucide="keyboard" style="color:#3b82f6; width:24px; height:24px;"></i>
-                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">1. Saisie Assistée</h4>
-                    </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer la frappe clavier redondante pour accélérer le travail clinique.</p>
-                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés (cliquez) :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                            <li onclick="showRef('B1')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B1 :</strong> Saisie sans clavier (clic direct, suggestions)</li>
-                            <li onclick="showRef('B2')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B2 :</strong> Rappel visuel fluide (sticky, en-tête/action)</li>
-                            <li onclick="showRef('B6')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B6 :</strong> Personnalisation (valeurs par défaut, profils)</li>
-                            <li onclick="showRef('B12')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B12 :</strong> Interface compacte & extensible (navigation, onglets, modals)</li>
-                            <li onclick="showRef('B13')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#334155'"><strong style="color: #3b82f6;">B13 :</strong> Traitement en masse (actions en lot, duplication)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Pilier 2 : Prévention Active d'Erreurs -->
-                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #10b981;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                        <i data-lucide="shield-check" style="color:#10b981; width:24px; height:24px;"></i>
-                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">2. Prévention Active d'Erreurs</h4>
-                    </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Sécuriser la saisie en temps réel pour interdire les données incohérentes.</p>
-                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés (cliquez) :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                            <li onclick="showRef('B3')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">B3 :</strong> Validation active (inline validation, masques)</li>
-                            <li onclick="showRef('B7')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">B7 :</strong> Continuité de tâche (sauvegarde, feedback & undo)</li>
-                            <li onclick="showRef('B9')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">B9 :</strong> Sécurité & Traçabilité (rôles, MFA, audit)</li>
-                            <li onclick="showRef('B11')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#334155'"><strong style="color: #10b981;">B11 :</strong> Assistance IA (chatbot, OCR, commande texte)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Pilier 3 : Sobriété & Guidage -->
-                <div style="background: white; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 4px 12px rgba(15,23,42,0.03); border-top: 4px solid #f59e0b;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                        <i data-lucide="eye" style="color:#f59e0b; width:24px; height:24px;"></i>
-                        <h4 style="font-weight:900; font-size:1.1rem; color: #0f172a;">3. Sobriété & Guidage Visuel</h4>
-                    </div>
-                    <p style="font-size:0.85rem; color:#475569; line-height: 1.4; margin-bottom: 1rem; font-weight: 500;">Éliminer le bruit visuel inutile pour guider l'œil vers l'action essentielle.</p>
-                    <div style="background: #f8fafc; padding: 0.8rem; border-radius: 0.75rem; border: 1px solid rgba(15,23,42,0.04);">
-                        <span style="font-size: 0.7rem; font-weight: 800; color: #475569; text-transform: uppercase; tracking-wider; display: block; margin-bottom: 0.4rem;">Principes associés (cliquez) :</span>
-                        <ul style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                            <li onclick="showRef('B4')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">B4 :</strong> Sobriété sémantique (monochrome, icônes)</li>
-                            <li onclick="showRef('B5')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">B5 :</strong> Aides visuelles (tooltips, aides à la saisie, statuts)</li>
-                            <li onclick="showRef('B8')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">B8 :</strong> Lisibilité & Accessibilité (tris, zébrage, typographie)</li>
-                            <li onclick="showRef('B10')" style="display: flex; gap: 0.4rem; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#f59e0b'" onmouseout="this.style.color='#334155'"><strong style="color: #f59e0b;">B10 :</strong> Fil d'Ariane & Accordéons (wizard, découpage clairs)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4 : User Mapping (SVG) -->
-        <div class="comprendre-slide" style="display: none; flex-direction: column; align-items: center; text-align: center; max-width: 1200px; animation: fadeIn 0.3s; width: 100%;">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">User Mapping</h2>
-            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">Processus global, interactions et flux décisionnels.</p>
-            <div style="width: 100%; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; overflow: visible;">
-                <svg viewBox="0 0 950 520" width="100%" height="100%" style="max-height: 520px; font-family: var(--font-body), sans-serif; overflow: visible;">
-                    <defs>
-                        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
-                        </marker>
-                        <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
-                        </marker>
-                        <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
-                        </marker>
-                    </defs>
-
-                    <!-- A -> B -->
-                    <path d="M 210 80 L 275 80" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-                    <text x="245" y="70" fill="#94a3b8" font-size="12" text-anchor="middle">Invitation</text>
-
-                    <!-- B -> Z (Non) -->
-                    <path d="M 440 80 L 505 80" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)" />
-                    <text x="475" y="70" fill="#ef4444" font-size="12" font-weight="bold" text-anchor="middle">Non</text>
-
-                    <!-- B -> C (Oui) -->
-                    <path d="M 360 130 L 360 145" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow-green)" />
-                    <text x="370" y="142" fill="#10b981" font-size="12" font-weight="bold" text-anchor="start">Oui</text>
-
-                    <!-- C -> D -->
-                    <path d="M 440 180 L 505 180" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-
-                    <!-- D -> E -->
-                    <path d="M 670 180 L 735 180" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-
-                    <!-- E -> F -->
-                    <path d="M 820 210 L 820 245" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-                    <text x="830" y="232" fill="#94a3b8" font-size="12" text-anchor="start">Prélèvement</text>
-
-                    <!-- F -> G -->
-                    <path d="M 740 280 L 675 280" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-                    <text x="707" y="270" fill="#94a3b8" font-size="12" text-anchor="middle">Analyse</text>
-
-                    <!-- G -> H (Positif) -->
-                    <path d="M 510 280 L 445 280" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrow-red)" />
-                    <text x="477" y="270" fill="#ef4444" font-size="12" font-weight="bold" text-anchor="middle">Positif</text>
-
-                    <!-- G -> I (Négatif) -->
-                    <path d="M 590 330 L 590 345" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow-green)" />
-                    <text x="600" y="342" fill="#10b981" font-size="12" font-weight="bold" text-anchor="start">Négatif</text>
-
-                    <!-- H -> J -->
-                    <path d="M 280 280 L 215 280" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-
-                    <!-- I -> K -->
-                    <path d="M 670 380 L 735 380" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-
-                    <!-- J -> L -->
-                    <path d="M 130 310 L 130 480 L 390 480" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-                    
-                    <!-- K -> L -->
-                    <path d="M 820 410 L 820 480 L 560 480" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)" />
-
-                    <!-- Nodes -->
-                    <!-- A -->
-                    <rect x="50" y="50" width="160" height="60" rx="30" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
-                    <text x="130" y="85" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Patient / Proche</text>
-
-                    <!-- B -->
-                    <polygon points="360,30 440,80 360,130 280,80" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="2"/>
-                    <text x="360" y="85" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Consentement?</text>
-
-                    <!-- Z -->
-                    <rect x="510" y="50" width="160" height="60" rx="30" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="2"/>
-                    <text x="590" y="85" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Fin du parcours</text>
-
-                    <!-- C -->
-                    <rect x="280" y="150" width="160" height="60" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-                    <text x="360" y="185" fill="#0f172a" font-size="14" text-anchor="middle">Saisie d'infos</text>
-
-                    <!-- D -->
-                    <rect x="510" y="150" width="160" height="60" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-                    <text x="590" y="185" fill="#0f172a" font-size="14" text-anchor="middle">Génération Kit</text>
-
-                    <!-- E -->
-                    <rect x="740" y="150" width="160" height="60" rx="30" fill="rgba(236, 72, 153, 0.2)" stroke="#ec4899" stroke-width="2"/>
-                    <text x="820" y="185" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Infirmier(e)</text>
-
-                    <!-- F -->
-                    <rect x="740" y="250" width="160" height="60" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-                    <text x="820" y="285" fill="#0f172a" font-size="14" text-anchor="middle">Laboratoire</text>
-
-                    <!-- G -->
-                    <polygon points="590,230 670,280 590,330 510,280" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="2"/>
-                    <text x="590" y="285" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Résultat?</text>
-
-                    <!-- H -->
-                    <rect x="280" y="250" width="160" height="60" rx="8" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="2"/>
-                    <text x="360" y="285" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Alerte Médecin</text>
-
-                    <!-- J -->
-                    <rect x="50" y="250" width="160" height="60" rx="30" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
-                    <text x="130" y="285" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Prise en charge</text>
-
-                    <!-- I -->
-                    <rect x="510" y="350" width="160" height="60" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-                    <text x="590" y="385" fill="#0f172a" font-size="14" text-anchor="middle">Notification Patient</text>
-
-                    <!-- K -->
-                    <rect x="740" y="350" width="160" height="60" rx="30" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
-                    <text x="820" y="385" fill="#0f172a" font-size="14" text-anchor="middle">Clôture Dossier</text>
-
-                    <!-- L (Database Cylinder) -->
-                    <path d="M 395 465 L 395 495 C 395 510, 555 510, 555 495 L 555 465" fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" stroke-width="2"/>
-                    <ellipse cx="475" cy="465" rx="80" ry="10" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
-                    <text x="475" y="490" fill="#0f172a" font-weight="bold" font-size="14" text-anchor="middle">Base Rapporteur</text>
-                </svg>
-            </div>
-        </div>
+        <!-- Generated dynamically from 1-0.json -->
     </div>
 </div>
 
@@ -1688,7 +1373,9 @@ function handleGesture() {
     }
 }
 
-function openComprendre(atelierId) {
+let slidesData = null;
+
+async function openComprendre(atelierId) {
     if(atelierId !== 1) return;
     const modal = document.getElementById('comprendre-modal');
     modal.style.display = 'flex';
@@ -1703,10 +1390,68 @@ function openComprendre(atelierId) {
         handleGesture();
     }, { passive: true });
 
+    // Load slides dynamically from 1-0.json if not already loaded
+    if (!slidesData) {
+        try {
+            const res = await fetch('1-0.json?v=' + new Date().getTime());
+            slidesData = await res.json();
+            renderDynamicSlides();
+        } catch (e) {
+            console.error("Error loading Comprendre slides:", e);
+            document.getElementById('comprendre-slides-container').innerHTML = 
+                `<div style="color:#b91c1c; padding: 20px; font-weight: bold; text-align: center;">Erreur de chargement du contenu.</div>`;
+            return;
+        }
+    }
+
     // Load last viewed slide from localStorage
     const saved = localStorage.getItem('design-thinking-last-slide');
     currentSlide = saved ? parseInt(saved, 10) : 0;
     updateSlides();
+}
+
+function renderDynamicSlides() {
+    const container = document.getElementById('comprendre-slides-container');
+    if (!container) return;
+    container.innerHTML = '';
+    
+    slidesData.forEach((slide, idx) => {
+        const slideDiv = document.createElement('div');
+        slideDiv.className = 'comprendre-slide';
+        slideDiv.style.display = 'none';
+        slideDiv.style.flexDirection = 'column';
+        slideDiv.style.alignItems = slide.id === 4 || slide.id === 5 ? 'stretch' : 'center';
+        slideDiv.style.textAlign = 'center';
+        slideDiv.style.maxWidth = slide.id === 4 || slide.id === 5 ? '1100px' : (slide.id === 6 ? '1200px' : '900px');
+        slideDiv.style.animation = 'fadeIn 0.3s';
+        slideDiv.style.width = '100%';
+        if (slide.id === 4 || slide.id === 5) {
+            slideDiv.style.padding = '0.5rem';
+        }
+        
+        let html = `
+            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">${slide.title}</h2>
+            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">${slide.description}</p>
+            <div style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 1rem; box-sizing: border-box;">
+                ${slide.content}
+            </div>
+        `;
+        
+        if (slide.footer) {
+            html += `
+                <p style="font-size: 0.9rem; color: #475569; margin-top: 1.5rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
+                    ${slide.footer}
+                </p>
+            `;
+        }
+        
+        slideDiv.innerHTML = html;
+        container.appendChild(slideDiv);
+    });
+    
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 }
 
 function closeComprendre() {
@@ -1716,6 +1461,7 @@ function closeComprendre() {
 
 function changeSlide(dir) {
     const slides = document.querySelectorAll('.comprendre-slide');
+    if (slides.length === 0) return;
     currentSlide += dir;
     if (currentSlide < 0) currentSlide = 0;
     if (currentSlide >= slides.length) currentSlide = slides.length - 1;
@@ -1796,6 +1542,44 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Zoom logic for SVGs in Comprendre slides
+document.addEventListener('click', (e) => {
+    // If the click is on an SVG within the comprendre container
+    const svg = e.target.closest('#comprendre-slides-container svg');
+    if (svg) {
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'zoom-overlay';
+        
+        const content = document.createElement('div');
+        content.className = 'zoom-content';
+        
+        // Clone the SVG so it stays in the slide
+        const clonedSvg = svg.cloneNode(true);
+        clonedSvg.style.width = '100%';
+        clonedSvg.style.height = 'auto';
+        clonedSvg.style.maxHeight = '75vh';
+        clonedSvg.style.transform = 'none';
+        
+        const closeTip = document.createElement('div');
+        closeTip.style.fontSize = '11px';
+        closeTip.style.fontWeight = 'bold';
+        closeTip.style.color = '#64748b';
+        closeTip.style.marginTop = '10px';
+        closeTip.style.textTransform = 'uppercase';
+        closeTip.innerText = 'Clicquez n\'importe où pour fermer le zoom';
+        
+        content.appendChild(clonedSvg);
+        content.appendChild(closeTip);
+        overlay.appendChild(content);
+        document.body.appendChild(overlay);
+        
+        overlay.onclick = () => {
+            overlay.remove();
+        };
+    }
+});
+
 // PO & UX Reflexes Reference Loader and Modal Logic
 let reflexesData = null;
 async function showRef(reflexId) {
@@ -1803,8 +1587,8 @@ async function showRef(reflexId) {
         try {
             const v = new Date().getTime();
             const [poRes, uxRes] = await Promise.all([
-                fetch('1a.json?v=' + v),
-                fetch('1b.json?v=' + v)
+                fetch('1-a.json?v=' + v),
+                fetch('1-b.json?v=' + v)
             ]);
             const poData = await poRes.json();
             const uxData = await uxRes.json();
