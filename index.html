@@ -883,22 +883,6 @@
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
         }
 
-        .ref-visual-card .visual-mockup {
-            width: 33.333%;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
-            min-height: 120px;
-            pointer-events: none;
-            flex-shrink: 0;
-        }
-
         .ref-visual-card .visual-content {
             flex-grow: 1;
             display: flex;
@@ -949,22 +933,6 @@
                 align-items: flex-start;
                 padding: 1rem;
             }
-
-            .ref-visual-card .visual-mockup {
-                width: 100%;
-                min-height: 100px;
-            }
-        }
-
-        /* Mockup container styles (from 1-b.html) */
-        .mockup-container {
-            pointer-events: none;
-        }
-
-        .ref-visual-card .visual-mockup .mockup-container {
-            pointer-events: none;
-            transform: scale(0.9);
-            transform-origin: center center;
         }
     </style>
 
@@ -2284,8 +2252,8 @@
                     card.className = 'ref-visual-card';
 
                     card.innerHTML = `
-                <div class="visual-mockup">
-                    <div class="mockup-container" style="width: 100%; transform: scale(0.9); transform-origin: center center; display: flex; justify-content: center; align-items: center;">
+<div class="visual-mockup">
+                    <div class="mockup-container">
                         ${v.html}
                     </div>
                 </div>
@@ -2310,7 +2278,7 @@
 
                         card.innerHTML = `
                     <div class="visual-mockup">
-                        <div class="mockup-container" style="width: 100%; transform: scale(0.9); transform-origin: center center; display: flex; justify-content: center; align-items: center;">
+                        <div class="mockup-container">
                             ${v.html}
                         </div>
                     </div>
