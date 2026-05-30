@@ -2232,9 +2232,9 @@
                 examples.forEach((q, idx) => {
                     const card = document.createElement('div');
                     card.className = 'visual-mockup';
-                    card.style.cssText = 'width:100%;padding:0.5rem 0.7rem;min-height:40px;';
-                    const shortQ = q.length > 60 ? q.substring(0, 60) + '\u2026' : q;
-                    card.innerHTML = '<div class="mockup-container"><div style="background:#f8fafc;border-radius:0.4rem;border:1px solid #e2e8f0;padding:0.3rem 0.5rem;width:100%;border-left:3px solid var(--color-primary,#1e3a8a);"><div style="font-size:0.5rem;font-weight:700;color:var(--color-primary,#1e3a8a);text-transform:uppercase;margin-bottom:0.1rem;letter-spacing:0.02em;">Question ' + (idx + 1) + '</div><div style="font-size:0.6rem;color:#0f172a;font-weight:600;line-height:1.2;word-break:break-word;">' + shortQ + '</div></div></div>';
+                    card.style.cssText = 'width:100%;min-height:60px;';
+                    const shortQ = q.length > 80 ? q.substring(0, 80) + '\u2026' : q;
+                    card.innerHTML = '<div class="mockup-container"><div style="display:flex;align-items:flex-start;gap:0.5rem;width:100%;"><div style="width:26px;height:26px;border-radius:50%;background:var(--color-primary,#1e3a8a);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:white;font-size:10px;font-weight:900;">?</div><div style="flex:1;background:#eff6ff;border:1px solid #bfdbfe;border-radius:0 0.75rem 0.75rem 0.75rem;padding:0.35rem 0.6rem;"><div style="font-size:0.5rem;font-weight:700;color:var(--color-primary,#1e3a8a);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.1rem;">QUESTION ' + (idx + 1) + '</div><div style="font-size:0.65rem;color:#0f172a;font-weight:600;line-height:1.3;">' + shortQ + '</div></div></div></div>';
                     list.appendChild(card);
                 });
             } else if (isCD) {
@@ -2245,9 +2245,9 @@
                 examples.forEach((q, idx) => {
                     const card = document.createElement('div');
                     card.className = 'visual-mockup';
-                    card.style.cssText = 'width:100%;padding:0.5rem 0.7rem;min-height:40px;';
-                    const shortQ = q.length > 60 ? q.substring(0, 60) + '\u2026' : q;
-                    card.innerHTML = '<div class="mockup-container"><div style="background:#f8fafc;border-radius:0.4rem;border:1px solid #e2e8f0;padding:0.3rem 0.5rem;width:100%;border-left:3px solid var(--color-primary,#1e3a8a);"><div style="font-size:0.5rem;font-weight:700;color:var(--color-primary,#1e3a8a);text-transform:uppercase;margin-bottom:0.1rem;letter-spacing:0.02em;">Question ' + (idx + 1) + '</div><div style="font-size:0.6rem;color:#0f172a;font-weight:600;line-height:1.2;word-break:break-word;">' + shortQ + '</div></div></div>';
+                    card.style.cssText = 'width:100%;min-height:60px;';
+                    const shortQ = q.length > 80 ? q.substring(0, 80) + '\u2026' : q;
+                    card.innerHTML = '<div class="mockup-container"><div style="display:flex;align-items:flex-start;gap:0.5rem;width:100%;"><div style="width:22px;height:22px;border-radius:50%;background:#64748b;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:white;font-size:10px;font-weight:900;">&#9432;</div><div style="flex:1;background:#f8fafc;border:1px solid #e2e8f0;border-radius:0 0.75rem 0.75rem 0.75rem;padding:0.35rem 0.6rem;"><div style="font-size:0.5rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.1rem;">RÉFÉRENCE ' + (idx + 1) + '</div><div style="font-size:0.65rem;color:#0f172a;font-weight:600;line-height:1.3;">' + shortQ + '</div></div></div></div>';
                     list.appendChild(card);
                 });
                 visualsList.innerHTML = '';
@@ -2281,7 +2281,7 @@
                         card.className = 'ref-visual-card-ux';
 
                         card.innerHTML = `
-                    <div class="visual-mockup" style="width:100%;min-height:80px;padding:1rem 1.25rem;">
+                    <div class="visual-mockup" style="width:100%;min-height:80px;">
                         <div class="mockup-container">
                             ${v.html}
                         </div>
