@@ -768,6 +768,25 @@
         .comprendre-slide svg:hover, .mockup-container svg:hover {
             transform: scale(1.02);
         }
+        
+        /* Reflex Modal Responsive Layout Styles */
+        .ref-modal-card {
+            width: 100%;
+            max-width: 680px;
+            max-height: 85vh;
+            padding: 2.25rem;
+            margin: 1.5rem;
+            border-radius: 1.5rem;
+            box-sizing: border-box;
+        }
+        @media (max-width: 640px) {
+            .ref-modal-card {
+                padding: 1.25rem 1rem;
+                margin: 0.75rem;
+                border-radius: 1rem;
+                max-height: 92vh;
+            }
+        }
     </style>
 
     </head>
@@ -1750,8 +1769,8 @@ function closeRefModal() {
 </script>
 
 <!-- Reference Modal (Glassmorphic pop-up) -->
-<div id="ref-modal" class="ref-modal-overlay" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; transition: opacity 0.3s ease;">
-    <div class="ref-modal-card" style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); width: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);">
+<div id="ref-modal" class="ref-modal-overlay" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; transition: opacity 0.3s ease; padding: 1rem; box-sizing: border-box;">
+    <div class="ref-modal-card" style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);">
         <!-- Close Button (Positioned higher, small, no background) -->
         <button onclick="closeRefModal()" style="position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#0f172a'" onmouseout="this.style.color='#64748b'">
             <i data-lucide="x" style="width: 14px; height: 14px;"></i>
