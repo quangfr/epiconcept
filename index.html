@@ -1510,15 +1510,6 @@ function updateSlides() {
     if (dtStatusLabel) {
         window.updateCardStatusBadge(dtStatusLabel, currentSlide + 1, slides.length);
     }
-    
-    // Render Mermaid on Slide 4
-    if (currentSlide === 5 && !mermaidRendered && window.mermaid) {
-        mermaidRendered = true;
-        setTimeout(() => {
-            mermaid.initialize({ startOnLoad: false, theme: 'base', themeVariables: { darkMode: true, primaryColor: '#1e3a8a', primaryTextColor: '#fff', lineColor: '#3b82f6' } });
-            mermaid.init(undefined, document.getElementById('mermaid-diagram'));
-        }, 100);
-    }
 }
 
 document.addEventListener('keydown', (e) => {
