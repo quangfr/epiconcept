@@ -9,10 +9,10 @@ Ce document fournit le contexte, l'architecture et les règles de conception du 
 - **Icônes** : Lucide Icons est utilisé via CDN. 
 
 ## 2. Architecture du Projet
-- `index.html` : Fichier racine servant de Hub/Dashboard.
-- `1a.html`, `1b.html` : Modules "Ateliers" individuels (les logiques métier et de gamification sont embarquées directement dans les balises `<script>` de ces fichiers).
-- `*.json` (`1a.json`, `1b.json`, `ux.json`) : Fichiers agissant comme une base de données "en lecture seule". Le front-end effectue un `fetch` dessus. 
-  - *Note : Lors de la modification des JSON, ne pas oublier que le navigateur peut utiliser le cache. Un timestamp est utilisé dans l'URL (`fetch('1b.json?v=' + ...`) pour l'éviter.*
+- `index.html` : Fichier racine servant de Hub/Dashboard. Contient la modal de contextualisation "Comprendre" animée par `1-0.json`.
+- `1-a.html`, `1-b.html` : Modules "Ateliers" individuels (les logiques métier et de gamification sont embarquées directement dans les balises `<script>` de ces fichiers).
+- `*.json` (`1-0.json`, `1-a.json`, `1-b.json`) : Fichiers agissant comme une base de données "en lecture seule". Le front-end effectue un `fetch` dessus. 
+  - *Note : Lors de la modification des JSON, ne pas oublier que le navigateur peut utiliser le cache. Un timestamp est utilisé dans l'URL (`fetch('1-b.json?v=' + ...`) pour l'éviter.*
 
 ## 3. Directives de Développement (Frontend & UI)
 - **Design System** : Utilisation d'un thème "Glassmorphism" avec des bordures subtiles (`border-slate-200/60`, `bg-white/90`, `backdrop-blur`).
@@ -20,6 +20,10 @@ Ce document fournit le contexte, l'architecture et les règles de conception du 
 - **Micro-interactions** : Utiliser des classes Tailwind natives (`transition-all`, `duration-300`, `hover:scale-105`) pour rendre l'interface dynamique.
 - **Icônes** : Toujours utiliser Lucide Icons (`<i data-lucide="icon-name"></i>`).
   - **TRÈS IMPORTANT** : Chaque fois que du HTML contenant des icônes est injecté dynamiquement dans le DOM (via `innerHTML`), la fonction `lucide.createIcons()` **doit impérativement être rappelée** sinon les icônes n'apparaîtront pas.
+- **Optimisation des schémas (SVG Box & Zoom)** : 
+  - Tous les schémas explicatifs complexes et diagrammes doivent adopter un format vectoriel SVG (`viewBox="0 0 W H"`), sans hauteur ni largeur figées, pour s'adapter automatiquement aux viewports.
+  - Sur mobile, les paddings de la modal comprendre sont réduits à `5px` vertical et `0px` horizontal, et les SVGs se voient appliquer `margin: 0` et `max-height: 55vh` pour éviter le chevauchement ou le masquage des éléments supérieurs.
+  - La logique globale du projet prend en charge le zoom interactif plein écran au clic sur les SVGs. Le zoom s'affiche dans une surcouche (`zoom-overlay`) noire translucide avec flou d'arrière-plan.
 
 ## 4. Règles de Manipulation du Code
 - **Pas de modifications architecturales complexes** : Maintenir l'approche Vanilla. Ne pas transformer le projet en React/Vue.
@@ -35,7 +39,7 @@ Ce document fournit le contexte, l'architecture et les règles de conception du 
 6. **Déploiement** : Ne **JAMAIS** lancer de déploiement automatique (`firebase deploy`, `git push`, etc.) sans demande **expresse et explicite** de l'utilisateur. Après chaque modification, se contenter d'informer l'utilisateur que les changements sont prêts et disponibles en local, et lui proposer de déployer si il le souhaite. Le projet de déploiement Firebase est **`goepico`** (URL : https://goepico.web.app) — toujours utiliser `firebase deploy --project goepico`.
 
 ## 6. Structure Commune des Ateliers (Template de Cours)
-Les ateliers (`1a.html` et `1b.html`) partagent un pattern d'architecture identique. Toute création d'un nouvel atelier doit suivre ce template standardisé pour assurer la cohérence esthétique et technique.
+Les ateliers (`1-a.html` et `1-b.html`) partagent un pattern d'architecture identique. Toute création d'un nouvel atelier doit suivre ce template standardisé pour assurer la cohérence esthétique et technique.
 
 ### A. Disposition de l'Écran (Grid Layout)
 L'écran de jeu est un flex conteneur de hauteur fixe (`h-[calc(100vh-70px)]`) divisé en deux zones principales :
@@ -45,18 +49,17 @@ L'écran de jeu est un flex conteneur de hauteur fixe (`h-[calc(100vh-70px)]`) d
 2. **Zone Droite (2/3 ou 7/12 de largeur)** :
    - Un conteneur parent flexible (`#options-container`) hébergeant les différentes phases :
      - **Phase 1** : La grille de sélection des réflexes de base (`#reflex-grid`).
-     - **Phase 2** : Le choix d'une question type (`#questions-wrapper` pour 1a) ou l'identification de la maquette d'interface correspondante (`#ui-grid` pour 1b).
+     - **Phase 2** : Le choix d'une question type (`#questions-wrapper` pour 1-a) ou l'identification de la maquette d'interface correspondante (`#ui-grid` pour 1-b).
      - **Phase 3** : La carte explicative finale (`#debriefing-card`).
 
 ### B. Cycle de Vie d'un Défi (Étape)
 Chaque étape suit une progression stricte en 3 phases gérées par les variables `currentPhase` (1, 2 ou 3) :
 - **Phase 1 (Identification du Réflexe)** : L'utilisateur lit la situation et sélectionne le réflexe UX/Stratégique approprié parmi 4 choix (1 correct, 3 distracteurs).
-- **Phase 2 (Traduction Pratique)** : Le réflexe s'ancre à gauche dans `#phase2-question-container` avec son icône. À droite, l'utilisateur identifie l'application pratique (soit la question clé dans `1a`, soit la maquette d'écran dans `1b`).
+- **Phase 2 (Traduction Pratique)** : Le réflexe s'ancre à gauche dans `#phase2-question-container` avec son icône. À droite, l'utilisateur identifie l'application pratique (soit la question clé dans `1-a`, soit la maquette d'écran dans `1-b`).
 - **Phase 3 (Débriefing)** : La solution correcte est validée, la progression locale s'enregistre (`localStorage`), et le panneau de débriefing final s'affiche avec les explications détaillées et l'impact métier ESIS-3D.
 
 ### C. Structure de Données (Fichier JSON)
 Les données sont chargées dynamiquement depuis un fichier JSON :
-- **Atelier 1a (Posture/Besoins)** : Chaque scénario propose une liste de `questions` (la bonne question est déterminée par l'indice du niveau actuel).
-- **Atelier 1b (Conception/UI)** : Chaque scénario propose une structure `correct` (maquette, explication et icône spécifique) et un tableau `wrong` de distracteurs graphiques.
-- Tout nouveau format de cours doit stocker son contenu dans un JSON structuré de façon similaire à `1a.json` ou `1b.json`.
-
+- **Atelier 1-a (Posture/Besoins)** : Chaque scénario propose une liste de `questions` (la bonne question est déterminée par l'indice du niveau actuel).
+- **Atelier 1-b (Conception/UI)** : Chaque scénario propose une structure `correct` (maquette, explication et icône spécifique) et un tableau `wrong` de distracteurs graphiques.
+- Tout nouveau format de cours doit stocker son contenu dans un JSON structuré de façon similaire à `1-a.json` ou `1-b.json`.

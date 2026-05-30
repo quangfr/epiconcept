@@ -1561,16 +1561,7 @@ document.addEventListener('click', (e) => {
         clonedSvg.style.maxHeight = '75vh';
         clonedSvg.style.transform = 'none';
         
-        const closeTip = document.createElement('div');
-        closeTip.style.fontSize = '11px';
-        closeTip.style.fontWeight = 'bold';
-        closeTip.style.color = '#64748b';
-        closeTip.style.marginTop = '10px';
-        closeTip.style.textTransform = 'uppercase';
-        closeTip.innerText = 'Clicquez n\'importe où pour fermer le zoom';
-        
         content.appendChild(clonedSvg);
-        content.appendChild(closeTip);
         overlay.appendChild(content);
         document.body.appendChild(overlay);
         
