@@ -1716,7 +1716,10 @@ function openRefModal(title, description, examples, badgeText, iconName, visuals
     list.innerHTML = '';
     
     const label = document.getElementById('ref-examples-label');
+    const examplesContainer = document.getElementById('ref-examples-container');
+    
     if (badgeText.startsWith('Réflexe PO')) {
+        examplesContainer.style.display = 'flex';
         label.innerText = "Questions Métier Clés";
         examples.forEach(q => {
             const li = document.createElement('li');
@@ -1726,14 +1729,7 @@ function openRefModal(title, description, examples, badgeText, iconName, visuals
             list.appendChild(li);
         });
     } else {
-        label.innerText = "Applications Pratiques UI";
-        examples.forEach(e => {
-            const li = document.createElement('li');
-            li.style.display = 'flex';
-            li.style.gap = '0.5rem';
-            li.innerHTML = `<span style="color: var(--color-emerald); font-weight: bold;">✓</span> <span>${e}</span>`;
-            list.appendChild(li);
-        });
+        examplesContainer.style.display = 'none';
     }
     
     // Inject visuals
