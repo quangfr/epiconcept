@@ -1,32 +1,155 @@
-/* style.css - Design System Commune Epiconcept */
-:root {
-    --bg-dark: #f8fafc;
-    --bg-deep: #f1f5f9;
-    --bg-card: rgba(255, 255, 255, 0.75);
-    --card-border: rgba(255, 255, 255, 0.6);
-    
-    /* Brand Primary Color (Slightly lighter blue) */
-    --color-primary: #3b82f6;
-    --color-primary-dark: #2563eb;
-    --color-primary-glow: rgba(59, 130, 246, 0.08);
-    
-    /* Feedback & Support Colors */
-    --color-emerald: #10b981;
-    --color-emerald-glow: rgba(16, 185, 129, 0.08);
-    --color-rose: #ef4444;
-    --color-rose-glow: rgba(239, 68, 68, 0.08);
-    --color-amber: #f59e0b;
-    --color-amber-glow: rgba(245, 158, 11, 0.08);
-    
-    /* Neutral Grays */
-    --text-main: #0f172a;
-    --text-muted: #475569;
-    --text-low: #64748b;
-    
-    /* Typography */
-    --font-display: 'Outfit', sans-serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
-    
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Shared visual mockup & reflex styles (used by 1-b.html, 2-c.html, 2-d.html) */
+.mockup-container {
+    pointer-events: none;
+}
+
+/* Reflex phase 1 buttons */
+.reflex-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #F1F5F9;
+    position: relative;
+}
+.reflex-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: var(--color-primary, #1e3a8a);
+    box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.15);
+}
+
+/* Info button (?) inside reflex cards */
+.info-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    transition: all 0.2s;
+}
+.info-btn:hover {
+    transform: scale(1.2);
+    color: #3b82f6;
+}
+
+/* Shake animation for wrong answers */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+.shake {
+    animation: shake 0.3s ease-in-out;
+    border-color: #b91c1c !important;
+    background-color: #FEF2F2 !important;
+}
+.correct {
+    border-color: #047857 !important;
+    background-color: #ECFDF5 !important;
+}
+
+/* Sub-option cards (phase 2 choices) */
+.ref-sub-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+.ref-sub-option {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 2px solid #F1F5F9;
+    background: #FAFAF9;
+    cursor: default;
+    transition: all 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+.ref-sub-option.correct {
+    border-color: #047857;
+    background-color: #ECFDF5;
+}
+.ref-sub-option.correct .sub-option-label {
+    background: #10b981;
+    color: white;
+}
+.ref-sub-option .sub-option-label {
+    background: #94a3b8;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.ref-sub-option .sub-option-text {
+    font-size: 0.8rem;
+    color: #334155;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* UI mockup builder styles (1-b) */
+.mockup-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: 100%;
+}
+.mockup-radio label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #334155;
+    font-weight: 600;
+    cursor: default;
+}
+.mockup-radio label input[type="radio"] {
+    width: 14px;
+    height: 14px;
+    accent-color: #3b82f6;
+}
+.mockup-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.375rem;
+    background: white;
+    font-size: 0.8rem;
+    color: #334155;
+    font-weight: 600;
+}
+.mockup-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.375rem;
+    background: white;
+    font-size: 0.8rem;
+    color: #334155;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+.mockup-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: default;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.mockup-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    gap: 0.2rem;
 }
