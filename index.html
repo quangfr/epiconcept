@@ -1750,7 +1750,8 @@ async function showRef(reflexId) {
                         examples.push(`${sc.correct.title} : ${sc.correct.expl}`);
                         if (sc.correct.visual) {
                             visuals.push({
-                                label: `Solution UI : ${sc.correct.title}`,
+                                title: sc.correct.title,
+                                expl: sc.correct.expl,
                                 html: sc.correct.visual
                             });
                         }
@@ -1781,9 +1782,12 @@ function openRefModal(title, description, examples, badgeText, iconName, visuals
     
     const label = document.getElementById('ref-examples-label');
     const examplesContainer = document.getElementById('ref-examples-container');
+    const visualsContainer = document.getElementById('ref-visuals-container');
+    const visualsList = document.getElementById('ref-visuals-list');
     
     if (badgeText.startsWith('Réflexe PO')) {
         examplesContainer.style.display = 'flex';
+        visualsContainer.style.display = 'none';
         label.innerText = "Questions Métier Clés";
         examples.forEach(q => {
             const li = document.createElement('li');
@@ -1794,6 +1798,34 @@ function openRefModal(title, description, examples, badgeText, iconName, visuals
         });
     } else {
         examplesContainer.style.display = 'none';
+        visualsContainer.style.display = 'flex';
+        visualsList.innerHTML = '';
+        
+        visuals.forEach(v => {
+            const card = document.createElement('div');
+            card.style.background = '#f8fafc';
+            card.style.borderRadius = '0.75rem';
+            card.style.padding = '0.75rem';
+            card.style.border = '1px solid rgba(15,23,42,0.06)';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.gap = '0.5rem';
+            card.style.minWidth = '0';
+            
+            card.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="background: #10b981; color: white; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; flex-shrink: 0;">✓</span>
+                    <strong style="font-size: 0.8rem; font-weight: 800; color: #065f46; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">${v.title}</strong>
+                </div>
+                <p style="font-size: 0.72rem; color: #475569; font-weight: 500; margin: 0; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; height: 3rem;">${v.expl}</p>
+                <div style="background: white; border: 1px solid rgba(15,23,42,0.06); border-radius: 0.5rem; padding: 0.5rem; display: flex; justify-content: center; align-items: center; overflow: hidden; box-shadow: 0 2px 8px rgba(15,23,42,0.02); height: 100px;" class="mockup-container">
+                    <div style="width: 100%; transform: scale(0.75); transform-origin: center; display: flex; justify-content: center; align-items: center;">
+                        ${v.html}
+                    </div>
+                </div>
+            `;
+            visualsList.appendChild(card);
+        });
     }
     
     modal.style.display = 'flex';
@@ -1828,6 +1860,14 @@ function closeRefModal() {
         <div style="background: #f8fafc; padding: 1.2rem; border-radius: 1rem; border: 1px solid rgba(15,23,42,0.04);">
             <h4 style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Intention & Philosophie</h4>
             <p id="ref-intent" style="font-size: 0.85rem; color: #334155; line-height: 1.5; font-weight: 500;">Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.</p>
+        </div>
+        
+        <!-- Visual Examples (For UX reflexes) -->
+        <div id="ref-visuals-container" style="display: none; flex-direction: column; gap: 0.25rem;">
+            <h4 style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Exemples Visuels Recommandés</h4>
+            <div id="ref-visuals-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; width: 100%;">
+                <!-- Filled dynamically -->
+            </div>
         </div>
         
         <!-- Examples / Questions -->
