@@ -207,6 +207,7 @@
                         <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
                             <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
                         </button>
+                        <span id="phase2-header-question" class="text-[10px] text-blue-800 font-bold italic leading-snug flex-1"></span>
                     </div>
                     <div id="questions-wrapper" class="grid grid-rows-3 gap-3 flex-grow"></div>
                 </div>
@@ -221,7 +222,12 @@
                         </div>
                     </div>
 
-                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 mb-4 shrink-0">
+                    <div id="debrief-struct-container" class="bg-blue-50 p-3 rounded-lg border border-blue-100 mb-3 shrink-0">
+                        <p class="text-[9px] font-black uppercase text-blue-600 mb-1 tracking-widest">Question structurante :</p>
+                        <p id="debrief-struct-question" class="text-blue-900 font-bold text-[11px] leading-tight"></p>
+                    </div>
+
+                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 mb-3 shrink-0">
                         <p class="text-[10px] font-black uppercase text-emerald-600 mb-1 tracking-widest">Sous-réflexe sélectionné :</p>
                         <p id="debrief-question" class="text-emerald-900 font-bold italic text-sm"></p>
                     </div>
@@ -372,6 +378,7 @@
 
                 return {
                     reflexId: r.id,
+                    question: r.questions[lv],
                     scenarioText: scenarioData.text,
                     explanation: scenarioData.explanation,
                     visual: scenarioData.visual,
@@ -481,6 +488,7 @@
             const reflex = reflexes.find(r => r.id === step.reflexId);
             document.getElementById('phase2-question-container').classList.remove('hidden');
             document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+            document.getElementById('phase2-header-question').innerText = step.question || '';
             document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${reflex.icon}" class="w-4 h-4 text-white"></i>`;
             lucide.createIcons();
 
@@ -570,7 +578,8 @@
 
             document.getElementById('debrief-emoji').innerHTML = `<i data-lucide="${reflexData.icon}" class="w-12 h-12 text-slate-800"></i>`;
             document.getElementById('debrief-title').innerText = reflexData.title;
-            document.getElementById('debrief-question').innerText = `“ ${step.correctSubText} ”`;
+            document.getElementById('debrief-question').innerText = `\u201C ${step.correctSubText} \u201D`;
+            document.getElementById('debrief-struct-question').innerText = step.question || '';
             document.getElementById('debrief-text').innerText = step.explanation;
 
             document.getElementById('reflex-grid').classList.add('hidden');
