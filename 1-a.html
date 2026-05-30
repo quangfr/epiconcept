@@ -479,6 +479,10 @@
                         <p id="debrief-question" class="text-emerald-900 font-bold italic text-sm"></p>
                     </div>
 
+                    <div id="debrief-visual" class="mb-3 shrink-0 flex justify-center"></div>
+
+                    <div id="debrief-visual" class="mb-3 shrink-0 flex justify-center"></div>
+
                     <div class="flex-grow overflow-y-auto pr-4 mb-6">
                         <div id="debrief-text" class="text-base text-slate-600 leading-relaxed font-medium"></div>
                     </div>
@@ -542,7 +546,7 @@
             <p class="text-xs text-slate-600 font-semibold leading-snug lowercase first-letter:uppercase">${reflex.intent}</p>
             <div class="bg-slate-50 p-3 rounded-lg">
                 <ul class="space-y-1.5">
-                    ${reflex.questions.map(q => `<li class="text-[11px] font-semibold text-slate-500 italic">“ ${q} ”</li>`).join('')}
+                    ${reflex.questions.map(q => `<li class="text-[11px] font-semibold text-slate-500 italic">“ ${q.text || q} ”</li>`).join('')}
                 </ul>
             </div>
         `;
@@ -608,7 +612,7 @@
         <div class="bg-slate-100 p-6 rounded-lg">
             <p class="text-[10px] font-black uppercase text-slate-500 mb-4 tracking-widest">Questions Types Associées</p>
             <ul class="space-y-3">
-                ${reflex.questions.map(q => `<li class="text-sm font-bold text-slate-900 italic">“ ${q} ”</li>`).join('')}
+                ${reflex.questions.map(q => `<li class="text-sm font-bold text-slate-900 italic">“ ${q.text || q} ”</li>`).join('')}
             </ul>
         </div>
     `;
@@ -771,9 +775,8 @@
                 if (readOnly && opt.isCorrect) {
                     btn.className = baseCls.replace('bg-white border-2 border-slate-100 text-slate-800', 'bg-emerald-600 border-2 border-emerald-600 text-white');
                 }
-                const mockupHtml = '<div class="visual-mockup shrink-0" style="width:140px;min-height:50px;padding:0.3rem 0.4rem;"><div class="mockup-container">' + (opt.visual || '') + '</div></div>';
                 const iconCls = 'w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0' + (readOnly && opt.isCorrect ? ' text-white' : '');
-                btn.innerHTML = '<div class="flex items-center gap-3 flex-grow min-w-0"><i data-lucide="message-circle" class="' + iconCls + '"></i><div class="flex-grow min-w-0"><span class="text-emerald-700 mr-2">\u201c</span>' + opt.text + '<span class="text-emerald-700 ml-2">\u201d</span></div></div>' + mockupHtml;
+                btn.innerHTML = '<div class="flex items-center gap-3 flex-grow min-w-0"><i data-lucide="message-circle" class="' + iconCls + '"></i><div class="flex-grow min-w-0"><span class="text-emerald-700 mr-2">\u201c</span>' + opt.text + '<span class="text-emerald-700 ml-2">\u201d</span></div></div>';
                 if (!readOnly) {
                     btn.onclick = () => {
                         if (currentPhase === 2) {
@@ -817,6 +820,8 @@
             document.getElementById('debrief-title').innerText = reflexData.title;
             document.getElementById('debrief-question').innerText = `“ ${step.correctQuestion} ”`;
             document.getElementById('debrief-text').innerText = step.explanation;
+            document.getElementById('debrief-visual').innerHTML = reflexData.explVisual || '';
+            document.getElementById('debrief-visual').innerHTML = reflexData.explVisual || '';
 
             document.getElementById('reflex-grid').classList.add('hidden');
             document.getElementById('question-list').classList.add('hidden');
