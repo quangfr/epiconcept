@@ -671,7 +671,8 @@
         async function initApp() {
             try {
                 const response = await fetch('./2-c.json?v=' + new Date().getTime());
-                reflexes = await response.json();
+                const data = await response.json();
+                reflexes = data.value || data;
                 initHome();
                 lucide.createIcons();
             } catch (error) {
