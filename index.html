@@ -772,7 +772,7 @@
         /* Reflex Modal Responsive Layout Styles */
         .ref-modal-card {
             width: 100%;
-            max-width: 680px;
+            max-width: 900px;
             max-height: 85vh;
             padding: 2.25rem;
             margin: 1.5rem;
@@ -1811,6 +1811,7 @@ function openRefModal(title, description, examples, badgeText, iconName, visuals
                     display: flex;
                     flex-direction: column;
                     gap: 0.5rem;
+                    flex: 1 1 0;
                     min-width: 0;
                     box-shadow: 0 1px 3px rgba(15,23,42,0.04);
                 `;
@@ -1869,7 +1870,7 @@ function closeRefModal() {
         <!-- Visual Examples (For UX reflexes) -->
         <div id="ref-visuals-container" style="display: none; flex-direction: column; gap: 0.25rem;">
             <h4 style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Exemples Visuels Recommandés</h4>
-            <div id="ref-visuals-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; width: 100%;">
+            <div id="ref-visuals-list" style="display: flex; flex-direction: row; gap: 0.75rem; width: 100%;">
                 <!-- Filled dynamically -->
             </div>
         </div>
