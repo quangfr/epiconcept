@@ -108,7 +108,7 @@
         </div>
         
         <!-- Contenu de référentiel avec marges resserrées sur les côtés -->
-        <div id="modal-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50">
+        <div id="modal-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50 relative">
             <!-- Rempli dynamiquement en JS -->
         </div>
     </div>
@@ -480,7 +480,7 @@ function renderReflexChoices() {
                 <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <button onclick="event.stopPropagation(); showReflexDetail(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Principe">
+            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Principe">
                 <i data-lucide="info" class="w-4 h-4"></i>
             </button>
         `;
@@ -715,7 +715,7 @@ function scrollToReflex(id) {
     const el = document.getElementById(`ref-${id}`);
     if (el) {
         document.getElementById('modal-content').scrollTo({
-            top: el.offsetTop - 24, // 24 = padding
+            top: el.offsetTop - 24,
             behavior: 'smooth'
         });
         el.classList.add('ring-4', 'ring-emerald-400', 'transition-all');
@@ -732,7 +732,7 @@ function openModal(focusId = null) {
             if(el) {
                 // Scroll dans le conteneur du modal
                 document.getElementById('modal-content').scrollTo({
-                    top: el.offsetTop - 24, // 24 = padding
+                    top: el.offsetTop - 24,
                     behavior: 'smooth'
                 });
                 el.classList.add('ring-4', 'ring-emerald-400', 'transition-all');

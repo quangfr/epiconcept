@@ -159,7 +159,7 @@
         </div>
         
         <!-- Grille de référentiel compacte avec marges resserrées sur les côtés -->
-        <div id="referential-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 overflow-y-auto px-4 py-4 pb-12 flex-grow content-start bg-slate-100/40"></div>
+        <div id="referential-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 overflow-y-auto px-4 py-4 pb-12 flex-grow content-start bg-slate-100/40 relative"></div>
     </div>
 </div>
 
@@ -291,7 +291,7 @@ function initHome() {
     }
 }
 
-function showReferential() {
+function showReferential(focusId = null) {
     const grid = document.getElementById('referential-grid');
     grid.innerHTML = '';
     const selector = document.getElementById('reflex-selector');
@@ -327,6 +327,20 @@ function showReferential() {
     lucide.createIcons();
     document.getElementById('home-screen').classList.add('hidden');
     document.getElementById('referential-screen').classList.remove('hidden');
+    
+    if (focusId) {
+        setTimeout(() => {
+            const el = document.getElementById(`ref-${focusId}`);
+            if (el) {
+                document.getElementById('referential-grid').scrollTo({
+                    top: el.offsetTop - 24,
+                    behavior: 'smooth'
+                });
+                el.classList.add('ring-4', 'ring-emerald-400', 'transition-all');
+                setTimeout(() => el.classList.remove('ring-4', 'ring-emerald-400'), 2000);
+            }
+        }, 100);
+    }
 }
 
 function scrollToReflex(id) {
@@ -334,7 +348,7 @@ function scrollToReflex(id) {
     const el = document.getElementById(`ref-${id}`);
     if (el) {
         document.getElementById('referential-grid').scrollTo({
-            top: el.offsetTop - 24, // 24 = padding
+            top: el.offsetTop - 24,
             behavior: 'smooth'
         });
         el.classList.add('ring-4', 'ring-emerald-400', 'transition-all');
@@ -473,7 +487,7 @@ function renderReflexChoices() {
         const btn = document.createElement('button');
         btn.className = "reflex-btn bg-white p-4 rounded-xl text-left flex items-center gap-4 h-full overflow-hidden";
         btn.innerHTML = `
-            <button onclick="event.stopPropagation(); showReflexDetail(${opt.id})" class="info-btn text-slate-300 hover:text-blue-900">
+            <button onclick="event.stopPropagation(); showReferential(${opt.id})" class="info-btn text-slate-300 hover:text-blue-900">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
             </button>
             <span class="text-3xl shrink-0"><i data-lucide="${opt.icon}" class="w-8 h-8 text-slate-800"></i></span>
