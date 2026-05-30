@@ -1648,10 +1648,17 @@
             }
 
             const savedDt = localStorage.getItem('design-thinking-last-slide');
-            const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : 0;
+            const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
             const dtStatusLabel = document.getElementById('dt-status-label');
             if (dtStatusLabel) {
                 window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 7);
+            }
+
+            const savedMvp = localStorage.getItem('mvp-last-slide');
+            const mvpSlideIdx = savedMvp ? parseInt(savedMvp, 10) : -1;
+            const mvpStatusLabel = document.getElementById('mvp-status-label');
+            if (mvpStatusLabel) {
+                window.updateCardStatusBadge(mvpStatusLabel, mvpSlideIdx + 1, 7);
             }
 
             // Progression rate
@@ -1973,10 +1980,12 @@
             }
 
             // Update progress badge on the card status dot
-            const statusLabelId = currentAtelierId === 1 ? 'dt-status-label' : 'mvp-status-label';
-            const statusLabel = document.getElementById(statusLabelId);
-            if (statusLabel) {
-                window.updateCardStatusBadge(statusLabel, currentSlide + 1, slides.length);
+            if (slides.length > 0) {
+                const statusLabelId = currentAtelierId === 1 ? 'dt-status-label' : 'mvp-status-label';
+                const statusLabel = document.getElementById(statusLabelId);
+                if (statusLabel) {
+                    window.updateCardStatusBadge(statusLabel, currentSlide + 1, slides.length);
+                }
             }
         }
 
