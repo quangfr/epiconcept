@@ -1,0 +1,32 @@
+/* style.css - Design System Commune Epiconcept */
+:root {
+    --bg-dark: #f8fafc;
+    --bg-deep: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.75);
+    --card-border: rgba(255, 255, 255, 0.6);
+    
+    /* Brand Primary Color (Slightly lighter blue) */
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-primary-glow: rgba(59, 130, 246, 0.08);
+    
+    /* Feedback & Support Colors */
+    --color-emerald: #10b981;
+    --color-emerald-glow: rgba(16, 185, 129, 0.08);
+    --color-rose: #ef4444;
+    --color-rose-glow: rgba(239, 68, 68, 0.08);
+    --color-amber: #f59e0b;
+    --color-amber-glow: rgba(245, 158, 11, 0.08);
+    
+    /* Neutral Grays */
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-low: #64748b;
+    
+    /* Typography */
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}

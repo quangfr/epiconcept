@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,28 +22,7 @@
     </script>
     
     <style>
-        /* Design System / Root Variables */
-        :root {
-            --bg-dark: #f8fafc;
-            --bg-deep: #f1f5f9;
-            --bg-card: rgba(255, 255, 255, 0.75);
-            --card-border: rgba(255, 255, 255, 0.6);
-            
-            --color-primary: #1e3a8a; /* Slate 700 - Pale Dark Blue */
-            --color-primary-glow: rgba(30, 58, 138, 0.08);
-            --color-secondary: #0891b2; /* Cyan */
-            --color-secondary-glow: rgba(6, 182, 212, 0.08);
-            --color-emerald: #10b981;
-            
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --text-low: #64748b;
-            
-            --font-display: 'Outfit', sans-serif;
-            --font-body: 'Plus Jakarta Sans', sans-serif;
-            
-            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        /* Design System / Root Variables loaded from style.css */
 
         /* Base Reset */
         * {
@@ -194,13 +174,11 @@
             padding-bottom: 0.5rem;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(15, 23, 42, 0.1) transparent;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
         }
-        .ateliers-scroll::-webkit-scrollbar { height: 4px; }
-        .ateliers-scroll::-webkit-scrollbar-track { background: transparent; }
-        .ateliers-scroll::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.1); border-radius: 2px; }
+        .ateliers-scroll::-webkit-scrollbar { display: none; }
 
         .atelier-col {
             flex: 0 0 calc(33.333% - 0.667rem);
@@ -370,7 +348,10 @@
         /* Glassmorphism Card Style */
         .simulator-card { padding: 1rem; gap: 0.5rem;
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.6); /* override dark border */
+            border-top: 4px solid #cbd5e1;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
             border-radius: 0.75rem;
             padding: 1.25rem;
             position: relative;
@@ -382,18 +363,6 @@
             transition: var(--transition-smooth);
             box-shadow: 0 15px 35px rgba(15, 23, 42, 0.03);
             justify-content: space-between;
-        }
-
-        /* Dynamic Border lighting */
-        .simulator-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-primary);
-            transition: var(--transition-smooth);
         }
 
         /* Hover States for Cards */
@@ -615,8 +584,8 @@
         }
         
         .cta-button:hover {
-            background: #1e40af;
-            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
+            background: var(--color-primary-dark);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
             transform: scale(1.01);
         }
 
@@ -892,6 +861,56 @@
                 min-height: 100px;
             }
         }
+
+        /* Discrete Hover Navigation Arrows */
+        .hover-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-low);
+            opacity: 0;
+            transition: opacity 0.3s ease, color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            pointer-events: auto;
+        }
+        .hover-arrow svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.5;
+        }
+        .hover-arrow:hover {
+            color: var(--color-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .hover-arrow.show {
+            opacity: 0.55;
+        }
+        .hover-arrow.show:hover {
+            opacity: 1;
+        }
+        .hover-arrow.left-arrow, .hover-arrow.modal-left-arrow {
+            left: 15px;
+        }
+        .hover-arrow.right-arrow, .hover-arrow.modal-right-arrow {
+            right: 15px;
+        }
+        .hover-arrow.hub-arrow {
+            position: fixed;
+            top: 58%;
+        }
+        @media (hover: none) {
+            .hover-arrow {
+                display: none;
+            }
+        }
     </style>
 
     </head>
@@ -920,13 +939,12 @@
 
         <!-- Horizontal Ateliers Scroll -->
         <div class="scroll-wrapper">
-            <button class="scroll-nav prev" id="scroll-prev" aria-label="Atelier précédent" disabled>
-                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            <button class="hover-arrow left-arrow hub-arrow" onclick="scrollHub(-1)" aria-label="Ateliers précédents">
+                <i data-lucide="chevron-left"></i>
             </button>
-            <button class="scroll-nav next" id="scroll-next" aria-label="Atelier suivant">
-                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            <button class="hover-arrow right-arrow hub-arrow" onclick="scrollHub(1)" aria-label="Ateliers suivants">
+                <i data-lucide="chevron-right"></i>
             </button>
-
             <main class="ateliers-scroll" id="ateliers-scroll">
 
             <!-- ═══ ATELIER 1 ═══ -->
@@ -962,7 +980,7 @@
                     
     <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
         <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="target"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">A - Besoins utilisateurs</h2>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">A - Cadrage Besoins</h2>
         <div style="margin-left: auto; flex-shrink: 0;">
             <div class="card-status"><span id="po-status-label">0 / 36</span></div>
         </div>
@@ -976,7 +994,7 @@
                     
     <div class="card-header" style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
         <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="palette"></i></div>
-        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">B - Conception UX/UI</h2>
+        <h2 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">B - Ergonomie UI/UX</h2>
         <div style="margin-left: auto; flex-shrink: 0;">
             <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
         </div>
@@ -1014,12 +1032,9 @@
         </div>
     </div>
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
-        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Méthodologie du Delivery (Scrum, Kanban, QA) pour sécuriser le développement.</p>
+        <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Méthode pour qualifier et découper un problème afin d'élaborer un premier incrément minimal.</p>
     </div>
-                    <button class="cta-button disabled">
-                        <span>Bientôt disponible</span>
-                        <i data-lucide="arrow-right"></i>
-                    </button>
+
                 </article>
                 <article class="simulator-card bug-theme disabled-card" id="bug-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1034,7 +1049,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Gérez les anomalies : évaluation de l'impact, contournement et suivi de correction.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
                 <article class="simulator-card evo-theme disabled-card" id="evo-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1049,7 +1064,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
             </section>
 
@@ -1078,10 +1093,7 @@
                     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.</p>
                     </div>
-                    <button class="cta-button disabled">
-                        <span>Bientôt disponible</span>
-                        <i data-lucide="arrow-right"></i>
-                    </button>
+
                 </article>
                 <article class="simulator-card vision-theme disabled-card" id="roadmap-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1096,7 +1108,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
                 <article class="simulator-card vision-theme disabled-card" id="features-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1111,7 +1123,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
             </section>
 
@@ -1143,10 +1155,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Comprendre comment organiser le run, prioriser les anomalies en production et communiquer avec les utilisateurs impactés.</p>
     </div>
-                    <button class="cta-button disabled">
-                        <span>Bientôt disponible</span>
-                        <i data-lucide="arrow-right"></i>
-                    </button>
+
                 </article>
                 <article class="simulator-card run-support-theme disabled-card" id="run-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1161,7 +1170,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Surveillez les logs, analysez les incidents et déclenchez les actions de maintenance.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
                 <article class="simulator-card run-support-theme disabled-card" id="support-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1176,7 +1185,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
             </section>
 
@@ -1208,10 +1217,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses disruptives sans gaspiller de ressources.</p>
     </div>
-                    <button class="cta-button disabled">
-                        <span>Bientôt disponible</span>
-                        <i data-lucide="arrow-right"></i>
-                    </button>
+
                 </article>
                 <article class="simulator-card innov-theme disabled-card" id="veille-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1226,7 +1232,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
                 <article class="simulator-card innov-theme disabled-card" id="poc-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1241,7 +1247,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Expérimentez vos idées avec un POC rapide pour valider les hypothèses sans risque.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
             </section>
 
@@ -1273,10 +1279,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.</p>
     </div>
-                    <button class="cta-button disabled">
-                        <span>Bientôt disponible</span>
-                        <i data-lucide="arrow-right"></i>
-                    </button>
+
                 </article>
                 <article class="simulator-card data-theme disabled-card" id="analytics-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1291,7 +1294,7 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Analysez les données d'usage, identifiez les frictions et validez par les KPIs.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
                 <article class="simulator-card data-theme disabled-card" id="kpi-card" style="opacity: 0.7;">
                     <div class="backlight"></div>
@@ -1306,11 +1309,12 @@
     <div class="card-body-content" style="padding-top: 0; min-height: auto;">
         <p class="card-description" style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Définissez les indicateurs clés et construisez des tableaux de bord décisionnels efficaces.</p>
     </div>
-                    <button class="cta-button disabled" disabled>Bientôt disponible</button>
+
                 </article>
             </section>
 
             </main>
+            <div id="atelier-dots-container" style="display: flex; justify-content: center; gap: 8px; margin-top: 15px; margin-bottom: 5px;"></div>
         </div><!-- /.scroll-wrapper -->
 
     </div><!-- /.container -->
@@ -1328,6 +1332,21 @@
             
             parent.style.setProperty('--progress', `${percent}%`);
             
+            // Find closest simulator-card and update its top border color
+            const card = labelEl.closest('.simulator-card');
+            if (card) {
+                card.style.borderLeft = 'none';
+                card.style.borderRight = 'none';
+                card.style.borderBottom = 'none';
+                if (percent === 100) {
+                    card.style.borderTop = '4px solid var(--color-emerald)';
+                } else if (percent === 0) {
+                    card.style.borderTop = '4px solid var(--color-rose)';
+                } else {
+                    card.style.borderTop = '4px solid var(--color-amber)';
+                }
+            }
+
             if (percent === 100) {
                 parent.style.color = '#047857';
                 parent.style.borderColor = 'rgba(16, 185, 129, 0.25)';
@@ -1370,27 +1389,52 @@
             let maxUxScore = 39; // Updated from 36 to 39 for 13 reflexes
             let totalMaxScore = maxPoScore + maxUxScore;
 
-            // Scroll arrows
+            // Atelier Scroll Dots
             const scrollEl = document.getElementById('ateliers-scroll');
-            const prevBtn = document.getElementById('scroll-prev');
-            const nextBtn = document.getElementById('scroll-next');
-            function updateArrows() {
-                if (!scrollEl) return;
-                prevBtn.disabled = scrollEl.scrollLeft <= 0;
-                const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
-                nextBtn.disabled = scrollEl.scrollLeft >= maxScroll - 1;
-            }
-            if (scrollEl && prevBtn && nextBtn) {
-                scrollEl.addEventListener('scroll', updateArrows, { passive: true });
-                prevBtn.addEventListener('click', () => {
-                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
-                    scrollEl.scrollBy({ left: -((colW + 10) * 3), behavior: 'smooth' });
-                });
-                nextBtn.addEventListener('click', () => {
-                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
-                    scrollEl.scrollBy({ left: ((colW + 10) * 3), behavior: 'smooth' });
-                });
-                updateArrows();
+            const dotsContainer = document.getElementById('atelier-dots-container');
+            if (scrollEl && dotsContainer) {
+                const cols = scrollEl.querySelectorAll('.atelier-col');
+                const totalCols = cols.length;
+
+                function updateAtelierDots() {
+                    const scrollLeft = scrollEl.scrollLeft;
+                    const containerWidth = scrollEl.clientWidth;
+                    const firstCol = scrollEl.querySelector('.atelier-col');
+                    if (!firstCol) return;
+                    
+                    const colWidth = firstCol.offsetWidth;
+                    // Calculate columns visible per screen page (including gap spacing)
+                    const colsPerPage = Math.max(1, Math.round(containerWidth / (colWidth + 10)));
+                    const totalPages = Math.ceil(totalCols / colsPerPage);
+                    
+                    // Identify the active page/screen index based on scroll position
+                    const activePage = Math.min(totalPages - 1, Math.round(scrollLeft / containerWidth));
+
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < totalPages; i++) {
+                        const dot = document.createElement('div');
+                        dot.style.width = '8px';
+                        dot.style.height = '8px';
+                        dot.style.borderRadius = '50%';
+                        dot.style.cursor = 'pointer';
+                        dot.style.background = (i === activePage) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.15)';
+                        dot.style.transition = 'all 0.3s ease';
+                        if (i === activePage) {
+                            dot.style.transform = 'scale(1.25)';
+                        }
+                        dot.onclick = () => {
+                            scrollEl.scrollTo({
+                                left: i * containerWidth,
+                                behavior: 'smooth'
+                            });
+                        };
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                scrollEl.addEventListener('scroll', updateAtelierDots, { passive: true });
+                updateAtelierDots();
+                window.addEventListener('resize', updateAtelierDots);
             }
 
             // Update UI status badges with dynamic colors and x/y format
@@ -1408,7 +1452,7 @@
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : 0;
             const dtStatusLabel = document.getElementById('dt-status-label');
             if (dtStatusLabel) {
-                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 7);
+                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 8);
             }
 
             // Progression rate
@@ -1451,26 +1495,25 @@
 <!-- Comprendre Modal -->
 <div id="comprendre-modal" style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 15px; margin: 0; box-sizing: border-box;">
     
-    <!-- Header with progress bar placed ABOVE slide content -->
+    <!-- Discrete Hover Modal Arrows -->
+    <button class="hover-arrow modal-left-arrow modal-arrow" onclick="changeSlide(-1)" aria-label="Slide précédente">
+        <i data-lucide="chevron-left"></i>
+    </button>
+    <button class="hover-arrow modal-right-arrow modal-arrow" onclick="changeSlide(1)" aria-label="Slide suivante">
+        <i data-lucide="chevron-right"></i>
+    </button>
+    
+    <!-- Header with progress dots placed ABOVE slide content -->
     <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 32px; flex-shrink: 0; gap: 1rem; border-bottom: 1px solid rgba(15, 23, 42, 0.05); padding-bottom: 8px;">
-        <!-- Left Nav Arrow -->
-        <button onclick="changeSlide(-1)" style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Page précédente">
-            <i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i>
-        </button>
-
         <!-- Progress Header -->
-        <div id="slide-progress-header" style="display: flex; flex-direction: row; align-items: center; gap: 10px; flex-grow: 1; max-width: 320px;">
+        <div id="slide-progress-header" style="display: flex; flex-direction: row; align-items: center; gap: 12px; flex-grow: 1;">
             <div id="slide-page-number" style="font-size: 0.6rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;">Page 1 / 6</div>
-            <div id="notched-progress-bar" style="display: flex; gap: 3px; flex-grow: 1; height: 4px; background: transparent; border-radius: 9999px; overflow: hidden;">
-                <!-- Generated dynamically -->
+            <div id="dots-progress-container" style="display: flex; gap: 6px; align-items: center;">
+                <!-- Generated dynamically as dots -->
             </div>
         </div>
 
         <div style="display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0;">
-            <!-- Right Nav Arrow -->
-            <button onclick="changeSlide(1)" style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Page suivante">
-                <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
-            </button>
             <!-- Close Button -->
             <button onclick="closeComprendre()" style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Fermer la modal">
                 <i data-lucide="x" style="width: 14px; height: 14px;"></i>
@@ -1660,6 +1703,38 @@ function changeSlide(dir) {
     localStorage.setItem('design-thinking-last-slide', currentSlide);
     updateSlides();
 }
+
+function scrollHub(dir) {
+    const scrollEl = document.getElementById('ateliers-scroll');
+    if (scrollEl) {
+        const containerWidth = scrollEl.clientWidth;
+        scrollEl.scrollBy({ left: dir * containerWidth, behavior: 'smooth' });
+    }
+}
+
+let hoverArrowTimeout;
+function handleArrowVisibility(e) {
+    const modal = document.getElementById('comprendre-modal');
+    const isModalOpen = modal && modal.style.display === 'flex';
+    
+    const hubArrows = document.querySelectorAll('.hub-arrow');
+    const modalArrows = document.querySelectorAll('.modal-arrow');
+    
+    if (isModalOpen) {
+        hubArrows.forEach(a => a.classList.remove('show'));
+        modalArrows.forEach(a => a.classList.add('show'));
+    } else {
+        modalArrows.forEach(a => a.classList.remove('show'));
+        hubArrows.forEach(a => a.classList.add('show'));
+    }
+    
+    clearTimeout(hoverArrowTimeout);
+    hoverArrowTimeout = setTimeout(() => {
+        hubArrows.forEach(a => a.classList.remove('show'));
+        modalArrows.forEach(a => a.classList.remove('show'));
+    }, 4000);
+}
+document.addEventListener('mousemove', handleArrowVisibility);
 function updateSlides() {
     const slides = document.querySelectorAll('.comprendre-slide');
     
@@ -1673,19 +1748,26 @@ function updateSlides() {
         s.style.display = (i === currentSlide) ? 'flex' : 'none';
     });
     
-    // Generate and color the notched progress bar segments
-    const bar = document.getElementById('notched-progress-bar');
-    if (bar) {
-        bar.innerHTML = '';
+    // Generate and color the progress dots
+    const dotsContainer = document.getElementById('dots-progress-container');
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
         for (let i = 0; i < slides.length; i++) {
-            const notch = document.createElement('div');
-            notch.style.flex = '1';
-            notch.style.height = '100%';
-            notch.style.borderRadius = '2px';
-            // Primary blue of Epiconcept (--color-primary is #1e3a8a / Slate 800)
-            notch.style.background = (i <= currentSlide) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.1)';
-            notch.style.transition = 'background 0.3s ease';
-            bar.appendChild(notch);
+            const dot = document.createElement('div');
+            dot.style.width = '8px';
+            dot.style.height = '8px';
+            dot.style.borderRadius = '50%';
+            dot.style.cursor = 'pointer';
+            dot.style.background = (i === currentSlide) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.15)';
+            dot.style.transition = 'all 0.3s ease';
+            if (i === currentSlide) {
+                dot.style.transform = 'scale(1.25)';
+            }
+            dot.onclick = () => {
+                currentSlide = i;
+                showSlide();
+            };
+            dotsContainer.appendChild(dot);
         }
     }
     
@@ -1719,6 +1801,16 @@ document.addEventListener('keydown', (e) => {
             changeSlide(-1);
         } else if (e.key === 'Escape') {
             closeComprendre();
+        }
+    } else {
+        const scrollEl = document.getElementById('ateliers-scroll');
+        if (scrollEl) {
+            const containerWidth = scrollEl.clientWidth;
+            if (e.key === 'ArrowRight') {
+                scrollEl.scrollBy({ left: containerWidth, behavior: 'smooth' });
+            } else if (e.key === 'ArrowLeft') {
+                scrollEl.scrollBy({ left: -containerWidth, behavior: 'smooth' });
+            }
         }
     }
 });

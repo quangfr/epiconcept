@@ -142,7 +142,7 @@
   {
     "id": 6,
     "title": "A6. Évaluer la spécificité",
-    "intent": "Déterminer si le besoin est localisé à un seul client ou s'il s'agit d'une tendance marché qui bénéficiera à tous.",
+    "intent": "Déterminer si le besoin est spécifique au client et comment le généraliser pour d'autres utilisateurs.",
     "questions": [
       "Pensez-vous que ce besoin est propre à votre façon de travailler ?",
       "Comment vos confrères d'autres centres gèrent-ils ce point ?",

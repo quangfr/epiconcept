@@ -3,19 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B - Conception UX/UI - ESIS-3D</title>
+    <title>B - Ergonomie UI/UX - ESIS-3D</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blue: {
+                900: '#3b82f6',
+                800: '#2563eb',
+              }
+            }
+          }
+        }
+      }
+    </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; color: #1E293B; overflow: hidden; height: 100vh; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-deep); color: var(--text-main); overflow: hidden; height: 100vh; }
         
         /* Conteneurs et Effets */
         .glass-panel { background: white; border: 1px solid #E2E8F0; display: flex; flex-direction: column; }
         
         /* Boutons de Phase 1 */
         .reflex-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #F8FAFC; }
-        .reflex-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #818CF8; box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.15); }
+        .reflex-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--color-primary); box-shadow: 0 10px 15px -3px var(--color-primary-glow); }
         
         /* Boutons UI de Phase 2 */
         .ui-btn { transition: all 0.2s; border: 2px solid #F1F5F9; background: #FAFAF9; }
@@ -31,7 +46,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
         
         .level-card { transition: all 0.3s ease; cursor: pointer; }
-        .level-card:hover { transform: scale(1.02); border-color: #1e3a8a; }
+        .level-card:hover { transform: scale(1.02); border-color: var(--color-primary); }
         
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -132,13 +147,18 @@
         <a href="./index.html" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" aria-label="Retour au Hub">
             <i data-lucide="arrow-left"></i>
         </a>
-        <button onclick="openModal()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" title="Référentiel UX">
-            <i data-lucide="help-circle"></i>
-        </button>
+        <div class="flex gap-2">
+            <button onclick="resetProgress()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-red-600 hover:text-red-600 shadow-sm transition-all" title="Réinitialiser la progression">
+                <i data-lucide="rotate-ccw"></i>
+            </button>
+            <button onclick="openModal()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" title="Référentiel UX">
+                <i data-lucide="help-circle"></i>
+            </button>
+        </div>
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
         <div class="text-center mb-6 md:mb-12">
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">B - Conception <span class="text-slate-800">UX/UI</span></h1>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">B - Ergonomie <span class="text-slate-800">UI/UX</span></h1>
             <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).</p>
         </div>
 
@@ -198,6 +218,10 @@
         </div>
 
         <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
+            <!-- Reset Button -->
+            <button onclick="resetProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser la progression">
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            </button>
             <!-- Referentiel Button -->
             <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel UX">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
@@ -380,6 +404,17 @@ function startLevel(lv) {
         showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual });
     } else {
         loadStepPhase1();
+    }
+}
+
+function resetProgress() {
+    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression d'Ergonomie UX/UI ?")) {
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('ux-')) {
+                localStorage.removeItem(key);
+            }
+        });
+        location.reload();
     }
 }
 
