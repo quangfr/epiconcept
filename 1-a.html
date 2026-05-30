@@ -66,6 +66,16 @@
                 min-height: 400px !important;
                 padding: 1.5rem !important;
             }
+            #referential-screen {
+                padding: 0 !important;
+            }
+            #referential-screen > div {
+                margin: 0 !important;
+                border-radius: 0 !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+                width: 100% !important;
+            }
         }
     </style>
 </head>
@@ -78,8 +88,8 @@
         <a href="./index.html" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" aria-label="Retour au Hub">
             <i data-lucide="arrow-left"></i>
         </a>
-        <button onclick="showReferential()" class="flex items-center gap-2 md:gap-3 bg-white border-2 border-slate-200 px-3 py-2 md:px-6 md:py-3 rounded-full font-bold text-sm text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all">
-            <i data-lucide="library" class="w-4 h-4"></i> Référentiel PO
+        <button onclick="showReferential()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" title="Référentiel PO">
+            <i data-lucide="help-circle"></i>
         </button>
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">

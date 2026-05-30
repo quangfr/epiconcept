@@ -780,11 +780,17 @@
             box-sizing: border-box;
         }
         @media (max-width: 640px) {
+            #ref-modal {
+                padding: 0 !important;
+            }
             .ref-modal-card {
-                padding: 1.25rem 1rem;
-                margin: 0.75rem;
-                border-radius: 1rem;
-                max-height: 92vh;
+                padding: 1rem !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                max-height: 100vh !important;
+                height: 100% !important;
+                width: 100% !important;
+                border: none !important;
             }
         }
     </style>

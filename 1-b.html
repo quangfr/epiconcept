@@ -73,6 +73,16 @@
                 min-height: 400px !important;
                 padding: 1.5rem !important;
             }
+            #modal-referentiel {
+                padding: 0 !important;
+            }
+            #modal-referentiel > div {
+                margin: 0 !important;
+                border-radius: 0 !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+                width: 100% !important;
+            }
         }
     </style>
 </head>
@@ -122,8 +132,8 @@
         <a href="./index.html" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" aria-label="Retour au Hub">
             <i data-lucide="arrow-left"></i>
         </a>
-        <button onclick="openModal()" class="flex items-center gap-2 md:gap-3 bg-white border-2 border-slate-200 px-3 py-2 md:px-6 md:py-3 rounded-full font-bold text-sm text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all">
-            <i data-lucide="library" class="w-4 h-4"></i> Référentiel UX
+        <button onclick="openModal()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" title="Référentiel UX">
+            <i data-lucide="help-circle"></i>
         </button>
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
@@ -190,7 +200,7 @@
         <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
             <!-- Referentiel Button -->
             <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel UX">
-                <i data-lucide="library" class="w-4 h-4"></i>
+                <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
             
             <!-- Breadcrumb / Fil d'Ariane -->
