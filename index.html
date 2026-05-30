@@ -1562,7 +1562,39 @@ document.addEventListener('click', (e) => {
         
         content.appendChild(clonedSvg);
         overlay.appendChild(content);
+        
+        // Create close button (x) for zoom overlay
+        const closeBtn = document.createElement('button');
+        closeBtn.style.position = 'absolute';
+        closeBtn.style.top = '1rem';
+        closeBtn.style.right = '1rem';
+        closeBtn.style.background = 'none';
+        closeBtn.style.border = 'none';
+        closeBtn.style.color = '#ffffff';
+        closeBtn.style.cursor = 'pointer';
+        closeBtn.style.padding = '6px';
+        closeBtn.style.display = 'flex';
+        closeBtn.style.alignItems = 'center';
+        closeBtn.style.justifyContent = 'center';
+        closeBtn.style.opacity = '0.6';
+        closeBtn.style.transition = 'opacity 0.2s, transform 0.2s';
+        closeBtn.innerHTML = '<i data-lucide="x" style="width: 20px; height: 20px;"></i>';
+        
+        closeBtn.onmouseover = () => { 
+            closeBtn.style.opacity = '1'; 
+            closeBtn.style.transform = 'scale(1.1)';
+        };
+        closeBtn.onmouseout = () => { 
+            closeBtn.style.opacity = '0.6'; 
+            closeBtn.style.transform = 'scale(1)';
+        };
+        
+        overlay.appendChild(closeBtn);
         document.body.appendChild(overlay);
+        
+        if (window.lucide) {
+            lucide.createIcons();
+        }
         
         overlay.onclick = () => {
             overlay.remove();
@@ -1720,9 +1752,9 @@ function closeRefModal() {
 <!-- Reference Modal (Glassmorphic pop-up) -->
 <div id="ref-modal" class="ref-modal-overlay" style="display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; transition: opacity 0.3s ease;">
     <div class="ref-modal-card" style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); width: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);">
-        <!-- Close Button -->
-        <button onclick="closeRefModal()" style="position: absolute; top: 1.25rem; right: 1.25rem; background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(15,23,42,0.12)'" onmouseout="this.style.background='rgba(15,23,42,0.06)'">
-            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        <!-- Close Button (Positioned higher, small, no background) -->
+        <button onclick="closeRefModal()" style="position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onmouseover="this.style.color='#0f172a'" onmouseout="this.style.color='#64748b'">
+            <i data-lucide="x" style="width: 14px; height: 14px;"></i>
         </button>
         
         <!-- Header / Title -->
@@ -1750,16 +1782,10 @@ function closeRefModal() {
             </ul>
         </div>
         
-        <!-- Illustrations Visuelles / Previews -->
-        <div id="ref-visuals-container" style="display: none; flex-direction: column; gap: 0.5rem;">
-            <h4 style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Aperçu Visuel & Maquette</h4>
-            <div id="ref-visuals-list" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; background: #f8fafc; border: 1px solid rgba(15,23,42,0.04); padding: 1rem; border-radius: 1rem; width: 100%;">
-                <!-- Filled dynamically -->
-            </div>
+        <!-- Hidden Visual Container placeholders to prevent Javascript null references -->
+        <div id="ref-visuals-container" style="display: none !important;">
+            <div id="ref-visuals-list"></div>
         </div>
-        
-        <!-- Action Button -->
-        <button onclick="closeRefModal()" class="cta-button" style="margin-top: 0.5rem;">J'ai compris</button>
     </div>
 </div>
 
