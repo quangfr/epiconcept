@@ -181,33 +181,16 @@
             margin-top: 0.15rem;
         }
 
-        /* Horizontal Ateliers Scroll */
+        /* Horizontal Ateliers Scroll - Paginated */
         .ateliers-scroll {
             display: flex;
             flex-direction: row;
             gap: 1rem;
-            overflow-x: auto;
+            overflow: hidden;
             flex-grow: 1;
             min-height: 0;
-            padding-bottom: 0.5rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(15, 23, 42, 0.1) transparent;
+            padding-bottom: 0.25rem;
             animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-        }
-
-        .ateliers-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .ateliers-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .ateliers-scroll::-webkit-scrollbar-thumb {
-            background: rgba(15, 23, 42, 0.1);
-            border-radius: 2px;
         }
 
         .atelier-col {
@@ -216,7 +199,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
-            scroll-snap-align: start;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
         }
 
         .atelier-header {
@@ -267,56 +250,46 @@
             flex-direction: column;
         }
 
-        .scroll-nav {
+        /* Edge arrows (icon only, appear on hover, auto-hide after 4s) */
+        .edge-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             z-index: 20;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 1px solid var(--card-border);
-            color: var(--text-muted);
+            background: none;
+            border: none;
+            color: rgba(15, 23, 42, 0.3);
+            cursor: pointer;
+            transition: opacity 0.3s ease, color 0.2s ease;
+            padding: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-            backdrop-filter: blur(12px);
-            flex-shrink: 0;
-        }
-
-        .scroll-nav:hover {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
-            color: #fff;
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.2);
-        }
-
-        .scroll-nav:disabled {
-            opacity: 0.25;
-            cursor: not-allowed;
+            opacity: 0;
             pointer-events: none;
         }
 
-        .scroll-nav svg {
-            width: 14px;
-            height: 14px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .scroll-wrapper:hover .edge-arrow {
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        .scroll-nav.prev {
-            left: -14px;
+        .edge-arrow:hover {
+            color: var(--color-primary);
         }
 
-        .scroll-nav.next {
-            right: -14px;
+        .edge-arrow:disabled {
+            opacity: 0 !important;
+            cursor: not-allowed;
+            pointer-events: none !important;
+        }
+
+        .edge-arrow-left {
+            left: 2px;
+        }
+
+        .edge-arrow-right {
+            right: 2px;
         }
 
         /* Atelier header — titre une ligne + sous-titre objectif */
@@ -445,14 +418,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--color-primary);
+            background: var(--card-accent, var(--color-primary));
             transition: var(--transition-smooth);
         }
 
         /* Hover States for Cards */
         .simulator-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(15, 23, 42, 0.1);
+            border-color: var(--card-accent, rgba(15, 23, 42, 0.1));
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06), 0 0 35px rgba(30, 58, 138, 0.05);
         }
 
@@ -474,6 +447,10 @@
         .simulator-card:hover .backlight {
             opacity: 0.08;
             transform: scale(1.1);
+        }
+
+        .disabled-card {
+            --card-accent: #94a3b8;
         }
 
         /* Card Content Layout */
@@ -521,8 +498,29 @@
             padding: 0.25rem 0.6rem;
             border-radius: 9999px;
             box-shadow: 0 4px 10px rgba(15, 23, 42, 0.01);
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
             white-space: nowrap;
+        }
+
+        .card-status[data-color="green"] {
+            color: #047857;
+            border-color: rgba(16, 185, 129, 0.22);
+            background: linear-gradient(to right, rgba(16, 185, 129, 0.22) var(--progress, 0%), rgba(16, 185, 129, 0.05) var(--progress, 0%));
+        }
+        .card-status[data-color="yellow"] {
+            color: #b45309;
+            border-color: rgba(245, 158, 11, 0.22);
+            background: linear-gradient(to right, rgba(245, 158, 11, 0.22) var(--progress, 0%), rgba(245, 158, 11, 0.05) var(--progress, 0%));
+        }
+        .card-status[data-color="red"] {
+            color: #b91c1c;
+            border-color: rgba(239, 68, 68, 0.22);
+            background: linear-gradient(to right, rgba(239, 68, 68, 0.22) var(--progress, 0%), rgba(239, 68, 68, 0.05) var(--progress, 0%));
+        }
+        .card-status[data-color="grey"] {
+            color: #64748b;
+            border-color: rgba(100, 116, 139, 0.2);
+            background: rgba(241, 245, 249, 0.6);
         }
 
         @media (max-width: 640px) {
@@ -547,9 +545,9 @@
 
         /* Statut "À venir" */
         .card-status.coming {
-            background: rgba(100, 116, 139, 0.08);
-            color: #475569;
-            border: 1px solid rgba(100, 116, 139, 0.25);
+            color: #64748b;
+            border-color: rgba(100, 116, 139, 0.2);
+            background: rgba(241, 245, 249, 0.6);
         }
 
         .card-status.coming span.status-dot {
@@ -789,7 +787,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 10px 10px 40px 10px;
+            padding: 6px 10px 8px 10px;
             box-sizing: border-box;
         }
 
@@ -971,6 +969,69 @@
                 min-height: 100px;
             }
         }
+
+        /* Mockup container styles (from 1-b.html) */
+        .mockup-container {
+            pointer-events: none;
+        }
+
+        .ref-visual-card .visual-mockup .mockup-container {
+            pointer-events: none;
+            transform: scale(0.9);
+            transform-origin: center center;
+        }
+
+        /* Sub-options inside reflex modal */
+        .ref-sub-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        .ref-sub-option {
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 2px solid #F1F5F9;
+            background: #FAFAF9;
+            cursor: default;
+            transition: all 0.2s;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .ref-sub-option.correct {
+            border-color: #047857;
+            background-color: #ECFDF5;
+        }
+
+        .ref-sub-option.correct .sub-option-label {
+            background: #10b981;
+            color: white;
+        }
+
+        .ref-sub-option .sub-option-label {
+            background: #94a3b8;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .ref-sub-option .sub-option-text {
+            font-size: 0.8rem;
+            color: #334155;
+            font-weight: 600;
+            line-height: 1.4;
+        }
     </style>
 
 </head>
@@ -998,17 +1059,14 @@
             </section>
         </div>
 
-        <!-- Horizontal Ateliers Scroll -->
-        <div class="scroll-wrapper">
-            <button class="scroll-nav prev" id="scroll-prev" aria-label="Atelier précédent" disabled>
-                <svg viewBox="0 0 24 24">
-                    <polyline points="15 18 9 12 15 6" />
-                </svg>
+        <!-- Horizontal Ateliers Paginated -->
+        <div class="scroll-wrapper" id="scroll-wrapper">
+            <!-- Edge arrows (icon only, appear on hover) -->
+            <button class="edge-arrow edge-arrow-left" id="scroll-prev" aria-label="Atelier précédent">
+                <i data-lucide="chevron-left" style="width: 20px; height: 20px;"></i>
             </button>
-            <button class="scroll-nav next" id="scroll-next" aria-label="Atelier suivant">
-                <svg viewBox="0 0 24 24">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg>
+            <button class="edge-arrow edge-arrow-right" id="scroll-next" aria-label="Atelier suivant">
+                <i data-lucide="chevron-right" style="width: 20px; height: 20px;"></i>
             </button>
 
             <main class="ateliers-scroll" id="ateliers-scroll">
@@ -1028,8 +1086,7 @@
 
                     </div>
 
-                    <article class="simulator-card po-theme" id="dt-card"
-                        style="border-top: 4px solid var(--color-primary); border-left: none; border-right: none; border-bottom: none; cursor: pointer;">
+                    <article class="simulator-card po-theme" id="dt-card" style="cursor: pointer;">
                         <div class="backlight"></div>
 
                         <div class="card-header"
@@ -1107,7 +1164,7 @@
 
                     </div>
 
-                    <article class="simulator-card bug-theme disabled-card" style="opacity: 0.7;">
+                    <article class="simulator-card bug-theme" id="mvp-card" style="cursor: pointer;">
                         <div class="backlight"></div>
 
                         <div class="card-header"
@@ -1117,48 +1174,38 @@
                                     data-lucide="rocket"></i></div>
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                2 - Minimal Viable Product</h2>
+                                2- Produit Minimum Viable</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div style="display:flex;align-items:center;gap:0.4rem;">
-                                    <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                    </div>
-                                </div>
+                                <div class="card-status"><span id="mvp-status-label">0 / 7</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
-                                Méthodologie du Delivery (Scrum, Kanban, QA) pour sécuriser le développement.</p>
+                                Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester et à livrer.</p>
                         </div>
-                        <button class="cta-button disabled">
-                            <span>Bientôt disponible</span>
-                            <i data-lucide="arrow-right"></i>
-                        </button>
                     </article>
-                    <article class="simulator-card bug-theme disabled-card" id="bug-card" style="opacity: 0.7;">
+                    <article class="simulator-card evo-theme" id="cso-card" style="cursor: pointer;">
                         <div class="backlight"></div>
 
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
-                                    data-lucide="bug"></i></div>
+                                    data-lucide="headset"></i></div>
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                C - Bugs &amp; Qualité</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                                C - Support &amp; Client</h2>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="cso-status-label">0 / 27</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Gérez
-                                les anomalies : évaluation de l'impact, contournement et suivi de correction.</p>
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.</p>
                         </div>
-                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
                     </article>
                     <article class="simulator-card evo-theme" id="evo-card" style="cursor: pointer;">
                         <div class="backlight"></div>
@@ -1563,6 +1610,9 @@
                 </section>
 
             </main>
+
+            <!-- Dot progress for pages -->
+            <div id="hub-dot-progress" style="display: flex; gap: 6px; justify-content: center; padding: 6px 0 2px; flex-shrink: 0;"></div>
         </div><!-- /.scroll-wrapper -->
 
     </div><!-- /.container -->
@@ -1580,18 +1630,23 @@
 
             parent.style.setProperty('--progress', `${percent}%`);
 
+            let color, accent;
             if (percent === 100) {
-                parent.style.color = '#047857';
-                parent.style.borderColor = 'rgba(16, 185, 129, 0.25)';
-                parent.style.background = `linear-gradient(to right, rgba(16, 185, 129, 0.22) ${percent}%, rgba(16, 185, 129, 0.05) ${percent}%)`;
+                color = 'green';
+                accent = '#10b981';
             } else if (percent === 0) {
-                parent.style.color = '#b91c1c';
-                parent.style.borderColor = 'rgba(239, 68, 68, 0.25)';
-                parent.style.background = `linear-gradient(to right, rgba(239, 68, 68, 0.22) ${percent}%, rgba(239, 68, 68, 0.05) ${percent}%)`;
+                color = 'red';
+                accent = '#ef4444';
             } else {
-                parent.style.color = '#b45309';
-                parent.style.borderColor = 'rgba(245, 158, 11, 0.25)';
-                parent.style.background = `linear-gradient(to right, rgba(245, 158, 11, 0.22) ${percent}%, rgba(245, 158, 11, 0.05) ${percent}%)`;
+                color = 'yellow';
+                accent = '#f59e0b';
+            }
+            parent.setAttribute('data-color', color);
+
+            // Propagate accent to card border
+            const card = parent.closest('.simulator-card');
+            if (card) {
+                card.style.setProperty('--card-accent', accent);
             }
         };
 
@@ -1621,34 +1676,56 @@
             let evo1 = parseInt(localStorage.getItem('evo-score-lv1') || '0', 10);
             let evo2 = parseInt(localStorage.getItem('evo-score-lv2') || '0', 10);
             let totalEvoScore = evo0 + evo1 + evo2;
+            let cso0 = parseInt(localStorage.getItem('cso-score-lv0') || '0', 10);
+            let cso1 = parseInt(localStorage.getItem('cso-score-lv1') || '0', 10);
+            let cso2 = parseInt(localStorage.getItem('cso-score-lv2') || '0', 10);
+            let totalCsoScore = cso0 + cso1 + cso2;
 
             let maxPoScore = 36;
             let maxUxScore = 39;
             let maxEvoScore = 30;
-            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore;
+            let maxCsoScore = 27;
+            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore;
 
-            // Scroll arrows
+            // Pagination: 3 ateliers per page
             const scrollEl = document.getElementById('ateliers-scroll');
             const prevBtn = document.getElementById('scroll-prev');
             const nextBtn = document.getElementById('scroll-next');
-            function updateArrows() {
-                if (!scrollEl) return;
-                prevBtn.disabled = scrollEl.scrollLeft <= 0;
-                const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
-                nextBtn.disabled = scrollEl.scrollLeft >= maxScroll - 1;
-            }
-            if (scrollEl && prevBtn && nextBtn) {
-                scrollEl.addEventListener('scroll', updateArrows, { passive: true });
-                prevBtn.addEventListener('click', () => {
-                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
-                    scrollEl.scrollBy({ left: -((colW + 10) * 3), behavior: 'smooth' });
+            const allCols = scrollEl ? Array.from(scrollEl.querySelectorAll('.atelier-col')) : [];
+            const perPage = 3;
+            let currentPage = 0;
+            const totalPages = Math.ceil(allCols.length / perPage);
+
+            function renderPage() {
+                allCols.forEach((col, i) => {
+                    const start = currentPage * perPage;
+                    const end = start + perPage;
+                    col.style.display = (i >= start && i < end) ? '' : 'none';
                 });
-                nextBtn.addEventListener('click', () => {
-                    const colW = scrollEl.querySelector('.atelier-col')?.offsetWidth || 300;
-                    scrollEl.scrollBy({ left: ((colW + 10) * 3), behavior: 'smooth' });
-                });
-                updateArrows();
+                // Update dots
+                const dotContainer = document.getElementById('hub-dot-progress');
+                if (dotContainer) {
+                    dotContainer.innerHTML = '';
+                    for (let p = 0; p < totalPages; p++) {
+                        const dot = document.createElement('div');
+                        dot.style.width = (p === currentPage) ? '8px' : '6px';
+                        dot.style.height = (p === currentPage) ? '8px' : '6px';
+                        dot.style.borderRadius = '50%';
+                        dot.style.background = (p === currentPage) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.15)';
+                        dot.style.transition = 'all 0.3s ease';
+                        dot.style.cursor = 'pointer';
+                        dot.onclick = () => { currentPage = p; renderPage(); };
+                        dotContainer.appendChild(dot);
+                    }
+                }
+                // Update arrow states
+                if (prevBtn) prevBtn.disabled = currentPage === 0;
+                if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
             }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => { if (currentPage > 0) { currentPage--; renderPage(); } });
+            if (nextBtn) nextBtn.addEventListener('click', () => { if (currentPage < totalPages - 1) { currentPage++; renderPage(); } });
+            renderPage();
 
             // Update UI status badges with dynamic colors and x/y format
             const poLabel = document.getElementById('po-status-label');
@@ -1666,6 +1743,11 @@
                 window.updateCardStatusBadge(evoLabel, totalEvoScore, maxEvoScore);
             }
 
+            const csoLabel = document.getElementById('cso-status-label');
+            if (csoLabel) {
+                window.updateCardStatusBadge(csoLabel, totalCsoScore, maxCsoScore);
+            }
+
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : 0;
             const dtStatusLabel = document.getElementById('dt-status-label');
@@ -1674,7 +1756,7 @@
             }
 
             // Progression rate
-            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore) / totalMaxScore) * 100);
+            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore) / totalMaxScore) * 100);
             document.getElementById('overall-completion').innerText = `${progressPercent}%`;
 
             // Display time metadata if available
@@ -1713,63 +1795,67 @@
                 });
             }
 
+            const mvpCard = document.getElementById('mvp-card');
+            if (mvpCard) {
+                mvpCard.addEventListener('click', () => {
+                    openComprendre(2);
+                });
+            }
+
+            const csoCard = document.getElementById('cso-card');
+            if (csoCard) {
+                csoCard.addEventListener('click', () => {
+                    window.location.href = './2-c.html';
+                });
+            }
+
             lucide.createIcons();
         });
     </script>
 
     <!-- Comprendre Modal -->
     <div id="comprendre-modal"
-        style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 15px; margin: 0; box-sizing: border-box;">
+        style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 8px 12px; margin: 0; box-sizing: border-box;">
 
-        <!-- Header with progress bar placed ABOVE slide content -->
-        <div
-            style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 32px; flex-shrink: 0; gap: 1rem; border-bottom: 1px solid rgba(15, 23, 42, 0.05); padding-bottom: 8px;">
-            <!-- Left Nav Arrow -->
+        <!-- Header: dot progress + nav arrows + close -->
+        <div id="comprendre-header"
+            style="width: 100%; display: flex; justify-content: flex-end; align-items: center; height: 28px; flex-shrink: 0; gap: 0.5rem; padding-bottom: 4px;">
+            <!-- Dot Progress -->
+            <div id="dot-progress"
+                style="display: flex; gap: 5px; align-items: center; margin-right: auto;">
+                <!-- Generated dynamically -->
+            </div>
+            <!-- Nav Arrows -->
             <button onclick="changeSlide(-1)"
-                style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                onmouseover="this.style.background='rgba(15,23,42,0.12)'"
-                onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Page précédente">
-                <i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i>
+                style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                onmouseover="this.style.color='#0f172a'"
+                onmouseout="this.style.color='#94a3b8'" aria-label="Page précédente">
+                <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
             </button>
-
-            <!-- Progress Header -->
-            <div id="slide-progress-header"
-                style="display: flex; flex-direction: row; align-items: center; gap: 10px; flex-grow: 1; max-width: 320px;">
-                <div id="slide-page-number"
-                    style="font-size: 0.6rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;">
-                    Page 1 / 6</div>
-                <div id="notched-progress-bar"
-                    style="display: flex; gap: 3px; flex-grow: 1; height: 4px; background: transparent; border-radius: 9999px; overflow: hidden;">
-                    <!-- Generated dynamically -->
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0;">
-                <!-- Right Nav Arrow -->
-                <button onclick="changeSlide(1)"
-                    style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                    onmouseover="this.style.background='rgba(15,23,42,0.12)'"
-                    onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Page suivante">
-                    <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
-                </button>
-                <!-- Close Button -->
-                <button onclick="closeComprendre()"
-                    style="background: rgba(15,23,42,0.06); border: none; color: #0f172a; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                    onmouseover="this.style.background='rgba(15,23,42,0.12)'"
-                    onmouseout="this.style.background='rgba(15,23,42,0.06)'" aria-label="Fermer la modal">
-                    <i data-lucide="x" style="width: 14px; height: 14px;"></i>
-                </button>
-            </div>
+            <button onclick="changeSlide(1)"
+                style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                onmouseover="this.style.color='#0f172a'"
+                onmouseout="this.style.color='#94a3b8'" aria-label="Page suivante">
+                <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+            </button>
+            <!-- Close -->
+            <button onclick="closeComprendre()"
+                style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                onmouseover="this.style.color='#0f172a'"
+                onmouseout="this.style.color='#94a3b8'" aria-label="Fermer la modal">
+                <i data-lucide="x" style="width: 14px; height: 14px;"></i>
+            </button>
         </div>
 
         <div id="comprendre-slides-container"
-            style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 15px;">
-            <!-- Generated dynamically from 1-0.json -->
+            style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 8px;">
+            <!-- Generated dynamically from markdown -->
         </div>
     </div>
 
     <script>
         let currentSlide = 0;
+        let currentAtelierId = 1;
         let touchstartX = 0;
         let touchendX = 0;
 
@@ -1782,10 +1868,10 @@
             }
         }
 
-        let slidesData = null;
+        let slidesDataCache = {};
 
         async function openComprendre(atelierId) {
-            if (atelierId !== 1) return;
+            if (atelierId !== 1 && atelierId !== 2) return;
             const modal = document.getElementById('comprendre-modal');
             modal.style.display = 'flex';
 
@@ -1799,23 +1885,28 @@
                 handleGesture();
             }, { passive: true });
 
-            // Load slides dynamically from 1-0.md if not already loaded
-            if (!slidesData) {
+            const slideFile = atelierId === 1 ? '1-0.md' : '2-0.md';
+            const lsKey = atelierId === 1 ? 'design-thinking-last-slide' : 'mvp-last-slide';
+            currentAtelierId = atelierId;
+
+            // Load slides dynamically if not already cached for this atelier
+            if (!slidesDataCache[atelierId]) {
                 try {
-                    const res = await fetch('1-0.md?v=' + new Date().getTime());
+                    const res = await fetch(slideFile + '?v=' + new Date().getTime());
                     const markdownText = await res.text();
-                    slidesData = parseMarp(markdownText);
-                    renderDynamicSlides();
+                    slidesDataCache[atelierId] = parseMarp(markdownText);
                 } catch (e) {
-                    console.error("Error loading Comprendre slides:", e);
+                    console.error("Error loading slides:", e);
                     document.getElementById('comprendre-slides-container').innerHTML =
                         `<div style="color:#b91c1c; padding: 20px; font-weight: bold; text-align: center;">Erreur de chargement du contenu.</div>`;
                     return;
                 }
             }
 
+            renderDynamicSlides();
+
             // Load last viewed slide from localStorage
-            const saved = localStorage.getItem('design-thinking-last-slide');
+            const saved = localStorage.getItem(lsKey);
             currentSlide = saved ? parseInt(saved, 10) : 0;
             updateSlides();
         }
@@ -1882,6 +1973,7 @@
             if (!container) return;
             container.innerHTML = '';
 
+            const slidesData = slidesDataCache[currentAtelierId] || [];
             slidesData.forEach((slide, idx) => {
                 const slideDiv = document.createElement('div');
                 slideDiv.className = 'comprendre-slide';
@@ -1897,9 +1989,9 @@
                 }
 
                 let html = `
-            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.5rem; color: #0f172a;">${slide.title}</h2>
-            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 1.5rem;">${slide.description}</p>
-            <div style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 1rem; box-sizing: border-box;">
+            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.3rem; color: #0f172a;">${slide.title}</h2>
+            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 0.6rem;">${slide.description}</p>
+            <div style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; box-sizing: border-box;">
                 ${slide.content}
             </div>
         `;
@@ -1907,13 +1999,13 @@
                 if (slide.footer) {
                     if (slide.footer.trim().startsWith("<div")) {
                         html += `
-                    <div style="width: 100%; display: flex; justify-content: center; margin-top: 1.5rem;">
+                    <div style="width: 100%; display: flex; justify-content: center; margin-top: 0.6rem;">
                         ${slide.footer}
                     </div>
                 `;
                     } else {
                         html += `
-                    <p style="font-size: 0.9rem; color: #475569; margin-top: 1.5rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
+                    <p style="font-size: 0.9rem; color: #475569; margin-top: 0.6rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
                         ${slide.footer}
                     </p>
                 `;
@@ -1942,7 +2034,8 @@
             if (currentSlide >= slides.length) currentSlide = slides.length - 1;
 
             // Save last viewed slide
-            localStorage.setItem('design-thinking-last-slide', currentSlide);
+            const lsKey = currentAtelierId === 1 ? 'design-thinking-last-slide' : 'mvp-last-slide';
+            localStorage.setItem(lsKey, currentSlide);
             updateSlides();
         }
         function updateSlides() {
@@ -1958,32 +2051,28 @@
                 s.style.display = (i === currentSlide) ? 'flex' : 'none';
             });
 
-            // Generate and color the notched progress bar segments
-            const bar = document.getElementById('notched-progress-bar');
-            if (bar) {
-                bar.innerHTML = '';
+            // Generate dot progress
+            const dotContainer = document.getElementById('dot-progress');
+            if (dotContainer) {
+                dotContainer.innerHTML = '';
                 for (let i = 0; i < slides.length; i++) {
-                    const notch = document.createElement('div');
-                    notch.style.flex = '1';
-                    notch.style.height = '100%';
-                    notch.style.borderRadius = '2px';
-                    // Primary blue of Epiconcept (--color-primary is #1e3a8a / Slate 800)
-                    notch.style.background = (i <= currentSlide) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.1)';
-                    notch.style.transition = 'background 0.3s ease';
-                    bar.appendChild(notch);
+                    const dot = document.createElement('div');
+                    dot.style.width = (i === currentSlide) ? '8px' : '6px';
+                    dot.style.height = (i === currentSlide) ? '8px' : '6px';
+                    dot.style.borderRadius = '50%';
+                    dot.style.background = (i === currentSlide) ? 'var(--color-primary)' : 'rgba(15, 23, 42, 0.15)';
+                    dot.style.transition = 'all 0.3s ease';
+                    dot.style.cursor = 'pointer';
+                    dot.onclick = () => { currentSlide = i; updateSlides(); };
+                    dotContainer.appendChild(dot);
                 }
             }
 
-            // Update the page number
-            const pageNum = document.getElementById('slide-page-number');
-            if (pageNum) {
-                pageNum.innerText = `Page ${currentSlide + 1} / ${slides.length}`;
-            }
-
             // Update progress badge on the card status dot
-            const dtStatusLabel = document.getElementById('dt-status-label');
-            if (dtStatusLabel) {
-                window.updateCardStatusBadge(dtStatusLabel, currentSlide + 1, slides.length);
+            const statusLabelId = currentAtelierId === 1 ? 'dt-status-label' : 'mvp-status-label';
+            const statusLabel = document.getElementById(statusLabelId);
+            if (statusLabel) {
+                window.updateCardStatusBadge(statusLabel, currentSlide + 1, slides.length);
             }
         }
 
@@ -2060,7 +2149,24 @@
                 document.body.appendChild(overlay);
 
                 if (window.lucide) {
-                    lucide.createIcons();
+            lucide.createIcons();
+
+            // Edge arrow auto-hide after 4 seconds
+            const scrollWrapper = document.getElementById('scroll-wrapper');
+            let arrowTimer = null;
+            function showArrows() {
+                if (prevBtn) prevBtn.style.pointerEvents = 'auto';
+                if (nextBtn) nextBtn.style.pointerEvents = 'auto';
+                clearTimeout(arrowTimer);
+                arrowTimer = setTimeout(() => {
+                    if (prevBtn) prevBtn.style.pointerEvents = 'none';
+                    if (nextBtn) nextBtn.style.pointerEvents = 'none';
+                }, 4000);
+            }
+            if (scrollWrapper) {
+                scrollWrapper.addEventListener('mouseenter', showArrows);
+                scrollWrapper.addEventListener('mousemove', showArrows);
+            }
                 }
 
                 overlay.onclick = () => {
@@ -2075,15 +2181,17 @@
             if (!reflexesData) {
                 try {
                     const v = new Date().getTime();
-                    const [poRes, uxRes] = await Promise.all([
+                    const [poRes, uxRes, cRes, dRes] = await Promise.all([
                         fetch('1-a.json?v=' + v),
-                        fetch('1-b.json?v=' + v)
+                        fetch('1-b.json?v=' + v),
+                        fetch('2-c.json?v=' + v),
+                        fetch('2-d.json?v=' + v)
                     ]);
-                    const poData = await poRes.json();
-                    const uxData = await uxRes.json();
                     reflexesData = {
-                        po: poData,
-                        ux: uxData
+                        po: await poRes.json(),
+                        ux: await uxRes.json(),
+                        c: await cRes.json(),
+                        d: await dRes.json()
                     };
                 } catch (e) {
                     console.error("Error loading reflex data:", e);
@@ -2098,6 +2206,7 @@
             let badgeText = "";
             let iconName = "lightbulb";
             let visuals = [];
+            let isCD = false;
 
             if (reflexId.startsWith('A')) {
                 const num = parseInt(reflexId.substring(1), 10);
@@ -2109,7 +2218,6 @@
                     badgeText = "Réflexe PO (Posture)";
                     iconName = "target";
 
-                    // Load visuals from scenarios
                     if (item.scenarios && item.scenarios.length > 0) {
                         item.scenarios.forEach((sc, idx) => {
                             if (sc.visual) {
@@ -2146,14 +2254,56 @@
                     badgeText = "Réflexe UX (Conception)";
                     iconName = "mouse-pointer-click";
                 }
+            } else if (reflexId.startsWith('C')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.c.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    examples = item.questions || [];
+                    badgeText = "Réflexe Support & Client";
+                    iconName = item.icon || "headset";
+                    isCD = true;
+                    if (item.scenarios && item.scenarios.length > 0) {
+                        item.scenarios.forEach(sc => {
+                            visuals.push({
+                                title: sc.text.substring(0, 80) + '...',
+                                expl: sc.explanation,
+                                html: sc.visual,
+                                subOptions: sc.subOptions || []
+                            });
+                        });
+                    }
+                }
+            } else if (reflexId.startsWith('D')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.d.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    examples = item.questions || [];
+                    badgeText = "Réflexe Spécs & Évolutions";
+                    iconName = item.icon || "sparkles";
+                    isCD = true;
+                    if (item.scenarios && item.scenarios.length > 0) {
+                        item.scenarios.forEach(sc => {
+                            visuals.push({
+                                title: sc.text.substring(0, 80) + '...',
+                                expl: sc.explanation,
+                                html: sc.visual,
+                                subOptions: sc.subOptions || []
+                            });
+                        });
+                    }
+                }
             }
 
             if (title) {
-                openRefModal(title, description, examples, badgeText, iconName, visuals);
+                openRefModal(title, description, examples, badgeText, iconName, visuals, isCD);
             }
         }
 
-        function openRefModal(title, description, examples, badgeText, iconName, visuals) {
+        function openRefModal(title, description, examples, badgeText, iconName, visuals, isCD) {
             const modal = document.getElementById('ref-modal');
             document.getElementById('ref-title').innerText = title;
             document.getElementById('ref-intent').innerText = description;
@@ -2181,6 +2331,52 @@
                     li.innerHTML = `<span style="color: var(--color-primary); font-weight: bold;">•</span> <span>${q}</span>`;
                     list.appendChild(li);
                 });
+            } else if (isCD) {
+                examplesContainer.style.display = 'flex';
+                if (visualsContainer) visualsContainer.style.display = 'flex';
+                label.innerText = "Scénarios & Sous-réflexes";
+                visualsList.innerHTML = '';
+                visuals.forEach((v, idx) => {
+                    const card = document.createElement('div');
+                    card.className = 'ref-visual-card';
+
+                    const li = document.createElement('li');
+                    li.style.display = 'flex';
+                    li.style.gap = '0.5rem';
+                    li.innerHTML = `<span style="color: var(--color-primary); font-weight: bold; font-size:0.85rem;">${idx + 1}.</span> <span style="font-size:0.8rem;">${v.title}</span>`;
+                    list.appendChild(li);
+
+                    let subOptionsHtml = '';
+                    if (v.subOptions && v.subOptions.length > 0) {
+                        subOptionsHtml = `<div class="ref-sub-options">`;
+                        v.subOptions.forEach((opt, oi) => {
+                            const letter = String.fromCharCode(65 + oi);
+                            subOptionsHtml += `
+                                <div class="ref-sub-option${opt.isCorrect ? ' correct' : ''}">
+                                    <span class="sub-option-label">${letter}</span>
+                                    <span class="sub-option-text">${opt.text}</span>
+                                </div>`;
+                        });
+                        subOptionsHtml += `</div>`;
+                    }
+
+                    card.innerHTML = `
+                <div class="visual-mockup">
+                    <div class="mockup-container" style="width: 100%; transform: scale(0.9); transform-origin: center center; display: flex; justify-content: center; align-items: center;">
+                        ${v.html}
+                    </div>
+                </div>
+                <div class="visual-content">
+                    <div class="visual-header">
+                        <span class="check-badge">✓</span>
+                        <strong class="visual-title">Cas ${idx + 1}</strong>
+                    </div>
+                    <p class="visual-expl">${v.expl}</p>
+                    ${subOptionsHtml}
+                </div>
+            `;
+                    visualsList.appendChild(card);
+                });
             } else {
                 examplesContainer.style.display = 'none';
                 if (visualsContainer) visualsContainer.style.display = 'flex';
@@ -2192,7 +2388,7 @@
 
                         card.innerHTML = `
                     <div class="visual-mockup">
-                        <div style="width: 100%; transform: scale(0.9); transform-origin: center center; display: flex; justify-content: center; align-items: center;">
+                        <div class="mockup-container" style="width: 100%; transform: scale(0.9); transform-origin: center center; display: flex; justify-content: center; align-items: center;">
                             ${v.html}
                         </div>
                     </div>
