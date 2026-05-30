@@ -1409,11 +1409,12 @@ async function openComprendre(atelierId) {
         handleGesture();
     }, { passive: true });
 
-    // Load slides dynamically from 1-0.json if not already loaded
+    // Load slides dynamically from 1-0.md if not already loaded
     if (!slidesData) {
         try {
-            const res = await fetch('1-0.json?v=' + new Date().getTime());
-            slidesData = await res.json();
+            const res = await fetch('1-0.md?v=' + new Date().getTime());
+            const markdownText = await res.text();
+            slidesData = parseMarp(markdownText);
             renderDynamicSlides();
         } catch (e) {
             console.error("Error loading Comprendre slides:", e);
@@ -1429,6 +1430,63 @@ async function openComprendre(atelierId) {
     updateSlides();
 }
 
+function parseMarp(markdownText) {
+    const rawSlides = markdownText.split(/\n---\s*\n/);
+    const slides = [];
+    let slideId = 1;
+    
+    rawSlides.forEach(raw => {
+        const trimmed = raw.trim();
+        if (!trimmed) return;
+        if (trimmed.includes('marp: true')) return;
+        
+        const titleMatch = trimmed.match(/^#\s+(.+)$/m);
+        const title = titleMatch ? titleMatch[1].trim() : '';
+        
+        let body = trimmed.replace(/^#\s+.+$/m, '').trim();
+        let type = 'html';
+        let footer = '';
+        let description = '';
+        
+        const commentMatch = body.match(/<!--\s*([\s\S]*?)\s*-->/);
+        if (commentMatch) {
+            const commentContent = commentMatch[1];
+            body = body.replace(/<!--\s*[\s\S]*?\s*-->/, '').trim();
+            
+            const typeMatch = commentContent.match(/type:\s*(\w+)/);
+            if (typeMatch) type = typeMatch[1].trim();
+            
+            const footerMatch = commentContent.match(/footer:\s*([\s\S]+?)(?=\n\w+:|$)/);
+            if (footerMatch) footer = footerMatch[1].trim();
+            
+            const descMatch = commentContent.match(/description:\s*([\s\S]+?)(?=\n\w+:|$)/);
+            if (descMatch) description = descMatch[1].trim();
+        }
+        
+        if (!description) {
+            const contentStartIndex = body.search(/<(svg|div)/i);
+            if (contentStartIndex !== -1) {
+                description = body.substring(0, contentStartIndex).trim();
+                body = body.substring(contentStartIndex).trim();
+            } else {
+                description = body;
+                body = '';
+            }
+        }
+        
+        slides.push({
+            id: slideId++,
+            title: title,
+            description: description.replace(/\r?\n/g, ' '),
+            type: type,
+            content: body,
+            footer: footer
+        });
+    });
+    
+    return slides;
+}
+
 function renderDynamicSlides() {
     const container = document.getElementById('comprendre-slides-container');
     if (!container) return;
@@ -1439,12 +1497,12 @@ function renderDynamicSlides() {
         slideDiv.className = 'comprendre-slide';
         slideDiv.style.display = 'none';
         slideDiv.style.flexDirection = 'column';
-        slideDiv.style.alignItems = slide.id === 4 || slide.id === 5 ? 'stretch' : 'center';
+        slideDiv.style.alignItems = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? 'stretch' : 'center';
         slideDiv.style.textAlign = 'center';
-        slideDiv.style.maxWidth = slide.id === 4 || slide.id === 5 ? '1100px' : (slide.id === 6 ? '1200px' : '900px');
+        slideDiv.style.maxWidth = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? '1100px' : (slide.id === 5 ? '1200px' : '900px');
         slideDiv.style.animation = 'fadeIn 0.3s';
         slideDiv.style.width = '100%';
-        if (slide.id === 4 || slide.id === 5) {
+        if (slide.id === 4 || slide.id === 6 || slide.id === 7) {
             slideDiv.style.padding = '0.5rem';
         }
         
