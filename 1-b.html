@@ -718,8 +718,6 @@ function scrollToReflex(id) {
             top: el.offsetTop - 24,
             behavior: 'smooth'
         });
-        el.classList.add('ring-4', 'ring-emerald-400', 'transition-all');
-        setTimeout(() => el.classList.remove('ring-4', 'ring-emerald-400'), 2000);
     }
 }
 
@@ -735,8 +733,6 @@ function openModal(focusId = null) {
                     top: el.offsetTop - 24,
                     behavior: 'smooth'
                 });
-                el.classList.add('ring-4', 'ring-emerald-400', 'transition-all');
-                setTimeout(() => el.classList.remove('ring-4', 'ring-emerald-400'), 2000);
             }
         }, 100);
     }
