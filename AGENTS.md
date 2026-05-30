@@ -24,6 +24,10 @@ Ce document fournit le contexte, l'architecture et les règles de conception du 
   - Tous les schémas explicatifs complexes et diagrammes doivent adopter un format vectoriel SVG (`viewBox="0 0 W H"`), sans hauteur ni largeur figées, pour s'adapter automatiquement aux viewports.
   - Sur mobile, les paddings de la modal comprendre sont réduits à `5px` vertical et `0px` horizontal, et les SVGs se voient appliquer `margin: 0` et `max-height: 55vh` pour éviter le chevauchement ou le masquage des éléments supérieurs.
   - La logique globale du projet prend en charge le zoom interactif plein écran au clic sur les SVGs. Le zoom s'affiche dans une surcouche (`zoom-overlay`) noire translucide avec flou d'arrière-plan.
+  - **TRÈS IMPORTANT (Modèle SVG Box & Séparation Sémantique)** :
+    - **`content`** : Doit contenir **uniquement** l'élément `<svg>` brut. Aucune balise HTML bloc (`<div>`, `<p>`, etc.) ne doit y être ajoutée. Cela garantit que le mécanisme de zoom (qui clone l'élément SVG cible) fonctionne de manière parfaitement nette et isolée.
+    - **`footer`** : Toute explication complémentaire, légende ou grille textuelle HTML complexe (ex: pour le Cercle d'Or) doit être placée dans le champ `"footer"`.
+    - **Gestion du rendu du pied de page** : Le moteur de rendu (`index.html`) détecte si le pied de page commence par `"<div"`. Si oui, il l'injecte dans un conteneur flexible standard bloc. Sinon, il l'habille dans une balise `<p>`. Ne jamais insérer de `<div>` directement dans un `<p>` pour conserver la validité sémantique HTML5 du navigateur.
 
 ## 4. Règles de Manipulation du Code
 - **Pas de modifications architecturales complexes** : Maintenir l'approche Vanilla. Ne pas transformer le projet en React/Vue.
