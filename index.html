@@ -786,13 +786,40 @@
             justify-content: flex-start;
             padding: 6px 0px 8px 0px;
             box-sizing: border-box;
+            overflow: hidden; /* Prevent scrolling within slide */
         }
 
-        .lesson-slide p,
-        .lesson-slide ul,
-        .lesson-slide li {
-            font-size: calc(1rem + 3px) !important;
+        .lesson-slide h1 {
+            font-size: 1.45rem !important;
+            font-weight: 900 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.4rem !important;
+            line-height: 1.2 !important;
+            color: var(--color-primary) !important;
+            text-align: center !important;
+            text-transform: uppercase !important;
+        }
+
+        .lesson-slide p {
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.5rem !important;
             color: #475569 !important;
+            text-align: center !important;
+        }
+
+        .lesson-slide ul,
+        .lesson-slide ol {
+            font-size: 0.8rem !important;
+            line-height: 1.4 !important;
+            margin: 0 auto 0.5rem auto !important;
+            color: #475569 !important;
+        }
+
+        .lesson-slide li {
+            font-size: 0.8rem !important;
+            margin-bottom: 0.2rem !important;
         }
 
         .slide-content-wrapper {
