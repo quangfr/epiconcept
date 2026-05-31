@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A - Cadrage Besoins - ESIS-3D</title>
+    <title>A - Besoins Utilisateurs - ESIS-3D</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -391,7 +391,7 @@ function startLevel(lv) {
 }
 
 function resetProgress() {
-    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Cadrage Besoins ?")) {
+    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Besoins Utilisateurs ?")) {
         Object.keys(localStorage).forEach(key => {
             if (key.startsWith('po-')) {
                 localStorage.removeItem(key);
