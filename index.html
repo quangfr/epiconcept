@@ -2138,11 +2138,10 @@
                     iconName = "target";
 
                     if (item.scenarios) {
-                        const levelLabels = ["Op\u00e9rations Terrain", "Complexit\u00e9 Syst\u00e8me", "Haute Strat\u00e9gie"];
                         item.scenarios.forEach((sc, idx) => {
                             if (sc.visual) {
                                 visuals.push({
-                                    title: levelLabels[idx],
+                                    title: item.questions[idx] ? item.questions[idx].text : '',
                                     expl: sc.explanation || sc.text,
                                     html: sc.visual
                                 });
@@ -2187,9 +2186,8 @@
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
                             if (sc.visual) {
-                                const correct = (sc.subOptions || []).find(o => o.isCorrect);
                                 visuals.push({
-                                    title: correct ? correct.text : (sc.explanation || sc.text),
+                                    title: item.questions[idx] || '',
                                     expl: sc.explanation || sc.text,
                                     html: sc.visual
                                 });
@@ -2210,9 +2208,8 @@
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
                             if (sc.visual) {
-                                const correct = (sc.subOptions || []).find(o => o.isCorrect);
                                 visuals.push({
-                                    title: correct ? correct.text : (sc.explanation || sc.text),
+                                    title: item.questions[idx] || '',
                                     expl: sc.explanation || sc.text,
                                     html: sc.visual
                                 });
