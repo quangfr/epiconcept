@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B - Ergonomie UI/UX - ESIS-3D</title>
+    <title>B - Ergonomie UX/UI - ESIS-3D</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -144,9 +144,19 @@
 
 <div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 hidden overflow-y-auto">
     <div class="w-full max-w-6xl flex justify-between items-center mb-3 md:mb-8 shrink-0">
-        <a href="./index.html" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" aria-label="Retour au Hub">
-            <i data-lucide="home" class="w-5 h-5 md:w-6 md:h-6"></i>
-        </a>
+        <div class="flex items-center gap-2">
+            <a href="./index.html" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" aria-label="Retour au Hub">
+                <i data-lucide="home" class="w-5 h-5 md:w-6 md:h-6"></i>
+            </a>
+            <select onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs md:text-sm rounded-lg px-2.5 py-1.5 md:py-2 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+                <option value="./1-a.html">A - Besoins Utilisateurs</option>
+                <option value="./1-b.html" selected>B - Ergonomie UX/UI</option>
+                <option value="./2-c.html">C - Support &amp; Client</option>
+                <option value="./2-d.html">D - Évolutions &amp; Specs</option>
+                <option value="./3-e.html">E - Roadmap &amp; Jalons</option>
+                <option value="./3-f.html">F - Features Discovery</option>
+            </select>
+        </div>
         <div class="flex gap-2">
             <button onclick="resetProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-red-600 hover:text-white transition-colors" title="Réinitialiser la progression">
                 <i data-lucide="rotate-ccw" class="w-5 h-5 md:w-6 md:h-6"></i>
@@ -158,7 +168,7 @@
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
         <div class="text-center mb-6 md:mb-12">
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">B - Ergonomie <span class="text-slate-800">UI/UX</span></h1>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">B - Ergonomie <span class="text-slate-800">UX/UI</span></h1>
             <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).</p>
         </div>
 
@@ -217,10 +227,18 @@
                     <i data-lucide="home" class="w-4 h-4"></i>
                 </div>
             </a>
+            <select onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+                <option value="./1-a.html">A - Besoins Utilisateurs</option>
+                <option value="./1-b.html" selected>B - Ergonomie UX/UI</option>
+                <option value="./2-c.html">C - Support &amp; Client</option>
+                <option value="./2-d.html">D - Évolutions &amp; Specs</option>
+                <option value="./3-e.html">E - Roadmap &amp; Jalons</option>
+                <option value="./3-f.html">F - Features Discovery</option>
+            </select>
         </div>
         
         <div class="text-center flex-grow">
-            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">1 - Design Product | B - Conception UX</span>
+            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">1 - Design Product | B - Ergonomie UX/UI</span>
             <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Facile</span>
         </div>
 

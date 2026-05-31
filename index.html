@@ -997,6 +997,12 @@
                 padding: 1rem;
             }
         }
+
+        .info-tab-button.active {
+            background: #0f172a;
+            color: #fff;
+            border-color: #0f172a;
+        }
     </style>
 
 </head>
@@ -1017,9 +1023,15 @@
 
             <!-- Compact Global Statistics -->
             <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux">
-                <div class="stat-bar-card">
-                    <div class="stat-number" id="overall-completion">0%</div>
-                    <div class="stat-label">Progression Globale</div>
+                <div class="flex items-center gap-2">
+                    <div class="stat-bar-card">
+                        <div class="stat-number" id="overall-completion">0%</div>
+                        <div class="stat-label">Progression Globale</div>
+                    </div>
+                    <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
+                        class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:text-blue-900 hover:border-blue-900 hover:bg-blue-50 transition-colors flex items-center justify-center shadow-sm">
+                        <i data-lucide="info" class="w-4 h-4"></i>
+                    </button>
                 </div>
             </section>
         </div>
@@ -1268,7 +1280,7 @@
                                 title="Voir les réflexes Roadmap &amp; Jalons">
                                 <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="road-status-label">0 / 30</span></div>
+                                <div class="card-status"><span id="road-status-label">0 / 36</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1292,7 +1304,7 @@
                                 title="Voir les réflexes Features Discovery">
                                 <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="feat-status-label">0 / 24</span></div>
+                                <div class="card-status"><span id="feat-status-label">0 / 27</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1583,6 +1595,22 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
+        const APP_VERSION = '2026.05.31.02';
+        const RELEASES = [
+            {
+                version: '2026.05.31.02',
+                date: '2026-05-31',
+                title: 'Hub info modal and workshop navigation',
+                bullets: [
+                    'Added an info button next to global progress on the homepage.',
+                    'Added an info modal with overview and version tabs.',
+                    'Added navigation dropdowns on exercise selector and exercise screens.',
+                    'Aligned exercise titles with the homepage naming.',
+                    'Added release inventory support in the info modal.'
+                ]
+            }
+        ];
+
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
             const parent = labelEl.parentElement;
@@ -1656,8 +1684,8 @@
             let maxUxScore = 39;
             let maxEvoScore = 30;
             let maxCsoScore = 27;
-            let maxRoadScore = 30;
-            let maxFeatScore = 24;
+            let maxRoadScore = 36;
+            let maxFeatScore = 27;
             let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore + maxFeatScore;
 
             // Pagination: 3 ateliers per page
@@ -2566,7 +2594,112 @@
         function closeRefModal() {
             document.getElementById('ref-modal').style.display = 'none';
         }
+
+        function setInfoTab(tabName) {
+            const overviewBtn = document.getElementById('info-tab-overview-btn');
+            const versionBtn = document.getElementById('info-tab-version-btn');
+            const overviewPanel = document.getElementById('info-overview-panel');
+            const versionPanel = document.getElementById('info-version-panel');
+
+            if (!overviewBtn || !versionBtn || !overviewPanel || !versionPanel) return;
+
+            const isOverview = tabName === 'overview';
+            overviewBtn.classList.toggle('active', isOverview);
+            versionBtn.classList.toggle('active', !isOverview);
+            overviewPanel.style.display = isOverview ? 'block' : 'none';
+            versionPanel.style.display = isOverview ? 'none' : 'block';
+        }
+
+        function openInfoModal() {
+            const modal = document.getElementById('info-modal');
+            if (!modal) return;
+            document.getElementById('info-version-value').innerText = APP_VERSION;
+            renderReleaseInventory();
+            modal.style.display = 'flex';
+            setInfoTab('overview');
+            lucide.createIcons();
+        }
+
+        function closeInfoModal() {
+            const modal = document.getElementById('info-modal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        function renderReleaseInventory() {
+            const list = document.getElementById('info-release-list');
+            if (!list) return;
+
+            list.innerHTML = '';
+            RELEASES.forEach((release) => {
+                const card = document.createElement('div');
+                card.style.cssText = 'background:#fff;border:1px solid #e2e8f0;border-radius:0.9rem;padding:0.85rem 0.95rem;display:flex;flex-direction:column;gap:0.45rem;';
+                card.innerHTML = `
+                    <div style="display:flex;justify-content:space-between;gap:0.75rem;align-items:flex-start;flex-wrap:wrap;">
+                        <div>
+                            <div style="font-size:0.95rem;font-weight:900;color:#0f172a;">${release.version}</div>
+                            <div style="font-size:0.7rem;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;">${release.date}</div>
+                        </div>
+                        <span style="font-size:0.7rem;font-weight:800;color:#0f172a;background:#e2e8f0;border-radius:999px;padding:0.2rem 0.55rem;">Current</span>
+                    </div>
+                    <div style="font-size:0.8rem;font-weight:700;color:#334155;">${release.title}</div>
+                    <ul style="margin:0;padding-left:1rem;color:#334155;font-size:0.78rem;line-height:1.45;display:flex;flex-direction:column;gap:0.25rem;">
+                        ${release.bullets.map((bullet) => `<li>${bullet}</li>`).join('')}
+                    </ul>
+                `;
+                list.appendChild(card);
+            });
+        }
     </script>
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="ref-modal-overlay"
+        style="display: none; position: fixed; inset: 0; z-index: 10001; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; transition: opacity 0.3s ease; padding: 1rem; box-sizing: border-box;">
+        <div class="ref-modal-card"
+            style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);">
+            <button onclick="closeInfoModal()"
+                style="position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;"
+                onmouseover="this.style.color='#0f172a'" onmouseout="this.style.color='#64748b'">
+                <i data-lucide="x" style="width: 14px; height: 14px;"></i>
+            </button>
+
+            <div style="display:flex; align-items:center; gap:0.75rem; padding-right: 1.5rem;">
+                <div style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <i data-lucide="info" style="width: 24px; height: 24px;"></i>
+                </div>
+                <div>
+                    <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Informations</span>
+                    <h3 style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">ESIS-3D Workshop Hub</h3>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <button id="info-tab-overview-btn" class="info-tab-button active" onclick="setInfoTab('overview')" style="border:1px solid #cbd5e1; background:#f8fafc; color:#334155; font-size:0.75rem; font-weight:800; border-radius:999px; padding:0.45rem 0.8rem; cursor:pointer;">Aperçu</button>
+                <button id="info-tab-version-btn" class="info-tab-button" onclick="setInfoTab('version')" style="border:1px solid #cbd5e1; background:#f8fafc; color:#334155; font-size:0.75rem; font-weight:800; border-radius:999px; padding:0.45rem 0.8rem; cursor:pointer;">Version</button>
+            </div>
+
+            <div id="info-overview-panel" style="background:#f8fafc; padding:1.2rem; border-radius:1rem; border:1px solid rgba(15,23,42,0.04);">
+                <h4 style="font-size:0.75rem; font-weight:800; color:#475569; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem;">Contexte</h4>
+                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0 0 0.75rem 0;">ESIS-3D est le contexte logiciel fictif utilisé dans les simulations de situation. Les ateliers reproduisent des décisions produit, support, évolution et découverte dans une interface commune pour travailler les réflexes métier.</p>
+                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0;">La plateforme sert de support aux workshops et à leurs ressources: progression, référentiels, slides, et navigation entre exercices.</p>
+            </div>
+
+            <div id="info-version-panel" style="display:none; background:#f8fafc; padding:1.2rem; border-radius:1rem; border:1px solid rgba(15,23,42,0.04);">
+                <h4 style="font-size:0.75rem; font-weight:800; color:#475569; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem;">Version courante</h4>
+                <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.75rem;">
+                    <div style="font-size:1.1rem; font-weight:900; color:#0f172a; letter-spacing:0.04em;" id="info-version-value">2026.05.31.01</div>
+                    <span style="font-size:0.7rem; font-weight:800; color:#0f172a; background:#e2e8f0; border-radius:999px; padding:0.2rem 0.55rem;">YYYY.MM.DD.SS</span>
+                </div>
+                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0 0 0.75rem 0;">Le format de version suit la date de publication. `SS` démarre à `01` puis s’incrémente à chaque release publiée le même jour.</p>
+                <div style="font-size:0.8rem; color:#0f172a; font-weight:700; line-height:1.6;">
+                    <div>• `2026.05.31.01` = première publication du 31/05/2026</div>
+                    <div>• `2026.05.31.02` = deuxième publication le même jour</div>
+                    <div>• Nouveau jour = reset de `SS` à `01`</div>
+                </div>
+                <h4 style="font-size:0.75rem; font-weight:800; color:#475569; text-transform:uppercase; letter-spacing:0.05em; margin:1rem 0 0.5rem;">Inventaire des releases</h4>
+                <div id="info-release-list" style="display:flex; flex-direction:column; gap:0.65rem;"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Reference Modal (Glassmorphic pop-up) -->
     <div id="ref-modal" class="ref-modal-overlay"

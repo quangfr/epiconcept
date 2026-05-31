@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D - Spécs & Évolutions - ESIS-3D</title>
+    <title>D - Évolutions & Specs - ESIS-3D</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -144,22 +144,32 @@
 
 <div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 hidden overflow-y-auto">
     <div class="w-full max-w-6xl flex justify-between items-center mb-3 md:mb-8 shrink-0">
-        <a href="./index.html" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" aria-label="Retour au Hub">
-            <i data-lucide="home" class="w-5 h-5 md:w-6 md:h-6"></i>
-        </a>
+        <div class="flex items-center gap-2">
+            <a href="./index.html" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" aria-label="Retour au Hub">
+                <i data-lucide="home" class="w-5 h-5 md:w-6 md:h-6"></i>
+            </a>
+            <select onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs md:text-sm rounded-lg px-2.5 py-1.5 md:py-2 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+                <option value="./1-a.html">A - Besoins Utilisateurs</option>
+                <option value="./1-b.html">B - Ergonomie UX/UI</option>
+                <option value="./2-c.html">C - Support &amp; Client</option>
+                <option value="./2-d.html" selected>D - Évolutions &amp; Specs</option>
+                <option value="./3-e.html">E - Roadmap &amp; Jalons</option>
+                <option value="./3-f.html">F - Features Discovery</option>
+            </select>
+        </div>
         <div class="flex gap-2">
             <button onclick="resetProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-red-600 hover:text-white transition-colors" title="Réinitialiser la progression">
                 <i data-lucide="rotate-ccw" class="w-5 h-5 md:w-6 md:h-6"></i>
             </button>
-            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" title="Référentiel E">
+            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" title="Référentiel D">
                 <i data-lucide="help-circle" class="w-5 h-5 md:w-6 md:h-6"></i>
             </button>
         </div>
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
         <div class="text-center mb-6 md:mb-12">
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">E - Roadmap &amp; <span class="text-slate-800">Jalons</span></h1>
-            <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">D - Évolutions &amp; <span class="text-slate-800">Specs</span></h1>
+            <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Traduisez un besoin métier en architecture technique, user stories et chemins de gestion.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
@@ -167,7 +177,7 @@
                 <i data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Facile</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Scope &amp; Planning (Découper et Choisir le coeur du réacteur V1).</p>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Architecture &amp; Couches (Structurer front, back et flux de données).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
                     <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 10</span>
@@ -178,7 +188,7 @@
                 <i data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Moyen</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">POC &amp; Phasage (Valider la faisabilité technique par un prototype).</p>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Happy Path &amp; Exceptions (Modéliser le scénario nominal et les cas dégradés).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
                     <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 10</span>
@@ -189,7 +199,7 @@
                 <i data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Difficile</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Schedule &amp; Legacy (Piloter, sécuriser et décommissionner).</p>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">User Stories &amp; Découpage (Rédiger, tailler et prioriser le backlog).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
                     <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 10</span>
@@ -213,6 +223,14 @@
                     <i data-lucide="home" class="w-4 h-4"></i>
                 </div>
             </a>
+            <select onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+                <option value="./1-a.html">A - Besoins Utilisateurs</option>
+                <option value="./1-b.html">B - Ergonomie UX/UI</option>
+                <option value="./2-c.html">C - Support &amp; Client</option>
+                <option value="./2-d.html" selected>D - Évolutions &amp; Specs</option>
+                <option value="./3-e.html">E - Roadmap &amp; Jalons</option>
+                <option value="./3-f.html">F - Features Discovery</option>
+            </select>
         </div>
         
         <div class="text-center flex-grow">
@@ -226,7 +244,7 @@
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             </button>
             <!-- Referentiel Button -->
-            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel E">
+            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel D">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
             
