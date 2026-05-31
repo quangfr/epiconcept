@@ -117,123 +117,38 @@ Chaque atelier a une carte cliquable dans le hub. Routage dans `DOMContentLoaded
 
 ## 9. Guide de Conception des Visuels (Tailwind Mockups)
 
-Les visuels ne sont **plus des SVG** mais du HTML Tailwind. Ils sont stockés comme strings dans les JSON et injectés via `innerHTML`.
+Les visuels sont du HTML Tailwind (pas de SVG). Stockés comme strings dans les JSON, injectés via `innerHTML`.
 
-### Formats standards par type de visuel
+### Types de visuels
 
-**Visuel concept (explVisual)** — 1 par réflexe, illustre la solution abstraite en phase 3 :
-- **1-a (PO)** : Panneau concept compact `max-w-[240px]` avec titre métier + contenu simulé (métriques, listes, flux). Montre la **posture/analyse**.
-- **2-c (Support)** : Mockup de ticket/interface avec badges de priorité, métriques dashboard, bannières d'alerte. Montre l'**application support**.
-- **2-d (Specs)** : Mockup d'architecture/désign — couches système, workflow, validation de formulaire, matrices de permission. Montre l'**impact structurel**.
-- **1-b (UX)** : Mockup d'interface UI complet — comparaison visuelle entre `correct.visual` (bonne solution) et `wrong[].visual` (2 distracteurs). Montre le **principe d'ergonomie** en action (formulaire, carte, layout, navigation).
+| Visuel | Où | Rôle |
+|--------|----|------|
+| `explVisual` | Débriefing phase 3 | 1 par réflexe, illustre le concept |
+| `scenarios[].visual` | Ref-modal "Exemples" + phase 1 | Mockup du cas d'usage |
 
-**Visuel scenario (1-a, 2-c, 2-d)** — Mockup de cas d'usage :
-```html
-<div class="w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm">
-  <div class="flex items-center gap-1 mb-1.5">
-    <div class="w-3.5 h-3.5 rounded bg-slate-200"></div>
-    <span class="text-[7px] font-bold text-slate-500 uppercase tracking-wider">Titre</span>
-  </div>
-  <div class="bg-slate-50 rounded-lg p-2 text-[7px] text-slate-700 leading-tight">
-    Contenu du mockup...
-  </div>
-</div>
-```
+### Par atelier
 
-### Structure détaillée par type
+**1-a (PO)** — `explVisual` : panneau concept avec titre métier + séquence d'étapes connectées (3 boîtes, flèches, changements de couleur `slate`→`indigo`→`emerald`). Icônes : `help-circle`, `target`, `search`, `lightbulb`.  
+`scenario.visual` : mockup compact d'interface métier (ex: viewer radio, tableau de bord, liste).
 
-#### 1-a (PO) — explVisual
-Panneau concept `max-w-[240px]` avec un titre métier et une séquence d'étapes/flux montrant la posture PO.
+**2-c (Support)** — `explVisual` : matrice de priorité, métriques dashboard, badges de statut, alertes. Icônes : `alert-triangle`, `clock`, `users`, `trending-up`.  
+`scenario.visual` : carte de ticket avec en-tête, métadonnées (priorité, gravité, impact), badge de statut.
 
-```
-<div class="w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm">
-  <div class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2">Titre Métier</div>
-  <div class="flex flex-col gap-1.5">
-    <!-- Étapes connectées par des flèches -->
-    <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2">
-      <div class="w-5 h-5 rounded-full bg-{couleur}-100 flex items-center justify-center shrink-0">
-        <i data-lucide="{icone}" class="w-3 h-3 text-{couleur}-700"></i>
-      </div>
-      <div class="text-[9px] font-bold text-slate-800">Action / Constat</div>
-    </div>
-    <div class="flex justify-center"><i data-lucide="arrow-down" class="w-3 h-3 text-slate-300"></i></div>
-    <div class="flex items-center gap-2 bg-{couleur}-50 border border-{couleur}-200 rounded-lg p-2">
-      <div class="w-5 h-5 rounded-full bg-{couleur}-100 ...">
-        <i data-lucide="{icone}" class="w-3 h-3 text-{couleur}-700"></i>
-      </div>
-      <div class="text-[9px] text-{couleur}-700 font-bold">Question / Réflexion</div>
-    </div>
-    <!-- Étape finale emphase -->
-  </div>
-</div>
-```
-**Astuces** : Utiliser une séquence de 3 boîtes connectées par des `arrow-down`. Changer la couleur par étape (`slate` → `indigo` → `emerald`). Icônes : `message-circle`, `help-circle`, `search`, `target`, `lightbulb`, `arrow-right`.
+**2-d (Specs)** — `explVisual` : couches système empilées, workflow, matrice de règles, validation de formulaire. Icônes : `layers`, `git-branch`, `shield`, `settings`.  
+`scenario.visual` : mockup d'architecture ou de design (workflow, permissions, étapes).
 
-#### 2-c (Support) — explVisual
-Mockup d'interface support : matrice, tableau de bord, ou carte de ticket.
+**1-b (UX)** — `correct.visual` : UI fonctionnelle (bouton bleu actif, options cohérentes). `wrong[].visual` : UI cassée/incomplète (select vide, placeholder grisé, layout cassé). Les 3 sont rendus côte à côte en phase 2.
 
-```
-<div class="w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm">
-  <div class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2">Titre Dashboard</div>
-  <div class="grid grid-cols-2 gap-1 text-[7px] font-bold text-center mb-2">
-    <div class="bg-slate-100 p-1 rounded text-slate-500">En-tête 1</div>
-    <div class="bg-slate-100 p-1 rounded text-slate-500">En-tête 2</div>
-    <div class="bg-{couleur}-100 p-1.5 rounded text-{couleur}-800">Valeur 1</div>
-    <div class="bg-{couleur}-100 p-1.5 rounded text-{couleur}-800">Valeur 2</div>
-  </div>
-  <div class="mt-2 text-center text-[8px] text-slate-500">Légende / note</div>
-</div>
-```
-**Variantes** : Matrice (grille 2×2 ou 2×3), liste de métriques (icône + libellé + valeur), barres de progression, badges de statut. Icônes : `alert-triangle`, `clock`, `users`, `check-circle`, `trending-up`.
+### Règles
+- Polices : `text-[6px]` à `text-[9px]` (compact)
+- Icônes Lucide avec `data-lucide` + appeler `lucide.createIcons()` après injection
+- Wrapper : `<div class="visual-mockup"><div class="mockup-container">...</div></div>`
+- Pas de commentaires HTML dans les strings JSON
+- Échapper : `"` → `\"`, `«` → `\u00ab`, `»` → `\u00bb`, `'` → `&#39;`
+- Couleurs : palette `slate` / `blue` / `emerald` / `red-50` selon le contexte
 
-#### 2-d (Specs) — explVisual
-Mockup d'architecture : couches système, workflow, ou matrice de règles.
-
-```
-<div class="w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm">
-  <div class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2">Titre Architecture</div>
-  <div class="space-y-1">
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px] font-bold text-blue-800 text-center">Couche 1</div>
-    <div class="flex justify-center"><i data-lucide="chevron-down" class="w-2.5 h-2.5 text-slate-300"></i></div>
-    <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-1.5 text-[8px] font-bold text-indigo-800 text-center">Couche 2</div>
-    <div class="flex justify-center"><i data-lucide="chevron-down" class="w-2.5 h-2.5 text-slate-300"></i></div>
-    <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px] font-bold text-emerald-800 text-center">Couche 3</div>
-  </div>
-</div>
-```
-**Variantes** : Couches verticales empilées, workflow horizontal avec flèches, tableau de règles (2 colonnes), zones de formulaire avec validation (check/erreur). Icônes : `layers`, `git-branch`, `shield`, `settings`, `check`, `x`.
-
-#### 1-b (UX) — scenario.visual (correct & wrong)
-Comparaison UI : les visuels sont rendus directement dans les boutons de phase 2, pas dans un overlay.
-
-```
-<!-- correct.visual — la bonne solution, souvent avec bordure bleue -->
-<div class="flex gap-2 w-full">
-  <button class="flex-1 bg-blue-50 border-2 border-blue-600 text-blue-800 rounded-lg text-center py-2 text-xs font-black">Option A</button>
-  <button class="flex-1 bg-white border border-slate-200 text-slate-500 rounded-lg text-center py-2 text-xs font-bold">Option B</button>
-</div>
-
-<!-- wrong[].visual — les distracteurs, aspect incomplet ou mauvais -->
-<div class="w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center">
-  <span>-- Élément non fonctionnel --</span><span>▼</span>
-</div>
-```
-**Variantes** : Sélecteur d'options, carte de contenu, layout de formulaire, barre de navigation, liste déroulante.
-
-### Règles des mockups
-- **Tailles de police** : Toujours petites (`text-[6px]` à `text-[9px]`) pour rester compact dans le conteneur
-- **Icônes Lucide** : Toujours avec `data-lucide` + appel à `lucide.createIcons()` après injection (sauf dans `mockup-container` qui a `pointer-events: none`)
-- **Conteneur** : Toujours wrapper `<div class="visual-mockup"><div class="mockup-container">...</div></div>`
-- **Pas de commentaires HTML** dans les strings JSON (casserait l'injection)
-- **Échappement HTML** : `"` → `\"`, `«` → `\u00ab`, `»` → `\u00bb`, `'` → `&#39;`
-- **Couleurs** : Palette `slate` / `blue` / `emerald` / `red-50` selon le contexte sémantique
-- **Largeur** : `max-w-xs` ou `w-full` selon le contenant (dans ref-modal = `w-full`, dans phase 2 = `w-full sm:w-48`)
-
-### Où chaque visuel est rendu
-- `scenarios[].visual` → ref-modal (Exemples), `#scenario-visual` en phase 1
-- `explVisual` → `#debrief-visual` en phase 3 (débriefing)
-
-**Champs supprimés** : `questions[].visual` (1-a.json) et `subOptions[].visual` (2-c, 2-d.json) — retirés car plus utilisés après la suppression des mockups en phase 2.
+### Supprimés
+`questions[].visual` (1-a.json) et `subOptions[].visual` (2-c, 2-d.json) — plus utilisés depuis la suppression des mockups en phase 2.
 
 ## 10. Patterns de Code Récuments
 
@@ -245,7 +160,7 @@ lucide.createIcons();  // Toujours après innerHTML si des data-lucide sont pré
 
 ### Parsing questions selon le type
 ```javascript
-// 1-a : questions sont des objets {text, visual}
+// 1-a : questions sont des objets {text}
 reflex.questions.forEach(q => {
   const text = q.text || q;  // fallback si string
   // ...
