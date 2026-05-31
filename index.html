@@ -1812,17 +1812,14 @@
 
         <!-- Header: close/home to left + dropdown + progress/nav to right -->
         <div id="lesson-header"
-            style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 32px; flex-shrink: 0; padding-bottom: 4px; padding-left: 12px; padding-right: 12px; border-bottom: 1px solid rgba(15, 23, 42, 0.04); margin-bottom: 8px;">
+            style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 50px; flex-shrink: 0; padding-top: 6px; padding-bottom: 6px; padding-left: 12px; padding-right: 12px; border-bottom: 1px solid rgba(15, 23, 42, 0.04); margin-bottom: 8px;">
             <!-- Left Side: Home (Close) + Dropdown Selector -->
             <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <button onclick="closeLesson()"
-                    style="background: none; border: none; color: #94a3b8; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                    onmouseover="this.style.color='#0f172a'"
-                    onmouseout="this.style.color='#94a3b8'" aria-label="Retour à l'accueil">
-                    <i data-lucide="home" style="width: 16px; height: 16px;"></i>
+                <button onclick="closeLesson()" class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0" aria-label="Retour à l'accueil">
+                    <i data-lucide="home" class="w-4 h-4 md:w-5 md:h-5"></i>
                 </button>
                 <select id="lesson-selector" onchange="switchLessonFromDropdown(this.value)"
-                    style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 2px 4px; cursor: pointer; outline: none;">
+                    class="bg-slate-100 px-3 py-2 rounded-lg text-slate-700 font-black text-xs uppercase tracking-wider outline-none cursor-pointer border border-slate-200/50 hover:bg-slate-200 transition-colors">
                     <option value="1">Atelier 1 - Design Thinking</option>
                     <option value="2">Atelier 2 - MVP &amp; Viable</option>
                     <option value="3">Atelier 3 - Backlog &amp; Roadmap</option>
@@ -1831,17 +1828,11 @@
 
             <!-- Right Side: Nav arrows + dot progress -->
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <button onclick="changeSlide(-1)"
-                    style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                    onmouseover="this.style.color='#0f172a'"
-                    onmouseout="this.style.color='#94a3b8'" aria-label="Page précédente">
-                    <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
+                <button onclick="changeSlide(-1)" class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0" aria-label="Page précédente">
+                    <i data-lucide="chevron-left" class="w-4 h-4 md:w-5 md:h-5"></i>
                 </button>
-                <button onclick="changeSlide(1)"
-                    style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                    onmouseover="this.style.color='#0f172a'"
-                    onmouseout="this.style.color='#94a3b8'" aria-label="Page suivante">
-                    <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+                <button onclick="changeSlide(1)" class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0" aria-label="Page suivante">
+                    <i data-lucide="chevron-right" class="w-4 h-4 md:w-5 md:h-5"></i>
                 </button>
                 <div id="dot-progress" style="display: flex; gap: 5px; align-items: center; margin-left: 0.5rem;">
                     <!-- Generated dynamically -->
