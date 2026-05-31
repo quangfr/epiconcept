@@ -1810,34 +1810,43 @@
     <div id="lesson-modal"
         style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 8px 0px; margin: 0; box-sizing: border-box;">
 
-        <!-- Header: dot progress + nav arrows + close -->
+        <!-- Header: close/home to left + dropdown + progress/nav to right -->
         <div id="lesson-header"
-            style="width: 100%; display: flex; justify-content: flex-end; align-items: center; height: 28px; flex-shrink: 0; gap: 0.5rem; padding-bottom: 4px; padding-left: 12px; padding-right: 12px;">
-            <!-- Dot Progress -->
-            <div id="dot-progress"
-                style="display: flex; gap: 5px; align-items: center; margin-right: auto;">
-                <!-- Generated dynamically -->
+            style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 32px; flex-shrink: 0; padding-bottom: 4px; padding-left: 12px; padding-right: 12px; border-bottom: 1px solid rgba(15, 23, 42, 0.04); margin-bottom: 8px;">
+            <!-- Left Side: Home (Close) + Dropdown Selector -->
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button onclick="closeLesson()"
+                    style="background: none; border: none; color: #94a3b8; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                    onmouseover="this.style.color='#0f172a'"
+                    onmouseout="this.style.color='#94a3b8'" aria-label="Retour à l'accueil">
+                    <i data-lucide="home" style="width: 16px; height: 16px;"></i>
+                </button>
+                <select id="lesson-selector" onchange="switchLessonFromDropdown(this.value)"
+                    style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 2px 4px; cursor: pointer; outline: none;">
+                    <option value="1">Atelier 1 - Design Thinking</option>
+                    <option value="2">Atelier 2 - MVP &amp; Viable</option>
+                    <option value="3">Atelier 3 - Backlog &amp; Roadmap</option>
+                </select>
             </div>
-            <!-- Nav Arrows -->
-            <button onclick="changeSlide(-1)"
-                style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                onmouseover="this.style.color='#0f172a'"
-                onmouseout="this.style.color='#94a3b8'" aria-label="Page précédente">
-                <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
-            </button>
-            <button onclick="changeSlide(1)"
-                style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                onmouseover="this.style.color='#0f172a'"
-                onmouseout="this.style.color='#94a3b8'" aria-label="Page suivante">
-                <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
-            </button>
-            <!-- Close -->
-            <button onclick="closeLesson()"
-                style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
-                onmouseover="this.style.color='#0f172a'"
-                onmouseout="this.style.color='#94a3b8'" aria-label="Fermer la modal">
-                <i data-lucide="x" style="width: 14px; height: 14px;"></i>
-            </button>
+
+            <!-- Right Side: Nav arrows + dot progress -->
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <button onclick="changeSlide(-1)"
+                    style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                    onmouseover="this.style.color='#0f172a'"
+                    onmouseout="this.style.color='#94a3b8'" aria-label="Page précédente">
+                    <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
+                </button>
+                <button onclick="changeSlide(1)"
+                    style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
+                    onmouseover="this.style.color='#0f172a'"
+                    onmouseout="this.style.color='#94a3b8'" aria-label="Page suivante">
+                    <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+                </button>
+                <div id="dot-progress" style="display: flex; gap: 5px; align-items: center; margin-left: 0.5rem;">
+                    <!-- Generated dynamically -->
+                </div>
+            </div>
         </div>
 
         <div id="lesson-slides-container"
@@ -1911,7 +1920,21 @@
                 const saved = localStorage.getItem(lsKey);
                 currentSlide = saved ? parseInt(saved, 10) : 0;
             }
+
+            // Sync selector dropdown value
+            const selector = document.getElementById('lesson-selector');
+            if (selector) {
+                selector.value = atelierId;
+            }
+
             updateSlides();
+        }
+
+        async function switchLessonFromDropdown(atelierId) {
+            const id = parseInt(atelierId, 10);
+            if (id === 1 || id === 2 || id === 3) {
+                await openLesson(id, 0);
+            }
         }
 
         function parseMarp(markdownText) {
