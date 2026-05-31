@@ -1,0 +1,922 @@
+[
+  {
+    "id": 1,
+    "title": "E1. Isoler le cœur du réacteur (Le \"Périmètre Vital\")",
+    "intent": "Se concentrer uniquement sur l'action finale indispensable qui crée de la valeur immédiate, en éliminant le confort pour la V1.",
+    "icon": "scissors",
+    "scenarios": [
+      {
+        "text": "Le CRDC d'Amiens veut lancer une campagne pilote de dépistage du cancer du poumon. L'équipe technique veut coder un système d'importation de fichiers labo automatisé, un tableau de bord statistique et une relance SMS. La campagne commence dans 3 semaines.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-2\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Projet Pilote Poumon</div><div class=\"flex flex-col gap-1 text-[9px] font-semibold text-slate-700\"><span>✗ Import Labo Auto (4 semaines de dev)</span><span>✗ Tableau de bord ARS (3 semaines de dev)</span><span>✗ Relance SMS (2 semaines de dev)</span></div><div class=\"text-[8px] text-red-600 font-bold\">⚠️ Lancement impossible à la date prévue (9 semaines requis)</div></div>",
+        "correct": {
+          "title": "E1.1. Identifier l'action finale indispensable",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden\"><div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[7px] font-bold px-2 py-0.5 rounded-bl-lg\">V1 CIBLÉE</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Simplifiée</div><div class=\"bg-white border-2 border-emerald-500 rounded p-2 text-center text-xs font-black text-slate-800\">Saisie Manuelle d'un Patient</div><div class=\"text-[8px] text-emerald-600 font-bold text-center\">Seul flux vital pour démarrer la campagne pilote</div></div>",
+          "expl": "Isoler la seule et unique action physique sans laquelle l'utilisateur ne peut pas travailler.",
+          "debriefExpl": "Identifier l'action finale indispensable (la saisie manuelle) permet de démarrer le pilote à temps en éliminant les tâches secondaires.",
+          "icon": "target"
+        },
+        "wrong": [
+          {
+            "title": "Automatisation complète d'emblée",
+            "visual": "<div class=\"w-full bg-slate-100 rounded-xl p-3 text-center border text-[9px]\"><span class=\"text-slate-450 font-bold\">Attendre la fin des 9 semaines</span><p class=\"text-red-500 font-bold mt-1\">Décale le démarrage national du pilote</p></div>",
+            "expl": "Attendre d'avoir codé tout le système d'import automatique avant de lancer le pilote.",
+            "debriefExpl": "Reporter le lancement est inacceptable pour l'ARS et fait rater la campagne pilote de dépistage.",
+            "icon": "ban"
+          },
+          {
+            "title": "Recours à un prestataire externe",
+            "visual": "<div class=\"w-full bg-slate-150 rounded-xl p-3 text-center border text-[9px]\"><span class=\"text-slate-500\">Faire développer l'import en urgence</span><p class=\"text-amber-600 font-bold mt-1\">Coût doublé et risque de bugs de synchronisation</p></div>",
+            "expl": "Externaliser le développement de l'import automatique à un sous-traitant pour aller plus vite.",
+            "debriefExpl": "Créer une dépendance externe en urgence augmente les risques de bugs et double le coût.",
+            "icon": "alert-triangle"
+          }
+        ],
+        "expl": "L'action finale indispensable est le seul élément requis pour valider le flux en V1."
+      },
+      {
+        "text": "Lors de la création du nouveau module de dépistage colorectal, les utilisateurs demandent à pouvoir saisir l'historique complet des vaccins du patient, son médecin traitant secondaire et d'autres informations administratives de confort.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-1.5\">Formulaire Demandé</div><div class=\"grid grid-cols-2 gap-1.5 text-[7px] font-bold text-slate-500\"><span>Nom / Prénom</span><span>NIR (SSN)</span><span>Médecin 2aire</span><span>Carnet Vaccinal</span><span>Régime Social</span><span>Taille / Poids</span></div></div>",
+        "correct": {
+          "title": "E1.2. Dégraisser le flux nominal",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Formulaire V1 Dégraissé</div><div class=\"grid grid-cols-2 gap-2 text-[8px] font-black text-slate-800\"><div class=\"bg-white border p-1 rounded\">Nom / Prénom</div><div class=\"bg-white border p-1 rounded\">NIR (SSN)</div></div><div class=\"text-[7px] text-emerald-600 font-bold\">5 champs de confort supprimés de la V1</div></div>",
+          "expl": "Supprimer du premier lot toute saisie facultative, pré-remplissage ou calcul automatique.",
+          "debriefExpl": "Dégraisser le flux nominal permet de réduire le temps de développement de 60% et d'accélérer la saisie.",
+          "icon": "scissors"
+        },
+        "wrong": [
+          {
+            "title": "Formulaire complet par onglets",
+            "visual": "<div class=\"w-full bg-white border rounded p-2 text-[9px]\"><div class=\"flex gap-1 border-b mb-1\"><span class=\"font-bold\">Vital</span><span>Confort</span></div><div class=\"h-6 bg-slate-50\"></div></div>",
+            "expl": "Garder tous les champs mais les répartir dans des onglets pour simplifier la lecture.",
+            "debriefExpl": "Même masqué dans des onglets, le code de ces champs doit être développé, ce qui ne réduit pas le délai.",
+            "icon": "layout"
+          },
+          {
+            "title": "Rendre tout facultatif",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[9px] text-slate-500\">Enregistrer sans contrôle de saisie</div>",
+            "expl": "Garder les 12 champs mais les rendre tous facultatifs pour que l'utilisateur aille vite.",
+            "debriefExpl": "Rendre tout facultatif crée des fiches vides et corrompt la qualité des données du dépistage.",
+            "icon": "alert-circle"
+          }
+        ],
+        "expl": "Dégraisser le flux nominal de confort permet de se concentrer sur la promesse essentielle."
+      },
+      {
+        "text": "L'équipe produit lance un nouveau module d'invitation pour le cancer du col de l'utérus. Certains veulent commencer par coder uniquement les filtres de recherche multicritères avancés car ils sont complexes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lot 1 Proposé</div><div class=\"bg-red-150 p-2 rounded text-center text-[10px] font-bold text-red-800\">Moteur de Recherche Avancée (Filtres)</div><div class=\"text-[8px] text-red-600 font-bold\">⚠️ Aucun envoi de courrier réel possible à la fin du lot</div></div>",
+        "correct": {
+          "title": "E1.3. Valider le parcours minimal de bout-en-bout",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux Minimal V1</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-white p-1 rounded border\"><span>1. Sélection simple</span><span>➔</span><span>2. Génération PDF</span><span>➔</span><span>3. Envoi</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Parcours complet testable dès le lot 1</div></div>",
+          "expl": "S'assurer que le premier lot permet de faire l'action du début à la fin (même de façon très brute).",
+          "debriefExpl": "Valider le parcours minimal bout-en-bout garantit que le système produit une vraie valeur testable d'emblée.",
+          "icon": "git-commit"
+        },
+        "wrong": [
+          {
+            "title": "Développement par couches",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Développer d'abord toute la base de données</div>",
+            "expl": "Développer toute la base de données de tous les dépistages en premier, sans aucun écran visible.",
+            "debriefExpl": "Le dev par couches (BDD seule) ne permet pas de tester le produit sur le terrain avant des mois.",
+            "icon": "database"
+          },
+          {
+            "title": "Focus sur l'écran complexe",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Maquetter le tableau de bord ARS complet</div>",
+            "expl": "Coder en priorité le tableau de bord de statistiques pour faire plaisir à la direction.",
+            "debriefExpl": "Un tableau de bord sans moteur d'envoi n'a aucune valeur d'usage réelle.",
+            "icon": "bar-chart-2"
+          }
+        ],
+        "expl": "Un parcours minimal complet est indispensable pour valider l'utilisabilité réelle."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "E2. Trancher et exclure pour la V1 (La \"Liste d'Exclusion\")",
+    "intent": "Dresser explicitement la liste noire des fonctions exclues de la V1 pour éliminer le sur-mesure et la complexité des exceptions.",
+    "icon": "ban",
+    "scenarios": [
+      {
+        "text": "L'ARS demande un module de relance pour les patientes non répondantes. Pendant les ateliers, certains participants évoquent des exports PDF sur mesure par cabinet, des statistiques complexes et des relances vocales automatisées.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Réunion Cadrage Relances</div><div class=\"text-[9px] font-bold text-red-700\">Flou artistique sur le périmètre V1</div><div class=\"text-[8px] text-slate-500 italic\">\"On verra si on a le temps d'ajouter les PDF...\"</div></div>",
+        "correct": {
+          "title": "E2.1. Dresser la liste noire des fonctionnalités reportées",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Liste noire V1 explicite</div><div class=\"bg-red-50 border border-red-200 text-red-700 p-2 rounded text-[8px] font-mono leading-tight\">❌ Exclu de la V1 : relance vocale, exports sur mesure, stats</div><div class=\"text-[7px] text-emerald-600 font-bold\">Frontière claire : Zéro malentendu</div></div>",
+          "expl": "Lister explicitement par écrit tout ce qui ne sera PAS développé dans la V1 pour supprimer tout faux espoir.",
+          "debriefExpl": "Dresser la liste noire des fonctionnalités reportées permet d'aligner le client et de protéger l'équipe.",
+          "icon": "clipboard-list"
+        },
+        "wrong": [
+          {
+            "title": "Périmètre flexible non écrit",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">\"On fera au mieux d'ici le jour J\"</div>",
+            "expl": "Garder toutes les idées dans un coin et promettre de faire le maximum sans rien exclure formellement.",
+            "debriefExpl": "L'absence de frontière claire crée de la frustration extrême chez le client le jour J si des fonctions manquent.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Développement simultané",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Lancer les développements sur tous les fronts</div>",
+            "expl": "Commencer à coder un peu de chaque fonctionnalité en parallèle pour essayer de tout donner.",
+            "debriefExpl": "C'est la garantie de livrer un produit à moitié codé et totalement instable.",
+            "icon": "grid"
+          }
+        ],
+        "expl": "Exclure formellement par écrit les fonctions hors V1 est l'acte fondateur d'une livraison à temps."
+      },
+      {
+        "text": "Le centre de dépistage de Valenciennes demande une option pour changer la couleur de l'en-tête de ses fiches patients, d'ajouter le logo de sa communauté de communes, et de pouvoir trier par 15 critères spécifiques locaux.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Demande Spécifique Valenciennes</div><div class=\"flex flex-col gap-1 text-[8px] font-semibold text-slate-700\"><div class=\"bg-slate-100 p-1 rounded\">✏️ Logo Valenciennes sur mesure</div><div class=\"bg-slate-100 p-1 rounded\">✏️ Thème couleur Vert local</div><div class=\"bg-slate-100 p-1 rounded\">✏️ 15 tris sur mesure</div></div></div>",
+        "correct": {
+          "title": "E2.2. Exclure les options de paramétrage et de personnalisation sur-mesure",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Solution Standard</div><div class=\"bg-white border p-2 rounded-lg text-center text-xs font-black text-slate-800\">Charte Standard EPICONCEPT</div><div class=\"text-[7px] text-emerald-600 font-bold\">Aucun développement de paramétrage sur-mesure</div></div>",
+          "expl": "Refuser les développements spécifiques qui créent de la redondance ou des versions parallèles difficiles à maintenir.",
+          "debriefExpl": "Refuser le paramétrage cosmétique ou local spécifique protège l'application d'une dette technique insurmontable.",
+          "icon": "shield-alert"
+        },
+        "wrong": [
+          {
+            "title": "Créer une version Valenciennes",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[9px] text-slate-500\">Dupliquer le code source pour Valenciennes</div>",
+            "expl": "Faire une copie du projet (fork) dédiée à Valenciennes pour intégrer leurs demandes.",
+            "debriefExpl": "Dupliquer le code crée une double maintenance infernale pour chaque mise à jour future.",
+            "icon": "git-fork"
+          },
+          {
+            "title": "Moteur de thèmes universel",
+            "visual": "<div class=\"w-full bg-slate-150 p-2 text-center text-[9px] text-slate-500\">Coder un moteur de personnalisation globale</div>",
+            "expl": "Développer un module complexe permettant à chaque centre de paramétrer ses propres couleurs et logos.",
+            "debriefExpl": "Un moteur de thèmes en V1 est un luxe inutile qui consomme 3 semaines de développement vital.",
+            "icon": "palette"
+          }
+        ],
+        "expl": "Le sur-mesure redondant est le pire ennemi de la maintenabilité d'une application de santé."
+      },
+      {
+        "text": "Lors des spécifications du dépistage du col de l'utérus, le groupe de travail identifie 4 cas extrêmement rares (femmes résidant à l'étranger temporairement, patientes sans NIR officiel, etc.). Coder leur automatisation exige des semaines de règles logiques complexes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Automate Cas Limites (0.01%)</div><div class=\"p-2 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">Moteur de Résolution des Cas Limites</div><div class=\"text-[8px] text-red-650 font-bold\">⚠️ Effort extrême pour moins de 5 dossiers par an</div></div>",
+        "correct": {
+          "title": "E2.3. Simplifier ou exclure la gestion des cas exceptionnels",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Traitement Manuel Secours</div><div class=\"bg-white border border-emerald-400 text-slate-800 p-2 rounded text-[8px] font-black\">Alerte : Cas particulier. Contacter le support par mail.</div><div class=\"text-[7px] text-emerald-600 font-bold\">Exclusion du code : traitement humain simple</div></div>",
+          "expl": "Retirer du code le traitement des anomalies très rares ou complexes en V1, pour les confier à un traitement manuel hors système.",
+          "debriefExpl": "Simplifier ou exclure la gestion automatique des cas rares permet de livrer à temps en délégant à l'humain les exceptions.",
+          "icon": "user-check"
+        },
+        "wrong": [
+          {
+            "title": "Automatisation complète requise",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Développer l'arbre logique complet</div>",
+            "expl": "Passer 4 semaines à coder l'ensemble des règles de résolution automatique de ces cas.",
+            "debriefExpl": "C'est un gaspillage de ressources dramatique pour des cas que le support peut régler en 2 minutes.",
+            "icon": "code"
+          },
+          {
+            "title": "Bloquer les dossiers hors cadres",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Rejeter strictement les fiches atypiques</div>",
+            "expl": "Refuser techniquement la saisie de ces patientes atypiques dans l'application.",
+            "debriefExpl": "Bloquer le dossier pénalise les patientes et génère des plaintes. Le traitement dégradé manuel est bien meilleur.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "Envisager le strict minimum fonctionnel pour que le traitement des exceptions reste manuel en V1."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "E3. Évacuer la complexité technique (La Simplification en cours de route)",
+    "intent": "Simplifier les règles ou automatismes compliqués découverts en cours de dev en les remplaçant par des solutions visuelles ou manuelles simples.",
+    "icon": "activity",
+    "scenarios": [
+      {
+        "text": "L'équipe technique découvre en cours de sprint que le calcul automatique de la relance (qui croise les dates de 4 examens précédents et les vacances scolaires) comporte trop d'effets de bord et va doubler le temps de dev.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Calculateur Automatique Relance</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Algorithme infini de croisement des dates</div></div>",
+        "correct": {
+          "title": "E3.1. Ne pas automatiser les cas complexes et rares",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Saisie Directe Jalon</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 flex justify-between items-center text-[10px] font-black text-slate-800\"><span>Date Prochaine Relance :</span><span class=\"text-emerald-700\">15/09/2026 ✏️</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Saisie manuelle simple de la date = 1 heure de dev</div></div>",
+          "expl": "Éviter de coder des automatismes pour des exceptions métiers peu fréquentes ; concevoir le strict minimum pour un contournement manuel.",
+          "debriefExpl": "Éliminer l'algorithme complexe au profit d'un champ de date manuel sauve le sprint et garantit la livraison.",
+          "icon": "zap"
+        },
+        "wrong": [
+          {
+            "title": "Persister sur l'algorithme",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Continuer le développement de l'automate</div>",
+            "expl": "Autoriser l'équipe de dev à dépasser le sprint pour finaliser le calculateur automatique.",
+            "debriefExpl": "Dépasser le sprint décale tout le planning et rompt la confiance avec le client.",
+            "icon": "clock"
+          },
+          {
+            "title": "Supprimer la fonctionnalité",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Retirer le module de relance</div>",
+            "expl": "Supprimer complètement la relance du périmètre de l'atelier.",
+            "debriefExpl": "La relance est indispensable. La simplifier est nécessaire ; la supprimer pénalise le service.",
+            "icon": "trash-2"
+          }
+        ],
+        "expl": "Concevoir le strict minimum pour que l'action complexe se fasse par saisie ou action manuelle simple."
+      },
+      {
+        "text": "L'équipe technique doit coder un système de facturation complexe qui calcule la part mutuelle en fonction de 30 critères conventionnels fluctuants. Le développement est estimé à 3 semaines alors que le jalon est dans 5 jours.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Moteur Part Mutuelle</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Moteur de règles 30 conventions (21 jours)</div></div>",
+        "correct": {
+          "title": "E3.2. Transformer la règle complexe en simple champ texte libre",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Saisie manuelle du montant</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[9px] font-black text-slate-800 flex justify-between\"><span>Montant Mutuelle (€) :</span><span class=\"text-emerald-700\">18,50 € ✏️</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Saisie manuelle directe = Zéro risque de bug</div></div>",
+          "expl": "Remplacer un moteur de règles complexe ou un calcul automatisé par un champ de saisie libre ou de saisie directe pour la V1.",
+          "debriefExpl": "Remplacer le moteur complexe par une simple saisie manuelle de montant débloque immédiatement la facturation.",
+          "icon": "type"
+        },
+        "wrong": [
+          {
+            "title": "Limiter à une seule convention",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Ne gérer qu'un seul profil de mutuelle</div>",
+            "expl": "N'autoriser la facturation que pour un seul type de mutuelle et rejeter les 29 autres.",
+            "debriefExpl": "Rejeter les autres mutuelles bloque 80% des facturations. C'est inacceptable en production.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Calculateur simplifié erroné",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Coder un calcul approximatif global</div>",
+            "expl": "Coder un calcul simplifié qui applique un taux moyen de 15% pour toutes les mutuelles.",
+            "debriefExpl": "Un calcul erroné en facturation génère des litiges financiers et comptables graves.",
+            "icon": "alert-triangle"
+          }
+        ],
+        "expl": "Remplacer un automatisme de règles changeantes par de la saisie manuelle protège le calendrier."
+      },
+      {
+        "text": "Le système doit interdire l'envoi de courriers aux patientes ayant déjà réalisé un examen individuel récent. L'intégration de la base nationale des examens individuels (Ameli) est extrêmement complexe à implémenter et bloque le jalon.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Synchronisation Ameli</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Blocage strict : API Ameli indisponible</div></div>",
+        "correct": {
+          "title": "E3.3. Alerter plutôt que d'interdire",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Alerte Visuelle V1</div><div class=\"bg-amber-50 border border-amber-300 p-2 rounded text-[8px] font-black text-amber-800\">⚠️ Pensez à vérifier si l'examen a déjà été fait.</div><div class=\"text-[7px] text-emerald-600 font-bold\">Alerte visuelle simple = Zéro blocage technique</div></div>",
+          "expl": "Utiliser une simple alerte ou consigne visuelle d'avertissement au lieu de coder un verrou logique technique lourd.",
+          "debriefExpl": "Responsabiliser l'utilisateur via une alerte visuelle permet de se passer de l'API complexe pour le premier lancement.",
+          "icon": "alert-triangle"
+        },
+        "wrong": [
+          {
+            "title": "Retarder la livraison pour l'API",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Attendre la livraison de l'API Ameli</div>",
+            "expl": "Mettre le projet en pause le temps que la sécurité sociale valide notre accès API.",
+            "debriefExpl": "Les validations administratives des API d'État prennent des mois. Le projet serait mort-né.",
+            "icon": "clock"
+          },
+          {
+            "title": "Envoi aveugle sans précaution",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Envoyer sans aucun contrôle ni alerte</div>",
+            "expl": "Envoyer les invitations à tout le monde sans aucun garde-fou ni avertissement.",
+            "debriefExpl": "Envoyer des relances à des patientes déjà dépistées nuit à l'image du programme de santé.",
+            "icon": "alert-circle"
+          }
+        ],
+        "expl": "L'alerte visuelle responsabilise l'utilisateur et élimine le verrouillage technique complexe."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "E4. Valider la faisabilité par un prototype (Le POC)",
+    "intent": "Éliminer les inconnues techniques majeures en codant des maquettes jetables (POC) avant de s'engager sur un planning.",
+    "icon": "flask-conical",
+    "scenarios": [
+      {
+        "text": "L'équipe prévoit d'intégrer le nouveau lecteur de cartes Vitale SESAM (CPS) dans le module de dépistage. Personne dans l'équipe n'a jamais manipulé ce pilote USB. Le planning global du projet doit être validé cette semaine.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Intégration Matérielle CPS</div><div class=\"text-red-700 font-bold text-[9px]\">Inconnue totale sur le fonctionnement du lecteur USB</div></div>",
+        "correct": {
+          "title": "E4.1. Isoler l'inconnue technologique majeure",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Étude de risque prioritaire</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Tâche Prioritaire Sprint 1 : POC Connexion Lecteur CPS</div><div class=\"text-[7px] text-emerald-600 font-bold\">Sécurisation du risque avant de chiffrer le reste</div></div>",
+          "expl": "Identifier le composant ou l'intégration le plus risqué ou inconnu avant de s'engager sur une date.",
+          "debriefExpl": "Isoler l'inconnue majeure dès le début évite de lancer un planning aveugle voué à l'échec.",
+          "icon": "alert-circle"
+        },
+        "wrong": [
+          {
+            "title": "Estimer à la louche",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">\"Ça devrait prendre environ 5 jours...\"</div>",
+            "expl": "Estimer le temps de développement du lecteur à vue de nez dans le planning général.",
+            "debriefExpl": "Estimer sans savoir est la cause numéro 1 des dérapages de projets matériels de santé.",
+            "icon": "help-circle"
+          },
+          {
+            "title": "Garder pour la fin",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Coder le lecteur en dernière semaine</div>",
+            "expl": "Développer tout le logiciel d'abord et intégrer le lecteur Vitale la dernière semaine.",
+            "debriefExpl": "Si le lecteur pose un problème insoluble à la fin, tout le produit est bloqué le jour de la livraison.",
+            "icon": "clock"
+          }
+        ],
+        "expl": "L'inconnue technique majeure doit toujours être attaquée et isolée en premier."
+      },
+      {
+        "text": "Pour s'intégrer avec la base nationale de mammographie, l'équipe doit utiliser un protocole de communication ancien (HL7/FTP crypté). L'architecte veut passer 3 semaines à concevoir une architecture parfaite et modulaire.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Architecture HL7 Prévue</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Conception d'un framework HL7 complet (3 semaines)</div></div>",
+        "correct": {
+          "title": "E4.2. Réaliser une maquette technique jetable (POC)",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Prototype Rapide (POC)</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-mono text-slate-700\">[SCRIPT POC] FTP Connect OK - File Sent (2 jours)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Code minimaliste jetable pour valider la communication</div></div>",
+          "expl": "Coder un prototype minimaliste sans fioritures pour prouver que la connexion ou le flux est possible techniquement.",
+          "debriefExpl": "Faire un POC jetable valide la communication HL7 en 2 jours au lieu de concevoir un framework théorique en 3 semaines.",
+          "icon": "flask-conical"
+        },
+        "wrong": [
+          {
+            "title": "Conception de classe mondiale",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Rédiger les diagrammes UML détaillés</div>",
+            "expl": "Passer les deux premières semaines à concevoir tous les diagrammes UML de la connexion.",
+            "debriefExpl": "Les plans théoriques n'excluent pas les bugs de protocoles réseau réels. Il faut du code opérationnel.",
+            "icon": "layers"
+          },
+          {
+            "title": "Coder le framework complet",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Développer le module de production HL7</div>",
+            "expl": "Développer directement la classe finale sécurisée et packagée de production.",
+            "debriefExpl": "Si le serveur partenaire rejette nos paquets pour une raison obscure, 3 semaines de code final sont perdues.",
+            "icon": "shield-check"
+          }
+        ],
+        "expl": "Le POC jetable sert à valider le flux réel le plus tôt possible pour lever le risque."
+      },
+      {
+        "text": "L'équipe produit doit tester une nouvelle technologie de reconnaissance vocale pour la dictée des comptes-rendus de mammographie. Le planning général du projet dépend de ce choix technologique.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Intégration Dictée Vocale</div><div class=\"text-red-700 font-bold text-[9px]\">⏳ Risque de dérive de 2 mois si la techno vocale échoue</div></div>",
+        "correct": {
+          "title": "E4.3. Fixer un jalon court d'évaluation de faisabilité",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Jalon Gatekeeper</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Jalon J+5 : Décision GO/NO-GO Dictée Vocale</div><div class=\"text-[7px] text-emerald-600 font-bold\">Pivot immédiat si le test vocal n'est pas concluant</div></div>",
+          "expl": "Définir une date limite stricte pour le POC. Si le POC échoue, pivoter ou changer de techno immédiatement.",
+          "debriefExpl": "Fixer un jalon court d'évaluation évite de s'enliser des mois dans une impasse technologique.",
+          "icon": "calendar"
+        },
+        "wrong": [
+          {
+            "title": "Continuer à chercher sans limite",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">\"On va continuer les tests le mois prochain\"</div>",
+            "expl": "Poursuivre les tests de la reconnaissance vocale sans fixer de date d'arbitrage ferme.",
+            "debriefExpl": "C'est la garantie de consommer tout le budget en recherche sans jamais rien livrer aux utilisateurs.",
+            "icon": "clock"
+          },
+          {
+            "title": "Valider sans preuve",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Signer le contrat avec le fournisseur vocal</div>",
+            "expl": "Acheter la licence du logiciel vocal sans avoir testé son intégration dans notre application.",
+            "debriefExpl": "C'est un risque financier et opérationnel énorme qui se termine souvent par un rejet des utilisateurs.",
+            "icon": "file-text"
+          }
+        ],
+        "expl": "Définir une date d'arbitrage courte sur la faisabilité technique sécurise la roadmap."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "E5. Avancer par étapes testables (Le Phasage)",
+    "intent": "Découper le projet en jalons intermédiaires autonomes et testables avec de vraies données très tôt.",
+    "icon": "git-commit",
+    "scenarios": [
+      {
+        "text": "Le PO lance la conception d'un module d'édition de courriers de convocation. L'équipe veut coder d'abord les règles d'admissibilité complexes et la mise en page CSS avant d'avoir un écran capable de stocker les données.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Conception Éditeur Courrier</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] text-red-800 font-bold\">✗ Mise en page et style CSS complexes (Lot 1)</div></div>",
+        "correct": {
+          "title": "E5.1. Livrer des écrans vides mais connectés en premier",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Écran minimal connecté</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Formulaire brut ➔ Bouton Enregistrer BDD</div><div class=\"text-[7px] text-emerald-600 font-bold\">Flux de persistance validé en 1 jour sans CSS</div></div>",
+          "expl": "Permettre d'enregistrer et de lire des données simples en base avant d'ajouter la moindre logique métier ou esthétique.",
+          "debriefExpl": "Livrer les écrans connectés vides en premier sécurise la plomberie technique (BDD, API) avant d'attaquer l'ergonomie.",
+          "icon": "database"
+        },
+        "wrong": [
+          {
+            "title": "Design pixel-perfect d'abord",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Intégrer les maquettes Figma parfaites</div>",
+            "expl": "Coder toute l'interface esthétique Figma sans la connecter à la base de données.",
+            "debriefExpl": "Un bel écran non connecté n'est qu'une coquille vide qui masque les vrais problèmes d'intégration de données.",
+            "icon": "palette"
+          },
+          {
+            "title": "Modélisation totale de la BDD",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Écrire 40 tables SQL complexes</div>",
+            "expl": "Prendre un sprint pour écrire un modèle de données parfait de 40 tables SQL avant de faire le premier écran.",
+            "debriefExpl": "La modélisation pure et théorique de la BDD retarde le feedback visuel des utilisateurs.",
+            "icon": "database"
+          }
+        ],
+        "expl": "Sécuriser le flux de stockage et de lecture de base en premier élimine 50% des bugs d'intégration."
+      },
+      {
+        "text": "L'équipe prévoit de passer 3 mois à développer le nouveau portail de mammographie en secret pour faire une surprise au client lors de la livraison finale en fin de projet.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Stratégie Surprise client</div><div class=\"bg-red-150 p-2 rounded text-center text-[10px] font-bold text-red-800\">Lancement dans 90 jours (Zéro test intermédiaire)</div><div class=\"text-[8px] text-red-600 font-bold\">⚠️ Risque extrême de rejet ou de mauvaise surprise</div></div>",
+        "correct": {
+          "title": "E5.2. Créer des versions intermédiaires utilisables",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Incréments Mensuels</div><div class=\"flex justify-around items-center text-[8px] font-black text-slate-700 bg-white p-1 rounded border\"><span>M+1 : Saisie ✅</span><span>➔</span><span>M+2 : Courrier ⏳</span><span>➔</span><span>M+3 : Stats ⏳</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Feedback utilisateur réel tous les 30 jours</div></div>",
+          "expl": "S'assurer que chaque fin de jalon ou d'étape produit un sous-ensemble fonctionnel et testable par les utilisateurs.",
+          "debriefExpl": "Créer des versions intermédiaires utilisables élimine l'effet tunnel et permet de réajuster le produit en continu.",
+          "icon": "git-commit"
+        },
+        "wrong": [
+          {
+            "title": "Démos de maquettes Figma",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Faire des démos de prototypes interactifs Figma</div>",
+            "expl": "Faire valider l'avancement uniquement sur des prototypes Figma cliquables sans vrai code.",
+            "debriefExpl": "Les démos Figma ne testent ni la performance technique, ni la réalité des bugs d'intégration de données.",
+            "icon": "layout"
+          },
+          {
+            "title": "Big Bang à la fin",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Livrer tout le projet d'un coup</div>",
+            "expl": "Maintenir la date de livraison finale unique sans aucun déploiement intermédiaire.",
+            "debriefExpl": "C'est la garantie de découvrir des malentendus ergonomiques ou fonctionnels trop tard pour les corriger.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "Chaque fin de lot de développement doit produire de la valeur fonctionnelle réelle et testable."
+      },
+      {
+        "text": "L'équipe produit crée un module d'import de résultats de biologie. Les tests sont réalisés uniquement avec 3 dossiers fictifs parfaits rédigés à la main par le développeur.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Données de Test V1</div><div class=\"p-1.5 bg-red-50 text-[9px] font-mono text-red-700\">patient_test_1.json (Parfait, 0 anomalie)</div><div class=\"text-[8px] text-red-650 font-bold\">⚠️ Risque extrême d'explosion du système lors du premier vrai import</div></div>",
+        "correct": {
+          "title": "E5.3. Injecter des données réelles très tôt",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Bac à sable Réel</div><div class=\"bg-white border border-emerald-500 rounded p-1 text-[8px] font-mono text-slate-600\">Import : 200 fiches réelles anonymisées (Sprint 1)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Anomalies et doublons réels détectés dès le départ</div></div>",
+          "expl": "Valider la structure et la logique du logiciel avec un échantillon de vraies données dès le départ.",
+          "debriefExpl": "Injecter des données réelles très tôt permet de lever les vraies difficultés d'intégration (formats, doublons) immédiatement.",
+          "icon": "database"
+        },
+        "wrong": [
+          {
+            "title": "Attendre la mise en prod",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Tester avec les vraies données le jour J</div>",
+            "expl": "Ne connecter les flux de production réels que le jour officiel du lancement national.",
+            "debriefExpl": "Découvrir les erreurs de format de données le jour J provoque une crise majeure et bloque la campagne.",
+            "icon": "ban"
+          },
+          {
+            "title": "Générateur automatique",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Créer un générateur de faux dossiers</div>",
+            "expl": "Passer du temps à écrire un script qui génère 1 000 faux patients parfaits pour tester la volumétrie.",
+            "debriefExpl": "Les données générées par ordinateur sont trop parfaites et ne contiennent jamais la richesse des erreurs humaines réelles.",
+            "icon": "code"
+          }
+        ],
+        "expl": "Tester avec de vraies données anonymisées lève les vrais loups techniques très tôt."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "E6. Ajuster le périmètre, pas la date (Le Déscope de crise)",
+    "intent": "Face à une date cible inamovible, couper immédiatement les 20% de fonctionnalités non vitales en cas de retard.",
+    "icon": "calendar",
+    "scenarios": [
+      {
+        "text": "L'ARS a fixé le lancement national du dépistage colorectal au 1er octobre (communication TV réservée). À 3 semaines du jalon, l'équipe technique a pris du retard. Le chef de projet propose de décaler le lancement au 15 octobre.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Retard Jalon 1er Octobre</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Solution : Décaler la date nationale (Crise ARS)</div></div>",
+        "correct": {
+          "title": "E6.1. Classer les fonctions par criticité (Must / Should / Could)",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Matrice de déscope d'urgence</div><div class=\"grid grid-cols-3 gap-1 text-[7px] font-black text-center\"><div class=\"bg-emerald-100 p-1 rounded text-emerald-800\">MUST<br>Saisie ✅</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">SHOULD<br>SMS ⏳</div><div class=\"bg-red-100 p-1 rounded text-red-800\">COULD<br>Export ✂️</div></div><div class=\"text-[7px] text-emerald-600 font-bold\">Sécurisation immédiate du lancement V1</div></div>",
+          "expl": "Identifier immédiatement les 20% de fonctionnalités de confort ou secondaires à couper pour tenir la date.",
+          "debriefExpl": "Classer par criticité permet de couper proprement le superflu pour sauver le lancement national du 1er octobre.",
+          "icon": "filter"
+        },
+        "wrong": [
+          {
+            "title": "Travailler la nuit (Crunch)",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Forcer l'équipe au surmenage</div>",
+            "expl": "Forcer l'équipe de dev à travailler les week-ends pour essayer de tout livrer.",
+            "debriefExpl": "Le 'crunch' engendre une fatigue extrême, des dizaines de bugs de dernière minute et démotive l'équipe.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Livrer sans tester",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Supprimer la phase de recette technique</div>",
+            "expl": "Supprimer la dernière semaine de tests de stabilisation pour finir de coder les fonctions.",
+            "debriefExpl": "Livrer du code non testé à l'ARS provoque des crashs serveurs majeurs le jour du lancement.",
+            "icon": "alert-triangle"
+          }
+        ],
+        "expl": "Quand la date est fixe, la seule variable d'ajustement éthique et robuste est le périmètre."
+      },
+      {
+        "text": "L'équipe produit constate dès la deuxième semaine d'un jalon de 6 semaines que l'intégration HL7 est beaucoup plus complexe que prévu. Le chef de projet veut attendre le dernier jour pour avertir le client d'un retard potentiel.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Alerte Dérive Semaine 2</div><div class=\"bg-red-100 p-2 rounded text-center text-[10px] text-red-800 font-bold\">\"On verra bien à la fin, on va forcer...\"</div><div class=\"text-[8px] text-red-650 font-bold\">⚠️ Bombe à retardement pour le client</div></div>",
+        "correct": {
+          "title": "E6.2. Trancher dès les premiers signes de dérive",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Arbitrage Anticipé Semaine 2</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Décision Semaine 2 : Report de l'export HL7 à la V2</div><div class=\"text-[7px] text-emerald-600 font-bold\">Zéro stress en fin de jalon pour l'équipe</div></div>",
+          "expl": "Prendre la décision de déscoper dès que la dérive du planning est détectée, sans attendre la veille de la livraison.",
+          "debriefExpl": "Trancher tôt permet d'aligner sereinement le client et de réorganiser les priorités avant d'être dans l'urgence.",
+          "icon": "scissors"
+        },
+        "wrong": [
+          {
+            "title": "Espérer un miracle",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Attendre la semaine 6 pour décider</div>",
+            "expl": "Continuer à tout coder en espérant que l'équipe rattrape mystérieusement le retard de 10 jours.",
+            "debriefExpl": "Les miracles n'existent pas en informatique. Plus on attend, plus la décision de déscope est douloureuse.",
+            "icon": "clock"
+          },
+          {
+            "title": "Ajouter des développeurs",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Intégrer 2 nouveaux devs en urgence</div>",
+            "expl": "Recruter ou transférer 2 développeurs d'une autre équipe pour aider en urgence.",
+            "debriefExpl": "Intégrer des développeurs en cours de crise ralentit encore plus l'équipe car il faut les former (loi de Brooks).",
+            "icon": "users"
+          }
+        ],
+        "expl": "Trancher dès les premiers signaux de dérive est la marque d'un pilotage serein et responsable."
+      },
+      {
+        "text": "L'équipe a dû déscoper le module de relance SMS automatique pour tenir le jalon de la campagne de dépistage. Sans ce module, le centre craint de ne pas pouvoir du tout relancer les patientes non répondantes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Impact Déscope SMS</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Zéro relance possible (Bloquant)</div></div>",
+        "correct": {
+          "title": "E6.3. Fournir une solution de secours temporaire",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Solution de Secours V1</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 flex justify-between\"><span>Export CSV Relance brut :</span><span class=\"text-emerald-700\">Bouton de secours ✅</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Envoi manuel par le centre via son outil mail habituel</div></div>",
+          "expl": "Proposer une alternative simple aux utilisateurs (ex: un export brut de secours) quand une fonction majeure est retirée.",
+          "debriefExpl": "Fournir un bouton d'export CSV de secours débloque l'usage métier tout en respectant la date de livraison cible.",
+          "icon": "life-buoy"
+        },
+        "wrong": [
+          {
+            "title": "Laisser l'utilisateur sans rien",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">\"La relance sera livrée en V2 dans 4 mois\"</div>",
+            "expl": "Dire aux utilisateurs de patienter sans aucune solution de contournement pendant 4 mois.",
+            "debriefExpl": "Laisser les centres sans aucune alternative provoque le rejet du logiciel et paralyse le dépistage.",
+            "icon": "ban"
+          },
+          {
+            "title": "Bouton SMS fictif",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Bouton SMS \"Bientôt disponible\"</div>",
+            "expl": "Garder le bouton SMS dans l'interface mais afficher un message disant que ce n'est pas encore prêt.",
+            "debriefExpl": "Un bouton fictif ne résout pas le besoin métier réel de relancer les patientes et génère de la frustration.",
+            "icon": "alert-circle"
+          }
+        ],
+        "expl": "Une solution de secours rustique de déscope permet d'assurer la continuité du service métier."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "E7. Prévoir une marge de sécurité (La Marge 20%)",
+    "intent": "Sanctuariser les derniers 20% du calendrier pour stabiliser, tester et déployer sereinement, hors nouveau code.",
+    "icon": "shield-check",
+    "scenarios": [
+      {
+        "text": "Pour la livraison du module de mammographie, le chef de projet veut planifier l'écriture de nouvelles fonctionnalités de statistiques jusqu'au dernier jour du sprint de 4 semaines.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Sprint de 4 Semaines Prévu</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-red-50 p-1.5 rounded\"><span>S1: Dev</span><span>➔</span><span>S2: Dev</span><span>➔</span><span>S3: Dev</span><span>➔</span><span>S4: Dev</span></div><div class=\"text-[8px] text-red-650 font-bold mt-1\">⚠️ Aucune période de test globale : Livraison risquée</div></div>",
+        "correct": {
+          "title": "E7.1. Sanctuariser la période de stabilisation",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Sprint Sécurisé (Marge 20%)</div><div class=\"flex justify-between items-center text-[7px] font-black text-slate-700 bg-white p-1 rounded border\"><span>S1: Dev</span><span>➔</span><span>S2: Dev</span><span>➔</span><span>S3: Dev</span><span>➔</span><span class=\"bg-emerald-100 text-emerald-800 px-1 rounded\">S4: Recette &amp; Bugfix</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Derniers 20% dédiés à la stabilisation : Zéro stress</div></div>",
+          "expl": "Ne planifier aucun nouveau code dans les derniers 20% du calendrier d'un jalon, les dédier uniquement aux tests et corrections.",
+          "debriefExpl": "Sanctuariser la période de stabilisation garantit que le produit livré le jour J est robuste et exempt de bugs majeurs.",
+          "icon": "shield"
+        },
+        "wrong": [
+          {
+            "title": "Tests pendant le dev",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Tester à chaud au fil de l'eau</div>",
+            "expl": "Faire tester aux développeurs leur propre code en direct pendant qu'ils continuent à en écrire de nouvelles fiches.",
+            "debriefExpl": "Tester à chaud n'offre jamais la vision globale requise pour déceler les effets de bord systémiques.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Livraison en cours de dev",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Déployer dès que le code compile</div>",
+            "expl": "Mettre en ligne les fonctions au fur et à mesure sans faire de phase de stabilisation collective.",
+            "debriefExpl": "Cette approche engendre des pannes à répétition en production, stressant l'équipe et les utilisateurs.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "Les derniers 20% du planning doivent être intouchables et réservés à la stabilisation et aux tests réels."
+      },
+      {
+        "text": "L'équipe estime le développement d'un écran de suivi à 3 jours. Le chef de projet inscrit exactement 3 jours de calendrier dans la roadmap pour cette tâche, sans ajouter le temps d'intégration.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Chiffrage Écran Suivi</div><div class=\"bg-red-50 border p-1 rounded text-[8px] font-black text-slate-800 flex justify-between\"><span>Dev Écran :</span><span class=\"text-red-700\">3 jours calendaires (0 marge)</span></div></div>",
+        "correct": {
+          "title": "E7.2. Inclure l'intégration et le déploiement dans les estimations",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Chiffrage Complet</div><div class=\"bg-white border p-1.5 rounded text-[8px] font-black text-slate-800 flex flex-col gap-0.5\"><div>🛠 Dev : 3 jours</div><div>🧪 Recette &amp; Déploiement : 1 jour</div><div class=\"text-emerald-700 font-bold\">Total : 4 jours</div></div></div>",
+          "expl": "Ne pas chiffrer uniquement le temps d'écriture du code, y ajouter systématiquement le temps de test et de mise en ligne.",
+          "debriefExpl": "Inclure l'intégration dans l'estimation évite la mauvaise surprise du 'code fini mais non déployable'.",
+          "icon": "plus-circle"
+        },
+        "wrong": [
+          {
+            "title": "Chiffrer le code brut seul",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Compter 3 jours de code pur</div>",
+            "expl": "Chiffrer uniquement les heures de codage théorique devant l'éditeur de texte.",
+            "debriefExpl": "C'est la garantie de livrer en retard car le déploiement et la stabilisation prennent toujours du temps.",
+            "icon": "code"
+          },
+          {
+            "title": "Forcer l'accélération",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Demander au dev de coder plus vite</div>",
+            "expl": "Exiger du développeur qu'il finisse en 2 jours au lieu de 3 pour compenser.",
+            "debriefExpl": "Forcer à coder plus vite génère de la mauvaise qualité, des bugs et de la dette technique.",
+            "icon": "zap"
+          }
+        ],
+        "expl": "L'estimation réelle doit inclure tout le cycle de vie : écriture, tests croisés et déploiement."
+      },
+      {
+        "text": "Lors du dernier sprint, l'équipe a consommé toute sa marge de 20% pour corriger des bugs imprévus de dernière minute. Pour le sprint suivant, le chef de projet prévoit la même charge maximale de nouvelles fonctionnalités.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Capacité Sprint 2</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Charge Max (100% cap) reconduite</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de surmenage et d'explosion du buffer à nouveau</div></div>",
+        "correct": {
+          "title": "E7.3. Réduire la voilure selon l'historique",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Ajustement Serein Sprint 2</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Capacité Sprint 2 : Réduite à 80% pour purger les bugs</div><div class=\"text-[7px] text-emerald-600 font-bold\">L'équipe repart sur des bases saines</div></div>",
+          "expl": "Diminuer la charge de travail du lot suivant si l'équipe a consommé tout son buffer sur le lot actuel pour stabiliser.",
+          "debriefExpl": "Réduire la voilure selon l'historique permet à l'équipe de repartir sur des bases saines et durables.",
+          "icon": "trending-down"
+        },
+        "wrong": [
+          {
+            "title": "Maintenir la pression",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Conserver la même charge de travail</div>",
+            "expl": "Exiger la même cadence en espérant que le sprint se passe mieux par magie.",
+            "debriefExpl": "Ignorer l'historique de l'équipe conduit inévitablement à la fatigue et au burn-out technique.",
+            "icon": "ban"
+          },
+          {
+            "title": "Ajouter des heures",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Planifier des heures sup d'avance</div>",
+            "expl": "Prévoir des sessions de travail le samedi d'avance pour compenser la charge trop lourde.",
+            "debriefExpl": "Le travail le week-end détruit la créativité et génère deux fois plus de bugs qu'il n'en résout.",
+            "icon": "alert-circle"
+          }
+        ],
+        "expl": "Adapter la charge selon les performances passées réelles de l'équipe protège la qualité du produit."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "E8. Sécuriser les dépendances externes (Le \"Plan B\")",
+    "intent": "Mocker les services tiers défaillants ou en retard par des simulateurs locaux (Mocks) pour rester autonome.",
+    "icon": "git-merge",
+    "scenarios": [
+      {
+        "text": "Le nouveau module de dépistage colorectal doit s'interconnecter avec l'API nationale d'identitovigilance (INS) gérée par la CNAM. Cette API n'est pas encore disponible en environnement de test et l'équipe est bloquée pour coder.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Connexion API INS CNAM</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Bloqué : API CNAM en maintenance indéfinie</div></div>",
+        "correct": {
+          "title": "E8.1. Créer un simulateur de données (Mock) immédiatement",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Simulateur Interne (Mock)</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1 text-[7px] font-mono text-slate-700\">[MOCK API INS] Simulating CNAM response: Success (0ms)</div><div class=\"text-[7px] text-emerald-600 font-bold\">L'équipe code et teste de manière 100% autonome</div></div>",
+          "expl": "Développer un faux service (Mock) renvoyant des données fictives pour coder et tester sans dépendre du calendrier des tiers.",
+          "debriefExpl": "Créer un simulateur (Mock) de l'API INS CNAM permet de finaliser et tester le logiciel sans perdre une seule journée.",
+          "icon": "server"
+        },
+        "wrong": [
+          {
+            "title": "Attendre l'API CNAM",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Mettre le sprint en pause</div>",
+            "expl": "Attendre patiemment que la CNAM rétablisse l'accès à son API de test avant de reprendre les dev.",
+            "debriefExpl": "Attendre passivement les services de l'État peut ruiner le calendrier de l'atelier sur des mois.",
+            "icon": "clock"
+          },
+          {
+            "title": "Changer le sujet",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Développer un autre module secondaire</div>",
+            "expl": "Mettre de côté l'INS et commencer à coder les statistiques pour s'occuper.",
+            "debriefExpl": "Changer de sujet sans résoudre le blocage ne fait que repousser le problème critique et désorganise la roadmap.",
+            "icon": "shuffle"
+          }
+        ],
+        "expl": "Mocker les dépendances tierces garantit l'autonomie et la vélocité de l'équipe de dev."
+      },
+      {
+        "text": "L'équipe produit doit intégrer le module d'import de résultats du laboratoire partenaire. Le laboratoire n'a pas encore écrit sa documentation de sortie et les deux équipes n'arrivent pas à s'accorder sur le format de fichier.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Format Import Labo</div><div class=\"text-red-700 text-[8px] font-bold\">\"On verra bien à la fin ce que vous nous enverrez...\"</div></div>",
+        "correct": {
+          "title": "E8.2. Figer le contrat d'interface (API) dès le départ",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Contrat d'interface signé</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[7px] font-mono text-slate-700\">[CONTRACT] JSON Structure: { patient_id: int, fit_result: string }</div><div class=\"text-[7px] text-emerald-600 font-bold\">Format figé par écrit : chacun code de son côté</div></div>",
+          "expl": "Se mettre d'accord par écrit sur le format exact des données échangées (contrat d'interface) dès le départ du lot.",
+          "debriefExpl": "Figer le contrat d'interface (API) élimine tout risque d'incompatibilité le jour de la mise en service.",
+          "icon": "file-text"
+        },
+        "wrong": [
+          {
+            "title": "Développer en aveugle",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Coder selon nos propres règles</div>",
+            "expl": "Développer le système d'import en devinant le format de fichier que le labo va envoyer.",
+            "debriefExpl": "Développer en aveugle est un pari extrêmement risqué qui nécessite souvent de tout réécrire à la fin.",
+            "icon": "help-circle"
+          },
+          {
+            "title": "Attendre la fin du labo",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Attendre la livraison finale du labo</div>",
+            "expl": "Ne commencer à développer notre module d'import qu'une fois que le labo a fini d'écrire son code.",
+            "debriefExpl": "Cela retarde le développement de notre côté de plusieurs semaines, brisant la roadmap.",
+            "icon": "clock"
+          }
+        ],
+        "expl": "Un contrat d'interface (contrat technique) signé élimine les malentendus d'intégration."
+      },
+      {
+        "text": "Le système de dépistage mammaire dépend de l'API de géolocalisation de l'IGN pour affecter les patientes aux centres les plus proches. Si le serveur de l'IGN tombe en panne, toute l'affectation automatique s'arrête en production.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">IGN Geocoder API</div><div class=\"bg-red-100 p-1.5 rounded text-center text-[9px] text-red-800 font-bold\">✗ 500 Internal Server Error (IGN en panne)</div><div class=\"text-[7px] text-red-650\">⚠️ Affectation impossible : Campagne bloquée</div></div>",
+        "correct": {
+          "title": "E8.3. Prévoir un flux dégradé en cas de panne du tiers",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux dégradé de secours</div><div class=\"bg-white border border-emerald-500 rounded p-1 text-[8px] font-black text-slate-800 flex justify-between\"><span>Panne IGN ➔ Saisie manuelle du Code Postal</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">L'opérateur peut affecter manuellement par CP</div></div>",
+          "expl": "Concevoir une alternative dégradée (import ou action manuelle) pour ne pas paralyser le produit si le tiers échoue.",
+          "debriefExpl": "Prévoir un flux dégradé (saisie de code postal) permet aux opérateurs de continuer à travailler malgré la panne de l'IGN.",
+          "icon": "life-buoy"
+        },
+        "wrong": [
+          {
+            "title": "Afficher une erreur bloquante",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Pop-up : \"Serveur indisponible\"</div>",
+            "expl": "Bloquer l'écran avec un message d'erreur rouge et empêcher toute validation de fiche.",
+            "debriefExpl": "Bloquer l'utilisateur n'apporte aucune valeur et paralyse le travail du centre de dépistage.",
+            "icon": "ban"
+          },
+          {
+            "title": "Retenter en boucle (Retry)",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Re-tenter toutes les 5 secondes</div>",
+            "expl": "Laisser l'application charger en boucle à l'écran en espérant que le serveur externe réponde.",
+            "debriefExpl": "Faire charger en boucle fait ramer le navigateur de l'utilisateur et finit par faire planter sa session.",
+            "icon": "refresh-cw"
+          }
+        ],
+        "expl": "Le flux dégradé permet d'éviter l'effet domino en production lors de la défaillance d'un partenaire."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "E9. Planifier la transition et l'impact (Dette & Décommissionnement)",
+    "intent": "Fermer l'ancien système en lecture seule le jour J pour éviter la double maintenance et la corruption des données historiques.",
+    "icon": "database",
+    "scenarios": [
+      {
+        "text": "Le nouveau module de dépistage colorectal va remplacer l'ancien système de gestion par fichier Excel partagé. Le directeur du centre souhaite laisser l'ancien fichier Excel ouvert en écriture pendant quelques mois par sécurité.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Période de Transition Prévue</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Co-existence Excel ↔ Logiciel (Écriture libre)</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de double saisie, d'écarts de données et de chaos</div></div>",
+        "correct": {
+          "title": "E9.1. Définir une date d'arrêt ferme de l'ancien outil",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Plan de Transition Sec</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Jour J : Arrêt total de l'ancien fichier Excel</div><div class=\"text-[7px] text-emerald-600 font-bold\">Fermeture nette de l'ancien outil pour forcer l'adoption</div></div>",
+          "expl": "Fixer une date butoir de coupure définitive de l'ancien système pour éviter la double saisie et la confusion.",
+          "debriefExpl": "Définir une date d'arrêt ferme de l'ancien outil évite le chaos de la double saisie et oblige les équipes à s'approprier le nouvel outil.",
+          "icon": "calendar"
+        },
+        "wrong": [
+          {
+            "title": "Cohabitation prolongée",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Laisser les deux ouverts indéfiniment</div>",
+            "expl": "Laisser les utilisateurs choisir l'outil qu'ils préfèrent utiliser pendant le premier trimestre.",
+            "debriefExpl": "C'est la garantie d'avoir des données désynchronisées et de ne jamais pouvoir décommissionner l'ancien outil.",
+            "icon": "shuffle"
+          },
+          {
+            "title": "Double saisie obligatoire",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Saisir dans Excel ET dans le logiciel</div>",
+            "expl": "Forcer les agents de Valenciennes à ressaisir chaque dossier dans les deux outils en parallèle.",
+            "debriefExpl": "La double saisie épuise et démotive les secrétaires, tout en doublant le risque d'erreurs de frappe.",
+            "icon": "alert-circle"
+          }
+        ],
+        "expl": "Une date d'arrêt nette et communiquée de l'ancien outil est la seule méthode de migration efficace."
+      },
+      {
+        "text": "Lors du déploiement du nouveau module, les secrétaires continuent à utiliser l'ancien logiciel pour éditer les invitations urgentes, car elles maîtrisent mieux les touches de raccourci sur l'ancienne interface.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Utilisation Ancien Outil</div><div class=\"p-1.5 bg-red-100 text-[9px] font-bold text-red-800 rounded text-center\">Ancien logiciel toujours ouvert en écriture libre</div></div>",
+        "correct": {
+          "title": "E9.2. Bloquer l'accès en écriture à l'ancien système",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Ancien Outil Sécurisé</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">⚠️ Mode Lecture Seule Actif sur l'ancien système</div><div class=\"text-[7px] text-emerald-600 font-bold\">Historique consultable, modifications bloquées</div></div>",
+          "expl": "Basculer l'ancienne application ou base en lecture seule dès le jour de la mise en service du nouveau système.",
+          "debriefExpl": "Bloquer l'accès en écriture de l'ancien outil force l'adoption de la nouveauté tout en conservant l'accès aux données historiques.",
+          "icon": "lock"
+        },
+        "wrong": [
+          {
+            "title": "Fermer totalement l'accès",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Désinstaller totalement l'ancien outil</div>",
+            "expl": "Supprimer complètement l'ancienne application et détruire sa base de données dès le premier jour.",
+            "debriefExpl": "Supprimer totalement l'accès empêche de consulter l'historique et panique les équipes s'il faut vérifier un dossier.",
+            "icon": "trash"
+          },
+          {
+            "title": "Instaurer un système de sanctions",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Surveiller et réprimander les secrétaires</div>",
+            "expl": "Laisser l'ancien outil ouvert mais interdire son utilisation sous peine de sanctions administratives.",
+            "debriefExpl": "C'est une approche managériale anxiogène et inefficace. Mieux vaut un blocage technique propre de l'écriture.",
+            "icon": "alert-circle"
+          }
+        ],
+        "expl": "Le mode lecture seule sur l'ancienne base protège les données tout en débloquant la consultation."
+      },
+      {
+        "text": "L'équipe produit déploie une nouvelle règle de calcul du risque (HAS) qui modifie les tranches d'âge du dépistage national. Le PO déploie la règle sans vérifier comment le système va recalculer le statut des 10 000 dossiers historiques en attente.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Déploiement Nouvelle Règle HAS</div><div class=\"p-2 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Recalcul aveugle de toute la base historique</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de faux positifs et d'alertes erronées en cascade</div></div>",
+        "correct": {
+          "title": "E9.3. Évaluer l'impact des nouvelles règles sur les anciennes",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Étude d'impact historique</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Règle HAS : applicable uniquement aux dossiers ouverts après le 01/06</div><div class=\"text-[7px] text-emerald-600 font-bold\">Sauvegarde de la cohérence des dossiers historiques</div></div>",
+          "expl": "Analyser systématiquement comment les nouvelles règles métiers affectent les données historiques pour éviter les incohérences.",
+          "debriefExpl": "Évaluer l'impact sur les données passées garantit que les changements de règles n'altèrent pas l'historique clinique médical des dossiers clos.",
+          "icon": "trending-up"
+        },
+        "wrong": [
+          {
+            "title": "Tout recalculer d'un coup",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Lancer un script d'update global</div>",
+            "expl": "Appliquer rétroactivement la nouvelle règle à tous les dossiers passés de la base de données.",
+            "debriefExpl": "Cela modifie des résultats médicaux validés par le passé, ce qui est extrêmement grave juridiquement.",
+            "icon": "alert-triangle"
+          },
+          {
+            "title": "Ne pas versionner la règle",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Remplacer l'ancienne fonction de calcul</div>",
+            "expl": "Écraser l'ancien code de calcul par le nouveau sans garder la version précédente.",
+            "debriefExpl": "Sans versioning, il est impossible de comprendre pourquoi un dossier de 2025 a été classé 'faible' avec les anciennes règles.",
+            "icon": "trash-2"
+          }
+        ],
+        "expl": "Le versioning et l'étude d'impact des règles métiers protègent l'intégrité scientifique des données médicales."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "E10. Aligner la technique avec le terrain (Le \"Go-to-Market\" et la validation)",
+    "intent": "Faire tester l'outil en bac à sable et valider formellement la mise en service avec le support et la documentation prêts.",
+    "icon": "rocket",
+    "scenarios": [
+      {
+        "text": "L'équipe technique a terminé le développement du nouveau module à 18h le dimanche. Le PO veut le déployer directement en production le lundi matin à 8h pour que les 200 secrétaires l'utilisent immédiatement sans aide.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lancement Lundi 8h</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Zéro documentation - Support non prévenu</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de panique et de surcharge du support</div></div>",
+        "correct": {
+          "title": "E10.1. Rédiger la documentation en parallèle du code",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Livraison Documentée</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 flex justify-between\"><span>Aide en ligne &amp; Guide PDF :</span><span class=\"text-emerald-700\">Disponibles le jour J ✅</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Secrétaires formées et autonomes grâce au guide de démarrage</div></div>",
+          "expl": "Avoir les guides d'utilisation et la base de connaissances prêts et publiés en même temps que la fin des développements.",
+          "debriefExpl": "Rédiger la documentation en parallèle évite le rejet du logiciel par les équipes terrain le jour de l'ouverture.",
+          "icon": "book-open"
+        },
+        "wrong": [
+          {
+            "title": "Écrire la doc plus tard",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">\"On écrira la doc le mois prochain\"</div>",
+            "expl": "Déployer le logiciel nu et programmer la rédaction de la documentation pour le prochain sprint.",
+            "debriefExpl": "Sans guide le jour J, les utilisateurs bloquent sur le premier écran et submergent le support d'appels.",
+            "icon": "clock"
+          },
+          {
+            "title": "Support par téléphone direct",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Laisser les secrétaires appeler le PO</div>",
+            "expl": "Donner le numéro de téléphone direct du développeur à toutes les secrétaires pour qu'il les aide en direct.",
+            "debriefExpl": "Le développeur passe sa semaine au téléphone au lieu de stabiliser les bugs de production.",
+            "icon": "phone-call"
+          }
+        ],
+        "expl": "Un logiciel sans documentation de démarrage n'est pas prêt pour une mise en production en santé."
+      },
+      {
+        "text": "Le PO veut déployer le nouveau portail de suivi des cancers sans l'avoir fait tester par de vrais utilisateurs, sous prétexte que le design respecte scrupuleusement la charte esthétique globale d'Epiconcept.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lancement sans test terrain</div><div class=\"bg-red-100 p-2 rounded text-center text-[10px] text-red-800 font-bold\">\"Le design respecte la charte, ça va aller...\"</div><div class=\"text-[8px] text-red-650 font-bold\">⚠️ Risque majeur d'incompréhension ergonomique des praticiens</div></div>",
+        "correct": {
+          "title": "E10.2. Organiser des manipulations réelles à blanc",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Atelier Bac à Sable</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Test à blanc : 5 secrétaires saisissent 10 dossiers factices</div><div class=\"text-[7px] text-emerald-600 font-bold\">3 frictions ergonomiques majeures corrigées avant le jour J</div></div>",
+          "expl": "Faire tester l'outil sur un bac à sable ou environnement de test par des utilisateurs réels avant d'ouvrir la production.",
+          "debriefExpl": "Organiser des manipulations réelles à blanc permet de lever les derniers loups d'utilisabilité dans des conditions réelles.",
+          "icon": "users"
+        },
+        "wrong": [
+          {
+            "title": "Démonstration passive",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Faire un partage d'écran Teams de 2h</div>",
+            "expl": "Faire une présentation Teams collective passive devant 50 secrétaires sans les laisser toucher le logiciel.",
+            "debriefExpl": "Regarder une démo passive n'équivaut jamais à la manipulation physique. Les secrétaires bloqueront dès qu'elles seront seules.",
+            "icon": "video"
+          },
+          {
+            "title": "Validation interne PO",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Le PO valide lui-même le produit</div>",
+            "expl": "Considérer que les tests réalisés par le PO sur son propre poste de travail suffisent pour la validation.",
+            "debriefExpl": "Le PO a le nez dans le guidon et connaît trop bien l'outil. Ses tests ne reflètent jamais l'usage réel d'un débutant.",
+            "icon": "shield-check"
+          }
+        ],
+        "expl": "Manipuler le produit en conditions réelles dans un environnement bac à sable est la seule garantie de succès."
+      },
+      {
+        "text": "C'est le jour J du déploiement national du dépistage organisé cervical. Le serveur de production de secours n'a pas été configuré, la procédure d'escalade des pannes n'est pas rédigée et les directeurs de centres ne sont pas informés de l'heure d'ouverture.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lancement National Cervical</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] text-red-800 font-bold\">✗ Lancement sauvage à l'aveugle (Risque maximum)</div></div>",
+        "correct": {
+          "title": "E10.3. Acter officiellement le \"Go / No-Go\" avec les décideurs",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">COPIL d'arbitrage de lancement</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Copil J-2 : Feu vert technique, support et métier acté</div><div class=\"text-[7px] text-emerald-600 font-bold\">Feu vert formel de toutes les équipes : Lancement sécurisé</div></div>",
+          "expl": "Se réunir formellement et valider la mise en production sur la base de critères de réussite clairs et partagés (technique, support, métier).",
+          "debriefExpl": "Acter officiellement le GO/NO-GO responsabilise tous les acteurs et s'assure que le support et l'infrastructure sont prêts pour le choc.",
+          "icon": "shield-alert"
+        },
+        "wrong": [
+          {
+            "title": "Mettre en ligne discrètement",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Déployer en prod en pleine nuit à 2h</div>",
+            "expl": "Pousser le code en production de manière silencieuse sans en informer le comité de pilotage pour éviter les débats.",
+            "debriefExpl": "Déployer en douce expose le projet à un chaos total en cas de bug si le support n'est pas sur le pont.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Annuler par défaut",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Reporter le lancement par précaution</div>",
+            "expl": "Décaler le lancement de 2 mois par peur de rencontrer des bugs de jeunesse.",
+            "debriefExpl": "Reporter sans raison objective et sans copil d'arbitrage détruit la crédibilité commerciale de l'entreprise.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "Un arbitrage formel et collectif du GO/NO-GO sécurise le déploiement face aux risques médicaux et opérationnels."
+      }
+    ]
+  }
+]

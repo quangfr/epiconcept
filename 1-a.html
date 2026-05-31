@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,171 +7,55 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        blue: {
-                            900: '#1e3a8a',
-                            800: '#1e40af',
-                        }
-                    }
-                }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blue: {
+                900: '#1e3a8a',
+                800: '#1e40af',
+              }
             }
+          }
         }
+      }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        .glass-panel {
-            background: white;
-            border: 1px solid #E2E8F0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .reflex-btn {
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid #F1F5F9;
-            position: relative;
-        }
-
-        .reflex-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            border-color: var(--color-primary);
-            box-shadow: 0 10px 15px -3px var(--color-primary-glow);
-        }
-
-        .info-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-            transition: all 0.2s;
-        }
-
-        .info-btn:hover {
-            transform: scale(1.2);
-            color: #3b82f6;
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-5px);
-            }
-
-            75% {
-                transform: translateX(5px);
-            }
-        }
-
-        .shake {
-            animation: shake 0.3s ease-in-out;
-            border-color: #b91c1c !important;
-            background-color: #FEF2F2 !important;
-        }
-
-        .correct {
-            border-color: #047857 !important;
-            background-color: #ECFDF5 !important;
-        }
-
-        .scenario-text {
-            font-size: clamp(0.9rem, 1.1vw, 1.15rem);
-            line-height: 1.6;
-        }
-
-        .explanation-overlay {
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .level-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .level-card:hover {
-            transform: scale(1.02);
-            border-color: var(--color-primary);
-        }
-
-        .modal-backdrop {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-        }
-
-        /* Styles pour le breadcrumb */
-        .breadcrumb-dot {
-            transition: all 0.2s ease;
-        }
-
-        .dot-pending {
-            background-color: white;
-            color: #94A3B8;
-            border: 2px solid #E2E8F0;
-            cursor: pointer;
-        }
-
-        .dot-pending:hover {
-            background-color: #F8FAFC;
-            border-color: #CBD5E1;
-            transform: scale(1.1);
-        }
-
-        .dot-current {
-            background-color: #1e3a8a;
-            color: white;
-            border: 2px solid #1e3a8a;
-            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2);
-            cursor: default;
-            transform: scale(1.1);
-        }
-
-        .dot-completed {
-            background-color: #1e3a8a;
-            color: white;
-            border: 2px solid #1e3a8a;
-            cursor: pointer;
-        }
-
-        .dot-completed:hover {
-            background-color: #1e40af;
-            border-color: #1e40af;
-            transform: scale(1.1);
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-deep); color: var(--text-main); overflow: hidden; height: 100vh; }
+        
+        /* Conteneurs et Effets */
+        .glass-panel { background: white; border: 1px solid #E2E8F0; display: flex; flex-direction: column; }
+        
+        /* Boutons de Phase 1 */
+        .reflex-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #F8FAFC; }
+        .reflex-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--color-primary); box-shadow: 0 10px 15px -3px var(--color-primary-glow); }
+        
+        /* Boutons UI de Phase 2 */
+        .ui-btn { transition: all 0.2s; border: 2px solid #F1F5F9; background: #FAFAF9; }
+        .ui-btn:hover:not(:disabled) { border-color: #10B981; background-color: #F0FDF4; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1); }
+        
+        /* Animations de Validation/Erreur */
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+        .shake { animation: shake 0.3s ease-in-out; border-color: #b91c1c !important; background-color: #FEF2F2 !important; }
+        .correct { border-color: #047857 !important; background-color: #ECFDF5 !important; }
+        
+        .scenario-text { font-size: clamp(0.9rem, 1.1vw, 1.15rem); line-height: 1.6; }
+        .explanation-overlay { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+        
+        .level-card { transition: all 0.3s ease; cursor: pointer; }
+        .level-card:hover { transform: scale(1.02); border-color: var(--color-primary); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
         /* Protection anti-clic dans les maquettes */
-        .mockup-container {
-            pointer-events: none;
-        }
+        .mockup-container { pointer-events: none; }
 
         /* Responsive vertical scroll support on mobile */
         @media (max-width: 767px) {
@@ -180,32 +63,22 @@
                 overflow: auto !important;
                 height: auto !important;
             }
-
             main {
                 height: auto !important;
                 overflow: visible !important;
             }
-
-            main>div {
+            main > div {
                 height: auto !important;
                 overflow: visible !important;
             }
-
-            #scenario-card,
-            #options-container,
-            #reflex-grid,
-            #ui-grid,
-            #questions-wrapper,
-            #question-list {
+            #scenario-card, #options-container, #reflex-grid, #ui-grid, #questions-wrapper, #question-list {
                 height: auto !important;
                 overflow: visible !important;
             }
-
             #reflex-grid {
                 display: flex !important;
                 flex-direction: column !important;
             }
-
             #debriefing-card {
                 position: relative !important;
                 z-index: 20 !important;
@@ -215,12 +88,10 @@
                 min-height: 400px !important;
                 padding: 1.5rem !important;
             }
-
-            #referential-screen {
+            #modal-referentiel {
                 padding: 0 !important;
             }
-
-            #referential-screen>div {
+            #modal-referentiel > div {
                 margin: 0 !important;
                 border-radius: 0 !important;
                 height: 100vh !important;
@@ -230,734 +101,716 @@
         }
     </style>
 </head>
+<body class="flex flex-col relative">
 
-<body class="flex flex-col">
-
-
-    <!-- ÉCRAN D'ACCUEIL -->
-    <div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 overflow-y-auto">
-        <div class="w-full max-w-6xl flex justify-between items-center mb-3 md:mb-8 shrink-0">
-            <a href="./index.html"
-                class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all"
-                aria-label="Retour au Hub">
-                <i data-lucide="arrow-left"></i>
-            </a>
-            <div class="flex gap-2">
-                <button onclick="resetProgress()"
-                    class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-red-600 hover:text-red-600 shadow-sm transition-all"
-                    title="Réinitialiser la progression">
-                    <i data-lucide="rotate-ccw"></i>
-                </button>
-                <button onclick="showReferential()"
-                    class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all"
-                    title="Référentiel PO">
-                    <i data-lucide="help-circle"></i>
-                </button>
+<div id="modal-referentiel" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
+        <!-- Close Button -->
+        <button onclick="closeModal()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">
+            ✕
+        </button>
+        
+        <!-- Header -->
+        <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
+            <div>
+                <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Réflexes Roadmap &amp; Jalons</h2>
+                <p class="text-slate-500 text-xs font-medium leading-none">Les 10 réflexes de gestion de planning, phasage, buffers et décommissionnement d'Epiconcept</p>
             </div>
+            <!-- Selector -->
+            <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
+                <option value="">-- Aller au Réflexe --</option>
+            </select>
         </div>
-        <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
-            <div class="text-center mb-6 md:mb-12">
-                <h1
-                    class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">
-                    A - Cadrage <span class="text-slate-900">Besoins</span></h1>
-                <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Maîtrisez les réflexes PO face aux
-                    frictions : creusez l'intention et quantifiez l'irritant.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
-                <div onclick="startLevel(0)"
-                    class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                    <i data-lucide="star" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
-                    <div class="flex-grow flex flex-col md:items-center">
-                        <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 1</h2>
-                        <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Situations de terrain
-                            directes et frictions utilisateurs classiques.</p>
-                        <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                            <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
-                        </div>
-                    </div>
-                </div>
-                <div onclick="startLevel(1)"
-                    class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                    <i data-lucide="zap" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
-                    <div class="flex-grow flex flex-col md:items-center">
-                        <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 2</h2>
-                        <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Complexité hospitalière,
-                            vision multi-clients et historique.</p>
-                        <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                            <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
-                        </div>
-                    </div>
-                </div>
-                <div onclick="startLevel(2)"
-                    class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                    <i data-lucide="trophy" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
-                    <div class="flex-grow flex flex-col md:items-center">
-                        <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 3</h2>
-                        <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Négociations critiques,
-                            arbitrages Roadmap et VMA complexes.</p>
-                        <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                            <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        
+        <!-- Content -->
+        <div id="modal-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50 relative">
+            <!-- Dynamically populated -->
         </div>
     </div>
-    </div>
+</div>
 
-    <!-- ÉCRAN RÉFÉRENTIEL -->
-    <div id="referential-screen"
-        class="hidden fixed inset-0 z-[60] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
-        <div
-            class="bg-white rounded-xl shadow-2xl w-full max-w-6xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
-            <!-- Bouton X en haut à droite -->
-            <button onclick="hideReferential()"
-                class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold"
-                aria-label="Fermer">
-                ✕
+<!-- MODAL INFO (GAME) -->
+<div id="info-modal" class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6">
+    <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
+        <button onclick="closeInfoModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div id="info-modal-content">
+            <!-- Injected by JS -->
+        </div>
+        <button onclick="closeInfoModal()" class="mt-8 w-full bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest">J'ai compris</button>
+    </div>
+</div>
+
+<div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 hidden overflow-y-auto">
+    <div class="w-full max-w-6xl flex justify-between items-center mb-3 md:mb-8 shrink-0">
+        <a href="./index.html" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" aria-label="Retour au Hub">
+            <i data-lucide="arrow-left"></i>
+        </a>
+        <div class="flex gap-2">
+            <button onclick="resetProgress()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-red-600 hover:text-red-600 shadow-sm transition-all" title="Réinitialiser la progression">
+                <i data-lucide="rotate-ccw"></i>
             </button>
+            <button onclick="openModal()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" title="Référentiel E">
+                <i data-lucide="help-circle"></i>
+            </button>
+        </div>
+    </div>
+    <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
+        <div class="text-center mb-6 md:mb-12">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">E - Roadmap &amp; <span class="text-slate-800">Jalons</span></h1>
+            <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
+        </div>
 
-            <!-- En-tête compacte -->
-            <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
-                <div>
-                    <h2 class="text-base sm:text-lg font-black text-slate-900 uppercase tracking-tight">Réflexes Cadrage
-                        Besoins</h2>
-                    <p class="text-slate-500 font-bold uppercase text-[9px] tracking-wider leading-none">Les 3 piliers
-                        stratégiques rattachés aux 12 réflexes d'analyse de besoins d'Epiconcept</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
+            <div onclick="startLevel(0)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                <i data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <div class="flex-grow flex flex-col md:items-center">
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Facile</h2>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Scope &amp; Planning (Découper et Choisir le coeur du réacteur V1).</p>
+                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
+                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
-                <!-- Sélecteur pleine largeur -->
-                <select id="reflex-selector" onchange="scrollToReflex(this.value)"
-                    class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
-                    <option value="">-- Aller au Réflexe --</option>
-                </select>
+                </div>
             </div>
-
-            <!-- Grille de référentiel compacte avec marges resserrées sur les côtés -->
-            <div id="referential-grid"
-                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 overflow-y-auto px-4 py-4 pb-12 flex-grow content-start bg-slate-100/40 relative">
+            <div onclick="startLevel(1)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                <i data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <div class="flex-grow flex flex-col md:items-center">
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Moyen</h2>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">POC &amp; Phasage (Valider la faisabilité technique par un prototype).</p>
+                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
+                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
+                </div>
+                </div>
+            </div>
+            <div onclick="startLevel(2)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                <i data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <div class="flex-grow flex flex-col md:items-center">
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Difficile</h2>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Schedule &amp; Legacy (Piloter, sécuriser et décommissionner).</p>
+                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
+                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
+                </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- MODAL D'INFO (POUR LE JEU) -->
-    <div id="info-modal" class="hidden fixed inset-0 z-[100] modal-backdrop flex items-center justify-center p-6">
-        <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
-            <button onclick="closeInfoModal()"
-                class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-            <div id="info-modal-content">
-                <!-- Injecté par JS -->
+<header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
+    <div class="w-full flex items-center justify-between gap-4">
+        <button onclick="goHome()" class="flex items-center gap-2 group shrink-0" aria-label="Quitter">
+            <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
             </div>
-            <button onclick="closeInfoModal()"
-                class="mt-8 w-full bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest">J'ai
-                compris</button>
+        </button>
+        
+        <div class="text-center flex-grow">
+            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">ESIS-3D Product Manager</span>
+            <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Facile</span>
+        </div>
+
+        <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
+            <!-- Reset Level -->
+            <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            </button>
+            <!-- Referentiel Button -->
+            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel E">
+                <i data-lucide="help-circle" class="w-4 h-4"></i>
+            </button>
+            
+            <!-- Breadcrumbs -->
+            <div id="breadcrumb-container" class="flex gap-1.5 hidden lg:flex flex-row items-center">
+                <!-- Generated dynamically -->
+            </div>
+            
+            <div class="text-right whitespace-nowrap">
+                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 10</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="flex-grow flex flex-col md:flex-row overflow-hidden p-4 gap-4 h-[calc(100vh-70px)]">
+    <!-- Left column: Situation context (1/3) -->
+    <div class="w-full md:w-4/12 flex flex-col gap-3 h-full">
+        <!-- Scenario card -->
+        <div id="scenario-card" class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
+            <div class="flex items-center justify-between mb-4 shrink-0">
+                <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse d'Arbitrage</div>
+                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 10</div>
+            </div>
+            <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏔</div>
+            <div class="overflow-y-auto flex-grow min-h-0 pr-2 pb-4 flex flex-col gap-4">
+                <div id="scenario-text" class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left">
+                    Chargement du scénario...
+                </div>
+                <div id="scenario-visual" class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex justify-center items-center mockup-container mt-4 hidden"></div>
+            </div>
+        </div>
+
+        <!-- Phase 2 validation card -->
+        <div id="phase2-question-container" class="glass-panel rounded-lg p-4 shadow-sm border-emerald-200 bg-emerald-50 shrink-0 hidden flex-col justify-center transition-all duration-300 relative overflow-hidden">
+            <div class="absolute right-2 top-2 text-4xl opacity-10">🎯</div>
+            <div class="flex items-center gap-1.5 mb-1.5">
+                <span id="phase2-icon-container" class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
+                <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Réflexe Validé</span>
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+                <span id="phase2-reflex-icon" class="text-emerald-700"></span>
+                <h3 id="validated-principle-title" class="text-sm font-black text-emerald-800 uppercase tracking-tight leading-tight">Titre</h3>
+            </div>
+            <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Sélectionnez la décision de planification correspondante à droite ➡️</p>
         </div>
     </div>
 
-    <!-- HEADER JEU -->
-    <header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
-        <div class="w-full flex items-center justify-between gap-4">
-            <button onclick="goHome()" class="flex items-center gap-2 group shrink-0" aria-label="Quitter">
-                <div
-                    class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                </div>
-            </button>
-
-            <div class="text-center flex-grow">
-                <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">Simulateur ESIS-3D</span>
-                <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Série</span>
-            </div>
-
-            <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
-                <!-- Reset Niveau -->
-                <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
-                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-                </button>
-                <!-- Breadcrumb / Fil d'Ariane -->
-                <div id="breadcrumb-container" class="flex gap-1.5 hidden lg:flex flex-row items-center">
-                    <!-- Généré par JS -->
-                </div>
-
-                <div class="text-right whitespace-nowrap">
-                    <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 12</div>
-                </div>
-            </div>
+    <!-- Right column: Interactions QCM (2/3) -->
+    <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
+        <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md">
+            Phase 1 : Identification du réflexe PO
         </div>
-    </header>
+        
+        <div id="options-container" class="glass-panel rounded-xl p-4 sm:p-6 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
+            <!-- Phase 1 QCM list -->
+            <div id="reflex-grid" class="flex flex-col gap-3.5 h-full overflow-y-auto pr-2 pb-4"></div>
 
-
-    <!-- MAIN JEU -->
-    <main class="flex-grow flex flex-col md:flex-row overflow-hidden p-4 gap-4 h-[calc(100vh-70px)]">
-        <!-- Zone de gauche : Étude de cas -->
-        <div class="w-full md:w-5/12 flex flex-col gap-3 h-full">
-            <div
-                class="bg-blue-900 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit">
-                Analyse de Situation</div>
-            <div id="scenario-card"
-                class="glass-panel rounded-xl p-8 shadow-sm border-slate-100 overflow-y-auto flex-grow">
-                <div id="step-label" class="text-slate-500 text-xs font-black uppercase tracking-widest mb-4">Défi 1 /
-                    12</div>
-                <div id="scenario-text"
-                    class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left mb-6">
-                </div>
-                <div id="scenario-visual"
-                    class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex justify-center items-center mockup-container hidden">
-                </div>
-            </div>
-
-            <!-- Bloc Phase 2 Ancré en bas (Très compact) -->
-            <div id="phase2-question-container"
-                class="glass-panel rounded-lg p-4 shadow-sm border-emerald-200 bg-emerald-50 shrink-0 hidden flex-col justify-center transition-all duration-300 relative overflow-hidden"
-                style="height: auto !important;">
-                <div class="absolute right-2 top-2 text-4xl opacity-10">🎯</div>
-                <div class="flex items-center gap-1.5 mb-1.5">
-                    <span id="phase2-icon-container"
-                        class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
-                    <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Principe
-                        Validé</span>
-                </div>
-                <h3 id="validated-principle-title"
-                    class="text-sm font-black text-emerald-800 uppercase tracking-tight mb-1 leading-tight">Titre</h3>
-                <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Quelle question type posez-vous ?
-                    (Attention aux pièges)</p>
-            </div>
-        </div>
-
-        <!-- Zone de droite : Réflexes et Questions -->
-        <div class="w-full md:w-7/12 flex flex-col gap-3 h-full relative">
-            <div id="phase-label-container"
-                class="px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors">
-                Phase 1 : Identification du réflexe
-            </div>
-
-            <div id="options-container"
-                class="glass-panel rounded-xl p-4 shadow-sm border-slate-100 relative overflow-hidden">
-                <div id="reflex-grid" class="grid grid-cols-1 grid-rows-4 gap-3 h-full"></div>
-
-                <div id="question-list" class="hidden flex flex-col gap-4 h-full">
-                    <div class="flex items-center gap-2 shrink-0">
-                        <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
-                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
-                    <div id="questions-wrapper" class="grid grid-rows-3 gap-3 flex-grow"></div>
-                </div>
-
-                <div id="debriefing-card"
-                    class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-8 flex flex-col">
-                    <!-- Bouton de retour en haut à gauche -->
-                    <button id="debrief-back-btn" onclick="goBackFromDebrief()"
-                        class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden"
-                        title="Retour">
+            <!-- Phase 2 QCM list -->
+            <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pr-2 pb-4">
+                <div class="flex items-center gap-2 shrink-0">
+                    <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
                         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
                     </button>
-                    <div class="flex items-center gap-4 mb-4 mt-4">
-                        <div id="debrief-emoji"
-                            class="text-6xl bg-slate-100 w-20 h-20 flex items-center justify-center rounded-xl shrink-0">
-                            🎯</div>
+                </div>
+                <div id="ui-choices-wrapper" class="flex flex-col gap-3 flex-grow"></div>
+            </div>
+
+            <!-- Phase 3 Debriefing -->
+            <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-6 flex flex-col justify-between overflow-y-auto">
+                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retour"><i data-lucide="arrow-left" class="w-3.5 h-3.5"></i></button>
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-6 mt-4 shrink-0">
+                        <div id="debrief-emoji" class="text-4xl bg-emerald-100 w-16 h-16 flex items-center justify-center rounded-2xl shadow-sm">🎯</div>
                         <div>
-                            <h2 id="debrief-title" class="text-2xl font-black text-slate-900 uppercase mb-1">Titre</h2>
-                            <p class="text-slate-800 font-bold uppercase tracking-wider text-[10px]">Débriefing ESIS-3D
-                            </p>
+                            <h2 id="debrief-main-title" class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight mb-0.5">Décision Validée !</h2>
+                            <p id="debrief-title" class="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Réflexe appliqué</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 flex-grow min-h-0">
+                        <!-- Clone Visuel -->
+                        <div class="w-full sm:w-5/12 flex flex-col gap-2 shrink-0">
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Décision Retenue</span>
+                            <div class="bg-slate-50 border-2 border-emerald-400 rounded-lg p-4 shadow-sm flex flex-col gap-3 relative overflow-hidden h-full min-h-[200px]">
+                                <div class="absolute inset-0 bg-emerald-400/5 z-0"></div>
+                                <div class="font-black text-slate-800 text-sm uppercase tracking-tight relative z-10" id="debrief-ui-title">Titre Décision</div>
+                                <div class="w-full relative z-10 flex-grow flex items-center justify-center mockup-container" id="debrief-ui-visual">
+                                    <!-- HTML Inject -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Business Impact -->
+                        <div class="w-full sm:w-7/12 flex flex-col gap-2 min-h-0">
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact Projet &amp; Équipes</span>
+                            <div class="bg-slate-100/70 p-6 rounded-lg border border-slate-200 text-sm text-slate-800 font-medium leading-relaxed overflow-y-auto h-full relative">
+                                <div class="absolute top-4 right-4 text-3xl opacity-20">💡</div>
+                                <div id="debrief-text" class="relative z-10"></div>
+                             </div>
                         </div>
                     </div>
 
-                    <!-- Bloc rappel de la question choisie -->
-                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100 mb-4 shrink-0">
-                        <p class="text-[10px] font-black uppercase text-emerald-600 mb-1 tracking-widest">Question
-                            sélectionnée :</p>
-                        <p id="debrief-question" class="text-emerald-900 font-bold italic text-sm"></p>
-                    </div>
-
-                    <div id="debrief-visual" class="mb-3 shrink-0 flex justify-center"></div>
-
-                    <div id="debrief-visual" class="mb-3 shrink-0 flex justify-center"></div>
-
-                    <div class="flex-grow overflow-y-auto pr-4 mb-6">
-                        <div id="debrief-text" class="text-base text-slate-600 leading-relaxed font-medium"></div>
-                    </div>
-
-                    <button id="btn-next" onclick="nextStep()"
-                        class="shrink-0 bg-blue-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-800 transition-colors shadow-lg flex items-center justify-center gap-3">
-                        Défi Suivant
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
+                    <button id="btn-next" onclick="nextStep()" class="mt-6 bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0">
+                        Situation Suivante <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <script>
+<script>
+let reflexes = [];
 
-        let reflexes = [];
+const TOTAL_STEPS = 12;
+let currentLevel = 0;
+let currentStepIdx = 0;
+let levelSteps = [];
+let currentPhase = 1;
+let answeredSteps = new Array(TOTAL_STEPS).fill(false);
 
-        let currentLevel = 0;
-        let currentStepIdx = 0;
-        let levelSteps = [];
-        let currentPhase = 1;
+function initHome() {
+    document.getElementById('home-screen').classList.remove('hidden');
+    buildModalContent();
+    
+    for (let i = 0; i < 3; i++) {
+        const score = localStorage.getItem(`po-score-lv${i}`);
+        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 12` : "-- / 12";
+    }
+}
 
+function startLevel(lv) {
+    currentLevel = lv;
+    currentStepIdx = 0;
+    answeredSteps = new Array(TOTAL_STEPS).fill(false);
+    
+    const titles = ["Facile : Cadrage & Intention", "Moyen : Complexité & Mesure", "Difficile : Arbitrage & Validation"];
+    document.getElementById('level-title-display').innerText = `${['Facile', 'Moyen', 'Difficile'][lv]} : ${titles[lv]}`;
+    
+    levelSteps = reflexes.map(r => ({
+        reflexId: r.id,
+        scenario: r.scenarios[lv]
+    })).sort(() => Math.random() - 0.5);
 
-        function initHome() {
-            document.getElementById('home-screen').classList.remove('hidden');
-            document.getElementById('referential-screen').classList.add('hidden');
-            for (let i = 0; i < 3; i++) {
-                const score = localStorage.getItem(`po-score-lv${i}`);
-                document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 12` : "-- / 12";
+    levelSteps.forEach((step, idx) => {
+        const savedProgress = localStorage.getItem('po-progress-lv' + lv + '-reflex' + step.reflexId);
+        if (savedProgress === 'true') {
+            answeredSteps[idx] = true;
+        }
+    });
+
+    document.getElementById('home-screen').classList.add('hidden');
+    updateProgress();
+    
+    const firstPendingIdx = answeredSteps.findIndex(v => !v);
+    if (firstPendingIdx !== -1) {
+        currentStepIdx = firstPendingIdx;
+    } else {
+        currentStepIdx = 0;
+    }
+    
+    updateProgress();
+    if (answeredSteps[currentStepIdx]) {
+        const step = levelSteps[currentStepIdx];
+        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon });
+    } else {
+        loadStepPhase1();
+    }
+}
+
+function resetProgress() {
+    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Cadrage Besoins ?")) {
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('po-')) {
+                localStorage.removeItem(key);
             }
+        });
+        location.reload();
+    }
+}
+
+function resetLevelProgress() {
+    if (confirm("Réinitialiser uniquement ce niveau ?")) {
+        const prefix = 'po-progress-lv' + currentLevel;
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith(prefix)) {
+                localStorage.removeItem(key);
+            }
+        });
+        localStorage.removeItem('po-score-lv' + currentLevel);
+        location.reload();
+    }
+}
+
+function goHome() {
+    document.getElementById('home-screen').classList.remove('hidden');
+    initHome();
+}
+
+function updateProgress() {
+    document.getElementById('step-label').innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
+    
+    const container = document.getElementById('breadcrumb-container');
+    container.innerHTML = '';
+    
+    let completedCount = 0;
+    for (let i = 0; i < TOTAL_STEPS; i++) {
+        if (answeredSteps[i]) completedCount++;
+        
+        const btn = document.createElement('button');
+        let stateClass = "bg-white text-slate-400 border-2 border-slate-200 hover:bg-slate-50"; 
+        
+        if (answeredSteps[i]) stateClass = "bg-blue-900 text-white border-2 border-blue-900 shadow-sm hover:bg-blue-800";
+        if (i === currentStepIdx) {
+            stateClass = answeredSteps[i] 
+                ? "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 transform scale-110" 
+                : "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 shadow-sm transform scale-110";
         }
 
-        function showReferential(focusId = null) {
-            const grid = document.getElementById('referential-grid');
-            grid.innerHTML = '';
-            const selector = document.getElementById('reflex-selector');
-            if (selector) {
-                selector.innerHTML = '<option value="">-- Aller au Réflexe --</option>';
-            }
+        btn.className = `w-5 h-5 sm:w-6 sm:h-6 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center justify-center transition-all border cursor-pointer ${stateClass}`;
+        btn.innerText = i + 1;
+        btn.onclick = () => jumpToStep(i);
+        container.appendChild(btn);
+    }
+    
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreDisplay) {
+        scoreDisplay.innerText = `${completedCount} / ${TOTAL_STEPS}`;
+    }
+    
+    localStorage.setItem(`po-score-lv${currentLevel}`, completedCount);
+}
 
-            reflexes.forEach(reflex => {
-                if (selector) {
-                    const opt = document.createElement('option');
-                    opt.value = reflex.id;
-                    opt.innerText = `${reflex.title}`;
-                    selector.appendChild(opt);
-                }
+function jumpToStep(idx) {
+    currentStepIdx = idx;
+    updateProgress();
+    if (answeredSteps[idx]) {
+        const step = levelSteps[idx];
+        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon });
+    } else {
+        loadStepPhase1();
+    }
+}
 
-                const card = document.createElement('div');
-                card.id = `ref-${reflex.id}`;
-                card.className = "bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col gap-3";
-                card.innerHTML = `
-            <div class="flex items-center gap-3 border-b border-slate-50 pb-3">
-                <span class="text-2xl shrink-0"><i data-lucide="${reflex.icon}" class="w-6 h-6 text-slate-800"></i></span>
-                <h3 class="text-base font-black text-slate-800 uppercase tracking-tight">${reflex.title}</h3>
+function loadStepPhase1() {
+    currentPhase = 1;
+    const step = levelSteps[currentStepIdx];
+    
+    document.getElementById('scenario-text').innerText = step.scenario.text;
+    
+    const problemVis = document.getElementById('scenario-visual');
+    if (step.scenario.problemVisual) {
+        problemVis.innerHTML = step.scenario.problemVisual;
+        problemVis.classList.remove('hidden');
+    } else {
+        problemVis.innerHTML = '';
+        problemVis.classList.add('hidden');
+    }
+    
+    document.getElementById('phase2-question-container').classList.add('hidden');
+    
+    document.getElementById('reflex-grid').classList.remove('hidden');
+    document.getElementById('ui-grid').classList.add('hidden');
+    document.getElementById('debriefing-card').classList.add('hidden');
+    
+    document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du réflexe PO";
+    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+    
+    renderReflexChoices();
+}
+
+function renderReflexChoices(readOnly) {
+    const grid = document.getElementById('reflex-grid');
+    grid.innerHTML = '';
+    const correctId = levelSteps[currentStepIdx].reflexId;
+    const correctReflex = reflexes.find(r => r.id === correctId);
+    
+    const others = reflexes.filter(r => r.id !== correctId).sort(() => Math.random() - 0.5).slice(0, 3);
+    const options = [correctReflex, ...others].sort(() => Math.random() - 0.5);
+    
+    options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = "reflex-btn bg-white p-5 rounded-3xl text-left border-2 flex flex-row items-center gap-5 group w-full relative shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
+        if (readOnly && opt.id === correctId) {
+            btn.classList.add('correct');
+        }
+        btn.innerHTML = `
+            <div class="text-4xl sm:text-5xl shrink-0 filter drop-shadow-sm"><i data-lucide="${opt.icon}" class="w-12 h-12 text-slate-800"></i></div>
+            <div class="flex-grow">
+                <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <p class="text-xs text-slate-600 font-semibold leading-snug lowercase first-letter:uppercase">${reflex.intent}</p>
-            <div class="bg-slate-50 p-3 rounded-lg">
-                <ul class="space-y-1.5">
-                    ${reflex.questions.map(q => `<li class="text-[11px] font-semibold text-slate-500 italic">“ ${q.text || q} ”</li>`).join('')}
-                </ul>
+            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe PO">
+                <i data-lucide="info" class="w-4 h-4"></i>
+            </button>
+        `;
+        
+        if (!readOnly) {
+            btn.onclick = () => handleReflexSelection(opt.id, btn);
+        }
+        grid.appendChild(btn);
+    });
+    lucide.createIcons();
+}
+
+function handleReflexSelection(id, btn) {
+    if (currentPhase !== 1) return;
+    if (id === levelSteps[currentStepIdx].reflexId) {
+        btn.classList.add('correct');
+        setTimeout(loadStepPhase2, 500);
+    } else {
+        btn.classList.add('shake');
+        setTimeout(() => btn.classList.remove('shake'), 400);
+    }
+}
+
+function loadStepPhase2() {
+    currentPhase = 2;
+    const step = levelSteps[currentStepIdx];
+    const reflex = reflexes.find(r => r.id === step.reflexId);
+    
+    document.getElementById('reflex-grid').classList.add('hidden');
+    document.getElementById('ui-grid').classList.remove('hidden');
+    
+    document.getElementById('phase-label-container').innerText = "Phase 2 : Arbitrage Projet";
+    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+    
+    document.getElementById('phase2-question-container').classList.remove('hidden');
+    document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon}" class="w-5 h-5"></i>`;
+    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
+    lucide.createIcons();
+    
+    renderUIChoices();
+}
+
+function renderUIChoices(readOnly) {
+    const grid = document.getElementById('ui-choices-wrapper');
+    grid.innerHTML = '';
+    const step = levelSteps[currentStepIdx];
+    
+    let uiOptions = [
+        { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl, icon: step.scenario.correct.icon },
+        { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl, icon: step.scenario.wrong[0].icon },
+        { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl, icon: step.scenario.wrong[1].icon }
+    ].sort(() => Math.random() - 0.5);
+
+    uiOptions.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = "ui-btn p-5 sm:p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6 group w-full text-left relative overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
+        if (readOnly && opt.isCorrect) {
+            btn.classList.add('correct');
+        }
+        btn.innerHTML = `
+            <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2"><div class="flex items-center gap-2 mb-1"><i data-lucide="${opt.icon || 'layout'}" class="w-5 h-5 text-slate-400 group-hover:text-blue-800"></i></div>
+                <div class="font-black text-slate-800 text-base sm:text-lg uppercase tracking-tight leading-tight">${opt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</div>
+                <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal pr-3">${opt.expl}</div>
+            </div>
+            <div class="w-full sm:w-7/12 visual-mockup z-10" style="min-height:80px;">
+                <div class="mockup-container">
+                    ${opt.visual}
+                </div>
             </div>
         `;
-                grid.appendChild(card);
-            });
-            lucide.createIcons();
-            document.getElementById('home-screen').classList.add('hidden');
-            document.getElementById('referential-screen').classList.remove('hidden');
-
-            if (focusId) {
-                setTimeout(() => {
-                    const el = document.getElementById(`ref-${focusId}`);
-                    if (el) {
-                        document.getElementById('referential-grid').scrollTo({
-                            top: el.offsetTop - 24,
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 100);
-            }
+        
+        if (!readOnly) {
+            btn.onclick = () => handleUISelection(opt, btn);
         }
+        grid.appendChild(btn);
+    });
+    lucide.createIcons();
+}
 
-        function scrollToReflex(id) {
-            if (!id) return;
-            const el = document.getElementById(`ref-${id}`);
-            if (el) {
-                document.getElementById('referential-grid').scrollTo({
+function handleUISelection(opt, btn) {
+    if (currentPhase !== 2) return;
+    if (opt.isCorrect) {
+        btn.classList.add('correct');
+        setTimeout(() => showDebriefing(opt), 600);
+    } else {
+        btn.classList.add('shake');
+        setTimeout(() => btn.classList.remove('shake'), 400);
+    }
+}
+
+function showDebriefing(correctOpt) {
+    currentPhase = 3;
+    answeredSteps[currentStepIdx] = true;
+    
+    const step = levelSteps[currentStepIdx];
+    localStorage.setItem('po-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
+    
+    updateProgress();
+
+    const reflex = reflexes.find(r => r.id === step.reflexId);
+    
+    document.getElementById('debrief-title').innerText = `${reflex.title}`;
+    document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title}</span></div>`;
+    document.getElementById('debrief-ui-visual').innerHTML = correctOpt.visual;
+    
+    let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl || ''}</p>`;
+    compHtml += `
+        <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative des arbitrages :</div>
+            <div class="space-y-2">
+                <div class="text-xs text-slate-800 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
+                    <strong class="text-emerald-700 font-black">🟢 ${step.scenario.correct.title} (Recommandé) :</strong>
+                    <p class="mt-0.5 text-slate-600 font-medium">${step.scenario.correct.debriefExpl || step.scenario.correct.expl}</p>
+                </div>
+                <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                    <strong class="text-red-600 font-black">🔴 ${step.scenario.wrong[0].title} :</strong>
+                    <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[0].debriefExpl || step.scenario.wrong[0].expl}</p>
+                </div>
+                <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                    <strong class="text-red-600 font-black">🔴 ${step.scenario.wrong[1].title} :</strong>
+                    <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[1].debriefExpl || step.scenario.wrong[1].expl}</p>
+                </div>
+            </div>
+        </div>
+    `;
+    document.getElementById('debrief-text').innerHTML = compHtml;
+    
+    document.getElementById('ui-grid').classList.add('hidden');
+    document.getElementById('phase2-question-container').classList.add('hidden');
+    document.getElementById('debriefing-card').classList.remove('hidden');
+    
+    document.getElementById('debrief-back-btn').classList.remove('hidden');
+    
+    const phaseLabel = document.getElementById('phase-label-container');
+    phaseLabel.innerText = "Arbitrage Métier Validé";
+    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-700 text-white shadow-md shrink-0 transition-colors";
+
+    const nextBtn = document.getElementById('btn-next');
+    if(answeredSteps.every(Boolean)) {
+        nextBtn.innerHTML = "Terminer le Niveau <span class='text-2xl ml-2'>🏆</span>";
+        nextBtn.className = "mt-6 bg-emerald-600 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
+    } else {
+        nextBtn.innerHTML = "Situation Suivante <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
+        nextBtn.className = "mt-6 bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
+    }
+}
+
+function goBackFromDebrief() {
+    const step = levelSteps[currentStepIdx];
+    const reflex = reflexes.find(r => r.id === step.reflexId);
+
+    document.getElementById('debriefing-card').classList.add('hidden');
+    document.getElementById('ui-grid').classList.remove('hidden');
+    document.getElementById('phase2-question-container').classList.remove('hidden');
+    document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon}" class="w-5 h-5"></i>`;
+    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
+
+    const phaseLabel = document.getElementById('phase-label-container');
+    phaseLabel.innerText = "Phase 2 : Arbitrage Projet";
+    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+
+    currentPhase = 2;
+    renderUIChoices();
+    lucide.createIcons();
+}
+
+function goBackToPhase1() {
+    document.getElementById('ui-grid').classList.add('hidden');
+    document.getElementById('phase2-question-container').classList.add('hidden');
+    document.getElementById('reflex-grid').classList.remove('hidden');
+
+    const phaseLabel = document.getElementById('phase-label-container');
+    phaseLabel.innerText = "Phase 1 : Identification du réflexe PO";
+    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+
+    currentPhase = 1;
+    renderReflexChoices();
+}
+
+function nextStep() {
+    let nextIdx = currentStepIdx + 1;
+    while(nextIdx < TOTAL_STEPS && answeredSteps[nextIdx]) { nextIdx++; }
+    
+    if (nextIdx >= TOTAL_STEPS) {
+        if(answeredSteps.every(Boolean)) {
+            goHome();
+            return;
+        } else {
+            nextIdx = answeredSteps.findIndex(v => !v);
+        }
+    }
+    
+    currentStepIdx = nextIdx;
+    updateProgress();
+    loadStepPhase1();
+}
+
+function buildModalContent() {
+    const container = document.getElementById('modal-content');
+    container.innerHTML = '';
+    
+    const selector = document.getElementById('reflex-selector');
+    if (selector) {
+        selector.innerHTML = '<option value="">-- Aller au Réflexe --</option>';
+    }
+    
+    reflexes.forEach(r => {
+        if (selector) {
+            const opt = document.createElement('option');
+            opt.value = r.id;
+            opt.innerText = `${r.title}`;
+            selector.appendChild(opt);
+        }
+        
+        let reflexHtml = `
+            <div id="ref-${r.id}" class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="text-2xl shrink-0"><i data-lucide="${r.icon}" class="w-6 h-6 text-slate-800"></i></span>
+                    <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">${r.title}</h3>
+                </div>
+                <p class="text-[11px] text-slate-500 font-semibold mb-2.5 pb-1.5 border-b border-slate-100">${r.intent}</p>
+                <div class="space-y-2">
+        `;
+
+        r.scenarios.forEach((scen, idx) => {
+            reflexHtml += `
+                <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 flex flex-col md:flex-row gap-3 items-center">
+                    <div class="w-full md:w-4/12 flex items-center justify-center mockup-container p-1.5 bg-white border border-emerald-100 rounded-md shadow-sm relative overflow-hidden min-h-[80px] shrink-0">
+                        <div class="absolute inset-0 bg-emerald-500/[0.01] z-0"></div>
+                        <div class="w-full relative z-10 transform scale-90">${scen.correct.visual}</div>
+                    </div>
+                    <div class="w-full md:w-8/12 flex flex-col gap-1.5">
+                        <div class="flex items-center gap-1.5">
+                            <span class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                            <span class="text-sm font-black text-emerald-800 uppercase tracking-tight">${scen.correct.title}</span>
+                        </div>
+                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">${scen.correct.expl}</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        reflexHtml += `</div></div>`;
+        container.innerHTML += reflexHtml;
+    });
+}
+
+function scrollToReflex(id) {
+    if (!id) return;
+    const el = document.getElementById(`ref-${id}`);
+    if (el) {
+        document.getElementById('modal-content').scrollTo({
+            top: el.offsetTop - 24,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function openModal(focusId = null) {
+    document.getElementById('modal-referentiel').classList.remove('hidden');
+    if (focusId) {
+        setTimeout(() => {
+            const el = document.getElementById(`ref-${focusId}`);
+            if(el) {
+                document.getElementById('modal-content').scrollTo({
                     top: el.offsetTop - 24,
                     behavior: 'smooth'
                 });
             }
-        }
+        }, 100);
+    }
+}
 
-        function hideReferential() {
-            document.getElementById('referential-screen').classList.add('hidden');
-            document.getElementById('home-screen').classList.remove('hidden');
-        }
+function closeModal() {
+    document.getElementById('modal-referentiel').classList.add('hidden');
+}
 
-        // Support fermeture par la touche Echap
-        window.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                // Ferme l'écran référentiel si visible
-                if (!document.getElementById('referential-screen').classList.contains('hidden')) {
-                    hideReferential();
-                }
-                // Ferme le modal d'info
-                closeInfoModal();
-            }
-        });
+window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+        document.getElementById('info-modal').classList.add('hidden');
+    }
+});
 
-        function showReflexDetail(id) {
-            const reflex = reflexes.find(r => r.id === id);
-            const content = document.getElementById('info-modal-content');
-            content.innerHTML = `
-        <div class="flex items-center gap-4 mb-6">
-            <span class="text-6xl"><i data-lucide="${reflex.icon}" class="w-16 h-16 text-slate-800"></i></span>
-            <div>
-                <h3 class="text-2xl font-black text-slate-900 uppercase">${reflex.title}</h3>
-                <p class="text-slate-800 font-bold text-xs uppercase tracking-widest">Intention Stratégique</p>
-            </div>
-        </div>
-        <p class="text-lg text-slate-600 font-medium leading-relaxed mb-6">${reflex.intent}</p>
-        <div class="bg-slate-100 p-6 rounded-lg">
-            <p class="text-[10px] font-black uppercase text-slate-500 mb-4 tracking-widest">Questions Types Associées</p>
-            <ul class="space-y-3">
-                ${reflex.questions.map(q => `<li class="text-sm font-bold text-slate-900 italic">“ ${q.text || q} ”</li>`).join('')}
-            </ul>
-        </div>
-    `;
-            document.getElementById('info-modal').classList.remove('hidden');
-            lucide.createIcons();
-        }
+async function initApp() {
+    try {
+        const response = await fetch('./1-a.json?v=' + new Date().getTime());
+        reflexes = await response.json();
+        initHome();
+        lucide.createIcons();
+    } catch (error) {
+        console.error("Error loading reflexes:", error);
+    }
+}
 
-        function closeInfoModal() {
-            document.getElementById('info-modal').classList.add('hidden');
-        }
-
-        function startLevel(lv) {
-            currentLevel = lv;
-            currentStepIdx = 0;
-            const titles = ["Opérations Terrain", "Complexité Système", "Haute Stratégie"];
-            document.getElementById('level-title-display').innerText = `Niveau ${lv + 1} : ${titles[lv]}`;
-
-            // Initialisation intelligente des étapes avec restauration du localStorage
-            levelSteps = reflexes.map(r => {
-                const options = r.questions.map((q, idx) => ({
-                    text: q.text,
-                                        isCorrect: (idx === lv)
-                })).sort(() => Math.random() - 0.5);
-
-                const savedProgress = localStorage.getItem('po-progress-lv' + lv + '-reflex' + r.id);
-                const isCompleted = (savedProgress === 'true');
-
-                return {
-                    reflexId: r.id,
-                    scenario: r.scenarios[lv].text,
-                    explanation: r.scenarios[lv].explanation,
-                    visual: r.scenarios[lv].visual,
-                    options: options,
-                    correctQuestion: r.questions[lv].text,
-                    status: isCompleted ? 'completed' : 'pending'
-                };
-            }).sort(() => Math.random() - 0.5);
-
-            document.getElementById('home-screen').classList.add('hidden');
-            updateProgress();
-
-            // Se positionne automatiquement sur le premier défi restant à faire
-            const firstPendingIdx = levelSteps.findIndex(s => s.status === 'pending');
-            if (firstPendingIdx !== -1) {
-                currentStepIdx = firstPendingIdx;
-            } else {
-                currentStepIdx = 0;
-            }
-
-            loadStep();
-        }
-
-        function loadStep() {
-            const step = levelSteps[currentStepIdx];
-            document.getElementById('scenario-text').innerText = step.scenario;
-            document.getElementById('step-label').innerText = `Défi ${currentStepIdx + 1} / 12`;
-
-            // Charge la maquette visuelle
-            const visualContainer = document.getElementById('scenario-visual');
-            if (step.visual) {
-                visualContainer.innerHTML = step.visual;
-                visualContainer.classList.remove('hidden');
-            } else {
-                visualContainer.innerHTML = '';
-                visualContainer.classList.add('hidden');
-            }
-
-            // Si on révise une étape déjà complétée
-            if (step.status === 'completed') {
-                showDebriefing();
-            } else {
-                currentPhase = 1;
-                document.getElementById('reflex-grid').classList.remove('hidden');
-                document.getElementById('question-list').classList.add('hidden');
-                document.getElementById('debriefing-card').classList.add('hidden');
-                document.getElementById('phase2-question-container').classList.add('hidden');
-
-                const phaseLabel = document.getElementById('phase-label-container');
-                phaseLabel.innerText = "Phase 1 : Identification du réflexe";
-                phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
-
-                renderReflexChoices();
-            }
-            renderBreadcrumbs();
-        }
-
-        function renderReflexChoices(readOnly = false) {
-            const grid = document.getElementById('reflex-grid');
-            grid.innerHTML = '';
-            const correctId = levelSteps[currentStepIdx].reflexId;
-            const correctReflex = reflexes.find(r => r.id === correctId);
-            const others = reflexes.filter(r => r.id !== correctId).sort(() => Math.random() - 0.5).slice(0, 3);
-            const options = [correctReflex, ...others].sort(() => Math.random() - 0.5);
-
-            options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = "reflex-btn bg-white p-4 rounded-xl text-left flex items-center gap-4 h-full overflow-hidden";
-                if (readOnly && opt.id === correctId) {
-                    btn.classList.add('correct');
-                }
-                btn.innerHTML = `
-            <button onclick="event.stopPropagation(); showReferential(${opt.id})" class="info-btn text-slate-300 hover:text-blue-900">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-            </button>
-            <span class="text-3xl shrink-0"><i data-lucide="${opt.icon}" class="w-8 h-8 text-slate-800"></i></span>
-            <div class="min-w-0">
-                <div class="font-black text-lg uppercase tracking-tight text-slate-800 mb-1 truncate">${opt.title}</div>
-                <div class="text-sm text-slate-500 font-bold leading-tight lowercase first-letter:uppercase line-clamp-2">${opt.intent}</div>
-            </div>
-        `;
-                if (!readOnly) {
-                    btn.onclick = () => handleReflexSelection(opt.id, btn);
-                }
-                grid.appendChild(btn);
-            });
-            lucide.createIcons();
-        }
-
-
-        function handleReflexSelection(id, btn) {
-            if (currentPhase !== 1) return;
-            if (id === levelSteps[currentStepIdx].reflexId) {
-                btn.classList.add('correct');
-                setTimeout(startPhase2, 500);
-            } else {
-                btn.classList.add('shake');
-                setTimeout(() => btn.classList.remove('shake'), 400);
-            }
-        }
-
-        function startPhase2() {
-            currentPhase = 2;
-            document.getElementById('reflex-grid').classList.add('hidden');
-            document.getElementById('question-list').classList.remove('hidden');
-            const phaseLabel = document.getElementById('phase-label-container');
-            phaseLabel.innerText = "Phase 2 : Choix de la question type";
-            phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
- 
-            // Affiche la validation du réflexe à gauche avec son icône
-            const step = levelSteps[currentStepIdx];
-            const reflex = reflexes.find(r => r.id === step.reflexId);
-            document.getElementById('phase2-question-container').classList.remove('hidden');
-            document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
-            document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${reflex.icon}" class="w-4 h-4 text-white"></i>`;
-            lucide.createIcons();
-
-            renderQuestionChoices();
-        }
-
-        function renderQuestionChoices(readOnly = false) {
-            const wrapper = document.getElementById('questions-wrapper');
-            wrapper.innerHTML = '';
-            const step = levelSteps[currentStepIdx];
-
-            step.options.forEach((opt) => {
-                const btn = document.createElement('button');
-                const baseCls = "group w-full bg-white border-2 border-slate-100 p-5 rounded-lg text-left text-slate-800 font-bold hover:border-emerald-500 hover:bg-emerald-50 transition-all text-base flex flex-col sm:flex-row items-stretch gap-4";
-                btn.className = baseCls;
-                if (readOnly && opt.isCorrect) {
-                    btn.className = baseCls.replace('bg-white border-2 border-slate-100 text-slate-800', 'bg-emerald-600 border-2 border-emerald-600 text-white');
-                }
-                const iconCls = 'w-5 h-5 text-slate-400 group-hover:text-blue-800 shrink-0' + (readOnly && opt.isCorrect ? ' text-white' : '');
-                btn.innerHTML = '<div class="flex items-center gap-3 flex-grow min-w-0"><i data-lucide="message-circle" class="' + iconCls + '"></i><div class="flex-grow min-w-0"><span class="text-emerald-700 mr-2">\u201c</span>' + opt.text + '<span class="text-emerald-700 ml-2">\u201d</span></div></div>';
-                if (!readOnly) {
-                    btn.onclick = () => {
-                        if (currentPhase === 2) {
-                            if (opt.isCorrect) {
-                                btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
-                                step.status = 'completed';
-                                step.correctQuestion = opt.text;
-                                localStorage.setItem('po-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
-                                setTimeout(showDebriefing, 500);
-                            } else {
-                                btn.classList.add('shake', 'bg-red-50', 'border-red-500', 'text-red-700');
-                                setTimeout(() => btn.classList.remove('shake', 'bg-red-50', 'border-red-500', 'text-red-700'), 500);
-                            }
-                        }
-                    };
-                }
-                wrapper.appendChild(btn);
-            });
-            lucide.createIcons();
-        }
-
-        function goBackToPhase1() {
-            document.getElementById('question-list').classList.add('hidden');
-            document.getElementById('phase2-question-container').classList.add('hidden');
-            document.getElementById('reflex-grid').classList.remove('hidden');
-
-            const phaseLabel = document.getElementById('phase-label-container');
-            phaseLabel.innerText = "Phase 1 : Identification du réflexe";
-            phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
-
-            currentPhase = 1;
-            renderReflexChoices();
-        }
-
-        function showDebriefing() {
-            currentPhase = 3;
-            const step = levelSteps[currentStepIdx];
-            const reflexData = reflexes.find(r => r.id === step.reflexId);
-
-            document.getElementById('debrief-emoji').innerHTML = `<i data-lucide="${reflexData.icon}" class="w-12 h-12 text-slate-800"></i>`;
-            document.getElementById('debrief-title').innerText = reflexData.title;
-            document.getElementById('debrief-question').innerText = `“ ${step.correctQuestion} ”`;
-            document.getElementById('debrief-text').innerText = step.explanation;
-            document.getElementById('debrief-visual').innerHTML = reflexData.explVisual || '';
-            document.getElementById('debrief-visual').innerHTML = reflexData.explVisual || '';
-
-            document.getElementById('reflex-grid').classList.add('hidden');
-            document.getElementById('question-list').classList.add('hidden');
-            document.getElementById('phase2-question-container').classList.add('hidden');
-            document.getElementById('debriefing-card').classList.remove('hidden');
-            lucide.createIcons();
-            document.getElementById('phase-label-container').innerText = "Débriefing Posture ESIS-3D";
-            document.getElementById('phase-label-container').className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
-
-            updateProgress();
-
-            // Toujours afficher le bouton Retour pour revenir en Phase 2
-            document.getElementById('debrief-back-btn').classList.remove('hidden');
-
-            if (isCompleted) {
-                document.getElementById('btn-next').innerText = "Terminer la Série";
-            } else {
-                document.getElementById('btn-next').innerText = "Défi Suivant";
-            }
-            lucide.createIcons();
-        }
-
-        function goBackFromDebrief() {
-            const step = levelSteps[currentStepIdx];
-            const reflex = reflexes.find(r => r.id === step.reflexId);
-
-            document.getElementById('debriefing-card').classList.add('hidden');
-            document.getElementById('question-list').classList.remove('hidden');
-            document.getElementById('phase2-question-container').classList.remove('hidden');
-            document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
-            document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${reflex.icon}" class="w-4 h-4 text-white"></i>`;
-
-            const phaseLabel = document.getElementById('phase-label-container');
-            phaseLabel.innerText = "Phase 2 : Choix de la question type";
-            phaseLabel.className = "px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white transition-colors";
-
-            currentPhase = 2;
-            renderQuestionChoices();
-            lucide.createIcons();
-        }
-
-        function nextStep() {
-            // Trouve le prochain défi non complété
-            const nextPendingIdx = levelSteps.findIndex(s => s.status === 'pending');
-
-            if (nextPendingIdx === -1) {
-                localStorage.setItem(`po-score-lv${currentLevel}`, 12);
-                goHome();
-                return;
-            }
-
-            currentStepIdx = nextPendingIdx;
-            loadStep();
-        }
-
-        function updateProgress() {
-            const completedCount = levelSteps.filter(s => s.status === 'completed').length;
-            document.getElementById('score-display').innerText = `${completedCount} / 12`;
-            // Enregistre le score actuel pour l'afficher sur le Hub index.html en temps réel
-            localStorage.setItem(`po-score-lv${currentLevel}`, completedCount);
-            renderBreadcrumbs();
-        }
-
-        function renderBreadcrumbs() {
-            const container = document.getElementById('breadcrumb-container');
-            container.innerHTML = '';
-
-            levelSteps.forEach((step, idx) => {
-                const btn = document.createElement('button');
-                btn.innerText = idx + 1;
-
-                let styleClass = "breadcrumb-dot w-6 h-6 rounded-full text-[10px] font-black flex items-center justify-center shrink-0 ";
-
-                if (idx === currentStepIdx) {
-                    styleClass += "dot-current";
-                } else if (step.status === 'completed') {
-                    styleClass += "dot-completed";
-                    btn.onclick = () => reviewStep(idx);
-                } else {
-                    styleClass += "dot-pending";
-                    btn.onclick = () => reviewStep(idx);
-                }
-
-                btn.className = styleClass;
-                container.appendChild(btn);
-            });
-        }
-
-        function reviewStep(idx) {
-            currentStepIdx = idx;
-            loadStep();
-        }
-
-        function resetProgress() {
-            if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Product Owner ?")) {
-                Object.keys(localStorage).forEach(key => {
-                    if (key.startsWith('po-')) {
-                        localStorage.removeItem(key);
-                    }
-                });
-                location.reload();
-            }
-        }
-
-        function resetLevelProgress() {
-            if (confirm("Réinitialiser uniquement ce niveau ?")) {
-                const prefix = 'po-progress-lv' + currentLevel;
-                Object.keys(localStorage).forEach(key => {
-                    if (key.startsWith(prefix)) {
-                        localStorage.removeItem(key);
-                    }
-                });
-                localStorage.removeItem('po-score-lv' + currentLevel);
-                location.reload();
-            }
-        }
-
-        function goHome() {
-            document.getElementById('home-screen').classList.remove('hidden');
-            initHome();
-        }
-
-        async function initApp() {
-            try {
-                const response = await fetch('./1-a.json?v=' + new Date().getTime());
-                reflexes = await response.json();
-                initHome();
-                lucide.createIcons();
-            } catch (error) {
-                console.error("Error loading reflexes:", error);
-            }
-        }
-
-
-
-        window.onload = initApp;
-    </script>
+window.onload = initApp;
+</script>
 </body>
-
 </html>

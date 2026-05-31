@@ -1225,7 +1225,7 @@
                             <i data-lucide="arrow-right"></i>
                         </button>
                     </article>
-                    <article class="simulator-card vision-theme disabled-card" id="roadmap-card" style="opacity: 0.7;">
+                    <article class="simulator-card vision-theme" id="roadmap-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1234,10 +1234,13 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 E - Roadmap &amp; Jalons</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                            <button onclick="event.stopPropagation(); openLesson(3)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides Roadmap &amp; Jalons">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="road-status-label">0 / 30</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1245,7 +1248,6 @@
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
                                 Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
                         </div>
-                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
                     </article>
                     <article class="simulator-card vision-theme disabled-card" id="features-card" style="opacity: 0.7;">
                         <div class="card-header"
@@ -1611,12 +1613,17 @@
             let cso1 = parseInt(localStorage.getItem('cso-score-lv1') || '0', 10);
             let cso2 = parseInt(localStorage.getItem('cso-score-lv2') || '0', 10);
             let totalCsoScore = cso0 + cso1 + cso2;
+            let road0 = parseInt(localStorage.getItem('road-score-lv0') || '0', 10);
+            let road1 = parseInt(localStorage.getItem('road-score-lv1') || '0', 10);
+            let road2 = parseInt(localStorage.getItem('road-score-lv2') || '0', 10);
+            let totalRoadScore = road0 + road1 + road2;
 
             let maxPoScore = 36;
             let maxUxScore = 39;
             let maxEvoScore = 30;
             let maxCsoScore = 27;
-            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore;
+            let maxRoadScore = 30;
+            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore;
 
             // Pagination: 3 ateliers per page
             const scrollEl = document.getElementById('ateliers-scroll');
@@ -1679,6 +1686,11 @@
                 window.updateCardStatusBadge(csoLabel, totalCsoScore, maxCsoScore);
             }
 
+            const roadLabel = document.getElementById('road-status-label');
+            if (roadLabel) {
+                window.updateCardStatusBadge(roadLabel, totalRoadScore, maxRoadScore);
+            }
+
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
             const dtStatusLabel = document.getElementById('dt-status-label');
@@ -1694,7 +1706,7 @@
             }
 
             // Progression rate
-            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore) / totalMaxScore) * 100);
+            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore) / totalMaxScore) * 100);
             document.getElementById('overall-completion').innerText = `${progressPercent}%`;
 
             // Display time metadata if available
@@ -1744,6 +1756,13 @@
             if (csoCard) {
                 csoCard.addEventListener('click', () => {
                     window.location.href = './2-c.html';
+                });
+            }
+
+            const roadmapCard = document.getElementById('roadmap-card');
+            if (roadmapCard) {
+                roadmapCard.addEventListener('click', () => {
+                    window.location.href = './3-e.html';
                 });
             }
 
@@ -1809,7 +1828,7 @@
         let slidesDataCache = {};
 
         async function openLesson(atelierId, startSlide = null) {
-            if (atelierId !== 1 && atelierId !== 2) return;
+            if (atelierId !== 1 && atelierId !== 2 && atelierId !== 3) return;
             const modal = document.getElementById('lesson-modal');
             modal.style.display = 'flex';
 
@@ -1823,8 +1842,14 @@
                 handleGesture();
             }, { passive: true });
 
-            const slideFile = atelierId === 1 ? '1-0.md' : '2-0.md';
-            const lsKey = atelierId === 1 ? 'design-thinking-last-slide' : 'mvp-last-slide';
+            let slideFile = '1-0.md';
+            if (atelierId === 2) slideFile = '2-0.md';
+            else if (atelierId === 3) slideFile = '3-0.md';
+
+            let lsKey = 'design-thinking-last-slide';
+            if (atelierId === 2) lsKey = 'mvp-last-slide';
+            else if (atelierId === 3) lsKey = 'roadmap-last-slide';
+
             currentAtelierId = atelierId;
 
             // Load slides dynamically if not already cached for this atelier
@@ -1976,7 +2001,9 @@
             if (currentSlide >= slides.length) currentSlide = slides.length - 1;
 
             // Save last viewed slide
-            const lsKey = currentAtelierId === 1 ? 'design-thinking-last-slide' : 'mvp-last-slide';
+            let lsKey = 'design-thinking-last-slide';
+            if (currentAtelierId === 2) lsKey = 'mvp-last-slide';
+            else if (currentAtelierId === 3) lsKey = 'roadmap-last-slide';
             localStorage.setItem(lsKey, currentSlide);
             updateSlides();
         }
@@ -2017,7 +2044,9 @@
 
             // Update progress badge on the card status dot
             if (slides.length > 0) {
-                const statusLabelId = currentAtelierId === 1 ? 'dt-status-label' : 'mvp-status-label';
+                let statusLabelId = 'dt-status-label';
+                if (currentAtelierId === 2) statusLabelId = 'mvp-status-label';
+                else if (currentAtelierId === 3) statusLabelId = 'road-slides-status-label';
                 const statusLabel = document.getElementById(statusLabelId);
                 if (statusLabel) {
                     window.updateCardStatusBadge(statusLabel, currentSlide + 1, slides.length);
@@ -2155,18 +2184,20 @@
             if (!reflexesData) {
                 try {
                     const v = new Date().getTime();
-                    const [poRes, uxRes, cRes, dRes] = await Promise.all([
+                    const [poRes, uxRes, cRes, dRes, eRes] = await Promise.all([
                         fetch('1-a.json?v=' + v),
                         fetch('1-b.json?v=' + v),
                         fetch('2-c.json?v=' + v),
-                        fetch('2-d.json?v=' + v)
+                        fetch('2-d.json?v=' + v),
+                        fetch('3-e.json?v=' + v)
                     ]);
                     const cRaw = await cRes.json();
                     reflexesData = {
                         po: await poRes.json(),
                         ux: await uxRes.json(),
                         c: cRaw.value || cRaw,
-                        d: await dRes.json()
+                        d: await dRes.json(),
+                        e: await eRes.json()
                     };
                 } catch (e) {
                     console.error("Error loading reflex data:", e);
@@ -2260,6 +2291,28 @@
                     examples = item.questions || [];
                     badgeText = "Réflexe Spécs & Évolutions";
                     iconName = item.icon || "sparkles";
+                    isCD = true;
+                    if (item.scenarios) {
+                        item.scenarios.forEach((sc, idx) => {
+                            if (sc.visual) {
+                                visuals.push({
+                                    title: item.questions[idx] || '',
+                                    expl: sc.explanation || sc.text,
+                                    html: sc.visual
+                                });
+                            }
+                        });
+                    }
+                }
+            } else if (reflexId.startsWith('E')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.e.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    examples = item.questions || [];
+                    badgeText = "Réflexe Roadmap (Vision)";
+                    iconName = item.icon || "mountain";
                     isCD = true;
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {

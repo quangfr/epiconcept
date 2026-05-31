@@ -165,9 +165,9 @@
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
             <div onclick="startLevel(0)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i data-lucide="star" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <i data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 1</h2>
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Facile</h2>
                 <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Composants d'interface simples et interactions directes au quotidien.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
@@ -176,9 +176,9 @@
                 </div>
             </div>
             <div onclick="startLevel(1)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i data-lucide="zap" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <i data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 2</h2>
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Moyen</h2>
                 <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Parcours complexes, personnalisation et prévention des erreurs.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
@@ -187,9 +187,9 @@
                 </div>
             </div>
             <div onclick="startLevel(2)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i data-lucide="trophy" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <i data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau 3</h2>
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Difficile</h2>
                 <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Architecture d'information, accessibilité et continuité de service.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
@@ -214,7 +214,7 @@
         
         <div class="text-center flex-grow">
             <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">ESIS-3D UX Designer</span>
-            <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Niveau 1</span>
+            <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Facile</span>
         </div>
 
         <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
@@ -375,8 +375,8 @@ function startLevel(lv) {
     currentStepIdx = 0;
     answeredSteps = new Array(TOTAL_STEPS).fill(false);
     
-    const titles = ["Niveau 1 : Terrain", "Niveau 2 : Système", "Niveau 3 : Stratégie"];
-    document.getElementById('level-title-display').innerText = titles[lv];
+    const titles = ["Facile : Terrain", "Moyen : Système", "Difficile : Stratégie"];
+    document.getElementById('level-title-display').innerText = `${['Facile', 'Moyen', 'Difficile'][lv]} : ${titles[lv]}`;
     
     // Tire un scénario par réflexe (selon le niveau)
     levelSteps = reflexes.map(r => ({

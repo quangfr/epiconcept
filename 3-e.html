@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D - Spécs & Évolutions - ESIS-3D</title>
+    <title>E - Roadmap & Jalons - ESIS-3D</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -271,7 +271,7 @@
     <!-- Right column: Interactions QCM (2/3) -->
     <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
         <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md">
-            Phase 1 : Identification du réflexe Spécs
+            Phase 1 : Identification du réflexe Roadmap
         </div>
         
         <div id="options-container" class="glass-panel rounded-xl p-4 sm:p-6 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
@@ -346,7 +346,7 @@ function initHome() {
     buildModalContent();
     
     for (let i = 0; i < 3; i++) {
-        const score = localStorage.getItem(`evo-score-lv${i}`);
+        const score = localStorage.getItem(`road-score-lv${i}`);
         document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 10` : "-- / 10";
     }
 }
@@ -356,7 +356,7 @@ function startLevel(lv) {
     currentStepIdx = 0;
     answeredSteps = new Array(TOTAL_STEPS).fill(false);
     
-    const titles = ["Facile : Architecture & Couches", "Moyen : Happy Path & Exceptions", "Difficile : User Stories & Découpage"];
+    const titles = ["Facile : Scope & Planning (Découper)", "Moyen : POC & Phasage (Valider)", "Difficile : Schedule & Legacy (Piloter)"];
     document.getElementById('level-title-display').innerText = `${['Facile', 'Moyen', 'Difficile'][lv]} : ${titles[lv]}`;
     
     levelSteps = reflexes.map(r => ({
@@ -365,7 +365,7 @@ function startLevel(lv) {
     })).sort(() => Math.random() - 0.5);
 
     levelSteps.forEach((step, idx) => {
-        const savedProgress = localStorage.getItem('evo-progress-lv' + lv + '-reflex' + step.reflexId);
+        const savedProgress = localStorage.getItem('road-progress-lv' + lv + '-reflex' + step.reflexId);
         if (savedProgress === 'true') {
             answeredSteps[idx] = true;
         }
@@ -391,9 +391,9 @@ function startLevel(lv) {
 }
 
 function resetProgress() {
-    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Spécs & Évolutions ?")) {
+    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Roadmap & Jalons ?")) {
         Object.keys(localStorage).forEach(key => {
-            if (key.startsWith('evo-')) {
+            if (key.startsWith('road-')) {
                 localStorage.removeItem(key);
             }
         });
@@ -403,13 +403,13 @@ function resetProgress() {
 
 function resetLevelProgress() {
     if (confirm("Réinitialiser uniquement ce niveau ?")) {
-        const prefix = 'evo-progress-lv' + currentLevel;
+        const prefix = 'road-progress-lv' + currentLevel;
         Object.keys(localStorage).forEach(key => {
             if (key.startsWith(prefix)) {
                 localStorage.removeItem(key);
             }
         });
-        localStorage.removeItem('evo-score-lv' + currentLevel);
+        localStorage.removeItem('road-score-lv' + currentLevel);
         location.reload();
     }
 }
@@ -450,7 +450,7 @@ function updateProgress() {
         scoreDisplay.innerText = `${completedCount} / ${TOTAL_STEPS}`;
     }
     
-    localStorage.setItem(`evo-score-lv${currentLevel}`, completedCount);
+    localStorage.setItem(`road-score-lv${currentLevel}`, completedCount);
 }
 
 function jumpToStep(idx) {
@@ -485,7 +485,7 @@ function loadStepPhase1() {
     document.getElementById('ui-grid').classList.add('hidden');
     document.getElementById('debriefing-card').classList.add('hidden');
     
-    document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du réflexe Spécs";
+    document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du réflexe Roadmap";
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     renderReflexChoices();
@@ -512,7 +512,7 @@ function renderReflexChoices(readOnly) {
                 <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe Spécs">
+            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe">
                 <i data-lucide="info" class="w-4 h-4"></i>
             </button>
         `;
@@ -609,7 +609,7 @@ function showDebriefing(correctOpt) {
     answeredSteps[currentStepIdx] = true;
     
     const step = levelSteps[currentStepIdx];
-    localStorage.setItem('evo-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
+    localStorage.setItem('road-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
     
     updateProgress();
 
@@ -687,7 +687,7 @@ function goBackToPhase1() {
     document.getElementById('reflex-grid').classList.remove('hidden');
 
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Phase 1 : Identification du réflexe Spécs";
+    phaseLabel.innerText = "Phase 1 : Identification du réflexe Roadmap";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
 
     currentPhase = 1;
@@ -801,7 +801,7 @@ window.addEventListener('keydown', function(e) {
 
 async function initApp() {
     try {
-        const response = await fetch('./2-d.json?v=' + new Date().getTime());
+        const response = await fetch('./3-e.json?v=' + new Date().getTime());
         reflexes = await response.json();
         initHome();
         lucide.createIcons();
