@@ -114,7 +114,7 @@
         <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
             <div>
                 <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Réflexes Roadmap &amp; Jalons</h2>
-                <p class="text-slate-500 text-xs font-medium leading-none">Les 10 réflexes de gestion de planning, phasage, buffers et décommissionnement d'Epiconcept</p>
+                <p class="text-slate-500 text-xs font-medium leading-none">Les 12 réflexes de gestion de planning, phasage, buffers et décommissionnement d'Epiconcept</p>
             </div>
             <!-- Selector -->
             <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
@@ -170,7 +170,7 @@
                 <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Scope &amp; Planning (Découper et Choisir le coeur du réacteur V1).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 10</span>
+                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
                 <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">POC &amp; Phasage (Valider la faisabilité technique par un prototype).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 10</span>
+                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@
                 <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Schedule &amp; Legacy (Piloter, sécuriser et décommissionner).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 10</span>
+                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
                 </div>
                 </div>
             </div>
@@ -236,7 +236,7 @@
             </div>
             
             <div class="text-right whitespace-nowrap">
-                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 10</div>
+                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 12</div>
             </div>
         </div>
     </div>
@@ -249,7 +249,7 @@
         <div id="scenario-card" class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
             <div class="flex items-center justify-between mb-4 shrink-0">
                 <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Situation</div>
-                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 10</div>
+                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 12</div>
             </div>
             <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏔</div>
             <div class="overflow-y-auto flex-grow min-h-0 pr-2 pb-4 flex flex-col gap-4">
@@ -341,7 +341,7 @@
 <script>
 let reflexes = [];
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 12;
 let currentLevel = 0;
 let currentStepIdx = 0;
 let levelSteps = [];
@@ -354,7 +354,7 @@ function initHome() {
     
     for (let i = 0; i < 3; i++) {
         const score = localStorage.getItem(`road-score-lv${i}`);
-        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 10` : "-- / 10";
+        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 12` : "-- / 12";
     }
 }
 

@@ -1237,7 +1237,7 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 3 - Product Backlog</h2>
-                            <button onclick="event.stopPropagation(); openLesson(3, 4)"
+                            <button onclick="event.stopPropagation(); openLesson(3, 3)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les slides Product Backlog">
@@ -1262,10 +1262,10 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 E - Roadmap &amp; Jalons</h2>
-                            <button onclick="event.stopPropagation(); openLesson(3)"
+                            <button onclick="event.stopPropagation(); openLesson(3, 6)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir les slides Roadmap &amp; Jalons">
+                                title="Voir les réflexes Roadmap &amp; Jalons">
                                 <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="road-status-label">0 / 30</span></div>
@@ -1286,10 +1286,10 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 F - Features Discovery</h2>
-                            <button onclick="event.stopPropagation(); openLesson(3, 3)"
+                            <button onclick="event.stopPropagation(); openLesson(3, 7)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir les slides Features Discovery">
+                                title="Voir les réflexes Features Discovery">
                                 <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="feat-status-label">0 / 24</span></div>
@@ -1774,7 +1774,7 @@
             const backlogCard = document.getElementById('backlog-card');
             if (backlogCard) {
                 backlogCard.addEventListener('click', () => {
-                    openLesson(3, 4);
+                    openLesson(3, 3);
                 });
             }
 
@@ -2024,12 +2024,18 @@
                 slideDiv.className = 'lesson-slide';
                 slideDiv.style.display = 'none';
                 slideDiv.style.flexDirection = 'column';
-                slideDiv.style.alignItems = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? 'stretch' : 'center';
+                let shouldStretch = false;
+                if (currentAtelierId === 3) {
+                    shouldStretch = (slide.id === 7 || slide.id === 8);
+                } else {
+                    shouldStretch = (slide.id === 4 || slide.id === 6 || slide.id === 7);
+                }
+                slideDiv.style.alignItems = shouldStretch ? 'stretch' : 'center';
                 slideDiv.style.textAlign = 'center';
                 slideDiv.style.maxWidth = '1400px'; // Increased max-width for more spacious display
                 slideDiv.style.animation = 'fadeIn 0.3s';
                 slideDiv.style.width = '100%';
-                if (slide.id === 4 || slide.id === 6 || slide.id === 7) {
+                if (shouldStretch) {
                     slideDiv.style.padding = '0.5rem';
                 }
 
@@ -2262,12 +2268,13 @@
             if (!reflexesData) {
                 try {
                     const v = new Date().getTime();
-                    const [poRes, uxRes, cRes, dRes, eRes] = await Promise.all([
+                    const [poRes, uxRes, cRes, dRes, eRes, fRes] = await Promise.all([
                         fetch('1-a.json?v=' + v),
                         fetch('1-b.json?v=' + v),
                         fetch('2-c.json?v=' + v),
                         fetch('2-d.json?v=' + v),
-                        fetch('3-e.json?v=' + v)
+                        fetch('3-e.json?v=' + v),
+                        fetch('3-f.json?v=' + v)
                     ]);
                     const cRaw = await cRes.json();
                     reflexesData = {
@@ -2275,7 +2282,8 @@
                         ux: await uxRes.json(),
                         c: cRaw.value || cRaw,
                         d: await dRes.json(),
-                        e: await eRes.json()
+                        e: await eRes.json(),
+                        f: await fRes.json()
                     };
                 } catch (e) {
                     console.error("Error loading reflex data:", e);
@@ -2388,21 +2396,53 @@
                 if (item) {
                     title = item.title;
                     description = item.intent;
-                    examples = item.questions || [];
                     badgeText = "Réflexe Roadmap (Vision)";
                     iconName = item.icon || "mountain";
                     isCD = true;
+                    examples = [];
                     if (item.scenarios) {
-                        item.scenarios.forEach((sc, idx) => {
-                            if (sc.visual) {
-                                visuals.push({
-                                    title: item.questions[idx] || '',
-                                    expl: sc.explanation || sc.text,
-                                    html: sc.visual
-                                });
+                        item.scenarios.forEach((sc) => {
+                            const sci = sc.correct;
+                            if (sci && sci.title) {
+                                examples.push(`${sci.title} : ${sci.expl}`);
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title,
+                                        expl: sci.expl,
+                                        html: sci.visual
+                                    });
+                                }
                             }
                         });
                     }
+                    if (!examples.length) examples = item.questions || [];
+                }
+            } else if (reflexId.startsWith('F')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.f.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    badgeText = "Réflexe Features (Discovery)";
+                    iconName = item.icon || "telescope";
+                    isCD = true;
+                    examples = [];
+                    if (item.scenarios) {
+                        item.scenarios.forEach((sc) => {
+                            const sci = sc.correct;
+                            if (sci && sci.title) {
+                                examples.push(`${sci.title} : ${sci.expl}`);
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title,
+                                        expl: sci.expl,
+                                        html: sci.visual
+                                    });
+                                }
+                            }
+                        });
+                    }
+                    if (!examples.length) examples = item.questions || [];
                 }
             }
 

@@ -734,5 +734,97 @@
         "expl": "L'accompagnement du changement s'appuie sur la pédagogie et l'influence des référents de proximité."
       }
     ]
+  },
+  {
+    "id": 9,
+    "title": "F9. Trouver les quick-wins",
+    "intent": "Identifier et prioriser les solutions simples à fort impact pour apporter de la valeur immédiate aux utilisateurs sans complexité technique.",
+    "icon": "zap",
+    "scenarios": [
+      {
+        "text": "Pour aider les soignants à filtrer les dossiers de dépistage prioritaires en V1, le client demande un moteur de recherche intelligente basé sur des règles d'IA complexes. Le PO doit décider de s'engager sur cette voie estimée à 3 semaines de dev ou de chercher un contournement simple.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Filtrage Intelligent Dossiers</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Moteur de recherche IA complexe (3 semaines)</div><div class=\"text-[7px] text-red-650\">⚠️ Risque élevé de retard et d'instabilité en V1</div></div>",
+        "correct": {
+          "title": "F9.1. Estimer si la solution est techniquement simple",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Filtre Rapide (Quick-Win)</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Bouton de tri rapide \"Dossiers Urgents\" (1h de dev)</div><div class=\"text-[7px] text-emerald-600 font-bold\">95% de l'impact immédiat atteint avec un effort minimal</div></div>",
+          "expl": "Préférer une solution techniquement élémentaire et rapide à implémenter qui répond immédiatement au besoin soignant.",
+          "debriefExpl": "Estimer la simplicité technique permet d'isoler des fonctionnalités à très fort ROI opérationnel pour soulager les utilisateurs sans effort.",
+          "icon": "trending-up"
+        },
+        "wrong": [
+          {
+            "title": "S'engager dans l'IA",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Lancer les dev sur l'IA</div>",
+            "expl": "Démarrer le développement de l'algorithme d'IA en espérant le terminer à temps pour le pilote.",
+            "debriefExpl": "C'est un pari risqué qui échoue souvent en phase de test de recette en bloquant le déploiement.",
+            "icon": "clock"
+          },
+          {
+            "title": "Reporter le besoin",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Ne rien filtrer du tout</div>",
+            "expl": "Expliquer aux soignants que le tri n'est pas possible et qu'ils doivent chercher manuellement dans les 1 000 dossiers.",
+            "debriefExpl": "Refuser d'aider l'utilisateur alors qu'un tri basique prend une heure à coder nuit gravement à l'adoption.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "Estimer la simplicité technique permet d'isoler des fonctionnalités à très fort ROI opérationnel pour soulager les utilisateurs sans effort."
+      },
+      {
+        "text": "Les secrétaires oublient régulièrement de joindre la notice explicative lors de l'envoi du kit de dépistage. Le PO veut développer un automate de détection optique de présence de feuille dans l'enveloppe, alors qu'un simple rappel de couleur vive lors de l'impression de l'étiquette pourrait suffire.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Contrôle d'Oubli</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Automate de détection de pli par webcam (très complexe)</div><div class=\"text-[7px] text-red-650\">⚠️ Projet dans le projet, complexité folle</div></div>",
+        "correct": {
+          "title": "F9.2. Prioriser l'impact utilisateur immédiat",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Rappel Visuel d'Impression</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Mention géante sur l'étiquette : \"JOINDRE LA NOTICE JAUNE\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">80% d'erreurs en moins pour 10 minutes de modification du template</div></div>",
+          "expl": "Identifier les petits changements d'interface ou de process qui suppriment l'irritant utilisateur majeur avec un effort insignifiant.",
+          "debriefExpl": "Se concentrer sur l'impact immédiat permet de résoudre des problèmes critiques sans perturber le planning technique.",
+          "icon": "zap"
+        },
+        "wrong": [
+          {
+            "title": "Automatisation robotique",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Développer l'analyse optique de plis</div>",
+            "expl": "Lancer la R&D sur la reconnaissance d'image pour inspecter les enveloppes.",
+            "debriefExpl": "C'est une usine à gaz disproportionnée par rapport à un simple problème de distraction humaine.",
+            "icon": "alert-triangle"
+          },
+          {
+            "title": "Ignorer l'erreur",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Laisser l'erreur se reproduire</div>",
+            "expl": "Considérer que c'est la faute des secrétaires et ne rien faire sur le logiciel.",
+            "debriefExpl": "Ne pas aider à prévenir les erreurs opérationnelles pénalise directement la qualité de la campagne de santé.",
+            "icon": "smile"
+          }
+        ],
+        "expl": "Se concentrer sur l'impact immédiat permet de résoudre des problèmes critiques sans perturber le planning technique."
+      },
+      {
+        "text": "Pour la relance des patients, le PO souhaite coder un module complet de publipostage papier interne avec gestion des marges d'impression, alors que le système possède déjà un bouton d'export de liste Excel standard que le prestataire d'impression externe sait traiter directement.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Publipostage Interne</div><div class=\"bg-red-150 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Coder un éditeur de courriers PDF complexes (2 semaines)</div><div class=\"text-[7px] text-red-650\">⚠️ Retard et maintenance lourde d'un moteur de mise en page</div></div>",
+        "correct": {
+          "title": "F9.3. Capitaliser sur les outils déjà disponibles ou externes",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Export Excel (Quick-Win)</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Bouton \"Exporter la liste des relances\" (Existant)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Zéro ligne de code écrite, le routeur externe fait la mise en page</div></div>",
+          "expl": "Réutiliser intelligemment les fonctionnalités ou fichiers d'échange existants pour répondre au besoin au lieu de réinventer la roue.",
+          "debriefExpl": "Capitaliser sur l'existant permet d'offrir le service immédiatement en évitant des développements superflus.",
+          "icon": "repeat"
+        },
+        "wrong": [
+          {
+            "title": "Développer l'éditeur interne",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Coder l'éditeur de templates PDF</div>",
+            "expl": "Se lancer dans la création du module d'édition de courriers de relance.",
+            "debriefExpl": "Développer un traitement de texte interne est l'un des pires pièges de dette technique pour une équipe produit.",
+            "icon": "edit-3"
+          },
+          {
+            "title": "Relance manuelle unitaire",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Ouvrir chaque fiche soignant par soignant</div>",
+            "expl": "Forcer les agents à ouvrir chaque fiche patiente pour copier-coller l'adresse et faire la relance.",
+            "debriefExpl": "C'est une perte de temps intolérable pour les soignants qui passeraient leurs journées à faire du copier-coller.",
+            "icon": "user-x"
+          }
+        ],
+        "expl": "Capitaliser sur l'existant permet d'offrir le service immédiatement en évitant des développements superflus."
+      }
+    ]
   }
 ]

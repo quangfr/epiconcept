@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "title": "E1. Isoler le cœur du réacteur (Le \"Périmètre Vital\")",
-    "intent": "Se concentrer uniquement sur l'action finale indispensable qui crée de la valeur immédiate, en éliminant le confort pour la V1.",
+    "title": "E1. Cibler le \"Happy path\" (Valeur 80%)",
+    "intent": "Concevoir le scénario nominal sans embûches qui couvre 80% des besoins réels, en reportant tout le reste pour garantir une livraison rapide.",
     "icon": "scissors",
     "scenarios": [
       {
         "text": "Le CRDC d'Amiens veut lancer une campagne pilote de dépistage du cancer du poumon. L'équipe technique veut coder un système d'importation de fichiers labo automatisé, un tableau de bord statistique et une relance SMS. La campagne commence dans 3 semaines.",
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-2\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Projet Pilote Poumon</div><div class=\"flex flex-col gap-1 text-[9px] font-semibold text-slate-700\"><span>✗ Import Labo Auto (4 semaines de dev)</span><span>✗ Tableau de bord ARS (3 semaines de dev)</span><span>✗ Relance SMS (2 semaines de dev)</span></div><div class=\"text-[8px] text-red-600 font-bold\">⚠️ Lancement impossible à la date prévue (9 semaines requis)</div></div>",
         "correct": {
-          "title": "E1.1. Identifier l'action finale indispensable",
+          "title": "E1.1. Cibler le scénario nominal standard (Happy path)",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden\"><div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[7px] font-bold px-2 py-0.5 rounded-bl-lg\">V1 CIBLÉE</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Simplifiée</div><div class=\"bg-white border-2 border-emerald-500 rounded p-2 text-center text-xs font-black text-slate-800\">Saisie Manuelle d'un Patient</div><div class=\"text-[8px] text-emerald-600 font-bold text-center\">Seul flux vital pour démarrer la campagne pilote</div></div>",
           "expl": "Isoler la seule et unique action physique sans laquelle l'utilisateur ne peut pas travailler.",
           "debriefExpl": "Identifier l'action finale indispensable (la saisie manuelle) permet de démarrer le pilote à temps en éliminant les tâches secondaires.",
@@ -37,7 +37,7 @@
         "text": "Lors de la création du nouveau module de dépistage colorectal, les utilisateurs demandent à pouvoir saisir l'historique complet des vaccins du patient, son médecin traitant secondaire et d'autres informations administratives de confort.",
         "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-1.5\">Formulaire Demandé</div><div class=\"grid grid-cols-2 gap-1.5 text-[7px] font-bold text-slate-500\"><span>Nom / Prénom</span><span>NIR (SSN)</span><span>Médecin 2aire</span><span>Carnet Vaccinal</span><span>Régime Social</span><span>Taille / Poids</span></div></div>",
         "correct": {
-          "title": "E1.2. Dégraisser le flux nominal",
+          "title": "E1.2. Éliminer les étapes et champs secondaires",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Formulaire V1 Dégraissé</div><div class=\"grid grid-cols-2 gap-2 text-[8px] font-black text-slate-800\"><div class=\"bg-white border p-1 rounded\">Nom / Prénom</div><div class=\"bg-white border p-1 rounded\">NIR (SSN)</div></div><div class=\"text-[7px] text-emerald-600 font-bold\">5 champs de confort supprimés de la V1</div></div>",
           "expl": "Supprimer du premier lot toute saisie facultative, pré-remplissage ou calcul automatique.",
           "debriefExpl": "Dégraisser le flux nominal permet de réduire le temps de développement de 60% et d'accélérer la saisie.",
@@ -63,10 +63,10 @@
       },
       {
         "text": "L'équipe produit lance un nouveau module d'invitation pour le cancer du col de l'utérus. Certains veulent commencer par coder uniquement les filtres de recherche multicritères avancés car ils sont complexes.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lot 1 Proposé</div><div class=\"bg-red-150 p-2 rounded text-center text-[10px] font-bold text-red-800\">Moteur de Recherche Avancée (Filtres)</div><div class=\"text-[8px] text-red-600 font-bold\">⚠️ Aucun envoi de courrier réel possible à la fin du lot</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lot 1 Proposé</div><div class=\"bg-red-150 p-2 rounded text-center text-[10px] font-bold text-red-800\">Moteur de Recherche Avancée (Filtres)</div><div class=\"text-[8px] text-red-650 font-bold\">⚠️ Aucun envoi de courrier réel possible à la fin du lot</div></div>",
         "correct": {
-          "title": "E1.3. Valider le parcours minimal de bout-en-bout",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux Minimal V1</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-white p-1 rounded border\"><span>1. Sélection simple</span><span>➔</span><span>2. Génération PDF</span><span>➔</span><span>3. Envoi</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Parcours complet testable dès le lot 1</div></div>",
+          "title": "E1.3. Livrer un flux traversant complet (End-to-End)",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux Minimal V1</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-white p-1 rounded border\"><span>1. Sélection simple</span><span>➔</span><span>2. Génération PDF</span><span>➔</span><span>3. Envoi</span></div><div class=\"text-[7px] text-emerald-650 font-bold\">Parcours complet testable dès le lot 1</div></div>",
           "expl": "S'assurer que le premier lot permet de faire l'action du début à la fin (même de façon très brute).",
           "debriefExpl": "Valider le parcours minimal bout-en-bout garantit que le système produit une vraie valeur testable d'emblée.",
           "icon": "git-commit"
@@ -738,92 +738,92 @@
   {
     "id": 9,
     "title": "E9. Planifier la transition et l'impact (Dette & Décommissionnement)",
-    "intent": "Fermer l'ancien système en lecture seule le jour J pour éviter la double maintenance et la corruption des données historiques.",
+    "intent": "Décider d'arrêter une fonctionnalité redondante, obsolète ou peu utilisée, c'est se libérer de sa maintenance.",
     "icon": "database",
     "scenarios": [
       {
-        "text": "Le nouveau module de dépistage colorectal va remplacer l'ancien système de gestion par fichier Excel partagé. Le directeur du centre souhaite laisser l'ancien fichier Excel ouvert en écriture pendant quelques mois par sécurité.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Période de Transition Prévue</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Co-existence Excel ↔ Logiciel (Écriture libre)</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de double saisie, d'écarts de données et de chaos</div></div>",
+        "text": "L'équipe produit constate que le module d'export PDF personnalisé de l'ancien tableau de bord n'est utilisé que par 2 utilisateurs sur 500, mais sa maintenance lors des mises à jour d'OS prend 4 jours de dev par an. Le PO insiste pour le maintenir indéfiniment par peur de mécontenter ces 2 utilisateurs.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Maintenance d'une option obsolète</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Maintenir l'export personnalisé à tout prix</div><div class=\"text-[7px] text-red-650\">⚠️ Dette technique croissante pour 0,4% d'utilisateurs actifs</div></div>",
         "correct": {
-          "title": "E9.1. Définir une date d'arrêt ferme de l'ancien outil",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Plan de Transition Sec</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Jour J : Arrêt total de l'ancien fichier Excel</div><div class=\"text-[7px] text-emerald-600 font-bold\">Fermeture nette de l'ancien outil pour forcer l'adoption</div></div>",
-          "expl": "Fixer une date butoir de coupure définitive de l'ancien système pour éviter la double saisie et la confusion.",
-          "debriefExpl": "Définir une date d'arrêt ferme de l'ancien outil évite le chaos de la double saisie et oblige les équipes à s'approprier le nouvel outil.",
-          "icon": "calendar"
+          "title": "E9.1. Décommissionner les fonctionnalités obsolètes ou peu utilisées",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Décommissionnement Propre</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Retrait de l'export + redirection vers l'export Excel standard</div><div class=\"text-[7px] text-emerald-600 font-bold\">4 jours de développement par an économisés pour la V2</div></div>",
+          "expl": "Identifier et retirer les fonctions redondantes ou sous-utilisées en proposant une alternative standard plus simple.",
+          "debriefExpl": "Décommissionner une fonctionnalité peu utilisée libère instantanément de la charge mentale et de la maintenance technique récurrente.",
+          "icon": "trash-2"
         },
         "wrong": [
           {
-            "title": "Cohabitation prolongée",
-            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Laisser les deux ouverts indéfiniment</div>",
-            "expl": "Laisser les utilisateurs choisir l'outil qu'ils préfèrent utiliser pendant le premier trimestre.",
-            "debriefExpl": "C'est la garantie d'avoir des données désynchronisées et de ne jamais pouvoir décommissionner l'ancien outil.",
-            "icon": "shuffle"
+            "title": "Masquer l'option sans la supprimer",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Cacher le bouton dans les menus</div>",
+            "expl": "Laisser le code actif dans le système mais masquer le bouton d'export dans l'interface.",
+            "debriefExpl": "Le code obsolète est toujours présent dans la base de code, continue à accumuler de la dette technique et ralentit les refactoring.",
+            "icon": "eye-off"
           },
           {
-            "title": "Double saisie obligatoire",
-            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Saisir dans Excel ET dans le logiciel</div>",
-            "expl": "Forcer les agents de Valenciennes à ressaisir chaque dossier dans les deux outils en parallèle.",
-            "debriefExpl": "La double saisie épuise et démotive les secrétaires, tout en doublant le risque d'erreurs de frappe.",
-            "icon": "alert-circle"
+            "title": "Développer une V2 du bouton inutile",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Refondre entièrement le module d'export</div>",
+            "expl": "Passer 2 semaines à réécrire proprement le code obsolète pour qu'il soit plus moderne sans changer son usage.",
+            "debriefExpl": "Refondre du code inutile reste un gaspillage total de temps et d'énergie pour l'équipe produit.",
+            "icon": "refresh-cw"
           }
         ],
-        "expl": "Une date d'arrêt nette et communiquée de l'ancien outil est la seule méthode de migration efficace."
+        "expl": "Décommissionner une fonctionnalité peu utilisée libère instantanément de la charge mentale et de la maintenance technique récurrente."
       },
       {
-        "text": "Lors du déploiement du nouveau module, les secrétaires continuent à utiliser l'ancien logiciel pour éditer les invitations urgentes, car elles maîtrisent mieux les touches de raccourci sur l'ancienne interface.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Utilisation Ancien Outil</div><div class=\"p-1.5 bg-red-100 text-[9px] font-bold text-red-800 rounded text-center\">Ancien logiciel toujours ouvert en écriture libre</div></div>",
+        "text": "Lors de l'introduction de la nouvelle interface de saisie d'examen, l'équipe technique propose de conserver l'ancienne interface fonctionnelle en parallèle 'au cas où' les secrétaires la préféreraient, forçant les développeurs à maintenir et corriger les bugs sur deux écrans différents.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Double Interface active</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Conserver les deux interfaces en parallèle</div><div class=\"text-[7px] text-red-650\">⚠️ Double maintenance et risques majeurs d'écarts de comportement</div></div>",
         "correct": {
-          "title": "E9.2. Bloquer l'accès en écriture à l'ancien système",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Ancien Outil Sécurisé</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">⚠️ Mode Lecture Seule Actif sur l'ancien système</div><div class=\"text-[7px] text-emerald-600 font-bold\">Historique consultable, modifications bloquées</div></div>",
-          "expl": "Basculer l'ancienne application ou base en lecture seule dès le jour de la mise en service du nouveau système.",
-          "debriefExpl": "Bloquer l'accès en écriture de l'ancien outil force l'adoption de la nouveauté tout en conservant l'accès aux données historiques.",
-          "icon": "lock"
+          "title": "E9.2. Stopper la double maintenance le plus tôt possible",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Coupure de l'ancien écran</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Bascule définitive + redirection automatique vers le nouvel écran</div><div class=\"text-[7px] text-emerald-600 font-bold\">Charge de maintenance divisée par deux sur ce module</div></div>",
+          "expl": "Couper l'ancien écran dès que le nouveau est stabilisé pour forcer l'usage unique et éliminer la maintenance croisée.",
+          "debriefExpl": "Stopper la double maintenance évite la fragmentation du produit et concentre toute la qualité sur la nouvelle version stable.",
+          "icon": "zap"
         },
         "wrong": [
           {
-            "title": "Fermer totalement l'accès",
-            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Désinstaller totalement l'ancien outil</div>",
-            "expl": "Supprimer complètement l'ancienne application et détruire sa base de données dès le premier jour.",
-            "debriefExpl": "Supprimer totalement l'accès empêche de consulter l'historique et panique les équipes s'il faut vérifier un dossier.",
-            "icon": "trash"
+            "title": "Synchroniser manuellement",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Recopier chaque correctif sur les deux outils</div>",
+            "expl": "Maintenir les deux écrans et promettre d'appliquer chaque correctif de bug deux fois de suite.",
+            "debriefExpl": "C'est une source infinie d'erreurs et de frustration pour l'équipe de développement qui perd la moitié de sa vélocité.",
+            "icon": "copy"
           },
           {
-            "title": "Instaurer un système de sanctions",
-            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Surveiller et réprimander les secrétaires</div>",
-            "expl": "Laisser l'ancien outil ouvert mais interdire son utilisation sous peine de sanctions administratives.",
-            "debriefExpl": "C'est une approche managériale anxiogène et inefficace. Mieux vaut un blocage technique propre de l'écriture.",
-            "icon": "alert-circle"
+            "title": "Laisser le choix aux utilisateurs sans date butoir",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Attendre que tout le monde migre seul</div>",
+            "expl": "Laisser les secrétaires utiliser l'une ou l'autre interface indéfiniment sans fixer de date d'arrêt.",
+            "debriefExpl": "Certains utilisateurs ne migreront jamais par simple habitude, prolongeant la double maintenance pendant des années.",
+            "icon": "clock"
           }
         ],
-        "expl": "Le mode lecture seule sur l'ancienne base protège les données tout en débloquant la consultation."
+        "expl": "Stopper la double maintenance évite la fragmentation du produit et concentre toute la qualité sur la nouvelle version stable."
       },
       {
-        "text": "L'équipe produit déploie une nouvelle règle de calcul du risque (HAS) qui modifie les tranches d'âge du dépistage national. Le PO déploie la règle sans vérifier comment le système va recalculer le statut des 10 000 dossiers historiques en attente.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Déploiement Nouvelle Règle HAS</div><div class=\"p-2 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Recalcul aveugle de toute la base historique</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de faux positifs et d'alertes erronées en cascade</div></div>",
+        "text": "Pour supprimer un ancien champ d'adresse secondaire redondant dans la fiche patient, le PO envoie un document technique complexe de 10 pages à tous les directeurs de centres expliquant les modifications SQL internes sous-jacentes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Annonce de Suppression</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Explications techniques complexes et jargon SQL</div><div class=\"text-[7px] text-red-650\">⚠️ Incompréhension générale et inquiétude des utilisateurs finaux</div></div>",
         "correct": {
-          "title": "E9.3. Évaluer l'impact des nouvelles règles sur les anciennes",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Étude d'impact historique</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Règle HAS : applicable uniquement aux dossiers ouverts après le 01/06</div><div class=\"text-[7px] text-emerald-600 font-bold\">Sauvegarde de la cohérence des dossiers historiques</div></div>",
-          "expl": "Analyser systématiquement comment les nouvelles règles métiers affectent les données historiques pour éviter les incohérences.",
-          "debriefExpl": "Évaluer l'impact sur les données passées garantit que les changements de règles n'altèrent pas l'historique clinique médical des dossiers clos.",
-          "icon": "trending-up"
+          "title": "E9.3. Rendre la transition simple et compréhensible (User-friendly)",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Annonce Simplifiée</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">\"Pour simplifier la fiche, l'adresse secondaire est fusionnée\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">Frictions évitées grâce à une communication axée sur leur quotidien</div></div>",
+          "expl": "Expliquer le changement de manière simple et rassurante en mettant en avant le gain de clarté pour l'utilisateur.",
+          "debriefExpl": "Une communication user-friendly dédramatise la suppression de fonctionnalités et évite les levées de boucliers inutiles.",
+          "icon": "message-square"
         },
         "wrong": [
           {
-            "title": "Tout recalculer d'un coup",
-            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Lancer un script d'update global</div>",
-            "expl": "Appliquer rétroactivement la nouvelle règle à tous les dossiers passés de la base de données.",
-            "debriefExpl": "Cela modifie des résultats médicaux validés par le passé, ce qui est extrêmement grave juridiquement.",
-            "icon": "alert-triangle"
+            "title": "Supprimer sans prévenir",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Retirer le champ en douce</div>",
+            "expl": "Enlever le champ lors de la mise à jour nocturne sans en faire mention dans le changelog ou l'aide.",
+            "debriefExpl": "Les utilisateurs croiront à un bug système et engorgeront le support téléphonique de fausses alertes.",
+            "icon": "eye-off"
           },
           {
-            "title": "Ne pas versionner la règle",
-            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Remplacer l'ancienne fonction de calcul</div>",
-            "expl": "Écraser l'ancien code de calcul par le nouveau sans garder la version précédente.",
-            "debriefExpl": "Sans versioning, il est impossible de comprendre pourquoi un dossier de 2025 a été classé 'faible' avec les anciennes règles.",
-            "icon": "trash-2"
+            "title": "Jargonner techniquement",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Envoyer le schéma de BDD</div>",
+            "expl": "Transmettre le diagramme entité-association technique expliquant la normalisation de la base de données.",
+            "debriefExpl": "Le jargon technique renforce le fossé entre les utilisateurs et l'équipe produit, générant de la méfiance.",
+            "icon": "code"
           }
         ],
-        "expl": "Le versioning et l'étude d'impact des règles métiers protègent l'intégrité scientifique des données médicales."
+        "expl": "Rendre la transition simple et compréhensible prévient les inquiétudes des utilisateurs et facilite le décommissionnement."
       }
     ]
   },
@@ -916,6 +916,190 @@
           }
         ],
         "expl": "Un arbitrage formel et collectif du GO/NO-GO sécurise le déploiement face aux risques médicaux et opérationnels."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "E11. Préparer et accompagner la migration",
+    "intent": "Déployer la migration par pilotes progressifs, avec une communication ciblée et un accompagnement intensif des utilisateurs pour vaincre les réticences au changement.",
+    "icon": "users",
+    "scenarios": [
+      {
+        "text": "Pour la migration du système de dépistage colorectal vers la nouvelle version, l'équipe technique veut migrer l'ensemble des 15 régions d'un coup en un seul week-end, sans accompagnement de proximité.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Migration Flash Nationale</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Bascule brute de 15 régions d'un coup (100% utilisateurs)</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de rejet et de surcharge immédiate</div></div>",
+        "correct": {
+          "title": "E11.1. Planifier un déploiement progressif par pilotes",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Migration par Étapes</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 flex justify-between\"><span>Pilote : Région test unique</span><span class=\"text-emerald-700\">Validé ✅</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Ajustements faits sur le pilote avant extension générale</div></div>",
+          "expl": "Basculer d'abord une seule région ou un groupe restreint d'utilisateurs (pilote) pour éprouver les règles de migration.",
+          "debriefExpl": "Le déploiement par pilotes progressifs sécurise la migration en identifiant les anomalies de données réelles sur un petit périmètre.",
+          "icon": "shield-check"
+        },
+        "wrong": [
+          {
+            "title": "Bascule directe générale (Big Bang)",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Bascule nationale instantanée</div>",
+            "expl": "Migrer tous les utilisateurs nationaux en une seule fois.",
+            "debriefExpl": "Un Big Bang de migration sur une application critique sans filet de sécurité mène souvent au blocage opérationnel national.",
+            "icon": "alert-triangle"
+          },
+          {
+            "title": "Migration sans suivi de proximité",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Laisser faire les utilisateurs</div>",
+            "expl": "Migrer les données et envoyer un mail générique pour que chacun se débrouille avec le nouvel outil.",
+            "debriefExpl": "Sans accompagnement ciblé et communication de soutien, le rejet et l'incompréhension paralysent le programme de santé.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "Déployer par pilotes progressifs permet d'éprouver la migration avec un impact opérationnel limité et une assistance rapprochée."
+      },
+      {
+        "text": "Lors de la bascule vers la nouvelle interface de gestion des dossiers de dépistage, le PO choisit de ne pas communiquer à l'avance pour éviter d'inquiéter les centres régionaux, prévoyant de les notifier par un simple pop-up le matin même de la mise en ligne.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Communication de Bascule</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Pop-up de surprise le jour J</div><div class=\"text-[7px] text-red-650\">⚠️ Panique des secrétaires découvrant le changement sans préparation</div></div>",
+        "correct": {
+          "title": "E11.2. Mettre en œuvre un plan de communication en amont",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Plan de Communication</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Mail J-15, rappel J-7 + liste des nouveautés clés</div><div class=\"text-[7px] text-emerald-600 font-bold\">Adoption sereine : les équipes savent à quoi s'attendre</div></div>",
+          "expl": "Informer les utilisateurs plusieurs semaines à l'avance en expliquant le 'pourquoi' du changement et le calendrier de bascule.",
+          "debriefExpl": "Une communication transparente et anticipée réduit l'anxiété liée au changement et prépare mentalement les équipes terrain.",
+          "icon": "megaphone"
+        },
+        "wrong": [
+          {
+            "title": "Communication de dernière minute",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Notifier 1h avant la coupure</div>",
+            "expl": "Envoyer un e-mail à l'ensemble du réseau national juste une heure avant la bascule technique.",
+            "debriefExpl": "Les utilisateurs en pleine consultation ou saisie se retrouvent bloqués et se plaignent immédiatement du manque de respect du calendrier.",
+            "icon": "clock"
+          },
+          {
+            "title": "Pas de communication",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Changer l'interface en secret</div>",
+            "expl": "Modifier l'outil sans aucune annonce en pensant que les utilisateurs s'adapteront d'eux-mêmes intuitivement.",
+            "debriefExpl": "Cela génère de la frustration et un sentiment de mépris chez les utilisateurs finaux, nuisant gravement à la réputation de l'outil.",
+            "icon": "eye-off"
+          }
+        ],
+        "expl": "Une communication anticipée et pédagogue est indispensable pour accompagner le changement sans heurts."
+      },
+      {
+        "text": "Pour la migration des centres de dépistage du cancer, le PO estime que la mise à disposition d'un PDF d'aide de 80 pages suffit pour accompagner les 1 000 utilisateurs, sans prévoir de support dédié ou d'accompagnement de proximité.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Support Post-Migration</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Guide PDF de 80 pages uniquement</div><div class=\"text-[7px] text-red-650\">⚠️ Utilisateurs livrés à eux-mêmes face aux erreurs de saisie</div></div>",
+        "correct": {
+          "title": "E11.3. Assurer un accompagnement de proximité et de soutien",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Soutien Post-Bascule</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Support renforcé J+1 à J+5 + webinaires Questions/Réponses</div><div class=\"text-[7px] text-emerald-600 font-bold\">Zéro utilisateur bloqué grâce à l'aide interactive en direct</div></div>",
+          "expl": "Mettre en place un dispositif d'accompagnement renforcé (hotline dédiée, super-utilisateurs relais, webinaires Q/R) les premiers jours de la bascule.",
+          "debriefExpl": "Un accompagnement humain de proximité rassure les utilisateurs face aux inévitables doutes et frictions des premiers jours.",
+          "icon": "headset"
+        },
+        "wrong": [
+          {
+            "title": "Renvoyer vers la documentation standard",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">\"Consultez la doc\" automatique</div>",
+            "expl": "Répondre à chaque demande d'aide par un message automatique redirigeant vers le manuel utilisateur complet.",
+            "debriefExpl": "Les utilisateurs frustrés n'ont pas le temps de lire un long manuel en pleine journée de travail et abandonneront le nouvel outil.",
+            "icon": "file-text"
+          },
+          {
+            "title": "Ignorer les plaintes de démarrage",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Attendre que la tempête passe</div>",
+            "expl": "Considérer les plaintes initiales comme un rejet classique du changement et attendre quelques semaines que les esprits s'apaisent.",
+            "debriefExpl": "Cela peut causer un arrêt total de la saisie des dépistages, mettant en danger le suivi médical des patients.",
+            "icon": "smile"
+          }
+        ],
+        "expl": "Le soutien humain direct pendant les premiers jours est la clé de voûte de l'adoption durable."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "E12. S'assurer de l'évolutivité du socle",
+    "intent": "Concevoir une architecture de base propre et extensible pour que les futurs besoins s'intègrent naturellement sans devoir tout réécrire.",
+    "icon": "layers",
+    "scenarios": [
+      {
+        "text": "Lors de la création du dossier patient pour le dépistage, le PO veut stocker les informations d'identité (nom, prénom, numéro de sécurité sociale) de manière simplifiée et brute dans un seul champ texte libre pour accélérer les développements de la V1, sans penser aux interconnexions futures avec les laboratoires partenaires.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Saisie d'Identité Libre</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Informations fusionnées dans un champ unique</div><div class=\"text-[7px] text-red-650\">⚠️ Blocage total pour connecter les laboratoires et l'INS plus tard</div></div>",
+        "correct": {
+          "title": "E12.1. Normaliser l'information structurante dès le départ",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Identité Structurée Standard</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Données segmentées (Nom, Prénom, NIR distincts)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Zéro dev supplémentaire, mais prêt pour les échanges automatiques</div></div>",
+          "expl": "Organiser les données clés de manière rigoureuse et segmentée dès le début, sans automatisation complexe, pour permettre les futurs échanges.",
+          "debriefExpl": "Normaliser les données structurantes évite d'avoir à nettoyer ou migrer laborieusement les fichiers historiques lors des futures intégrations.",
+          "icon": "database"
+        },
+        "wrong": [
+          {
+            "title": "Développer l'interconnexion complète",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Coder le flux d'échange automatisé</div>",
+            "expl": "Passer 3 semaines à développer le flux d'échange automatique complet avec tous les labos régionaux dès la V1.",
+            "debriefExpl": "Développer l'automatisme complet retarde inutilement le lancement du pilote qui n'a pas encore de labos connectés.",
+            "icon": "refresh-cw"
+          },
+          {
+            "title": "Renseigner au plus simple sans structure",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Stocker dans un bloc de texte libre</div>",
+            "expl": "Saisir toutes les coordonnées en vrac dans un grand champ de commentaire pour aller au plus vite.",
+            "debriefExpl": "Les dossiers créés en V1 seront inexploitables et devront tous être ressaisis un par un en V2.",
+            "icon": "trash-2"
+          }
+        ],
+        "expl": "Préparer un schéma de données propre sans écrire de logique applicative complexe est le meilleur compromis d'extensibilité."
+      },
+      {
+        "text": "Le PO conçoit le parcours de validation d'un examen médical. Il sait qu'en V2, une étape d'approbation par un second médecin sera obligatoire. Pour 'anticiper', il souhaite dessiner d'emblée l'intégralité du flux visuel sur l'écran principal avec des boutons d'approbation grisés et inactifs.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Parcours Surchargé</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Boutons de validation grisés \"Bientôt disponible\"</div><div class=\"text-[7px] text-red-650\">⚠️ Frictions et appels d'utilisateurs V1 croyant à un bug</div></div>",
+        "correct": {
+          "title": "E12.2. Réserver des zones d'extension modulaires dans le parcours",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Parcours V1 Fluide</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Flux de validation simple (1 clic)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Écran structuré pour insérer le second clic en V2 sans tout redessiner</div></div>",
+          "expl": "Concevoir un écran épuré pour la V1 tout en organisant l'interface de façon modulaire pour greffer de nouvelles étapes facilement.",
+          "debriefExpl": "Réserver des zones d'extension propres évite de surcharger l'interface de départ tout en facilitant l'implémentation future.",
+          "icon": "layout"
+        },
+        "wrong": [
+          {
+            "title": "Flux figé non modulaire",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Verrouiller l'écran de validation</div>",
+            "expl": "Figer l'affichage de manière monolithique sans laisser de place conceptuelle pour d'autres options.",
+            "debriefExpl": "Ajouter la seconde signature en V2 obligera à refondre tout le design de l'écran et perturbera les habitudes des utilisateurs.",
+            "icon": "lock"
+          },
+          {
+            "title": "Tout développer dès le départ",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Coder le double circuit d'approbation</div>",
+            "expl": "Développer immédiatement le circuit de validation à double signature complet en V1.",
+            "debriefExpl": "Le second médecin n'est pas encore équipé, ce développement complexe est un luxe inutile en V1.",
+            "icon": "users"
+          }
+        ],
+        "expl": "L'isolation modulaire du code permet de faire évoluer l'application sans gêner l'utilisabilité de départ."
+      },
+      {
+        "text": "Pour authentifier les secrétaires médicales en V1, le PO propose de coder un annuaire d'utilisateurs sur-mesure propre à Epiconcept avec un cryptage de mot de passe maison, ignorant les standards de connexion de l'écosystème de santé (comme Pro Santé Connect).",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Authentification V1</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Annuaire sur-mesure fermé maison</div><div class=\"text-[7px] text-red-650\">⚠️ Obligation de tout réécrire pour s'interconnecter en V2</div></div>",
+        "correct": {
+          "title": "E12.3. Choisir des standards d'échange ouverts pour le futur",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Connexion Standardisée</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Brique d'authentification ouverte standard</div><div class=\"text-[7px] text-emerald-600 font-bold\">Connexion future à Pro Santé Connect immédiate et sans réécriture</div></div>",
+          "expl": "Utiliser des protocoles et formats standards reconnus sur le marché pour éviter le sur-mesure propriétaire.",
+          "debriefExpl": "S'appuyer sur des standards ouverts dès le départ garantit l'interopérabilité future de l'outil avec tout l'écosystème de santé.",
+          "icon": "shield-check"
+        },
+        "wrong": [
+          {
+            "title": "Ne mettre aucune sécurité",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Pas de mot de passe en V1</div>",
+            "expl": "Permettre la saisie des dossiers de dépistage sans aucune connexion pour aller plus vite.",
+            "debriefExpl": "C'est une violation grave de la sécurité des données médicales qui interdira tout déploiement, même pilote.",
+            "icon": "alert-triangle"
+          },
+          {
+            "title": "Jeter et refaire plus tard",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">\"On verra la sécurité en V2\"</div>",
+            "expl": "Créer un annuaire basique non sécurisé en V1 et programmer sa réécriture complète dans 6 mois.",
+            "debriefExpl": "Jeter et refaire génère un double coût de développement et de migration frustrant pour l'équipe.",
+            "icon": "clock"
+          }
+        ],
+        "expl": "Adopter des standards robustes dès le départ est la clé d'une transition agile et sécurisée."
       }
     ]
   }
