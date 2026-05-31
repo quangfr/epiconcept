@@ -1249,7 +1249,7 @@
                                 Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
                         </div>
                     </article>
-                    <article class="simulator-card vision-theme disabled-card" id="features-card" style="opacity: 0.7;">
+                    <article class="simulator-card vision-theme" id="features-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1258,10 +1258,13 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 F - Features Discovery</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                            <button onclick="event.stopPropagation(); openLesson(3, 3)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides Features Discovery">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="feat-status-label">0 / 24</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1270,7 +1273,6 @@
                                 Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.
                             </p>
                         </div>
-                        <button class="cta-button disabled" disabled>Bientôt disponible</button>
                     </article>
                 </section>
 
@@ -1617,13 +1619,18 @@
             let road1 = parseInt(localStorage.getItem('road-score-lv1') || '0', 10);
             let road2 = parseInt(localStorage.getItem('road-score-lv2') || '0', 10);
             let totalRoadScore = road0 + road1 + road2;
+            let feat0 = parseInt(localStorage.getItem('feat-score-lv0') || '0', 10);
+            let feat1 = parseInt(localStorage.getItem('feat-score-lv1') || '0', 10);
+            let feat2 = parseInt(localStorage.getItem('feat-score-lv2') || '0', 10);
+            let totalFeatScore = feat0 + feat1 + feat2;
 
             let maxPoScore = 36;
             let maxUxScore = 39;
             let maxEvoScore = 30;
             let maxCsoScore = 27;
             let maxRoadScore = 30;
-            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore;
+            let maxFeatScore = 24;
+            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore + maxFeatScore;
 
             // Pagination: 3 ateliers per page
             const scrollEl = document.getElementById('ateliers-scroll');
@@ -1691,6 +1698,11 @@
                 window.updateCardStatusBadge(roadLabel, totalRoadScore, maxRoadScore);
             }
 
+            const featLabel = document.getElementById('feat-status-label');
+            if (featLabel) {
+                window.updateCardStatusBadge(featLabel, totalFeatScore, maxFeatScore);
+            }
+
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
             const dtStatusLabel = document.getElementById('dt-status-label');
@@ -1706,7 +1718,7 @@
             }
 
             // Progression rate
-            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore) / totalMaxScore) * 100);
+            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore + totalFeatScore) / totalMaxScore) * 100);
             document.getElementById('overall-completion').innerText = `${progressPercent}%`;
 
             // Display time metadata if available
@@ -1763,6 +1775,13 @@
             if (roadmapCard) {
                 roadmapCard.addEventListener('click', () => {
                     window.location.href = './3-e.html';
+                });
+            }
+
+            const featuresCard = document.getElementById('features-card');
+            if (featuresCard) {
+                featuresCard.addEventListener('click', () => {
+                    window.location.href = './3-f.html';
                 });
             }
 

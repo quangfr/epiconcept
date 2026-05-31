@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A - Besoins Utilisateurs - ESIS-3D</title>
+    <title>F - Features Discovery - ESIS-3D</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -53,7 +53,7 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
-
+        
         /* Protection anti-clic dans les maquettes */
         .mockup-container { pointer-events: none; }
 
@@ -71,7 +71,7 @@
                 height: auto !important;
                 overflow: visible !important;
             }
-            #scenario-card, #options-container, #reflex-grid, #ui-grid, #questions-wrapper, #question-list {
+            #scenario-card, #options-container, #reflex-grid, #ui-grid, #choices-wrapper, #choice-list {
                 height: auto !important;
                 overflow: visible !important;
             }
@@ -113,8 +113,8 @@
         <!-- Header -->
         <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
             <div>
-                <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Réflexes Roadmap &amp; Jalons</h2>
-                <p class="text-slate-500 text-xs font-medium leading-none">Les 10 réflexes de gestion de planning, phasage, buffers et décommissionnement d'Epiconcept</p>
+                <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Réflexes Features Discovery</h2>
+                <p class="text-slate-500 text-xs font-medium leading-none">Les 8 réflexes d'exploration, de prototypage qualitatif et de bêta-test d'Epiconcept</p>
             </div>
             <!-- Selector -->
             <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
@@ -151,15 +151,15 @@
             <button onclick="resetProgress()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-red-600 hover:text-red-600 shadow-sm transition-all" title="Réinitialiser la progression">
                 <i data-lucide="rotate-ccw"></i>
             </button>
-            <button onclick="openModal()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" title="Référentiel E">
+            <button onclick="openModal()" class="flex items-center justify-center bg-white border-2 border-slate-200 w-9 h-9 md:w-12 md:h-12 rounded-full text-slate-600 hover:border-blue-900 hover:text-blue-900 shadow-sm transition-all" title="Référentiel F">
                 <i data-lucide="help-circle"></i>
             </button>
         </div>
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
         <div class="text-center mb-6 md:mb-12">
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">E - Roadmap &amp; <span class="text-slate-800">Jalons</span></h1>
-            <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">F - Features <span class="text-slate-800">Discovery</span></h1>
+            <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
@@ -167,10 +167,10 @@
                 <i data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Facile</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Scope &amp; Planning (Découper et Choisir le coeur du réacteur V1).</p>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Découverte &amp; Cadrage (Signaux d'usage réels, filtre clinique et cadrage précoce).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
+                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 8</span>
                 </div>
                 </div>
             </div>
@@ -178,10 +178,10 @@
                 <i data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Moyen</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">POC &amp; Phasage (Valider la faisabilité technique par un prototype).</p>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Maquettage &amp; Ergonomie (Clarté cognitive, wireframes papier et Figma cliquables).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
+                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 8</span>
                 </div>
                 </div>
             </div>
@@ -189,10 +189,10 @@
                 <i data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Difficile</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Schedule &amp; Legacy (Piloter, sécuriser et décommissionner).</p>
+                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Bêta &amp; Ancrage (Tests à blanc, pilotes restreints et accompagnement du changement).</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 12</span>
+                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 8</span>
                 </div>
                 </div>
             </div>
@@ -209,7 +209,7 @@
         </button>
         
         <div class="text-center flex-grow">
-            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">1 - Design Product | A - Posture PO</span>
+            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">3 - Vision Product | F - Features Discovery</span>
             <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Facile</span>
         </div>
 
@@ -219,7 +219,7 @@
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             </button>
             <!-- Referentiel Button -->
-            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel E">
+            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel F">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
             
@@ -229,7 +229,7 @@
             </div>
             
             <div class="text-right whitespace-nowrap">
-                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 10</div>
+                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 8</div>
             </div>
         </div>
     </div>
@@ -241,10 +241,10 @@
         <!-- Scenario card -->
         <div id="scenario-card" class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
             <div class="flex items-center justify-between mb-4 shrink-0">
-                <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse d'Arbitrage</div>
-                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 10</div>
+                <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse de Découverte</div>
+                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 8</div>
             </div>
-            <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏔</div>
+            <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🔍</div>
             <div class="overflow-y-auto flex-grow min-h-0 pr-2 pb-4 flex flex-col gap-4">
                 <div id="scenario-text" class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left">
                     Chargement du scénario...
@@ -264,14 +264,14 @@
                 <span id="phase2-reflex-icon" class="text-emerald-700"></span>
                 <h3 id="validated-principle-title" class="text-sm font-black text-emerald-800 uppercase tracking-tight leading-tight">Titre</h3>
             </div>
-            <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Sélectionnez la décision de planification correspondante à droite ➡️</p>
+            <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Sélectionnez la décision d'ergonomie correspondante à droite ➡️</p>
         </div>
     </div>
 
     <!-- Right column: Interactions QCM (2/3) -->
     <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
         <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md">
-            Phase 1 : Identification du réflexe PO
+            Phase 1 : Identification du réflexe Features Discovery
         </div>
         
         <div id="options-container" class="glass-panel rounded-xl p-4 sm:p-6 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
@@ -334,7 +334,7 @@
 <script>
 let reflexes = [];
 
-const TOTAL_STEPS = 12;
+const TOTAL_STEPS = 8;
 let currentLevel = 0;
 let currentStepIdx = 0;
 let levelSteps = [];
@@ -346,8 +346,8 @@ function initHome() {
     buildModalContent();
     
     for (let i = 0; i < 3; i++) {
-        const score = localStorage.getItem(`po-score-lv${i}`);
-        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 12` : "-- / 12";
+        const score = localStorage.getItem(`feat-score-lv${i}`);
+        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 8` : "-- / 8";
     }
 }
 
@@ -356,7 +356,7 @@ function startLevel(lv) {
     currentStepIdx = 0;
     answeredSteps = new Array(TOTAL_STEPS).fill(false);
     
-    const titles = ["Cadrage & Intention", "Complexité & Mesure", "Arbitrage & Validation"];
+    const titles = ["Découverte & Cadrage (Signaux d'usage réels)", "Maquettage & Ergonomie (Low-Fi/Figma)", "Bêta & Ancrage (Tests à blanc/Pilotes)"];
     document.getElementById('level-title-display').innerText = `${['Facile', 'Moyen', 'Difficile'][lv]} : ${titles[lv]}`;
     
     levelSteps = reflexes.map(r => ({
@@ -365,7 +365,7 @@ function startLevel(lv) {
     })).sort(() => Math.random() - 0.5);
 
     levelSteps.forEach((step, idx) => {
-        const savedProgress = localStorage.getItem('po-progress-lv' + lv + '-reflex' + step.reflexId);
+        const savedProgress = localStorage.getItem('feat-progress-lv' + lv + '-reflex' + step.reflexId);
         if (savedProgress === 'true') {
             answeredSteps[idx] = true;
         }
@@ -391,9 +391,9 @@ function startLevel(lv) {
 }
 
 function resetProgress() {
-    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Besoins Utilisateurs ?")) {
+    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression de Features Discovery ?")) {
         Object.keys(localStorage).forEach(key => {
-            if (key.startsWith('po-')) {
+            if (key.startsWith('feat-')) {
                 localStorage.removeItem(key);
             }
         });
@@ -403,13 +403,13 @@ function resetProgress() {
 
 function resetLevelProgress() {
     if (confirm("Réinitialiser uniquement ce niveau ?")) {
-        const prefix = 'po-progress-lv' + currentLevel;
+        const prefix = 'feat-progress-lv' + currentLevel;
         Object.keys(localStorage).forEach(key => {
             if (key.startsWith(prefix)) {
                 localStorage.removeItem(key);
             }
         });
-        localStorage.removeItem('po-score-lv' + currentLevel);
+        localStorage.removeItem('feat-score-lv' + currentLevel);
         location.reload();
     }
 }
@@ -450,7 +450,7 @@ function updateProgress() {
         scoreDisplay.innerText = `${completedCount} / ${TOTAL_STEPS}`;
     }
     
-    localStorage.setItem(`po-score-lv${currentLevel}`, completedCount);
+    localStorage.setItem(`feat-score-lv${currentLevel}`, completedCount);
 }
 
 function jumpToStep(idx) {
@@ -485,7 +485,7 @@ function loadStepPhase1() {
     document.getElementById('ui-grid').classList.add('hidden');
     document.getElementById('debriefing-card').classList.add('hidden');
     
-    document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du réflexe PO";
+    document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du réflexe Features Discovery";
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     renderReflexChoices();
@@ -512,7 +512,7 @@ function renderReflexChoices(readOnly) {
                 <div class="font-black text-lg sm:text-xl uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-xs sm:text-sm text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe PO">
+            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-4 right-4 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe">
                 <i data-lucide="info" class="w-4 h-4"></i>
             </button>
         `;
@@ -544,7 +544,7 @@ function loadStepPhase2() {
     document.getElementById('reflex-grid').classList.add('hidden');
     document.getElementById('ui-grid').classList.remove('hidden');
     
-    document.getElementById('phase-label-container').innerText = "Phase 2 : Arbitrage Projet";
+    document.getElementById('phase-label-container').innerText = "Phase 2 : Arbitrage Ergonomique";
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     document.getElementById('phase2-question-container').classList.remove('hidden');
@@ -609,7 +609,7 @@ function showDebriefing(correctOpt) {
     answeredSteps[currentStepIdx] = true;
     
     const step = levelSteps[currentStepIdx];
-    localStorage.setItem('po-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
+    localStorage.setItem('feat-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
     
     updateProgress();
 
@@ -622,7 +622,7 @@ function showDebriefing(correctOpt) {
     let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl || ''}</p>`;
     compHtml += `
         <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
-            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative des arbitrages :</div>
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative des choix :</div>
             <div class="space-y-2">
                 <div class="text-xs text-slate-800 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
                     <strong class="text-emerald-700 font-black">🟢 ${step.scenario.correct.title} (Recommandé) :</strong>
@@ -673,7 +673,7 @@ function goBackFromDebrief() {
     document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
 
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Phase 2 : Arbitrage Projet";
+    phaseLabel.innerText = "Phase 2 : Arbitrage Ergonomique";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
 
     currentPhase = 2;
@@ -687,7 +687,7 @@ function goBackToPhase1() {
     document.getElementById('reflex-grid').classList.remove('hidden');
 
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Phase 1 : Identification du réflexe PO";
+    phaseLabel.innerText = "Phase 1 : Identification du réflexe Features Discovery";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
 
     currentPhase = 1;
@@ -801,7 +801,7 @@ window.addEventListener('keydown', function(e) {
 
 async function initApp() {
     try {
-        const response = await fetch('./1-a.json?v=' + new Date().getTime());
+        const response = await fetch('./3-f.json?v=' + new Date().getTime());
         reflexes = await response.json();
         initHome();
         lucide.createIcons();

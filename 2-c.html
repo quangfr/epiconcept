@@ -209,7 +209,7 @@
         </button>
         
         <div class="text-center flex-grow">
-            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">ESIS-3D Product Manager</span>
+            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">2 - Cadrage Product | C - Support & Client</span>
             <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Facile</span>
         </div>
 
@@ -356,7 +356,7 @@ function startLevel(lv) {
     currentStepIdx = 0;
     answeredSteps = new Array(TOTAL_STEPS).fill(false);
     
-    const titles = ["Facile : Qualification & Urgence", "Moyen : Contournement & Recette", "Difficile : Escalade & CODIR"];
+    const titles = ["Qualification & Urgence", "Contournement & Recette", "Escalade & CODIR"];
     document.getElementById('level-title-display').innerText = `${['Facile', 'Moyen', 'Difficile'][lv]} : ${titles[lv]}`;
     
     levelSteps = reflexes.map(r => ({

@@ -1,0 +1,738 @@
+[
+  {
+    "id": 1,
+    "title": "F1. Capter les signaux d'usage réels (La Douleur Terrain)",
+    "intent": "Identifier les dysfonctionnements réels et observer les soignants dans leur routine pour capter les besoins à forte valeur.",
+    "icon": "eye",
+    "scenarios": [
+      {
+        "text": "Au centre de dépistage d'Orléans, les secrétaires médicales passent 2 heures par jour à recopier manuellement les résultats d'analyses sanguines reçus par courrier dans le dossier patient informatique. L'équipe produit hésite sur l'opportunité de s'attaquer à ce sujet.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-2\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Tâche quotidienne secrétariat</div><div class=\"bg-white border p-2 rounded flex flex-col gap-1\"><span class=\"text-[8px] font-semibold text-red-600\">✗ Courrier papier ➔ Saisie manuelle (120 min/jour)</span><span class=\"text-[8px] font-semibold text-red-650\">✗ Risque d'erreur de saisie de résultats</span></div></div>",
+        "correct": {
+          "title": "F1.1. Identifier les dysfonctionnements des processus actuels",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Opportunité Discovery prioritaire</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 flex justify-between items-center text-[8px] font-black text-slate-800\"><span>Automatisation Saisie</span><span class=\"text-emerald-700 font-bold\">Gain : 2h/secrétaire/jour</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Cibler et chiffrer la perte de temps réelle</div></div>",
+          "expl": "Repérer les tâches répétitives et pénibles pour concevoir la solution là où elle apporte une valeur indiscutable.",
+          "debriefExpl": "Capter la perte de temps réelle (2h/jour) justifie immédiatement de lancer une phase de discovery sur ce dysfonctionnement.",
+          "icon": "target"
+        },
+        "wrong": [
+          {
+            "title": "Ignorer le sujet faute de demande formelle",
+            "visual": "<div class=\"w-full bg-slate-100 rounded-xl p-3 text-center border text-[9px]\"><span class=\"text-slate-500 font-semibold\">Attendre une demande écrite de l'ARS</span><p class=\"text-red-500 font-bold mt-1\">La secrétaire continue sa tâche fastidieuse sans aide</p></div>",
+            "expl": "Ne rien faire tant que la direction régionale de santé n'a pas rédigé une demande d'évolution officielle.",
+            "debriefExpl": "Ignorer ce problème terrain nuit à l'efficacité du centre et maintient un risque élevé d'erreurs médicales.",
+            "icon": "ban"
+          },
+          {
+            "title": "Créer une formation de saisie rapide",
+            "visual": "<div class=\"w-full bg-slate-150 rounded-xl p-3 text-center border text-[9px]\"><span class=\"text-slate-500\">Session de formation dactylo</span><p class=\"text-amber-600 font-bold mt-1\">Coût humain inutile sans résoudre le problème technique</p></div>",
+            "expl": "Former les secrétaires à taper plus vite pour réduire le temps de saisie de 120 à 90 minutes.",
+            "debriefExpl": "Former à une tâche inutile et chronophage ne résout en rien la friction d'une saisie manuelle redondante.",
+            "icon": "help-circle"
+          }
+        ],
+        "expl": "Le premier réflexe de la découverte produit est de repérer les frictions vécues au quotidien par les équipes de terrain."
+      },
+      {
+        "text": "L'équipe produit conçoit le module de gestion des dossiers de dépistage du cancer du col de l'utérus. L'architecte souhaite s'appuyer uniquement sur le cahier des charges national de 150 pages pour coder les étapes logiques.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><span class=\"text-[9px] font-bold text-red-700\">Spécifications théoriques (150 pages)</span><p class=\"text-[8px] text-slate-500 mt-1 italic\">\"On code les écrans exactement selon le document sans aller voir les centres\"</p></div>",
+        "correct": {
+          "title": "F1.2. Mener des observations in situ en immersion (Shadowing)",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Shadowing terrain</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-semibold text-slate-800\">Observation de 3 consultations réelles de gynécologues</div><div class=\"text-[7px] text-emerald-600 font-bold\">Capter les coupures, urgences et réalité de l'environnement</div></div>",
+          "expl": "Passer du temps en observation passive auprès des soignants en situation de rush pour comprendre les contraintes invisibles à l'écrit.",
+          "debriefExpl": "L'immersion physique révèle les vrais besoins d'ergonomie (ex: pouvoir suspendre la saisie lors d'une interruption physique).",
+          "icon": "eye"
+        },
+        "wrong": [
+          {
+            "title": "Envoyer un questionnaire par email",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Formulaire en ligne envoyé à 50 médecins</div>",
+            "expl": "Envoyer un questionnaire Google Forms de 20 questions pour recueillir l'avis des praticiens en ligne.",
+            "debriefExpl": "Les questionnaires écrits n'enregistrent que le déclaratif théorique, pas les comportements réels en pleine journée de travail.",
+            "icon": "mail"
+          },
+          {
+            "title": "Valider uniquement avec la direction",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Réunion Zoom de validation avec 2 directeurs d'ARS</div>",
+            "expl": "Faire valider l'ergonomie lors d'une réunion avec la direction régionale qui ne manipule jamais le logiciel.",
+            "debriefExpl": "La direction valide les fonctionnalités administratives globales, mais n'a pas conscience de l'utilisabilité clinique réelle.",
+            "icon": "users"
+          }
+        ],
+        "expl": "Le shadowing in situ révèle les contraintes opérationnelles indispensables pour concevoir une application de santé résiliente."
+      },
+      {
+        "text": "Certains utilisateurs se plaignent que le module d'impression de convocations de dépistage colorectal est 'inutilisable', sans donner plus de détails. Comment clarifier cette frustration qualitative ?",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] text-red-700 font-bold\">Avis utilisateur : \"C'est nul, l'impression ne marche pas\"</div><div class=\"text-[8px] text-slate-400 mt-1\">Zéro contexte, ticket brut de 5 mots</div></div>",
+        "correct": {
+          "title": "F1.2. Mener des observations in situ en immersion (Shadowing)",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Shadowing Impression</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-mono text-slate-700\">Constat : L'utilisateur doit faire 5 clics et changer d'onglet pour chaque patient</div><div class=\"text-[7px] text-emerald-600 font-bold\">Douleur identifiée : La répétition de clics unitaires</div></div>",
+          "expl": "Se déplacer physiquement dans le centre pour regarder l'utilisateur effectuer l'action critique et découvrir le vrai blocage.",
+          "debriefExpl": "Observer l'utilisateur en action permet de voir l'inefficacité du parcours (la répétition des clics) que le ticket de bug n'exprimait pas.",
+          "icon": "eye"
+        },
+        "wrong": [
+          {
+            "title": "Demander des captures d'écran par mail",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Échange d'e-mails sans fin sur le modèle de l'imprimante</div>",
+            "expl": "Envoyer un e-mail demandant à l'utilisateur de faire une vidéo ou des captures d'écran de son bug.",
+            "debriefExpl": "Cela fait perdre du temps à l'utilisateur déjà frustré et n'explique pas sa charge cognitive ou son inconfort ergonomique.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Considérer que c'est un problème matériel local",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Fermer le ticket : \"Problème de pilote d'imprimante\"</div>",
+            "expl": "Rejeter la faute sur les pilotes locaux de l'ordinateur de la secrétaire et clore le sujet.",
+            "debriefExpl": "Ignorer le problème détériore la relation avec le centre et masque une vraie faille d'utilisabilité du produit.",
+            "icon": "x-circle"
+          }
+        ],
+        "expl": "Aller voir l'utilisateur en vie réelle est le seul moyen de comprendre les douleurs subtiles d'utilisabilité."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "F2. Filtrer et qualifier l'adéquation problème-solution",
+    "intent": "Évaluer la valeur clinique et le volume réel des demandes pour rejeter fermement les fonctionnalités gadgets ou hors-sujet.",
+    "icon": "filter",
+    "scenarios": [
+      {
+        "text": "Lors du cadrage du dépistage organisé colorectal, un médecin de l'ARS d'Amiens exige l'intégration d'un outil de chat vidéo direct médecin-patient dans le portail Epiconcept pour 'moderniser le parcours'.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Demande d'évolution Clinique</div><div class=\"p-2 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">Chat Vidéo Médecin-Patient (12 semaines de dev)</div></div>",
+        "correct": {
+          "title": "F2.1. Évaluer la valeur clinique ajoutée",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Filtre de Valeur Produit</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] text-center font-black text-slate-800\">Refus : Zéro impact prouvé sur la participation au dépistage</div><div class=\"text-[7px] text-emerald-600 font-bold\">Recentrer sur le retour de kits de test</div></div>",
+          "expl": "Analyser si la fonction améliore directement le taux de dépistage ou la qualité de prise en charge clinique réelle avant d'investir.",
+          "debriefExpl": "Le chat vidéo est un gadget coûteux sans impact sur la mission essentielle d'Epiconcept (renvoyer le kit de dépistage).",
+          "icon": "shield-alert"
+        },
+        "wrong": [
+          {
+            "title": "Accepter pour plaire à l'ARS d'Amiens",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Planifier le chat vidéo au Sprint 1</div>",
+            "expl": "Intégrer le chat vidéo pour flatter le commanditaire de l'ARS, sans analyser l'usage réel de cette fonctionnalité.",
+            "debriefExpl": "C'est la garantie de gaspiller des mois de développement pour une fonctionnalité inutilisée en situation réelle.",
+            "icon": "alert-triangle"
+          },
+          {
+            "title": "Proposer une alternative de messagerie cryptée complexe",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Concevoir un hub de messagerie MSSanté patient</div>",
+            "expl": "Remplacer le chat vidéo par le développement d'une boîte mail sécurisée patient complète dans le portail.",
+            "debriefExpl": "Remplacer une idée gadget par une usine à gaz technique ne résout pas le problème d'alignement sur le périmètre.",
+            "icon": "settings"
+          }
+        ],
+        "expl": "Chaque fonctionnalité ajoutée au produit doit servir la mission clinique principale de santé publique."
+      },
+      {
+        "text": "Un coordinateur de centre de dépistage demande à pouvoir personnaliser la couleur de fond de son tableau de bord de suivi avec 12 options différentes pour 'rendre le logiciel plus chaleureux'.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Demande Confort</div><div class=\"flex gap-1 justify-center\"><div class=\"w-3 h-3 bg-red-400 rounded-full\"></div><div class=\"w-3 h-3 bg-blue-400 rounded-full\"></div><div class=\"w-3 h-3 bg-emerald-400 rounded-full\"></div><div class=\"text-[8px] font-bold text-slate-500 ml-1\">+ 12 thèmes personnalisés</div></div></div>",
+        "correct": {
+          "title": "F2.2. Rejeter les fausses bonnes idées \"gadgets\"",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Charte standard préservée</div><div class=\"bg-white border p-1.5 rounded text-center text-xs font-black text-slate-800\">Palette Unique standardisée</div><div class=\"text-[7px] text-emerald-600 font-bold\">Refus catégorique du sur-mesure cosmétique</div></div>",
+          "expl": "Refuser de polluer le produit avec des options cosmétiques secondaires qui créent de la dette technique graphique.",
+          "debriefExpl": "Rejeter cette demande cosmétique protège la cohérence de la charte de l'application et économise du temps de test.",
+          "icon": "ban"
+        },
+        "wrong": [
+          {
+            "title": "Coder un sélecteur de thèmes CSS",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Intégrer les 12 thèmes personnalisés en CSS</div>",
+            "expl": "Prendre 3 jours de développement pour implémenter un choix de thèmes CSS pour chaque utilisateur.",
+            "debriefExpl": "Développer et maintenir un moteur de thèmes ralentit le développement des vraies fonctionnalités de dépistage.",
+            "icon": "paint-brush"
+          },
+          {
+            "title": "Demander l'avis de tous les centres",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Lancer un vote national sur les couleurs préférées</div>",
+            "expl": "Organiser un sondage national pour savoir si tous les centres veulent pouvoir changer de couleur.",
+            "debriefExpl": "Sonder les utilisateurs sur des gadgets cosmétiques crée de fausses attentes et pollue la communication produit.",
+            "icon": "help-circle"
+          }
+        ],
+        "expl": "Un design standardisé unique garantit la maintenabilité et la clarté de l'application."
+      },
+      {
+        "text": "Pour le dépistage du cancer du col de l'utérus, un gynécologue demande de pouvoir associer des photos d'examens directement à la fiche patient dans un format propriétaire rare qu'il utilise sur son équipement local.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Format d'image exotique</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] font-mono text-red-800\">Viewer propriétaire .XYZ (5% des praticiens)</div></div>",
+        "correct": {
+          "title": "F2.2. Rejeter les fausses bonnes idées \"gadgets\"",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Choix Standard Format</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] text-center font-bold text-slate-800\">Formats supportés : PDF standard anonymisé</div><div class=\"text-[7px] text-emerald-600 font-bold\">Aucun support de format exclusif ou propriétaire</div></div>",
+          "expl": "Refuser de concevoir des modules d'affichage spécifiques pour des niches d'équipements non standardisés.",
+          "debriefExpl": "Imposer le format standardisé PDF évite de développer un visualiseur propriétaire complexe pour seulement 5% d'utilisateurs.",
+          "icon": "ban"
+        },
+        "wrong": [
+          {
+            "title": "Développer une passerelle de conversion d'images .XYZ",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Coder un convertisseur côté serveur .XYZ ➔ PNG</div>",
+            "expl": "Passer 2 semaines à écrire un moteur d'importation et de conversion pour ce format propriétaire spécifique.",
+            "debriefExpl": "C'est un investissement colossal de développement pour un besoin hyper-localisé sans aucune valeur clinique générale.",
+            "icon": "code"
+          },
+          {
+            "title": "Recommander au médecin d'acheter un autre logiciel de conversion",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">\"Achetez un outil de conversion à vos frais\"</div>",
+            "expl": "Se défausser et dire au médecin de se débrouiller par lui-même hors de notre responsabilité.",
+            "debriefExpl": "Cette posture agressive nuit à la relation client. Refuser calmement avec des arguments standards est préférable.",
+            "icon": "alert-circle"
+          }
+        ],
+        "expl": "La normalisation des formats (PDF, DICOM) est le seul moyen viable de gérer l'imagerie ou les rapports de santé."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "F3. Aligner l'équipe dès la phase d'exploration",
+    "intent": "Croiser immédiatement les visions métier, technique et UX pour écarter les fausses pistes avant d'écrire du code.",
+    "icon": "users",
+    "scenarios": [
+      {
+        "text": "L'ARS demande un module de ciblage cartographique intelligent des populations éloignées du dépistage du sein. Le PO souhaite écrire toutes les user stories et maquettes Figma en secret avant d'en parler aux développeurs.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><span class=\"text-[9px] text-red-700 font-bold\">PO conçoit les écrans Carto seul (3 semaines)</span><p class=\"text-[8px] text-slate-400 mt-1\">Aucun échange technique sur la faisabilité des cartes</p></div>",
+        "correct": {
+          "title": "F3.1. Associer le développement et l'UX en amont",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Réunion Cadrage Flash (Jour 1)</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-semibold text-slate-800\">Avis Dev : \"L'API IGN nationale est gratuite et déjà intégrée !\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">Cadrage technique et UX synchronisé en 1 heure</div></div>",
+          "expl": "Impliquer un tech lead et l'UX dès la genèse de l'idée pour identifier immédiatement les accélérateurs techniques et les limites de faisabilité.",
+          "debriefExpl": "Associer les développeurs dès le Jour 1 évite de maquetter des écrans impossibles à coder ou d'ignorer des outils existants.",
+          "icon": "users"
+        },
+        "wrong": [
+          {
+            "title": "Finaliser toutes les maquettes Figma d'abord",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Faire 15 écrans animés de cartographie avancée</div>",
+            "expl": "Concevoir un prototype ultra-détaillé de cartographie interactive avant de consulter les développeurs.",
+            "debriefExpl": "Si la base de données ne contient pas les géolocalisations requises, le prototype complet part à la poubelle.",
+            "icon": "layout"
+          },
+          {
+            "title": "Faire chiffrer la demande par un expert externe",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Consultant externe mandaté pour rédiger une étude</div>",
+            "expl": "Payer une étude de faisabilité de 3 semaines à un cabinet externe sans mobiliser l'équipe interne.",
+            "debriefExpl": "Les cabinets externes n'ont pas la connaissance intime de votre architecture logicielle. C'est une perte d'argent.",
+            "icon": "file-text"
+          }
+        ],
+        "expl": "Le dialogue précoce entre PO, UX et développeurs est la clé de voûte d'un cadrage produit réaliste."
+      },
+      {
+        "text": "L'équipe produit doit concevoir le flux d'intégration de l'identité INS (Identifiant National de Santé). Le processus comporte 10 cas d'anomalies de saisie de nom d'usage et de prénoms multiples complexes.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Règles INS compliquées</div><div class=\"text-[8px] text-slate-600\">Comment définir la gestion des prénoms multiples ?</div></div>",
+        "correct": {
+          "title": "F3.2. Réaliser des ateliers de co-conception rapides",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Atelier Co-design INS</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-bold text-slate-800 text-center\">PO + Dev + Secrétaire référente (45 min)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Processus de résolution validé en direct sur tableau blanc</div></div>",
+          "expl": "Réunir les personnes clés pendant un temps court et focalisé pour modéliser le flux ensemble plutôt que par allers-retours écrits.",
+          "debriefExpl": "Un atelier court avec une secrétaire et un dev permet de fixer des règles réalistes et conformes à l'INS en moins d'une heure.",
+          "icon": "users"
+        },
+        "wrong": [
+          {
+            "title": "Rédiger un cahier des charges de 30 pages",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Document de spécifications de 30 pages en isolation</div>",
+            "expl": "Prendre une semaine pour écrire seul dans son coin toutes les règles logiques possibles sans concertation.",
+            "debriefExpl": "Les spécifications en isolation sont souvent inapplicables sur le terrain et rejetées par les développeurs.",
+            "icon": "file-text"
+          },
+          {
+            "title": "Laisser les développeurs décider seuls",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">\"Codex l'INS selon votre feeling technique\"</div>",
+            "expl": "Donner carte blanche aux développeurs sans leur fournir de guide sur les contraintes concrètes du secrétariat médical.",
+            "debriefExpl": "C'est le risque d'obtenir une interface conforme techniquement mais d'une complexité ergonomique majeure pour la secrétaire.",
+            "icon": "code"
+          }
+        ],
+        "expl": "Les ateliers de co-conception pluridisciplinaires permettent de lever les ambiguïtés logiques instantanément."
+      },
+      {
+        "text": "L'ARS demande que le module de dépistage colorectal gère les contraintes complexes de double signature électronique des comptes-rendus d'analyses biomédicales. Comment cadrer ce sujet à haut risque technique ?",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Sécurité Signature Électronique</div><div class=\"p-1 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">Contraintes cryptographiques et légales élevées</div></div>",
+        "correct": {
+          "title": "F3.1. Associer le développement et l'UX en amont",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Validation architecture amont</div><div class=\"bg-white border-2 border-emerald-500 rounded p-2 text-[8px] font-mono text-slate-700\">Dev : \"La brique de signature de la MSSanté est utilisable nativement\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">Gain : 4 semaines de dev économisées</div></div>",
+          "expl": "Confronter la demande légale/client à l'architecte technique immédiatement pour voir s'il existe déjà des outils homologués ou si le socle technique le supporte.",
+          "debriefExpl": "Faire intervenir le dev amont évite de concevoir un système de signature sur-mesure complexe et hors standard.",
+          "icon": "users"
+        },
+        "wrong": [
+          {
+            "title": "Valider le contrat commercial d'abord",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Signer l'avenant de signature électronique ARS</div>",
+            "expl": "S'engager commercialement et juridiquement sur la date avant d'en parler au lead developer.",
+            "debriefExpl": "C'est s'exposer à un dérapage de livraison majeur si la solution technique de signature choisie est incompatible avec le navigateur.",
+            "icon": "file-text"
+          },
+          {
+            "title": "Écrire les critères d'acceptation détaillés d'emblée",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Rédiger 12 User Stories de signature sécurisée</div>",
+            "expl": "Détailler le comportement des boutons et des erreurs de signature avant de savoir quel outil de cryptage sera utilisé.",
+            "debriefExpl": "C'est du temps perdu en rédaction car la solution technique choisie modifiera radicalement l'ergonomie de signature.",
+            "icon": "edit-3"
+          }
+        ],
+        "expl": "S'assurer de la faisabilité technique dès la découverte d'une idée complexe protège la roadmap."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "F4. Concevoir par le prisme de la clarté cognitive",
+    "intent": "Épurer le parcours et hiérarchiser les informations métier pour réduire la fatigue mentale et le risque d'erreur de saisie.",
+    "icon": "eye",
+    "scenarios": [
+      {
+        "text": "L'écran d'accueil du suivi d'un dépistage colorectal doit afficher les informations clés du dossier. Les utilisateurs demandent à voir 40 champs d'informations administratives et médicales en même temps sur l'écran principal.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Tableau de bord surchargé</div><div class=\"grid grid-cols-4 gap-1 text-[6px] text-slate-500\"><span>Nom</span><span>Prénom</span><span>NIR</span><span>Médecin</span><span>Tél</span><span>Mail</span><span>Adresse</span><span>Code</span><span>Ville</span><span>Kit ID</span><span>Date envoi</span><span>Date retour</span><span>Analyse</span><span>Labo</span><span>Statut</span><span>Alerte</span></div></div>",
+        "correct": {
+          "title": "F4.2. Respecter la hiérarchie visuelle métier",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Hiérarchie de Fiche Épurée</div><div class=\"bg-white border p-2 rounded-lg\"><div class=\"flex justify-between items-center\"><span class=\"text-[9px] font-black text-slate-800\">Identité patient INS : Jean Dupont</span><span class=\"bg-red-500 text-white text-[7px] px-1 rounded font-bold\">ALERTE KIT EN RETARD</span></div></div><div class=\"text-[7px] text-emerald-600 font-bold\">40 informations secondaires rangées dans des sous-onglets</div></div>",
+          "expl": "Placer au premier plan les informations vitales (identité, alertes, statut du kit) et masquer le secondaire pour éviter la surcharge cognitive.",
+          "debriefExpl": "Respecter la hiérarchie visuelle métier permet au soignant de comprendre l'état du patient en moins d'une seconde sans se noyer.",
+          "icon": "layout"
+        },
+        "wrong": [
+          {
+            "title": "Afficher tout le contenu avec des polices microscopiques",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[8px] text-slate-500\">Utiliser une police d'écriture text-[5px]</div>",
+            "expl": "Garder les 40 champs sur le même écran mais réduire la taille des polices pour que tout tienne sans défilement.",
+            "debriefExpl": "Une écriture microscopique fatigue les yeux des praticiens et multiplie le risque d'erreurs de lecture.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Créer un système de popups multiples",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Ouvrir 4 popups superposées au clic</div>",
+            "expl": "Masquer les champs derrière des dizaines de fenêtres popups qui s'ouvrent les unes par-dessus les autres.",
+            "debriefExpl": "Les popups en cascade perturbent la navigation et génèrent une forte frustration ergonomique.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "La clarté cognitive consiste à présenter l'information essentielle au bon endroit au bon moment."
+      },
+      {
+        "text": "Lors de la saisie d'un nouveau patient, le flux de navigation oblige l'utilisateur à faire 3 allers-retours entre le clavier et la souris pour valider les adresses et le médecin traitant.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux de saisie chaotique</div><div class=\"text-[8px] text-red-700\">Clavier ➔ Clic Souris (Recherche) ➔ Clavier ➔ Clic Valider</div></div>",
+        "correct": {
+          "title": "F4.1. Cartographier le parcours utilisateur idéal",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux nominal linéaire</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-white p-1.5 rounded border\"><span>1. Nom ➔ 2. INS ➔ 3. Saisie adresse ➔ [Entrée]</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Parcours 100% au clavier sans toucher à la souris</div></div>",
+          "expl": "Modéliser le parcours de saisie pour qu'il soit fluide, fluide et linéaire (ex: progression par la touche Tabulation).",
+          "debriefExpl": "Un flux fluide et linéaire divise par deux le temps de saisie d'un dossier et élimine la fatigue des secrétaires.",
+          "icon": "git-commit"
+        },
+        "wrong": [
+          {
+            "title": "Ajouter un guide textuel d'explications sur l'écran",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-[8px] text-slate-500\">\"Attention, veuillez utiliser la souris pour le champ 4...\"</div>",
+            "expl": "Laisser l'interface inchangée mais ajouter un pavé de texte d'explications sur l'écran pour guider l'utilisateur.",
+            "debriefExpl": "Les utilisateurs ne lisent pas les pavés d'instructions. L'ergonomie doit être intuitive et fluide de manière native.",
+            "icon": "help-circle"
+          },
+          {
+            "title": "Automatiser la validation de tous les champs par timer",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Sauvegarde automatique toutes les 5 secondes</div>",
+            "expl": "Enregistrer et passer au champ suivant automatiquement sans intervention de l'utilisateur après 3 secondes d'inactivité.",
+            "debriefExpl": "C'est extrêmement perturbant si l'utilisateur réfléchit ou est interrompu. Cela génère des dossiers incomplets.",
+            "icon": "clock"
+          }
+        ],
+        "expl": "Concevoir un parcours utilisateur fluide signifie aligner la logique du système sur le geste de l'opérateur."
+      },
+      {
+        "text": "L'équipe produit crée l'écran de consultation des résultats de dépistage. L'UX propose un magnifique tableau avec 15 couleurs de statuts différentes pour marquer l'état d'avancement des dossiers.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Tableau Arc-en-ciel</div><div class=\"flex gap-1 justify-around text-[7px] font-black\"><span class=\"bg-red-200 p-0.5 rounded text-red-800\">Alerte</span><span class=\"bg-blue-200 p-0.5 rounded text-blue-800\">Attente</span><span class=\"bg-emerald-200 p-0.5 rounded text-emerald-800\">Reçu</span><span class=\"bg-amber-200 p-0.5 rounded text-amber-800\">Envoi</span><span class=\"bg-purple-200 p-0.5 rounded text-purple-800\">Relance</span></div></div>",
+        "correct": {
+          "title": "F4.2. Respecter la hiérarchie visuelle métier",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Codes Couleur Restreints</div><div class=\"flex gap-2 text-[8px] font-black\"><span class=\"bg-red-500 text-white px-1.5 py-0.5 rounded\">1. Action requise (Urgent)</span><span class=\"bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded\">2. Autre</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Seules les anomalies attirent l'œil en couleur vive</div></div>",
+          "expl": "Restreindre drastiquement le nombre de signaux de couleur. La couleur ne doit servir qu'à attirer l'attention sur une action ou anomalie.",
+          "debriefExpl": "Restreindre les couleurs évite l'effet de fatigue visuelle et garantit que l'utilisateur repère instantanément le cas critique.",
+          "icon": "layout"
+        },
+        "wrong": [
+          {
+            "title": "Fournir une légende explicative des 15 couleurs",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Insérer une notice d'aide sur l'écran</div>",
+            "expl": "Garder toutes les couleurs mais ajouter un panneau d'aide détaillant la signification de chaque couleur.",
+            "debriefExpl": "Si l'interface nécessite une notice de décryptage des couleurs pour être comprise, le design est défaillant.",
+            "icon": "help-circle"
+          },
+          {
+            "title": "Rendre toutes les lignes clignotantes en cas d'erreur",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-red-500 font-black animate-pulse\">⚠️ DANGER DE DOSSIER BLOQUÉ ⚠️</div>",
+            "expl": "Faire clignoter les dossiers en retard ou en erreur pour forcer l'utilisateur à les traiter.",
+            "debriefExpl": "Le clignotement génère un stress inutile et agresse visuellement l'opérateur en situation de rush.",
+            "icon": "alert-triangle"
+          }
+        ],
+        "expl": "En ergonomie médicale, moins il y a de stimuli visuels colorés, plus l'interface est sûre et reposante."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "F5. Prototyper à faible coût (L'Ergonomie Low-Fi)",
+    "intent": "Matérialiser le concept par des wireframes rapides ou interactifs simplifiés pour valider le squelette avant le dev.",
+    "icon": "scissors",
+    "scenarios": [
+      {
+        "text": "L'ARS demande un nouvel écran de validation des envois de kits de dépistage par les pharmaciens. Comment démarrer la conception pour valider les besoins de champs requis avec l'équipe métier ?",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] font-bold text-red-700\">Démarrage direct en développement</div><div class=\"text-[8px] text-slate-400 mt-1\">Coder l'écran directement en HTML en production</div></div>",
+        "correct": {
+          "title": "F5.1. Esquisser des wireframes papier ou des schémas rapides",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Croquis papier (10 minutes)</div><div class=\"border-2 border-dashed border-slate-300 bg-white rounded p-2 text-center text-[8px] font-mono text-slate-400\">[Nom Patient] [NIR] [Bouton OK]</div><div class=\"text-[7px] text-emerald-600 font-bold\">Ajustement des champs en direct avec l'utilisateur pilote</div></div>",
+          "expl": "Dessiner à main levée ou avec des outils filaires très simples pour valider le squelette fonctionnel avec les soignants.",
+          "debriefExpl": "Esquisser un wireframe papier de 10 minutes permet d'ajuster les champs immédiatement avant d'investir le moindre centime en dev.",
+          "icon": "scissors"
+        },
+        "wrong": [
+          {
+            "title": "Créer un cahier de spécifications textuelles",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Écrire un document Word de 10 pages</div>",
+            "expl": "Rédiger un long descriptif textuel de chaque champ et de son type de données sans aucun schéma visuel.",
+            "debriefExpl": "Le texte brut est sujet aux malentendus visuels. Rien ne vaut une maquette, même grossière, pour s'aligner.",
+            "icon": "file-text"
+          },
+          {
+            "title": "Concevoir un prototype pixel-perfect ultra-réaliste",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Passer 4 jours sur Figma à dessiner les ombres et logos</div>",
+            "expl": "Passer des jours sur Figma à peaufiner les animations, dégradés de couleurs et polices d'écriture avant le test.",
+            "debriefExpl": "Le pixel-perfect en phase de découverte incite l'utilisateur à donner des retours sur les couleurs plutôt que sur le flux métier.",
+            "icon": "palette"
+          }
+        ],
+        "expl": "Le prototypage basse fidélité (low-fi) libère la parole des utilisateurs sur le flux fonctionnel réel."
+      },
+      {
+        "text": "L'équipe produit doit valider l'enchaînement de 3 écrans complexes pour la prise en charge d'un patient suspect de cancer du poumon. Les avis divergent au sein du groupe de travail sur la cinématique de navigation.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><span class=\"text-[9px] text-red-700 font-bold\">Débats infinis en réunion de projet</span><p class=\"text-[8px] text-slate-400 mt-1\">\"On devrait cliquer ici\" vs \"Non, là-bas\"</p></div>",
+        "correct": {
+          "title": "F5.2. Créer un prototype interactif simplifié",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Prototype Figma Cliquable</div><div class=\"flex justify-center items-center gap-1 text-[8px] font-bold text-slate-700 bg-white p-1 rounded border\"><span>Écran 1</span><span>➔</span><span>Écran 2</span><span>➔</span><span>Écran 3</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Flux testé et tranché en 15 minutes par les pilotes</div></div>",
+          "expl": "Assembler un enchaînement interactif d'écrans simplifiés pour faire vivre le parcours avant de coder.",
+          "debriefExpl": "Le prototype interactif résout immédiatement les conflits d'opinion en mettant le parcours à l'épreuve du geste.",
+          "icon": "layout"
+        },
+        "wrong": [
+          {
+            "title": "Développer une V1 jetable en base de données",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Coder le flux de données en base sql réelle</div>",
+            "expl": "Faire développer les tables SQL et l'API juste pour voir si l'enchaînement des écrans plaît.",
+            "debriefExpl": "C'est un gâchis de temps technique de coder des bases de données pour tester une idée de navigation qui va changer.",
+            "icon": "database"
+          },
+          {
+            "title": "Rédiger un arbre de décision en organigramme",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Dessiner un schéma Visio complexe de 50 cases</div>",
+            "expl": "Tracer un organigramme technique détaillé montrant tous les liens théoriques possibles.",
+            "debriefExpl": "L'organigramme abstrait ne permet pas de tester le confort d'utilisation ou de ressentir la fluidité des écrans.",
+            "icon": "git-branch"
+          }
+        ],
+        "expl": "Le prototype interactif est l'outil ultime pour aligner les visions ergonomiques à faible coût."
+      },
+      {
+        "text": "L'équipe produit prépare le nouveau module de saisie des antécédents médicaux. Ils hésitent sur deux approches : une liste à puces à cocher ou un moteur de recherche par autocomplétion.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Dilemme de Saisie</div><div class=\"grid grid-cols-2 gap-2 text-center text-[7px] font-bold\"><div class=\"bg-slate-50 p-1 border\">Liste de 50 Cases</div><div class=\"bg-slate-50 p-1 border\">Moteur Recherche</div></div></div>",
+        "correct": {
+          "title": "F5.1. Esquisser des wireframes papier ou des schémas rapides",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">A/B Test Papier express</div><div class=\"bg-white border p-1 rounded text-center text-[8px] font-semibold text-slate-700\">Test en direct : 5 secrétaires comparent les deux croquis</div><div class=\"text-[7px] text-emerald-600 font-bold\">Résultat : L'autocomplétion plébiscitée en 5 minutes</div></div>",
+          "expl": "Comparer deux croquis papier alternatifs en direct avec des utilisateurs de terrain pour trancher instantanément.",
+          "debriefExpl": "L'esquisse papier rapide permet de faire de l'A/B testing ergonomique pour un coût nul et avec un feedback instantané.",
+          "icon": "scissors"
+        },
+        "wrong": [
+          {
+            "title": "Coder les deux solutions pour la V1",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[9px] text-slate-500\">Développer et paramétrer les deux options</div>",
+            "expl": "Développer les deux versions pour laisser l'utilisateur choisir dans ses préférences personnelles.",
+            "debriefExpl": "Doubler le temps de dev et créer du paramétrage inutile surcharge le code de l'application.",
+            "icon": "code"
+          },
+          {
+            "title": "Laisser le designer trancher seul",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Laisser l'UX designer concevoir sa solution théorique</div>",
+            "expl": "Donner carte blanche au designer pour qu'il conçoive la solution qui lui semble la plus esthétique.",
+            "debriefExpl": "Même un bon designer a besoin de confronter ses hypothèses à l'avis de praticiens de terrain.",
+            "icon": "user-check"
+          }
+        ],
+        "expl": "Trancher des dilemmes ergonomiques par de simples croquis terrain est le propre de la Discovery agile."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "F6. Tester l'utilisabilité à blanc",
+    "intent": "Soumettre le prototype aux utilisateurs sans aide ni guide pour identifier les obstacles cognitifs réels de l'interface.",
+    "icon": "user-check",
+    "scenarios": [
+      {
+        "text": "Le prototype Figma du module d'enregistrement d'un kit de dépistage est prêt. Le PO souhaite valider sa clarté auprès de 3 secrétaires médicales de centres pilotes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] font-bold text-red-700\">Démonstration guidée classique</div><div class=\"text-[8px] text-slate-400 mt-1\">\"Voici le bouton pour enregistrer, je clique dessus pour vous montrer...\"</div></div>",
+        "correct": {
+          "title": "F6.1. Conduire des tests utilisateurs sans consignes directes",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Observation à blanc</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Consigne : \"Enregistrez ce kit.\" (Et se taire)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Capter le moment d'hésitation exact sur le bouton</div></div>",
+          "expl": "Observer l'utilisateur découvrir l'interface en silence sans lui expliquer le parcours pour déceler les manques d'intuitivité.",
+          "debriefExpl": "Se taire et observer l'utilisateur face au produit à blanc est le seul moyen de voir si l'ergonomie se suffit à elle-même.",
+          "icon": "user-check"
+        },
+        "wrong": [
+          {
+            "title": "Faire une démonstration théâtrale de la maquette",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Montrer le parcours idéal en visioconférence Zoom</div>",
+            "expl": "Partager son écran et guider l'utilisateur en lui montrant où cliquer pour faire le parcours.",
+            "debriefExpl": "Faire une démo guidée donne l'illusion que le produit est simple, mais ne teste en rien son utilisabilité réelle.",
+            "icon": "video"
+          },
+          {
+            "title": "Distribuer un guide de test pas-à-pas détaillé",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Document PDF : \"Étape 1 : cliquez en haut à gauche...\"</div>",
+            "expl": "Donner une notice de 10 étapes à suivre à l'utilisateur pendant qu'il effectue le test.",
+            "debriefExpl": "L'utilisateur suivra la notice comme un automate sans réfléchir, masquant ainsi toutes les failles de l'interface.",
+            "icon": "file-text"
+          }
+        ],
+        "expl": "Un bon test utilisateur teste le produit, pas l'utilisateur. Restez silencieux et observez."
+      },
+      {
+        "text": "Pendant le test à blanc du module d'invitation, deux secrétaires hésitent longuement devant une icône de sablier bleu, pensant qu'il s'agit d'un indicateur de chargement réseau alors qu'elle représente un 'dossier en attente'.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 items-center relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Friction visuelle</div><i data-lucide=\"hourglass\" class=\"w-6 h-6 text-blue-500 animate-spin\"></i><span class=\"text-[7px] text-slate-500\">Hésitation de 8 secondes détectée</span></div>",
+        "correct": {
+          "title": "F6.2. Documenter les frictions cognitives",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Correction après test</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 flex items-center justify-between\"><span>Icône Sablier ➔ Remplacée par texte : \"En attente\"</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Friction supprimée pour la V1 définitive</div></div>",
+          "expl": "Noter scrupuleusement les incompréhensions, fausses routes et erreurs de l'utilisateur pour corriger le design immédiatement.",
+          "debriefExpl": "Documenter ces frictions cognitives (comme l'ambiguïté de l'icône) permet de corriger le design avant le développement.",
+          "icon": "edit-3"
+        },
+        "wrong": [
+          {
+            "title": "Expliquer la signification de l'icône à l'utilisateur",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[9px] text-slate-500\">\"Non, le sablier veut dire que le dossier attend l'ARS\"</div>",
+            "expl": "Interrompre l'utilisateur pendant le test pour lui expliquer son erreur et passer à la suite.",
+            "debriefExpl": "Expliquer l'icône pendant le test masque la friction sans la résoudre pour les futurs utilisateurs réels.",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Laisser l'icône et planifier une infobulle d'aide au survol",
+            "visual": "<div class=\"w-full bg-white border p-1 text-[8px] rounded\">Infobulle : \"Cette icône signifie en attente\"</div>",
+            "expl": "Garder l'icône ambiguë mais ajouter une infobulle (tooltip) d'aide qui s'affiche au survol de la souris.",
+            "debriefExpl": "Les infobulles ne sauvent pas un design obscur. C'est un cache-misère qui ne fonctionne pas sur mobile.",
+            "icon": "info"
+          }
+        ],
+        "expl": "Chaque seconde d'hésitation ou erreur de l'utilisateur en test est un bug d'ergonomie à corriger."
+      },
+      {
+        "text": "L'équipe teste le nouveau formulaire d'exclusion médicale pour le dépistage colorectal. L'utilisateur clique par erreur trois fois de suite sur le bouton rouge 'Exclure définitivement' en pensant qu'il s'agissait du bouton de retour.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex justify-around gap-2\"><div class=\"bg-red-500 text-white p-1 rounded text-[8px] font-bold\">Exclure définitivement</div><div class=\"bg-slate-200 text-slate-700 p-1 rounded text-[8px]\">Retour</div></div>",
+        "correct": {
+          "title": "F6.2. Documenter les frictions cognitives",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Correction Sécurité UX</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-bold text-slate-800\">Bouton critique déplacé à droite + Confirmation requise</div><div class=\"text-[7px] text-emerald-600 font-bold\">Zéro risque d'exclusion accidentelle suite au test</div></div>",
+          "expl": "Identifier et documenter les actions critiques accidentelles pour sécuriser le parcours utilisateur.",
+          "debriefExpl": "Capter ce geste accidentel en test permet de sécuriser un bouton à haut risque médical avant son déploiement.",
+          "icon": "shield-check"
+        },
+        "wrong": [
+          {
+            "title": "Considérer que l'utilisateur est inattentif",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">\"L'utilisateur doit lire avant de cliquer\"</div>",
+            "expl": "Ne rien changer en estimant que l'utilisateur n'avait qu'à lire attentivement l'intitulé du bouton.",
+            "debriefExpl": "Blâmer l'utilisateur est une faute produit majeure. Une interface doit pardonner et empêcher l'erreur.",
+            "icon": "ban"
+          },
+          {
+            "title": "Changer le texte du bouton en 'Exclusion Définitive Majeure'",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Renommer simplement le libellé du bouton</div>",
+            "expl": "Modifier légèrement le texte du bouton pour le rendre plus impressionnant sans changer sa disposition ni ajouter de garde-fou.",
+            "debriefExpl": "Changer le texte ne résout pas le problème d'emplacement visuel qui induit l'erreur de clic.",
+            "icon": "edit-3"
+          }
+        ],
+        "expl": "Les tests d'utilisabilité à blanc révèlent les dangers de sécurité clinique induits par la mise en page."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "F7. Lancer un pilote ultra-restreint (La Bêta qualitative)",
+    "intent": "Déployer la V1 auprès d'un panel d'utilisateurs restreint et proactif avec une boucle de feedback ultra-courte.",
+    "icon": "flask-conical",
+    "scenarios": [
+      {
+        "text": "Le nouveau module de dépistage colorectal est prêt à être déployé. Le responsable produit veut tester la stabilité sur le terrain sans risquer une avalanche de plaintes au niveau national.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lancement national direct</div><div class=\"bg-red-150 p-2 rounded text-center text-[9px] font-bold text-red-800\">Mise en production pour les 17 CRDC de France d'un coup</div></div>",
+        "correct": {
+          "title": "F7.1. Recruter un panel réduit d'utilisateurs pilotes",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lancement Pilote ultra-ciblé</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] text-center font-black text-slate-800\">Déploiement initial : 2 centres pilotes (Amiens et Lille)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Rayon d'impact limité aux bêtatesteurs proactifs</div></div>",
+          "expl": "Ouvrir l'application à un très petit groupe d'utilisateurs volontaires et engagés pour valider la stabilité fonctionnelle.",
+          "debriefExpl": "Déployer auprès de 2 centres pilotes permet de corriger les plâtres en toute sécurité avant de généraliser.",
+          "icon": "users"
+        },
+        "wrong": [
+          {
+            "title": "Faire tester l'application en interne par le service marketing",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Test en interne par 5 commerciaux</div>",
+            "expl": "Tester uniquement en interne avec des collègues administratifs d'Epiconcept pour valider le lancement.",
+            "debriefExpl": "Le personnel interne n'a pas les contraintes métiers ni les données réelles des centres de dépistage.",
+            "icon": "ban"
+          },
+          {
+            "title": "Reporter le lancement de 3 mois pour tests infinis",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Phase de recette technique de 90 jours</div>",
+            "expl": "Garder le logiciel secret pendant 3 mois de plus pour que l'équipe technique fasse des tests automatisés en boucle.",
+            "debriefExpl": "Retarder le lancement retarde l'apprentissage. Seul le vrai terrain révèle les vrais besoins et limites du logiciel.",
+            "icon": "clock"
+          }
+        ],
+        "expl": "La bêta fermée restreinte sécurise le lancement en limitant le risque de crise nationale."
+      },
+      {
+        "text": "Le pilote démarre dans le centre de dépistage de Valenciennes. Le coordinateur rencontre un blocage lors de la génération des courriers, mais n'a pas le temps d'ouvrir un ticket sur le portail de support formel d'Epiconcept.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Blocage en situation réelle</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] text-red-800\">L'utilisateur abandonne la fonction par manque de temps</div></div>",
+        "correct": {
+          "title": "F7.2. Établir une boucle de feedback ultra-courte",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Boucle de proximité</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">Bouton direct Whatsapp / Slack direct Bêta</div><div class=\"text-[7px] text-emerald-600 font-bold\">Alerte reçue par le PO en 30 secondes et fixée dans l'heure</div></div>",
+          "expl": "Fournir un moyen de communication informel et instantané aux testeurs pour remonter les anomalies sans effort administratif.",
+          "debriefExpl": "Un canal direct (Slack/Teams/Bouton intégré) permet de capter les vrais problèmes avant que l'utilisateur n'abandonne par dépit.",
+          "icon": "message-square"
+        },
+        "wrong": [
+          {
+            "title": "Exiger l'envoi d'un formulaire PDF de bug",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[9px] text-slate-500\">Notice : \"Remplir le CERFA de bug et envoyer par mail\"</div>",
+            "expl": "Imposer le respect d'une procédure administrative stricte pour chaque retour de bug pendant la bêta.",
+            "debriefExpl": "C'est la garantie que les utilisateurs ne remonteront rien et cesseront simplement d'utiliser votre application.",
+            "icon": "file-text"
+          },
+          {
+            "title": "Planifier une réunion de bilan dans un mois",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Comité de suivi mensuel de la bêta</div>",
+            "expl": "Ne rien changer au jour le jour et attendre la réunion de bilan mensuelle pour lister les bugs rencontrés.",
+            "debriefExpl": "Attendre un mois laisse l'utilisateur bloqué avec ses frustrations et tue la dynamique d'adoption du pilote.",
+            "icon": "calendar"
+          }
+        ],
+        "expl": "Une boucle de feedback ultra-courte est indispensable pour stabiliser l'outil de manière réactive."
+      },
+      {
+        "text": "Pendant le pilote de mammographie à Amiens, l'équipe produit s'aperçoit que les utilisateurs découvrent un bug d'affichage mineur qui décale le titre des colonnes de 5 pixels vers la droite, sans bloquer le travail.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Bug cosmétique mineur</div><div class=\"text-[8px] text-slate-500 italic\">\"Le bouton est décalé mais on peut cliquer dessus\"</div></div>",
+        "correct": {
+          "title": "F7.2. Établir une boucle de feedback ultra-courte",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Gestion Bêta Agile</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-bold text-slate-800\">Noté dans le canal direct - Planifié pour le Sprint 2</div><div class=\"text-[7px] text-emerald-600 font-bold\">Correction transparente sans interrompre le pilote</div></div>",
+          "expl": "Capter et trier les anomalies de manière informelle pour maintenir le focus sur le fonctionnel vital.",
+          "debriefExpl": "Capter ce bug mineur via le canal informel permet de le planifier sereinement sans panique ni déploiement d'urgence.",
+          "icon": "check-square"
+        },
+        "wrong": [
+          {
+            "title": "Arrêter le pilote immédiatement pour corriger",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Couper l'accès au serveur de test pendant 2 jours</div>",
+            "expl": "Mettre l'application hors ligne pour tous les pilotes le temps de corriger le décalage de 5 pixels.",
+            "debriefExpl": "Interrompre un pilote pour un détail cosmétique décrédibilise l'outil et décourage les utilisateurs volontaires.",
+            "icon": "ban"
+          },
+          {
+            "title": "Ignorer le retour en estimant que l'utilisateur chipote",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Fermer le sujet : \"Cosmétique non prioritaire\"</div>",
+            "expl": "Ne pas répondre à l'utilisateur et jeter son retour aux oubliettes car ce n'est pas un bug bloquant.",
+            "debriefExpl": "Ne pas donner de réponse aux retours des bêtatesteurs brise leur engagement. Il faut accuser réception.",
+            "icon": "trash-2"
+          }
+        ],
+        "expl": "Le canal informel sert à rassurer les pilotes et à classer intelligemment les retours terrain."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "F8. Accompagner le déploiement et sécuriser l'adoption",
+    "intent": "Assumer la V1 épurée, former les ambassadeurs de terrain et structurer le changement pour garantir l'adoption finale.",
+    "icon": "award",
+    "scenarios": [
+      {
+        "text": "La V1 du module de ciblage de santé publique est livrée. Elle ne comporte pas encore les exports Excel demandés par l'ARS pour la V2. Les pilotes s'inquiètent de cette absence.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Inquiétude Périmètre V1</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Rumeur : \"Le logiciel ne sait rien exporter !\"</div></div>",
+        "correct": {
+          "title": "F8.1. Assumer et communiquer l'imperfection fonctionnelle",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Transparence Roadmap</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-semibold text-slate-800\">Guide V1 : \"La V1 se concentre sur l'INS. Export Excel : Sprint 3.\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">Confiance renforcée par la franchise de la roadmap</div></div>",
+          "expl": "Assumer ouvertement les limites de la V1 et fournir la roadmap claire des versions suivantes pour rassurer les utilisateurs.",
+          "debriefExpl": "Communiquer en transparence désamorce la frustration en transformant un manque temporaire en jalon planifié.",
+          "icon": "shield-check"
+        },
+        "wrong": [
+          {
+            "title": "Promettre que la fonction sera codée pour demain en urgence",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[9px] text-slate-500\">\"On vous code ça ce soir, promis !\"</div>",
+            "expl": "Faire une promesse irréaliste de livraison express pour calmer l'inquiétude des utilisateurs.",
+            "debriefExpl": "Ne pas tenir sa promesse détruit définitivement la confiance. Il faut assumer le phasage planifié.",
+            "icon": "clock"
+          },
+          {
+            "title": "Masquer le manque en évitant le sujet",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Éviter de répondre aux questions sur les exports</div>",
+            "expl": "Garder le silence sur les fonctionnalités manquantes en espérant que les utilisateurs s'y habitueront.",
+            "debriefExpl": "Le silence engendre la suspicion de panne technique et génère un rejet massif du produit.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "Assumer la simplicité de la V1 est une marque de maturité produit qui rassure les utilisateurs."
+      },
+      {
+        "text": "L'application doit être généralisée à l'ensemble des 17 régions de France. L'équipe produit d'Epiconcept ne peut pas se déplacer physiquement dans chaque centre pour former individuellement les 400 secrétaires médicales.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] font-bold text-red-700\">Formation centralisée impossible</div><div class=\"text-[8px] text-slate-400 mt-1\">Zéro budget de déplacement pour 400 formations physiques</div></div>",
+        "correct": {
+          "title": "F8.2. Identifier et former les premiers ambassadeurs",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Démultiplication de formation</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">Formation de 17 Ambassadeurs Régionaux</div><div class=\"text-[7px] text-emerald-600 font-bold\">Chaque ambassadeur forme son équipe locale de proximité</div></div>",
+          "expl": "Former en priorité un référent proactif par région ou par centre pour qu'il devienne le relais de formation local auprès de ses collègues.",
+          "debriefExpl": "S'appuyer sur des ambassadeurs régionaux démultiplie l'accompagnement et assure un support de proximité efficace.",
+          "icon": "award"
+        },
+        "wrong": [
+          {
+            "title": "Rédiger un manuel d'utilisation PDF de 120 pages",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Notice PDF envoyée en pièce jointe par e-mail</div>",
+            "expl": "Envoyer un pavé d'aide PDF de 120 pages en espérant que les secrétaires le lisent en entier avant d'ouvrir l'outil.",
+            "debriefExpl": "Personne ne lit les longs manuels d'utilisation. Le rejet de l'application sera immédiat face à la complexité.",
+            "icon": "file-text"
+          },
+          {
+            "title": "Enregistrer un webinaire vidéo unique de 3 heures",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Lien YouTube vers un replay Zoom de 3h</div>",
+            "expl": "Enregistrer une longue vidéo de formation et l'envoyer à tout le monde en guise d'unique accompagnement.",
+            "debriefExpl": "Une vidéo de 3 heures est soporifique et n'offre aucun moyen d'interaction pour poser des questions concrètes.",
+            "icon": "video"
+          }
+        ],
+        "expl": "Former les ambassadeurs est la stratégie la plus performante pour déployer des outils de santé à grande échelle."
+      },
+      {
+        "text": "Lors de la généralisation de l'identité INS, le centre de dépistage de Marseille se plaint de spécificités locales dans ses pratiques administratives et menace de rejeter le logiciel si sa méthode n'est pas codée.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Blocage local Marseille</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] text-red-800\">Exigence de dérogation locale aux règles INS</div></div>",
+        "correct": {
+          "title": "F8.2. Identifier et former les premiers ambassadeurs",
+          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Relais Ambassadeur local</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">L'ambassadeur de Marseille cadre la bonne pratique</div></div>",
+          "expl": "Faire intervenir le référent régional local pour réassurer les équipes et expliquer la standardisation nationale par la pédagogie de pair à pair.",
+          "debriefExpl": "Faire intervenir un homologue (ambassadeur) désamorce la posture de rejet beaucoup plus efficacement qu'un arbitrage de l'éditeur.",
+          "icon": "users"
+        },
+        "wrong": [
+          {
+            "title": "Coder un embranchement spécifique pour Marseille",
+            "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[9px] text-slate-500\">Dupliquer le code pour créer une version Marseille</div>",
+            "expl": "Développer une dérogation technique locale pour satisfaire le centre de Marseille au détriment de la règle nationale.",
+            "debriefExpl": "Créer des embranchements de code spécifiques par ville est un suicide technique à long terme.",
+            "icon": "git-fork"
+          },
+          {
+            "title": "Ignorer leur plainte et forcer le passage",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Fermer le dialogue et imposer l'outil d'autorité</div>",
+            "expl": "Couper la discussion en rappelant simplement que le logiciel est national et obligatoire.",
+            "debriefExpl": "Forcer le passage d'autorité génère du boycott et de la malveillance sur le terrain. L'humain doit rester au cœur du processus.",
+            "icon": "ban"
+          }
+        ],
+        "expl": "L'accompagnement du changement s'appuie sur la pédagogie et l'influence des référents de proximité."
+      }
+    ]
+  }
+]
