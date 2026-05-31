@@ -1009,8 +1009,13 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 1 - Design Thinking</h2>
+                            <button onclick="event.stopPropagation(); openComprendre(1, 0)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides Design Thinking">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="dt-status-label">0 / 7</span></div>
+                                <div class="card-status"><span id="dt-status-label">0 / 8</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
@@ -1025,7 +1030,12 @@
                             <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="target"></i></div>
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                A - Besoins utilisateurs</h2>
+                                A - Cadrage Besoins PO</h2>
+                            <button onclick="event.stopPropagation(); openComprendre(1, 6)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les réflexes PO">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="po-status-label">0 / 36</span></div>
                             </div>
@@ -1043,7 +1053,12 @@
                             <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="palette"></i></div>
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                B - Conception UX/UI</h2>
+                                B - Ergonomie UX/UI</h2>
+                            <button onclick="event.stopPropagation(); openComprendre(1, 7)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les réflexes UX">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
                             </div>
@@ -1081,6 +1096,11 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 2- Produit Minimum Viable</h2>
+                            <button onclick="event.stopPropagation(); openComprendre(2, 0)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides MVP">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
                                 <div class="card-status"><span id="mvp-status-label">0 / 7</span></div>
@@ -1101,6 +1121,11 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 C - Support &amp; Client</h2>
+                            <button onclick="event.stopPropagation(); openComprendre(2, 5)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les réflexes Support &amp; Client">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="cso-status-label">0 / 27</span></div>
                             </div>
@@ -1120,6 +1145,11 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 D - Évolutions &amp; Specs</h2>
+                            <button onclick="event.stopPropagation(); openComprendre(2, 6)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les réflexes Évolutions &amp; Specs">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="evo-status-label">0 / 30</span></div>
                             </div>
@@ -1631,7 +1661,7 @@
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
             const dtStatusLabel = document.getElementById('dt-status-label');
             if (dtStatusLabel) {
-                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 7);
+                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 8);
             }
 
             const savedMvp = localStorage.getItem('mvp-last-slide');
@@ -1756,7 +1786,7 @@
 
         let slidesDataCache = {};
 
-        async function openComprendre(atelierId) {
+        async function openComprendre(atelierId, startSlide = null) {
             if (atelierId !== 1 && atelierId !== 2) return;
             const modal = document.getElementById('comprendre-modal');
             modal.style.display = 'flex';
@@ -1791,9 +1821,13 @@
 
             renderDynamicSlides();
 
-            // Load last viewed slide from localStorage
-            const saved = localStorage.getItem(lsKey);
-            currentSlide = saved ? parseInt(saved, 10) : 0;
+            // Load last viewed slide from localStorage (unless explicit startSlide)
+            if (startSlide !== null && startSlide !== undefined) {
+                currentSlide = startSlide;
+            } else {
+                const saved = localStorage.getItem(lsKey);
+                currentSlide = saved ? parseInt(saved, 10) : 0;
+            }
             updateSlides();
         }
 
