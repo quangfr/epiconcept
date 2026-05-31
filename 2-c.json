@@ -18,18 +18,15 @@
           "subOptions": [
             {
               "text": "Priorité haute — incident bloquant pour l'utilisateur mais isolé → traité dans la journée",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold\">Haute</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité haute</span></div><span class=\"text-[6px] text-slate-500\">incident bloquant pour l&#39;utilisateur mais isolé → traité dans la </span></div>"
+              "isCorrect": true
             },
             {
               "text": "Priorité critique — un médecin ne peut plus travailler → mobilisation immédiate de toute l'équipe",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold\">Critique</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-red-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité critique</span></div><span class=\"text-[6px] text-slate-500\">un médecin ne peut plus travailler → mobilisation immédiate de to</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Priorité basse — un seul utilisateur concerné → à traiter en fin de semaine",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold\">Basse</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité basse</span></div><span class=\"text-[6px] text-slate-500\">un seul utilisateur concerné → à traiter en fin de semaine</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -40,18 +37,15 @@
           "subOptions": [
             {
               "text": "Priorité critique — 12 CRDC impactés avec deadline ARS → activation du plan de crise, mobilisation immédiate",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold\">Critique</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-red-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité critique</span></div><span class=\"text-[6px] text-slate-500\">12 CRDC impactés avec deadline ARS → activation du plan de crise,</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Priorité haute — seuls 3 CRDC ont appelé → traité comme incident standard dans la journée",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold\">Haute</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité haute</span></div><span class=\"text-[6px] text-slate-500\">seuls 3 CRDC ont appelé → traité comme incident standard dans la </span></div>"
+              "isCorrect": false
             },
             {
               "text": "Priorité moyenne — le reporting est une fonctionnalité secondaire, traité en semaine 2",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded font-bold\">Moyenne</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité moyenne</span></div><span class=\"text-[6px] text-slate-500\">le reporting est une fonctionnalité secondaire, traité en semaine</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -62,18 +56,15 @@
           "subOptions": [
             {
               "text": "Criticité stratégique — risque contractuel et financier → escalade CODIR, plan d'action dédié, RAC prioritaire",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold\">Critique</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-red-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Criticité stratégique</span></div><span class=\"text-[6px] text-slate-500\">risque contractuel et financier → escalade CODIR, plan d&#39;action d</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Priorité basse — aucun incident en cours actuellement → à classer et suivre lors du prochain COPIL",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold\">Basse</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité basse</span></div><span class=\"text-[6px] text-slate-500\">aucun incident en cours actuellement → à classer et suivre lors d</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Priorité haute standard — impact image à gérer → réponse commerciale rassurante, pas d'action technique urgente",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold\">Haute</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Priorité haute standard</span></div><span class=\"text-[6px] text-slate-500\">impact image à gérer → réponse commerciale rassurante, pas d&#39;acti</span></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -98,18 +89,15 @@
           "subOptions": [
             {
               "text": "Contournement : fusionner les fiches doublons via l'interface admin → déblocage immédiat",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Contournement</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-emerald-600\">1. Identifier</span> → <span class=\"text-[6px] text-emerald-600\">2. Corriger</span> → <span class=\"text-[6px] text-emerald-600\">3. Valider</span></div></div></div>"
+              "isCorrect": true
             },
             {
               "text": "Correction en base : UPDATE direct en SQL sur la table patient pour corriger le NIR",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Correction en base</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             },
             {
               "text": "Ouverture d'un ticket d'évolution : demander au PO de corriger la règle d'unicité NIR pour la prochaine release",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Ouverture d&#39;un ticket d&#39;évolut</span><span class=\"text-[6px] text-slate-500 block\">ion : demander au PO de corriger la règle d&#39;unicité NIR pour la p</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -120,18 +108,15 @@
           "subOptions": [
             {
               "text": "Contournement : retirer l'enregistrement problématique et relancer la synchronisation → déblocage immédiat du flux",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Contournement</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-emerald-600\">1. Identifier</span> → <span class=\"text-[6px] text-emerald-600\">2. Corriger</span> → <span class=\"text-[6px] text-emerald-600\">3. Valider</span></div></div></div>"
+              "isCorrect": true
             },
             {
               "text": "Correction code : modifier le sérialiseur pour accepter les caractères spéciaux → déploiement en prod dans 2 semaines",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Correction code</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             },
             {
               "text": "Réinitialiser la base de synchronisation : vider la file et tout re-synchroniser depuis zéro",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Réinitialiser la base de synchronisation</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -142,18 +127,15 @@
           "subOptions": [
             {
               "text": "Contournement : corriger le paramétrage de la campagne en base et préparer un correctif pour les 2 000 invitations envoyées",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Contournement</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-emerald-600\">1. Identifier</span> → <span class=\"text-[6px] text-emerald-600\">2. Corriger</span> → <span class=\"text-[6px] text-emerald-600\">3. Valider</span></div></div></div>"
+              "isCorrect": true
             },
             {
               "text": "Laisser la campagne active et ouvrir un ticket de correction pour la prochaine version majeure (V3)",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Laisser la campagne active et</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             },
             {
               "text": "Stopper la campagne, supprimer les 2 000 invitations, et tout relancer avec le bon paramétrage",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Stopper la campagne, supprimer</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -178,18 +160,15 @@
           "subOptions": [
             {
               "text": "Transformer le blocage en alerte — laisser la gestionnaire confirmer et passer outre avec une mention « validation médicale requise »",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><span class=\"text-[9px]\">🟠</span><span class=\"text-[7px] font-black uppercase text-slate-400\">Notification</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold ml-auto\">À SUIVRE</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5 flex items-center gap-1\"><div class=\"w-1 h-1 rounded-full bg-emerald-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold\">Transformer le blocage en alerte</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">laisser la gestionnaire confirmer et passer outre avec une mentio</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Maintenir le blocage — les bornes d'âge sont validées par la HAS et doivent être respectées strictement",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"text-[7px] font-black uppercase text-slate-400 mb-1\">Configuration</div><div class=\"flex items-center gap-1.5 bg-white rounded border border-slate-200 p-1.5\"><div class=\"w-3 h-3.5 rounded bg-slate-300 flex items-center justify-center\"><div class=\"w-2 h-1.5 rounded bg-slate-100\"></div></div><span class=\"text-[7px] font-bold text-slate-700\">Maintenir le blocage</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">les bornes d&#39;âge sont validées par la HAS et doivent être respect</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Ajouter une exception en base pour autoriser uniquement le NIR de Mme DUPONT à dépasser la limite",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Ajouter une exception en base</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -200,18 +179,15 @@
           "subOptions": [
             {
               "text": "Assouplir : importer les 4 999 lignes valides et signaler la ligne rejetée dans un rapport dédié",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Assouplir</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-emerald-600\">1. Identifier</span> → <span class=\"text-[6px] text-emerald-600\">2. Corriger</span> → <span class=\"text-[6px] text-emerald-600\">3. Valider</span></div></div></div>"
+              "isCorrect": true
             },
             {
               "text": "Corriger le référentiel en ajoutant « 2B » puis relancer l'import complet",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Corriger le référentiel en ajo</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             },
             {
               "text": "Maintenir le blocage — un import doit être atomique : tout ou rien pour garantir l'intégrité",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Maintenir le blocage</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -222,18 +198,15 @@
           "subOptions": [
             {
               "text": "Assouplir : alerter sur l'incohérence mais permettre de lancer la campagne, mettre à jour le référentiel en parallèle",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><span class=\"text-[9px]\">🟠</span><span class=\"text-[7px] font-black uppercase text-slate-400\">Notification</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold ml-auto\">À SUIVRE</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5 flex items-center gap-1\"><div class=\"w-1 h-1 rounded-full bg-emerald-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold\">Assouplir</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">alerter sur l&#39;incohérence mais permettre de lancer la campagne, m</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Mettre à jour le référentiel géographique d'abord, puis lancer la campagne après validation (délai 4 à 6 semaines)",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Mettre à jour le référentiel g</span><span class=\"text-[6px] text-slate-500 block\">éographique d&#39;abord, puis lancer la campagne après validation (dé</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Exclure les 15 % de patients hors secteur de la campagne pour respecter le découpage existant",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Exclure les 15 % de patients h</span><span class=\"text-[6px] text-slate-500 block\">ors secteur de la campagne pour respecter le découpage existant</span></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -258,18 +231,15 @@
           "subOptions": [
             {
               "text": "Activer une vue support étendue avec logs techniques et état des objets métier tracés",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Activer une vue support étendu</span><span class=\"text-[6px] text-slate-500 block\">e avec logs techniques et état des objets métier tracés</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Demander à la gestionnaire de faire des captures d'écran et de décrire les étapes pour reproduire",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Demander à la gestionnaire de</span><span class=\"text-[6px] text-slate-500 block\">faire des captures d&#39;écran et de décrire les étapes pour reprodui</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Accéder directement à la base de production pour consulter les tables concernées",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Accéder directement à la base</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -280,18 +250,15 @@
           "subOptions": [
             {
               "text": "Ouvrir un accès aux logs d'audit détaillés pour investiguer les actions suspectes",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Ouvrir un accès aux logs d&#39;aud</span><span class=\"text-[6px] text-slate-500 block\">it détaillés pour investiguer les actions suspectes</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Restaurer la base de données de la veille pour annuler les modifications non autorisées",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Restaurer la base de données d</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             },
             {
               "text": "Réinitialiser les mots de passe de tous les administrateurs du CRDC par précaution",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Réinitialiser les mots de pass</span><span class=\"text-[6px] text-slate-500 block\">e de tous les administrateurs du CRDC par précaution</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -302,18 +269,15 @@
           "subOptions": [
             {
               "text": "Activer un accès data-analyst temporaire pour extraire et comparer les requêtes de reporting",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Activer un accès data-analyst</span><span class=\"text-[6px] text-slate-500 block\">temporaire pour extraire et comparer les requêtes de reporting</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Répondre que l'écart est probablement normal et proposer un rendez-vous technique dans 3 semaines",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Répondre que l&#39;écart est proba</span><span class=\"text-[6px] text-slate-500 block\">blement normal et proposer un rendez-vous technique dans 3 semain</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Corriger directement le code du rapport d'activité en production pour aligner les chiffres",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Corriger directement le code d</span><span class=\"text-[6px] text-slate-500 block\">u rapport d&#39;activité en production pour aligner les chiffres</span></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -338,18 +302,15 @@
           "subOptions": [
             {
               "text": "Bug front-end bloquant : le bouton Valider bilan ne répond pas sur Firefox 120 → ticket prioritaire",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"text-[7px] font-black uppercase text-slate-400 mb-1\">Configuration</div><div class=\"flex items-center gap-1.5 bg-white rounded border border-emerald-200 p-1.5\"><div class=\"w-3 h-3.5 rounded bg-emerald-500 flex items-center justify-center\"><div class=\"w-2 h-1.5 rounded bg-emerald-200\"></div></div><span class=\"text-[7px] font-bold text-slate-700\">Bug front-end bloquant</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">le bouton Valider bilan ne répond pas sur Firefox 120 → ticket pr</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Problème utilisateur : le Dr Lefebvre ne clique probablement pas au bon endroit → formation nécessaire",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Problème utilisateur</span><span class=\"text-[6px] text-slate-500 block\">le Dr Lefebvre ne clique probablement pas au bon endroit → format</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Bug back-end bloquant : l'API de validation ne répond pas → vérifier les serveurs",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"text-[7px] font-black uppercase text-slate-400 mb-1\">Configuration</div><div class=\"flex items-center gap-1.5 bg-white rounded border border-slate-200 p-1.5\"><div class=\"w-3 h-3.5 rounded bg-slate-300 flex items-center justify-center\"><div class=\"w-2 h-1.5 rounded bg-slate-100\"></div></div><span class=\"text-[7px] font-bold text-slate-700\">Bug back-end bloquant</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">l&#39;API de validation ne répond pas → vérifier les serveurs</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -360,18 +321,15 @@
           "subOptions": [
             {
               "text": "Comportement attendu — expliquer le cache 24h et proposer un rafraîchissement manuel si besoin",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Comportement attendu</span><span class=\"text-[6px] text-slate-500 block\">expliquer le cache 24h et proposer un rafraîchissement manuel si </span></div>"
+              "isCorrect": true
             },
             {
               "text": "Bug back-end — le batch d'envoi n'a probablement pas mis à jour les compteurs → investiguer",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Bug back-end</span><span class=\"text-[6px] text-slate-500 block\">le batch d&#39;envoi n&#39;a probablement pas mis à jour les compteurs → </span></div>"
+              "isCorrect": false
             },
             {
               "text": "Bug front-end — le tableau de bord n'affiche pas les données correctement → corriger l'affichage",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Bug front-end</span><span class=\"text-[6px] text-slate-500 block\">le tableau de bord n&#39;affiche pas les données correctement → corri</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -382,18 +340,15 @@
           "subOptions": [
             {
               "text": "Ticket expertise data : analyser les périmètres de calcul respectifs (définitions, dates, périmètre géographique)",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Ticket expertise data</span><span class=\"text-[6px] text-slate-500 block\">analyser les périmètres de calcul respectifs (définitions, dates,</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Bug dans le rapport de l'ARS — corriger le calcul dans EPICONCEPT pour aligner les chiffres",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Bug dans le rapport de l&#39;ARS —</span><span class=\"text-[6px] text-slate-500 block\">corriger le calcul dans EPICONCEPT pour aligner les chiffres</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Répondre que les chiffres EPICONCEPT sont justes et que la Cham a probablement un bug dans ses remontées",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Répondre que les chiffres EPIC</span><span class=\"text-[6px] text-slate-500 block\">ONCEPT sont justes et que la Cham a probablement un bug dans ses </span></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -418,18 +373,15 @@
           "subOptions": [
             {
               "text": "Formaliser avec capture d'écran, texte erroné exact et correction attendue → ticket de correction mineure",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Formaliser avec capture d&#39;écra</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-emerald-600\">1. Identifier</span> → <span class=\"text-[6px] text-emerald-600\">2. Corriger</span> → <span class=\"text-[6px] text-emerald-600\">3. Valider</span></div></div></div>"
+              "isCorrect": true
             },
             {
               "text": "Corriger directement le template PDF en production depuis le serveur de templates",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Corriger directement le templa</span><span class=\"text-[6px] text-slate-500 block\">te PDF en production depuis le serveur de templates</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Attendre la prochaine refonte des templates prévue dans 6 mois pour corriger la faute",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Attendre la prochaine refonte</span><span class=\"text-[6px] text-slate-500 block\">des templates prévue dans 6 mois pour corriger la faute</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -440,18 +392,15 @@
           "subOptions": [
             {
               "text": "Formaliser comme une demande d'évolution avec contexte métier et critères d'acceptation détaillés",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Formaliser comme une demande d</span><span class=\"text-[6px] text-slate-500 block\">&#39;évolution avec contexte métier et critères d&#39;acceptation détaill</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Ouvrir un ticket de correction urgent puisque les gestionnaires perdent du temps chaque jour",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Ouvrir un ticket de correction</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             },
             {
               "text": "Développer rapidement la fonctionnalité et la déployer sans passer par le cycle de release",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Développer rapidement la fonct</span><span class=\"text-[6px] text-slate-500 block\">ionnalité et la déployer sans passer par le cycle de release</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -462,18 +411,15 @@
           "subOptions": [
             {
               "text": "Formalisation exhaustive : détailler les définitions de calcul, fournir données brutes, requêtes et validation métier",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Formalisation exhaustive</span><span class=\"text-[6px] text-slate-500 block\">détailler les définitions de calcul, fournir données brutes, requ</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Corriger directement la formule de calcul dans le code et déployer en urgence pour aligner les chiffres",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Corriger directement la formul</span><span class=\"text-[6px] text-slate-500 block\">e de calcul dans le code et déployer en urgence pour aligner les </span></div>"
+              "isCorrect": false
             },
             {
               "text": "Proposer d'afficher le taux calculé manuellement en attendant le correctif, sans formalisation particulière",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Proposer d&#39;afficher le taux ca</span><span class=\"text-[6px] text-slate-500 block\">lculé manuellement en attendant le correctif, sans formalisation </span></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -498,18 +444,15 @@
           "subOptions": [
             {
               "text": "Observer la démo en partage d'écran, identifier des motifs (NIR avec tirets), reproduire sur préprod",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Observer la démo en partage d&#39;</span><span class=\"text-[6px] text-slate-500 block\">écran, identifier des motifs (NIR avec tirets), reproduire sur pr</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Demander une capture d'écran et transférer le ticket directement à l'équipe de développement",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Demander une capture d&#39;écran e</span><span class=\"text-[6px] text-slate-500 block\">t transférer le ticket directement à l&#39;équipe de développement</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Conseiller à la gestionnaire d'utiliser un autre navigateur en attendant le correctif",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Conseiller à la gestionnaire d</span><span class=\"text-[6px] text-slate-500 block\">&#39;utiliser un autre navigateur en attendant le correctif</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -520,18 +463,15 @@
           "subOptions": [
             {
               "text": "Analyser les logs serveur pour identifier un pattern (timeout, mémoire), reproduire en préprod avec montée en charge",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Analyser les logs serveur pour</span><span class=\"text-[6px] text-slate-500 block\">identifier un pattern (timeout, mémoire), reproduire en préprod a</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Modifier l'export en production pour limiter le volume à 10 000 lignes par fichier",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Modifier l&#39;export en productio</span><span class=\"text-[6px] text-slate-500 block\">n pour limiter le volume à 10 000 lignes par fichier</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Conseiller au CRDC de lancer l'export plusieurs fois jusqu'à ce que ça marche",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Conseiller au CRDC de lancer l</span><span class=\"text-[6px] text-slate-500 block\">&#39;export plusieurs fois jusqu&#39;à ce que ça marche</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -542,18 +482,15 @@
           "subOptions": [
             {
               "text": "Mener une investigation transverse : aligner les périmètres, comparer les pipelines de données par période",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Mener une investigation transverse</span><span class=\"text-[6px] text-slate-500 block\">aligner les périmètres, comparer les pipelines de données par pér</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Corriger les données dans EPICONCEPT pour coller aux chiffres CPAM (la référence officielle)",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Corriger les données dans EPIC</span><span class=\"text-[6px] text-slate-500 block\">ONCEPT pour coller aux chiffres CPAM (la référence officielle)</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Ajouter un correctif de +2,3 % dans l'API pour compenser l'écart de manière automatique",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Ajouter un correctif de +2,3 %</span><span class=\"text-[6px] text-slate-500 block\">dans l&#39;API pour compenser l&#39;écart de manière automatique</span></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -578,18 +515,15 @@
           "subOptions": [
             {
               "text": "Documenter le contournement dans la base de connaissances ET remonter en priorité le bug pour correction définitive",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm flex flex-col gap-1\"><div class=\"flex items-center justify-between\"><span class=\"text-[7px] font-black uppercase tracking-wider text-slate-400\">Ticket</span><span class=\"text-[7px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold\">Basse</span></div><div class=\"flex items-center gap-1\"><div class=\"w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold leading-tight\">Documenter le contournement da</span></div><span class=\"text-[6px] text-slate-500\">ns la base de connaissances ET remonter en priorité le bug pour c</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Continuer à corriger manuellement — c'est plus rapide que de passer par un cycle de release",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Continuer à corriger manuellement</span><span class=\"text-[6px] text-slate-500 block\">c&#39;est plus rapide que de passer par un cycle de release</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Automatiser le contournement avec un script SQL exécuté chaque nuit en attendant la correction",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Automatiser le contournement a</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-slate-400\">1. Analyser</span></div></div></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -600,18 +534,15 @@
           "subOptions": [
             {
               "text": "Centraliser les tickets, créer un KB article sur le timeout PDF, alerter sur le coût cumulé (6j support vs 2j dev)",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><span class=\"text-[9px]\">🟠</span><span class=\"text-[7px] font-black uppercase text-slate-400\">Notification</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold ml-auto\">À SUIVRE</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5 flex items-center gap-1\"><div class=\"w-1 h-1 rounded-full bg-emerald-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold\">Centraliser les tickets, créer</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">un KB article sur le timeout PDF, alerter sur le coût cumulé (6j </span></div>"
+              "isCorrect": true
             },
             {
               "text": "Traiter chaque CRDC individuellement en augmentant le timeout serveur à 120s pour chaque instance",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Traiter chaque CRDC individuel</span><span class=\"text-[6px] text-slate-500 block\">lement en augmentant le timeout serveur à 120s pour chaque instan</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Fermer les tickets en conseillant une extraction par morceaux (export mensuel puis assemblage manuel)",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Fermer les tickets en conseill</span><span class=\"text-[6px] text-slate-500 block\">ant une extraction par morceaux (export mensuel puis assemblage m</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -622,18 +553,15 @@
           "subOptions": [
             {
               "text": "Préparer un dossier de coût total (TCO) avec chiffres → escalade au COPIL pour correction structurelle prioritaire",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><span class=\"text-[9px]\">🟠</span><span class=\"text-[7px] font-black uppercase text-slate-400\">Notification</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold ml-auto\">À SUIVRE</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5 flex items-center gap-1\"><div class=\"w-1 h-1 rounded-full bg-emerald-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold\">Préparer un dossier de coût to</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">tal (TCO) avec chiffres → escalade au COPIL pour correction struc</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Mettre en place un script hebdomadaire de nettoyage des doublons pour maintenir l'indicateur sous les 5 %",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Mettre en place un script hebd</span><span class=\"text-[6px] text-slate-500 block\">omadaire de nettoyage des doublons pour maintenir l&#39;indicateur so</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Ajouter une note dans la documentation utilisateur expliquant que les doublons peuvent fausser les données",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Ajouter une note dans la docum</span><span class=\"text-[6px] text-slate-500 block\">entation utilisateur expliquant que les doublons peuvent fausser </span></div>"
+              "isCorrect": false
             }
           ]
         }
@@ -658,18 +586,15 @@
           "subOptions": [
             {
               "text": "Contacter le médecin proactivement pour l'informer de la correction et confirmer le bon fonctionnement",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Workaround</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5\"><span class=\"text-[7px] font-bold text-slate-700\">Contacter le médecin proactive</span><div class=\"text-[6px] text-slate-500 mt-0.5\"><span class=\"text-[6px] text-emerald-600\">1. Identifier</span> → <span class=\"text-[6px] text-emerald-600\">2. Corriger</span> → <span class=\"text-[6px] text-emerald-600\">3. Valider</span></div></div></div>"
+              "isCorrect": true
             },
             {
               "text": "Fermer le ticket sans contact — le correctif est déployé, s'il a besoin il rappellera",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Fermer le ticket sans contact</span><span class=\"text-[6px] text-slate-500 block\">le correctif est déployé, s&#39;il a besoin il rappellera</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Attendre le prochain appel du médecin pour lui annoncer la bonne nouvelle",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Attendre le prochain appel du</span><span class=\"text-[6px] text-slate-500 block\">médecin pour lui annoncer la bonne nouvelle</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -680,18 +605,15 @@
           "subOptions": [
             {
               "text": "Contacter le CRDC immédiatement, expliquer le planning, proposer un contournement et un point hebdomadaire",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><span class=\"text-[9px]\">🟠</span><span class=\"text-[7px] font-black uppercase text-slate-400\">Notification</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold ml-auto\">À SUIVRE</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5 flex items-center gap-1\"><div class=\"w-1 h-1 rounded-full bg-emerald-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold\">Contacter le CRDC immédiatemen</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">t, expliquer le planning, proposer un contournement et un point h</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Demander au développeur de prioriser ce correctif ce soir et le déployer en urgence demain matin",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Demander au développeur de pri</span><span class=\"text-[6px] text-slate-500 block\">oriser ce correctif ce soir et le déployer en urgence demain mati</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Attendre la fin du sprint (3 semaines) ; le CRDC doit adapter sa campagne au planning de correction",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><span class=\"text-[9px]\">🟠</span><span class=\"text-[7px] font-black uppercase text-slate-400\">Notification</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold ml-auto\">À SUIVRE</span></div><div class=\"bg-white rounded border border-slate-200 p-1.5 flex items-center gap-1\"><div class=\"w-1 h-1 rounded-full bg-slate-300 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold\">Attendre la fin du sprint (3 s</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">emaines) ; le CRDC doit adapter sa campagne au planning de correc</span></div>"
+              "isCorrect": false
             }
           ]
         },
@@ -702,18 +624,15 @@
           "subOptions": [
             {
               "text": "Préparer avec la direction un dossier complet : RAC, plan correctif, SLA renforcé, propositions commerciales",
-              "isCorrect": true,
-              "visual": "<div class=\"w-full border-emerald-300 bg-emerald-50 border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><span class=\"text-[9px]\">🟠</span><span class=\"text-[7px] font-black uppercase text-slate-400\">Notification</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold ml-auto\">À SUIVRE</span></div><div class=\"bg-white rounded border border-emerald-200 p-1.5 flex items-center gap-1\"><div class=\"w-1 h-1 rounded-full bg-emerald-500 shrink-0\"></div><span class=\"text-[7px] text-slate-700 font-bold\">Préparer avec la direction un dossier complet</span></div><span class=\"text-[6px] text-slate-500 mt-0.5 block\">RAC, plan correctif, SLA renforcé, propositions commerciales</span></div>"
+              "isCorrect": true
             },
             {
               "text": "Rassurer le directeur verbalement : le bug est corrigé, il n'y a pas de souci pour la suite du contrat",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Rassurer le directeur verbalement</span><span class=\"text-[6px] text-slate-500 block\">le bug est corrigé, il n&#39;y a pas de souci pour la suite du contra</span></div>"
+              "isCorrect": false
             },
             {
               "text": "Proposer une réduction d'abonnement de 20 % pour compenser l'incident et éviter la résiliation",
-              "isCorrect": false,
-              "visual": "<div class=\"w-full border-slate-200 bg-white border-2 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-black uppercase text-slate-400\">Ticket</span></div><span class=\"text-[7px] font-bold text-slate-700\">Proposer une réduction d&#39;abonn</span><span class=\"text-[6px] text-slate-500 block\">ement de 20 % pour compenser l&#39;incident et éviter la résiliation</span></div>"
+              "isCorrect": false
             }
           ]
         }

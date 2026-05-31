@@ -634,8 +634,7 @@
             levelSteps = reflexes.map(r => {
                 const options = r.questions.map((q, idx) => ({
                     text: q.text,
-                    visual: q.visual,
-                    isCorrect: (idx === lv)
+                                        isCorrect: (idx === lv)
                 })).sort(() => Math.random() - 0.5);
 
                 const savedProgress = localStorage.getItem('po-progress-lv' + lv + '-reflex' + r.id);

@@ -5,16 +5,13 @@
     "intent": "Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.",
     "questions": [
       {
-        "text": "Quel est l'objectif final que vous visez en faisant cela ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Quel est l&#39;objectif final que vous visez en faisant cela ? »</span></div></div>"
+        "text": "Quel est l'objectif final que vous visez en faisant cela ?"
       },
       {
-        "text": "Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre métier ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre méti »</span></div></div>"
+        "text": "Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre métier ?"
       },
       {
-        "text": "Quel problème concret aujourd'hui disparaîtrait si cette fonction existait ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Quel problème concret aujourd&#39;hui disparaîtrait si cette fonction existait ? »</span></div></div>"
+        "text": "Quel problème concret aujourd'hui disparaîtrait si cette fonction existait ?"
       }
     ],
     "scenarios": [
@@ -43,16 +40,13 @@
     "intent": "Obtenir des données précises sur la fréquence et l'impact réel pour évaluer le coût du statu quo.",
     "questions": [
       {
-        "text": "Sur une échelle de 1 à 10, quel est l'impact de ce problème sur votre productivité ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Sur une échelle de 1 à 10, quel est l&#39;impact de ce problème sur votre productivité ? »</span></div></div>"
+        "text": "Sur une échelle de 1 à 10, quel est l'impact de ce problème sur votre productivité ?"
       },
       {
-        "text": "Quelle serait la nature précise de l'impact en cas de non-traitement (risque, perte, démotivation) ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Quelle serait la nature précise de l&#39;impact en cas de non-traitement (risque, perte,  »</span></div></div>"
+        "text": "Quelle serait la nature précise de l'impact en cas de non-traitement (risque, perte, démotivation) ?"
       },
       {
-        "text": "Que se passerait-il concrètement à long terme si la situation actuelle perdurait ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Que se passerait-il concrètement à long terme si la situation actuelle perdurait ? »</span></div></div>"
+        "text": "Que se passerait-il concrètement à long terme si la situation actuelle perdurait ?"
       }
     ],
     "scenarios": [
@@ -81,16 +75,13 @@
     "intent": "Observer le flux réel de l'utilisateur pour révéler des points de friction invisibles ou des bugs non exprimés.",
     "questions": [
       {
-        "text": "Pouvez-vous me montrer précisément le moment où cela devient frustrant ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Pouvez-vous me montrer précisément le moment où cela devient frustrant ? »</span></div></div>"
+        "text": "Pouvez-vous me montrer précisément le moment où cela devient frustrant ?"
       },
       {
-        "text": "Est-ce que je peux vous regarder effectuer la tâche sans intervenir ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Est-ce que je peux vous regarder effectuer la tâche sans intervenir ? »</span></div></div>"
+        "text": "Est-ce que je peux vous regarder effectuer la tâche sans intervenir ?"
       },
       {
-        "text": "À quelle étape précise avez-vous l'impression de perdre le contrôle ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« À quelle étape précise avez-vous l&#39;impression de perdre le contrôle ? »</span></div></div>"
+        "text": "À quelle étape précise avez-vous l'impression de perdre le contrôle ?"
       }
     ],
     "scenarios": [
@@ -119,16 +110,13 @@
     "intent": "Éviter de développer une nouvelle fonction si le problème peut être résolu par du paramétrage ou de la formation.",
     "questions": [
       {
-        "text": "Aujourd'hui, comment faites-vous pour contourner ce manque ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Aujourd&#39;hui, comment faites-vous pour contourner ce manque ? »</span></div></div>"
+        "text": "Aujourd'hui, comment faites-vous pour contourner ce manque ?"
       },
       {
-        "text": "Existe-t-il une 'astuce' ou un moyen détourné pour y arriver ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Existe-t-il une &#39;astuce&#39; ou un moyen détourné pour y arriver ? »</span></div></div>"
+        "text": "Existe-t-il une 'astuce' ou un moyen détourné pour y arriver ?"
       },
       {
-        "text": "Est-ce que notre documentation mentionne déjà une solution ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Est-ce que notre documentation mentionne déjà une solution ? »</span></div></div>"
+        "text": "Est-ce que notre documentation mentionne déjà une solution ?"
       }
     ],
     "scenarios": [
@@ -157,16 +145,13 @@
     "intent": "Comprendre les échecs passés pour éviter de proposer une solution qui a déjà échoué ou qui a été rejetée.",
     "questions": [
       {
-        "text": "Est-ce que cette demande a déjà été formulée ou rejetée auparavant ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Est-ce que cette demande a déjà été formulée ou rejetée auparavant ? »</span></div></div>"
+        "text": "Est-ce que cette demande a déjà été formulée ou rejetée auparavant ?"
       },
       {
-        "text": "Qu'est-ce qui a empêché l'adoption d'une solution similaire par le passé ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Qu&#39;est-ce qui a empêché l&#39;adoption d&#39;une solution similaire par le passé ? »</span></div></div>"
+        "text": "Qu'est-ce qui a empêché l'adoption d'une solution similaire par le passé ?"
       },
       {
-        "text": "Existe-t-il un ticket ou une demande en cours dans le backlog ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Existe-t-il un ticket ou une demande en cours dans le backlog ? »</span></div></div>"
+        "text": "Existe-t-il un ticket ou une demande en cours dans le backlog ?"
       }
     ],
     "scenarios": [
@@ -195,16 +180,13 @@
     "intent": "Déterminer si le besoin est spécifique au client et comment le généraliser pour d'autres utilisateurs.",
     "questions": [
       {
-        "text": "Pensez-vous que ce besoin est propre à votre façon de travailler ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Pensez-vous que ce besoin est propre à votre façon de travailler ? »</span></div></div>"
+        "text": "Pensez-vous que ce besoin est propre à votre façon de travailler ?"
       },
       {
-        "text": "Comment vos confrères d'autres centres gèrent-ils ce point ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Comment vos confrères d&#39;autres centres gèrent-ils ce point ? »</span></div></div>"
+        "text": "Comment vos confrères d'autres centres gèrent-ils ce point ?"
       },
       {
-        "text": "Est-ce qu'un pourcentage significatif de clients a exprimé ce besoin ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Est-ce qu&#39;un pourcentage significatif de clients a exprimé ce besoin ? »</span></div></div>"
+        "text": "Est-ce qu'un pourcentage significatif de clients a exprimé ce besoin ?"
       }
     ],
     "scenarios": [
@@ -233,16 +215,13 @@
     "intent": "Ouvrir le champ des possibles pour éviter de s'enfermer dans une solution unique et trouver la plus efficiente.",
     "questions": [
       {
-        "text": "Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Si on traitait le problème via l&#39;option A plutôt que B, qu&#39;en penseriez-vous ? »</span></div></div>"
+        "text": "Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ?"
       },
       {
-        "text": "Quelle option offre le meilleur ratio Valeur / Effort ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Quelle option offre le meilleur ratio Valeur / Effort ? »</span></div></div>"
+        "text": "Quelle option offre le meilleur ratio Valeur / Effort ?"
       },
       {
-        "text": "Laquelle de ces approches vous semble la plus intuitive au quotidien ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Laquelle de ces approches vous semble la plus intuitive au quotidien ? »</span></div></div>"
+        "text": "Laquelle de ces approches vous semble la plus intuitive au quotidien ?"
       }
     ],
     "scenarios": [
@@ -271,16 +250,13 @@
     "intent": "Maximiser l'impact d'un développement en résolvant plusieurs problèmes à la fois par une vision transverse.",
     "questions": [
       {
-        "text": "Est-ce que cette approche ne réglerait pas aussi le souci de X ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Est-ce que cette approche ne réglerait pas aussi le souci de X ? »</span></div></div>"
+        "text": "Est-ce que cette approche ne réglerait pas aussi le souci de X ?"
       },
       {
-        "text": "Comment cette solution s'intègre-t-elle avec vos autres tâches ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Comment cette solution s&#39;intègre-t-elle avec vos autres tâches ? »</span></div></div>"
+        "text": "Comment cette solution s'intègre-t-elle avec vos autres tâches ?"
       },
       {
-        "text": "Peut-on en profiter pour couvrir également d'autres cas ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Peut-on en profiter pour couvrir également d&#39;autres cas ? »</span></div></div>"
+        "text": "Peut-on en profiter pour couvrir également d'autres cas ?"
       }
     ],
     "scenarios": [
@@ -309,16 +285,13 @@
     "intent": "Vérifier si des solutions planifiées rendent le problème obsolète ou si la demande peut enrichir une conception future.",
     "questions": [
       {
-        "text": "Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Doit-on traiter ce besoin séparément ou l&#39;inclure dans le projet futur ? »</span></div></div>"
+        "text": "Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ?"
       },
       {
-        "text": "Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ? »</span></div></div>"
+        "text": "Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ?"
       },
       {
-        "text": "Comment cette demande permet-elle d'ajuster la conception de la suite ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Comment cette demande permet-elle d&#39;ajuster la conception de la suite ? »</span></div></div>"
+        "text": "Comment cette demande permet-elle d'ajuster la conception de la suite ?"
       }
     ],
     "scenarios": [
@@ -347,16 +320,13 @@
     "intent": "Anticiper les effets de bord, la dette technique et les contradictions avec l'existant avant de s'engager.",
     "questions": [
       {
-        "text": "Quel est l'impact de ce changement sur la performance ou la maintenance ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Quel est l&#39;impact de ce changement sur la performance ou la maintenance ? »</span></div></div>"
+        "text": "Quel est l'impact de ce changement sur la performance ou la maintenance ?"
       },
       {
-        "text": "Êtes-vous conscient de la contrainte technique que cela impose ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Êtes-vous conscient de la contrainte technique que cela impose ? »</span></div></div>"
+        "text": "Êtes-vous conscient de la contrainte technique que cela impose ?"
       },
       {
-        "text": "Est-ce que cette solution ne crée pas de nouveaux cas d'erreur ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Est-ce que cette solution ne crée pas de nouveaux cas d&#39;erreur ? »</span></div></div>"
+        "text": "Est-ce que cette solution ne crée pas de nouveaux cas d'erreur ?"
       }
     ],
     "scenarios": [
@@ -385,16 +355,13 @@
     "intent": "Identifier ce que l'utilisateur est prêt à céder (délai, confort, coût) pour obtenir de la valeur plus rapidement.",
     "questions": [
       {
-        "text": "Seriez-vous prêt à attendre plus longtemps pour une version complète ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Seriez-vous prêt à attendre plus longtemps pour une version complète ? »</span></div></div>"
+        "text": "Seriez-vous prêt à attendre plus longtemps pour une version complète ?"
       },
       {
-        "text": "La solution convient-elle si elle demande des étapes manuelles en plus ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« La solution convient-elle si elle demande des étapes manuelles en plus ? »</span></div></div>"
+        "text": "La solution convient-elle si elle demande des étapes manuelles en plus ?"
       },
       {
-        "text": "Si nous ne pouvions faire que 50% du besoin, quelle partie est vitale ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Si nous ne pouvions faire que 50% du besoin, quelle partie est vitale ? »</span></div></div>"
+        "text": "Si nous ne pouvions faire que 50% du besoin, quelle partie est vitale ?"
       }
     ],
     "scenarios": [
@@ -423,16 +390,13 @@
     "intent": "Identifier le plus petit incrément capable de générer de la valeur immédiate avec le moins d'effort possible.",
     "questions": [
       {
-        "text": "Existe-t-il une approche qui demande zéro modification de code ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Existe-t-il une approche qui demande zéro modification de code ? »</span></div></div>"
+        "text": "Existe-t-il une approche qui demande zéro modification de code ?"
       },
       {
-        "text": "Sous quelles conditions la solution proposée vous sauve-t-elle la journée ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Sous quelles conditions la solution proposée vous sauve-t-elle la journée ? »</span></div></div>"
+        "text": "Sous quelles conditions la solution proposée vous sauve-t-elle la journée ?"
       },
       {
-        "text": "Si on ne fait que X, est-ce que cela règle déjà 80% du problème ?",
-        "visual": "<div class=\"w-full border border-blue-200 bg-blue-50 rounded-lg p-2 shadow-sm\"><div class=\"flex items-center gap-1.5 mb-1\"><div class=\"w-4 h-4 rounded-full bg-white border-2 border-blue-300 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i></div><span class=\"text-[7px] font-black uppercase text-blue-700 tracking-wider\">Questions Métier Clés</span><span class=\"text-[6px] text-blue-400 ml-auto\">Poser</span></div><div class=\"bg-white rounded-lg border border-blue-100 p-1.5 flex items-start gap-1\"><div class=\"w-2 h-2 rounded-full bg-blue-400 shrink-0 mt-0.5\"></div><span class=\"text-[7px] text-slate-700 leading-tight italic\">« Si on ne fait que X, est-ce que cela règle déjà 80% du problème ? »</span></div></div>"
+        "text": "Si on ne fait que X, est-ce que cela règle déjà 80% du problème ?"
       }
     ],
     "scenarios": [
