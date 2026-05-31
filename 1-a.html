@@ -63,6 +63,24 @@
                 overflow: auto !important;
                 height: auto !important;
             }
+            #home-screen {
+                padding: 0.75rem !important;
+            }
+            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.75rem !important;
+            }
+            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center > div:first-child {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center > div:last-child {
+                justify-content: flex-start !important;
+            }
+            #home-screen select {
+                width: 100%;
+            }
             main {
                 height: auto !important;
                 overflow: visible !important;
@@ -88,6 +106,14 @@
                 min-height: 400px !important;
                 padding: 1.5rem !important;
             }
+            #debriefing-card .flex.items-center.gap-4.mb-6.mt-4.shrink-0 {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.75rem !important;
+            }
+            #debriefing-card .grid.grid-cols-1.md\:grid-cols-3.gap-3.md\:gap-6.mb-6.md\:mb-10 {
+                grid-template-columns: 1fr !important;
+            }
             #modal-referentiel {
                 padding: 0 !important;
             }
@@ -97,6 +123,189 @@
                 height: 100vh !important;
                 max-height: 100vh !important;
                 width: 100% !important;
+            }
+            #modal-referentiel [style*="grid-template-columns: 1fr 1fr"],
+            #modal-referentiel [style*="grid-template-columns: repeat(3, 1fr)"],
+            #modal-referentiel [style*="grid-template-columns: repeat(2, 1fr)"] {
+                grid-template-columns: 1fr !important;
+            }
+            #modal-referentiel [style*="grid-template-columns: repeat(3, 1fr)"],
+            #modal-referentiel [style*="grid-template-columns: repeat(2, 1fr)"] {
+                gap: 0.75rem !important;
+            }
+            #modal-referentiel .flex.flex-row.md\:flex-row,
+            #modal-referentiel .flex.flex-col.md\:flex-row,
+            #modal-referentiel .flex.flex-row.md\:flex-col {
+                flex-direction: column !important;
+            }
+            #modal-referentiel .shrink-0.self-center {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 500px) {
+            /* Aggressive reductions for padding & margins */
+            #home-screen, #debriefing-card, #modal-content, main, .p-4, .p-6, .p-8 {
+                padding: 0.25rem !important;
+            }
+            .level-card, .glass-panel, .reflex-btn, .ui-btn, .mb-6, .mb-4, .my-4 {
+                padding: 0.35rem !important;
+                margin-bottom: 0.25rem !important;
+                margin-top: 0.15rem !important;
+                gap: 0.2rem !important;
+            }
+            .gap-4, .gap-6, .gap-3 {
+                gap: 0.25rem !important;
+            }
+            
+            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center {
+                gap: 0.2rem !important;
+                margin-bottom: 0.3rem !important;
+            }
+            #home-screen .flex.items-center.gap-2 {
+                gap: 0.25rem !important;
+            }
+            #home-screen h1,
+            #lesson-modal h1,
+            h1 {
+                font-size: 1.1rem !important;
+                line-height: 1.05 !important;
+                margin-bottom: 0.1rem !important;
+                margin-top: 0.1rem !important;
+            }
+            #home-screen h3, #lesson-modal h3, h3, #home-screen h4, #lesson-modal h4, h4 {
+                font-size: 0.68rem !important;
+                line-height: 1.15 !important;
+                margin-top: 0.1rem !important;
+                margin-bottom: 0.1rem !important;
+            }
+            #home-screen p,
+            #lesson-modal p,
+            p,
+            #home-screen select,
+            #lesson-selector,
+            select {
+                font-size: 0.6rem !important;
+                line-height: 1.15 !important;
+                margin-bottom: 0.1rem !important;
+                margin-top: 0.1rem !important;
+            }
+            #home-screen select,
+            #lesson-selector,
+            select {
+                padding: 0.2rem 0.35rem !important;
+                min-height: 1.6rem !important;
+            }
+            #home-screen .level-card h2,
+            #lesson-modal .level-card h2 {
+                font-size: 0.75rem !important;
+            }
+            #home-screen .level-card p,
+            #lesson-modal .level-card p {
+                font-size: 0.58rem !important;
+                margin-top: 0.1rem !important;
+            }
+
+            /* Much smaller Lucide icons globally on the page */
+            [data-lucide] {
+                width: 11px !important;
+                height: 11px !important;
+            }
+            .level-card [data-lucide],
+            i[data-lucide] {
+                width: 13px !important;
+                height: 13px !important;
+            }
+            
+            /* Lesson page dynamic header up to three lines wrap */
+            header {
+                height: auto !important;
+                padding: 0.25rem 0.4rem !important;
+                min-height: auto !important;
+            }
+            header > div {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.2rem !important;
+            }
+            /* Line 1: Left Navigation */
+            header > div > div:first-child {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 0.2rem !important;
+            }
+            header button,
+            header .bg-slate-100 {
+                padding: 0.2rem !important;
+                border-radius: 4px !important;
+            }
+            /* Line 2: Lesson Title Context */
+            header > div > div.text-center {
+                width: 100% !important;
+                text-align: center !important;
+                padding: 0.15rem 0 !important;
+                border-top: 1px solid #e2e8f0 !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+            }
+            header > div > div.text-center span {
+                display: inline-block !important;
+                margin: 0 0.15rem !important;
+                font-size: 0.58rem !important;
+            }
+            header > div > div.text-center #level-title-display {
+                font-size: 0.65rem !important;
+            }
+            /* Line 3: Score & Reset Action */
+            header > div > div:last-child {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: 0.2rem !important;
+            }
+            header > div > div:last-child #score-display {
+                font-size: 0.8rem !important;
+            }
+            
+            #lesson-modal .lesson-slide svg,
+            #lesson-modal .mockup-container svg {
+                max-height: 52vh !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            #home-screen {
+                padding: 0.5rem !important;
+            }
+            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center,
+            #lesson-header {
+                gap: 0.4rem !important;
+            }
+            #home-screen h1,
+            #lesson-modal h1 {
+                font-size: 1.45rem !important;
+                line-height: 1.1 !important;
+            }
+            #home-screen p,
+            #lesson-modal p {
+                font-size: 0.72rem !important;
+                line-height: 1.25 !important;
+            }
+            #home-screen .level-card,
+            #lesson-modal .level-card,
+            #lesson-modal .glass-panel,
+            #lesson-modal .reflex-btn,
+            #lesson-modal .ui-btn {
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
+            #lesson-modal .lesson-slide svg,
+            #lesson-modal .mockup-container svg {
+                max-height: 62vh !important;
             }
         }
     </style>

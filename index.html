@@ -845,6 +845,37 @@
                 padding: 5px 0px !important;
             }
 
+            #lesson-header {
+                height: auto !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.5rem !important;
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            #lesson-header > div:first-child {
+                width: 100%;
+                gap: 0.5rem !important;
+            }
+
+            #lesson-header > div:last-child {
+                width: 100%;
+                justify-content: space-between !important;
+            }
+
+            #lesson-selector {
+                flex: 1 1 auto;
+                min-width: 0;
+                font-size: 10px !important;
+            }
+
+            #dot-progress {
+                display: none !important;
+            }
+
             .lesson-slide svg {
                 margin: 0 !important;
                 padding: 0 !important;
@@ -926,6 +957,115 @@
             }
         }
 
+        @media (max-width: 500px) {
+            #lesson-modal {
+                padding: 2px 0 !important;
+            }
+            #lesson-header {
+                height: auto !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.2rem !important;
+                padding: 0 !important;
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+                border-bottom: none !important;
+            }
+            #lesson-header > div:first-child,
+            #lesson-header > div:last-child {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: 0.2rem !important;
+            }
+            #lesson-selector {
+                font-size: 9px !important;
+                min-height: 1.6rem !important;
+                padding: 0.2rem 0.35rem !important;
+                flex-grow: 1 !important;
+            }
+            #lesson-header button,
+            #lesson-header .icon-btn {
+                width: 26px !important;
+                height: 26px !important;
+                padding: 0 !important;
+            }
+            #lesson-header [data-lucide] {
+                width: 11px !important;
+                height: 11px !important;
+            }
+            #dot-progress {
+                display: none !important;
+            }
+            #lesson-slides-container {
+                padding: 2px !important;
+            }
+            .lesson-slide {
+                padding: 0 !important;
+                margin: 0 !important;
+                height: auto !important;
+                overflow-y: visible !important;
+            }
+            .lesson-slide svg {
+                max-height: 52vh !important;
+            }
+            .lesson-slide h2 {
+                font-size: 18px !important;
+                margin-top: 0.15rem !important;
+                margin-bottom: 0.1rem !important;
+                padding-top: 0 !important;
+                order: 1 !important;
+            }
+            .lesson-slide h1, .lesson-slide h3, .lesson-slide h4 {
+                font-size: 0.85rem !important;
+                margin-top: 0.1rem !important;
+                margin-bottom: 0.1rem !important;
+                line-height: 1.15 !important;
+            }
+            .lesson-slide p {
+                order: 2 !important;
+            }
+            .slide-content-wrapper {
+                order: 3 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: stretch !important;
+                margin-top: 0.25rem !important;
+                width: 100% !important;
+                flex: 1 1 auto !important;
+                min-height: 0 !important;
+            }
+            .slide-content-wrapper .grid {
+                margin-top: 0 !important;
+                position: relative !important;
+                top: auto !important;
+            }
+            .slide-footer-conclusion {
+                order: 4 !important;
+                margin-top: 0.4rem !important;
+                margin-bottom: 0.4rem !important;
+                padding: 0.2rem !important;
+                width: 100% !important;
+                text-align: center !important;
+                font-size: 0.65rem !important;
+                line-height: 1.15 !important;
+            }
+            .lesson-slide p,
+            .lesson-slide li,
+            .lesson-slide span {
+                font-size: 0.65rem !important;
+                line-height: 1.1 !important;
+            }
+            /* Much smaller Lucide icons globally on index.html for other smaller items too */
+            [data-lucide] {
+                width: 11px !important;
+                height: 11px !important;
+            }
+        }
+
         /* Visual Examples Cards */
         .ref-visual-card {
             background: #f8fafc;
@@ -995,6 +1135,42 @@
                 gap: 1rem;
                 align-items: flex-start;
                 padding: 1rem;
+            }
+
+            #lesson-header {
+                height: auto !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.5rem !important;
+                padding-bottom: 0.75rem !important;
+            }
+
+            #lesson-header > div:first-child {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 0.5rem !important;
+            }
+
+            #lesson-header > div:last-child {
+                width: 100%;
+                justify-content: space-between !important;
+            }
+
+            #lesson-selector {
+                flex: 1 1 auto;
+                min-width: 0;
+                font-size: 10px !important;
+            }
+
+            #dot-progress {
+                margin-left: 0 !important;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+
+            #dot-progress > * {
+                transform: scale(0.85);
+                transform-origin: center;
             }
         }
 
@@ -1590,7 +1766,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.05.31.02';
+        const APP_VERSION = '2026.05.31.03';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2059,13 +2235,13 @@
                 if (slide.footer) {
                     if (slide.footer.trim().startsWith("<div")) {
                         html += `
-                    <div style="width: 100%; display: flex; justify-content: center; margin-top: 0.6rem;">
+                    <div class="slide-footer-conclusion" style="width: 100%; display: flex; justify-content: center; margin-top: 0.6rem;">
                         ${slide.footer}
                     </div>
                 `;
                     } else {
                         html += `
-                    <p style="font-size: 1.2rem; color: #475569; margin-top: 0.6rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
+                    <p class="slide-footer-conclusion" style="font-size: 1.2rem; color: #475569; margin-top: 0.6rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
                         ${slide.footer}
                     </p>
                 `;

@@ -54,7 +54,13 @@
 - **explVisual** : PO = étapes connectées ; Support = matrice/dashboard ; Specs = couches/workflow.
 - **scenario.visual** : PO = interface métier ; Support = ticket ; Specs = mockup design/process. UX = 3 rendus côte-à-côte (correct + 2 wrong).
 
-## 9. Code Utile (Cheat Sheet)
+## 9. Bump, Commit & Déploiement
+- **Bump** : Incrémenter `APP_VERSION` dans `index.html` (format `YYYY.MM.DD.NN`). `NN` = 01 le jour même, puis 02, 03...
+- **Commit** : `git add index.html [fichiers modifiés]; if ($?) { git commit -m "bump vYYYY.MM.DD.NN - <description>" }`
+- **Push + Deploy** : `git push; if ($?) { firebase deploy --project goepico }`
+- Ne jamais commiter `.firebase/hosting..cache`.
+
+## 10. Code Utile (Cheat Sheet)
 ```js
 // Injection + Lucide
 el.innerHTML = html; lucide.createIcons();
