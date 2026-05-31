@@ -132,10 +132,10 @@
 
         h1 {
             font-family: var(--font-display);
-            font-size: clamp(calc(1.5rem + 2px), calc(2.5vw + 2px), calc(2rem + 2px));
-            font-weight: 500;
+            font-size: clamp(2.2rem, 3.8vw, 2.85rem);
+            font-weight: 900;
             line-height: 1.1;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
             margin-bottom: 0.15rem;
             text-transform: uppercase;
             color: var(--color-primary);
@@ -322,7 +322,7 @@
         }
 
         .atelier-number {
-            font-size: 0.58rem;
+            font-size: calc(0.58rem + 3px);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.12em;
@@ -332,7 +332,7 @@
 
         .atelier-name {
             font-family: var(--font-display);
-            font-size: 0.88rem;
+            font-size: calc(0.88rem + 3px);
             font-weight: 800;
             color: var(--text-main);
             letter-spacing: -0.01em;
@@ -340,11 +340,11 @@
 
         .atelier-sep {
             color: var(--text-low);
-            font-size: 0.75rem;
+            font-size: calc(0.75rem + 3px);
         }
 
         .atelier-phase {
-            font-size: 0.6rem;
+            font-size: calc(0.6rem + 3px);
             font-weight: 600;
             color: var(--text-low);
             text-transform: uppercase;
@@ -353,7 +353,7 @@
         }
 
         .atelier-objective {
-            font-size: 0.72rem;
+            font-size: calc(0.72rem + 3px);
             color: var(--text-muted);
             font-weight: 400;
             line-height: 1.4;
@@ -587,7 +587,7 @@
 
         .card-description {
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: calc(0.85rem + 3px) !important;
             line-height: 1.5;
             margin-bottom: 0;
             position: relative;
@@ -775,32 +775,54 @@
             }
         }
 
-        /* Responsive adjustments for Comprendre slides */
-        .comprendre-slide {
+        /* Responsive adjustments for Lesson slides */
+        .lesson-slide {
             width: 100%;
-            height: auto;
-            min-height: min-content;
+            height: 100%;
             display: none;
             /* Managed by JS, starts hidden or shown appropriately */
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 6px 10px 8px 10px;
+            padding: 6px 0px 8px 0px;
             box-sizing: border-box;
         }
 
+        .lesson-slide p,
+        .lesson-slide ul,
+        .lesson-slide li {
+            font-size: calc(1rem + 3px) !important;
+            color: #475569 !important;
+        }
+
+        .slide-content-wrapper {
+            flex: 1 1 0%;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-slide svg {
+            max-height: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            width: auto !important;
+            display: block;
+        }
+
         @media (max-width: 768px) {
-            #comprendre-modal {
+            #lesson-modal {
                 padding: 5px 0px !important;
             }
 
-            .comprendre-slide svg {
+            .lesson-slide svg {
                 margin: 0 !important;
                 padding: 0 !important;
-                max-height: 55vh !important;
+                max-height: 70vh !important;
             }
 
-            .comprendre-slide>div {
+            .lesson-slide>div {
                 padding: 2px !important;
                 border-radius: 4px !important;
                 border: none !important;
@@ -837,13 +859,13 @@
             align-items: center;
         }
 
-        .comprendre-slide svg,
+        .lesson-slide svg,
         .mockup-container svg {
             cursor: zoom-in;
             transition: transform 0.2s ease;
         }
 
-        .comprendre-slide svg:hover,
+        .lesson-slide svg:hover,
         .mockup-container svg:hover {
             transform: scale(1.02);
         }
@@ -1009,7 +1031,7 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 1 - Design Thinking</h2>
-                            <button onclick="event.stopPropagation(); openComprendre(1, 0)"
+                            <button onclick="event.stopPropagation(); openLesson(1, 0)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les slides Design Thinking">
@@ -1031,7 +1053,7 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 A - Cadrage Besoins PO</h2>
-                            <button onclick="event.stopPropagation(); openComprendre(1, 6)"
+                            <button onclick="event.stopPropagation(); openLesson(1, 6)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les réflexes PO">
@@ -1054,7 +1076,7 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 B - Ergonomie UX/UI</h2>
-                            <button onclick="event.stopPropagation(); openComprendre(1, 7)"
+                            <button onclick="event.stopPropagation(); openLesson(1, 7)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les réflexes UX">
@@ -1096,7 +1118,7 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 2- Produit Minimum Viable</h2>
-                            <button onclick="event.stopPropagation(); openComprendre(2, 0)"
+                            <button onclick="event.stopPropagation(); openLesson(2, 0)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les slides MVP">
@@ -1121,7 +1143,7 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 C - Support &amp; Client</h2>
-                            <button onclick="event.stopPropagation(); openComprendre(2, 5)"
+                            <button onclick="event.stopPropagation(); openLesson(2, 5)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les réflexes Support &amp; Client">
@@ -1145,7 +1167,7 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 D - Évolutions &amp; Specs</h2>
-                            <button onclick="event.stopPropagation(); openComprendre(2, 6)"
+                            <button onclick="event.stopPropagation(); openLesson(2, 6)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les réflexes Évolutions &amp; Specs">
@@ -1686,7 +1708,7 @@
             const dtCard = document.getElementById('dt-card');
             if (dtCard) {
                 dtCard.addEventListener('click', () => {
-                    openComprendre(1);
+                    openLesson(1);
                 });
             }
 
@@ -1714,7 +1736,7 @@
             const mvpCard = document.getElementById('mvp-card');
             if (mvpCard) {
                 mvpCard.addEventListener('click', () => {
-                    openComprendre(2);
+                    openLesson(2);
                 });
             }
 
@@ -1729,13 +1751,13 @@
         });
     </script>
 
-    <!-- Comprendre Modal -->
-    <div id="comprendre-modal"
-        style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 8px 12px; margin: 0; box-sizing: border-box;">
+    <!-- Lesson Modal -->
+    <div id="lesson-modal"
+        style="display: none; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 9999; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; padding: 8px 0px; margin: 0; box-sizing: border-box;">
 
         <!-- Header: dot progress + nav arrows + close -->
-        <div id="comprendre-header"
-            style="width: 100%; display: flex; justify-content: flex-end; align-items: center; height: 28px; flex-shrink: 0; gap: 0.5rem; padding-bottom: 4px;">
+        <div id="lesson-header"
+            style="width: 100%; display: flex; justify-content: flex-end; align-items: center; height: 28px; flex-shrink: 0; gap: 0.5rem; padding-bottom: 4px; padding-left: 12px; padding-right: 12px;">
             <!-- Dot Progress -->
             <div id="dot-progress"
                 style="display: flex; gap: 5px; align-items: center; margin-right: auto;">
@@ -1755,7 +1777,7 @@
                 <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
             </button>
             <!-- Close -->
-            <button onclick="closeComprendre()"
+            <button onclick="closeLesson()"
                 style="background: none; border: none; color: #94a3b8; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0;"
                 onmouseover="this.style.color='#0f172a'"
                 onmouseout="this.style.color='#94a3b8'" aria-label="Fermer la modal">
@@ -1763,8 +1785,8 @@
             </button>
         </div>
 
-        <div id="comprendre-slides-container"
-            style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 8px;">
+        <div id="lesson-slides-container"
+            style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 8px; padding-left: 12px; padding-right: 12px;">
             <!-- Generated dynamically from markdown -->
         </div>
     </div>
@@ -1786,9 +1808,9 @@
 
         let slidesDataCache = {};
 
-        async function openComprendre(atelierId, startSlide = null) {
+        async function openLesson(atelierId, startSlide = null) {
             if (atelierId !== 1 && atelierId !== 2) return;
-            const modal = document.getElementById('comprendre-modal');
+            const modal = document.getElementById('lesson-modal');
             modal.style.display = 'flex';
 
             // Swipe gestures
@@ -1813,7 +1835,7 @@
                     slidesDataCache[atelierId] = parseMarp(markdownText);
                 } catch (e) {
                     console.error("Error loading slides:", e);
-                    document.getElementById('comprendre-slides-container').innerHTML =
+                    document.getElementById('lesson-slides-container').innerHTML =
                         `<div style="color:#b91c1c; padding: 20px; font-weight: bold; text-align: center;">Erreur de chargement du contenu.</div>`;
                     return;
                 }
@@ -1889,19 +1911,19 @@
         }
 
         function renderDynamicSlides() {
-            const container = document.getElementById('comprendre-slides-container');
+            const container = document.getElementById('lesson-slides-container');
             if (!container) return;
             container.innerHTML = '';
 
             const slidesData = slidesDataCache[currentAtelierId] || [];
             slidesData.forEach((slide, idx) => {
                 const slideDiv = document.createElement('div');
-                slideDiv.className = 'comprendre-slide';
+                slideDiv.className = 'lesson-slide';
                 slideDiv.style.display = 'none';
                 slideDiv.style.flexDirection = 'column';
                 slideDiv.style.alignItems = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? 'stretch' : 'center';
                 slideDiv.style.textAlign = 'center';
-                slideDiv.style.maxWidth = (slide.id === 4 || slide.id === 6 || slide.id === 7) ? '1100px' : (slide.id === 5 ? '1200px' : '900px');
+                slideDiv.style.maxWidth = '1400px'; // Increased max-width for more spacious display
                 slideDiv.style.animation = 'fadeIn 0.3s';
                 slideDiv.style.width = '100%';
                 if (slide.id === 4 || slide.id === 6 || slide.id === 7) {
@@ -1909,9 +1931,9 @@
                 }
 
                 let html = `
-            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 0.3rem; color: #0f172a;">${slide.title}</h2>
-            <p style="font-size: clamp(0.95rem, 2vw, 1.15rem); color: #475569; margin-bottom: 0.6rem;">${slide.description}</p>
-            <div style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; box-sizing: border-box;">
+            <h2 style="font-size: clamp(2.8rem, 5.2vw, 4rem); font-weight: 900; margin-bottom: 0.3rem; color: #0f172a;">${slide.title}</h2>
+            <p style="font-size: clamp(1.4rem, 2.5vw, 1.7rem); color: #475569; margin-bottom: 0.6rem;">${slide.description}</p>
+            <div class="slide-content-wrapper" style="width: 100%; display: flex; justify-content: center; background: rgba(255,255,255,0.02); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; box-sizing: border-box;">
                 ${slide.content}
             </div>
         `;
@@ -1925,7 +1947,7 @@
                 `;
                     } else {
                         html += `
-                    <p style="font-size: 0.9rem; color: #475569; margin-top: 0.6rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
+                    <p style="font-size: 1.2rem; color: #475569; margin-top: 0.6rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
                         ${slide.footer}
                     </p>
                 `;
@@ -1941,13 +1963,13 @@
             }
         }
 
-        function closeComprendre() {
-            const modal = document.getElementById('comprendre-modal');
+        function closeLesson() {
+            const modal = document.getElementById('lesson-modal');
             modal.style.display = 'none';
         }
 
         function changeSlide(dir) {
-            const slides = document.querySelectorAll('.comprendre-slide');
+            const slides = document.querySelectorAll('.lesson-slide');
             if (slides.length === 0) return;
             currentSlide += dir;
             if (currentSlide < 0) currentSlide = 0;
@@ -1959,10 +1981,10 @@
             updateSlides();
         }
         function updateSlides() {
-            const slides = document.querySelectorAll('.comprendre-slide');
+            const slides = document.querySelectorAll('.lesson-slide');
 
             // Reset scroll position of the container to start each slide at the top
-            const container = document.getElementById('comprendre-slides-container');
+            const container = document.getElementById('lesson-slides-container');
             if (container) {
                 container.scrollTop = 0;
             }
@@ -2019,14 +2041,14 @@
                 }
             }
 
-            const modal = document.getElementById('comprendre-modal');
+            const modal = document.getElementById('lesson-modal');
             if (modal && modal.style.display === 'flex') {
                 if (e.key === 'ArrowRight') {
                     changeSlide(1);
                 } else if (e.key === 'ArrowLeft') {
                     changeSlide(-1);
                 } else if (e.key === 'Escape') {
-                    closeComprendre();
+                    closeLesson();
                 }
                 return;
             }
@@ -2043,10 +2065,10 @@
             }
         });
 
-        // Zoom logic for SVGs in Comprendre slides
+        // Zoom logic for SVGs in Lesson slides
         document.addEventListener('click', (e) => {
-            // If the click is on an SVG within the comprendre container
-            const svg = e.target.closest('#comprendre-slides-container svg');
+            // If the click is on an SVG within the lesson container
+            const svg = e.target.closest('#lesson-slides-container svg');
             if (svg) {
                 // Create overlay
                 const overlay = document.createElement('div');
