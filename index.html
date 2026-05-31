@@ -1199,7 +1199,7 @@
                             produit long terme.</p>
                     </div>
 
-                    <article class="simulator-card vision-theme disabled-card" style="opacity: 0.7;">
+                    <article class="simulator-card vision-theme" id="backlog-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1208,20 +1208,23 @@
                             <h2
                                 style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 3 - Product Backlog</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                            <button onclick="event.stopPropagation(); openLesson(3, 4)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides Product Backlog">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="road-slides-status-label">0 / 7</span></div>
                             </div>
                         </div>
-                        <div class="card-body-content" style="padding-top: 0; min-height: auto;">
+                        <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
                             <p class="card-description"
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les
                                 techniques de priorisation avancées pour construire une vision produit long terme
                                 équilibrée.</p>
                         </div>
-                        <button class="cta-button disabled">
-                            <span>Bientôt disponible</span>
+                        <button class="cta-button">
+                            <span>Lancer la leçon</span>
                             <i data-lucide="arrow-right"></i>
                         </button>
                     </article>
@@ -1717,6 +1720,13 @@
                 window.updateCardStatusBadge(mvpStatusLabel, mvpSlideIdx + 1, 7);
             }
 
+            const savedRoadSlides = localStorage.getItem('roadmap-last-slide');
+            const roadSlidesIdx = savedRoadSlides ? parseInt(savedRoadSlides, 10) : -1;
+            const roadSlidesStatusLabel = document.getElementById('road-slides-status-label');
+            if (roadSlidesStatusLabel) {
+                window.updateCardStatusBadge(roadSlidesStatusLabel, roadSlidesIdx + 1, 7);
+            }
+
             // Progression rate
             let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore + totalFeatScore) / totalMaxScore) * 100);
             document.getElementById('overall-completion').innerText = `${progressPercent}%`;
@@ -1733,6 +1743,13 @@
             if (dtCard) {
                 dtCard.addEventListener('click', () => {
                     openLesson(1);
+                });
+            }
+
+            const backlogCard = document.getElementById('backlog-card');
+            if (backlogCard) {
+                backlogCard.addEventListener('click', () => {
+                    openLesson(3, 4);
                 });
             }
 
