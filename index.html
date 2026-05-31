@@ -263,7 +263,7 @@
             flex-direction: column;
         }
 
-        /* Edge arrows (icon only, appear on hover, auto-hide after 4s) */
+        /* Edge arrows (icon only, float outside, appear on hover, auto-hide after 4s) */
         .edge-arrow {
             position: absolute;
             top: 50%;
@@ -271,10 +271,12 @@
             z-index: 20;
             background: none;
             border: none;
-            color: rgba(15, 23, 42, 0.3);
+            color: rgba(15, 23, 42, 0.8);
             cursor: pointer;
             transition: opacity 0.3s ease, color 0.2s ease;
-            padding: 8px;
+            width: 80px;
+            height: 80px;
+            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -298,11 +300,11 @@
         }
 
         .edge-arrow-left {
-            left: 2px;
+            left: -48px;
         }
 
         .edge-arrow-right {
-            right: 2px;
+            right: -48px;
         }
 
         /* Atelier header — titre une ligne + sous-titre objectif */
@@ -575,7 +577,7 @@
 
         h2 {
             font-family: var(--font-display);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-weight: 800;
             color: var(--text-main);
             margin-bottom: 0.4rem;
@@ -587,7 +589,7 @@
 
         .card-description {
             color: var(--text-muted);
-            font-size: calc(0.85rem + 3px) !important;
+            font-size: calc(0.7rem + 2px) !important;
             line-height: 1.5;
             margin-bottom: 0;
             position: relative;
@@ -1056,7 +1058,7 @@
                                 style="background: rgba(15, 23, 42, 0.06); color: var(--text-main);"><i
                                     data-lucide="lightbulb"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 1 - Design Thinking</h2>
                             <button onclick="event.stopPropagation(); openLesson(1, 0)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1069,7 +1071,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Principes du Design Thinking (Empathie, Définition, Idéation, Prototype, Test).</p>
                         </div>
                     </article>
@@ -1078,7 +1080,7 @@
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="target"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 A - Besoins Utilisateurs</h2>
                             <button onclick="event.stopPropagation(); openLesson(1, 6)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1091,7 +1093,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Maîtrisez les réflexes PO face aux frictions : creusez l'intention et quantifiez
                                 l'irritant.</p>
                         </div>
@@ -1101,7 +1103,7 @@
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"><i data-lucide="palette"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 B - Ergonomie UX/UI</h2>
                             <button onclick="event.stopPropagation(); openLesson(1, 7)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1114,7 +1116,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Validez les choix d'interface via les principes fondamentaux (saisie assistée,
                                 prévention).</p>
                         </div>
@@ -1143,7 +1145,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="rocket"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 2- Produit Minimum Viable</h2>
                             <button onclick="event.stopPropagation(); openLesson(2, 0)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1157,7 +1159,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester et à livrer.</p>
                         </div>
                     </article>
@@ -1168,7 +1170,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="headset"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 C - Support &amp; Client</h2>
                             <button onclick="event.stopPropagation(); openLesson(2, 5)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1181,7 +1183,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.</p>
                         </div>
                     </article>
@@ -1192,7 +1194,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="sparkles"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 D - Évolutions &amp; Specs</h2>
                             <button onclick="event.stopPropagation(); openLesson(2, 6)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1205,7 +1207,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.
                             </p>
                         </div>
@@ -1233,7 +1235,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="layers"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 3 - Product Backlog</h2>
                             <button onclick="event.stopPropagation(); openLesson(3, 4)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1246,14 +1248,10 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">Les
                                 techniques de priorisation avancées pour construire une vision produit long terme
                                 équilibrée.</p>
                         </div>
-                        <button class="cta-button">
-                            <span>Lancer la leçon</span>
-                            <i data-lucide="arrow-right"></i>
-                        </button>
                     </article>
                     <article class="simulator-card vision-theme" id="roadmap-card" style="cursor: pointer;">
                         <div class="card-header"
@@ -1262,7 +1260,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="mountain"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 E - Roadmap &amp; Jalons</h2>
                             <button onclick="event.stopPropagation(); openLesson(3)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1275,7 +1273,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.</p>
                         </div>
                     </article>
@@ -1286,7 +1284,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="telescope"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 F - Features Discovery</h2>
                             <button onclick="event.stopPropagation(); openLesson(3, 3)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
@@ -1299,7 +1297,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.
                             </p>
                         </div>
@@ -1327,7 +1325,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="shield-check"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 4 - Service-Level-Agreement</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1339,7 +1337,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Comprendre comment organiser le run, prioriser les anomalies en production et
                                 communiquer avec les utilisateurs impactés.</p>
                         </div>
@@ -1355,7 +1353,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="wrench"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 G - Run &amp; Error Tracking</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1365,7 +1363,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Surveillez les logs, analysez les incidents et déclenchez les actions de maintenance.
                             </p>
                         </div>
@@ -1379,7 +1377,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="clipboard-list"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 H - Ticketing &amp; Documentation</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1389,7 +1387,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.
                             </p>
                         </div>
@@ -1418,7 +1416,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="flask-conical"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 5 - Lean Startup</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1430,7 +1428,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">Les
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">Les
                                 principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses
                                 disruptives sans gaspiller de ressources.</p>
                         </div>
@@ -1446,7 +1444,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="search"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 I - Veille &amp; Benchmark</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1456,7 +1454,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.</p>
                         </div>
                         <button class="cta-button disabled" disabled>Bientôt disponible</button>
@@ -1468,7 +1466,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="flask-conical"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 J - Preuve de Concept (POC)</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1478,7 +1476,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Expérimentez vos idées avec un POC rapide pour valider les hypothèses sans risque.</p>
                         </div>
                         <button class="cta-button disabled" disabled>Bientôt disponible</button>
@@ -1506,7 +1504,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="pie-chart"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 6 - Data Driven</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1518,7 +1516,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.
                             </p>
                         </div>
@@ -1534,7 +1532,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="bar-chart-2"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 K - Analytics &amp; Parcours</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1544,7 +1542,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Analysez les données d'usage, identifiez les frictions et validez par les KPIs.</p>
                         </div>
                         <button class="cta-button disabled" disabled>Bientôt disponible</button>
@@ -1556,7 +1554,7 @@
                                 style="background: rgba(15,23,42,0.1); color: var(--text-main);"><i
                                     data-lucide="line-chart"></i></div>
                             <h2
-                                style="font-size: 1rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
+                                style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 L - KPIs &amp; Tableaux de Bord</h2>
                             <div
                                 style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
@@ -1566,7 +1564,7 @@
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
-                                style="margin-top: 0; line-height: 1.4; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Définissez les indicateurs clés et construisez des tableaux de bord décisionnels
                                 efficaces.</p>
                         </div>
