@@ -241,7 +241,7 @@
         <!-- Scenario card -->
         <div id="scenario-card" class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
             <div class="flex items-center justify-between mb-4 shrink-0">
-                <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Analyse d'Arbitrage</div>
+                <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Situation</div>
                 <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 10</div>
             </div>
             <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏔</div>
@@ -485,7 +485,7 @@ function loadStepPhase1() {
     document.getElementById('ui-grid').classList.add('hidden');
     document.getElementById('debriefing-card').classList.add('hidden');
     
-    document.getElementById('phase-label-container').innerText = "Phase 1 : Identification du réflexe Spécs";
+    document.getElementById('phase-label-container').innerText = "Réflexe";
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     renderReflexChoices();
@@ -544,7 +544,7 @@ function loadStepPhase2() {
     document.getElementById('reflex-grid').classList.add('hidden');
     document.getElementById('ui-grid').classList.remove('hidden');
     
-    document.getElementById('phase-label-container').innerText = "Phase 2 : Arbitrage Projet";
+    document.getElementById('phase-label-container').innerText = "Réponse";
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     document.getElementById('phase2-question-container').classList.remove('hidden');
@@ -648,7 +648,7 @@ function showDebriefing(correctOpt) {
     document.getElementById('debrief-back-btn').classList.remove('hidden');
     
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Arbitrage Métier Validé";
+    phaseLabel.innerText = "Synthèse";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-700 text-white shadow-md shrink-0 transition-colors";
 
     const nextBtn = document.getElementById('btn-next');
@@ -673,7 +673,7 @@ function goBackFromDebrief() {
     document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
 
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Phase 2 : Arbitrage Projet";
+    phaseLabel.innerText = "Réponse";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
 
     currentPhase = 2;
@@ -687,7 +687,7 @@ function goBackToPhase1() {
     document.getElementById('reflex-grid').classList.remove('hidden');
 
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Phase 1 : Identification du réflexe Spécs";
+    phaseLabel.innerText = "Réflexe";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
 
     currentPhase = 1;
