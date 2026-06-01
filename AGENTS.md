@@ -20,6 +20,8 @@
   - **Ne pas lire de gros fichiers JSON** en entier ! Préférer des scripts Node de recherche ciblés (`fix-*.js`) ou `grep` pour inspecter des fragments.
   - Utiliser `replace_file_content` sur des blocs ultra-ciblés de lignes au lieu de lire ou réécrire de larges portions d'un fichier.
   - Ne jamais charger `index.html` en entier si non requis ; cibler uniquement les blocs de script via des plages de lignes précises.
+  - **Efficacité d'exécution** : Résoudre les tâches en un minimum d'étapes possibles.
+  - **Réponses ultra-synthétiques** : Rédiger des réponses de fin de tour extrêmement courtes et condensées pour économiser les tokens.
 - **Scripts** : Utiliser des scripts Node temporaires `fix-*.js` pour les modifications de masse (les supprimer immédiatement après exécution).
 
 ## 4. Template Ateliers (Cycle 3 Phases)
