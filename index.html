@@ -1766,7 +1766,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.05';
+        const APP_VERSION = '2026.06.01.06';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2520,6 +2520,9 @@
                 if (item) {
                     title = item.title;
                     description = item.intent || "Principe d'ergonomie et de conception d'interface.";
+                    badgeText = "Réflexe UX (Conception)";
+                    iconName = "mouse-pointer-click";
+                    isCD = true;
                     examples = [];
                     if (item.scenarios && item.scenarios.length > 0) {
                         item.scenarios.forEach((sc, idx) => {
@@ -2535,8 +2538,6 @@
                             }
                         });
                     }
-                    badgeText = "Réflexe UX (Conception)";
-                    iconName = "mouse-pointer-click";
                 }
             } else if (reflexId.startsWith('C')) {
                 const num = parseInt(reflexId.substring(1), 10);

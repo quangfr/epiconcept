@@ -16,14 +16,14 @@
         },
         "wrong": [
           {
-            "title": "Liste déroulante classique",
+            "title": "Utiliser une liste déroulante classique",
             "visual": "<div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center\"><span>-- Choisir le prélèvement --</span><span>▼</span></div>",
             "expl": "Masque les options sous un menu déroulant classique à déplier.",
             "debriefExpl": "Force l'utilisateur à faire deux clics précis et un mouvement vertical pour seulement 3 choix.",
             "icon": "layout"
           },
           {
-            "title": "Saisie texte libre",
+            "title": "Saisie libre par champ texte",
             "visual": "<div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-400 italic\">Taper le type ici...</div>",
             "expl": "Champ vide forçant l'utilisateur à saisir manuellement la valeur au clavier.",
             "debriefExpl": "Génère de la fatigue, des fautes de frappe et des incohérences en base de données.",
@@ -36,7 +36,7 @@
         "text": "Pour lier un compte-rendu médical, la secrétaire doit retrouver le Dr. Martin parmi une base ESIS de 12 000 médecins de la région. Elle souhaite une zone d'auto-complétion avec recherche texte dynamique à la volée dès ses premières frappes.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"w-full border border-slate-300 bg-white rounded p-1.5 text-xs text-slate-600 flex justify-between items-center\"><span>Sélectionner Médecin (12000 options)</span><span>▼</span></div><div class=\"text-[8px] text-red-700 font-bold mt-1\">⚠️ Recherche complexe impossible manuellement dans un menu standard</div></div>",
         "correct": {
-          "title": "Auto-complétion",
+          "title": "Saisie assistée par auto-complétion",
           "visual": "<div class=\"relative w-full\"><div class=\"border border-slate-300 bg-white rounded p-2 text-xs font-bold text-slate-800 flex items-center gap-2\"><span>🔍</span> <span>Mart|</span></div><div class=\"absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 shadow-lg rounded-lg overflow-hidden z-10\"><div class=\"px-3 py-1.5 text-xs border-b hover:bg-slate-50\">Dr. <span class=\"font-black text-slate-800\">Mart</span>in Sophie</div><div class=\"px-3 py-1.5 text-xs hover:bg-slate-50\">Dr. <span class=\"font-black text-slate-800\">Mart</span>inez Luc</div></div></div>",
           "expl": "Suggestions textuelles dynamiques filtrant la base à la volée pendant la saisie.",
           "debriefExpl": "Suggestions textuelles dynamiques filtrant la base à la volée pendant la saisie.",
@@ -44,14 +44,14 @@
         },
         "wrong": [
           {
-            "title": "Pop-up Recherche Avancée",
+            "title": "Recherche avancée via un pop-up",
             "visual": "<div class=\"w-full border-2 border-dashed border-slate-300 rounded-lg p-3 text-center bg-slate-50 text-xs font-bold text-slate-600\">Ouvrir la fenêtre de recherche ↗️</div>",
             "expl": "Ouvre une fenêtre modale lourde en superposition pour la recherche.",
             "debriefExpl": "Effet tunnel : interrompt la saisie en imposant l'ouverture d'un pop-up.",
             "icon": "layout"
           },
           {
-            "title": "Liste infinie",
+            "title": "Chargement continu par liste infinie",
             "visual": "<div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center\"><span>Dr. Aaron... (12000 options)</span><span>▼</span></div>",
             "expl": "Déroule les 12 000 options dans un seul menu interminable.",
             "debriefExpl": "Fait ramer l'application et force à faire défiler des milliers de lignes.",
@@ -64,7 +64,7 @@
         "text": "Lors de l'enregistrement d'une coloscopie, les agents saisissent toujours les mêmes valeurs que les dossiers précédents. Le système doit effectuer un pré-remplissage avec des suggestions basées sur l'historique de saisie de l'utilisateur.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Interface Actuelle</div><div class=\"space-y-1.5\"><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Anesthésie :</span> <span class=\"text-red-700 italic\">Non renseigné *</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Salle :</span> <span class=\"text-red-700 italic\">Non renseigné *</span></div></div></div>",
         "correct": {
-          "title": "Pré-remplissage",
+          "title": "Pré-remplissage automatique des données",
           "visual": "<div class=\"w-full bg-slate-50 rounded-xl p-3 border border-emerald-250 shadow-sm flex flex-col gap-2 relative overflow-hidden\"><div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[8px] font-extrabold uppercase px-3 py-0.5 rounded-bl-lg tracking-wider flex items-center gap-0.5\"><span class=\"w-1.5 h-1.5 bg-white rounded-full animate-pulse\"></span>Auto-rempli</div><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-0.5\">Formulaire de Procédure</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-0.5 text-[10px]\"><label class=\"font-semibold text-slate-500\">Anesthésie</label><div class=\"flex items-center justify-between border border-emerald-300 bg-emerald-50/50 rounded-lg px-2.5 py-1.5 font-bold text-slate-800\"><span>Anesthésie Générale</span><span class=\"text-[7px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-md font-bold\">Fréquent (92%)</span></div></div><div class=\"flex flex-col gap-0.5 text-[10px]\"><label class=\"font-semibold text-slate-500\">Salle</label><div class=\"flex items-center justify-between border border-emerald-300 bg-emerald-50/50 rounded-lg px-2.5 py-1.5 font-bold text-slate-800\"><span>Bloc Endoscopie 1</span><span class=\"text-[7px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-md font-bold\">Dernier utilisé</span></div></div></div></div>",
           "expl": "Pré-remplit les champs avec des suggestions intelligentes basées sur l'historique récent.",
           "debriefExpl": "Pré-remplit automatiquement les champs avec des suggestions basées sur l'historique récent.",
@@ -72,14 +72,14 @@
         },
         "wrong": [
           {
-            "title": "Champs obligatoires vides",
+            "title": "Laisser les champs obligatoires vides",
             "visual": "<div class=\"w-full space-y-2\"><div class=\"text-[10px] font-bold text-red-700\">Anesthésie *</div><div class=\"w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center\"><span>- Choisir -</span><span>▼</span></div></div>",
             "expl": "Laisse les champs obligatoires vides à remplir manuellement à chaque fois.",
             "debriefExpl": "Force à faire des clics mécaniques inutiles à chaque dossier.",
             "icon": "layout"
           },
           {
-            "title": "Bouton Copier",
+            "title": "Bouton de copie rapide en un clic",
             "visual": "<div class=\"p-3 bg-slate-100 rounded text-center text-xs font-bold text-slate-600\">Copier les données du dossier N-1</div>",
             "expl": "Bouton pour dupliquer manuellement les données du dossier précédent.",
             "debriefExpl": "Impose une action manuelle consciente au lieu d'une fluidité automatisée par défaut.",
@@ -100,7 +100,7 @@
         "text": "Un médecin lit l'historique d'un dossier très long. Arrivé tout en bas, il est interrompu, puis ne sait plus si l'onglet ouvert appartient à M. Dupont ou son homonyme. Pour éliminer ce risque d'erreur d'identité critique, l'en-tête contenant l'identité du patient devrait rester figé en haut de l'écran lors du défilement.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Perte</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Vue après Défilement</div><div class=\"p-2 bg-white border rounded text-xs space-y-1 opacity-60\"><div class=\"h-2 bg-slate-200 w-full rounded\"></div><div class=\"h-2 bg-slate-200 w-5/6 rounded\"></div><div class=\"h-2 bg-slate-200 w-2/3 rounded\"></div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ L'identité du patient a défilé hors de l'écran</div></div>",
         "correct": {
-          "title": "En-tête Patient Fixe",
+          "title": "En-tête patient fixe lors du scroll",
           "visual": "<div class=\"w-full h-full border border-slate-200 bg-slate-50 rounded-lg flex flex-col overflow-hidden\"><div class=\"bg-slate-700 text-white p-2 flex justify-between items-center shadow-md z-10\"><span class=\"text-xs font-black\">DUPONT Jean</span> <span class=\"text-[9px] bg-indigo-800 px-1.5 py-0.5 rounded\">IPP: 9901</span></div><div class=\"p-2 space-y-2 opacity-30\"><div class=\"h-2 bg-slate-300 w-full rounded\"></div><div class=\"h-2 bg-slate-300 w-3/4 rounded\"></div></div></div>",
           "expl": "Maintient le bandeau d'identité du patient fixé en haut du navigateur au scroll.",
           "debriefExpl": "Fige le bandeau d'identité du patient en haut.",
@@ -115,7 +115,7 @@
             "icon": "layout"
           },
           {
-            "title": "Répétition du nom",
+            "title": "Répétition systématique du nom complet",
             "visual": "<div class=\"w-full text-[10px] space-y-2\"><div class=\"bg-slate-100 p-2 rounded\">Dr. avis pour Dupont : RAS</div><div class=\"bg-slate-100 p-2 rounded\">Bio de Dupont : OK</div></div>",
             "expl": "Intègre le nom du patient au début de chaque ligne ou sous-titre de l'historique.",
             "debriefExpl": "Surcharge visuellement l'écran en répétant le nom partout dans les lignes, sans offrir de vue d'ensemble stable.",
@@ -128,7 +128,7 @@
         "text": "Après avoir saisi 20 critères dans un grand formulaire administratif ESIS, l'utilisateur doit remonter tout en haut de la page pour trouver le bouton d'enregistrement. Pour lui éviter ce trajet manuel à la fin de sa saisie, le système devrait maintenir les boutons d'action toujours accessibles et 'accrochés' en bas de son écran.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Bas de formulaire</div><div class=\"h-12 bg-white border border-slate-200 rounded p-2 opacity-50 flex items-center justify-center text-[10px] italic\">Fin du formulaire</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Bouton 'Valider' invisible (perdu tout en haut)</div></div>",
         "correct": {
-          "title": "Barre d'Action Flottante",
+          "title": "Barre d'actions flottante toujours visible",
           "visual": "<div class=\"w-full h-full border border-slate-200 bg-slate-50 rounded-lg flex flex-col relative overflow-hidden\"><div class=\"p-2 space-y-2 opacity-30 flex-grow\"><div class=\"h-4 bg-slate-300 w-full rounded\"></div><div class=\"h-4 bg-slate-300 w-full rounded\"></div></div><div class=\"absolute bottom-0 left-0 right-0 bg-white p-2 border-t border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex justify-end gap-2\"><div class=\"bg-slate-200 px-3 py-1 text-[10px] font-bold rounded\">Annuler</div><div class=\"bg-slate-700 text-white px-3 py-1 text-[10px] font-bold rounded shadow-sm\">Valider le dossier</div></div></div>",
           "expl": "Affiche les boutons d'action dans un bandeau persistant au bas de la fenêtre du navigat...",
           "debriefExpl": "Garde les boutons d'action (Valider/Annuler) toujours ancrés en bas de l'écran, prêts à être cliqués dès que la saisi...",
@@ -136,14 +136,14 @@
         },
         "wrong": [
           {
-            "title": "Bouton en Haut",
+            "title": "Positionner le bouton tout en haut",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded p-2\"><div class=\"bg-emerald-500 text-white text-center text-xs py-1 rounded font-bold mb-2\">Enregistrer</div><div class=\"h-10 bg-slate-100 w-full rounded opacity-50\"></div></div>",
             "expl": "Place le bouton de validation au début du formulaire, tout en haut de la page.",
             "debriefExpl": "Force l'utilisateur à faire un mouvement de scroll inverse fatigant et contre-intuitif à la fin de sa saisie.",
             "icon": "layout"
           },
           {
-            "title": "Sauvegarde auto invisible",
+            "title": "Sauvegarde automatique et invisible en continu",
             "visual": "<div class=\"w-full p-4 border border-slate-200 bg-white text-center text-xs text-slate-500 rounded\">Aucun bouton. L'utilisateur a peur de fermer la fenêtre.</div>",
             "expl": "Enregistre automatiquement les données sans afficher de bouton de validation.",
             "debriefExpl": "L'absence de bouton de validation clair génère de l'anxiété chez le personnel de santé qui redoute la perte de données.",
@@ -156,7 +156,7 @@
         "text": "Le CRCDC relit un dossier 'sein' massif (Identité, Mammographie, Biopsie, Traitement). Il faut sans cesse scroller pour comparer l'imagerie et la bio. Pour lui éviter ces allers-retours fatigants, le médecin souhaite avoir un sommaire latéral cliquable fixe à gauche pour sauter d'une section à l'autre en restant sur la même page.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Lenteur</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Dossier Patient de 4 pages</div><div class=\"h-12 border border-slate-300 bg-white rounded p-2 flex items-center justify-center text-[10px] text-slate-500 italic\">Défilement interminable...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Fatigant (Scroll incessant de haut en bas pour comparer)</div></div>",
         "correct": {
-          "title": "Sommaire Latéral (Anchor)",
+          "title": "Sommaire latéral interactif de navigation",
           "visual": "<div class=\"w-full h-full border border-slate-200 bg-white rounded-lg flex\"><div class=\"w-1/3 bg-slate-50 border-r border-slate-200 p-2 space-y-2 flex flex-col justify-center\"><div class=\"text-[9px] font-bold text-slate-400\">1. Identité</div><div class=\"text-[9px] font-black text-slate-800 bg-slate-100 p-1 rounded\">2. Imagerie</div><div class=\"text-[9px] font-bold text-slate-400\">3. Biologie</div></div><div class=\"w-2/3 p-2 flex items-center justify-center opacity-30\"><div class=\"h-full w-full bg-slate-200 rounded\"></div></div></div>",
           "expl": "Affiche un menu de navigation vertical sur le côté gauche, synchronisé avec les section...",
           "debriefExpl": "Offre un plan cliquable à gauche qui reste ancré. Il pour sauter de section en section instantanément d'1 clic.",
@@ -171,7 +171,7 @@
             "icon": "layout"
           },
           {
-            "title": "Texte Accordéon",
+            "title": "Déploiement progressif par texte accordéon",
             "visual": "<div class=\"w-full space-y-1\"><div class=\"bg-slate-100 p-2 rounded text-xs flex justify-between\">Identité <span>+</span></div><div class=\"bg-slate-100 p-2 rounded text-xs flex justify-between border-l-2 border-slate-300\">Radio <span>-</span></div></div>",
             "expl": "Permet de replier ou déplier chaque section du document à l'aide d'un bouton '+' ou '-'.",
             "debriefExpl": "Masque l'information par défaut, forçant à faire des clics d'ouverture/fermeture répétitifs et fastidieux.",
@@ -200,14 +200,14 @@
         },
         "wrong": [
           {
-            "title": "Pop-up d'Erreur Final",
+            "title": "Pop-up d'erreur bloquant en fin de saisie",
             "visual": "<div class=\"bg-red-50 border border-red-300 text-red-700 p-2 rounded text-xs font-bold text-center\">ERREUR : Le champ téléphone contient la lettre 'A'.</div>",
             "expl": "Affiche un message d'alerte en boîte de dialogue lors du clic sur le bouton de soumission.",
             "debriefExpl": "Intervient trop tard, après la soumission du formulaire, forçant l'utilisateur à chercher et corriger l'erreur a post...",
             "icon": "layout"
           },
           {
-            "title": "Mention explicative",
+            "title": "Ajouter une mention explicative d'aide",
             "visual": "<div class=\"w-full\"><input type=\"text\" class=\"border p-1 w-full text-xs\" placeholder=\"0612345678\"><div class=\"text-[8px] text-slate-500 mt-1\">Merci de ne taper que des chiffres sans espace.</div></div>",
             "expl": "Ajoute une phrase d'instruction ou une aide textuelle descriptive juste sous le champ d...",
             "debriefExpl": "Repose uniquement sur la discipline de l'utilisateur. N'empêche absolument pas la faute d'inattention.",
@@ -256,14 +256,14 @@
         },
         "wrong": [
           {
-            "title": "Bloquer la création",
+            "title": "Bloquer la création de compte",
             "visual": "<div class=\"bg-red-50 text-red-700 border border-red-300 p-2 rounded text-[10px] font-bold text-center\">Création interdite : Doublon potentiel détecté dans la BDD.</div>",
             "expl": "Empêche techniquement la création de la fiche patient si les critères ressemblent trop ...",
             "debriefExpl": "Trop rigide. Empêche de créer le dossier même s'il s'agit d'un homonyme réel, bloquant le travail de l'accueil.",
             "icon": "layout"
           },
           {
-            "title": "Checkbox 'J'ai vérifié'",
+            "title": "Checkbox obligatoire pour valider la saisie",
             "visual": "<div class=\"flex items-center gap-2 border p-2 rounded bg-white text-xs text-slate-600\"><input type=\"checkbox\"> <span>Je certifie avoir cherché les doublons.</span></div>",
             "expl": "Ajoute une case à cocher requis pour forcer l'utilisateur à déclarer avoir fait la rech...",
             "debriefExpl": "Simple décharge administrative inutile.",
@@ -284,7 +284,7 @@
         "text": "La file de travail affiche une palette criarde : Dossiers clos en bleu, en cours en vert, en attente en jaune, à relire en violet. Elle souhaite calmer ce bruit visuel en rendant l'interface totalement sobre et monochrome, pour que seule l'action prioritaire et critique ('À relire') soit mise en valeur par une couleur d'accentuation ciblée.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Bruit</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Tableau multicolore</div><div class=\"flex flex-col gap-1\"><div class=\"bg-blue-300 p-1 rounded text-[9px] text-white font-bold\">Dossier 1 (Clos)</div><div class=\"bg-purple-300 p-1 rounded text-[9px] text-white font-bold\">Dossier 2 (À relire)</div><div class=\"bg-green-300 p-1 rounded text-[9px] text-white font-bold\">Dossier 3 (En cours)</div></div></div>",
         "correct": {
-          "title": "Interface Minimaliste (Monochrome)",
+          "title": "Interface minimaliste en monochrome épuré",
           "visual": "<div class=\"w-full bg-slate-50 rounded-xl p-3 border border-slate-200 shadow-sm flex flex-col gap-2\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-0.5\">Tableau de Bord Épuré</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex justify-between items-center bg-white border border-slate-150 p-2 rounded-lg text-[10px] shadow-sm\"><div class=\"flex items-center gap-2\"><span class=\"w-2 h-2 rounded-full bg-slate-300\"></span><span class=\"font-bold text-slate-700\">Dossier #9941 (Dupont)</span></div><span class=\"bg-slate-100 text-slate-500 px-2 py-0.5 rounded-md font-extrabold text-[8px] uppercase tracking-wider\">Clos</span></div><div class=\"flex justify-between items-center bg-white border border-slate-200 p-2 rounded-lg text-[10px] shadow-sm hover:border-indigo-300 transition-colors\"><div class=\"flex items-center gap-2\"><span class=\"w-2 h-2 rounded-full bg-indigo-500 animate-ping\"></span><span class=\"font-bold text-slate-800\">Dossier #9942 (Martin)</span></div><span class=\"bg-indigo-600 text-white px-2 py-0.5 rounded-md font-extrabold text-[8px] uppercase tracking-wider shadow-sm\">À relire</span></div><div class=\"flex justify-between items-center bg-white border border-slate-150 p-2 rounded-lg text-[10px] shadow-sm\"><div class=\"flex items-center gap-2\"><span class=\"w-2 h-2 rounded-full bg-slate-300\"></span><span class=\"font-bold text-slate-700\">Dossier #9943 (Leroy)</span></div><span class=\"bg-slate-100 text-slate-500 px-2 py-0.5 rounded-md font-extrabold text-[8px] uppercase tracking-wider\">En cours</span></div></div></div>",
           "expl": "Conçoit l'interface dans des teintes de gris neutres, en appliquant une couleur unique ...",
           "debriefExpl": "Garde l'interface sobre et neutre.",
@@ -292,14 +292,14 @@
         },
         "wrong": [
           {
-            "title": "Arc-en-ciel Pastel",
+            "title": "Thème visuel arc-en-ciel pastel",
             "visual": "<div class=\"w-full flex flex-col gap-1\"><div class=\"bg-slate-100 p-2 rounded text-xs\">Dossier A (Clos)</div><div class=\"bg-purple-100 p-2 rounded text-xs\">Dossier B (À relire)</div><div class=\"bg-green-100 p-2 rounded text-xs\">Dossier C (En cours)</div></div>",
             "expl": "Applique des couleurs douces et désaturées (bleu, violet, vert, jaune) sur l'intégralit...",
             "debriefExpl": "Bien que plus doux, le pastel multicolore fatigue tout autant l'attention visuelle en colorant des états neutres ou p...",
             "icon": "layout"
           },
           {
-            "title": "Mode Sombre Forcé",
+            "title": "Activer un mode sombre forcé",
             "visual": "<div class=\"bg-black text-white p-2 rounded w-full flex flex-col gap-1 text-[10px]\"><div class=\"text-slate-800\">DOSSIER A</div><div class=\"text-green-400\">DOSSIER B</div></div>",
             "expl": "Bascule l'ensemble du tableau sur un fond noir avec des polices de couleur vive.",
             "debriefExpl": "Un mode sombre mal conçu avec des contrastes néons agressifs ne résout pas le problème de surcharge sémantique.",
@@ -320,14 +320,14 @@
         },
         "wrong": [
           {
-            "title": "Textes Colorés Unis",
+            "title": "Textes colorés unis sans contraste",
             "visual": "<div class=\"w-full bg-white border p-2 rounded text-xs font-bold text-amber-800\">EN ATTENTE</div>",
             "expl": "Affiche les statuts uniquement en mots rédigés en majuscules colorés sans aucune icône ...",
             "debriefExpl": "Aide légèrement à la catégorisation, mais force toujours l'utilisateur à décoder textuellement le mot pour en compren...",
             "icon": "layout"
           },
           {
-            "title": "Légende Technique Externe",
+            "title": "Légende technique déportée en externe",
             "visual": "<div class=\"w-full bg-slate-50 border p-2 rounded text-center text-[10px] text-slate-500 underline\">Voir la légende des abréviations</div>",
             "expl": "Masque le statut derrière un code technique obscur et propose un lien vers la légende e...",
             "debriefExpl": "Une hérésie d'usage qui force l'utilisateur à faire des allers-retours mentaux constants avec une grille de correspon...",
@@ -355,7 +355,7 @@
             "icon": "layout"
           },
           {
-            "title": "Boîte d'Alerte Générique",
+            "title": "Boîte d'alerte générique peu informative",
             "visual": "<div class=\"w-full bg-white border p-2 rounded text-center text-xs font-bold\">Une erreur est survenue.</div>",
             "expl": "Présente un message d'erreur uniforme et vague identique pour toutes les anomalies de l...",
             "debriefExpl": "N'apporte aucune aide constructive à l'utilisateur qui ne sait pas quel champ corriger pour débloquer sa situation.",
@@ -376,7 +376,7 @@
         "text": "Une secrétaire bloque sur des abréviations médicales ou des formats de saisie (ex: 'TRD' ou 'NIRS'). Pour lui éviter d'ouvrir un manuel, l'interface doit intégrer des infobulles contextuelles accessibles via un bouton (i), un bouton (?), ou directement au survol d'un mot surligné en pointillés.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Abréviation brute</div><div class=\"text-xs text-slate-800 font-bold\">Examen : TRD | NIRS</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Oblige à quitter l'écran pour chercher la définition ailleurs</div></div>",
         "correct": {
-          "title": "Infobulle Contextuelle",
+          "title": "Infobulle contextuelle d'aide au survol",
           "visual": "<div class=\"w-full bg-slate-50 rounded-xl p-3 border border-slate-200 shadow-sm flex flex-col gap-2 relative min-h-[110px]\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-0.5\">Compte-rendu d'Examen</div><div class=\"text-[10px] text-slate-700 leading-relaxed font-semibold\">Le patient présente des symptômes associés. Examen <span class=\"border-b border-dashed border-indigo-500 font-black text-indigo-700 cursor-help relative inline-block\">TRD<span class=\"absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2.5 py-1.5 bg-slate-900 text-white text-[8px] font-extrabold rounded-lg shadow-xl whitespace-nowrap flex flex-col gap-0.5 z-10\"><span class=\"text-emerald-400 uppercase tracking-wider text-[6px]\">Définition Médicale</span>Toucher Rectal Digital</span></span> requis sous peu.</div></div>",
           "expl": "Affiche les définitions ou consignes via un bouton (i), (?) ou directement au survol d'un pointillé.",
           "debriefExpl": "Déclenche l'aide non intrusive précisément au point de friction via (i), (?) ou survol pointillé.",
@@ -384,14 +384,14 @@
         },
         "wrong": [
           {
-            "title": "Manuel Externe",
+            "title": "Consulter un manuel externe d'aide",
             "visual": "<div class=\"p-3 bg-white border border-slate-200 rounded-lg text-xs flex gap-2 w-full\"><span class=\"text-red-700\"><i data-lucide=\"file-text\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span> <a href=\"#\" class=\"underline text-slate-800\">Ouvrir Lexique.pdf</a></div>",
             "expl": "Intègre un lien hypertexte menant vers un document d'aide au format PDF.",
             "debriefExpl": "Force l'utilisateur à sortir de l'application, ouvrant un PDF lourd et cherchant manuellement le terme, détruisant la...",
             "icon": "layout"
           },
           {
-            "title": "Pop-up Bloquant",
+            "title": "Afficher un pop-up d'erreur bloquant",
             "visual": "<div class=\"p-2 border bg-white shadow-xl rounded text-center w-full\"><div class=\"font-bold text-[10px]\">Définition TRD</div><button class=\"bg-slate-700 text-white text-[8px] px-2 py-1 mt-1 rounded\">OK</button></div>",
             "expl": "Affiche une fenêtre modale d'information qui requiert un clic de validation pour être r...",
             "debriefExpl": "Interrompt brutalement le travail de saisie en obligeant à faire un clic pour fermer la fenêtre modale juste pour lir...",
@@ -432,7 +432,7 @@
         "text": "Le médecin doit vérifier en un clin d'œil l'état de validation ou l'urgence d'un dossier patient sans chercher les informations dans tous les onglets. Il souhaite un indicateur visuel immédiat qui résume l'état du dossier.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Dossier éclaté</div><div class=\"flex gap-1 text-[8px] font-bold bg-slate-100 p-1 rounded\"><div class=\"p-0.5 border-r\">Onglet 1</div><div class=\"p-0.5 border-r\">Onglet 2</div><div class=\"p-0.5\">Onglet 3</div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligation de naviguer dans les onglets pour comprendre l'état</div></div>",
         "correct": {
-          "title": "Indicateur de Statut",
+          "title": "Afficher un indicateur de statut visuel",
           "visual": "<div class=\"bg-white border border-slate-200 p-2 rounded-lg w-full flex items-center justify-between shadow-sm\"><span class=\"text-xs font-bold text-slate-800\">Statut du Dossier :</span> <span class=\"bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-1 rounded-full font-black flex items-center gap-1\">● Complet (Transmis)</span></div>",
           "expl": "Affiche une icône et/ou un code couleur clair indiquant instantanément l'état selon la situation.",
           "debriefExpl": "L'indicateur de statut utilise un code couleur et une icône explicite pour une reconnaissance en 100ms.",
@@ -440,14 +440,14 @@
         },
         "wrong": [
           {
-            "title": "Erreur Post-validation",
+            "title": "Signaler l'erreur après la validation",
             "visual": "<div class=\"text-[10px] bg-red-50 text-red-700 border border-red-300 p-2 rounded text-center font-bold w-full\">Erreur : Veuillez ouvrir l'onglet 3 pour voir ce qu'il manque.</div>",
             "expl": "Renvoie une notification d'erreur uniquement lors de la soumission globale.",
             "debriefExpl": "La validation tardive laisse l'utilisateur valider à l'aveugle puis le force à corriger les erreurs après coup.",
             "icon": "layout"
           },
           {
-            "title": "Checklist Manuelle",
+            "title": "Suivre une checklist manuelle externe",
             "visual": "<div class=\"text-[10px] space-y-1 bg-white p-2 border rounded w-full\"><div class=\"flex gap-1\">☑️ Identité</div><div class=\"flex gap-1\">☑️ Biologie</div><div class=\"flex gap-1\">⬜ Radio</div></div>",
             "expl": "Affiche une liste de cases à cocher à valider individuellement de manière manuelle.",
             "debriefExpl": "Impose une lecture et un pointage manuel fastidieux des différents critères d'avancement.",
@@ -468,7 +468,7 @@
         "text": "La coordinatrice filtre tous les matins sa file d'attente pour ne voir que les dossiers 'Sein' urgents. Elle doit refaire ces 4 clics chaque jour. Pour lui épargner ce rituel fastidieux, le système devrait mémoriser automatiquement sa dernière configuration de session en tâche de fond et la restaurer dès son arrivée.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Répétition</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Démarrage à blanc</div><div class=\"border border-dashed p-2 bg-white rounded text-[10px] text-slate-400\">Filtres : Aucun. (Affichage global des 5 000 dossiers)</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligée de reconstruire sa vue métier tous les matins</div></div>",
         "correct": {
-          "title": "Mémoire des paramétrages",
+          "title": "Mémoriser les paramétrages saisis précédemment",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded p-3 flex justify-between items-center shadow-sm\"><div class=\"flex gap-1\"><span class=\"bg-slate-100 text-slate-800 text-[9px] px-2 py-0.5 rounded font-bold uppercase\">Sein</span><span class=\"bg-red-100 text-red-700 text-[9px] px-2 py-0.5 rounded font-bold uppercase\">Urgent</span></div><span class=\"text-[8px] text-slate-400 font-bold italic border-b border-dashed\">Filtres mémorisés</span></div>",
           "expl": "Sauvegarde automatiquement l'état des filtres du tableau dans le stockage local du navi...",
           "debriefExpl": "Sauvegarde l'état des filtres à la fermeture et les réapplique à l'ouverture de la session, libérant l'utilisateur d'...",
@@ -476,14 +476,14 @@
         },
         "wrong": [
           {
-            "title": "Menu de Favoris",
+            "title": "Accéder via un menu de favoris",
             "visual": "<div class=\"w-full bg-white border p-2 rounded text-xs flex justify-between\">Filtres Favoris <span>⭐</span></div>",
             "expl": "Propose une liste de raccourcis configurables manuellement dans un menu de favoris.",
             "debriefExpl": "Demande une action volontaire de sauvegarde et de chargement à l'utilisateur au lieu d'anticiper son besoin naturel.",
             "icon": "layout"
           },
           {
-            "title": "Bouton Réinitialiser",
+            "title": "Ajouter un bouton de réinitialisation",
             "visual": "<div class=\"w-full bg-slate-50 border p-2 rounded text-center text-[10px] font-bold text-slate-500\">Vider les filtres au démarrage</div>",
             "expl": "Intègre un bouton permettant d'effacer tous les filtres d'1 clic à l'ouverture.",
             "debriefExpl": "Efface proactivement tout le travail de configuration et force à tout reparamétrer au démarrage de chaque journée.",
@@ -504,14 +504,14 @@
         },
         "wrong": [
           {
-            "title": "Liste Vierge Forcée",
+            "title": "Liste vierge forcée par défaut",
             "visual": "<div class=\"w-full bg-white border p-2 rounded text-xs font-bold text-slate-400 flex justify-between\">Spécialité <span>▼</span></div>",
             "expl": "Propose une liste déroulante vide au démarrage pour obliger à faire le choix manuellement.",
             "debriefExpl": "Force à chercher et sélectionner les mêmes options au milieu d'un menu déroulant à chaque patient, ralentissant le tr...",
             "icon": "layout"
           },
           {
-            "title": "Bouton 'Mon Profil'",
+            "title": "Accéder via le bouton mon profil",
             "visual": "<div class=\"w-full bg-slate-100 border border-slate-300 p-2 rounded text-slate-800 text-xs text-center font-bold\">Appliquer Mon Profil</div>",
             "expl": "Affiche un bouton cliquable permettant de charger la configuration de son profil.",
             "debriefExpl": "Exige un clic manuel à chaque saisie pour remplir le formulaire au lieu d'intégrer intelligemment le pré-remplissage ...",
@@ -532,14 +532,14 @@
         },
         "wrong": [
           {
-            "title": "Bouton 'Masquer Technique'",
+            "title": "Bouton pour masquer la complexité technique",
             "visual": "<div class=\"w-full bg-slate-50 border p-2 rounded text-xs flex justify-between\">Vue Complète <span class=\"bg-slate-200 px-1 rounded\">Simplifier</span></div>",
             "expl": "Affiche la vue technique globale et propose un bouton cliquable pour masquer les colonn...",
             "debriefExpl": "Met la responsabilité sur la patiente qui doit cliquer sur un bouton pour masquer les données anxiogènes déjà affichées.",
             "icon": "layout"
           },
           {
-            "title": "Données Brutes",
+            "title": "Afficher directement les données brutes",
             "visual": "<div class=\"w-full bg-slate-900 text-green-400 font-mono text-[8px] p-2 rounded\">STAT: OK | HL7: A01 | CODE: Z12.1<br>RESULT_VAL: NEGATIVE</div>",
             "expl": "Affiche le flux d'informations techniques complet directement issu du serveur.",
             "debriefExpl": "Une exposition directe et brutale à des codes de base de données, générant de la panique et des appels inutiles au se...",
@@ -560,7 +560,7 @@
         "text": "Un interne rédige une synthèse clinique complexe depuis 15 minutes. Le navigateur se ferme accidentellement, lui faisant perdre tout son texte. Pour sécuriser sa rédaction et son investissement en temps face aux crashs, le système doit mémoriser son texte sous forme de brouillon automatique en tâche de fond à chaque frappe.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Perte</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Crash Navigateur</div><div class=\"border bg-white rounded p-1 text-[10px] text-slate-300 italic\">Saisie vide au redémarrage...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ 15 minutes de rédaction clinique perdues à tout jamais</div></div>",
         "correct": {
-          "title": "Auto-Sauvegarde (Draft)",
+          "title": "Sauvegarde automatique en brouillon temporaire",
           "visual": "<div class=\"w-full bg-white border border-slate-200 p-3 rounded-lg\"><div class=\"w-full h-12 bg-slate-50 border border-slate-200 rounded p-1 text-[10px] text-slate-400 italic\">La patiente présente...</div><div class=\"flex justify-end mt-1\"><span class=\"text-[8px] font-bold text-emerald-700\"><i data-lucide=\"save\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Brouillon enregistré à 14:02</span></div></div>",
           "expl": "Met en place un mécanisme d'enregistrement régulier du contenu du formulaire dans le st...",
           "debriefExpl": "Sauvegarde en arrière-plan à chaque frappe dans le stockage local et affiche une confirmation visuelle discrète pour ...",
@@ -568,14 +568,14 @@
         },
         "wrong": [
           {
-            "title": "Pop-up 'Voulez-vous quitter?'",
+            "title": "Pop-up de confirmation avant de quitter",
             "visual": "<div class=\"w-full bg-white border p-2 rounded shadow text-center text-[10px] font-bold\">Attention, vos données seront perdues si vous quittez.</div>",
             "expl": "Affiche une boîte de dialogue d'avertissement lorsque l'utilisateur tente de fermer l'o...",
             "debriefExpl": "N'offre aucune protection en cas de coupure de courant, de crash du navigateur, ou de déconnexion de session brutale.",
             "icon": "layout"
           },
           {
-            "title": "Bouton Sauvegarder",
+            "title": "Bouton de sauvegarde manuelle visible",
             "visual": "<div class=\"w-full bg-slate-100 border p-2 rounded text-center text-xs font-bold text-slate-600\">Sauvegarder manuellement</div>",
             "expl": "Ajoute un bouton de validation intermédiaire permettant d'enregistrer manuellement les ...",
             "debriefExpl": "Met la responsabilité de la sauvegarde sur l'utilisateur, qui oublie de cliquer régulièrement pendant sa réflexion.",
@@ -596,7 +596,7 @@
         },
         "wrong": [
           {
-            "title": "Double-clic non bloqué",
+            "title": "Double-clic non bloqué sur la validation",
             "visual": "<div class=\"w-full\"><button class=\"w-full bg-blue-600 text-white text-xs py-2 rounded-lg font-black\">Valider l'envoi</button></div>",
             "expl": "Laisse le bouton actif pendant le traitement sans aucune confirmation visuelle.",
             "debriefExpl": "Génère des doublons de requêtes et de l'anxiété car l'utilisateur reclique par doute.",
@@ -616,7 +616,7 @@
         "text": "La secrétaire classe un dossier 'Atypique' par erreur de clic et panique sans savoir comment annuler. Pour lui éviter de devoir chercher et éditer le dossier, l'interface doit afficher une notification éphémère lui offrant une fenêtre d'annulation instantanée (Undo) en un clic pour faire machine arrière.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Action erronée soumise</div><div class=\"text-[10px] text-slate-600\">Le dossier a été classé 'Atypique'.</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Aucun moyen simple d'annuler. Nécessite de chercher le dossier pour modifier.</div></div>",
         "correct": {
-          "title": "Toast d'Annulation (Undo)",
+          "title": "Toast de notification d'annulation rapide",
           "visual": "<div class=\"w-full h-16 bg-slate-50 relative overflow-hidden rounded flex items-end p-1\"><div class=\"w-full bg-slate-800 text-white p-2 rounded flex justify-between items-center shadow-lg\"><span class=\"text-[10px] font-bold\">Classé Atypique</span><span class=\"text-[10px] font-black text-emerald-400 uppercase tracking-widest cursor-pointer hover:underline\">Annuler</span></div></div>",
           "expl": "Exécute l'action de suite tout en affichant un bouton d'annulation rapide durant quelqu...",
           "debriefExpl": "Exécute l'action de manière fluide mais offre une notification temporaire de 5 secondes contenant un bouton 'Annuler'...",
@@ -624,14 +624,14 @@
         },
         "wrong": [
           {
-            "title": "Dossier Bloqué",
+            "title": "Verrouiller et bloquer le dossier patient",
             "visual": "<div class=\"w-full bg-slate-100 border p-2 rounded text-xs text-slate-400 text-center font-bold\"><i data-lucide=\"lock\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Action Irréversible</div>",
             "expl": "Bloque le dossier dans son nouvel état sans proposer aucune option de modification immé...",
             "debriefExpl": "Interdit tout droit à l'erreur.",
             "icon": "layout"
           },
           {
-            "title": "Pop-up de confirmation",
+            "title": "Afficher un pop-up de confirmation",
             "visual": "<div class=\"w-full bg-white border shadow p-2 rounded text-center text-[10px] font-bold space-x-2\">Êtes-vous sûr ? <button class=\"bg-slate-200 px-1\">Oui</button></div>",
             "expl": "Affiche une boîte de dialogue de sécurité obligeant à confirmer l'action avant de l'exé...",
             "debriefExpl": "Surcharge le flux clinique de dialogues de confirmation que l'utilisateur finit par valider à l'aveugle par simple ré...",
@@ -652,7 +652,7 @@
         "text": "Le diagnostic anatomo-pathologique (le cœur du dossier) est affiché en taille 11px gris clair uniforme, noyé au milieu des numéros de téléphone et adresses. Ce diagnostic doit sauter aux yeux : il a besoin d'une hiérarchie typographique forte (taille de police 18px+, gras, contraste élevé) pour se détacher instantanément des autres informations denses.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Lisibilité</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Dossier dense uniforme</div><div class=\"text-[9px] text-slate-400\">Nom: Martin | Diag: Carcinome In Situ | Tel: 06... | IPP: 8822</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ L'information médicale critique est invisible à un mètre de l'écran</div></div>",
         "correct": {
-          "title": "Hiérarchie Typographique",
+          "title": "Hiérarchie typographique claire et lisible",
           "visual": "<div class=\"w-full bg-white border border-slate-200 p-4 rounded-xl shadow-sm\"><div class=\"text-[9px] font-black uppercase text-slate-800 tracking-widest mb-1\">Diagnostic Principal</div><div class=\"text-xl font-black text-slate-900 leading-tight\">Carcinome In Situ</div><div class=\"text-[10px] text-slate-500 mt-2\">Détails secondaires masqués...</div></div>",
           "expl": "Conçoit l'interface en structurant les tailles, les graisses et les contrastes de polic...",
           "debriefExpl": "Met en valeur l'information clinique majeure en taille 18px+ avec un contraste élevé, tout en réduisant l'importance ...",
@@ -660,14 +660,14 @@
         },
         "wrong": [
           {
-            "title": "Texte Minuscule",
+            "title": "Afficher le texte en taille minuscule",
             "visual": "<div class=\"w-full bg-white border p-2 rounded text-[10px] text-slate-500\">Adresse: 12 rue...<br>Diag: Carcinome In situ<br>Tel: 06...</div>",
             "expl": "Conserve une taille et un contraste identiques et réduits pour toutes les informations ...",
             "debriefExpl": "Conserve une taille et un contraste uniformes et faibles, forçant l'utilisateur à faire un effort visuel continu et f...",
             "icon": "layout"
           },
           {
-            "title": "Outil Loupe Logiciel",
+            "title": "Intégrer un outil loupe logiciel",
             "visual": "<div class=\"w-full bg-slate-50 border p-2 rounded flex justify-end\"><span class=\"text-xl p-1 bg-white border rounded\"><i data-lucide=\"search\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span></div>",
             "expl": "Intègre une icône de loupe logicielle permettant d'agrandir temporairement une section ...",
             "debriefExpl": "Une fausse solution technique complexe qui impose à l'utilisateur d'activer un outil pour pouvoir lire une informatio...",
@@ -688,7 +688,7 @@
         },
         "wrong": [
           {
-            "title": "Liste brute brute",
+            "title": "Afficher une liste brute non filtrée",
             "visual": "<div class=\"w-full border p-2 rounded bg-white text-[10px] text-slate-400\">ID: #0001, Patient: Dupont... ID: #0002...</div>",
             "expl": "Affiche les dossiers dans l'ordre brut d'enregistrement en base sans filtres rapides.",
             "debriefExpl": "Force à faire des recherches complexes pour chaque dossier courant sans anticiper l'usage.",
@@ -708,7 +708,7 @@
         "text": "Dans un tableau listant les 80 patientes du jour, l'œil de la secrétaire décroche en suivant les lignes horizontales sur les grands écrans larges. Pour guider son regard de manière fluide et sécuriser sa lecture sans surcharger le design de bordures épaisses, le tableau doit alterner de couleur de fond à chaque ligne (tableau zébré).",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Erreur</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Tableau blanc uni</div><div class=\"text-[9px] bg-white p-1 flex justify-between\"><span>Patiente 1</span> <span>RDV : 08:00</span></div><div class=\"text-[9px] bg-white p-1 flex justify-between border-t\"><span>Patiente 2</span> <span>RDV : 08:30</span></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Risque de lire l'horaire de la patiente N sur la ligne N+1</div></div>",
         "correct": {
-          "title": "Tableau Zébré (Zebra)",
+          "title": "Tableau zébré alternant deux couleurs",
           "visual": "<div class=\"w-full border border-slate-200 rounded-lg overflow-hidden text-[10px] font-medium text-slate-600\"><div class=\"px-2 py-1.5 bg-white flex justify-between items-center\"><span>MARTIN Sophie</span> <span>08:30</span></div><div class=\"px-2 py-1.5 bg-slate-100 flex justify-between items-center border-y border-slate-200\"><span>DUPONT Jeanne</span> <span>09:00</span></div><div class=\"px-2 py-1.5 bg-white flex justify-between items-center\"><span>DURAND Marie</span> <span>09:30</span></div></div>",
           "expl": "Alterne la couleur de fond des lignes successives du tableau entre blanc et gris très c...",
           "debriefExpl": "Alterne la couleur de fond des lignes avec une couleur très neutre (gris/blanc).",
@@ -716,14 +716,14 @@
         },
         "wrong": [
           {
-            "title": "Lignes Invisibles",
+            "title": "Masquer les séparations par lignes invisibles",
             "visual": "<div class=\"w-full bg-white border rounded p-2 text-[10px] space-y-1\"><div class=\"flex justify-between\"><span>MARTIN Sophie</span> <span>08:30</span></div><div class=\"flex justify-between\"><span>DUPONT Jeanne</span> <span>09:00</span></div></div>",
             "expl": "Affiche le tableau sur un fond blanc uni sans délimitation de couleur entre les lignes.",
             "debriefExpl": "Ne fournit aucun point de repère visuel horizontal, causant de fréquentes erreurs de lecture de ligne sur écran large.",
             "icon": "layout"
           },
           {
-            "title": "Grille Excel Noire",
+            "title": "Affichage dense par grille Excel noire",
             "visual": "<div class=\"w-full bg-white border-2 border-black rounded text-[10px]\"><div class=\"border-b-2 border-black p-1 flex justify-between\"><span class=\"border-r-2 border-black w-1/2\">MARTIN</span> <span>08:30</span></div></div>",
             "expl": "Délimite chaque cellule du tableau par des bordures noires et épaisses de style tableur.",
             "debriefExpl": "Surcharge l'écran de lignes noires lourdes qui capturent l'attention au détriment de la lisibilité des données cliniq...",
@@ -744,7 +744,7 @@
         "text": "Pour se connecter à ESIS-3D en dehors de l'hôpital, le médecin saisit son identifiant et mot de passe. Toutefois, un pirate informatique pourrait facilement intercepter ces identifiants de base. Pour sécuriser l'accès à la base de données de santé contre les vols d'identité, le système doit exiger un second facteur de sécurité temporaire (MFA via code OTP ou notification sur application) lors de la détection d'une connexion extérieure.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Faiblesse</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Connexion Simpliste</div><div class=\"bg-white p-2 border text-xs text-slate-500 rounded font-bold\">Identifiant / Mot de passe uniquement</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Risque majeur d'intrusion en cas de mot de passe compromis</div></div>",
         "correct": {
-          "title": "Double-Authentification (MFA)",
+          "title": "Double-authentification par envoi de code",
           "visual": "<div class=\"w-full bg-white border border-slate-200 p-3 rounded-lg flex flex-col gap-1.5 shadow-sm\"><span class=\"text-[8px] font-black text-slate-800 uppercase tracking-wider\">Sécurité renforcée</span><div class=\"flex items-center gap-2 bg-slate-100 border border-indigo-100 p-1.5 rounded\"><span class=\"text-xs\"><i data-lucide=\"key\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i></span><div class=\"text-[8px] font-bold text-slate-800 leading-tight\">Saisir le code OTP reçu par SMS ou Authenticator</div></div></div>",
           "expl": "Requiert un deuxième niveau de validation physique (SMS, Token, Application) après la v...",
           "debriefExpl": "Implémente la double-authentification (MFA/2FA) pour bloquer 99% des tentatives d'intrusion frauduleuses basées sur d...",
@@ -759,7 +759,7 @@
             "icon": "layout"
           },
           {
-            "title": "Verrouillage de Compte",
+            "title": "Activer le verrouillage automatique du compte",
             "visual": "<div class=\"w-full bg-red-50 border border-red-300 p-2 rounded text-center text-[10px] text-red-700 font-bold\"><i data-lucide=\"lock\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Compte bloqué après 3 essais</div>",
             "expl": "Bloque de suite l'accès au compte de l'utilisateur après seulement trois saisies infruc...",
             "debriefExpl": "Une mesure punitive qui surcharge quotidiennement le support informatique pour de simples fautes de frappe de profess...",
@@ -780,7 +780,7 @@
         },
         "wrong": [
           {
-            "title": "Pop-up d'Engagement",
+            "title": "Pop-up d'engagement et de sensibilisation",
             "visual": "<div class=\"w-full bg-white border p-2 rounded shadow text-center text-[9px] font-bold\">Je m'engage sur l'honneur à ne pas lire. <button class=\"bg-slate-200 px-1\">Valider</button></div>",
             "expl": "Affiche un avertissement de charte éthique au démarrage obligeant chaque agent à s'enga...",
             "debriefExpl": "Un simple bouclier juridique inutile en pratique qui ne filtre techniquement aucune donnée à l'écran.",
@@ -800,7 +800,7 @@
         "text": "Plusieurs personnels cliniques se partagent le même poste de travail. Un jour, le statut d'un dossier urgent est modifié par erreur, provoquant un retard de prise en charge. L'administrateur système doit pouvoir remonter l'historique complet pour comprendre qui a effectué l'action et quand. L'application doit enregistrer de manière inaltérable chaque modification sous forme de journal de traçabilité (Audit Trail).",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Inconnu</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Modif anonyme</div><div class=\"bg-white border p-2 text-[10px] text-slate-700\">Dossier classé Urgent (Date: 12:02 | Auteur: Inconnu)</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Impossible d'identifier l'auteur ou de retracer l'origine de l'erreur</div></div>",
         "correct": {
-          "title": "Journal d'Audit Trail",
+          "title": "Journal d'audit trail des actions utilisateurs",
           "visual": "<div class=\"w-full bg-white border border-slate-200 p-2.5 rounded-lg flex flex-col gap-1 shadow-sm\"><span class=\"text-[8px] font-black text-emerald-700 uppercase tracking-wider\"><i data-lucide=\"search\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Traçabilité système</span><div class=\"text-[8px] font-mono bg-slate-50 p-1.5 rounded space-y-0.5 text-slate-500 border\"><div class=\"flex justify-between\"><span>⏱️ 12:02</span> <span><i data-lucide=\"user\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Dr. Martin</span></div><div class=\"font-bold text-slate-800\">✏️ Statut -> Urgent</div></div></div>",
           "expl": "Enregistre automatiquement l'horodatage, l'identifiant utilisateur et la nature exacte ...",
           "debriefExpl": "Fournit un journal de traçabilité complet, transparent et conforme RGPD, garantissant la responsabilité des actions c...",
@@ -808,7 +808,7 @@
         },
         "wrong": [
           {
-            "title": "Notification par E-mail",
+            "title": "Envoyer une notification par e-mail",
             "visual": "<div class=\"w-full bg-slate-50 border p-2 rounded text-center text-[10px] text-slate-600 font-bold\"><i data-lucide=\"mail\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> E-mail envoyé au chef de service</div>",
             "expl": "Envoie un courriel d'alerte automatisé au responsable de l'unité à chaque modification ...",
             "debriefExpl": "Sature totalement la boîte aux lettres du chef de service de courriels inutiles que plus personne ne lira.",
@@ -836,7 +836,7 @@
         "text": "Après avoir navigué très profondément dans le portail d'imagerie (Dossier > Historique > Radio > Clichés > Détails), le médecin veut remonter d'un niveau au dossier global. Pour lui éviter d'utiliser les flèches du navigateur ou de retourner à l'accueil, l'interface doit afficher sa profondeur sous forme de chemin cliquable direct vers ses dossiers parents (fil d'Ariane).",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Perdu</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Écran Profond</div><div class=\"text-xs font-bold text-slate-800\">Détails Clichés #4</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Pas d'historique de navigation spatiale, navigation ardue</div></div>",
         "correct": {
-          "title": "Fil d'Ariane (Breadcrumb)",
+          "title": "Fil d'ariane indiquant le parcours",
           "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 p-2 rounded text-[9px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1 overflow-hidden whitespace-nowrap\"><span class=\"text-slate-800 hover:underline cursor-pointer\">Dossier</span> <span>/</span> <span class=\"text-slate-800 hover:underline cursor-pointer\">Radio</span> <span>/</span> <span class=\"text-slate-800\">Détails</span></div>",
           "expl": "Affiche le chemin d'accès hiérarchique en liens textuels cliquables en haut de page.",
           "debriefExpl": "Affiche le chemin hiérarchique parcouru, permettant de revenir à n'importe quel niveau supérieur en 1 clic.",
@@ -844,7 +844,7 @@
         },
         "wrong": [
           {
-            "title": "Bouton Précédent Navigateur",
+            "title": "Utiliser le bouton précédent du navigateur",
             "visual": "<div class=\"w-full bg-white border p-2 rounded text-xs font-bold text-slate-600 flex gap-2\"><span>⬅️</span> Utiliser la flèche Chrome</div>",
             "expl": "Repose sur l'utilisation du bouton de retour historique standard du navigateur internet.",
             "debriefExpl": "Repose sur l'historique linéaire du navigateur, qui peut renvoyer vers des pages de formulaires expirées ou des erreurs.",
@@ -864,7 +864,7 @@
         "text": "L'utilisateur doit consulter un dossier très long contenant de multiples sous-rubriques (Identité, Antécédents, Facturation...). Il souhaite pouvoir déplier ou replier d'un geste chaque sous-rubrique pour se concentrer sur une section sans noyer son écran sous un flot de données.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Perte</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Scrolling infini</div><div class=\"text-[9px] bg-white border p-2 rounded text-slate-600\">Historique clinique interminable étalé sur 10 pages...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligé de scroller indéfiniment pour trouver une information précise</div></div>",
         "correct": {
-          "title": "Système en accordéon pour étendre ou fermer des sous-rubriques",
+          "title": "Système d'accordéon rétractable par rubrique",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm flex flex-col gap-1.5 text-[8px] font-medium text-slate-700\"><div class=\"border rounded p-1.5 bg-slate-50 flex justify-between items-center\"><span class=\"font-bold flex items-center gap-1\">▼ 1. Identité Patient</span><span class=\"text-slate-400\">Déplié</span></div><div class=\"p-1 text-slate-500 italic bg-white border border-slate-100 rounded\">Nom: MARTIN Jeanne | Née le 12/04/1980</div><div class=\"border rounded p-1.5 bg-slate-50 flex justify-between items-center\"><span class=\"font-bold flex items-center gap-1\">▶ 2. Antécédents</span><span class=\"text-slate-400\">Replié</span></div></div>",
           "expl": "Permet d'ouvrir ou de fermer dynamiquement chaque section pour optimiser l'espace.",
           "debriefExpl": "L'accordéon permet à l'utilisateur de focaliser son attention sur une sous-rubrique précise tout en masquant le reste.",
@@ -872,14 +872,14 @@
         },
         "wrong": [
           {
-            "title": "Texte Explicatif Long",
+            "title": "Afficher un long texte explicatif",
             "visual": "<div class=\"w-full bg-white border p-2 rounded text-[9px] text-slate-600\">Le frottis est fait. Le Test est fait. Attente Colpo.</div>",
             "expl": "Rédige un paragraphe de résumé décrivant l'ensemble de l'historique médical.",
             "debriefExpl": "Surcharge visuelle textuelle qui force la secrétaire à lire et décoder manuellement chaque phrase.",
             "icon": "layout"
           },
           {
-            "title": "Onglets Multiples",
+            "title": "Découper l'interface en onglets multiples",
             "visual": "<div class=\"w-full flex gap-1 text-[8px] font-bold\"><div class=\"bg-emerald-100 p-1 rounded\">Étape 1</div><div class=\"bg-slate-100 text-slate-800 p-1 rounded\">Actuelle</div></div>",
             "expl": "Propose des onglets de navigation indépendants pour chaque étape du parcours.",
             "debriefExpl": "Masque le séquencement des étapes. L'utilisateur ne sait pas quel examen précède ou succède à la vue active.",
@@ -892,7 +892,7 @@
         "text": "Pour accréditer un nouveau Centre d'Imagerie, le gestionnaire doit remplir un formulaire massif de 80 champs (Tech, Facturation, Radiologues, Matériel...). Pour l'inciter à compléter cette tâche complexe sans se sentir submergé, l'interface devrait découper le formulaire en plusieurs étapes successives guidées par une barre de progression claire.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Abandon</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Formulaire global géant</div><div class=\"bg-white border p-2 text-[9px] text-slate-400 space-y-1 opacity-50\"><div class=\"h-2 bg-slate-200 rounded\"></div><div class=\"h-2 bg-slate-200 rounded\"></div><div class=\"h-2 bg-slate-200 rounded\"></div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Taux d'abandon élevé face à l'immensité apparente de la tâche</div></div>",
         "correct": {
-          "title": "Découpage Assistant (Wizard)",
+          "title": "Découpage pas-à-pas avec un assistant",
           "visual": "<div class=\"w-full bg-white border border-slate-200 p-3 rounded-xl flex flex-col gap-2\"><div class=\"flex justify-between items-end\"><div class=\"text-[10px] font-black text-slate-800 uppercase tracking-widest\">2. Matériel</div><div class=\"text-[8px] font-bold text-slate-400\">Étape 2/4</div></div><div class=\"w-full bg-slate-100 h-1.5 rounded-full overflow-hidden\"><div class=\"w-1/2 bg-slate-700 h-full\"></div></div><div class=\"bg-slate-700 text-white text-[9px] text-center font-bold py-1.5 rounded shadow-sm mt-1\">Continuer</div></div>",
           "expl": "Divise le long formulaire en étapes thématiques ordonnées guidées par un indicateur de ...",
           "debriefExpl": "Morcelle le formulaire massif en étapes thématiques courtes (wizard), guidées par une barre de progression motivante.",
@@ -907,7 +907,7 @@
             "icon": "layout"
           },
           {
-            "title": "Colonnes Denses",
+            "title": "Afficher des colonnes très denses",
             "visual": "<div class=\"w-full flex gap-2\"><div class=\"w-1/3 bg-slate-100 h-10 border rounded\"></div><div class=\"w-1/3 bg-slate-100 h-10 border rounded\"></div><div class=\"w-1/3 bg-slate-100 h-10 border rounded\"></div></div>",
             "expl": "Aligne de nombreux champs de saisie sur plusieurs colonnes serrées pour réduire la haut...",
             "debriefExpl": "Compresse les champs en colonnes denses très serrées, ce qui rend la lecture et la navigation visuelle insupportables.",
@@ -928,7 +928,7 @@
         "text": "Le médecin recherche des consignes cliniques précises ou des aides à la cotation dans les manuels officiels sans perdre de temps dans les dossiers. Il souhaite un chatbot d'assistance qui répond de manière personnalisée sur la base des règles du dépistage.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Friction</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Manuels papier</div><div class=\"text-[9px] text-slate-500 italic\">Consulter classeur cotation (400 pages)</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Obligé de chercher l'info manuellement hors écran</div></div>",
         "correct": {
-          "title": "Chatbot d'assistance",
+          "title": "Intégrer un chatbot interactif d'assistance",
           "visual": "<div class=\"bg-white border border-slate-200 p-2.5 rounded-lg w-full flex flex-col gap-2 shadow-sm\"><div class=\"bg-blue-50 text-blue-800 p-1.5 rounded text-[9px] font-bold\">Dr: Comment coter une mamo de type ACR5 ?</div><div class=\"bg-slate-100 text-slate-700 p-1.5 rounded text-[9px] font-bold\">IA: Selon l'annexe IV, l'ACR5 impose un avis oncologique prioritaire sous 48h.</div></div>",
           "expl": "Répondre aux questions de manière personnalisée sur la base de la documentation officielle.",
           "debriefExpl": "Répond de manière ciblée à chaque question complexe sur la base de la documentation officielle.",
@@ -964,7 +964,7 @@
         },
         "wrong": [
           {
-            "title": "Visualiseur côte-à-côte",
+            "title": "Affichage double par visualiseur côte-à-côte",
             "visual": "<div class=\"w-full flex gap-1.5\"><div class=\"w-1/2 bg-slate-100 p-1 text-[7px] text-slate-400 border rounded\">PDF</div><div class=\"w-1/2 bg-white p-1 text-[7px] border rounded\">Formulaire</div></div>",
             "expl": "Affiche le PDF d'origine à gauche et le formulaire vide à droite pour faciliter la re-s...",
             "debriefExpl": "Améliore légèrement le confort de lecture mais n'élimine aucunement l'effort mécanique et fastidieux de saisie clavier.",
@@ -984,7 +984,7 @@
         "text": "Le médecin souhaite réaliser des actions d'extraction ou de filtrage complexes sur sa file d'attente (ex: 'Montrer les patientes à relancer qui ont un résultat suspect') d'un seul geste sans configurer 10 filtres complexes.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Lenteur</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Requête multicritères</div><div class=\"text-[8px] text-slate-500 font-bold bg-slate-100 p-1.5 rounded\">1. Ouvrir Filtres > 2. Cocher Suspect > 3. Cocher Relances...</div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Enchaînement de clics et réglages manuels fastidieux</div></div>",
         "correct": {
-          "title": "Commande par texte",
+          "title": "Saisir une commande par texte",
           "visual": "<div class=\"bg-white border border-slate-200 p-2.5 rounded-lg w-full flex flex-col gap-1.5 shadow-sm\"><div class=\"border rounded p-1 text-[9px] font-bold text-slate-700 bg-slate-50 flex items-center gap-1\"><span>🤖 Saisie libre:</span> <span class=\"font-normal\">'Patientes suspectes à relancer'</span></div><div class=\"bg-emerald-50 text-emerald-700 border border-emerald-100 text-[8px] px-2 py-0.5 rounded font-black mt-1\">✓ Filtres configurés : Urgence=Critique & Relances=Oui</div></div>",
           "expl": "Réaliser des actions ou des recherches plus ou moins complexes en saisie libre.",
           "debriefExpl": "Traduit instantanément des requêtes formulées en langage naturel en actions ou filtres complexes.",
@@ -1020,7 +1020,7 @@
         "text": "Le clinicien a besoin d'accéder au menu principal ou d'afficher le détail complet du patient sans perdre de vue son espace de travail central. L'interface doit proposer un menu de navigation structuré à gauche ou un volet de détails contextuel à droite pour optimiser l'espace.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Allers-retours</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Navigation éclatée</div><div class=\"bg-white border p-1.5 text-xs text-center font-bold\">Menus éparpillés et informations de détails cachées ou sur une autre page</div></div>",
         "correct": {
-          "title": "Menu de navigation (à gauche) ou affichage du détail d'un objet (à droite)",
+          "title": "Navigation à gauche et détail à droite",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2 flex gap-1.5 shadow-sm h-16\"><div class=\"w-1/4 bg-slate-50 border-r border-slate-100 rounded p-1 flex flex-col justify-between\"><span class=\"text-[6px] font-black text-slate-800 uppercase block\"><i data-lucide=\"menu\" style=\"display:inline-block; width:1em; height:1em;\"></i> Menu</span><div class=\"space-y-0.5\"><div class=\"h-1 bg-slate-300 w-full rounded\"></div><div class=\"h-1 bg-slate-300 w-3/4 rounded\"></div></div></div><div class=\"flex-grow bg-slate-50 rounded p-1 text-[8px] text-slate-400 italic\">Espace central</div><div class=\"w-1/3 bg-slate-100 border-l border-slate-200 rounded p-1 flex flex-col justify-between\"><span class=\"text-[6px] font-black text-indigo-700 uppercase block\"><i data-lucide=\"info\" style=\"display:inline-block; width:1em; height:1em;\"></i> Détail</span><div class=\"space-y-0.5\"><div class=\"h-1 bg-indigo-300 w-full rounded\"></div><div class=\"h-1 bg-indigo-300 w-2/3 rounded\"></div></div></div></div>",
           "expl": "Menu fixe ou pliable à gauche, combiné à un volet de détails contextuel à droite.",
           "debriefExpl": "Optimise l'espace en plaçant la navigation globale à gauche et les détails de l'objet sélectionné à droite.",
@@ -1028,14 +1028,14 @@
         },
         "wrong": [
           {
-            "title": "Pop-up Modale Centrée",
+            "title": "Afficher un pop-up modale centrée",
             "visual": "<div class=\"w-full h-16 bg-slate-100 rounded relative\"><div class=\"absolute inset-2 bg-white border rounded shadow flex items-center justify-center text-[7px] font-bold\"><i data-lucide=\"scroll\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Fenêtre Historique</div></div>",
             "expl": "Ouvre l'historique dans une fenêtre modale flottante centrée qui masque le formulaire d...",
             "debriefExpl": "Empêche de rédiger et de lire simultanément puisque la modale bloque et recouvre la zone de saisie active.",
             "icon": "layout"
           },
           {
-            "title": "Lien Document Externe",
+            "title": "Ouvrir un lien de document externe",
             "visual": "<div class=\"w-full bg-slate-50 border p-2 rounded text-center text-xs text-slate-800 underline\">Ouvrir l'historique (Nouvel onglet)</div>",
             "expl": "Propose un lien hypertexte ouvrant l'historique de la patiente dans un nouvel onglet co...",
             "debriefExpl": "Force le médecin à jongler constamment entre deux onglets de navigateur, augmentant le risque d'erreurs d'identité de...",
@@ -1048,7 +1048,7 @@
         "text": "Un dossier patient contient de multiples rubriques (Biologie, Radio, Comptes-rendus...) et nécessite des actions de validation globales. Le système doit structurer ces rubriques et regrouper les actions clés d'enregistrement pour éviter la surcharge visuelle et le scrolling infini.",
         "problemVisual": "<div class=\"w-full border border-red-300 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"absolute -right-2 -top-2 bg-red-100 text-red-700 text-[8px] font-black uppercase px-4 py-1 rotate-45 shadow-sm\">Surchargé</div><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Scrolling infini</div><div class=\"h-10 bg-slate-100 rounded p-1 opacity-50 space-y-1\"><div class=\"h-2 bg-slate-300 rounded\"></div><div class=\"h-2 bg-slate-300 rounded\"></div></div><div class=\"text-[8px] text-red-700 font-bold\">⚠️ Boutons d'actions perdus au milieu de dizaines de rubriques denses</div></div>",
         "correct": {
-          "title": "Barre d'actions en haut et navigation par onglets",
+          "title": "Barre d'actions avec onglets de navigation",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-sm flex flex-col gap-1.5\"><div class=\"flex justify-between items-center bg-slate-50 p-1 rounded\"><span class=\"text-[7px] font-black text-slate-600 uppercase\">Actions globales :</span><div class=\"flex gap-1\"><button class=\"bg-slate-700 text-white text-[6px] px-1.5 py-0.5 rounded font-bold\">Enregistrer</button></div></div><div class=\"flex gap-1.5 border-b pb-0.5 text-[8px] font-bold\"><span class=\"text-slate-800 border-b-2 border-slate-700 pb-0.5\">Biologie</span><span class=\"text-slate-400\">Radiologie</span><span class=\"text-slate-400\">Factures</span></div></div>",
           "expl": "Barre d'actions globales persistant en haut et classement du contenu sous forme d'onglets.",
           "debriefExpl": "Regroupe les boutons d'action clés en haut et structure les rubriques sous forme d'onglets pour un accès immédiat.",
@@ -1056,14 +1056,14 @@
         },
         "wrong": [
           {
-            "title": "Accordéons verticaux multiples",
+            "title": "Afficher plusieurs accordéons verticaux multiples",
             "visual": "<div class=\"w-full space-y-1 text-[8px] font-bold\"><div class=\"bg-slate-100 p-1 rounded flex justify-between\">➕ Section 1 <span>▶</span></div><div class=\"bg-slate-100 p-1 rounded flex justify-between\">➕ Section 2 <span>▶</span></div></div>",
             "expl": "Organise la page avec une succession d'accordéons verticaux dépliables les uns sous les...",
             "debriefExpl": "Pousse les autres sections vers le bas au déploiement, provoquant des sauts d'écrans agaçants et un scroll forcé.",
             "icon": "layout"
           },
           {
-            "title": "Navigation Hiérarchique",
+            "title": "Proposer une navigation hiérarchique claire",
             "visual": "<div class=\"w-full bg-white p-2 border rounded text-[8px] font-mono\"><i data-lucide=\"folder\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Dossier Patient<br>&nbsp;&nbsp;<i data-lucide=\"folder\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Biologie<br>&nbsp;&nbsp;&nbsp;&nbsp;<i data-lucide=\"file-text\" style=\"display:inline-block; width:1em; height:1em; vertical-align:middle;\"></i> Fichier 1</div>",
             "expl": "Affiche un arbre de dossiers hiérarchique complexe inspiré de l'explorateur de fichiers...",
             "debriefExpl": "Une structure trop rigide et fastidieuse qui force l'utilisateur à déplier plusieurs niveaux de répertoires pour lire...",
@@ -1084,7 +1084,7 @@
         },
         "wrong": [
           {
-            "title": "Fiche d'Édition Dédiée",
+            "title": "Ouvrir une fiche d'édition dédiée",
             "visual": "<div class=\"w-full bg-white border p-3 rounded text-center text-xs font-bold text-slate-600\">Ouvrir l'écran d'administration patient</div>",
             "expl": "Redirige le médecin vers un écran d'administration complet contenant tous les détails a...",
             "debriefExpl": "Lourd et lent. Force le médecin à attendre un chargement complet de page juste pour corriger un numéro de téléphone.",
@@ -1120,14 +1120,14 @@
         },
         "wrong": [
           {
-            "title": "Double Tableau Dédié",
+            "title": "Affichage comparatif par double tableau",
             "visual": "<div class=\"w-full flex gap-1\"><div class=\"w-1/2 bg-slate-50 p-1 text-[6px] border rounded\">Tableau A</div><div class=\"w-1/2 bg-slate-50 p-1 text-[6px] border rounded\">Tableau B</div></div>",
             "expl": "Développe plusieurs pages de tableaux distinctes pour chaque type de profil utilisateur.",
             "debriefExpl": "Sépare et duplique le code inutilement, rendant la maintenance extrêmement lourde.",
             "icon": "layout"
           },
           {
-            "title": "Scrolling Horizontal libre",
+            "title": "Scrolling horizontal libre sans contrainte",
             "visual": "<div class=\"w-full bg-slate-100 p-2 text-center text-[7px] text-slate-400 italic\">Scroll horizontal --> --></div>",
             "expl": "Affiche toutes les colonnes possibles et laisse l'utilisateur scroller indéfiniment.",
             "debriefExpl": "Provoque de la fatigue visuelle et ralentit la lecture rapide des informations essentielles du patient.",
@@ -1155,7 +1155,7 @@
             "icon": "layout"
           },
           {
-            "title": "Raccourcis Clavier ultra-rapides",
+            "title": "Raccourcis clavier pour saisie ultra-rapide",
             "visual": "<div class=\"p-2 bg-slate-100 rounded text-center text-[7px] text-slate-500 font-bold\">Appuyer sur Alt+R pour chaque ligne</div>",
             "expl": "Intègre un raccourci clavier pour exécuter l'action sur la ligne sélectionnée.",
             "debriefExpl": "Même si le raccourci accélère l'action unitaire, il force quand même à répéter le geste 50 fois de suite.",
@@ -1183,7 +1183,7 @@
             "icon": "layout"
           },
           {
-            "title": "Saisie Multi-onglets",
+            "title": "Saisie répartie sur des multi-onglets",
             "visual": "<div class=\"w-full flex gap-1 text-[6px] font-bold opacity-50\"><div class=\"bg-slate-200 p-1 rounded\">Session 1</div><div class=\"bg-slate-200 p-1 rounded\">Session 2</div></div>",
             "expl": "Permet d'ouvrir plusieurs formulaires vierges dans des onglets pour saisir en parallèle.",
             "debriefExpl": "Surcharge le navigateur et n'évite en aucun cas de devoir ressaisir les 15 champs clavier dans chaque onglet.",

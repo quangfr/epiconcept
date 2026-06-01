@@ -17,7 +17,7 @@
         },
         "wrong": [
           {
-            "title": "Évaluer l'impact direct",
+            "title": "Évaluer l'impact métier direct",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre métier ? </div> </div> </div>",
             "expl": "Mesurer les conséquences concrètes d'un refus permet d'évaluer la criticité du besoin et de séparer le confort de l'obligation métier.",
             "debriefExpl": "Mesurer l'impact d'un refus ne permet pas de comprendre la cause clinique de sa fatigue visuelle face aux micro-calcifications.",
@@ -37,7 +37,7 @@
         "text": "La DSI exige un export CSV complexe quotidien de tous les logs de connexion des médecins. Face à la lourdeur de la demande, vous devez évaluer la criticité du besoin en les interrogeant sur ce qui se passerait concrètement si vous refusiez ce développement.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Console Admin DSI</div><div class=\"p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col gap-2\"><div class=\"flex justify-between items-center text-[10px] font-mono\"><span class=\"text-slate-500\">Fichier:</span> <span class=\"font-bold\">audit_logs_12000.csv</span></div><div class=\"bg-slate-700 text-white py-1.5 px-3 rounded text-center text-xs font-bold shadow-sm\">Télécharger l'export (4.2 Go)</div></div></div>",
         "correct": {
-          "title": "Évaluer l'impact direct",
+          "title": "Évaluer l'impact métier direct",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre métier ? </div> </div> </div>",
           "expl": "Mesurer les conséquences concrètes d'un refus permet d'évaluer la criticité du besoin et de séparer le confort de l'obligation métier.",
           "debriefExpl": "En demandant l'impact direct d'un refus sur leur métier, la DSI admet que sans cet export, ils ne peuvent pas réaliser l'audit de sécurité obligatoire exigé par la certification. Cela valide l'obligation légale et ouvre la voie à un outil d'audit intégré plus adapté.",
@@ -80,7 +80,7 @@
             "icon": "x"
           },
           {
-            "title": "Évaluer l'impact direct",
+            "title": "Évaluer l'impact métier direct",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si nous ne pouvions pas le faire, quelle serait la conséquence directe sur votre métier ? </div> </div> </div>",
             "expl": "Mesurer les conséquences concrètes d'un refus permet d'évaluer la criticité du besoin et de séparer le confort de l'obligation métier.",
             "debriefExpl": "Mesurer l'impact métier ne permet pas de traiter la surcharge cognitive et le besoin d'organisation des priorités de la secrétaire.",
@@ -288,7 +288,7 @@
         "text": "Un nouvel utilisateur demande un filtre par code postal pour cibler ses relances. Avant de développer ce filtre, vous cherchez à savoir par quel moyen temporaire il parvient à travailler aujourd'hui sans cette fonction.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Filtres Avancés Masqués</div><div class=\"bg-slate-50 p-2 rounded border border-slate-200 space-y-1.5\"><div class=\"text-[9px] text-slate-500 font-bold\">Critère de recherche</div><div class=\"bg-white border p-1 rounded text-xs flex justify-between font-bold\"><span>Code Postal</span> <span>▼</span></div></div></div>",
         "correct": {
-          "title": "Analyser les contournements",
+          "title": "Analyser les contournements utilisateurs existants",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Aujourd'hui, comment faites-vous pour contourner ce manque ? </div> </div> </div>",
           "expl": "Étudier la méthode de secours actuelle de l'utilisateur permet de découvrir si une fonctionnalité existante mais méconnue répond déjà au besoin.",
           "debriefExpl": "L'utilisateur explique qu'il exporte la liste complète et effectue un tri manuel laborieux dans Excel. En creusant son contournement, vous réalisez que la fonction de filtre avancé existe déjà dans le logiciel mais qu'il ignorait son existence.",
@@ -303,7 +303,7 @@
             "icon": "x"
           },
           {
-            "title": "Vérifier l'aide existante",
+            "title": "Vérifier l'aide utilisateur existante",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que notre documentation mentionne déjà une solution ? </div> </div> </div>",
             "expl": "S'assurer que la réponse au problème ne réside pas dans une documentation ou un guide de formation évite les développements doublons.",
             "debriefExpl": "Consulter la documentation ne résout pas son besoin de filtrage si l'utilisateur ne sait pas qu'il existe déjà un outil standard pour cibler les dossiers.",
@@ -324,14 +324,14 @@
         },
         "wrong": [
           {
-            "title": "Vérifier l'aide existante",
+            "title": "Vérifier l'aide utilisateur existante",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que notre documentation mentionne déjà une solution ? </div> </div> </div>",
             "expl": "S'assurer que la réponse au problème ne réside pas dans une documentation ou un guide de formation évite les développements doublons.",
             "debriefExpl": "Consulter le manuel ne sert à rien si l'interface d'impression ne propose pas l'option, alors qu'une astuce physique (comme une douchette) peut déjà décoder le format.",
             "icon": "x"
           },
           {
-            "title": "Analyser les contournements",
+            "title": "Analyser les contournements utilisateurs existants",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Aujourd'hui, comment faites-vous pour contourner ce manque ? </div> </div> </div>",
             "expl": "Étudier la méthode de secours actuelle de l'utilisateur permet de découvrir si une fonctionnalité existante mais méconnue répond déjà au besoin.",
             "debriefExpl": "Analyser un contournement logiciel est moins pertinent ici que de détecter une astuce matérielle ou un usage détourné existant pour lire les informations.",
@@ -344,7 +344,7 @@
         "text": "Le responsable qualité réclame un outil de reporting sur mesure pour extraire la liste des fiches non conformes. Avant de lancer l'équipe sur ce développement, vous vérifiez si notre guide utilisateur détaille déjà la marche à suivre.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Guide de Configuration</div><div class=\"p-2 bg-slate-100 border border-indigo-100 rounded text-xs text-slate-800 font-medium\">💡 Voir page 12 : \"Générer des exports d'audit personnalisés\"</div></div>",
         "correct": {
-          "title": "Vérifier l'aide existante",
+          "title": "Vérifier l'aide utilisateur existante",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que notre documentation mentionne déjà une solution ? </div> </div> </div>",
           "expl": "S'assurer que la réponse au problème ne réside pas dans une documentation ou un guide de formation évite les développements doublons.",
           "debriefExpl": "La documentation décrit précisément comment générer cet export via les 'Filtres Dynamiques d'Audit'. Il s'agit d'un besoin d'accompagnement et de formation du client sur l'existant documenté, pas d'une demande de code.",
@@ -352,7 +352,7 @@
         },
         "wrong": [
           {
-            "title": "Analyser les contournements",
+            "title": "Analyser les contournements utilisateurs existants",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Aujourd'hui, comment faites-vous pour contourner ce manque ? </div> </div> </div>",
             "expl": "Étudier la méthode de secours actuelle de l'utilisateur permet de découvrir si une fonctionnalité existante mais méconnue répond déjà au besoin.",
             "debriefExpl": "Analyser les contournements n'est pas prioritaire face à l'explication de guides ou documentations existants qui décrivent déjà comment extraire les rapports standards.",
@@ -381,7 +381,7 @@
         "text": "Le service marketing propose d'intégrer une IA de détection automatique de nodules. L'idée semble géniale, mais vous avez une forte impression de déjà-vu et souhaitez vérifier si cette piste a déjà été explorée et écartée par le passé.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Rapports Historiques</div><div class=\"bg-red-50 border border-red-300 p-3 rounded-lg text-center\"><span class=\"text-[9px] font-black text-red-700 uppercase\">Pilote IA Nodules (2025)</span><div class=\"text-xs text-red-900 font-bold mt-1\">Statut : Échec / Rejet Technique</div></div></div>",
         "correct": {
-          "title": "Consulter l'historique produit",
+          "title": "Consulter l'historique général du produit",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette demande a déjà été formulée ou rejetée auparavant ? </div> </div> </div>",
           "expl": "Rechercher des précédents évite de répéter des erreurs passées et permet de comprendre les contraintes qui avaient motivé les anciens arbitrages.",
           "debriefExpl": "Les archives révèlent qu'un projet similaire a été rejeté l'an dernier car l'IA générait trop de faux positifs, stressant inutilement les patientes. Connaître ce refus évite de répéter la même erreur coûteuse.",
@@ -424,7 +424,7 @@
             "icon": "x"
           },
           {
-            "title": "Consulter l'historique produit",
+            "title": "Consulter l'historique général du produit",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette demande a déjà été formulée ou rejetée auparavant ? </div> </div> </div>",
             "expl": "Rechercher des précédents évite de répéter des erreurs passées et permet de comprendre les contraintes qui avaient motivé les anciens arbitrages.",
             "debriefExpl": "Consulter l'historique général du produit est trop large alors qu'il faut spécifiquement interroger les échecs ou alertes passés liés à une simple validation.",
@@ -445,7 +445,7 @@
         },
         "wrong": [
           {
-            "title": "Consulter l'historique produit",
+            "title": "Consulter l'historique général du produit",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette demande a déjà été formulée ou rejetée auparavant ? </div> </div> </div>",
             "expl": "Rechercher des précédents évite de répéter des erreurs passées et permet de comprendre les contraintes qui avaient motivé les anciens arbitrages.",
             "debriefExpl": "Regarder l'historique fonctionnel du produit ne donne pas d'informations sur l'existence de chantiers ou de tickets techniques déjà en cours pour cette base.",
@@ -489,7 +489,7 @@
             "icon": "x"
           },
           {
-            "title": "Mesurer la représentativité",
+            "title": "Mesurer la représentativité de la demande",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce qu'un pourcentage significatif de clients a exprimé ce besoin ? </div> </div> </div>",
             "expl": "S'appuyer sur la voix du plus grand nombre permet de prioriser les développements qui génèrent le plus de valeur collective.",
             "debriefExpl": "Mesurer le volume global d'utilisateurs n'aide pas à comprendre si ce besoin est purement spécifique à une minorité territoriale ou généralisable.",
@@ -510,7 +510,7 @@
         },
         "wrong": [
           {
-            "title": "Mesurer la représentativité",
+            "title": "Mesurer la représentativité de la demande",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce qu'un pourcentage significatif de clients a exprimé ce besoin ? </div> </div> </div>",
             "expl": "S'appuyer sur la voix du plus grand nombre permet de prioriser les développements qui génèrent le plus de valeur collective.",
             "debriefExpl": "Compter le nombre de clients demandeurs est inutile puisque le CHU est le seul à posséder ce logiciel unique au monde.",
@@ -530,7 +530,7 @@
         "text": "Une secrétaire demande d'imprimer les courriers de convocation au format A5 pour économiser le papier, affirmant que c'est l'avenir du dépistage. Avant de modifier le moteur d'édition globale, vous interrogez vos statistiques de support pour voir si cette demande est largement partagée.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Format d'Impression</div><div class=\"flex gap-4 justify-center items-end h-16\"><div class=\"w-12 h-16 border-2 border-slate-300 bg-slate-100 text-[9px] font-black text-slate-800 flex items-center justify-center rounded\">A4</div><div class=\"w-12 h-10 border-2 border-dashed border-slate-300 bg-slate-50 text-[9px] font-bold text-slate-400 flex items-center justify-center rounded\">A5</div></div></div>",
         "correct": {
-          "title": "Mesurer la représentativité",
+          "title": "Mesurer la représentativité de la demande",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce qu'un pourcentage significatif de clients a exprimé ce besoin ? </div> </div> </div>",
           "expl": "S'appuyer sur la voix du plus grand nombre permet de prioriser les développements qui génèrent le plus de valeur collective.",
           "debriefExpl": "L'analyse des retours montre que moins de 0.5% des centres souhaitent du A5, la majorité étant équipée uniquement d'imprimantes A4. La demande est trop marginale pour justifier une modification structurelle du produit.",
@@ -567,7 +567,7 @@
         "text": "L'utilisateur exige un popup bloquant au milieu de l'écran à chaque arrivée de dossier critique. Pour le faire réagir sur la pénibilité, vous lui demandez de comparer cette approche intrusive A avec une notification latérale persistante B.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Choix A/B</div><div class=\"grid grid-cols-2 gap-2 text-[10px]\"><div class=\"border-2 border-red-300 bg-red-50 p-2 rounded text-center font-bold text-red-700\">Popup A (Bloquant)</div><div class=\"border-2 border-emerald-300 bg-emerald-50 p-2 rounded text-center font-bold text-emerald-700\">Notification B (Discret)</div></div></div>",
         "correct": {
-          "title": "Confronter deux alternatives",
+          "title": "Confronter deux alternatives de conception",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ? </div> </div> </div>",
           "expl": "Proposer deux approches concrètes à l'utilisateur permet de recueillir des retours factuels sur l'ergonomie et la faisabilité.",
           "debriefExpl": "En comparant activement les deux options, l'utilisateur réalise que le popup A couperait sa saisie en cours et provoquerait des erreurs. Il valide l'option B, beaucoup plus fluide au quotidien.",
@@ -582,7 +582,7 @@
             "icon": "x"
           },
           {
-            "title": "Prioriser l'intuitivité",
+            "title": "Prioriser l'intuitivité de l'interface",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Laquelle de ces approches vous semble la plus intuitive au quotidien ? </div> </div> </div>",
             "expl": "Faire choisir l'option qui minimise la charge cognitive quotidienne garantit une adoption maximale et réduit le support.",
             "debriefExpl": "Mesurer la charge cognitive globale ne remplace pas la confrontation directe entre le popup bloquant et un badge de notification discret.",
@@ -603,14 +603,14 @@
         },
         "wrong": [
           {
-            "title": "Prioriser l'intuitivité",
+            "title": "Prioriser l'intuitivité de l'interface",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Laquelle de ces approches vous semble la plus intuitive au quotidien ? </div> </div> </div>",
             "expl": "Faire choisir l'option qui minimise la charge cognitive quotidienne garantit une adoption maximale et réduit le support.",
             "debriefExpl": "L'intuitivité pour l'utilisateur est secondaire ici face à l'énorme différence d'effort et de coût technique entre les deux modes de connexion.",
             "icon": "x"
           },
           {
-            "title": "Confronter deux alternatives",
+            "title": "Confronter deux alternatives de conception",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ? </div> </div> </div>",
             "expl": "Proposer deux approches concrètes à l'utilisateur permet de recueillir des retours factuels sur l'ergonomie et la faisabilité.",
             "debriefExpl": "Faire choisir l'utilisateur sur une interface n'aide pas l'équipe à arbitrer le coût d'infrastructure et de sécurité de la carte physique.",
@@ -623,7 +623,7 @@
         "text": "Le client réclame un chat interne. Certains veulent un outil de messagerie complet type Slack, d'autres une simple zone de commentaires partagée sur la fiche. Vous réunissez un panel d'utilisateurs pour évaluer l'ergonomie de ces deux flux.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Messagerie Interne</div><div class=\"bg-slate-100 border border-slate-300 p-2 rounded flex justify-between items-center text-xs font-bold text-slate-800\"><div class=\"flex items-center gap-1.5\"><span>💬</span> <span>Zone de Commentaires</span></div> <span class=\"bg-slate-700 text-white text-[8px] py-0.5 px-2 rounded\">Inclus</span></div></div>",
         "correct": {
-          "title": "Prioriser l'intuitivité",
+          "title": "Prioriser l'intuitivité de l'interface",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Laquelle de ces approches vous semble la plus intuitive au quotidien ? </div> </div> </div>",
           "expl": "Faire choisir l'option qui minimise la charge cognitive quotidienne garantit une adoption maximale et réduit le support.",
           "debriefExpl": "Les secrétaires déclarent à l'unanimité que la zone de commentaires contextuelle sur la fiche patient est infiniment plus intuitive pour leur travail que de gérer un outil de chat externe. L'approche simple l'emporte.",
@@ -631,7 +631,7 @@
         },
         "wrong": [
           {
-            "title": "Confronter deux alternatives",
+            "title": "Confronter deux alternatives de conception",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si on traitait le problème via l'option A plutôt que B, qu'en penseriez-vous ? </div> </div> </div>",
             "expl": "Proposer deux approches concrètes à l'utilisateur permet de recueillir des retours factuels sur l'ergonomie et la faisabilité.",
             "debriefExpl": "Proposer deux maquettes n'est pas utile tant qu'on n'a pas défini quelle approche d'interface minimale garantit l'usage le plus simple au quotidien.",
@@ -660,7 +660,7 @@
         "text": "Un centre demande un filtre pour isoler les patientes de plus de 74 ans pour les exclure des relances automatiques. En parallèle, le marketing cherche à lister les fiches sans email. Vous tentez de lier ces deux demandes sous une mécanique commune.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Générateur de Filtres</div><div class=\"bg-slate-50 p-2.5 rounded-lg text-xs space-y-1.5 font-bold\"><div class=\"bg-white border px-2 py-1 rounded flex justify-between\"><span>Filtre A : Age > 74</span> <span>✖</span></div><div class=\"bg-white border px-2 py-1 rounded flex justify-between\"><span>Filtre B : Pas de mail</span> <span>✖</span></div></div></div>",
         "correct": {
-          "title": "Mutualiser les solutions",
+          "title": "Mutualiser les solutions fonctionnelles communes",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette approche ne réglerait pas aussi le souci de X ? </div> </div> </div>",
           "expl": "Concevoir une résolution transverse permet de traiter plusieurs irritants à la fois en limitant le volume de code.",
           "debriefExpl": "Poser cette question permet de concevoir un 'Générateur de filtres dynamiques multicritères' plutôt que de coder deux filtres statiques distincts. Vous résolvez deux besoins avec un seul outil puissant.",
@@ -703,7 +703,7 @@
             "icon": "x"
           },
           {
-            "title": "Mutualiser les solutions",
+            "title": "Mutualiser les solutions fonctionnelles communes",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette approche ne réglerait pas aussi le souci de X ? </div> </div> </div>",
             "expl": "Concevoir une résolution transverse permet de traiter plusieurs irritants à la fois en limitant le volume de code.",
             "debriefExpl": "Fusionner les demandes sans étudier le workflow global risque de créer un outil hybride inadapté aux contraintes de la radiologie ou de la biologie.",
@@ -724,7 +724,7 @@
         },
         "wrong": [
           {
-            "title": "Mutualiser les solutions",
+            "title": "Mutualiser les solutions fonctionnelles communes",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette approche ne réglerait pas aussi le souci de X ? </div> </div> </div>",
             "expl": "Concevoir une résolution transverse permet de traiter plusieurs irritants à la fois en limitant le volume de code.",
             "debriefExpl": "Essayer de regrouper cette tâche avec d'autres besoins d'administration n'aide pas à concevoir le script de nettoyage automatique le plus robuste possible.",
@@ -753,7 +753,7 @@
         "text": "Un client majeur exige une refonte immédiate du module de prise de rendez-vous. Or, la roadmap prévoit une migration totale vers un partenaire d'agenda externe dans six mois. Vous devez décider du calendrier de traitement.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Roadmap Intégration</div><div class=\"flex justify-between items-center text-[10px] font-bold text-slate-500 bg-slate-50 p-2 rounded\"><span class=\"text-red-700\">Patch temporaire</span> <span>➔</span> <span class=\"text-emerald-700\">Nouvel Agenda (M+6)</span></div></div>",
         "correct": {
-          "title": "Phaser l'implémentation",
+          "title": "Phaser l'implémentation selon la roadmap",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ? </div> </div> </div>",
           "expl": "Décider si le besoin nécessite une correction immédiate ou s'il s'inscrit plus logiquement dans une refonte globale prévue.",
           "debriefExpl": "Le client accepte de repousser la refonte en comprenant qu'inclure sa demande dans la migration future garantira un outil plus moderne et évitera de jeter un code spécifique dans six mois.",
@@ -761,7 +761,7 @@
         },
         "wrong": [
           {
-            "title": "Anticiper l'obsolescence",
+            "title": "Anticiper l'obsolescence des chantiers futurs",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ? </div> </div> </div>",
             "expl": "Vérifier si un chantier futur de la roadmap ne va pas naturellement éliminer le problème évite de développer une fonction jetable.",
             "debriefExpl": "Vérifier l'obsolescence n'est pas pertinent car le module de rendez-vous doit bien être refondu, mais son calendrier de livraison doit être planifié.",
@@ -781,7 +781,7 @@
         "text": "On vous réclame un patch pour faire fonctionner l'application hors-ligne sur les tablettes de dépistage mobile. Or, la roadmap prévoit une refonte complète de l'application mobile le trimestre prochain. Vous évaluez l'intérêt de ce patch.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Refonte Mobile T1</div><div class=\"bg-slate-100 border border-slate-300 p-2.5 rounded-lg text-center\"><div class=\"text-xs font-black text-slate-800\">MOTEUR DE SYNCHRO INTERNE</div><div class=\"text-[8px] text-emerald-700 font-bold uppercase mt-1\">Livré dans la refonte mobile T1</div></div></div>",
         "correct": {
-          "title": "Anticiper l'obsolescence",
+          "title": "Anticiper l'obsolescence des chantiers futurs",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ? </div> </div> </div>",
           "expl": "Vérifier si un chantier futur de la roadmap ne va pas naturellement éliminer le problème évite de développer une fonction jetable.",
           "debriefExpl": "La nouvelle application mobile intègre nativement un moteur de synchronisation hors-ligne performant, ce qui rend le patch temporaire obsolète. On choisit de concentrer l'effort sur la livraison de la nouvelle version.",
@@ -796,7 +796,7 @@
             "icon": "x"
           },
           {
-            "title": "Phaser l'implémentation",
+            "title": "Phaser l'implémentation selon la roadmap",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ? </div> </div> </div>",
             "expl": "Décider si le besoin nécessite une correction immédiate ou s'il s'inscrit plus logiquement dans une refonte globale prévue.",
             "debriefExpl": "Planifier la livraison ne sert à rien s'il s'agit de développer un correctif temporaire lourd qui sera rendu obsolète par la version web imminente.",
@@ -817,14 +817,14 @@
         },
         "wrong": [
           {
-            "title": "Phaser l'implémentation",
+            "title": "Phaser l'implémentation selon la roadmap",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Doit-on traiter ce besoin séparément ou l'inclure dans le projet futur ? </div> </div> </div>",
             "expl": "Décider si le besoin nécessite une correction immédiate ou s'il s'inscrit plus logiquement dans une refonte globale prévue.",
             "debriefExpl": "Planifier la demande telle quelle dans le calendrier ne permet pas d'adapter la conception de notre futur outil de génération dynamique pour y répondre.",
             "icon": "x"
           },
           {
-            "title": "Anticiper l'obsolescence",
+            "title": "Anticiper l'obsolescence des chantiers futurs",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que la fonctionnalité prévue Z rendrait ce problème obsolète ? </div> </div> </div>",
             "expl": "Vérifier si un chantier futur de la roadmap ne va pas naturellement éliminer le problème évite de développer une fonction jetable.",
             "debriefExpl": "Chercher l'obsolescence n'est pas adapté ici car le besoin de personnalisation est réel et doit servir à orienter les choix de notre futur module.",
@@ -854,14 +854,14 @@
         },
         "wrong": [
           {
-            "title": "Responsabiliser sur l'effort",
+            "title": "Responsabiliser sur l'effort de développement",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Êtes-vous conscient de la contrainte technique que cela impose ? </div> </div> </div>",
             "expl": "Partager la complexité technique du développement avec le demandeur permet de négocier un périmètre plus réaliste et simplifié.",
             "debriefExpl": "Responsabiliser l'utilisateur n'aide pas à évaluer l'impact serveur majeur et la surcharge de calcul induite par ce rafraîchissement permanent.",
             "icon": "x"
           },
           {
-            "title": "Anticiper les régressions",
+            "title": "Anticiper les régressions techniques potentielles",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette solution ne crée pas de nouveaux cas d'erreur ? </div> </div> </div>",
             "expl": "Analyser si le nouveau comportement ne risque pas de déstabiliser des flux existants ou de générer de nouveaux cas limites.",
             "debriefExpl": "Chercher les régressions fonctionnelles n'est pas prioritaire par rapport à l'évaluation de la lenteur serveur et de la dette de performance générée.",
@@ -874,7 +874,7 @@
         "text": "Le client demande de pouvoir modifier librement le numéro de sécurité sociale d'un dossier déjà validé. Vous devez lui exposer l'impact structurel de cette action, le numéro servant de clé unique dans toute l'architecture de la base.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Schéma Base de Données</div><div class=\"flex justify-center items-center gap-3 h-14 bg-red-50 border border-red-300 rounded text-[9px] font-mono font-bold text-red-700\"><div class=\"p-1 bg-white border\">Clé: SSN</div> <span class=\"text-xs\">✖</span> <div class=\"p-1 bg-white border\">Dossier Médical</div></div></div>",
         "correct": {
-          "title": "Responsabiliser sur l'effort",
+          "title": "Responsabiliser sur l'effort de développement",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Êtes-vous conscient de la contrainte technique que cela impose ? </div> </div> </div>",
           "expl": "Partager la complexité technique du développement avec le demandeur permet de négocier un périmètre plus réaliste et simplifié.",
           "debriefExpl": "Comprendre que changer cette clé unique briserait toutes les liaisons historiques avec les examens de biologie et d'imagerie fait réaliser au client la dangerosité technique de sa demande. On opte pour une procédure de correction sécurisée.",
@@ -882,7 +882,7 @@
         },
         "wrong": [
           {
-            "title": "Anticiper les régressions",
+            "title": "Anticiper les régressions techniques potentielles",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette solution ne crée pas de nouveaux cas d'erreur ? </div> </div> </div>",
             "expl": "Analyser si le nouveau comportement ne risque pas de déstabiliser des flux existants ou de générer de nouveaux cas limites.",
             "debriefExpl": "Se focaliser sur les bugs de régression n'aide pas à faire prendre conscience au client de la responsabilité légale et de la complexité d'un tel changement.",
@@ -902,7 +902,7 @@
         "text": "Un grand centre exige qu'ESIS-3D soit compatible avec Internet Explorer 11 pour éviter de mettre à jour son parc informatique. Vous devez analyser si supporter ce navigateur obsolète ne va pas briser les composants modernes pour tous les autres utilisateurs.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Compatibilité Navigateurs</div><div class=\"flex justify-between items-center text-[10px] font-bold\"><span class=\"text-emerald-700\">Chrome / Firefox (OK)</span> <span class=\"text-red-700\">IE11 (Crash CSS)</span></div></div>",
         "correct": {
-          "title": "Anticiper les régressions",
+          "title": "Anticiper les régressions techniques potentielles",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Est-ce que cette solution ne crée pas de nouveaux cas d'erreur ? </div> </div> </div>",
           "expl": "Analyser si le nouveau comportement ne risque pas de déstabiliser des flux existants ou de générer de nouveaux cas limites.",
           "debriefExpl": "L'analyse montre que coder pour IE11 imposerait de désactiver des protocoles de sécurité modernes, créant de graves failles de sécurité et des bugs d'affichage majeurs sur Chrome et Firefox. Le risque d'erreur globale est trop grand, la demande est refusée.",
@@ -917,7 +917,7 @@
             "icon": "x"
           },
           {
-            "title": "Responsabiliser sur l'effort",
+            "title": "Responsabiliser sur l'effort de développement",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Êtes-vous conscient de la contrainte technique que cela impose ? </div> </div> </div>",
             "expl": "Partager la complexité technique du développement avec le demandeur permet de négocier un périmètre plus réaliste et simplifié.",
             "debriefExpl": "Responsabiliser sur le temps de développement ne suffit pas à dissuader le client face aux failles de sécurité et aux risques de pannes sur un vieux navigateur.",
@@ -947,7 +947,7 @@
         },
         "wrong": [
           {
-            "title": "Valider l'alternative manuelle",
+            "title": "Valider une alternative opérationnelle manuelle",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> La solution convient-elle si elle demande des étapes manuelles en plus ? </div> </div> </div>",
             "expl": "Vérifier si un accompagnement humain ou un traitement manuel est accepté par le terrain pour éviter de coder un automatisme lourd.",
             "debriefExpl": "L'alternative manuelle est déjà en place et sature l'équipe, il faut négocier les étapes d'automatisation pour raccourcir le délai de mise en service.",
@@ -967,7 +967,7 @@
         "text": "L'hôpital exige un module de facturation automatique complexe pour le 1er janvier. L'équipe est saturée. Vous leur proposez une version simplifiée où la saisie est assistée mais la télétransmission requiert une validation manuelle temporaire.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Calendrier Facturation</div><div class=\"flex justify-between text-[8px] font-black uppercase text-slate-400 bg-slate-50 p-2 rounded\"><span class=\"text-slate-800\">1 Janv: Saisie simple</span> <span>➔</span> <span>1 Mars: Envoi Auto</span></div></div>",
         "correct": {
-          "title": "Valider l'alternative manuelle",
+          "title": "Valider une alternative opérationnelle manuelle",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> La solution convient-elle si elle demande des étapes manuelles en plus ? </div> </div> </div>",
           "expl": "Vérifier si un accompagnement humain ou un traitement manuel est accepté par le terrain pour éviter de coder un automatisme lourd.",
           "debriefExpl": "L'hôpital accepte la validation manuelle pour tenir l'échéance du 1er janvier. Cette marge opérationnelle évite le burnout de l'équipe de développement et assure une livraison à l'heure.",
@@ -1010,7 +1010,7 @@
             "icon": "x"
           },
           {
-            "title": "Valider l'alternative manuelle",
+            "title": "Valider une alternative opérationnelle manuelle",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> La solution convient-elle si elle demande des étapes manuelles en plus ? </div> </div> </div>",
             "expl": "Vérifier si un accompagnement humain ou un traitement manuel est accepté par le terrain pour éviter de coder un automatisme lourd.",
             "debriefExpl": "L'alternative manuelle existe déjà, il faut ici identifier le noyau d'action minimal et sécurisé pour assister le médecin sans le remplacer.",
@@ -1047,7 +1047,7 @@
             "icon": "x"
           },
           {
-            "title": "Valider l'impact partiel",
+            "title": "Valider l'impact d'une solution partielle",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si on ne fait que X, est-ce que cela règle déjà 80% du problème ? </div> </div> </div>",
             "expl": "Valider si une implémentation simple et rapide couvre l'essentiel de l'irritant et permet de clore le sujet à moindre coût.",
             "debriefExpl": "Valider un impact partiel n'est pas pertinent quand on peut totalement éviter le développement logiciel grâce à un outil tiers sans code.",
@@ -1068,7 +1068,7 @@
         },
         "wrong": [
           {
-            "title": "Valider l'impact partiel",
+            "title": "Valider l'impact d'une solution partielle",
             "visual": "<div class=\"w-full bg-slate-50 border border-red-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-red-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">À ÉVITER</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-red-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si on ne fait que X, est-ce que cela règle déjà 80% du problème ? </div> </div> </div>",
             "expl": "Valider si une implémentation simple et rapide couvre l'essentiel de l'irritant et permet de clore le sujet à moindre coût.",
             "debriefExpl": "Valider un impact à 80% est insuffisant tant qu'on n'a pas défini la version minimaliste et simplifiée du parcours clinique pour les médecins.",
@@ -1088,7 +1088,7 @@
         "text": "La direction réclame un tableau de bord décisionnel en 3D composé de 25 indicateurs statistiques croisés. Vous leur proposez de livrer uniquement les 3 indicateurs de flux vitaux sous forme de tableau simple.",
         "problemVisual": "<div class=\"w-full max-w-xs border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Dashboard Pivot</div><div class=\"p-2 bg-slate-50 rounded border space-y-1.5 text-[10px] font-bold text-slate-800\"><div class=\"flex justify-between\"><span>Total Fiches</span> <span>1,209</span></div><div class=\"flex justify-between\"><span>En cours</span> <span>84</span></div></div></div>",
         "correct": {
-          "title": "Valider l'impact partiel",
+          "title": "Valider l'impact d'une solution partielle",
           "visual": "<div class=\"w-full bg-slate-50 border border-emerald-200 rounded-xl p-3 flex flex-col gap-2 relative overflow-hidden h-full min-h-[90px]\"> <div class=\"absolute top-0 right-0 bg-emerald-500 text-white text-[6px] font-bold px-2 py-0.5 rounded-bl-lg tracking-wider\">CONSEILLÉ</div> <div class=\"flex flex-col gap-1.5 text-[8px] font-bold text-slate-600\"> <div class=\"flex items-center gap-1.5\"> <span class=\"w-1.5 h-1.5 rounded-full bg-emerald-500\"></span> <span>Arbitrage Posture</span> </div> <div class=\"bg-white border rounded p-1.5 text-[7px] text-slate-500 leading-snug\"> Si on ne fait que X, est-ce que cela règle déjà 80% du problème ? </div> </div> </div>",
           "expl": "Valider si une implémentation simple et rapide couvre l'essentiel de l'irritant et permet de clore le sujet à moindre coût.",
           "debriefExpl": "La direction convient que ces 3 indicateurs clés résolvent 80% de leur besoin de pilotage hebdomadaire. Vous évitez un développement d'interface lourd en livrant la valeur essentielle en un temps record.",
