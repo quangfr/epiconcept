@@ -1766,7 +1766,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.06';
+        const APP_VERSION = '2026.06.01.07';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2505,7 +2505,7 @@
                                 if (sci.visual) {
                                     visuals.push({
                                         title: sci.title || (item.questions[idx] ? item.questions[idx].text : ''),
-                                        expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                        expl: sci.expl || sc.explanation || sc.text,
                                         html: sci.visual
                                     });
                                 }
@@ -2531,7 +2531,7 @@
                                 if (sc.correct.visual) {
                                     visuals.push({
                                         title: sc.correct.title,
-                                        expl: sc.correct.expl,
+                                        expl: sc.correct.expl || sc.expl || sc.text,
                                         html: sc.correct.visual
                                     });
                                 }
@@ -2559,7 +2559,7 @@
                                 if (sci.visual) {
                                     visuals.push({
                                         title: sci.title || (item.questions[idx] || ''),
-                                        expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                        expl: sci.expl || sc.explanation || sc.text,
                                         html: sci.visual
                                     });
                                 }
@@ -2588,7 +2588,7 @@
                                 if (sci.visual) {
                                     visuals.push({
                                         title: sci.title || (item.questions[idx] || ''),
-                                        expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                        expl: sci.expl || sc.explanation || sc.text,
                                         html: sci.visual
                                     });
                                 }
@@ -2615,7 +2615,7 @@
                                 if (sci.visual) {
                                     visuals.push({
                                         title: sci.title,
-                                        expl: sci.expl,
+                                        expl: sci.expl || sc.text,
                                         html: sci.visual
                                     });
                                 }
@@ -2642,7 +2642,7 @@
                                 if (sci.visual) {
                                     visuals.push({
                                         title: sci.title,
-                                        expl: sci.expl,
+                                        expl: sci.expl || sc.text,
                                         html: sci.visual
                                     });
                                 }
