@@ -1625,7 +1625,7 @@
                             risque.</p>
                     </div>
 
-                    <article class="simulator-card innov-theme disabled-card" style="opacity: 0.7;">
+                    <article class="simulator-card innov-theme" id="lean-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1633,13 +1633,14 @@
                                     data-lucide="flask-conical"></i></div>
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                5 - Lean Startup</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div style="display:flex;align-items:center;gap:0.4rem;">
-                                    <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                    </div>
-                                </div>
+                                5 - Innovation</h2>
+                            <button onclick="event.stopPropagation(); openLesson(5, 0)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="lean-slides-status-label">0 / 4</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1650,7 +1651,7 @@
                         </div>
                         
                     </article>
-                    <article class="simulator-card innov-theme disabled-card" id="veille-card" style="opacity: 0.7;">
+                    <article class="simulator-card innov-theme" id="veille-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1659,10 +1660,13 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 I - Veille &amp; Benchmark</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                            <button onclick="event.stopPropagation(); openLesson(5, 0)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="veille-status-label">0 / 27</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1672,7 +1676,7 @@
                         </div>
                         
                     </article>
-                    <article class="simulator-card innov-theme disabled-card" id="poc-card" style="opacity: 0.7;">
+                    <article class="simulator-card innov-theme" id="poc-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1680,17 +1684,20 @@
                                     data-lucide="flask-conical"></i></div>
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                J - Preuve de Concept (POC)</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                                J - Test &amp; Learn</h2>
+                            <button onclick="event.stopPropagation(); openLesson(5, 3)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="tln-status-label">0 / 27</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
-                                Expérimentez vos idées avec un POC rapide pour valider les hypothèses sans risque.</p>
+                                Expérimentez, testez et validez vos idées avant d'investir grâce au cycle discovery.</p>
                         </div>
                         
                     </article>
@@ -1713,7 +1720,7 @@
                             fonctionnalités.</p>
                     </div>
 
-                    <article class="simulator-card data-theme disabled-card" style="opacity: 0.7;">
+                    <article class="simulator-card data-theme" id="data-driven-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1722,12 +1729,13 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 6 - Data Driven</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div style="display:flex;align-items:center;gap:0.4rem;">
-                                    <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                    </div>
-                                </div>
+                            <button onclick="event.stopPropagation(); openLesson(6, 0)"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les slides">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="analytics-slides-status-label">0 / 7</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1736,9 +1744,8 @@
                                 Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.
                             </p>
                         </div>
-                        
                     </article>
-                    <article class="simulator-card data-theme disabled-card" id="analytics-card" style="opacity: 0.7;">
+                    <article class="simulator-card data-theme" id="analytics-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1746,11 +1753,14 @@
                                     data-lucide="bar-chart-2"></i></div>
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                K - Analytics &amp; Parcours</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                                K - Analytics &amp; Productivité</h2>
+                            <button onclick="event.stopPropagation(); showRef('K1')"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les réflexes K">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="analytics-status-label">0 / 24</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1758,9 +1768,8 @@
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Analysez les données d'usage, identifiez les frictions et validez par les KPIs.</p>
                         </div>
-                        
                     </article>
-                    <article class="simulator-card data-theme disabled-card" id="kpi-card" style="opacity: 0.7;">
+                    <article class="simulator-card data-theme" id="kpi-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1768,11 +1777,14 @@
                                     data-lucide="line-chart"></i></div>
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                L - KPIs &amp; Tableaux de Bord</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                                L - KPIs &amp; Dashboard</h2>
+                            <button onclick="event.stopPropagation(); showRef('L1')"
+                                style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
+                                onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
+                                title="Voir les réflexes L">
+                                <i data-lucide="info" style="width:15px;height:15px;"></i></button>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="kpi-status-label">0 / 24</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1781,7 +1793,6 @@
                                 Définissez les indicateurs clés et construisez des tableaux de bord décisionnels
                                 efficaces.</p>
                         </div>
-                        
                     </article>
                 </section>
 
@@ -1794,7 +1805,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.66';
+        const APP_VERSION = '2026.06.02.01';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1807,7 +1818,7 @@
             parent.style.setProperty('--progress', `${percent}%`);
 
             let color, accent;
-            const isLessonLabel = ['dt-status-label', 'mvp-status-label', 'road-slides-status-label', 'gsup-slides-status-label'].includes(labelEl.id);
+            const isLessonLabel = ['dt-status-label', 'mvp-status-label', 'road-slides-status-label', 'gsup-slides-status-label', 'lean-slides-status-label', 'analytics-slides-status-label'].includes(labelEl.id);
             if (percent === 100 || (isLessonLabel && y > 0 && x >= y - 1)) {
                 color = 'green';
                 accent = '#10b981';
@@ -1875,6 +1886,26 @@
             let ticketing2 = parseInt(localStorage.getItem('ticketing-score-lv2') || '0', 10);
             let totalTicketingScore = ticketing0 + ticketing1 + ticketing2;
 
+            let veille0 = parseInt(localStorage.getItem('veille-score-lv0') || '0', 10);
+            let veille1 = parseInt(localStorage.getItem('veille-score-lv1') || '0', 10);
+            let veille2 = parseInt(localStorage.getItem('veille-score-lv2') || '0', 10);
+            let totalVeilleScore = veille0 + veille1 + veille2;
+
+            let tln0 = parseInt(localStorage.getItem('tln-score-lv0') || '0', 10);
+            let tln1 = parseInt(localStorage.getItem('tln-score-lv1') || '0', 10);
+            let tln2 = parseInt(localStorage.getItem('tln-score-lv2') || '0', 10);
+            let totalTlnScore = tln0 + tln1 + tln2;
+
+            let analytics0 = parseInt(localStorage.getItem('analytics-score-lv0') || '0', 10);
+            let analytics1 = parseInt(localStorage.getItem('analytics-score-lv1') || '0', 10);
+            let analytics2 = parseInt(localStorage.getItem('analytics-score-lv2') || '0', 10);
+            let totalAnalyticsScore = analytics0 + analytics1 + analytics2;
+
+            let kpi0 = parseInt(localStorage.getItem('kpi-score-lv0') || '0', 10);
+            let kpi1 = parseInt(localStorage.getItem('kpi-score-lv1') || '0', 10);
+            let kpi2 = parseInt(localStorage.getItem('kpi-score-lv2') || '0', 10);
+            let totalKpiScore = kpi0 + kpi1 + kpi2;
+
             let maxPoScore = 36;
             let maxUxScore = 39;
             let maxEvoScore = 30;
@@ -1883,7 +1914,11 @@
             let maxFeatScore = 27;
             let maxGsupScore = 30;
             let maxTicketingScore = 27;
-            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore + maxFeatScore + maxGsupScore + maxTicketingScore;
+            let maxVeilleScore = 27;
+            let maxTlnScore = 27;
+            let maxAnalyticsScore = 24;
+            let maxKpiScore = 24;
+            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore + maxFeatScore + maxGsupScore + maxTicketingScore + maxVeilleScore + maxTlnScore + maxAnalyticsScore + maxKpiScore;
 
             // Pagination: 3 ateliers per page
             const scrollEl = document.getElementById('ateliers-scroll');
@@ -1971,6 +2006,33 @@
                 window.updateCardStatusBadge(ticketingLabel, totalTicketingScore, maxTicketingScore);
             }
 
+            const veilleLabel = document.getElementById('veille-status-label');
+            if (veilleLabel) {
+                window.updateCardStatusBadge(veilleLabel, totalVeilleScore, maxVeilleScore);
+            }
+
+            const tlnLabel = document.getElementById('tln-status-label');
+            if (tlnLabel) {
+                window.updateCardStatusBadge(tlnLabel, totalTlnScore, maxTlnScore);
+            }
+
+            const analyticsLabel = document.getElementById('analytics-status-label');
+            if (analyticsLabel) {
+                window.updateCardStatusBadge(analyticsLabel, totalAnalyticsScore, maxAnalyticsScore);
+            }
+
+            const kpiLabel = document.getElementById('kpi-status-label');
+            if (kpiLabel) {
+                window.updateCardStatusBadge(kpiLabel, totalKpiScore, maxKpiScore);
+            }
+
+            const savedLean = localStorage.getItem('veille-last-slide');
+            const leanSlideIdx = savedLean ? parseInt(savedLean, 10) : -1;
+            const leanSlidesStatusLabel = document.getElementById('lean-slides-status-label');
+            if (leanSlidesStatusLabel) {
+                window.updateCardStatusBadge(leanSlidesStatusLabel, leanSlideIdx + 1, 4);
+            }
+
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
             const dtStatusLabel = document.getElementById('dt-status-label');
@@ -1996,7 +2058,14 @@
             const gsupSlidesIdx = savedGsupSlides ? parseInt(savedGsupSlides, 10) : -1;
             const gsupSlidesStatusLabel = document.getElementById('gsup-slides-status-label');
             if (gsupSlidesStatusLabel) {
-                window.updateCardStatusBadge(gsupSlidesStatusLabel, gsupSlidesIdx + 1, 2);
+                window.updateCardStatusBadge(gsupSlidesStatusLabel, gsupSlidesIdx + 1, 6);
+            }
+
+            const savedAnalyticsSlides = localStorage.getItem('analytics-last-slide');
+            const analyticsSlidesIdx = savedAnalyticsSlides ? parseInt(savedAnalyticsSlides, 10) : -1;
+            const analyticsSlidesStatusLabel = document.getElementById('analytics-slides-status-label');
+            if (analyticsSlidesStatusLabel) {
+                window.updateCardStatusBadge(analyticsSlidesStatusLabel, analyticsSlidesIdx + 1, 7);
             }
 
             // Update individual atelier progress gauges (exercise scores)
@@ -2034,6 +2103,24 @@
             if (el4Val) {
                 el4Val.innerText = `${pct4}%`;
                 el4Val.parentElement.style.setProperty('--progress', `${pct4}%`);
+            }
+
+            const max5 = maxVeilleScore + maxTlnScore;
+            const score5 = totalVeilleScore + totalTlnScore;
+            const pct5 = Math.round((score5 / max5) * 100) || 0;
+            const el5Val = document.getElementById('atelier-5-completion-val');
+            if (el5Val) {
+                el5Val.innerText = `${pct5}%`;
+                el5Val.parentElement.style.setProperty('--progress', `${pct5}%`);
+            }
+
+            const max6 = maxAnalyticsScore + maxKpiScore;
+            const score6 = totalAnalyticsScore + totalKpiScore;
+            const pct6 = Math.round((score6 / max6) * 100) || 0;
+            const el6Val = document.getElementById('atelier-6-completion-val');
+            if (el6Val) {
+                el6Val.innerText = `${pct6}%`;
+                el6Val.parentElement.style.setProperty('--progress', `${pct6}%`);
             }
 
             // Display time metadata if available
@@ -2128,6 +2215,48 @@
                 });
             }
 
+            const veilleCard = document.getElementById('veille-card');
+            if (veilleCard) {
+                veilleCard.addEventListener('click', () => {
+                    window.location.href = './exo.html?id=5-i';
+                });
+            }
+
+            const leanCard = document.getElementById('lean-card');
+            if (leanCard) {
+                leanCard.addEventListener('click', () => {
+                    openLesson(5);
+                });
+            }
+
+            const pocCard = document.getElementById('poc-card');
+            if (pocCard) {
+                pocCard.addEventListener('click', () => {
+                    window.location.href = './exo.html?id=5-j';
+                });
+            }
+
+            const dataDrivenCard = document.getElementById('data-driven-card');
+            if (dataDrivenCard) {
+                dataDrivenCard.addEventListener('click', () => {
+                    openLesson(6);
+                });
+            }
+
+            const analyticsCard = document.getElementById('analytics-card');
+            if (analyticsCard) {
+                analyticsCard.addEventListener('click', () => {
+                    window.location.href = './exo.html?id=6-k';
+                });
+            }
+
+            const kpiCard = document.getElementById('kpi-card');
+            if (kpiCard) {
+                kpiCard.addEventListener('click', () => {
+                    window.location.href = './exo.html?id=6-l';
+                });
+            }
+
             lucide.createIcons();
 
             const savedLesson = localStorage.getItem('lesson-modal-open');
@@ -2161,6 +2290,8 @@
                     <option value="2">Atelier 2 - Cadrage Product</option>
                     <option value="3">Atelier 3 - Vision Product</option>
                     <option value="4">Atelier 4 - Support Product</option>
+                    <option value="5">Atelier 5 - Veille Product</option>
+                    <option value="6">Atelier 6 - Data Product</option>
                 </select>
             </div>
 
@@ -2204,7 +2335,7 @@
         let slidesDataCache = {};
 
         async function openLesson(atelierId, startSlide = null) {
-            if (atelierId !== 1 && atelierId !== 2 && atelierId !== 3 && atelierId !== 4) return;
+            if (atelierId !== 1 && atelierId !== 2 && atelierId !== 3 && atelierId !== 4 && atelierId !== 5 && atelierId !== 6) return;
             const modal = document.getElementById('lesson-modal');
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
@@ -2224,11 +2355,15 @@
             if (atelierId === 2) slideFile = '2-0.md';
             else if (atelierId === 3) slideFile = '3-0.md';
             else if (atelierId === 4) slideFile = '4-0.md';
+            else if (atelierId === 5) slideFile = '5-0.md';
+            else if (atelierId === 6) slideFile = '6-0.md';
 
             let lsKey = 'design-thinking-last-slide';
             if (atelierId === 2) lsKey = 'mvp-last-slide';
             else if (atelierId === 3) lsKey = 'roadmap-last-slide';
             else if (atelierId === 4) lsKey = 'gsup-last-slide';
+            else if (atelierId === 5) lsKey = 'veille-last-slide';
+            else if (atelierId === 6) lsKey = 'analytics-last-slide';
 
             currentAtelierId = atelierId;
 
@@ -2267,7 +2402,7 @@
 
         async function switchLessonFromDropdown(atelierId) {
             const id = parseInt(atelierId, 10);
-            if (id >= 1 && id <= 4) {
+            if (id >= 1 && id <= 6) {
                 await openLesson(id, 0);
             }
         }
@@ -2406,6 +2541,9 @@
             let lsKey = 'design-thinking-last-slide';
             if (currentAtelierId === 2) lsKey = 'mvp-last-slide';
             else if (currentAtelierId === 3) lsKey = 'roadmap-last-slide';
+            else if (currentAtelierId === 4) lsKey = 'gsup-last-slide';
+            else if (currentAtelierId === 5) lsKey = 'veille-last-slide';
+            else if (currentAtelierId === 6) lsKey = 'analytics-last-slide';
             localStorage.setItem(lsKey, currentSlide);
             updateSlides();
         }
@@ -2450,6 +2588,8 @@
                 if (currentAtelierId === 2) statusLabelId = 'mvp-status-label';
                 else if (currentAtelierId === 3) statusLabelId = 'road-slides-status-label';
                 else if (currentAtelierId === 4) statusLabelId = 'gsup-slides-status-label';
+                else if (currentAtelierId === 5) statusLabelId = 'lean-slides-status-label';
+                else if (currentAtelierId === 6) statusLabelId = 'analytics-slides-status-label';
                 const statusLabel = document.getElementById(statusLabelId);
                 if (statusLabel) {
                     window.updateCardStatusBadge(statusLabel, currentSlide + 1, slides.length);
@@ -2587,7 +2727,7 @@
             if (!reflexesData) {
                 try {
                     const v = new Date().getTime();
-                    const [poRes, uxRes, cRes, dRes, eRes, fRes, gRes, hRes] = await Promise.all([
+                    const [poRes, uxRes, cRes, dRes, eRes, fRes, gRes, hRes, iRes, jRes, kRes, lRes] = await Promise.all([
                         fetch('1-a.json?v=' + v),
                         fetch('1-b.json?v=' + v),
                         fetch('2-c.json?v=' + v),
@@ -2595,7 +2735,11 @@
                         fetch('3-e.json?v=' + v),
                         fetch('3-f.json?v=' + v),
                         fetch('4-g.json?v=' + v),
-                        fetch('4-h.json?v=' + v)
+                        fetch('4-h.json?v=' + v),
+                        fetch('5-i.json?v=' + v),
+                        fetch('5-j.json?v=' + v),
+                        fetch('6-k.json?v=' + v),
+                        fetch('6-l.json?v=' + v)
                     ]);
                     const cRaw = await cRes.json();
                     reflexesData = {
@@ -2606,7 +2750,11 @@
                         e: await eRes.json(),
                         f: await fRes.json(),
                         g: await gRes.json(),
-                        h: await hRes.json()
+                        h: await hRes.json(),
+                        i: await iRes.json(),
+                        j: await jRes.json(),
+                        k: await kRes.json(),
+                        l: await lRes.json()
                     };
                 } catch (e) {
                     console.error("Error loading reflex data:", e);
@@ -2824,6 +2972,114 @@
                     description = item.intent;
                     badgeText = "Réflexe H - Assistance & Connaissance";
                     iconName = item.icon || "book-open";
+                    isCD = true;
+                    examples = [];
+                    if (item.scenarios) {
+                        item.scenarios.forEach((sc) => {
+                            const sci = sc.correct;
+                            if (sci && sci.title) {
+                                examples.push(sci.title);
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title,
+                                        expl: sci.expl || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
+                            }
+                        });
+                    }
+                    if (!examples.length) examples = item.questions || [];
+                }
+            } else if (reflexId.startsWith('I')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.i.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    badgeText = "Réflexe Veille & Benchmark";
+                    iconName = item.icon || "search";
+                    isCD = true;
+                    examples = [];
+                    if (item.scenarios) {
+                        item.scenarios.forEach((sc) => {
+                            const sci = sc.correct;
+                            if (sci && sci.title) {
+                                examples.push(sci.title);
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title,
+                                        expl: sci.expl || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
+                            }
+                        });
+                    }
+                    if (!examples.length) examples = item.questions || [];
+                }
+            } else if (reflexId.startsWith('J')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.j.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    badgeText = "Réflexe Test & Learn";
+                    iconName = item.icon || "flask";
+                    isCD = true;
+                    examples = [];
+                    if (item.scenarios) {
+                        item.scenarios.forEach((sc) => {
+                            const sci = sc.correct;
+                            if (sci && sci.title) {
+                                examples.push(sci.title);
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title,
+                                        expl: sci.expl || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
+                            }
+                        });
+                    }
+                    if (!examples.length) examples = item.questions || [];
+                }
+            } else if (reflexId.startsWith('K')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.k.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    badgeText = "Réflexe Analytics & Productivité";
+                    iconName = item.icon || "bar-chart-2";
+                    isCD = true;
+                    examples = [];
+                    if (item.scenarios) {
+                        item.scenarios.forEach((sc) => {
+                            const sci = sc.correct;
+                            if (sci && sci.title) {
+                                examples.push(sci.title);
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title,
+                                        expl: sci.expl || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
+                            }
+                        });
+                    }
+                    if (!examples.length) examples = item.questions || [];
+                }
+            } else if (reflexId.startsWith('L')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.l.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    badgeText = "Réflexe KPIs & Dashboard";
+                    iconName = item.icon || "line-chart";
                     isCD = true;
                     examples = [];
                     if (item.scenarios) {
