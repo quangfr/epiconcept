@@ -1169,7 +1169,7 @@
 
             #lesson-header > div:last-child {
                 width: 100%;
-                justify-content: space-between !important;
+                justify-content: flex-end !important;
             }
 
             #lesson-selector {
@@ -1776,7 +1776,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.61';
+        const APP_VERSION = '2026.06.01.62';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2115,6 +2115,9 @@
 
             <!-- Right Side: Nav arrows + dot progress -->
             <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div id="dot-progress" style="display: flex; gap: 5px; align-items: center; margin-left: 0.5rem;">
+                    <!-- Generated dynamically -->
+                </div>
                 <button onclick="changeSlide(-1)" class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                     style="border: none; outline: none; width: 32px; height: 32px;" aria-label="Page précédente">
                     <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
@@ -2123,9 +2126,6 @@
                     style="border: none; outline: none; width: 32px; height: 32px;" aria-label="Page suivante">
                     <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
                 </button>
-                <div id="dot-progress" style="display: flex; gap: 5px; align-items: center; margin-left: 0.5rem;">
-                    <!-- Generated dynamically -->
-                </div>
             </div>
         </div>
 
