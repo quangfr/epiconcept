@@ -408,13 +408,12 @@
 
         /* Glassmorphism Card Style */
         .simulator-card {
-            padding: 1rem;
-            gap: 0.5rem;
+            padding: 0.95rem;
+            gap: 0.4rem;
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.6);
             /* override dark border */
             border-radius: 0.75rem;
-            padding: 1.25rem;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -459,7 +458,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.45rem;
             position: relative;
             z-index: 2;
             flex-shrink: 0;
@@ -588,10 +587,14 @@
             z-index: 2;
         }
 
+        .simulator-card h2 {
+            font-size: 0.72rem !important;
+        }
+
         .card-description {
             color: var(--text-muted);
-            font-size: calc(0.7rem + 2px) !important;
-            line-height: 1.5;
+            font-size: 0.64rem !important;
+            line-height: 1.4;
             margin-bottom: 0;
             position: relative;
             z-index: 2;
@@ -1767,7 +1770,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.15';
+        const APP_VERSION = '2026.06.01.17';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
