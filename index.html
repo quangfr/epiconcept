@@ -1766,7 +1766,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.02';
+        const APP_VERSION = '2026.06.01.03';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2500,7 +2500,7 @@
                             const sci = sc.correct;
                             if (sci) {
                                 if (sci.title) {
-                                    examples.push(`${sci.title} : ${sci.expl}`);
+                                    examples.push(sci.title);
                                 }
                                 if (sci.visual) {
                                     visuals.push({
@@ -2524,7 +2524,7 @@
                     if (item.scenarios && item.scenarios.length > 0) {
                         item.scenarios.forEach((sc, idx) => {
                             if (sc.correct && sc.correct.title) {
-                                examples.push(`${sc.correct.title} : ${sc.correct.expl}`);
+                                examples.push(sc.correct.title);
                                 if (sc.correct.visual) {
                                     visuals.push({
                                         title: sc.correct.title,
@@ -2553,7 +2553,7 @@
                             const sci = sc.correct;
                             if (sci) {
                                 if (sci.title) {
-                                    examples.push(`${sci.title} : ${sci.expl}`);
+                                    examples.push(sci.title);
                                 }
                                 if (sci.visual) {
                                     visuals.push({
@@ -2582,7 +2582,7 @@
                             const sci = sc.correct;
                             if (sci) {
                                 if (sci.title) {
-                                    examples.push(`${sci.title} : ${sci.expl}`);
+                                    examples.push(sci.title);
                                 }
                                 if (sci.visual) {
                                     visuals.push({
@@ -2610,7 +2610,7 @@
                         item.scenarios.forEach((sc) => {
                             const sci = sc.correct;
                             if (sci && sci.title) {
-                                examples.push(`${sci.title} : ${sci.expl}`);
+                                examples.push(sci.title);
                                 if (sci.visual) {
                                     visuals.push({
                                         title: sci.title,
@@ -2637,7 +2637,7 @@
                         item.scenarios.forEach((sc) => {
                             const sci = sc.correct;
                             if (sci && sci.title) {
-                                examples.push(`${sci.title} : ${sci.expl}`);
+                                examples.push(sci.title);
                                 if (sci.visual) {
                                     visuals.push({
                                         title: sci.title,
