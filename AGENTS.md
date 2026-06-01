@@ -70,14 +70,7 @@
 
 **`correct.visual`** : Solution recommandée. État **après** application du réflexe. Tons : emeraude, bordure `emerald-500/200`, badge `CONSEILLÉ`.
 
-**`wrong[].visual`** : Approche alternative non optimale. Tons : rouge, bordure `red-500/200`, badge `À ÉVITER`.
-
-**Format commun** :
-- HTML inline dans le JSON (échapper `"` → `\"`, `'` → `&#39;`)
-- Police `text-[6px]` à `text-[9px]`, icônes `data-lucide` (appeler `lucide.createIcons()` après injection)
-- Wrapper : `<div class="visual-mockup"><div class="mockup-container">...</div></div>` (pour `explVisual`, le visuel est directement intégré)
-- Pas de dimensions fixes — utiliser `w-full`, `max-w-xs`, `min-h-[90px]`
-- Contraste clair entre les 3 visuels d'un même scénario pour guider le choix
+**`wrong[].visual`** : Approche alternative non optimale.   
 
 ## 6. Références (index.html - Ref-Modal)
 `showRef(reflexId)` charge les JSONs et dispatch :

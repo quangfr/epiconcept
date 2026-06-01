@@ -40,9 +40,11 @@
 }
 
 /* Thumbnail variant inside ref-visual-card */
+/* Thumbnail variant inside ref-visual-card */
 .ref-visual-card .visual-mockup {
     width: 33.333%;
-    min-height: 120px;
+    min-height: 120px; /* reduced height for better fit */
+    aspect-ratio: 5 / 4; /* more landscape */
 }
 @media (max-width: 640px) {
     .ref-visual-card .visual-mockup {
