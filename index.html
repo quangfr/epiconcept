@@ -1206,8 +1206,9 @@
                         <div class="stat-label">Progression Globale</div>
                     </div>
                     <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
-                        class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:text-blue-900 hover:border-blue-900 hover:bg-blue-50 transition-colors flex items-center justify-center shadow-sm">
-                        <i data-lucide="info" class="w-4 h-4"></i>
+                        class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                        style="border: none; outline: none; width: 32px; height: 32px;">
+                        <i data-lucide="info" style="width: 16px; height: 16px;"></i>
                     </button>
                 </div>
             </section>
@@ -1772,7 +1773,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.26';
+        const APP_VERSION = '2026.06.01.27';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
