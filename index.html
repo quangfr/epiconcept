@@ -158,33 +158,32 @@
         }
 
         .stat-bar-card {
-            background: rgba(255, 255, 255, 0.65);
-            border: 1px solid rgba(15, 23, 42, 0.06);
-            border-radius: 0.75rem;
-            padding: 0.6rem 1.25rem;
-            text-align: center;
+            background: linear-gradient(to right, rgba(99, 102, 241, 0.18) var(--progress, 0%), rgba(255, 255, 255, 0.65) var(--progress, 0%));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 9999px;
+            padding: 0.25rem 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             backdrop-filter: blur(8px);
             transition: var(--transition-smooth);
-            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.01);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-width: 140px;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.01);
+            min-width: 55px;
+            height: 32px;
         }
 
         .stat-bar-card:hover {
-            border-color: rgba(99, 102, 241, 0.2);
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+            border-color: rgba(99, 102, 241, 0.35);
+            background: linear-gradient(to right, rgba(99, 102, 241, 0.22) var(--progress, 0%), rgba(255, 255, 255, 0.8) var(--progress, 0%));
+            transform: translateY(-1px);
         }
 
         .stat-number {
             font-family: var(--font-display);
-            font-size: 1.35rem;
+            font-size: 0.72rem;
             font-weight: 800;
-            color: var(--text-main);
-            line-height: 1.1;
+            color: #4f46e5;
+            line-height: 1;
         }
 
         .stat-label {
@@ -1201,9 +1200,8 @@
             <!-- Compact Global Statistics -->
             <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux">
                 <div class="flex items-center gap-2">
-                    <div class="stat-bar-card">
+                    <div class="stat-bar-card" title="Progression Globale">
                         <div class="stat-number" id="overall-completion">0%</div>
-                        <div class="stat-label">Progression Globale</div>
                     </div>
                     <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
                         class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
@@ -1773,7 +1771,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.27';
+        const APP_VERSION = '2026.06.01.28';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1947,7 +1945,12 @@
 
             // Progression rate
             let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore + totalFeatScore) / totalMaxScore) * 100);
-            document.getElementById('overall-completion').innerText = `${progressPercent}%`;
+            const overallEl = document.getElementById('overall-completion');
+            overallEl.innerText = `${progressPercent}%`;
+            const overallCard = overallEl.parentElement;
+            if (overallCard) {
+                overallCard.style.setProperty('--progress', `${progressPercent}%`);
+            }
 
             // Display time metadata if available
             try {
