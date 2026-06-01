@@ -1765,7 +1765,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.44';
+        const APP_VERSION = '2026.06.01.45';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1783,8 +1783,8 @@
                 color = 'green';
                 accent = '#10b981';
             } else if (percent === 0) {
-                color = 'grey';
-                accent = '#94a3b8';
+                color = 'red';
+                accent = '#ef4444';
             } else {
                 color = 'yellow';
                 accent = '#f59e0b';
