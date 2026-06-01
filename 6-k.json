@@ -1,0 +1,738 @@
+[
+  {
+    "id": 1,
+    "title": "K1. Définir des indicateurs de performance clés",
+    "intent": "Identifier les métriques qui mesurent réellement la réussite du parcours utilisateur plutôt que des indicateurs de volume trompeurs.",
+    "icon": "bar-chart-3",
+    "scenarios": [
+      {
+        "text": "Un chef de projet chez l'éditeur suit le trafic sur le portail de commande de kits de dépistage colorectal. Les visites augmentent, mais le CRDC constate que le taux de participation réel reste stagnant depuis un an.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Mesure du Portail</div><div class=\"flex justify-between items-center text-[7px]\"><span>Visiteurs: <strong class=\"text-green-600\">+25%</strong></span><span>Taux de retour kits: <strong class=\"text-red-500\">+0%</strong></span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1.5\">Trafic élevé sans impact sur la santé publique</div></div>",
+        "correct": {
+          "title": "Suivre le taux d'achèvement de la commande",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">KPI de Conversion</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><div class=\"flex justify-between\"><span>Kits commandés / Invitations</span><span class=\"font-bold text-emerald-600\">42%</span></div><div class=\"flex justify-between\"><span>Taux d'analyse labo</span><span class=\"font-bold\">98%</span></div></div></div>",
+          "expl": "Définir des KPIs axés sur le parcours final (achèvement de commande, kits analysés) plutôt que sur le trafic global.",
+          "debriefExpl": "Le nombre de visites ne garantit pas que les patients commandent leur kit. En mesurant le ratio invitations / kits commandés, le chef de projet identifie le véritable levier d'action pour le CRDC.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Ajouter un compteur de pages vues",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Métrique Volume</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"eye\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On ajoute le nombre de pages vues par session</span></div></div>",
+            "expl": "Se focaliser sur des vanity metrics sans lien avec le taux de dépistage réel.",
+            "debriefExpl": "Suivre les pages vues n'aide pas à comprendre pourquoi les patients abandonnent avant de valider l'envoi de leur kit de dépistage.",
+            "icon": "x"
+          },
+          {
+            "title": "Mesurer uniquement le coût par kit envoyé",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Financier Seul</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"dollar-sign\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Calculer uniquement le coût unitaire d'expédition</span></div></div>",
+            "expl": "Se limiter à un indicateur de coût sans mesurer l'efficacité médicale globale.",
+            "debriefExpl": "Optimiser le coût unitaire ne sert à rien si le taux de retour des kits reste insuffisant pour dépister efficacement la population.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Un KPI de dépistage doit mesurer l'action de prévention finale (commande validée ou kit analysé) pour être réellement décisionnel."
+      },
+      {
+        "text": "Après le déploiement de la nouvelle interface de saisie des frottis utérins pour les gynécologues, le chargé de clientèle constate que le temps de déclaration a augmenté. Il ignore si cela vient de la signature numérique ou de la lenteur de la recherche patient.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Temps de Saisie Diagnostic</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Temps de saisie moyen : <strong>3m45s</strong></span><span class=\"text-red-500 font-bold\">Friction non localisée</span></div></div>",
+        "correct": {
+          "title": "Mettre en place des métriques de diagnostic",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Entonnoir de Saisie</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Recherche patient: <strong>4s</strong> | Choix examen: <strong>8s</strong></span><span class=\"text-red-500 font-bold\">Signature numérique OTP: 1m50s</span></div></div>",
+          "expl": "Décomposer la déclaration en sous-étapes techniques et comportementales pour localiser précisément le goulet d'étranglement.",
+          "debriefExpl": "En isolant chaque étape, le chargé de clientèle découvre que c'est la réception du code de signature par SMS qui bloque les médecins pendant près de 2 minutes. La recherche patient, elle, est très rapide.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Restaurer immédiatement l'ancienne version",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Restauration Système</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"rotate-ccw\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Retour à l'ancienne interface sans chercher à comprendre</span></div></div>",
+            "expl": "Annuler une mise à jour majeure à la moindre alerte sans diagnostiquer la cause.",
+            "debriefExpl": "Revenir en arrière sans analyser empêche de corriger le bug de signature et annule les autres améliorations fonctionnelles pourtant appréciées.",
+            "icon": "x"
+          },
+          {
+            "title": "Changer la charte graphique du bouton valider",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Modif Esthétique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"palette\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Modifier la couleur et la taille du bouton \"Signer\"</span></div></div>",
+            "expl": "Modifier des éléments visuels au hasard sans hypothèse mesurée.",
+            "debriefExpl": "Modifier le bouton ne résout pas la lenteur d'envoi du SMS de signature. Seules des métriques de diagnostic évitent ce genre d'actions inutiles.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les indicateurs de diagnostic transforment un constat de lenteur en un plan d'action technique précis."
+      },
+      {
+        "text": "La directrice d'un CRDC se plaint que son tableau de bord logiciel affiche 50 graphiques différents (invitations, relances, NPAI, tranches d'âges, appels entrants...). Elle ne sait plus quel indicateur suivre pour évaluer l'impact réel de sa campagne.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Surcharge KPIs CRDC</div><div class=\"grid grid-cols-3 gap-0.5 text-[5px]\"><span class=\"border\">NPAI</span><span class=\"border\">Relances</span><span class=\"border\">Âges</span><span class=\"border\">Appels</span><span class=\"border\">SMS</span><span class=\"border\">Frottis</span></div></div>",
+        "correct": {
+          "title": "Hiérarchiser les indicateurs clés",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Tableau de Bord Structuré</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span class=\"font-bold text-blue-700\">🎯 Taux de couverture régional : 58%</span><span class=\"text-slate-500\">↳ Levier 1: Taux de retour des kits (42%)</span><span class=\"text-slate-500\">↳ Levier 2: Délai de lecture mammo (3j)</span></div></div>",
+          "expl": "Structurer les données autour d'un indicateur phare (taux de couverture de la population cible) soutenu par 2 ou 3 leviers actionnables.",
+          "debriefExpl": "Le chargé de clientèle simplifie la vue en mettant l'accent sur la couverture globale et le taux de retour. Le reste des chiffres est relégué dans un onglet secondaire de surveillance administrative.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Créer des alertes automatiques sur chaque chiffre",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Alertes en Rafale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"bell\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Une notification dès qu'une des 50 métriques varie</span></div></div>",
+            "expl": "Générer des alertes de masse sans hiérarchie de gravité.",
+            "debriefExpl": "Multiplier les alertes crée de la fatigue cognitive. Les gestionnaires finissent par ignorer toutes les notifications, même les plus importantes.",
+            "icon": "x"
+          },
+          {
+            "title": "Laisser chaque CRDC faire ses calculs",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Indicateurs Custom</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"settings\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Chaque antenne configure ses propres formules</span></div></div>",
+            "expl": "Permettre des règles de calcul locales rendant toute comparaison impossible.",
+            "debriefExpl": "Laisser chaque région définir ses propres critères de couverture empêche la consolidation nationale et la comparaison objective des performances de santé publique.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Un bon tableau de bord produit doit hiérarchiser la donnée : un objectif final clair, soutenu par des leviers opérationnels précis."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "K2. Chiffrer les gains pour l'entreprise et les clients : recettes, temps, dépenses",
+    "intent": "Traduire les optimisations logicielles en gains concrets de temps de secrétariat, d'économies de santé et de réduction des délais de prise en charge.",
+    "icon": "wallet",
+    "scenarios": [
+      {
+        "text": "Le chef de projet veut intégrer un module d'intelligence artificielle pour trier et router automatiquement les clichés de mammographies aux radiologues (lecteurs principaux). L'hôpital hésite face au coût du module.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Projet IA Double Lecture</div><div class=\"flex justify-between text-[7px]\"><span>Coût module: <strong>25 000€</strong></span><span class=\"text-red-500 font-bold\">ROI médical : ?</span></div></div>",
+        "correct": {
+          "title": "Chiffrer le gain en temps et la réduction des délais",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Étude d'Impact ROI</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Délai de double lecture : <strong>12j ➔ 3j</strong></span><span>Temps secrétariat économisé : <strong>18h/semaine</strong></span><span class=\"text-emerald-600 font-bold\">Prise en charge précoce de 12 patientes/an</span></div></div>",
+          "expl": "Démontrer l'intérêt financier (temps de secrétariat libéré) et l'impact clinique (détection plus rapide) pour justifier l'investissement.",
+          "debriefExpl": "En chiffrant le gain de temps pour les secrétaires (18h/semaine) et la réduction majeure du délai de prise en charge des anomalies de lecture, le directeur de l'hôpital valide immédiatement l'achat.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Lancer le développement en interne",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Développement Maison</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Coder notre propre routeur d'images médicales</span></div></div>",
+            "expl": "Réinventer la roue au lieu d'intégrer une solution spécialisée et certifiée.",
+            "debriefExpl": "Développer une solution certifiée CE dispositif médical prendrait des années et coûterait dix fois plus cher que d'acheter le module prêt à l'emploi.",
+            "icon": "x"
+          },
+          {
+            "title": "Proposer d'embaucher un radiologue supplémentaire",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Embauche</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-plus\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Ajouter un médecin pour accélérer le tri</span></div></div>",
+            "expl": "Résoudre un problème organisationnel par de la ressource rare et coûteuse.",
+            "debriefExpl": "Les radiologues sont extrêmement rares et coûtent cher. Le module logiciel optimise leur temps existant au lieu de tenter un recrutement impossible.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Valoriser l'impact temporel et médical d'une fonctionnalité permet de justifier son coût auprès des décideurs des établissements de santé."
+      },
+      {
+        "text": "Les agents administratifs du CRDC passent 12 heures par semaine à extraire manuellement les fiches des patients décédés ou ayant changé de région pour les exclure des relances de dépistage du cancer du sein.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Traitement des Exclusions</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Saisie manuelle: <strong>12h/semaine</strong></span><span class=\"text-red-500 font-bold\">Risque d'envoi inapproprié à des proches</span></div></div>",
+        "correct": {
+          "title": "Chiffrer le coût caché du traitement manuel",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Analyse d'Opportunité</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Coût agents: 12h x 35€ x 46s = <strong>19 320€/an</strong></span><span>Module d'import automatique INSEE: <strong>3 000€/an</strong></span><span class=\"text-emerald-600 font-bold\">Économie nette: 16 320€/an</span></div></div>",
+          "expl": "Valoriser le temps des agents en coût complet pour justifier le déploiement d'un connecteur d'import automatique d'état civil.",
+          "debriefExpl": "Chiffrer le coût caché (19 320€/an) permet de légitimer la mise en place d'un connecteur automatisé. Au-delà du gain financier, cela élimine les envois douloureux d'invitations à des personnes décédées.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Recruter un stagiaire pour la saisie",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Stagiaire Recruté</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-check\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Déléguer la corvée à un stagiaire chaque semestre</span></div></div>",
+            "expl": "Externaliser une tâche répétitive sans en corriger la cause technique.",
+            "debriefExpl": "Le stagiaire doit être formé, fait des erreurs de saisie et son coût cumulé reste supérieur à la solution d'automatisation logicielle.",
+            "icon": "x"
+          },
+          {
+            "title": "Demander aux agents d'accélérer la cadence",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Pression Administrative</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"activity\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Pousser l'équipe à traiter les dossiers plus vite</span></div></div>",
+            "expl": "Tenter de résoudre une friction logicielle par de la pression managériale.",
+            "debriefExpl": "La pression augmente les erreurs de saisie (comme exclure le mauvais patient). Automatiser l'état civil sécurise le processus médical.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'automatisation des tâches de gestion de données de santé se justifie par le calcul du coût complet du temps agent et la réduction des risques d'erreurs."
+      },
+      {
+        "text": "Le secrétariat de gynécologie d'un hôpital reçoit 300 appels par mois de patientes inquiètes qui souhaitent connaître le résultat de leur frottis. Chaque appel prend en moyenne 5 minutes pour retrouver le dossier.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Surcharge Secrétariat</div><div class=\"flex justify-between text-[7px]\"><span>300 appels de patientes/mois</span><span class=\"text-red-500 font-bold\">25 heures de secrétariat perdues</span></div></div>",
+        "correct": {
+          "title": "Chiffrer l'apport d'un portail patient sécurisé",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Impact Portail Patient</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Appels évités : <strong>-80%</strong> (20h libérées/mois)</span><span>Coût portail : <strong>250€/mois</strong> | Gain net secrétariat : <strong>550€/mois</strong></span><span class=\"text-emerald-600 font-bold\">Réduction de l'anxiété patiente</span></div></div>",
+          "expl": "Démontrer que la mise en ligne sécurisée des résultats normaux libère du temps soignant tout en rassurant les patientes sans délai.",
+          "debriefExpl": "Avec le portail patient relié à l'outil de dépistage, les résultats négatifs (normaux) sont consultables d'un clic. Le secrétariat respire et peut se concentrer sur l'accompagnement des patientes dont les résultats nécessitent des examens complémentaires.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Envoyer les résultats par courrier papier systématique",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Courrier Papier</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Générer et poster 300 lettres par mois</span></div></div>",
+            "expl": "Augmenter les frais postaux et les délais de réception sans valeur ajoutée.",
+            "debriefExpl": "Le courrier papier prend du temps à être imprimé, coûte cher en timbres et n'empêche pas les patientes d'appeler l'hôpital si la lettre tarde à arriver.",
+            "icon": "x"
+          },
+          {
+            "title": "Mettre en place un répondeur vocal interactif",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Serveur Vocal</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">« Tapez 1 pour le cancer du col de l'utérus... »</span></div></div>",
+            "expl": "Dégrader l'expérience utilisateur sur un sujet médical anxiogène.",
+            "debriefExpl": "Un répondeur vocal est extrêmement mal perçu pour des résultats d'examens médicaux et frustre les patientes qui ont besoin d'une information claire et sécurisée.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Un portail de résultats sécurisé réduit drastiquement les coûts administratifs et améliore le confort psychologique des patients."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "K3. Segmenter les utilisateurs par comportement",
+    "intent": "Regrouper les acteurs (médecins, CRDC, patientes) selon leur usage effectif du logiciel pour adresser des réponses ciblées.",
+    "icon": "users",
+    "scenarios": [
+      {
+        "text": "L'éditeur envoie la même campagne de rappel de dépistage du col de l'utérus à toutes les femmes éligibles de la région. Le taux d'ouverture est bas et les désabonnements augmentent chez les 25-30 ans.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Relance Générique Indifférenciée</div><div class=\"flex justify-between text-[7px]\"><span>Emails envoyés: 100%</span><span class=\"text-red-500 font-bold\">Ouverture: 11%</span></div></div>",
+        "correct": {
+          "title": "Segmenter la population par comportement de dépistage",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Ciblage Comportemental</div><div class=\"flex flex-col gap-0.5 text-[6px]\"><span>🔄 Jamais dépistées (25 ans): <strong>SMS explicatif court</strong></span><span>📅 Retard < 1 an: <strong>Lien direct vers prise de RDV</strong></span><span>⚠️ Profil à risque: <strong>Courrier d'alerte prioritaire</strong></span></div></div>",
+          "expl": "Adapter le canal (SMS, mail, courrier) et le message en fonction de l'historique de dépistage de l'utilisatrice.",
+          "debriefExpl": "En adaptant le message (guide rassurant pour les jeunes filles qui découvrent le dépistage vs lien de RDV direct pour les femmes déjà habituées), le taux de prise de rendez-vous progresse de 35%.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Segmenter uniquement par département",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Ciblage Géographique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"map-pin\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Séparer les emails par code postal</span></div></div>",
+            "expl": "Utiliser des critères administratifs sans corrélation avec les habitudes médicales.",
+            "debriefExpl": "Habiter dans le 75 ou le 92 ne change rien au fait qu'une patiente n'a jamais fait de frottis de sa vie. C'est le comportement de dépistage qu'il faut adresser.",
+            "icon": "x"
+          },
+          {
+            "title": "Réduire la fréquence des envois globaux",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Baisse Fréquence</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"slash\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un seul e-mail de relance par an pour tout le monde</span></div></div>",
+            "expl": "Diminuer la pression sans améliorer la pertinence du message.",
+            "debriefExpl": "Réduire la fréquence ne rend pas le message plus adapté aux réticences ou aux besoins de chaque femme vis-à-vis du dépistage.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La segmentation par comportement de santé permet de choisir le bon canal et le bon ton, maximisant l'adhésion au dépistage."
+      },
+      {
+        "text": "Une option de transfert de résultats en temps réel vers le dossier médical partagé (DMP) n'est utilisée que par 15% des laboratoires partenaires. Le chef de projet pense à la désactiver pour économiser la maintenance de l'API.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Adoption API DMP</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Laboratoires actifs : <strong>15%</strong></span><span class=\"text-red-500 font-bold\">Coût maintenance API élevé</span></div></div>",
+        "correct": {
+          "title": "Analyser la typologie des laboratoires actifs",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Analyse d'Usage Labos</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Petits labos (85%): Usage nul (Saisie portail manuelle)</span><span class=\"text-emerald-600 font-bold\">Grands CHU (15%): Traitent 80% des mammographies</span></div></div>",
+          "expl": "Segmenter les utilisateurs par volume d'activité pour mesurer l'impact réel de la fonctionnalité sur les gros comptes.",
+          "debriefExpl": "L'étude montre que les 15% de labos actifs représentent les grands CHU régionaux qui gèrent 80% des mammographies de dépistage de la région. Couper l'API bloquerait les plus grands clients de l'éditeur.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Supprimer l'API pour réduire les coûts",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Suppression API</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"trash-2\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Fermer la passerelle DMP pour économiser</span></div></div>",
+            "expl": "Prendre une décision d'exclusion sur un volume brut sans pondération d'impact.",
+            "debriefExpl": "Couper cette passerelle paralyserait la transmission des dépistages des CHU, provoquant un tollé chez les gestionnaires CRDC et menaçant les contrats de l'éditeur.",
+            "icon": "x"
+          },
+          {
+            "title": "Former tous les petits labos à l'API",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Formation de Masse</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Forcer 300 petits labos de quartier à se connecter</span></div></div>",
+            "expl": "Forcer l'adoption d'un outil complexe par un segment d'utilisateurs inadapté.",
+            "debriefExpl": "Les petits laboratoires n'ont pas les ressources informatiques pour intégrer une API complexe. La saisie manuelle légère sur portail leur convient parfaitement.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Segmenter les utilisateurs par volume et valeur plutôt que par quantité brute évite de supprimer des fonctionnalités critiques pour les acteurs majeurs."
+      },
+      {
+        "text": "Les gynécologues et médecins généralistes se plaignent que le module d'exclusion patient est trop complexe sur mobile. L'éditeur hésite à refondre l'application mobile car seuls 10% des connexions viennent de téléphones.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Trafic Médecins</div><div class=\"flex justify-between text-[7px]\"><span>Ordinateur: 90%</span><span class=\"text-red-500\">Mobile: 10%</span></div></div>",
+        "correct": {
+          "title": "Segmenter par contexte d'usage et moment de connexion",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Analyse Situationnelle</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>💻 Ordinateur (Cabinet): Saisie de routine des résultats</span><span class=\"text-emerald-600 font-bold\">📱 Mobile (Hôpital/Visite): Décisions d'exclusions urgentes</span></div></div>",
+          "expl": "Analyser si le canal mobile, bien que faible en volume, est utilisé pour des actions à fort enjeu par les médecins spécialistes en déplacement.",
+          "debriefExpl": "Les médecins spécialistes utilisent le mobile à l'hôpital ou entre deux consultations pour valider rapidement les exclusions. Rendre le mobile fluide évite des retards critiques dans la mise à jour des dossiers de dépistage.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Supprimer définitivement l'accès mobile",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Retrait Mobile</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"smartphone-off\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Bloquer la connexion mobile et forcer l'usage du PC</span></div></div>",
+            "expl": "Prendre une décision basée sur un volume d'audience global sans tenir compte de la mobilité des soignants.",
+            "debriefExpl": "Bloquer l'accès mobile agace profondément les médecins hospitaliers, qui cessent de saisir les exclusions en temps réel, faussant les campagnes de relance.",
+            "icon": "x"
+          },
+          {
+            "title": "Lancer une refonte complète de tout le portail mobile",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Refonte Totale Mobile</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"smartphone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Recommencer tout le développement mobile à zéro</span></div></div>",
+            "expl": "Engager des frais massifs au lieu de cibler uniquement l'écran de friction.",
+            "debriefExpl": "Une refonte totale prendrait 6 mois. Simplifier uniquement le formulaire d'exclusion sur l'interface mobile existante prend 3 jours et résout 90% des plaintes.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Un usage minoritaire en volume peut s'avérer stratégiquement décisif pour les utilisateurs clés en situation de mobilité."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "K4. Analyser les points de friction du parcours",
+    "intent": "Repérer les étapes précises du logiciel où les patients, médecins ou secrétaires rencontrent des blocages ou abandonnent leur action.",
+    "icon": "alert-triangle",
+    "scenarios": [
+      {
+        "text": "Le portail patient enregistre une baisse de 65% de commandes de kits colorectal après la connexion par code d'invitation. Le chef de projet ne sait pas où les patients bloquent car seul le login et la validation finale sont tracés.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Parcours Commande Kit</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>1. Saisie du Code invitation : <strong>100%</strong></span><span class=\"text-red-500 font-bold\">2. Commande validée : 35%</span></div></div>",
+        "correct": {
+          "title": "Tracer les étapes intermédiaires du parcours",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Entonnoir de Commande</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>1. Code saisi: 100% ➔ 2. Validation adresse: 95%</span><span class=\"text-red-500 font-bold\">3. Questionnaire médical d'exclusion: 38%</span><span>4. Validation kit: 35%</span></div></div>",
+          "expl": "Placer des marqueurs de suivi sur chaque champ clé et étape de formulaire pour identifier l'attrition.",
+          "debriefExpl": "Le funnel montre que l'étape 3 (le questionnaire d'antécédents médicaux) provoque l'abandon de 57% des patients. Le questionnaire contient trop de termes médicaux complexes que les patients ne comprennent pas sans leur médecin.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Refaire le design graphique de la page de login",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Refonte Login</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"edit\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Changer le logo et le texte d'explication de la page 1</span></div></div>",
+            "expl": "Modifier l'étape d'entrée sans données probantes sur le lieu de l'abandon.",
+            "debriefExpl": "La page de login fonctionne très bien (95% de réussite). Y passer du temps n'aurait eu aucun impact sur l'abandon massif au niveau du questionnaire d'antécédents.",
+            "icon": "x"
+          },
+          {
+            "title": "Ajouter une vidéo explicative sur le dépistage",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Vidéo de Sensibilisation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"play-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Ajouter une vidéo de 3 minutes en page d'accueil</span></div></div>",
+            "expl": "Proposer du contenu éducatif global sans résoudre la friction ergonomique du formulaire.",
+            "debriefExpl": "La vidéo ne simplifie pas les questions complexes du questionnaire médical qui bloquent les patients au moment de commander.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'analyse étape par étape (funnel) permet d'identifier l'écran ou le champ précis qui bloque l'utilisateur, évitant des refontes inutiles d'autres pages."
+      },
+      {
+        "text": "Les patientes passent beaucoup de temps sur l'étape de choix du centre d'imagerie pour leur mammographie, mais seulement 30% finalisent leur rendez-vous en ligne. Les secrétaires pensent que les patientes n'aiment pas les créneaux proposés.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Prise de RDV Mammo</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Temps moyen sur la carte: <strong>4min15s</strong></span><span class=\"text-red-500 font-bold\">Abandon avant validation final: 70%</span></div></div>",
+        "correct": {
+          "title": "Analyser les clics et interactions sur la carte",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Heatmap des clics</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span class=\"text-red-500 font-bold\">🔴 Clics répétés sur la carte non interactive: 68%</span><span>🟡 Clic sur le bouton de validation de créneau: 30%</span></div></div>",
+          "expl": "Suivre les comportements d'interaction (clics inutiles, scroll bloqué) sur l'écran problématique pour déceler une incompréhension ergonomique.",
+          "debriefExpl": "L'analyse des clics montre que les patientes cliquent frénétiquement sur la carte en pensant qu'elle est interactive pour choisir le centre. N'obtenant aucune réponse, elles quittent le site de frustration. Rendre la carte cliquable règle le problème.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Ajouter de nouveaux centres d'imagerie",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Plus de Centres</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"plus\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Négocier des créneaux avec 10 nouveaux cabinets</span></div></div>",
+            "expl": "Essayer d'augmenter l'offre de soins sans corriger l'outil numérique d'accès.",
+            "debriefExpl": "Le problème n'est pas le choix des créneaux, mais l'impossibilité physique de cliquer sur la carte pour les sélectionner. Ajouter des centres ne résoudrait pas ce bug d'usage.",
+            "icon": "x"
+          },
+          {
+            "title": "Mettre une mention d'alerte en gros rouge",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Texte d'Alerte</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"alert-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">« ATTENTION: la carte ci-dessous n'est pas cliquable ! »</span></div></div>",
+            "expl": "Ajouter du texte explicatif pour compenser une mauvaise conception ergonomique.",
+            "debriefExpl": "Les utilisateurs ne lisent pas les messages d'avertissement administratifs. Rendre l'interface conforme aux attentes naturelles (cliquer sur la carte) est la seule vraie solution.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les utilisateurs adoptent un comportement naturel face à une interface (ex: cliquer sur une carte). Si l'interface ne répond pas, ils abandonnent de frustration."
+      },
+      {
+        "text": "Lors de la saisie d'un dossier de dépistage colorectal, les médecins de CRDC abandonnent à la 5ème étape (l'arbre de décision d'exclusion complexe). Le chargé de clientèle veut savoir si cette étape est indispensable pour la validation.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Processus CRDC</div><div class=\"flex justify-between text-[7px]\"><span>Étapes 1-4: 100%</span><span class=\"text-red-500 font-bold\">Étape 5 (Exclusions): -55% d'abandons</span></div></div>",
+        "correct": {
+          "title": "Tester un parcours simplifié sans l'étape 5",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Parcours allégé</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Arbre d'exclusion complexe masqué par défaut</span><span class=\"text-emerald-600 font-bold\">Déclaration finalisée en 1 clic (Option exclusions en tiroir)</span></div></div>",
+          "expl": "Masquer ou repousser la complexité (l'arbre d'exclusion complet) pour simplifier le parcours de 95% des dossiers normaux.",
+          "debriefExpl": "95% des dossiers n'ont aucune exclusion. En masquant cet écran complexe sous forme d'option facultative dans un tiroir latéral, la saisie des dossiers normaux redevient fluide et rapide. Les abandons tombent à zéro.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Organiser des sessions de formation obligatoires",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Webinaires de Saisie</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"video\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Former 150 agents CRDC à utiliser l'arbre d'exclusion</span></div></div>",
+            "expl": "Tenter de compenser une mauvaise ergonomie logicielle par de la formation coûteuse.",
+            "debriefExpl": "Former les agents ne résout pas la lourdeur du logiciel au quotidien. Un bon outil n'a pas besoin de mode d'emploi pour des actions de routine.",
+            "icon": "x"
+          },
+          {
+            "title": "Diviser l'étape 5 en trois sous-écrans",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Plus d'étapes</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"layers\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Créer les étapes 5a, 5b et 5c</span></div></div>",
+            "expl": "Multiplier les étapes en pensant simplifier le formulaire, ce qui augmente le sentiment de lenteur.",
+            "debriefExpl": "Ajouter des écrans successifs fatigue encore plus les utilisateurs. Mieux vaut regrouper et masquer la complexité non essentielle.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Pour les formulaires administratifs ou médicaux, masquez la complexité par défaut. 90% des utilisateurs n'ont besoin que du flux le plus simple."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "K5. Tester les variantes du parcours",
+    "intent": "Utiliser des tests comparatifs (A/B testing) pour valider scientifiquement les choix d'ergonomie et de communication auprès des patients et des soignants.",
+    "icon": "git-compare",
+    "scenarios": [
+      {
+        "text": "L'équipe produit de l'éditeur hésite entre deux formulations pour le SMS d'invitation au dépistage du cancer du col de l'utérus : l'une met en avant l'aspect préventif de santé, l'autre insiste sur la gratuité et la simplicité.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Débat Éditorial SMS</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>SMS A: Protégez votre santé, faites votre test.</span><span>SMS B: Votre dépistage gratuit et rapide près de chez vous.</span></div></div>",
+        "correct": {
+          "title": "Lancer un test A/B sur deux cohortes de patientes",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Résultat A/B Test SMS</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Cohort A (Santé) : Taux de prise de RDV : <strong>4.2%</strong></span><span class=\"text-emerald-600 font-bold\">Cohort B (Gratuité/Proximité) : Taux de prise de RDV : 7.8% ✅</span></div></div>",
+          "expl": "Diviser aléatoirement les envois de SMS sur une population témoin et mesurer le taux de prise de rendez-vous effectif de chaque variante.",
+          "debriefExpl": "Le test A/B démontre scientifiquement que l'argument de la gratuité et de la proximité (SMS B) est presque deux fois plus efficace auprès de la population cible. Ce choix augmente la couverture globale de dépistage.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Suivre l'avis du médecin conseiller de l'éditeur",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Avis d'expert</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Utiliser la formulation médicale recommandée par l'expert</span></div></div>",
+            "expl": "Choisir une formulation basée sur l'intuition d'un expert plutôt que sur la réaction du public cible.",
+            "debriefExpl": "L'avis d'un médecin expert ne reflète pas nécessairement la psychologie ou les freins d'une patiente de 25 ans qui reçoit un SMS sur son téléphone.",
+            "icon": "x"
+          },
+          {
+            "title": "Envoyer les deux SMS successifs à tout le monde",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Double Envoi</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"repeat\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Envoyer le SMS A puis le SMS B une semaine après</span></div></div>",
+            "expl": "Surcharger les patientes de notifications contradictoires au risque de paraître spammeur.",
+            "debriefExpl": "Envoyer trop de SMS agace les patientes et augmente les désabonnements aux campagnes de dépistage, ruinant les efforts futurs.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le test A/B est l'outil ultime pour valider l'impact réel des messages de prévention auprès de la population."
+      },
+      {
+        "text": "Le chef de projet veut tester une nouvelle disposition de la liste des dossiers de mammographies pour les secrétaires médicales, visant à accélérer le traitement des doubles lectures. Il craint des retours négatifs si le changement est généralisé directement.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Mise en page Liste Mammo</div><div class=\"flex justify-between text-[7px]\"><span>Nouvelle liste plus compacte</span><span class=\"text-red-500\">Risque de rejet par les secrétaires</span></div></div>",
+        "correct": {
+          "title": "Déployer la variante sur une région pilote",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Déploiement Pilote</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>CRDC Région A (Pilote) : Nouvelle interface (Traitement -15% de temps)</span><span>Autres CRDC : Ancienne interface (Sécurisé)</span></div></div>",
+          "expl": "Tester les modifications de flux de travail complexes sur un sous-ensemble d'utilisateurs engagés avant le déploiement général.",
+          "debriefExpl": "Le test en région pilote valide que la nouvelle liste réduit le temps de traitement des dossiers de 15% sans générer d'erreurs. Les retours d'usage du pilote permettent d'ajuster les derniers détails avant de généraliser sereinement.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Déployer la nouvelle version pour tout le monde",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Mise à jour globale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"rocket\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Mise à jour immédiate de tous les hôpitaux de France</span></div></div>",
+            "expl": "Prendre le risque d'un rejet massif en imposant un changement brutal de flux de travail à l'échelle nationale.",
+            "debriefExpl": "Si l'interface comporte un bug ou déplaît aux secrétaires, vous paralysez l'ensemble des secrétariats de dépistage du pays, provoquant une crise de support technique majeure.",
+            "icon": "x"
+          },
+          {
+            "title": "Ne rien changer pour éviter les conflits",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Statu Quo</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"lock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Garder l'ancienne liste lente mais familière</span></div></div>",
+            "expl": "Abandonner toute perspective d'amélioration par peur des réticences au changement.",
+            "debriefExpl": "Le statu quo condamne le logiciel à rester lent. Tester sur un pilote permet de prouver la valeur et d'accompagner le changement par la preuve d'efficacité.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Un déploiement progressif sur une zone pilote permet de valider l'ergonomie d'un outil médical en conditions réelles sans risque global."
+      },
+      {
+        "text": "Un test A/B compare deux boutons de confirmation d'invitation sur le portail colorectal. Après 3 jours, la version B a 15 clics de plus. Le chef de projet veut arrêter le test et déployer la version B car les délais pressent.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Résultat test J3</div><div class=\"flex justify-between text-[7px]\"><span>Bouton A: 45 clics</span><span>Bouton B: 60 clics</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1\">Arrêt prématuré demandé</div></div>",
+        "correct": {
+          "title": "Attendre d'atteindre la significativité statistique",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Calculateur de Signifiance</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Échantillon actuel: 350 patientes (Fiabilité: 62% - Non significatif)</span><span class=\"text-emerald-600 font-bold\">Prolongation nécessaire: 10 jours de test pour 95% de fiabilité</span></div></div>",
+          "expl": "Ne pas prendre de décision sur des volumes d'échantillons trop faibles soumis aux fluctuations du hasard.",
+          "debriefExpl": "Après 10 jours de test, la tendance s'est inversée car le premier weekend a faussé les chiffres. C'est finalement le bouton A qui l'emporte de manière statistiquement fiable à 95%. L'arrêt prématuré aurait déployé la mauvaise solution.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Déployer la version B immédiatement",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Validation Hasardeuse</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On valide la B car elle est en tête à l'instant T</span></div></div>",
+            "expl": "Prendre le risque de généraliser un faux positif dû au hasard.",
+            "debriefExpl": "Prendre une décision hâtive sur 15 clics de différence est un pari. En santé publique, les choix doivent s'appuyer sur des données scientifiquement solides.",
+            "icon": "x"
+          },
+          {
+            "title": "Annuler le test et choisir selon la préférence interne",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Choix Arbitraire</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On arrête le test et on prend le bouton que l'équipe préfère</span></div></div>",
+            "expl": "Revenir à des critères subjectifs et annuler la rigueur de la méthode scientifique.",
+            "debriefExpl": "Autant ne pas faire de test du tout. Préférer l'opinion interne aux données des utilisateurs réels va souvent à l'encontre de l'efficacité du parcours patient.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Un test A/B doit impérativement atteindre son seuil de significativité statistique (généralement 95%) pour écarter le hasard."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "K6. Visualiser les données pour éclairer les décisions",
+    "intent": "Concevoir des représentations graphiques claires des parcours de dépistage pour aider les décideurs médicaux à identifier les freins.",
+    "icon": "eye",
+    "scenarios": [
+      {
+        "text": "Pour présenter le bilan de la campagne de dépistage du cancer du sein, le chef de projet envoie un fichier Excel contenant 50 colonnes et 5 000 lignes aux directeurs des hôpitaux et de l'ARS. Personne ne l'ouvre.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Bilan CSV brut</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Fichier: <strong>campagne_sein_2024.csv</strong></span><span class=\"text-red-500 font-bold\">Zéro lecture par les décideurs</span></div></div>",
+        "correct": {
+          "title": "Créer une infographie de parcours synthétique",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Synthèse Campagne 2024</div><div class=\"flex items-center justify-between text-[6px] gap-1\"><div class=\"text-center\"><span>Invitations</span><strong>10k</strong></div><span>➔</span><div class=\"text-center\"><span>Mammo</span><strong>4.5k</strong></div><span>➔</span><div class=\"text-center text-red-500\"><span>Anomalies</span><strong>120</strong></div><span>➔</span><div class=\"text-center text-emerald-600\"><span>Prises en charge</span><strong>100%</strong></div></div></div>",
+          "expl": "Traduire les tableaux de chiffres complexes en graphiques de flux visuels montrant les volumes d'une étape à l'autre.",
+          "debriefExpl": "En présentant une infographie claire du parcours (Invitées ➔ Mammographies faites ➔ Anomalies détectées ➔ Patientes prises en charge), les directeurs comprennent en 10 secondes où se situent les fuites d'audience.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Ajouter un résumé texte de 10 pages",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rapport Rédigé</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Rédiger une synthèse administrative textuelle très dense</span></div></div>",
+            "expl": "Compenser le manque de clarté visuelle par une surcharge de texte explicatif.",
+            "debriefExpl": "Les décideurs régionaux n'ont pas le temps de lire un rapport de 10 pages. Ils ont besoin de données visuelles immédiatement actionnables.",
+            "icon": "x"
+          },
+          {
+            "title": "Envoyer des graphiques 3D complexes multicolores",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Camemberts 3D</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"pie-chart\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Créer des diagrammes 3D avec 15 couleurs d'histogrammes</span></div></div>",
+            "expl": "Surcharger les graphiques de fioritures esthétiques nuisant à la lisibilité.",
+            "debriefExpl": "Les graphiques 3D et les camemberts surchargés sont illisibles. Une visualisation simple en entonnoir de conversion plat est bien plus efficace.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Une bonne visualisation de données de santé montre le flux des patients à travers le parcours de soins pour révéler immédiatement les goulets d'étranglement."
+      },
+      {
+        "text": "Le CRDC souhaite identifier pourquoi le dépistage colorectal est moins performant dans certains centres médicaux par rapport à d'autres, mais le rapport agrège tous les chiffres au niveau départemental.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rapport Aggloméré</div><div class=\"flex justify-between text-[7px]\"><span>Taux participation départemental: 38%</span><span class=\"text-slate-400\">(Détail par centre masqué)</span></div></div>",
+        "correct": {
+          "title": "Segmenter et cartographier les taux par centre",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Cartographie des Centres</div><div class=\"flex flex-col gap-0.5 text-[6px]\"><span class=\"text-emerald-600\">🟢 Centre Nord : 54% (Bonnes pratiques de relance)</span><span class=\"text-red-500 font-bold\">🔴 Centre Sud : 18% (Besoin de soutien technique)</span></div></div>",
+          "expl": "Désagréger les données globales pour comparer visuellement les performances des centres locaux et identifier les anomalies de terrain.",
+          "debriefExpl": "La cartographie révèle des disparités immenses. Le Centre Sud n'est qu'à 18% de participation. Le chargé de clientèle découvre qu'un problème d'approvisionnement en kits de dépistage paralyse ce centre.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Augmenter l'objectif cible national",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Hausse Cible</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"trending-up\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Fixer un objectif de 60% pour tout le département</span></div></div>",
+            "expl": "Accroître les exigences globales sans localiser les défaillances locales.",
+            "debriefExpl": "Fixer une cible plus haute ne résout pas la panne de kits au Centre Sud. Seule la désagrégation des données permet d'apporter l'aide là où elle est requise.",
+            "icon": "x"
+          },
+          {
+            "title": "Envoyer un questionnaire de satisfaction généralisé",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Enquête Satisfaction</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"clipboard\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Envoyer une enquête sur le ressenti de tous les centres</span></div></div>",
+            "expl": "Préférer du déclaratif flou à de l'analyse comportementale de données réelles.",
+            "debriefExpl": "Le questionnaire génère du bruit déclaratif et prend du temps à dépouiller, alors que les chiffres de connexion indiquent déjà précisément le lieu de la défaillance.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Comparer visuellement les entités de terrain (les centres médicaux) permet de détecter des problèmes locaux d'approvisionnement ou de configuration logicielle."
+      },
+      {
+        "text": "La direction de l'éditeur veut savoir si les campagnes d'incitation par SMS de 2024 ont fidélisé les patientes pour qu'elles se fassent dépister à nouveau 2 ans plus tard, mais le logiciel ne suit que la participation annuelle globale.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Suivi Annuel Standard</div><div class=\"flex justify-between text-[7px]\"><span>Dépistages 2024: 12 000</span><span>Dépistages 2026: 12 500</span></div><div class=\"text-[6px] text-center text-red-500 font-bold\">Aucun suivi de fidélité individuelle</div></div>",
+        "correct": {
+          "title": "Construire un tableau de cohortes de dépistage",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rétention de Dépistage (2 ans)</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Cohort Initiée en 2024 (SMS) : 10 000 patientes</span><span class=\"text-emerald-600 font-bold\">Re-dépistées en 2026 : 78% (Excellente fidélité)</span></div></div>",
+          "expl": "Suivre l'adhésion dans le temps par groupe de population (cohortes) pour mesurer la fidélisation réelle aux programmes de dépistage récurrents.",
+          "debriefExpl": "Le suivi par cohorte prouve que 78% des patientes sensibilisées par SMS en 2024 sont revenues spontanément en 2026. L'investissement SMS a donc un impact durable sur les comportements de santé publique.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Comparer uniquement les totaux d'une année sur l'autre",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Comparatif simple</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"bar-chart\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Comparer le total de dépistages de 2024 à 2026</span></div></div>",
+            "expl": "Confondre la croissance globale de l'audience avec la fidélisation individuelle des patientes.",
+            "debriefExpl": "Le total de 2026 peut augmenter grâce à de nouvelles patientes entrantes, tout en masquant le fait que toutes les patientes de 2024 ont arrêté leur suivi. Seules les cohortes révèlent cette fuite.",
+            "icon": "x"
+          },
+          {
+            "title": "Téléphoner à un échantillon de patientes au hasard",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Appels de contrôle</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Appeler 50 patientes pour leur demander leur avis</span></div></div>",
+            "expl": "Faire reposer l'évaluation sur des entretiens anecdotiques non représentatifs.",
+            "debriefExpl": "Appeler 50 personnes ne donne aucune statistique fiable sur le comportement de 10 000 patientes. L'analyse de cohorte en base de données fournit la vérité factuelle globale.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le suivi en cohorte est la seule méthode rigoureuse pour mesurer l'ancrage des habitudes de dépistage régulier sur plusieurs années."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "K7. Piloter l'optimisation continue du parcours",
+    "intent": "Mettre en œuvre une démarche méthodique et incrémentale d'amélioration du logiciel pour augmenter les taux de dépistage étape par étape.",
+    "icon": "trending-up",
+    "scenarios": [
+      {
+        "text": "Pour améliorer l'adhésion au dépistage, le chargé de clientèle modifie le texte de l'invitation, change l'emplacement du bouton de prise de rendez-vous sur le portail et met à jour l'email de confirmation, le tout dans la même semaine. Le taux d'inscription baisse, impossible de savoir pourquoi.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Changements Simultanés</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Modifications: Texte + Bouton + Email</span><span class=\"text-red-500 font-bold\">Résultat: Taux de conversion -12% (Cause indéterminable)</span></div></div>",
+        "correct": {
+          "title": "Appliquer un cycle structuré de modifications uniques",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Démarche Structurée</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>1. Modifier uniquement l'email (Test 7 jours) ➔ Validé (+5%)</span><span>2. Modifier ensuite le bouton (Test 7 jours) ➔ Rejeté (-8%)</span></div></div>",
+          "expl": "Tester une seule modification à la fois pour isoler scientifiquement son impact avant de passer à l'optimisation suivante.",
+          "debriefExpl": "En structurant la démarche, le chargé de clientèle valide le nouvel email de confirmation (+5% d'inscriptions) mais rejette la nouvelle position du bouton qui masquait l'accès principal (-8%). Procéder par étape évite les reculs.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Continuer à modifier d'autres paramètres",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Fuite en avant</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"shuffle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class-[7px] text-slate-600\">Changer en plus la couleur de fond et les images</span></div></div>",
+            "expl": "Cumuler de nouvelles variables dans l'espoir de corriger une baisse inexpliquée.",
+            "debriefExpl": "Ajouter du désordre au désordre ne fait qu'aggraver la perte de repères. Vous risquez d'effondrer durablement la participation des patientes.",
+            "icon": "x"
+          },
+          {
+            "title": "Annuler l'ensemble des modifications de la semaine",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rollback complet</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"rotate-ccw\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Restauration globale sans tirer de leçon des erreurs</span></div></div>",
+            "expl": "Effacer tous les changements par panique, perdant ainsi le bénéfice des idées positives.",
+            "debriefExpl": "Le rollback total jette à la poubelle la nouvelle formulation de l'email pourtant excellente. Seul le test unitaire permet de trier le bon grain de l'ivraie.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'amélioration de la conversion repose sur des tests unitaires rigoureux. Modifier plusieurs variables à la fois rend l'impact de chacune invisible."
+      },
+      {
+        "text": "Les gestionnaires des CRDC remontent 25 demandes d'amélioration ergonomique différentes sur le logiciel de dépistage. Le chef de projet a un budget limité et ne sait pas par quoi commencer.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Liste des 25 requêtes</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>- Traduction PDF, Export Excel, Tri par date...</span><span class=\"text-red-500 font-bold\">Aucun critère objectif de choix</span></div></div>",
+        "correct": {
+          "title": "Prioriser via une matrice Impact / Effort",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Matrice Priorisation ICE</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span class=\"text-emerald-600 font-bold\">⚡ Quick Wins (Fort impact, Faible effort): Raccourci recherche patient</span><span class=\"text-slate-500\">⏳ Long Terme: Refonte complète du module de facturation CHU</span></div></div>",
+          "expl": "Évaluer chaque demande selon l'impact sur le taux de dépistage et la complexité technique de développement pour isoler les gains rapides.",
+          "debriefExpl": "Le chef de projet priorise le raccourci de recherche patient (développé en 2h, fait gagner 20s par dossier à 150 agents). La refonte de facturation lourde est planifiée pour l'an prochain. L'équipe avance vite et à moindre coût.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Traiter les demandes par ordre d'arrivée",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">File d'attente FIFO</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"list-ordered\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Premier arrivé, premier codé</span></div></div>",
+            "expl": "Prioriser de façon chronologique sans considération de valeur d'usage.",
+            "debriefExpl": "Traiter par ordre d'arrivée bloque vos développeurs pendant 3 semaines sur une option de confort demandée par un petit centre, au détriment d'une correction urgente pour 80% des utilisateurs.",
+            "icon": "x"
+          },
+          {
+            "title": "Développer en priorité la demande du plus grand CHU",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Priorité Politique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"users\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Satisfaire le client qui crie le plus fort en réunion</span></div></div>",
+            "expl": "Céder aux pressions relationnelles ou politiques au détriment de l'intérêt collectif.",
+            "debriefExpl": "La demande politique du grand CHU n'intéresse aucun autre centre et requiert un développement sur-mesure lourd. C'est un gouffre financier qui ralentit le produit.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La matrice Impact/Effort (matrice de priorisation) garantit que les ressources de développement sont allouées là où elles créent le plus de valeur de santé publique."
+      },
+      {
+        "text": "L'équipe du Centre A a trouvé une formulation de relance par SMS qui améliore le taux de participation de 15%. L'information reste orale au sein de cette équipe. Le Centre B lance une campagne identique le mois d'après avec la formulation obsolète et échoue.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Perte de Connaissances</div><div class=\"flex justify-between text-[7px]\"><span>Centre A: Formulation secrète active (+15%)</span><span>Centre B: Échec SMS classique</span></div></div>",
+        "correct": {
+          "title": "Documenter et propager chaque succès de test",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Base de connaissances partagée</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Fiche K7-A : \"SMS Relance Colorectal\" ➔ Partagée à tous les CRDC</span><span class=\"text-emerald-600 font-bold\">Résultat: +15% de participation sur l'ensemble de la région</span></div></div>",
+          "expl": "Consigner formellement les résultats de chaque test d'optimisation dans une base partagée pour standardiser les meilleures pratiques.",
+          "debriefExpl": "Le chargé de clientèle documente le succès et configure la nouvelle formulation comme modèle par défaut dans le logiciel pour tous les centres. L'amélioration bénéficie instantanément à la santé de toute la population régionale.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Garder la formulation secrète pour valoriser le Centre A",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Silos Locaux</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"lock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Valoriser la réussite isolée du Centre A face au B</span></div></div>",
+            "expl": "Entretenir une compétition stérile entre centres de santé.",
+            "debriefExpl": "Le rôle du logiciel est de soigner plus de monde. Conserver une réussite secrète est une aberration éthique et une perte de valeur pour l'éditeur.",
+            "icon": "x"
+          },
+          {
+            "title": "Attendre le bilan annuel pour partager l'information",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Attente Administrative</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Partager la bonne idée lors de l'assemblée dans 10 mois</span></div></div>",
+            "expl": "Retarder la diffusion de la valeur par lenteur administrative.",
+            "debriefExpl": "Attendre 10 mois prive les autres patientes d'un accompagnement efficace tout au long de l'année. La réplication des succès doit être immédiate.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Toute optimisation produit réussie doit être documentée et intégrée dans le modèle standard pour faire progresser l'ensemble du système de soins."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "K8. Automatiser les procédures internes fastidieuses",
+    "intent": "Remplacer les saisies de données manuelles redondantes et les relances téléphoniques chronophages par des flux automatisés et des connecteurs API sécurisés.",
+    "icon": "cpu",
+    "scenarios": [
+      {
+        "text": "Le chef de projet consacre 6 heures par semaine à créer manuellement les accès des nouveaux médecins dans le logiciel de dépistage, en vérifiant un par un leurs numéros d'identification sur l'annuaire national officiel en ligne.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Vérification des Comptes</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Vérification manuelle unitaire (RPPS)</span><span class=\"text-red-500 font-bold\">⏳ 6 heures de dev / projet perdues par semaine</span></div></div>",
+        "correct": {
+          "title": "Connecter l'API nationale de l'état civil RPPS",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Vérification RPPS Directe</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Médecin saisit son identifiant RPPS</span><span class=\"text-emerald-600 font-bold\">Vérification API automatique (0.2s) ➔ Compte actif</span></div></div>",
+          "expl": "Remplacer la validation manuelle par un connecteur d'API gouvernemental officiel (RPPS) pour créer instantanément les accès vérifiés.",
+          "debriefExpl": "L'interconnexion avec l'API RPPS permet aux médecins de s'inscrire en quelques secondes de façon autonome. Le chef de projet élimine 6h de corvée hebdomadaire et consacre ce temps à l'accompagnement des hôpitaux.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Embaucher un technicien support dédié aux comptes",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Recrutement Support</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-plus\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Recruter un technicien à mi-temps pour gérer les dossiers</span></div></div>",
+            "expl": "Recruter du personnel pour réaliser une tâche que l'informatique peut faire gratuitement.",
+            "debriefExpl": "Recruter un technicien génère des coûts administratifs récurrents. La connexion API fait le même travail instantanément et de façon plus fiable pour un coût infime.",
+            "icon": "x"
+          },
+          {
+            "title": "Supprimer la vérification obligatoire de l'annuaire",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Sécurité Allégée</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"shield-alert\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Faire confiance et créer les comptes sans aucune validation</span></div></div>",
+            "expl": "Sacrifier la sécurité et la confidentialité médicale pour aller plus vite.",
+            "debriefExpl": "Supprimer la vérification est une faute éthique grave. N'importe qui pourrait usurper l'identité d'un médecin pour consulter des dossiers médicaux confidentiels de dépistage.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La connexion aux bases de données officielles de l'État (RPPS, CPAM) permet d'automatiser le contrôle d'accès réglementaire de façon fluide et sécurisée."
+      },
+      {
+        "text": "Chaque fin de mois, le chef de projet de l'éditeur passe 2 jours complets à compiler les statistiques de dépistage régional, à les mettre en page dans des fichiers Word, puis à les convertir en PDF pour les envoyer par email aux Agences Régionales de Santé (ARS).",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Production Rapports ARS</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Extraction CSV + Copie Word + Conversion PDF</span><span class=\"text-red-500 font-bold\">⏳ 2 jours de travail manuel par mois</span></div></div>",
+        "correct": {
+          "title": "Développer un pipeline de reporting automatisé",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Console Partenaire ARS</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Accès sécurisé en lecture seule pour les inspecteurs ARS</span><span class=\"text-emerald-600 font-bold\">Données mises à jour en temps réel (Export PDF en 1 clic)</span></div></div>",
+          "expl": "Remplacer le rapport manuel mensuel par un portail de reporting en lecture seule accessible aux partenaires officiels.",
+          "debriefExpl": "En ouvrant un accès sécurisé en lecture seule à un tableau de bord consolidé pour l'ARS, le chef de projet élimine 2 jours de mise en page fastidieuse par mois. Les inspecteurs disposent de données plus fraîches et plus interactives.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Déléguer la mise en page à un designer",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Désignation Externe</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"edit\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Donner la tâche de mise en page au designer produit</span></div></div>",
+            "expl": "Déplacer la corvée manuelle d'un collaborateur à un autre sans corriger le problème structurel.",
+            "debriefExpl": "Le designer passera lui aussi du temps sur une tâche de mise en page sans valeur ajoutée, ralentissant ses autres chantiers d'amélioration ergonomique du logiciel.",
+            "icon": "x"
+          },
+          {
+            "title": "Ne faire le rapport que tous les six mois",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rapports Semestriels</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Passer à un rythme de 2 rapports par an au lieu de 12</span></div></div>",
+            "expl": "Réduire la fréquence pour limiter l'effort, au détriment de la qualité de surveillance sanitaire.",
+            "debriefExpl": "Les ARS ont besoin de surveiller le taux de couverture mensuel pour ajuster les campagnes de dépistage. Réduire la fréquence empêche toute réactivité opérationnelle.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les tableaux de bord automatisés et connectés en temps réel éliminent les tâches récurrentes d'extraction et garantissent la fraîcheur des indicateurs pour les partenaires régionaux."
+      },
+      {
+        "text": "Le chargé de clientèle passe ses vendredis après-midi à vérifier les dossiers de double lecture en retard de signature chez les radiologues, puis à appeler ou écrire à chaque médecin manuellement pour éviter les retards.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Relance des Retards</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Recherche manuelle des dossiers > 48 heures</span><span class=\"text-red-500 font-bold\">⏳ Tout le vendredi après-midi passé au téléphone</span></div></div>",
+        "correct": {
+          "title": "Mettre en place un système de relance automatique",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Moteur d'Alertes Relance</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Règle : Dossier non validé après 48h ➔ Notification email soft</span><span class=\"text-emerald-600 font-bold\">Délai moyen de lecture : divisé par 2 (Zéro action manuelle)</span></div></div>",
+          "expl": "Configurer un script de relance automatique (email/SMS discret) déclenché en base de données lorsque le délai d'attente d'une validation médicale est dépassé.",
+          "debriefExpl": "Grâce au système d'alerte configuré dans le logiciel, les radiologues reçoivent une relance automatique polie après 48 heures d'attente d'une mammographie. Les délais de double lecture chutent, sans nécessiter la moindre intervention humaine.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Engager une secrétaire dédiée aux relances",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Secrétariat Téléphonique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone-call\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Recruter un standardiste pour passer les appels de relance</span></div></div>",
+            "expl": "Multiplier les charges de personnel pour un processus parfaitement automatisable.",
+            "debriefExpl": "Recruter une secrétaire coûte cher et dérange les médecins en pleine consultation par des appels téléphoniques. La relance par email/SMS discret est bien mieux tolérée.",
+            "icon": "x"
+          },
+          {
+            "title": "Appliquer des pénalités financières aux médecins en retard",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Pénalités</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"alert-triangle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Retirer 5€ par jour de retard sur les remboursements</span></div></div>",
+            "expl": "Utiliser la punition financière au risque de décourager les soignants de participer au programme.",
+            "debriefExpl": "Les radiologues de double lecture travaillent déjà sous pression. Les pénaliser provoquerait leur départ massif du programme de dépistage national, menaçant la santé publique régionale.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les rappels automatisés et contextualisés basés sur des déclencheurs temporels sont la solution la plus douce et la plus efficace pour réduire les délais de prise en charge."
+      }
+    ]
+  }
+]

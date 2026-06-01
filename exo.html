@@ -420,6 +420,10 @@
                 <option value="./exo.html?id=3-f">F - Features Discovery</option>
                 <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
                 <option value="./exo.html?id=4-h">H - Assistance &amp; Connaissance</option>
+                <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
+                <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
+                <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
+                <option value="./exo.html?id=6-l">L - KPIs &amp; Dashboard</option>
             </select>
         </div>
         <div class="flex gap-2">
@@ -497,6 +501,10 @@
                 <option value="./exo.html?id=3-f">F - Features Discovery</option>
                 <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
                 <option value="./exo.html?id=4-h">H - Assistance &amp; Connaissance</option>
+                <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
+                <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
+                <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
+                <option value="./exo.html?id=6-l">L - KPIs &amp; Dashboard</option>
             </select>
             <!-- Reset Level -->
             <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
@@ -813,6 +821,94 @@ const ATELIERS_CONFIG = {
             "Qualification, catégorisation et rédaction de tickets d'anomalies simples.",
             "Documentation de solutions de contournement et rédaction d'articles de FAQ.",
             "Analyse de causes racines, post-mortems et amélioration continue de la documentation."
+        ]
+    },
+    "5-i": {
+        key: "veille",
+        title: "I - Veille & Benchmark",
+        h1: "I - Veille &amp; <span class='text-slate-800'>Benchmark</span>",
+        subtitle: "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.",
+        themeClass: "innov-theme",
+        badge: "Réflexe I - Veille & Benchmark",
+        icon: "search",
+        emoji: "🔍",
+        resetConfirm: "toute votre progression de Veille & Benchmark",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
+        phase2Info: "Sélectionnez la décision de veille correspondante à droite ➡️",
+        phase3Label: "Décision Retenue",
+        phase3Impact: "Impact Stratégique &amp; Vision",
+        levelNames: ["Facile", "Moyen", "Difficile"],
+        levelDescriptions: [
+            "Observation terrain et collecte d'informations concurrentielles de base.",
+            "Analyse comparative et identification des tendances émergentes.",
+            "Synthèse stratégique et recommandations d'innovation produit."
+        ]
+    },
+    "5-j": {
+        key: "tln",
+        title: "J - Test & Learn",
+        h1: "J - Test &amp; <span class='text-slate-800'>Learn</span>",
+        subtitle: "Expérimentez, testez et validez vos idées avant d'investir massivement.",
+        themeClass: "innov-theme",
+        badge: "Réflexe J - Test & Learn",
+        icon: "flask",
+        emoji: "🔬",
+        resetConfirm: "toute votre progression de Test & Learn",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
+        phase2Info: "Choisissez l'expérimentation appropriée à droite ➡️",
+        phase3Label: "Décision Retenue",
+        phase3Impact: "Impact Discovery &amp; Innovation",
+        levelNames: ["Facile", "Moyen", "Difficile"],
+        levelDescriptions: [
+            "Identifier les expérimentations simples pour valider une hypothèse.",
+            "Mettre en œuvre des tests utilisateurs et des bêtas ciblés.",
+            "Analyser les résultats et décider de pivoter ou de poursuivre."
+        ]
+    },
+    "6-k": {
+        key: "analytics",
+        title: "K - Analytics & Productivité",
+        h1: "K - Analytics &amp; <span class='text-slate-800'>Productivité</span>",
+        subtitle: "Mesurer et optimiser le parcours utilisateur et l'efficacité opérationnelle.",
+        themeClass: "data-theme",
+        badge: "Réflexe Analytics & Productivité",
+        icon: "bar-chart-2",
+        emoji: "📊",
+        resetConfirm: "toute votre progression d'Analytics & Productivité",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
+        phase2Info: "Choisissez l'action d'analytics ou d'optimisation à droite ➡️",
+        phase3Label: "Décision Retenue",
+        phase3Impact: "Impact Analytics &amp; Performance",
+        levelNames: ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
+        levelDescriptions: [
+            "Définir des KPIs simples, chiffrer les gains évidents et segmenter par usage.",
+            "Analyser les points de friction, tester des variantes et visualiser pour décider.",
+            "Piloter l'amélioration continue, prioriser et automatiser les processus."
+        ]
+    },
+    "6-l": {
+        key: "kpi",
+        title: "L - KPIs & Dashboard",
+        h1: "L - KPIs &amp; <span class='text-slate-800'>Dashboard</span>",
+        subtitle: "Mesurer et piloter la performance produit, l'activité business et la viabilité des initiatives.",
+        themeClass: "data-theme",
+        badge: "Réflexe KPIs & Dashboard",
+        icon: "database",
+        emoji: "📊",
+        resetConfirm: "toute votre progression de KPIs & Dashboard",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
+        phase2Info: "Choisissez la réponse la plus stratégique à droite ➡️",
+        phase3Label: "Décision Retenue",
+        phase3Impact: "Impact KPIs &amp; Performance",
+        levelNames: ["Opérationnel (Facile)", "Décisionnel (Moyen)", "Stratégique (Difficile)"],
+        levelDescriptions: [
+            "Connecter et centraliser les sources de données clés.",
+            "Arbitrer les opportunités d'amélioration par la valeur business.",
+            "Évaluer la rentabilité à long terme et la viabilité d'un projet."
         ]
     }
 };

@@ -1,0 +1,738 @@
+[
+  {
+    "id": 1,
+    "title": "L1. Intégrer un outil BI à ses sources de données",
+    "intent": "Centraliser et valoriser les données issues de la production (dépistages), du développement (Jira) et de la relation client (CRM) pour piloter l'activité de santé publique.",
+    "icon": "database",
+    "scenarios": [
+      {
+        "text": "Un chef de projet doit analyser le taux d'adoption du nouveau module de double lecture des mammographies. Les données sont dispersées entre PostgreSQL (dossiers médicaux), Jira (tickets de déploiement) et HubSpot (CRM des CRDC). L'extraction manuelle prend 4 heures par semaine.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Données Dispersées</div><div class=\"flex justify-between items-center text-[7px]\"><span>PostgreSQL (Médical) 💾</span><span>Jira (Déploiements) 🎫</span><span>HubSpot (CRDC contacts) 👥</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1.5\">⏳ 4h/semaine de copier-coller CSV</div></div>",
+        "correct": {
+          "title": "Connecter un outil de BI moderne aux APIs",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Dashboard Unifié BI</div><div class=\"flex items-center justify-between text-[7px]\"><div class=\"flex flex-col\"><span>Taux adoption</span><strong class=\"text-emerald-600\">84%</strong></div><div class=\"flex flex-col\"><span>CHUs Déployés</span><strong>12</strong></div><div class=\"flex flex-col\"><span>Contacts CRM</span><strong>150</strong></div></div></div>",
+          "expl": "Brancher un outil décisionnel directement sur les bases de production et les APIs des outils de gestion pour automatiser le reporting.",
+          "debriefExpl": "En connectant l'outil de BI aux sources, le chef de projet dispose d'une vision en temps réel de l'adoption du module de mammographie. Il économise 4h de tâche ingrate par semaine.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Faire des exports CSV réguliers",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Exports CSV Manuels</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-spreadsheet\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Chaque lundi, import manuel dans un Excel local</span></div></div>",
+            "expl": "Maintenir un processus manuel d'agrégation de données.",
+            "debriefExpl": "Les exports manuels sont chronophages, sujets aux erreurs de manipulation et fournissent des données obsolètes le jour de leur présentation.",
+            "icon": "x"
+          },
+          {
+            "title": "Développer un script d'agrégation maison",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Code Interne Custom</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">3 semaines de dev pour coder un script de synchro</span></div></div>",
+            "expl": "Réinventer la roue en codant un script d'agrégation maison complexe au lieu d'utiliser un outil standard du marché.",
+            "debriefExpl": "Le développement interne détourne les développeurs des fonctionnalités médicales et crée une dette de maintenance constante.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Centraliser les données par un pipeline BI automatisé évite les tâches manuelles répétitives et garantit l'exactitude des statistiques médicales."
+      },
+      {
+        "text": "Le chargé de clientèle constate que les directeurs de plusieurs hôpitaux partenaires se plaignent de retards de formation. Les données d'usage du logiciel (production) et les réclamations de support (CRM) sont cloisonnées, empêchant d'avoir une vision globale du niveau d'insatisfaction.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Silos Opérationnels</div><div class=\"flex justify-around text-[7px]\"><div class=\"border p-1\">Usage (Production)</div><div class=\"border p-1\">Bugs (CRM Support)</div></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1\">Aucune corrélation possible</div></div>",
+        "correct": {
+          "title": "Créer un modèle unifié Client 360",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Profil Hospitalier 360</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>🏥 CH Amiens: Activité -30% | Tickets: 8</span><span class=\"text-emerald-600 font-bold\">Alerte satisfaction : Critique (Besoin de formation)</span></div></div>",
+          "expl": "Croiser les statistiques réelles d'activité clinique avec les tickets de support dans un entrepôt de données unique.",
+          "debriefExpl": "Ce modèle permet de détecter qu'une chute d'usage dans un hôpital coïncide avec un pic de tickets de support. Le chargé de clientèle peut planifier une formation ciblée avant que l'hôpital ne rejette l'outil.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Recopier l'activité de prod dans le CRM à la main",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Double saisie manuelle</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"edit\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Recopier l'activité dans chaque fiche CRM client</span></div></div>",
+            "expl": "Imposer aux chargés de clientèle une double saisie fastidieuse entre les outils.",
+            "debriefExpl": "La double saisie fatigue les équipes, génère des erreurs de copie et n'est pas tenable sur un grand nombre d'hôpitaux partenaires.",
+            "icon": "x"
+          },
+          {
+            "title": "Diffuser des rapports PDF séparés par service",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">PDFs Cloisonnés</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Chaque équipe s'envoie son PDF le vendredi par mail</span></div></div>",
+            "expl": "Conserver des rapports d'activité isolés et diffusés de façon asynchrone.",
+            "debriefExpl": "Les rapports PDF isolés ne permettent pas de croiser les informations. Les équipes doivent toujours faire le rapprochement mentalement.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'unification des données d'activité et de support offre une vision à 360° du partenaire, indispensable pour anticiper ses besoins de formation."
+      },
+      {
+        "text": "Lors de la réunion trimestrielle de pilotage régional, le directeur du CRDC et le chef de projet de l'éditeur présentent des chiffres de participation au dépistage colorectal divergents, créant des tensions sur la fiabilité des données du logiciel.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Chiffres Divergents</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>CRDC: 4 500 dossiers | Éditeur: 4 850 dossiers</span><span class=\"text-red-500 font-bold\">Divergence détectée en réunion ARS</span></div></div>",
+        "correct": {
+          "title": "Définir des règles de calcul centralisées",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Source Unique de Vérité</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Total dépistés : 4 500 (INS validés)</span><span>Dossiers en attente de validation labo : 350</span></div></div>",
+          "expl": "Définir des règles de calcul communes et centralisées dans le pipeline de BI pour harmoniser les indicateurs présentés.",
+          "debriefExpl": "En centralisant la logique de calcul (ex: définir précisément si un dossier \"dépisté\" doit être validé par le labo ou simplement saisi), tout le monde partage la même définition. Les réunions se concentrent sur la stratégie sanitaire.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Créer un tableur Excel partagé et verrouillé",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Excel Partagé Verrouillé</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"lock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un fichier Excel partagé où chacun saisit ses chiffres</span></div></div>",
+            "expl": "Utiliser un tableur partagé nécessitant des saisies manuelles validées.",
+            "debriefExpl": "Le tableur Excel partagé finit toujours par avoir des formules cassées, des versions obsolètes et des saisies erronées qui ruinent la confiance collective.",
+            "icon": "x"
+          },
+          {
+            "title": "Recruter un consultant externe pour réconcilier",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Audit Externe</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-check\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un consultant audite les chiffres chaque trimestre</span></div></div>",
+            "expl": "Externaliser la réconciliation sans corriger le problème structurel d'accès aux données.",
+            "debriefExpl": "Le consultant ne fait que masquer le problème à court terme. Sans pipeline automatisé commun, le trimestre suivant verra réapparaître les mêmes divergences.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Une source unique de vérité, gérée par un pipeline BI automatisé, élimine les incohérences de calcul et accélère les prises de décision."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "L2. Arbitrer par les indicateurs business",
+    "intent": "Prendre des décisions de priorisation objectives basées sur l'effort de développement, les économies générées pour les CRDCs et l'impact sur la santé publique.",
+    "icon": "pie-chart",
+    "scenarios": [
+      {
+        "text": "Le chef de projet de l'éditeur hésite entre corriger un bug d'affichage mineur sur le portail d'invitation patient affectant 5% des utilisateurs et développer un connecteur d'API demandé par un groupe de CHU représentant 25% du volume de dépistage annuel.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Arbitrage Backlog</div><div class=\"flex justify-between text-[7px]\"><span>Bug mineur (5% usagers)</span><span>VS</span><span>API CHU (25% volume national)</span></div></div>",
+        "correct": {
+          "title": "Prioriser l'API CHU à fort impact de volume",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Priorité Volume Dépistage</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>1. API CHU (Volume: 25% national) ➔ Planifié Sprint 1</span><span class=\"text-slate-400\">2. Bug mineur d'affichage ➔ Planifié Sprint 3</span></div></div>",
+          "expl": "Évaluer l'impact sur le volume de dépistage réel ou le coût d'opportunité pour classer objectivement les priorités du backlog.",
+          "debriefExpl": "L'API CHU permet de débloquer la transmission de milliers d'examens. Le bug mineur d'affichage, bien qu'embêtant, n'est pas bloquant et peut être traité lors d'un sprint ultérieur.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Traiter les demandes par ordre chronologique",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">File FIFO Standard</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"list-ordered\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Premier arrivé, premier codé</span></div></div>",
+            "expl": "Appliquer une priorisation par date de demande sans considération d'impact.",
+            "debriefExpl": "Traiter par ordre d'arrivée bloque l'équipe sur des tâches de confort secondaires en retardant des connexions hospitalières d'envergure vitale pour le dépistage régional.",
+            "icon": "x"
+          },
+          {
+            "title": "Surcharger le sprint pour livrer les deux",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Surcharge Équipe</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"alert-octagon\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On surcharge le sprint pour tout livrer à la fois</span></div></div>",
+            "expl": "Refuser de faire des choix en surchargeant l'équipe de développement.",
+            "debriefExpl": "La surcharge génère de la dette technique, de la fatigue et dégrade la qualité des deux livrables. Choisir, c'est renoncer temporairement.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Prendre des décisions basées sur la valeur médicale et le volume de population protégée permet de maximiser l'efficacité du produit."
+      },
+      {
+        "text": "L'équipe d'un CRDC demande le développement d'un module de relance par SMS sur mesure pour leur région (3 semaines de dev). L'alternative manuelle par téléphone fait perdre 2 heures par mois au secrétariat. L'éditeur n'a pas comparé l'effort de dev avec le gain.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Demande d'Automatisation</div><div class=\"flex justify-between text-[7px]\"><span>Dev : 3 semaines (4 500€)</span><span>VS</span><span>Temps perdu : 2h/mois (270€/an)</span></div></div>",
+        "correct": {
+          "title": "Calculer et comparer le ROI de l'automatisation",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Analyse d'Opportunité</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Coût dev: 4 500€ | Économie: 270€/an</span><span class=\"text-red-500 font-bold\">Retour sur investissement : 16 ans (Rejeté)</span></div></div>",
+          "expl": "Comparer le coût complet du développement avec le gain de temps valorisé pour écarter les automatisations non rentables.",
+          "debriefExpl": "L'analyse montre qu'investir 3 semaines de dev pour économiser 2h/mois est un mauvais calcul économique (ROI à 16 ans). Mieux vaut conserver le traitement manuel et libérer les développeurs pour des chantiers plus utiles.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Développer le module car c'est plus moderne",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Modernisation Système</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"cpu\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On développe pour éliminer la tâche manuelle</span></div></div>",
+            "expl": "Automatiser pour des raisons d'image ou d'esthétique technologique sans rationalité économique.",
+            "debriefExpl": "Automatiser une tâche à si faible volume est un gaspillage de ressources. La modernité doit servir la rentabilité globale ou la qualité des soins.",
+            "icon": "x"
+          },
+          {
+            "title": "Exiger des secrétaires de téléphoner plus vite",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Pression Administrative</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"trending-up\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Pousser l'équipe à passer les appels plus rapidement</span></div></div>",
+            "expl": "Traiter le problem de temps par de la pression managériale.",
+            "debriefExpl": "Exiger d'aller plus vite sur une tâche manuelle de 2h/mois augmente le stress et le risque d'erreur pour un gain économique insignifiant.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Toute automatisation de processus de santé a un coût de développement. Comparer ce coût avec les économies opérationnelles évite le gaspillage de ressources."
+      },
+      {
+        "text": "La direction de l'éditeur veut lancer un nouveau module payant destiné aux médecins libéraux. L'équipe produit constate que le portail CRDC actuel souffre de bugs réguliers d'accès qui poussent les hôpitaux à abandonner le logiciel.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Fuite d'Audience</div><div class=\"flex justify-between text-[7px]\"><span>Nouveau module libéraux : +10% CA</span><span>VS</span><span>Bugs portail hôpitaux : -15% CA</span></div></div>",
+        "correct": {
+          "title": "Prioriser la stabilité et la rétention du portail hôpitaux",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Focus Stabilité</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Action: Résoudre les bugs du portail hôpitaux (Sécurise 15% CA)</span><span class=\"text-slate-400\">Nouveau module libéraux : Reporté</span></div></div>",
+          "expl": "Corriger en priorité les dysfonctionnements du produit existant (rétention) avant de chercher à acquérir de nouveaux marchés.",
+          "debriefExpl": "Fidéliser les hôpitaux actuels en leur garantissant un outil stable est plus rentable et sécurisant que de chercher de nouveaux utilisateurs libéraux avec un produit de base défaillant.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Lancer le module libéraux pour masquer les pertes",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Fuite en Avant</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"chevrons-right\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On sort la nouveauté pour compenser le départ des déçus</span></div></div>",
+            "expl": "Pratiquer la fuite en avant commerciale en ignorant les défaillances produit.",
+            "debriefExpl": "Lancer une nouveauté sur un produit instable ne fait qu'amener de nouveaux utilisateurs qui finiront par partir pour les mêmes raisons, accélérant l'érosion de l'image de l'éditeur.",
+            "icon": "x"
+          },
+          {
+            "title": "Augmenter les prix des licences des hôpitaux",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Inflation Tarifaire</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"dollar-sign\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Augmentation des abonnements de 10% pour compenser</span></div></div>",
+            "expl": "Compenser des pertes d'usage par une augmentation tarifaire.",
+            "debriefExpl": "Augmenter les tarifs alors que le logiciel est instable provoquera un départ massif des hôpitaux vers la concurrence.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La stabilité du service est le socle de la croissance. Il est plus rentable de fidéliser sa base en corrigeant les bugs que de chercher l'acquisition à tout prix."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "L3. Évaluer la viabilité d'une initiative",
+    "intent": "Estimer l'investissement initial, les coûts de maintenance futurs et les recettes prévues pour valider la rentabilité et la durabilité à long terme d'un projet.",
+    "icon": "wallet",
+    "scenarios": [
+      {
+        "text": "Un hôpital demande le développement d'une connexion sur-mesure pour son serveur d'archivage local. Le projet rapporte 50 000€ à la signature mais requiert une maintenance spécifique estimée à 15 000€ par an, sans réutilisation possible pour d'autres CHUs.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Développement Custom Hôpital</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Revenu direct: <strong>50 000€</strong></span><span>Maintenance dédiée: <strong class=\"text-red-500\">15 000€/an</strong></span></div></div>",
+        "correct": {
+          "title": "Rejeter l'initiative pour cause de maintenance non viable",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Analyse Produit</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Bénéfice cumulé à 5 ans : -25 000€ (Rejeté)</span><span class=\"text-emerald-600 font-bold\">Alternative : Proposer une intégration API standard</span></div></div>",
+          "expl": "Calculer le coût total de possession (TCO) sur plusieurs années, incluant la maintenance, pour écarter les projets spécifiques déficitaires.",
+          "debriefExpl": "À partir de la 4e année, ce développement custom devient déficitaire pour l'éditeur en raison du coût de maintenance dédié. Proposer un flux API standard réutilisable est la seule alternative viable.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Accepter immédiatement pour capter le revenu direct",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Revenu Immédiat</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"banknote\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On signe le contrat de 50 000€ pour faire du chiffre ce mois-ci</span></div></div>",
+            "expl": "Prendre une décision à court terme en occultant les coûts récurrents.",
+            "debriefExpl": "Accepter pour le gain immédiat est un piège. Le client bloquera l'équipe de développement sur de la maintenance spécifique pendant des années, pour un coût total supérieur au gain initial.",
+            "icon": "x"
+          },
+          {
+            "title": "Développer le projet en réduisant les tests de sécurité",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Développement Rapide</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"zap-off\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On développe vite sans doc ni tests pour économiser</span></div></div>",
+            "expl": "Réduire la qualité technique pour tenter de rendre le projet spécifique rentable.",
+            "debriefExpl": "Bâcler les tests et la documentation augmente considérablement les coûts de maintenance futurs et les risques de bugs de sécurité en production. Le calcul est contre-productif.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le coût d'un développement ne s'arrête pas à la livraison. La maintenance récurrente d'une fonctionnalité custom peut détruire toute sa rentabilité initiale."
+      },
+      {
+        "text": "L'éditeur veut intégrer un outil d'envoi de SMS sécurisés et certifié santé pour rappeler leurs rendez-vous aux patientes. L'abonnement annuel est de 10 000€, mais le développement en interne prendrait 4 mois pour 2 développeurs, avec un coût complet de 40 000€.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Make or Buy SMS Santé</div><div class=\"flex justify-between text-[7px]\"><span>Abonnement SaaS: 10 000€/an</span><span>VS</span><span>Dev interne: 40 000€</span></div></div>",
+        "correct": {
+          "title": "Acheter la solution tierce pour réduire le time-to-market",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Arbitrage SaaS</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Coût cumulé 3 ans : Buy (30k€) VS Make (40k€ + maintenance)</span><span class=\"text-emerald-600 font-bold\">Solution : Intégrer l'outil tiers en 2 jours (Validé)</span></div></div>",
+          "expl": "Préférer l'achat (Buy) à l'auto-développement (Make) pour les fonctionnalités non cœur de métier afin de gagner du temps et de limiter les coûts.",
+          "debriefExpl": "L'outil SMS est une fonctionnalité complexe (normes santé, routage sécurisé) mais standard. Développer en interne coûte 40 000€ plus la maintenance. S'abonner pour 10 000€/an permet d'être en ligne en 2 jours et coûte moins cher sur 3 ans.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Développer en interne pour éviter de payer un abonnement",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Développement Interne</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">« On sait le faire, on va le coder nous-mêmes »</span></div></div>",
+            "expl": "Refuser de payer un abonnement récurrent en sous-estimant le coût réel du dev interne.",
+            "debriefExpl": "Développer soi-disant pour économiser est une illusion. Les 40 000€ d'investissement initial représentent 4 ans d'abonnement SaaS, sans compter le coût de maintenance du code interne.",
+            "icon": "x"
+          },
+          {
+            "title": "Attendre que les prix de l'outil tiers baissent",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Négociation / Attente</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"hourglass\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On reporte le projet en attendant une baisse des tarifs SaaS</span></div></div>",
+            "expl": "Reporter une valeur immédiate par réticence à investir.",
+            "debriefExpl": "Attendre pénalise les patientes qui ont besoin de ces rappels maintenant. Le manque à gagner dépasse largement l'économie de négociation espérée.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le dilemme Make or Buy doit être tranché par le TCO (Coût Total de Possession) et la vitesse de mise sur le marché. Acheter du SaaS standard libère de la capacité de dev."
+      },
+      {
+        "text": "La direction souhaite refondre complètement l'outil de gestion des campagnes de dépistage. L'investissement estimé est de 120 000€, pour un gain de productivité interne estimé à 10 000€ par an et aucune recette additionnelle.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Refonte Complète Moteur</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Coût refonte: 120 000€</span><span>Gain productivité: 10 000€/an</span></div></div>",
+        "correct": {
+          "title": "Reporter la refonte et prioriser des optimisations ciblées",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Optimisation Ciblée</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Investissement: 15 000€ (Gain: 8 000€/an)</span><span class=\"text-emerald-600 font-bold\">ROI: 1,8 an (Validé)</span></div></div>",
+          "expl": "Rejeter les refontes massives à faible rendement et privilégier des améliorations ciblées à fort impact (Quick Wins).",
+          "debriefExpl": "Une refonte à 120 000€ pour 10 000€/an d'économie a un ROI de 12 ans, ce qui est économiquement absurde. En réalisant des optimisations ciblées sur les 3 écrans les plus lents pour 15 000€, l'équipe obtient 80% du gain pour une fraction du coût.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Lancer la refonte complète pour avoir un outil moderne",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Modernisation Complète</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"rocket\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On refond l'outil de A à Z pour repartir sur du propre</span></div></div>",
+            "expl": "Lancer une refonte sur des critères purement techniques sans justification financière.",
+            "debriefExpl": "Repartir sur du propre est séduisant pour les développeurs, mais dépenser 120 000€ sans perspective de rentabilité détruit la trésorerie de l'entreprise.",
+            "icon": "x"
+          },
+          {
+            "title": "Réduire le budget de moitié artificiellement pour forcer",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Budget Tronqué</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"scissors\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On divise le budget par 2 en compressant le périmètre</span></div></div>",
+            "expl": "Sous-estimer volontairement le coût de dev pour obtenir l'accord de la direction.",
+            "debriefExpl": "Trancher le budget artificiellement mène à des projets inachevés, des retards massifs et un produit final instable qui coûtera encore plus cher à corriger.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les refontes globales ont souvent un ROI très faible. Identifier et corriger uniquement les écrans à forte friction génère le maximum de valeur pour un investissement minimal."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "L4. Valider la qualité et l'intégrité de la donnée de santé",
+    "intent": "S'assurer de la conformité, de l'exactitude et de la complétude des données de santé dès leur intégration pour garantir la fiabilité des décisions cliniques et administratives.",
+    "icon": "shield-check",
+    "scenarios": [
+      {
+        "text": "Le CRDC importe des fichiers de résultats de frottis utérins de différents laboratoires. Certains utilisent le nom de naissance, d'autres le nom d'usage, ce qui génère des centaines de doublons de dossiers et des relances inappropriées pour des patientes déjà dépistées.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Doublons d'Identité</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>👩 Dossier 1: Mme Martin Sophie (Née Petit)</span><span>👩 Dossier 2: Mme Petit Sophie</span><span class=\"text-red-500 font-bold\">⚠️ 2 invitations envoyées à la même personne</span></div></div>",
+        "correct": {
+          "title": "Valider et imposer l'Identité Nationale de Santé (INS)",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Identité Certifiée Unique</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Matricule INS: 1 85 03 75... (Certifié)</span><span class=\"text-emerald-600 font-bold\">Dossier unique fusionné : Martin Sophie (Nom naiss: Petit)</span></div></div>",
+          "expl": "Standardiser l'identification des patients via le matricule national certifié (INS) pour fusionner automatiquement les dossiers médicaux.",
+          "debriefExpl": "En imposant la validation de l'INS dès l'intégration des flux de laboratoires, le logiciel fusionne automatiquement les homonymes ou les changements de nom. Le CRDC n'envoie plus d'invitations inutiles.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Réconcilier les doublons manuellement chaque mois",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Traitement Manuel</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-check\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Rapprocher les fiches similaires à la main</span></div></div>",
+            "expl": "Faire relire et valider les rapprochements d'identité suspects par une équipe administrative.",
+            "debriefExpl": "La réconciliation manuelle prend des heures, est source d'erreurs juridiques majeures (fusion de vrais homonymes) et n'est pas scalable à l'échelle régionale.",
+            "icon": "x"
+          },
+          {
+            "title": "Supprimer à l'aveugle les dossiers les plus récents",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Déduplication Aveugle</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"trash\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un script écrase les fiches les plus récentes</span></div></div>",
+            "expl": "Appliquer un nettoyage automatique sans validation médicale préalable.",
+            "debriefExpl": "Supprimer des données médicales récentes sans contrôle peut détruire des résultats de dépistage positifs (anomalies) critiques pour la prise en charge rapide des patientes.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La validation stricte de l'Identité Nationale de Santé (INS) élimine les doublons à la source et protège le parcours de soins."
+      },
+      {
+        "text": "Lors de la saisie des examens de dépistage par les secrétariats des hôpitaux, des fautes de frappe (ex: année d'examen dans le futur, âge de la patiente à 150 ans) se glissent dans la base, faussant les indicateurs transmis à l'ARS.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Saisie Incohérente</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Date examen : 14/10/2045 (Futur)</span><span>Âge patiente : 152 ans</span><span class=\"text-red-500 font-bold\">⚠️ Rapport ARS rejeté pour anomalies</span></div></div>",
+        "correct": {
+          "title": "Activer des règles de validation de cohérence",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Verrous de Saisie</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Contrainte: Date <= Aujourd'hui (Actif)</span><span>Contrainte: Âge entre 25 et 74 ans (Actif)</span><span class=\"text-emerald-600 font-bold\">Bloqué à la saisie avec message d'explication</span></div></div>",
+          "expl": "Bloquer les données absurdes ou incohérentes dès le formulaire de saisie grâce à des règles métier dynamiques.",
+          "debriefExpl": "Les verrous de cohérence (data validation gates) rejettent les saisies impossibles en temps réel. Les secrétaires corrigent immédiatement leur faute de frappe et les rapports ARS restent propres.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Nettoyer les anomalies dans le rapport mensuel",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Nettoyage a posteriori</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"filter\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Masquer les valeurs absurdes lors de l'export</span></div></div>",
+            "expl": "Filtrer ou ignorer les incohérences uniquement au moment de générer le bilan.",
+            "debriefExpl": "Masquer les erreurs dans le rapport final ne corrige pas la base de données. Le dossier médical de la patiente reste erroné dans le logiciel, ce qui nuit à son suivi clinique réel.",
+            "icon": "x"
+          },
+          {
+            "title": "Envoyer un e-mail d'alerte pour chaque erreur",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Alertes Manuelles</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Le chef de projet écrit un mail de rappel à chaque secrétaire</span></div></div>",
+            "expl": "Détecter les erreurs après coup et solliciter une correction manuelle asynchrone.",
+            "debriefExpl": "Écrire individuellement aux secrétariats prend un temps infini au chef de projet et les corrections prennent souvent des semaines à être appliquées en base.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Un verrou de validation de cohérence à la saisie est le seul moyen de garantir la propreté de la base de données sans surcharger les équipes soignantes."
+      },
+      {
+        "text": "Une patiente réalise un dépistage de cancer du col en région A, puis déménage en région B. La région B, ignorant l'examen récent, lui envoie à nouveau un courrier de relance, provoquant un sur-dépistage inutile et coûteux.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Silos Régionaux</div><div class=\"flex justify-between text-[7px]\"><span>Région A: Dépistage fait</span><span>VS</span><span>Région B: Envoi invitation</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1\">Aucune communication inter-régionale</div></div>",
+        "correct": {
+          "title": "Interroger un index national de dépistage en temps réel",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Index Centralise Interrogé</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Recherche INS nationale ➔ Examen trouvé (Région A)</span><span class=\"text-emerald-600 font-bold\">Action : Envoi invitation annulé (Prochaine relance dans 3 ans)</span></div></div>",
+          "expl": "Connecter le logiciel à un index national de dépistage partagé pour vérifier l'historique de la patiente avant tout envoi de courrier.",
+          "debriefExpl": "En interrogeant l'index national, la région B détecte instantanément l'examen récent fait en région A. Le courrier inutile est bloqué, la sécurité de la patiente est assurée et les fonds publics sont préservés.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Demander à la patiente ses justificatifs papier",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Courrier de réclamation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"send\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">« Renvoyez-nous votre attestation sous 15 jours »</span></div></div>",
+            "expl": "Faire porter la charge administrative de coordination sur la patiente par courrier postal.",
+            "debriefExpl": "Alourdir le parcours de la patiente avec des formalités administratives inutiles nuit à sa confiance envers le dépistage et augmente les risques de perdus de vue.",
+            "icon": "x"
+          },
+          {
+            "title": "Attendre passivement que la patiente se plaigne",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Attente passive</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone-off\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On met à jour la fiche uniquement si elle appelle le standard</span></div></div>",
+            "expl": "Compter uniquement sur les réclamations téléphoniques des patientes pour nettoyer la base.",
+            "debriefExpl": "Attendre les appels sature le standard téléphonique du CRDC et donne une image d'incompétence administrative du programme national de santé publique.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La synchronisation inter-régionale via un index national sécurisé est indispensable pour assurer la continuité des soins dans une population mobile."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "L5. Se brancher aux données des clients CRM",
+    "intent": "Unifier les données clients issues du CRM avec les données d'usage produit pour optimiser la facturation, le support et prévenir le churn des grands comptes.",
+    "icon": "users",
+    "scenarios": [
+      {
+        "text": "Les agents du service client passent 10 minutes à chaque appel de CRDC à chercher si l'hôpital partenaire dispose d'un contrat actif pour le module colorectal ou sein. L'information contractuelle est cloisonnée dans le CRM HubSpot des commerciaux.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Cloisonnement CRM / Support</div><div class=\"flex justify-between text-[7px]\"><span>Support: Ticket urgent mammo</span><span>VS</span><span>CRM HubSpot: Statut contrat ?</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1.5\">⏳ 10 min de recherche par appel client</div></div>",
+        "correct": {
+          "title": "Connecter le CRM à l'outil de helpdesk",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Fiche Support Connectée</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>🏥 CH Amiens | Contrat: Actif (Dépistage Colorectal & Sein)</span><span class=\"text-emerald-600 font-bold\">Prise en charge ticket immédiate (Zéro recherche)</span></div></div>",
+          "expl": "Afficher les informations contractuelles et le niveau de service du CRM directement sur l'interface du support client.",
+          "debriefExpl": "En connectant HubSpot à l'outil de helpdesk, les agents voient instantanément le statut contractuel du client lors d'un appel ou d'un ticket. Le temps de résolution diminue et la satisfaction client grimpe.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Donner un accès complet au CRM aux agents support",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Accès CRM Général</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"lock-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Les agents naviguent manuellement dans HubSpot</span></div></div>",
+            "expl": "Fournir de nouveaux accès outils complexes sans intégration de flux de travail.",
+            "debriefExpl": "Donner un accès HubSpot force les agents à changer d'application à chaque ticket, ce qui nuit à leur productivité et expose des données commerciales confidentielles inutiles.",
+            "icon": "x"
+          },
+          {
+            "title": "Tenir à jour un fichier Excel des contrats actifs",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Fichier Contrats Partagé</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-spreadsheet\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Excel mis à jour manuellement par les commerciaux</span></div></div>",
+            "expl": "Utiliser un tableur partagé nécessitant des saisies redondantes des ventes.",
+            "debriefExpl": "Le fichier Excel n'est jamais à jour. Les commerciaux oublient d'y inscrire les nouveaux contrats ou les résiliations, générant des conflits de facturation.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La synchronisation automatique du CRM avec le support garantit la rapidité de traitement des incidents et la justesse réglementaire des accès."
+      },
+      {
+        "text": "L'éditeur facture les hôpitaux au volume réel d'examens de dépistage enregistrés en production. Chaque fin de mois, l'administration de l'éditeur passe 2 jours complets à extraire les rapports SQL et à copier-coller les totaux dans le CRM pour générer les factures.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Facturation à l'Usage</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Ventes SQL: 124 CHU ➔ Volumes mensuels</span><span class=\"text-red-500 font-bold\">⏳ 2 jours de saisies manuelles répétitives</span></div></div>",
+        "correct": {
+          "title": "Créer un pipeline d'usage automatisé vers le CRM",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Pipeline de Facturation Auto</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Synchro : Base SQL ➔ Propriété HubSpot \"Examens_Mois\"</span><span class=\"text-emerald-600 font-bold\">124 factures envoyées automatiquement le 1er du mois</span></div></div>",
+          "expl": "Développer un flux automatisé qui alimente périodiquement le CRM avec les métriques réelles d'usage produit pour automatiser la facturation.",
+          "debriefExpl": "Le pipeline d'usage élimine totalement les 2 jours de saisie administrative par mois, supprime les risques d'erreurs de copie de facturation et accélère la trésorerie de l'éditeur.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Facturer un forfait fixe mensuel standard",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Changement de Business Model</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"dollar-sign\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Abandonner le paiement à l'acte pour un forfait unique</span></div></div>",
+            "expl": "Modifier le modèle commercial de l'éditeur pour compenser une lacune technique de facturation.",
+            "debriefExpl": "Les petits centres refuseraient de payer le forfait fixe trop élevé pour eux, tandis que les très grands CHU profiteraient d'une sous-facturation massive.",
+            "icon": "x"
+          },
+          {
+            "title": "Recruter un alternant pour la saisie comptable",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Assistant Compta</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-plus\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un alternant compta dédié aux copier-coller de fin de mois</span></div></div>",
+            "expl": "Résoudre le problème par de la ressource humaine temporaire et peu valorisante.",
+            "debriefExpl": "Recruter coûte de l'argent et n'empêche pas les erreurs de copie. Un script automatique de 20 lignes fait ce travail en 2 secondes sans erreur.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Connecter les données réelles de production (volumes) aux abonnements CRM permet d'automatiser entièrement la facturation à l'usage."
+      },
+      {
+        "text": "Un grand CRDC régional a acheté 250 licences d'accès pour ses secrétariats de dépistage. Le CRM HubSpot indique qu'ils ont signé un contrat annuel à 80 000€, mais personne n'a remarqué que les secrétaires ne se sont pas connectées depuis 3 mois, créant un risque majeur de non-renouvellement (churn).",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Risque de Non-Renouvellement</div><div class=\"flex justify-between text-[7px]\"><span>Contrat: 80 000€ / an</span><span class=\"text-red-500 font-bold\">Usage réel: 0 connexion</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1\">Alerte Churn non détectée</div></div>",
+        "correct": {
+          "title": "Déclencher une alerte d'inactivité CRM proactive",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Alerte Proactive Chargé Client</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Synchro: Usage J30 = 0 ➔ Alerte HubSpot \"Compte en sommeil\"</span><span class=\"text-emerald-600 font-bold\">Action : Le CSM appelle le directeur du CRDC pour formation</span></div></div>",
+          "expl": "Croiser le statut contractuel du CRM avec le taux d'activité réel pour générer des alertes de sous-utilisation automatique à l'attention des CSM.",
+          "debriefExpl": "En reliant l'activité de production à HubSpot, le chargé de clientèle reçoit une alerte immédiate. Il découvre un problème d'accès réseau chez le client et déploie une formation de rattrapage, sauvant le contrat annuel de 80k€.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Attendre l'échéance du contrat pour relancer",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Attente passive</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Attendre la date anniversaire du contrat (M+9)</span></div></div>",
+            "expl": "Ignorer l'inactivité en espérant un renouvellement automatique aveugle.",
+            "debriefExpl": "À l'échéance du contrat, le CRDC refusera catégoriquement de renouveler, mécontent d'avoir payé 80 000€ pour un outil jamais utilisé par ses secrétariats.",
+            "icon": "x"
+          },
+          {
+            "title": "Envoyer un e-mail automatique de relance aux secrétaires",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Relance Auto</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un e-mail type : « Connectez-vous à votre espace ! »</span></div></div>",
+            "expl": "Utiliser un message automatique impersonnel pour traiter une panne d'usage majeure.",
+            "debriefExpl": "L'email automatique sera ignoré par les secrétaires car le blocage est structurel ou technique. Seul un appel humain ciblé du CSM peut débloquer la situation.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La santé d'un compte client se mesure par son usage réel. Lier l'inactivité produit au CRM permet de sauver les comptes à forte valeur avant qu'il ne soit trop tard."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "L6. Garantir l'anonymisation et la conformité des données",
+    "intent": "Sécuriser les exports de données médicales à des fins de recherche scientifique en appliquant des protocoles d'anonymisation stricts et en respectant le RGPD.",
+    "icon": "shield",
+    "scenarios": [
+      {
+        "text": "Un institut d'oncologie demande au CRDC un export des résultats de dépistage utérin positif pour une étude épidémiologique. L'agent extrait un fichier Excel contenant en clair les noms, prénoms, et dates de naissance des patientes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Export Non Sécurisé</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>📄 hpv_positive.xlsx (1200 patientes)</span><span class=\"text-red-500 font-bold\">⚠️ Noms, Prénoms & INS visibles (Violation RGPD)</span></div></div>",
+        "correct": {
+          "title": "Mettre en œuvre un pipeline d'anonymisation",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Export Anonymisé Certifié</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Identifiant: e3b0c442... (Haché irréversible)</span><span>Âge agrégé : 45-50 ans | Département : 75</span><span class=\"text-emerald-600 font-bold\">Conformité RGPD validée</span></div></div>",
+          "expl": "Hacher les identités de façon irréversible, masquer les adresses précises et agréger les dates de naissance en tranches d'âges pour tout export scientifique.",
+          "debriefExpl": "Le pipeline d'anonymisation protège la vie privée des patientes. Les données restent utiles pour l'étude scientifique sans qu'aucune patiente ne puisse être réidentifiée individuellement.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Demander une lettre d'engagement de confidentialité",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Engagement Papier</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-signature\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Faire signer une charte de confiance aux chercheurs</span></div></div>",
+            "expl": "Faire reposer la sécurité de données confidentielles uniquement sur un engagement légal écrit.",
+            "debriefExpl": "Une lettre d'engagement n'empêche pas techniquement le piratage, la perte du fichier ou la fuite de données. La sécurité doit être intégrée dans le code.",
+            "icon": "x"
+          },
+          {
+            "title": "Remplacer les noms par des numéros séquentiels",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Pseudonymisation simple</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"lock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Patiente 1, Patiente 2... mais dates de naissance en clair</span></div></div>",
+            "expl": "Masquer les noms mais conserver des détails indirects trop précis (date de naissance, code postal complet) qui permettent la réidentification.",
+            "debriefExpl": "Conserver la date de naissance exacte et le code postal précis permet de réidentifier une patiente dans 80% des cas en croisant d'autres fichiers publics. C'est une fausse anonymisation.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'anonymisation irréversible (hachage et agrégation) est une obligation réglementaire incontournable pour toute réutilisation secondaire de données de santé."
+      },
+      {
+        "text": "L'éditeur souhaite mettre à disposition des chercheurs des statistiques anonymisées de dépistage, mais aucune information claire n'est affichée pour permettre aux patientes d'exercer leur droit d'opposition (opt-out) requis par la CNIL.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Consentement manquant</div><div class=\"flex justify-between text-[7px]\"><span>Base de données: 120 000 dossiers</span><span class=\"text-red-500 font-bold\">Aucun choix d'opposition proposé</span></div></div>",
+        "correct": {
+          "title": "Intégrer un module d'opt-out sur le portail",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Portail Patient Option</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>🗳️ \"Je m'oppose à l'utilisation de mes données pour la recherche\"</span><span class=\"text-emerald-600 font-bold\">Statut enregistré instantanément dans le profil patient</span></div></div>",
+          "expl": "Afficher une information claire sur le portail et offrir une option simple pour s'opposer à l'utilisation de ses données de santé pour la recherche.",
+          "debriefExpl": "L'intégration du module d'opt-out sur le portail patient garantit le respect des directives CNIL. Les patientes opposées sont automatiquement exclues des exports de recherche, sécurisant la conformité éthique de l'éditeur.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Envoyer un e-mail à chaque patiente pour chaque étude",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Sollicitations Répétées</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un e-mail de demande de consentement par projet</span></div></div>",
+            "expl": "Solliciter un consentement explicite à chaque nouvelle étude (opt-in lourd).",
+            "debriefExpl": "Envoyer un e-mail à chaque projet fatigue les patientes, génère un taux de réponse infime (inférieur à 2%) et bloque le développement de la recherche clinique.",
+            "icon": "x"
+          },
+          {
+            "title": "Insérer une mention invisible dans les CGU",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">CGU surchargées</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Ajouter une phrase en petits caractères à la page 14 des CGU</span></div></div>",
+            "expl": "Masquer le recueil de consentement au milieu d'un pavé de conditions générales d'utilisation.",
+            "debriefExpl": "Masquer l'accord dans les CGU sans option de retrait explicite et visible est considéré par la CNIL comme un recueil déloyal de données de santé, passible de lourdes sanctions.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le respect des droits des patients (opt-out visible) est une condition juridique indispensable pour utiliser des données cliniques à des fins épidémiologiques."
+      },
+      {
+        "text": "Un CHU souhaite corréler les données de l'outil de dépistage utérin avec ses bases internes de cancérologie. Les formats de données propriétaires de l'éditeur rendent l'import et l'exploitation clinique complexes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Incompatibilité Formats</div><div class=\"flex justify-between text-[7px]\"><span>Base Éditeur: XML custom</span><span>VS</span><span>Base CHU: SQL relationnel</span></div></div>",
+        "correct": {
+          "title": "Mapper les données sur le standard OMOP CDM",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Standard International OMOP</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Format d'export standardisé (OMOP Common Data Model)</span><span class=\"text-emerald-600 font-bold\">Fusion directe avec le serveur de recherche clinique du CHU</span></div></div>",
+          "expl": "Adopter un modèle de données commun international (comme OMOP CDM) pour rendre les exports directement interopérables avec les systèmes des chercheurs.",
+          "debriefExpl": "Le formatage OMOP CDM rend l'éditeur immédiatement compatible avec les réseaux de recherche internationaux. Les scientifiques fusionnent les données cliniques sans aucune étape manuelle fastidieuse.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Développer un convertisseur sur mesure pour le CHU",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Script Sur-Mesure</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Écrire un script custom pour ce CHU en particulier</span></div></div>",
+            "expl": "Développer des passerelles sur-mesure pour chaque client (Make spécifique).",
+            "debriefExpl": "Développer un script custom pour chaque CHU prend du temps et est impossible à maintenir. L'adoption d'un standard industriel mondial est la seule méthode pérenne.",
+            "icon": "x"
+          },
+          {
+            "title": "Demander au CHU de s'adapter à nos formats",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Format imposé</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"slash\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Imposer notre format d'export XML sans support d'intégration</span></div></div>",
+            "expl": "Refuser tout effort d'interopérabilité en imposant son propre format d'export.",
+            "debriefExpl": "Imposer un format propriétaire complexe décourage les chercheurs hospitaliers, qui finissent par abandonner l'étude ou par choisir un éditeur plus coopératif.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'interoperabilité des bases de données cliniques via des modèles standardisés (OMOP, FHIR) démultiplie la valeur scientifique des logiciels de santé."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "L7. Mesurer la performance opérationnelle du parcours métier",
+    "intent": "Suivre, analyser et optimiser les temps d'attente à chaque étape clé du dépistage pour éviter la perte de chance des patients.",
+    "icon": "activity",
+    "scenarios": [
+      {
+        "text": "Le CRDC constate un délai moyen anormalement long (32 jours) entre la commande en ligne d'un kit colorectal et sa réception effective par le laboratoire. Il ignore à quelle étape physique le retard se produit.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Délai Commande ➔ Labo</div><div class=\"flex justify-between text-[7px]\"><span>Délai moyen : 32 jours</span><span class=\"text-red-500 font-bold\">Point de friction logistique inconnu</span></div></div>",
+        "correct": {
+          "title": "Connecter une API de suivi de livraison postal",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Mesure Logistique</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Transit Poste: <strong>3 jours</strong> (Normal)</span><span class=\"text-red-500 font-bold\">Délai de dépôt au labo par le patient: 24 jours</span></div></div>",
+          "expl": "Intégrer les données d'acheminement postal via des API de suivi pour isoler les temps logistiques du comportement du patient.",
+          "debriefExpl": "L'analyse montre que le kit arrive en 3 jours dans la boîte aux lettres du patient. Ce dernier attend en revanche 24 jours en moyenne avant d'effectuer le prélèvement et de l'envoyer au labo. La relance doit cibler l'incitation à l'usage, pas la livraison.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Changer de prestataire de livraison postale",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Nouveau transporteur</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"truck\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Passer de La Poste à un transporteur express privé</span></div></div>",
+            "expl": "Changer de fournisseur de transport sans diagnostiquer la source réelle de la lenteur.",
+            "debriefExpl": "Prendre un transporteur express coûte 10 fois plus cher et ne change rien au fait que le patient laisse le kit dans son tiroir pendant trois semaines.",
+            "icon": "x"
+          },
+          {
+            "title": "Multiplier le nombre de kits expédiés d'office",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Sur-expédition</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"package\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Envoyer deux kits d'un coup pour parer aux pertes</span></div></div>",
+            "expl": "Augmenter les coûts de matériel sans résoudre le retard d'analyse.",
+            "debriefExpl": "Sur-expédier gaspille des kits médicaux précieux (qui ont une date de péremption) sans accélérer la réalisation du test par le patient.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Isoler les temps logistiques grâce aux données de suivi permet d'orienter les campagnes de prévention sur la motivation rationalisée des patients."
+      },
+      {
+        "text": "Le délai de rendu des résultats de mammographies de double lecture oscille de façon incompréhensible entre 2 et 18 jours selon les hôpitaux de la région, générant une anxiété majeure chez les patientes.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Délais Fluctuant Doubles Lectures</div><div class=\"flex justify-around text-[7px]\"><span>Hôpital Nord: 2 jours</span><span>Hôpital Sud: 18 jours</span></div></div>",
+        "correct": {
+          "title": "Cartographier le délai de transition étape par étape",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Parcours Temps de Passage</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>CH Sud: Examen ➔ Transfert image: 1 jour</span><span class=\"text-red-500 font-bold\">Temps d'attente d'affectation au Lecteur 2 : 16 jours</span></div></div>",
+          "expl": "Décomposer et visualiser les étapes administratives et cliniques pour repérer le maillon faible du processus.",
+          "debriefExpl": "La cartographie révèle que le transfert d'images est immédiat, mais qu'à l'Hôpital Sud, les clichés attendent 16 jours dans une boîte de dépôt générale avant qu'un second lecteur y soit affecté. Réorganiser l'attribution automatique résout le délai.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Exiger des radiologues qu'ils lisent plus vite",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Pression Médicale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Exiger une lecture sous 24h sous peine de blâme</span></div></div>",
+            "expl": "Mettre sous pression les médecins specialists sans analyser le processus administratif amont.",
+            "debriefExpl": "Les radiologues lisent les clichés en quelques minutes dès qu'ils les voient. C'est l'absence d'affectation administrative qui immobilise les dossiers.",
+            "icon": "x"
+          },
+          {
+            "title": "Acheter des serveurs d'imagerie plus rapides",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Investissement Serveur</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"hard-drive\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Investir 15 000€ dans une liaison fibre pour le CH Sud</span></div></div>",
+            "expl": "Engager des dépenses matérielles technologiques sans étude de processus préalable.",
+            "debriefExpl": "La liaison réseau est déjà excellente. Acheter de nouveaux serveurs ne change rien au fait que les clichés attendent qu'un second lecteur soit désigné.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Cartographier les temps de passage réels évite de harceler les cliniciens ou d'investir dans du matériel inutile en ciblant les dysfonctionnements administratifs."
+      },
+      {
+        "text": "Le CRDC constate que 12% des patientes présentant un dépistage utérin positif (anomalie détectée) ne programment aucune coloscopie de contrôle dans les 60 jours réglementaires. Il n'existe aucune procédure de détection de ces patientes perdues de vue.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Patientes Perdues de Vue</div><div class=\"flex justify-between text-[7px]\"><span>Dépistage positif : 100%</span><span class=\"text-red-500 font-bold\">Zéro coloscopie à 60j: 12%</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1\">Pas d'alerte de sécurité active</div></div>",
+        "correct": {
+          "title": "Activer une alerte de sécurité clinique",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Alerte Sécurité Clinique</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>J+60 sans coloscopie ➔ Déclenchement automatique</span><span class=\"text-emerald-600 font-bold\">Action : Notification urgente au médecin traitant en messagerie sécurisée</span></div></div>",
+          "expl": "Déclencher une alerte informatique automatisée auprès du médecin traitant et du gynécologue référent dès le dépassement du délai de sécurité médical.",
+          "debriefExpl": "L'alerte de sécurité clinique (clinical safety alert) garantit que les 12% de patientes qui oublient ou ignorent l'anomalie sont immédiatement reprises en charge par leur médecin traitant. Cela évite une perte de chance majeure.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Envoyer un e-mail de rappel type à la patiente",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rappel Email Direct</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un e-mail automatique : « Prenez RDV chez un gynécologue »</span></div></div>",
+            "expl": "Envoyer une alerte de relance froide et automatisée pour un diagnostic de suspicion de cancer.",
+            "debriefExpl": "Recevoir un e-mail automatique anxiogène sans explication médicale peut terrifier la patiente et la pousser au déni. La prise en charge doit impérativement passer par son médecin traitant.",
+            "icon": "x"
+          },
+          {
+            "title": "Faire appeler toutes les patientes par des secrétaires",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Appels Secrétariat</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Les secrétaires du CRDC appellent les patientes une par une</span></div></div>",
+            "expl": "Déléguer l'annonce et le suivi médical complexe à des agents administratifs.",
+            "debriefExpl": "Les secrétaires administratives ne sont pas formées pour répondre à l'angoisse médicale d'une patiente face à une suspicion de cancer. C'est le rôle exclusif du médecin soignant.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le suivi des anomalies positives doit être sécurisé par des alertes logicielles intelligentes auprès du médecin traitant pour éviter les cas de perdus de vue critiques."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "L8. Mesurer l'impact sur l'activité et les utilisateurs d'une évolution",
+    "intent": "Évaluer de manière objective et quantitative les conséquences réelles d'une mise à jour logicielle sur le comportement des utilisateurs et l'efficacité opérationnelle des soins.",
+    "icon": "line-chart",
+    "scenarios": [
+      {
+        "text": "L'éditeur a déployé un écran simplifié pour la saisie des examens par les secrétaires. Le chargé de clientèle veut s'assurer que cette modification a eu un impact positif et n'a pas introduit d'effets de bord indésirables.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Évolution Saisie Secrétariat</div><div class=\"flex justify-between text-[7px]\"><span>Nouveau formulaire en ligne</span><span class=\"text-red-500 font-bold\">Impact réel inconnu</span></div></div>",
+        "correct": {
+          "title": "Comparer les métriques avant et après l'évolution",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Mesure d'Évolution (Avant/Après)</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Temps de saisie moyen : 2m10 ➔ <strong>1m15</strong> (-42%)</span><span>Taux d'erreur de validation : 4.8% ➔ <strong>1.2%</strong></span><span class=\"text-emerald-600 font-bold\">Gain opérationnel validé</span></div></div>",
+          "expl": "Mesurer le temps moyen de traitement et le taux d'erreur de saisie sur une période témoin de 15 jours avant et après le déploiement.",
+          "debriefExpl": "En comparant rigoureusement les données d'usage avant et après la mise à jour, l'éditeur prouve une baisse de 42% du temps de saisie et une réduction des erreurs. Le succès de l'évolution est scientifiquement démontré.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Se fier aux remerciements de deux secrétaires",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Retours Anecdotiques</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"smile\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">« C'est super, beaucoup plus rapide ! »</span></div></div>",
+            "expl": "Prendre des décisions ou valider un succès sur la base de témoignages isolés non représentatifs.",
+            "debriefExpl": "Les retours anecdotiques peuvent masquer une dégradation de l'usage chez d'autres secrétaires moins à l'aise avec l'informatique ou rencontrant des bugs non signalés.",
+            "icon": "x"
+          },
+          {
+            "title": "Considérer le projet clos dès le jour du déploiement",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Clôture projet automatique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">On passe à la fonctionnalité suivante dès la livraison</span></div></div>",
+            "expl": "Omettre l'étape d'évaluation post-livraison en considérant que livrer équivaut à réussir.",
+            "debriefExpl": "Ne pas analyser l'usage après livraison empêche de détecter d'éventuels bugs bloquants en production et d'apprendre des comportements réels des utilisateurs.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Mesurer l'impact avant/après une évolution logicielle est indispensable pour prouver la valeur délivrée et détecter les régressions d'usage."
+      },
+      {
+        "text": "L'éditeur a activé les rappels automatiques par SMS pour le dépistage du cancer du sein. Le chef de projet doit évaluer si ce nouveau canal justifie financièrement son coût par rapport aux courriers postaux.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Analyse Multi-Canal</div><div class=\"flex justify-between text-[7px]\"><span>Envoi SMS : 0.07€ unitaire</span><span>Envoi Lettre : 0.95€ unitaire</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1\">Rentabilité comparée inconnue</div></div>",
+        "correct": {
+          "title": "Analyser le coût par rendez-vous pris par canal",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Analyse Coût / Efficacité</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Lettre (4.5% conversion) ➔ Coût par RDV : <strong>21.11€</strong></span><span>SMS (3.8% conversion) ➔ Coût par RDV : <strong>1.84€</strong></span><span class=\"text-emerald-600 font-bold\">SMS: 11 fois plus rentable que la lettre</span></div></div>",
+          "expl": "Calculer et comparer le ratio coût total d'envoi / nombre de rendez-vous effectivement enregistrés pour chaque canal.",
+          "debriefExpl": "Bien que la lettre papier convertisse légèrement plus en valeur absolue (4.5% vs 3.8%), le SMS est 11 fois plus rentable au coût par rendez-vous généré (1.84€ vs 21.11€). Le SMS devient le canal de relance prioritaire.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Supprimer complètement les courriers papier",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">100% Digital</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"smartphone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Suppression totale des enveloppes et courriers physiques</span></div></div>",
+            "expl": "Migrer brutalement vers le tout-numérique sans tenir compte de l'exclusion numérique.",
+            "debriefExpl": "Supprimer le papier exclut les patientes âgées ou isolées qui n'ont pas de smartphone ou ne lisent pas leurs SMS, provoquant une chute grave de la couverture de dépistage chez les seniors.",
+            "icon": "x"
+          },
+          {
+            "title": "Se baser uniquement sur le taux de clic du SMS",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Taux de clic SMS</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mouse-pointer\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Taux de clic sur le lien SMS de 18%</span></div></div>",
+            "expl": "Analyser une métrique intermédiaire (le clic) plutôt que le résultat final (la participation effective).",
+            "debriefExpl": "Cliquer sur le lien ne signifie pas que la patiente se rend effectivement à son rendez-vous de mammographie. Seul le taux de participation final compte médicalement.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Évaluer l'impact financier d'un canal nécessite de calculer le coût réel par conversion finale, et non de simples volumes intermédiaires."
+      },
+      {
+        "text": "L'éditeur a déployé une mise à jour sur le système d'attribution automatique des rendez-vous de mammographies. Le nombre de validations en ligne grimpe de 20%, mais le support est inondé de plaintes de centres médicaux signalant des doublons de réservations.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Effets de bord post-livraison</div><div class=\"flex justify-between text-[7px]\"><span>RDV en ligne : <strong class=\"text-green-600\">+20%</strong></span><span class=\"text-red-500 font-bold\">Tickets doublons : +150%</span></div></div>",
+        "correct": {
+          "title": "Analyser conjointement l'usage et les indicateurs de support",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Indicateurs Croisés</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Volume RDV : +20% | Taux d'insatisfaction pro : <strong>45%</strong></span><span class=\"text-red-500 font-bold\">Diagnostic: Problème de verrou de synchronisation sur l'API d'agenda</span></div></div>",
+          "expl": "Suivre systématiquement le volume de réclamations support lié à un module après sa mise à jour pour détecter immédiatement les régressions opérationnelles.",
+          "debriefExpl": "L'augmentation des rendez-vous masquait un bug de synchronisation d'agenda (race condition) qui créait des doubles réservations. Croiser l'usage et les indicateurs support permet de détecter et corriger le bug en 24h.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Ignorer les plaintes vu la hausse d'activité",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Succès Apparent</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"eye-off\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">« Le trafic augmente, c'est que l'outil plaît »</span></div></div>",
+            "expl": "Se focaliser uniquement sur la métrique positive en ignorant la détresse opérationnelle des partenaires de terrain.",
+            "debriefExpl": "Ignorer le mécontentement des centres d'imagerie les pousse à désactiver la prise de rendez-vous en ligne, ruinant tous les efforts d'optimisation à moyen terme.",
+            "icon": "x"
+          },
+          {
+            "title": "Couper la prise de rendez-vous en ligne en urgence",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Désactivation d'urgence</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"power-off\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Désactiver l'accès patient au portail</span></div></div>",
+            "expl": "Prendre une décision radicale de coupure totale du service sans localiser précisément la cause technique.",
+            "debriefExpl": "Couper le service pénalise toutes les patientes qui veulent réserver. Mieux vaut identifier l'API défaillante pour appliquer un correctif à chaud tout en maintenant la prise de rendez-vous active.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Une amélioration sur une métrique (ex: le volume de RDV) ne doit pas se faire au détriment de la qualité opérationnelle globale (ex: doubles réservations)."
+      }
+    ]
+  }
+]

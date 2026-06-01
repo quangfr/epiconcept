@@ -1,0 +1,803 @@
+[
+  {
+    "id": 1,
+    "title": "J1. Développer une preuve de concept (POC)",
+    "intent": "Valider une idée technique ou métier avec un minimum d’effort avant d’investir massivement.",
+    "icon": "beaker",
+    "scenarios": [
+      {
+        "text": "Le CRDC constate que 15% des dossiers patients du laboratoire sont des doublons. L&#39;algorithme de matching proposé par l&#39;équipe technique doit être validé sur des données réelles avant d&#39;investir dans un déploiement complet.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"copy-plus\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Doublons patients détectés</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">1 245 doublons potentiels identifiés</div>\n<div class=\"text-[6px] text-amber-700\">Taux de matching estimé : 85%</div>\n<div class=\"text-[6px] text-amber-700\">Aucune validation sur données réelles effectuée</div>\n</div></div></div>",
+        "correct": {
+          "title": "Tester l&#39;algorithme sur 1 000 dossiers réels",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"beaker\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Tester l&#39;algorithme sur 1 000 dossiers réels</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Extraction de 1 000 paires de dossiers</div>\n<div class=\"text-[6px] text-emerald-700\">Taux de matching mesuré : 94%</div>\n<div class=\"text-[6px] text-emerald-700\">Faux positifs : 2% - acceptable</div>\n</div></div></div>",
+          "icon": "beaker",
+          "expl": "Une preuve de concept sur un échantillon représentatif permet de valider l&#39;efficacité avant d&#39;investir massivement.",
+          "debriefExpl": "En testant sur 1 000 dossiers réels du laboratoire, vous mesurez concrètement le taux de détection et les faux positifs sans risquer la production. Les résultats permettent de décider sereinement de la suite."
+        },
+        "wrong": [
+          {
+            "title": "Lancer un développement complet immédiatement",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Lancer un développement complet immédiatement</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement du module complet planifié</div>\n<div class=\"text-[6px] text-slate-500\">6 mois de travail estimés</div>\n<div class=\"text-[6px] text-slate-500\">Aucune validation préalable de l&#39;algo</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Développer sans validation préalable expose à un investissement important sur une solution non éprouvée.",
+            "debriefExpl": "Développer l&#39;intégralité du module de dédoublonnage sans tester l&#39;algorithme sur vos données réelles risquerait de gaspiller des mois de développement si le taux de faux positifs s&#39;avère trop élevé."
+          },
+          {
+            "title": "Attendre une solution clé en main du marché",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"search\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Attendre une solution clé en main du marché</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Recherche d&#39;éditeurs en cours</div>\n<div class=\"text-[6px] text-slate-500\">Budget 50k€ alloué pour un outil externe</div>\n<div class=\"text-[6px] text-slate-500\">Délai estimé : 9 mois</div>\n</div></div></div>",
+            "icon": "search",
+            "expl": "Attendre une solution externe retarde l&#39;apprentissage et ne garantit pas l&#39;adaptation au contexte spécifique.",
+            "debriefExpl": "Les solutions du marché ne sont pas optimisées pour votre base de dossiers patients et pourraient nécessiter autant d&#39;adaptation qu&#39;une solution interne, tout en coûtant plus cher."
+          }
+        ]
+      },
+      {
+        "text": "Les secrétaires du laboratoire souhaitent une nouvelle interface pour saisir les questionnaires patients à l&#39;arrivée. Personne n&#39;est sûr que l&#39;interface imaginée par l&#39;équipe réponde vraiment à leur besoin.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-edit\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Maquette non validée</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Nouvel écran de saisie en cours de conception</div>\n<div class=\"text-[6px] text-amber-700\">Aucun retour des secrétaires sur la maquette</div>\n<div class=\"text-[6px] text-amber-700\">Risque de devoir tout refaire après développement</div>\n</div></div></div>",
+        "correct": {
+          "title": "Faire tester un prototype cliquable à 2 secrétaires",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"mouse-pointer-2\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Faire tester un prototype cliquable à 2 secrétaires</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Prototype Figma testé par 2 secrétaires</div>\n<div class=\"text-[6px] text-emerald-700\">3 anomalies d&#39;ergonomie identifiées</div>\n<div class=\"text-[6px] text-emerald-700\">Modifications intégrées en 2 jours</div>\n</div></div></div>",
+          "icon": "mouse-pointer-2",
+          "expl": "Un prototype cliquable permet de recueillir un feedback utilisateur concret avant tout développement.",
+          "debriefExpl": "En faisant tester un prototype à 2 secrétaires du laboratoire, vous identifiez les problèmes d&#39;ergonomie avant d&#39;écrire une ligne de code. Les modifications sont rapides et peu coûteuses."
+        },
+        "wrong": [
+          {
+            "title": "Développer l&#39;interface complète puis la faire valider",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"layers\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer l&#39;interface complète puis la faire valider</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement de l&#39;interface complet</div>\n<div class=\"text-[6px] text-slate-500\">3 semaines de travail</div>\n<div class=\"text-[6px] text-slate-500\">Validation prévue après livraison</div>\n</div></div></div>",
+            "icon": "layers",
+            "expl": "Développer avant de valider augmente le risque de devoir retravailler des parties entières.",
+            "debriefExpl": "Développer l&#39;interface complète avant de la montrer aux secrétaires vous expose à devoir tout modifier si le flux de saisie ne leur convient pas. Le coût de correction aurait été bien plus élevé."
+          },
+          {
+            "title": "Organiser un comité de validation avec 10 managers",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"users\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Organiser un comité de validation avec 10 managers</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Réunion de validation organisée</div>\n<div class=\"text-[6px] text-slate-500\">10 managers présents</div>\n<div class=\"text-[6px] text-slate-500\">Aucune secrétaire utilisatrice invitée</div>\n</div></div></div>",
+            "icon": "users",
+            "expl": "Valider auprès des managers plutôt que des utilisateurs finaux biaise les retours.",
+            "debriefExpl": "Un comité de validation sans les utilisatrices réelles ne peut pas anticiper les problèmes d&#39;ergonomie du quotidien. Les secrétaires auraient dû être consultées directement."
+          }
+        ]
+      },
+      {
+        "text": "Les gestionnaires de santé publique veulent lancer des rappels SMS pour réduire les absences aux rendez-vous de dépistage. Personne ne sait si les patients répondront favorablement ni quel sera l’impact réel.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"message-square\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Absences élevées aux rendez-vous</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Taux d&#39;absence moyen : 22%</div>\n<div class=\"text-[6px] text-amber-700\">700 patients concernés par mois</div>\n<div class=\"text-[6px] text-amber-700\">Coût estimé des absences : 14k€/mois</div>\n</div></div></div>",
+        "correct": {
+          "title": "Mesurer le taux d&#39;absence avant-après sur un site pilote",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"beaker\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Mesurer le taux d&#39;absence avant-après sur un site pilote</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Site pilote : 1 laboratoire</div>\n<div class=\"text-[6px] text-emerald-700\">Taux d&#39;absence avant : 22%</div>\n<div class=\"text-[6px] text-emerald-700\">Taux après SMS : 12% - soit -45% d&#39;absences</div>\n</div></div></div>",
+          "icon": "beaker",
+          "expl": "Un pilote limité avec mesure avant-après permet de quantifier l&#39;impact réel avant généralisation.",
+          "debriefExpl": "En mesurant le taux d&#39;absence avant et après l&#39;envoi des rappels SMS sur un seul laboratoire, vous obtenez une preuve chiffrée de l&#39;efficacité du dispositif pour un coût minimal."
+        },
+        "wrong": [
+          {
+            "title": "Lancer les SMS sur tous les sites sans piloter",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"send\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Lancer les SMS sur tous les sites sans piloter</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Campagne SMS déployée sur 30 sites</div>\n<div class=\"text-[6px] text-slate-500\">Coût mensuel : 4 500€</div>\n<div class=\"text-[6px] text-slate-500\">Aucune mesure avant-après prévue</div>\n</div></div></div>",
+            "icon": "send",
+            "expl": "Déployer sans pilote expose au risque d&#39;investir massivement dans une solution inefficace.",
+            "debriefExpl": "Envoyer les SMS sur l&#39;ensemble des sites sans mesurer l&#39;impact préalable pourrait représenter un coût récurrent élevé pour un bénéfice non démontré. Si le taux d&#39;absence ne baisse pas significativement, l&#39;investissement sera perdu."
+          },
+          {
+            "title": "Commanditer une étude de marché sur 3 mois",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Commanditer une étude de marché sur 3 mois</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Appel d&#39;offres pour une étude externe</div>\n<div class=\"text-[6px] text-slate-500\">Budget étude : 25k€</div>\n<div class=\"text-[6px] text-slate-500\">Résultats attendus dans 3 mois</div>\n</div></div></div>",
+            "icon": "file-text",
+            "expl": "Une étude théorique ne remplace pas la mesure concrète de l&#39;impact sur le terrain.",
+            "debriefExpl": "Une étude de marché vous donnerait des chiffres théoriques, pas l&#39;impact réel sur vos patients. Le coût de l&#39;étude est également bien supérieur à celui d&#39;un pilote terrain."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "J2. Proposer à un client de bêta-tester",
+    "intent": "Impliquer des utilisateurs réels dans la validation d’une fonctionnalité en conditions réelles.",
+    "icon": "users",
+    "scenarios": [
+      {
+        "text": "Le laboratoire vient de développer une nouvelle fonctionnalité d&#39;import de planning de dépistage. L’équipe souhaite la tester en conditions réelles avant de l’ouvrir à tous les laboratoires clients.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"calendar\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Planning dépistage à importer</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Nouveau format d&#39;import disponible</div>\n<div class=\"text-[6px] text-amber-700\">Testé uniquement en environnement de dév</div>\n<div class=\"text-[6px] text-amber-700\">Aucun retour utilisateur réel</div>\n</div></div></div>",
+        "correct": {
+          "title": "Accompagner un laboratoire pilote pendant 2 semaines",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"users\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Accompagner un laboratoire pilote pendant 2 semaines</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Laboratoire partenaire identifié</div>\n<div class=\"text-[6px] text-emerald-700\">Suivi quotidien pendant 14 jours</div>\n<div class=\"text-[6px] text-emerald-700\">5 anomalies corrigées avant le déploiement général</div>\n</div></div></div>",
+          "icon": "users",
+          "expl": "Un bêta-test accompagné permet d’identifier les anomalies réelles et d’ajuster avant le déploiement large.",
+          "debriefExpl": "En accompagnant un laboratoire pilote pendant 2 semaines, vous identifiez les bugs et incompréhensions dans un contexte réel d’utilisation, ce qui permet de livrer une version robuste à tous les clients."
+        },
+        "wrong": [
+          {
+            "title": "Déployer la fonctionnalité à tous les clients directement",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"rocket\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Déployer la fonctionnalité à tous les clients directement</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Déploiement général programmé</div>\n<div class=\"text-[6px] text-slate-500\">30 laboratoires concernés</div>\n<div class=\"text-[6px] text-slate-500\">Aucune phase de test réel prévue</div>\n</div></div></div>",
+            "icon": "rocket",
+            "expl": "Déployer sans phase pilote expose l’ensemble des clients aux bugs non identifiés.",
+            "debriefExpl": "Déployer directement sur les 30 laboratoires sans phase pilote pourrait générer des incidents critiques et une perte de confiance des clients. Les anomalies découvertes après coup nécessiteraient des correctifs d’urgence."
+          },
+          {
+            "title": "Tester en interne avec l’équipe QA uniquement",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"flask-conical\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Tester en interne avec l’équipe QA uniquement</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Tests QA réalisés en environnement contrôlé</div>\n<div class=\"text-[6px] text-slate-500\">15 cas de test passés</div>\n<div class=\"text-[6px] text-slate-500\">Aucune utilisation en conditions réelles</div>\n</div></div></div>",
+            "icon": "flask-conical",
+            "expl": "Les tests internes ne remplacent pas l’exposition aux conditions réelles d’utilisation métier.",
+            "debriefExpl": "Les tests QA en laboratoire ne reproduisent pas la diversité des cas réels rencontrés par les utilisateurs métier. Seul un pilote en conditions réelles révèle les vrais problèmes d’usage."
+          }
+        ]
+      },
+      {
+        "text": "Un nouveau portail patient permettant de consulter ses résultats de dépistage en ligne est prêt. L’équipe hésite à l’ouvrir au grand public sans savoir si les patients l’utiliseront vraiment.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"globe\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Portail patient en attente</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Portail développé et hébergé</div>\n<div class=\"text-[6px] text-amber-700\">Aucun patient connecté pour l&#39;instant</div>\n<div class=\"text-[6px] text-amber-700\">Incertitude sur l&#39;adoption réelle</div>\n</div></div></div>",
+        "correct": {
+          "title": "Ouvrir un accès anticipé à 50 patients volontaires",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"users\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Ouvrir un accès anticipé à 50 patients volontaires</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">50 patients recrutés via les secrétaires</div>\n<div class=\"text-[6px] text-emerald-700\">Taux d&#39;activation : 80%</div>\n<div class=\"text-[6px] text-emerald-700\">8 suggestions d&#39;amélioration remontées</div>\n</div></div></div>",
+          "icon": "users",
+          "expl": "Un accès anticipé avec un groupe restreint permet de valider l’adoption et d’ajuster avant l’ouverture générale.",
+          "debriefExpl": "En ouvrant le portail à 50 patients volontaires, vous observez leur comportement réel, mesurez l’adoption et recueillez des suggestions concrètes pour améliorer l’expérience avant le déploiement national."
+        },
+        "wrong": [
+          {
+            "title": "Ouvrir le portail au grand public immédiatement",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"globe\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Ouvrir le portail au grand public immédiatement</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Portail accessible sans restriction</div>\n<div class=\"text-[6px] text-slate-500\">20 000 patients potentiels</div>\n<div class=\"text-[6px] text-slate-500\">Aucune garantie de fonctionnement à l’échelle</div>\n</div></div></div>",
+            "icon": "globe",
+            "expl": "Ouvrir au grand public sans phase de validation préalable expose aux problèmes de passage à l’échelle.",
+            "debriefExpl": "Ouvrir le portail à tous les patients sans phase de test restreinte pourrait entraîner des problèmes de performance et une expérience dégradée, difficile à corriger une fois la confiance perdue."
+          },
+          {
+            "title": "Organiser un sondage pour savoir si les patients sont intéressés",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Organiser un sondage pour savoir si les patients sont intéressés</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Sondage envoyé à 500 patients</div>\n<div class=\"text-[6px] text-slate-500\">65% disent « intéressés »</div>\n<div class=\"text-[6px] text-slate-500\">Aucune utilisation réelle mesurée</div>\n</div></div></div>",
+            "icon": "file-text",
+            "expl": "Un sondage mesure l’intention déclarée, pas le comportement réel d’utilisation.",
+            "debriefExpl": "Les 65% d’intérêt déclaré dans le sondage ne se traduiront pas nécessairement par une adoption réelle. Seul un test en conditions réelles peut valider l’utilisation effective du portail."
+          }
+        ]
+      },
+      {
+        "text": "Le tableau de bord des indicateurs de dépistage (KPIs) vient d’être développé. L’équipe veut savoir si les médecins généralistes l’utiliseront réellement dans leur pratique quotidienne.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"layout-dashboard\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Dashboard KPIs prêt</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Nouveau dashboard de suivi des dépistages</div>\n<div class=\"text-[6px] text-amber-700\">15 indicateurs disponibles</div>\n<div class=\"text-[6px] text-amber-700\">Aucun utilisateur médecin n&#39;a encore vu l&#39;outil</div>\n</div></div></div>",
+        "correct": {
+          "title": "Animer une session de test live avec 5 utilisateurs",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"users\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Animer une session de test live avec 5 utilisateurs</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">5 médecins participants</div>\n<div class=\"text-[6px] text-emerald-700\">Session de test live de 30 minutes</div>\n<div class=\"text-[6px] text-emerald-700\">3 indicateurs jugés non pertinents supprimés</div>\n</div></div></div>",
+          "icon": "users",
+          "expl": "Une session de test live avec des utilisateurs cibles permet de valider l’utilité et la compréhension de l’outil en temps réel.",
+          "debriefExpl": "Animer une session de test live avec 5 médecins permet d’observer leurs réactions, d’identifier les indicateurs vraiment utiles et d’ajuster le dashboard avant de le diffuser plus largement."
+        },
+        "wrong": [
+          {
+            "title": "Publier le dashboard sans le présenter aux utilisateurs",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"send\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Publier le dashboard sans le présenter aux utilisateurs</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Dashboard mis en ligne silencieusement</div>\n<div class=\"text-[6px] text-slate-500\">Accès ouvert à tous les médecins</div>\n<div class=\"text-[6px] text-slate-500\">Aucune communication ni formation</div>\n</div></div></div>",
+            "icon": "send",
+            "expl": "Publier sans accompagnement ne garantit ni l’adoption ni la bonne compréhension de l’outil.",
+            "debriefExpl": "Mettre le dashboard en ligne sans le montrer aux médecins risque de générer de l’incompréhension et une non-adoption. Les indicateurs pourraient ne pas correspondre à leurs besoins réels."
+          },
+          {
+            "title": "Former les médecins avec une documentation complète",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"book-open\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Former les médecins avec une documentation complète</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Guide utilisateur de 40 pages rédigé</div>\n<div class=\"text-[6px] text-slate-500\">Vidéo de formation de 20 minutes</div>\n<div class=\"text-[6px] text-slate-500\">Aucun test utilisateur réalisé</div>\n</div></div></div>",
+            "icon": "book-open",
+            "expl": "La documentation seule ne remplace pas l’observation des usages réels pour identifier les problèmes d’adoption.",
+            "debriefExpl": "Former les médecins avec de la documentation sans les avoir observés utiliser l’outil ne permet pas de détecter les incompréhensions ou les manques fonctionnels. Le risque de faible adoption reste élevé."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "J3. Mesurer l’intérêt sur une idée",
+    "intent": "Tester la demande réelle pour une fonctionnalité avant de l’investir, en minimisant les biais de déclaration.",
+    "icon": "gauge",
+    "scenarios": [
+      {
+        "text": "Les biologistes demandent un export Excel automatisé des résultats de dépistage. L’équipe technique est sollicitée mais personne ne sait combien de laboratoires utiliseraient vraiment cette fonctionnalité.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-spreadsheet\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Demande d’export Excel</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Demande remontée par 3 biologistes</div>\n<div class=\"text-[6px] text-amber-700\">Développement estimé à 4 semaines</div>\n<div class=\"text-[6px] text-amber-700\">Aucune donnée sur l’intérêt réel</div>\n</div></div></div>",
+        "correct": {
+          "title": "Créer une page d’inscription pour les laboratoires intéressés",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"gauge\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Créer une page d’inscription pour les laboratoires intéressés</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Page d&#39;intérêt mise en ligne</div>\n<div class=\"text-[6px] text-emerald-700\">14 laboratoires inscrits en 1 semaine</div>\n<div class=\"text-[6px] text-emerald-700\">Intérêt confirmé : 45% des laboratoires cibles</div>\n</div></div></div>",
+          "icon": "gauge",
+          "expl": "Une page d’inscription mesure l’intention d’achat réelle en demandant un engagement concret.",
+          "debriefExpl": "En créant une simple page d’inscription, vous mesurez l’intérêt réel des laboratoires : ceux qui prennent le temps de s’inscrire sont vraiment intéressés. 14 inscriptions en une semaine valident la demande."
+        },
+        "wrong": [
+          {
+            "title": "Développer l’export Excel directement",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-spreadsheet\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer l’export Excel directement</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement de l’export démarré</div>\n<div class=\"text-[6px] text-slate-500\">4 semaines de travail allouées</div>\n<div class=\"text-[6px] text-slate-500\">Basé uniquement sur 3 demandes verbales</div>\n</div></div></div>",
+            "icon": "file-spreadsheet",
+            "expl": "Développer sur la base de demandes verbales sans mesurer l’intérêt réel expose au gaspillage.",
+            "debriefExpl": "Développer l’export Excel sur la seule base des 3 demandes verbales risque de gaspiller 4 semaines de développement si la majorité des laboratoires n’en a pas réellement besoin."
+          },
+          {
+            "title": "Lancer un sondage auprès de tous les laboratoires",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"message-square\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Lancer un sondage auprès de tous les laboratoires</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Sondage envoyé à 50 laboratoires</div>\n<div class=\"text-[6px] text-slate-500\">80% disent « intéressés »</div>\n<div class=\"text-[6px] text-slate-500\">Aucun engagement concret demandé</div>\n</div></div></div>",
+            "icon": "message-square",
+            "expl": "Un sondage recueille des déclarations sans conséquence, pas un engagement réel.",
+            "debriefExpl": "Les 80% d’intérêt déclaré dans le sondage ne sont pas fiables : il est facile de répondre « oui » sans conséquence. La page d’inscription est un bien meilleur indicateur de la demande réelle."
+          }
+        ]
+      },
+      {
+        "text": "Les techniciens du laboratoire ont besoin de consulter l’historique des fusions de doublons pour vérifier les corrections antérieures. L’équipe veut mesurer si cette fonctionnalité est vraiment attendue.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"history\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Historique des fusions demandé</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Demande de suivi des fusions de doublons</div>\n<div class=\"text-[6px] text-amber-700\">Fonctionnalité complexe à développer</div>\n<div class=\"text-[6px] text-amber-700\">Incertitude sur l’usage réel</div>\n</div></div></div>",
+        "correct": {
+          "title": "Ajouter un lien « Voir l’historique » qui ouvre une modale « à venir »",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"gauge\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Ajouter un lien « Voir l’historique » qui ouvre une modale « à venir »</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Lien « Voir l’historique » ajouté dans l’interface</div>\n<div class=\"text-[6px] text-emerald-700\">23 clics sur le lien en 10 jours</div>\n<div class=\"text-[6px] text-emerald-700\">Intérêt confirmé par l’usage réel</div>\n</div></div></div>",
+          "icon": "gauge",
+          "expl": "Un bouton « à venir » (fake door) mesure l’intérêt réel via les clics sans développer la fonctionnalité.",
+          "debriefExpl": "En ajoutant un simple lien « Voir l’historique » qui ouvre une modale d’information, vous mesurez le nombre de clics réels. 23 clics en 10 jours confirment que la fonctionnalité est attendue sans avoir à la développer complètement."
+        },
+        "wrong": [
+          {
+            "title": "Développer l’historique des fusions complet",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer l’historique des fusions complet</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement du module d’historique</div>\n<div class=\"text-[6px] text-slate-500\">6 semaines de travail estimées</div>\n<div class=\"text-[6px] text-slate-500\">Aucune validation du besoin réel</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Développer une fonctionnalité complexe sans valider le besoin expose à un investissement inutile.",
+            "debriefExpl": "Développer l’historique complet des fusions sans avoir mesuré l’intérêt réel risquerait de gaspiller 6 semaines de développement si seulement 2 techniciens l’utilisent une fois par mois."
+          },
+          {
+            "title": "Organiser un atelier utilisateurs pour recueillir les besoins",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"users\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Organiser un atelier utilisateurs pour recueillir les besoins</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Atelier organisé avec 5 techniciens</div>\n<div class=\"text-[6px] text-slate-500\">Spécifications détaillées produites</div>\n<div class=\"text-[6px] text-slate-500\">Toujours aucune mesure de l’usage réel</div>\n</div></div></div>",
+            "icon": "users",
+            "expl": "Un atelier utilisateur recueille des déclarations en groupe, pas des comportements individuels réels.",
+            "debriefExpl": "L’atelier avec les techniciens a produit des spécifications détaillées mais n’a pas mesuré l’usage réel. En groupe, les participants peuvent surestimer leur besoin réel quotidien."
+          }
+        ]
+      },
+      {
+        "text": "Une équipe propose un algorithme d’IA pour prioriser les résultats critiques de dépistage. Le développement est lourd mais personne n’a validé que les biologistes utiliseraient une telle priorité.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"brain\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">IA de priorisation proposée</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Algorithme d’IA proposé pour les résultats critiques</div>\n<div class=\"text-[6px] text-amber-700\">Développement estimé à 4 mois</div>\n<div class=\"text-[6px] text-amber-700\">Aucune validation de l’intérêt métier</div>\n</div></div></div>",
+        "correct": {
+          "title": "Simuler manuellement les alertes prioritaires pendant 1 mois",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"gauge\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Simuler manuellement les alertes prioritaires pendant 1 mois</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Alertes prioritaires simulées manuellement</div>\n<div class=\"text-[6px] text-emerald-700\">12 résultats critiques identifiés</div>\n<div class=\"text-[6px] text-emerald-700\">Taux d’ouverture des alertes : 92%</div>\n</div></div></div>",
+          "icon": "gauge",
+          "expl": "La simulation manuelle (Wizard of Oz) permet de tester le concept sans développer la technologie.",
+          "debriefExpl": "En simulant manuellement les alertes prioritaires pendant 1 mois, vous testez le concept à coût quasi nul. Les biologistes consultent 92% des alertes, ce qui valide l’intérêt et justifie l’investissement dans l’IA."
+        },
+        "wrong": [
+          {
+            "title": "Développer l’IA de priorisation complètement",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"brain\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer l’IA de priorisation complètement</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Projet IA lancé</div>\n<div class=\"text-[6px] text-slate-500\">4 mois de développement planifiés</div>\n<div class=\"text-[6px] text-slate-500\">Budget : 200k€</div>\n</div></div></div>",
+            "icon": "brain",
+            "expl": "Développer une IA sans valider le besoin métier expose à un investissement massif et risqué.",
+            "debriefExpl": "Lancer le développement de l’IA sans avoir vérifié que les biologistes utiliseraient réellement les alertes prioritaires expose à un investissement de 200k€ pour un outil qui pourrait ne pas être adopté."
+          },
+          {
+            "title": "Commanditer une étude auprès d’un cabinet conseil",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"building\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Commanditer une étude auprès d’un cabinet conseil</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Cabinet conseil sollicité pour une étude</div>\n<div class=\"text-[6px] text-slate-500\">Budget étude : 30k€</div>\n<div class=\"text-[6px] text-slate-500\">Délai : 2 mois</div>\n</div></div></div>",
+            "icon": "building",
+            "expl": "Une étude externe est coûteuse et ne remplace pas l’observation du comportement réel.",
+            "debriefExpl": "L’étude du cabinet conseil produirait des recommandations théoriques à 30k€ sans vous donner la certitude que les biologistes utiliseraient l’outil au quotidien. La simulation manuelle est plus rapide et plus fiable."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "J4. Collecter du feedback utilisateur",
+    "intent": "Recueillir des retours d’expérience concrets auprès des utilisateurs pour améliorer les solutions existantes.",
+    "icon": "message-square",
+    "scenarios": [
+      {
+        "text": "Les secrétaires du laboratoire rencontrent des difficultés avec l’import batch des patients. Elles ont signalé le problème mais l’équipe technique ne comprend pas pourquoi l’import échoue régulièrement.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"upload\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Import batch difficile</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Erreurs d’import fréquentes</div>\n<div class=\"text-[6px] text-amber-700\">3 tickets ouverts cette semaine</div>\n<div class=\"text-[6px] text-amber-700\">Personne n’a observé les secrétaires utiliser l’outil</div>\n</div></div></div>",
+        "correct": {
+          "title": "Observer une secrétaire importer des patients sans intervenir",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"message-square\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Observer une secrétaire importer des patients sans intervenir</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Observation silencieuse pendant 30 minutes</div>\n<div class=\"text-[6px] text-emerald-700\">4 étapes sources de confusion identifiées</div>\n<div class=\"text-[6px] text-emerald-700\">2 problèmes de format de fichier non documentés</div>\n</div></div></div>",
+          "icon": "message-square",
+          "expl": "L’observation directe des utilisateurs dans leur contexte révèle les vrais problèmes qu’un ticket ne décrit pas.",
+          "debriefExpl": "En observant une secrétaire importer des patients sans intervenir, vous identifiez 4 étapes confuses et 2 problèmes de format que les tickets ne mentionnaient pas. Les solutions sont maintenant claires."
+        },
+        "wrong": [
+          {
+            "title": "Analyser les tickets d’incidents existants",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Analyser les tickets d’incidents existants</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Analyse des 15 tickets d’import ouverts</div>\n<div class=\"text-[6px] text-slate-500\">Catégorisation des erreurs</div>\n<div class=\"text-[6px] text-slate-500\">Aucune observation utilisateur réalisée</div>\n</div></div></div>",
+            "icon": "file-text",
+            "expl": "Les tickets d’incidents décrivent le symptôme mais pas le contexte ni le geste qui pose problème.",
+            "debriefExpl": "Les tickets indiquent « l’import échoue » mais ne montrent pas la manipulation exacte de la secrétaire. Sans observation, vous corrigez les symptômes sans résoudre la cause racine."
+          },
+          {
+            "title": "Organiser une réunion avec les secrétaires pour recueillir leurs retours",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"users\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Organiser une réunion avec les secrétaires pour recueillir leurs retours</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Réunion de 1h avec 5 secrétaires</div>\n<div class=\"text-[6px] text-slate-500\">Liste de 12 problèmes remontés</div>\n<div class=\"text-[6px] text-slate-500\">Aucune observation concrète des gestes</div>\n</div></div></div>",
+            "icon": "users",
+            "expl": "Les réunions de feedback collectif peuvent omettre des détails importants du contexte réel d’utilisation.",
+            "debriefExpl": "En réunion, les secrétaires oublient de mentionner des gestes qu’elles font machinalement ou des contournements qu’elles ont développés. Seule l’observation directe révèle ces éléments invisibles."
+          }
+        ]
+      },
+      {
+        "text": "L’équipe a développé un nouvel écran de validation des résultats de dépistage. Personne ne sait si les techniciens le trouvent facile à utiliser au quotidien.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"clipboard-check\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Écran de validation livré</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Nouvel écran de validation en production</div>\n<div class=\"text-[6px] text-amber-700\">Aucun retour utilisateur recueilli</div>\n<div class=\"text-[6px] text-amber-700\">Incertitude sur l’ergonomie réelle</div>\n</div></div></div>",
+        "correct": {
+          "title": "Poser une question après chaque action : « Était-ce facile ? »",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"message-square\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Poser une question après chaque action : « Était-ce facile ? »</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Question « Était-ce facile ? » intégrée</div>\n<div class=\"text-[6px] text-emerald-700\">45 retours collectés en 1 semaine</div>\n<div class=\"text-[6px] text-emerald-700\">Score moyen : 3,8/5 - besoin d’amélioration sur la validation multiple</div>\n</div></div></div>",
+          "icon": "message-square",
+          "expl": "Un micro-feedback en contexte juste après l’action capture l’impression à chaud, plus fiable qu’un souvenir.",
+          "debriefExpl": "En posant « Était-ce facile ? » après chaque validation, vous collectez 45 retours à chaud en une semaine. Le score de 3,8/5 vous alerte sur la nécessité d’améliorer la validation multiple avant que les techniciens ne se découragent."
+        },
+        "wrong": [
+          {
+            "title": "Envoyer un questionnaire annuel de satisfaction",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Envoyer un questionnaire annuel de satisfaction</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Questionnaire envoyé à 100 utilisateurs</div>\n<div class=\"text-[6px] text-slate-500\">Taux de réponse : 12%</div>\n<div class=\"text-[6px] text-slate-500\">Délai : 6 mois avant les prochains résultats</div>\n</div></div></div>",
+            "icon": "file-text",
+            "expl": "Un questionnaire annuel est trop espacé et souffre d’un biais de mémoire important.",
+            "debriefExpl": "Le questionnaire annuel avec 12% de réponses ne reflète pas l’opinion de tous les utilisateurs et les souvenirs sont déformés par le temps. Le micro-feedback en continu est bien plus fiable et immédiat."
+          },
+          {
+            "title": "Analyser les logs d’utilisation pour détecter les difficultés",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"bar-chart-3\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Analyser les logs d’utilisation pour détecter les difficultés</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Analyse des logs de clics</div>\n<div class=\"text-[6px] text-slate-500\">Temps moyen par écran mesuré</div>\n<div class=\"text-[6px] text-slate-500\">Aucune donnée qualitative sur l’expérience</div>\n</div></div></div>",
+            "icon": "bar-chart-3",
+            "expl": "Les logs montrent ce que les utilisateurs font mais pas ce qu’ils ressentent ni pourquoi ils rencontrent des difficultés.",
+            "debriefExpl": "Les logs révèlent que les techniciens passent 40 secondes en moyenne sur l’écran de validation, mais ne disent pas s’ils sont frustrés ou simplement méthodiques. Seul le feedback direct donne cette information qualitative."
+          }
+        ]
+      },
+      {
+        "text": "Les médecins généralistes n’utilisent pas le module de synthèse patient qui a pourtant été développé spécifiquement pour eux. L’équipe ne comprend pas pourquoi et cherche des solutions.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Module synthèse inutilisé</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Module de synthèse disponible depuis 3 mois</div>\n<div class=\"text-[6px] text-amber-700\">Taux d’utilisation : 5% seulement</div>\n<div class=\"text-[6px] text-amber-700\">Aucun contact direct avec les médecins</div>\n</div></div></div>",
+        "correct": {
+          "title": "Conduire un entretien libre avec 3 médecins généralistes",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"message-square\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Conduire un entretien libre avec 3 médecins généralistes</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Entretiens de 30 min avec 3 médecins</div>\n<div class=\"text-[6px] text-emerald-700\">2 causes identifiées : lenteur et informations non pertinentes</div>\n<div class=\"text-[6px] text-emerald-700\">Solutions correctives identifiées</div>\n</div></div></div>",
+          "icon": "message-square",
+          "expl": "L’entretien libre permet d’explorer en profondeur les raisons d’un comportement sans présupposés.",
+          "debriefExpl": "Les entretiens avec 3 médecins révèlent que le module est trop lent et affiche des informations non pertinentes pour leur pratique. Ces causes n’auraient jamais été identifiées sans un échange ouvert et approfondi."
+        },
+        "wrong": [
+          {
+            "title": "Ajouter des notifications pour pousser les médecins à utiliser le module",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"bell\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Ajouter des notifications pour pousser les médecins à utiliser le module</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Notifications push ajoutées</div>\n<div class=\"text-[6px] text-slate-500\">Pop-up de rappel quotidien</div>\n<div class=\"text-[6px] text-slate-500\">Aucune investigation des causes de la non-adoption</div>\n</div></div></div>",
+            "icon": "bell",
+            "expl": "Ajouter des notifications sans comprendre les causes de la non-adoption risque d’aggraver la frustration.",
+            "debriefExpl": "Les notifications push forceraient les médecins à utiliser un module qu’ils trouvent lent et inadapté, ce qui pourrait générer plus de frustration et dégrader leur perception de l’outil."
+          },
+          {
+            "title": "Organiser une présentation du module pour montrer ses fonctionnalités",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"presentation\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Organiser une présentation du module pour montrer ses fonctionnalités</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Webinar de présentation organisé</div>\n<div class=\"text-[6px] text-slate-500\">15 médecins inscrits</div>\n<div class=\"text-[6px] text-slate-500\">Aucune exploration des freins réels</div>\n</div></div></div>",
+            "icon": "presentation",
+            "expl": "Une présentation descendante ne permet pas d’identifier les freins et ne remplace pas l’écoute des utilisateurs.",
+            "debriefExpl": "La présentation du module aurait montré les fonctionnalités sans comprendre pourquoi les médecins ne l’utilisent pas. Le problème n’est pas un manque de connaissance mais un défaut de pertinence et de performance."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "J5. Co-conception & prototypage rapide",
+    "intent": "Impliquer les utilisateurs dans la conception pour créer des solutions adaptées dès le premier jet.",
+    "icon": "pen-tool",
+    "scenarios": [
+      {
+        "text": "Le laboratoire souhaite revoir complètement le tableau de bord des campagnes de dépistage. L’équipe a des idées mais veut impliquer les gestionnaires dès la phase de conception.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"layout-dashboard\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Dashboard campagne à repenser</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Tableau de bord actuel jugé obsolète</div>\n<div class=\"text-[6px] text-amber-700\">Aucune idée partagée entre équipe et métier</div>\n<div class=\"text-[6px] text-amber-700\">Risque de développer à côté du besoin</div>\n</div></div></div>",
+        "correct": {
+          "title": "Esquisser 8 variantes en 8 minutes avec l’équipe (Crazy 8)",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"pen-tool\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Esquisser 8 variantes en 8 minutes avec l’équipe (Crazy 8)</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Session Crazy 8 avec 4 participants</div>\n<div class=\"text-[6px] text-emerald-700\">32 esquisses produites en 8 minutes</div>\n<div class=\"text-[6px] text-emerald-700\">3 concepts forts sélectionnés pour prototypage</div>\n</div></div></div>",
+          "icon": "pen-tool",
+          "expl": "Le Crazy 8 génère un grand nombre d’idées en très peu de temps pour favoriser la créativité collective.",
+          "debriefExpl": "En 8 minutes, les 4 participants ont produit 32 esquisses du dashboard. 3 concepts forts émergent et seront prototypés. Cette diversité d’approches n’aurait jamais émergé d’une spécification classique."
+        },
+        "wrong": [
+          {
+            "title": "Rédiger un cahier des charges détaillé du nouveau dashboard",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Rédiger un cahier des charges détaillé du nouveau dashboard</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Cahier des charges de 30 pages rédigé</div>\n<div class=\"text-[6px] text-slate-500\">Spécifications figées avant prototypage</div>\n<div class=\"text-[6px] text-slate-500\">Aucune exploration visuelle des alternatives</div>\n</div></div></div>",
+            "icon": "file-text",
+            "expl": "Un cahier des charges sans exploration visuelle limite la créativité et fige les choix trop tôt.",
+            "debriefExpl": "Le cahier des charges de 30 pages décrit une solution unique sans avoir exploré les alternatives. Les gestionnaires découvriront la version finale sans avoir pu influencer les choix fondamentaux de conception."
+          },
+          {
+            "title": "Chercher des exemples de dashboards sur le web et s’en inspirer",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"search\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Chercher des exemples de dashboards sur le web et s’en inspirer</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Benchmark de 10 dashboards existants</div>\n<div class=\"text-[6px] text-slate-500\">Copie des meilleures pratiques</div>\n<div class=\"text-[6px] text-slate-500\">Aucune participation des utilisateurs finaux</div>\n</div></div></div>",
+            "icon": "search",
+            "expl": "S’inspirer d’autres solutions sans impliquer les utilisateurs ne garantit pas l’adaptation au contexte spécifique.",
+            "debriefExpl": "Les dashboards existants sont conçus pour d’autres contextes que le dépistage en laboratoire. Les besoins spécifiques des gestionnaires de campagne ne seront pas adressés sans leur participation directe à la conception."
+          }
+        ]
+      },
+      {
+        "text": "Un nouveau formulaire de saisie des résultats d’analyse est nécessaire pour remplacer l’ancienne interface jugée trop complexe. L’équipe veut le concevoir avec les techniciens qui l’utiliseront.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-edit\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Formulaire de saisie à moderniser</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Ancien formulaire : 25 champs, 3 onglets</div>\n<div class=\"text-[6px] text-amber-700\">Temps de saisie moyen : 4 minutes</div>\n<div class=\"text-[6px] text-amber-700\">Taux d’erreur : 8%</div>\n</div></div></div>",
+        "correct": {
+          "title": "Dessiner le formulaire sur papier et le tester avec 2 utilisateurs",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"pen-tool\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Dessiner le formulaire sur papier et le tester avec 2 utilisateurs</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Prototype papier testé avec 2 techniciens</div>\n<div class=\"text-[6px] text-emerald-700\">5 champs inutiles supprimés</div>\n<div class=\"text-[6px] text-emerald-700\">Temps de saisie estimé : 2 minutes</div>\n</div></div></div>",
+          "icon": "pen-tool",
+          "expl": "Le prototypage papier permet de tester et d’itérer en quelques minutes avant tout développement.",
+          "debriefExpl": "En dessinant le formulaire sur papier et en le testant avec 2 techniciens, vous identifiez 5 champs inutiles et réorganisez le flux avant d’écrire une ligne de code. Le temps de saisie estimé passe de 4 à 2 minutes."
+        },
+        "wrong": [
+          {
+            "title": "Développer directement le nouveau formulaire en HTML",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer directement le nouveau formulaire en HTML</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement du formulaire en cours</div>\n<div class=\"text-[6px] text-slate-500\">2 semaines de travail</div>\n<div class=\"text-[6px] text-slate-500\">Aucun test utilisateur avant mise en production</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Développer sans prototyper expose au risque de reproduire les erreurs de l’ancienne interface.",
+            "debriefExpl": "Développer directement le formulaire sans le tester sur papier risque de reproduire les mêmes défauts d’ergonomie. Les corrections après développement coûteraient beaucoup plus cher que les ajustements sur prototype papier."
+          },
+          {
+            "title": "Faire une maquette Figma complète avant de montrer aux utilisateurs",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"figma\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Faire une maquette Figma complète avant de montrer aux utilisateurs</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Maquette Figma détaillée réalisée</div>\n<div class=\"text-[6px] text-slate-500\">1 semaine de design</div>\n<div class=\"text-[6px] text-slate-500\">Présentée comme solution quasi-finale</div>\n</div></div></div>",
+            "icon": "figma",
+            "expl": "Une maquette trop aboutie peut donner l’impression que la solution est figée et inhiber les retours.",
+            "debriefExpl": "La maquette Figma trop détaillée donne l’impression que tout est décidé. Les techniciens hésitent à proposer des changements majeurs. Le prototype papier laisse plus de place aux suggestions et aux itérations."
+          }
+        ]
+      },
+      {
+        "text": "Un nouveau flux de validation des doublons doit être conçu. Le processus actuel est manuel et les techniciens proposent des pistes d’amélioration mais l’équipe a du mal à visualiser le nouveau parcours.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"git-branch\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Validation doublons à revoir</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Processus actuel : 3 vérifications manuelles</div>\n<div class=\"text-[6px] text-amber-700\">Temps de traitement : 15 min par doublon</div>\n<div class=\"text-[6px] text-amber-700\">Risque d’erreur élevé</div>\n</div></div></div>",
+        "correct": {
+          "title": "Filmer l’enchaînement des écrans sur un storyboard papier",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"pen-tool\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Filmer l’enchaînement des écrans sur un storyboard papier</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Storyboard papier filmé : 8 étapes</div>\n<div class=\"text-[6px] text-emerald-700\">2 incohérences de flux identifiées</div>\n<div class=\"text-[6px] text-emerald-700\">Validation du parcours avant développement</div>\n</div></div></div>",
+          "icon": "pen-tool",
+          "expl": "Le storyboard filmé permet de simuler le parcours utilisateur complet avant tout développement.",
+          "debriefExpl": "En filmant l’enchaînement des écrans sur un storyboard papier, vous identifiez 2 incohérences dans le flux de validation des doublons. Ces corrections avant développement évitent des mois de refactoring."
+        },
+        "wrong": [
+          {
+            "title": "Modéliser le flux avec un diagramme BPMN complet",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"git-branch\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Modéliser le flux avec un diagramme BPMN complet</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Diagramme BPMN de 15 processus</div>\n<div class=\"text-[6px] text-slate-500\">Spécifications détaillées</div>\n<div class=\"text-[6px] text-slate-500\">Aucune simulation visuelle du parcours</div>\n</div></div></div>",
+            "icon": "git-branch",
+            "expl": "Un diagramme de processus ne restitue pas l’expérience visuelle et interactive du parcours utilisateur.",
+            "debriefExpl": "Le diagramme BPMN décrit la logique métier mais ne montre pas à quoi ressemble chaque écran ni comment l’utilisateur passe de l’un à l’autre. Les incohérences d’enchaînement restent invisibles jusqu’au développement."
+          },
+          {
+            "title": "Passer directement au développement du nouveau flux",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Passer directement au développement du nouveau flux</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement du flux de validation</div>\n<div class=\"text-[6px] text-slate-500\">4 semaines estimées</div>\n<div class=\"text-[6px] text-slate-500\">Maquette statique comme seule référence</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Développer sans prototypage dynamique du parcours augmente le risque d’incohérences dans l’enchaînement des écrans.",
+            "debriefExpl": "Développer directement le flux de validation sans storyboard filmé aurait conduit aux mêmes 2 incohérences, mais découvertes en production, nécessitant des correctifs coûteux et des semaines de retard."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "J6. Lancer un pilote minimal",
+    "intent": "Tester une solution en conditions réelles avec le strict minimum pour apprendre vite et à moindre coût.",
+    "icon": "rocket",
+    "scenarios": [
+      {
+        "text": "Les gestionnaires veulent envoyer des SMS de rappel aux patients absents aux rendez-vous de dépistage. Le système d’envoi automatisé n’existe pas encore et personne ne veut investir dans un outil sans savoir s’il sera efficace.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"message-square\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Rappels SMS à mettre en place</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Taux d’absence : 22%</div>\n<div class=\"text-[6px] text-amber-700\">Aucun système de rappel existant</div>\n<div class=\"text-[6px] text-amber-700\">Incertitude sur l’impact réel</div>\n</div></div></div>",
+        "correct": {
+          "title": "Envoyer les SMS manuellement depuis une interface basique",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"rocket\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Envoyer les SMS manuellement depuis une interface basique</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">SMS envoyés manuellement via interface web</div>\n<div class=\"text-[6px] text-emerald-700\">10 patients contactés par jour</div>\n<div class=\"text-[6px] text-emerald-700\">Taux de présence passé de 78% à 90%</div>\n</div></div></div>",
+          "icon": "rocket",
+          "expl": "Un pilote minimal avec exécution manuelle permet de valider le concept avant d’automatiser.",
+          "debriefExpl": "En envoyant les SMS manuellement depuis une interface basique, vous validez le concept en 1 semaine. Le taux de présence passe à 90%, ce qui justifie l’investissement dans un système automatisé."
+        },
+        "wrong": [
+          {
+            "title": "Développer un module d’envoi SMS automatisé",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer un module d’envoi SMS automatisé</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement du module démarré</div>\n<div class=\"text-[6px] text-slate-500\">8 semaines estimées</div>\n<div class=\"text-[6px] text-slate-500\">Budget : 60k€</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Développer un système complet sans valider l’impact expose à un investissement prématuré.",
+            "debriefExpl": "Développer un module automatisé sans avoir vérifié que les SMS ont vraiment un impact sur le taux de présence expose à un investissement de 60k€ et 8 semaines de développement pour un bénéfice non démontré."
+          },
+          {
+            "title": "Souscrire à une plateforme SMS externe sans tester",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"send\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Souscrire à une plateforme SMS externe sans tester</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Plateforme SMS sélectionnée</div>\n<div class=\"text-[6px] text-slate-500\">Abonnement : 1 200€/mois</div>\n<div class=\"text-[6px] text-slate-500\">Déploiement sur tous les sites prévu</div>\n</div></div></div>",
+            "icon": "send",
+            "expl": "Souscrire sans valider l’impact expose à un abonnement récurrent pour un résultat non prouvé.",
+            "debriefExpl": "L’abonnement à 1 200€/mois aurait été souscrit sans savoir si les patients réagissent positivement aux SMS de rappel. Le pilote manuel vous permet de valider l’impact pour un investissement quasi nul."
+          }
+        ]
+      },
+      {
+        "text": "Le laboratoire veut un tableau de bord des délais de traitement par site pour identifier les goulets d’étranglement. L’équipe a beaucoup d’idées mais ne veut pas surdévelopper.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"clock\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Suivi des délais à créer</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Aucun suivi des délais actuellement</div>\n<div class=\"text-[6px] text-amber-700\">Données disponibles mais non exploitées</div>\n<div class=\"text-[6px] text-amber-700\">Demandes nombreuses mais non priorisées</div>\n</div></div></div>",
+        "correct": {
+          "title": "Livrer un seul graphique des délais moyens par site",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"rocket\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Livrer un seul graphique des délais moyens par site</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Graphique unique développé en 3 jours</div>\n<div class=\"text-[6px] text-emerald-700\">Délais moyens visibles pour 15 sites</div>\n<div class=\"text-[6px] text-emerald-700\">3 goulets identifiés par les gestionnaires</div>\n</div></div></div>",
+          "icon": "rocket",
+          "expl": "Un pilote minimal avec une seule métrique clé permet de valider l’utilité avant d’enrichir.",
+          "debriefExpl": "En livrant un seul graphique des délais moyens par site en 3 jours, les gestionnaires identifient immédiatement 3 goulets d’étranglement. Ce pilote valide l’intérêt du dashboard et guide les prochaines métriques à ajouter."
+        },
+        "wrong": [
+          {
+            "title": "Développer un dashboard complet avec 15 indicateurs",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"layout-dashboard\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer un dashboard complet avec 15 indicateurs</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Dashboard complet en développement</div>\n<div class=\"text-[6px] text-slate-500\">10 semaines estimées</div>\n<div class=\"text-[6px] text-slate-500\">15 indicateurs prévus</div>\n</div></div></div>",
+            "icon": "layout-dashboard",
+            "expl": "Développer un dashboard complet sans valider l’utilité de chaque indicateur risque de surcharger l’outil.",
+            "debriefExpl": "Les 15 indicateurs auraient nécessité 10 semaines de développement, mais 12 d’entre eux auraient peut-être été inutilisés. Le graphique unique vous apprend que les gestionnaires veulent surtout les délais moyens."
+          },
+          {
+            "title": "Externaliser le développement du tableau de bord à un prestataire",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"building\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Externaliser le développement du tableau de bord à un prestataire</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Appel d’offres en cours</div>\n<div class=\"text-[6px] text-slate-500\">Budget : 80k€</div>\n<div class=\"text-[6px] text-slate-500\">Délai : 5 mois</div>\n</div></div></div>",
+            "icon": "building",
+            "expl": "Externaliser sans validation préalable du besoin minimal bloque l’apprentissage rapide.",
+            "debriefExpl": "L’externalisation à 80k€ aurait figé le périmètre sans savoir ce dont les gestionnaires ont vraiment besoin. Le pilote minimal à 3 jours vous apprend plus et vous guide pour les décisions futures."
+          }
+        ]
+      },
+      {
+        "text": "Le laboratoire souhaite automatiser l’envoi des comptes-rendus de dépistage aux patients. Un portail web existe mais les patients ne l’utilisent pas. L’équipe veut tester un nouveau mode de livraison.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Livraison des comptes-rendus à améliorer</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Taux d’activation du portail : 15%</div>\n<div class=\"text-[6px] text-amber-700\">Patients demandent les résultats par téléphone</div>\n<div class=\"text-[6px] text-amber-700\">Solution actuelle insatisfaisante</div>\n</div></div></div>",
+        "correct": {
+          "title": "Ouvrir les inscriptions sur une page web et traiter les 10 premiers cas",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"rocket\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Ouvrir les inscriptions sur une page web et traiter les 10 premiers cas</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Page d’inscription créée en 1 jour</div>\n<div class=\"text-[6px] text-emerald-700\">22 inscriptions en 3 jours</div>\n<div class=\"text-[6px] text-emerald-700\">10 premiers comptes-rendus envoyés manuellement</div>\n</div></div></div>",
+          "icon": "rocket",
+          "expl": "Un pilote avec traitement manuel des premiers cas valide la demande avant d’automatiser.",
+          "debriefExpl": "En créant une page d’inscription et en traitant manuellement les 10 premiers envois, vous validez que 22 patients se sont inscrits en 3 jours. La demande est forte : l’automatisation est maintenant justifiée."
+        },
+        "wrong": [
+          {
+            "title": "Développer le module d’envoi automatisé complet",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer le module d’envoi automatisé complet</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Module d’envoi en développement</div>\n<div class=\"text-[6px] text-slate-500\">6 semaines estimées</div>\n<div class=\"text-[6px] text-slate-500\">Aucune validation du besoin</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Développer sans valider la demande expose à automatiser un service que les patients ne veulent pas.",
+            "debriefExpl": "Développer le module complet sans savoir si les patients veulent vraiment recevoir leurs comptes-rendus par ce canal expose à 6 semaines de développement pour un service qui pourrait ne pas être adopté."
+          },
+          {
+            "title": "Envoyer les comptes-rendus par courrier postal systématiquement",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"mail\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Envoyer les comptes-rendus par courrier postal systématiquement</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Envoi postal systématique mis en place</div>\n<div class=\"text-[6px] text-slate-500\">Coût : 2,50€ par envoi</div>\n<div class=\"text-[6px] text-slate-500\">Pas d’amélioration du processus digital</div>\n</div></div></div>",
+            "icon": "mail",
+            "expl": "Ajouter un canal sans tester l’alternative numérique ne résout pas le problème d’adoption du portail.",
+            "debriefExpl": "L’envoi postal à 2,50€ par compte-rendu est coûteux et ne résout pas le problème de fond : les patients n’utilisent pas les canaux numériques existants. Le pilote digital vous permet de tester une alternative plus moderne et moins coûteuse."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "J7. Étudier la faisabilité d’une techno tierce",
+    "intent": "Évaluer une technologie externe sur des critères métier avant de s’engager dans une intégration.",
+    "icon": "plug",
+    "scenarios": [
+      {
+        "text": "Le laboratoire souhaite utiliser une API OCR pour numériser les formulaires papier de demande de dépistage. Plusieurs API existent mais l’équipe ne sait pas laquelle fonctionnera avec leurs documents réels.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"scan-eye\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">OCR pour formulaires papier</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">500 formulaires papier à numériser par jour</div>\n<div class=\"text-[6px] text-amber-700\">3 API OCR candidates identifiées</div>\n<div class=\"text-[6px] text-amber-700\">Aucune testée sur les vrais formulaires</div>\n</div></div></div>",
+        "correct": {
+          "title": "Tester l’API avec 50 formulaires scannés réels",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"plug\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Tester l’API avec 50 formulaires scannés réels</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">API testée avec 50 formulaires réels</div>\n<div class=\"text-[6px] text-emerald-700\">Taux de reconnaissance : 92%</div>\n<div class=\"text-[6px] text-emerald-700\">2 API éliminées pour faible performance</div>\n</div></div></div>",
+          "icon": "plug",
+          "expl": "Un test sur échantillon réel permet d’évaluer la performance de la technologie dans votre contexte.",
+          "debriefExpl": "En testant l’API avec 50 formulaires scannés réels du laboratoire, vous mesurez un taux de reconnaissance de 92% et éliminez 2 API non adaptées. L’investissement dans l’API retenue est maintenant sécurisé."
+        },
+        "wrong": [
+          {
+            "title": "Choisir l’API la moins chère sans la tester",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"credit-card\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Choisir l’API la moins chère sans la tester</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">API la moins chère sélectionnée</div>\n<div class=\"text-[6px] text-slate-500\">Budget : 200€/mois</div>\n<div class=\"text-[6px] text-slate-500\">Aucun test réalisé sur les formulaires</div>\n</div></div></div>",
+            "icon": "credit-card",
+            "expl": "Choisir sur le seul critère du prix expose à une solution inefficace dans votre contexte.",
+            "debriefExpl": "L’API la moins chère aurait pu avoir un taux de reconnaissance de 60% sur vos formulaires spécifiques, rendant la solution inutilisable et les 200€/mois perdus."
+          },
+          {
+            "title": "Développer un OCR maison plutôt que d’utiliser une API",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Développer un OCR maison plutôt que d’utiliser une API</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement OCR interne démarré</div>\n<div class=\"text-[6px] text-slate-500\">6 mois estimés</div>\n<div class=\"text-[6px] text-slate-500\">Budget : 150k€</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Développer en interne sans évaluer les solutions existantes est rarement rentable.",
+            "debriefExpl": "Développer un OCR maison pour remplacer une API à 200€/mois est difficilement justifiable. Le test avec 50 formulaires vous aurait montré que l’API existante répond au besoin pour un coût dérisoire."
+          }
+        ]
+      },
+      {
+        "text": "Le laboratoire doit choisir un service de notification pour les alertes de résultats critiques de dépistage. Plusieurs solutions existent mais les critères de choix ne sont pas clairs.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"bell\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Service de notification à choisir</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">3 solutions de notification candidates</div>\n<div class=\"text-[6px] text-amber-700\">Budgets très variables</div>\n<div class=\"text-[6px] text-amber-700\">Aucun critère de sélection métier défini</div>\n</div></div></div>",
+        "correct": {
+          "title": "Évaluer 3 solutions sur une grille de critères métier",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"plug\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Évaluer 3 solutions sur une grille de critères métier</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Grille de 8 critères métier définie</div>\n<div class=\"text-[6px] text-emerald-700\">3 solutions évaluées en 2 jours</div>\n<div class=\"text-[6px] text-emerald-700\">Solution retenue : la mieux notée sur les critères métier</div>\n</div></div></div>",
+          "icon": "plug",
+          "expl": "Une grille de critères métier permet de comparer objectivement les solutions sur ce qui compte vraiment.",
+          "debriefExpl": "La grille de 8 critères vous permet d’évaluer les 3 solutions sur des critères comme le temps de latence, la fiabilité et la facilité d’intégration. La solution la mieux notée n’est pas la plus chère."
+        },
+        "wrong": [
+          {
+            "title": "Choisir la solution la plus populaire du marché",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"trending-up\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Choisir la solution la plus populaire du marché</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Solution leader du marché sélectionnée</div>\n<div class=\"text-[6px] text-slate-500\">Aucune évaluation des critères spécifiques</div>\n<div class=\"text-[6px] text-slate-500\">Budget : 5k€/mois</div>\n</div></div></div>",
+            "icon": "trending-up",
+            "expl": "Choisir la solution la plus populaire sans l’évaluer sur vos critères spécifiques peut mener à une solution inadaptée.",
+            "debriefExpl": "La solution la plus populaire coûte 5k€/mois mais pourrait ne pas répondre à vos besoins de latence minimum pour les alertes critiques. La grille de critères vous évite ce mauvais investissement."
+          },
+          {
+            "title": "Sélectionner la solution la moins chère en se basant sur le tarif",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"credit-card\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Sélectionner la solution la moins chère en se basant sur le tarif</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Solution la moins chère identifiée</div>\n<div class=\"text-[6px] text-slate-500\">Économie de 3k€/mois estimée</div>\n<div class=\"text-[6px] text-slate-500\">Aucune évaluation de la fiabilité</div>\n</div></div></div>",
+            "icon": "credit-card",
+            "expl": "Le seul critère du prix ignore les aspects fonctionnels essentiels comme la fiabilité et la latence.",
+            "debriefExpl": "La solution la moins chère pourrait avoir un temps de latence de 30 minutes pour les notifications, ce qui est inacceptable pour des alertes de résultats critiques. La grille de critères métier évite ce piège."
+          }
+        ]
+      },
+      {
+        "text": "Le laboratoire veut équiper ses techniciens d’un lecteur de code-barres pour tracker les échantillons de dépistage. Plusieurs modèles existent mais personne ne sait s’ils s’intègrent au système existant.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"barcode\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Lecteur code-barres à évaluer</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">3 modèles de lecteurs identifiés</div>\n<div class=\"text-[6px] text-amber-700\">Système existant : interface web</div>\n<div class=\"text-[6px] text-amber-700\">Incertitude sur la compatibilité</div>\n</div></div></div>",
+        "correct": {
+          "title": "Brancher le lecteur en bac à sable avec 100 échantillons",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"plug\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Brancher le lecteur en bac à sable avec 100 échantillons</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Lecteur testé en bac à sable</div>\n<div class=\"text-[6px] text-emerald-700\">100 échantillons scannés avec succès</div>\n<div class=\"text-[6px] text-emerald-700\">Temps de scan : 0,3s par échantillon</div>\n</div></div></div>",
+          "icon": "plug",
+          "expl": "Un test en bac à sable avec de vraies données valide l’intégration technique avant l’achat en série.",
+          "debriefExpl": "En branchant le lecteur dans un environnement de test avec 100 échantillons réels, vous validez la compatibilité et mesurez les performances. Le temps de scan de 0,3s est acceptable. Vous pouvez commander les 20 lecteurs nécessaires."
+        },
+        "wrong": [
+          {
+            "title": "Acheter les 20 lecteurs directement sans test",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"credit-card\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Acheter les 20 lecteurs directement sans test</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">20 lecteurs commandés</div>\n<div class=\"text-[6px] text-slate-500\">Budget : 8 000€</div>\n<div class=\"text-[6px] text-slate-500\">Aucun test de compatibilité réalisé</div>\n</div></div></div>",
+            "icon": "credit-card",
+            "expl": "Acheter en série sans tester expose au risque de matériel incompatible avec le système existant.",
+            "debriefExpl": "L’achat de 20 lecteurs à 8 000€ sans test de compatibilité aurait pu révéler que le format de sortie n’est pas reconnu par votre interface web, rendant les lecteurs inutilisables."
+          },
+          {
+            "title": "Lire les avis en ligne et choisir le lecteur le mieux noté",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"star\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Lire les avis en ligne et choisir le lecteur le mieux noté</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Lecteur le mieux noté sur Amazon choisi</div>\n<div class=\"text-[6px] text-slate-500\">Note : 4,5 étoiles</div>\n<div class=\"text-[6px] text-slate-500\">Aucun test dans le contexte réel</div>\n</div></div></div>",
+            "icon": "star",
+            "expl": "Les avis en ligne ne sont pas représentatifs du contexte spécifique d’intégration avec votre système.",
+            "debriefExpl": "Le lecteur le mieux noté sur Amazon a été testé dans des contextes très différents du vôtre. Sans test de compatibilité avec votre système, la note ne garantit pas qu’il fonctionnera avec votre interface web."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "J8. Réaliser un test utilisateur filmé",
+    "intent": "Observer des utilisateurs réels interagir avec l’interface pour identifier les problèmes d’ergonomie et de compréhension.",
+    "icon": "video",
+    "scenarios": [
+      {
+        "text": "Un nouvel assistant d’import des résultats d’analyse a été développé. Les techniciens disent que c’est « bien » mais l’équipe veut vérifier qu’ils ne rencontrent pas de difficultés cachées.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"upload\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Assistant d’import livré</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Assistant d’import déployé</div>\n<div class=\"text-[6px] text-amber-700\">Retours verbaux positifs mais vagues</div>\n<div class=\"text-[6px] text-amber-700\">Aucune observation directe des utilisateurs</div>\n</div></div></div>",
+        "correct": {
+          "title": "Regarder un technicien importer des résultats en commentant à voix haute",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"video\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Regarder un technicien importer des résultats en commentant à voix haute</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Observation de 3 imports avec Think Aloud</div>\n<div class=\"text-[6px] text-emerald-700\">4 moments de confusion identifiés</div>\n<div class=\"text-[6px] text-emerald-700\">2 étapes inutiles retirées</div>\n</div></div></div>",
+          "icon": "video",
+          "expl": "Le test filmé avec Think Aloud révèle les difficultés que les utilisateurs n’expriment pas spontanément.",
+          "debriefExpl": "En regardant le technicien importer des résultats en commentant à voix haute, vous identifiez 4 moments de confusion et 2 étapes inutiles que le technicien n’avait pas mentionnées. Les retours « c’est bien » cachaient des difficultés réelles."
+        },
+        "wrong": [
+          {
+            "title": "Faire une démonstration de l’outil en réunion d’équipe",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"presentation\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Faire une démonstration de l’outil en réunion d’équipe</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Démo présentée en réunion</div>\n<div class=\"text-[6px] text-slate-500\">Questions-réponses avec l’équipe</div>\n<div class=\"text-[6px] text-slate-500\">Aucune observation individuelle des usages</div>\n</div></div></div>",
+            "icon": "presentation",
+            "expl": "Les démonstrations collectives ne montrent pas les difficultés individuelles d’utilisation.",
+            "debriefExpl": "En réunion, le technicien n’ose pas montrer ses difficultés devant ses collègues. Les 4 moments de confusion identifiés en entretien individuel seraient restés invisibles."
+          },
+          {
+            "title": "Analyser les statistiques d’utilisation via les logs",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"bar-chart-3\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Analyser les statistiques d’utilisation via les logs</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Logs d’utilisation analysés</div>\n<div class=\"text-[6px] text-slate-500\">Temps moyen par étape mesuré</div>\n<div class=\"text-[6px] text-slate-500\">Aucune donnée qualitative</div>\n</div></div></div>",
+            "icon": "bar-chart-3",
+            "expl": "Les logs montrent les comportements mais pas le raisonnement ni les doutes des utilisateurs.",
+            "debriefExpl": "Les logs indiquent que le technicien passe 45 secondes sur une étape sans expliquer pourquoi. L’observation filmée avec Think Aloud révèle qu’il hésite parce que le libellé du bouton est ambigu."
+          }
+        ]
+      },
+      {
+        "text": "Une nouvelle fonctionnalité de prise de rendez-vous en ligne pour le dépistage a été développée. L’équipe veut s’assurer que les patients comprennent bien le parcours de bout en bout.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"calendar-check\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Rendez-vous en ligne à tester</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Fonctionnalité de prise de rendez-vous développée</div>\n<div class=\"text-[6px] text-amber-700\">Aucun test avec de vrais patients</div>\n<div class=\"text-[6px] text-amber-700\">Parcours de 7 étapes</div>\n</div></div></div>",
+        "correct": {
+          "title": "Envoyer un lien de test à 10 patients et analyser leurs parcours",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"video\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Envoyer un lien de test à 10 patients et analyser leurs parcours</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Lien de test envoyé à 10 patients</div>\n<div class=\"text-[6px] text-emerald-700\">3 abandons à l’étape 4 identifiés</div>\n<div class=\"text-[6px] text-emerald-700\">Taux de conversion : 70%</div>\n</div></div></div>",
+          "icon": "video",
+          "expl": "Un test à distance avec des utilisateurs réels permet d’analyser leurs parcours sans influence de l’observateur.",
+          "debriefExpl": "En envoyant un lien de test à 10 patients, vous identifiez que 3 patients abandonnent à l’étape 4. Les enregistrements montrent qu’ils ne comprennent pas le champ « motif de consultation ». La correction est rapide et le taux remonte à 90%."
+        },
+        "wrong": [
+          {
+            "title": "Tester en interne avec les équipes du laboratoire",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"users\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Tester en interne avec les équipes du laboratoire</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Test réalisé avec 5 collègues</div>\n<div class=\"text-[6px] text-slate-500\">Aucun abandon constaté</div>\n<div class=\"text-[6px] text-slate-500\">Parcours jugé « clair »</div>\n</div></div></div>",
+            "icon": "users",
+            "expl": "Les tests internes ne reproduisent pas le comportement de vrais patients, moins familiers de l’outil.",
+            "debriefExpl": "Vos collègues connaissent l’outil et le contexte, ce qui biaise le test. Les vrais patients abandonnent à l’étape 4, un problème que les tests internes n’ont pas identifié."
+          },
+          {
+            "title": "Lancer la fonctionnalité et surveiller les remontées de bugs",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"rocket\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Lancer la fonctionnalité et surveiller les remontées de bugs</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Fonctionnalité mise en production</div>\n<div class=\"text-[6px] text-slate-500\">Surveillance des tickets d’incidents</div>\n<div class=\"text-[6px] text-slate-500\">Aucun test utilisateur préalable</div>\n</div></div></div>",
+            "icon": "rocket",
+            "expl": "Lancer sans test utilisateur et attendre les bugs ne permet pas d’identifier les problèmes d’ergonomie.",
+            "debriefExpl": "Les patients qui abandonnent à l’étape 4 n’ouvriront pas de ticket d’incident : ils partiront simplement. Les bugs techniques remontés ne reflètent pas les vrais problèmes d’abandon."
+          }
+        ]
+      },
+      {
+        "text": "Un nouveau panneau de configuration des alertes est livré. C’est un outil complexe avec de nombreux paramètres. L’équipe veut vérifier qu’un technicien peut le paramétrer sans formation.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"settings\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Panel d’alertes à valider</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Panneau de configuration avec 15 paramètres</div>\n<div class=\"text-[6px] text-amber-700\">Documentation technique fournie</div>\n<div class=\"text-[6px] text-amber-700\">Aucun test d’utilisabilité réalisé</div>\n</div></div></div>",
+        "correct": {
+          "title": "Demander à un collègue de paramétrer une alerte en 5 minutes",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"video\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Demander à un collègue de paramétrer une alerte en 5 minutes</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Collègue non formé mis à l’épreuve</div>\n<div class=\"text-[6px] text-emerald-700\">3 paramètres mal compris</div>\n<div class=\"text-[6px] text-emerald-700\">Temps de paramétrage : 8 minutes au lieu de 5</div>\n</div></div></div>",
+          "icon": "video",
+          "expl": "Le test corridor (5 minutes avec un collègue) révèle rapidement les problèmes d’ergonomie majeurs.",
+          "debriefExpl": "En demandant à un collègue de paramétrer une alerte en 5 minutes, vous identifiez 3 paramètres mal compris. Un test avec un vrai technicien aurait les mêmes confusions. Les libellés doivent être clarifiés avant déploiement."
+        },
+        "wrong": [
+          {
+            "title": "Former les techniciens avec une session de 2 heures",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"book-open\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Former les techniciens avec une session de 2 heures</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Session de formation programmée</div>\n<div class=\"text-[6px] text-slate-500\">Support de formation de 30 slides</div>\n<div class=\"text-[6px] text-slate-500\">Aucune amélioration de l’interface</div>\n</div></div></div>",
+            "icon": "book-open",
+            "expl": "Former sans améliorer l’interface masque les vrais problèmes d’ergonomie par la formation.",
+            "debriefExpl": "La formation de 2 heures contourne le problème : l’interface devrait être intuitive sans session de formation. Les 3 paramètres confus seront expliqués en formation mais resteront problématiques pour les nouveaux utilisateurs."
+          },
+          {
+            "title": "Rédiger une documentation détaillée et la diffuser",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"file-text\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Rédiger une documentation détaillée et la diffuser</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Documentation de 15 pages rédigée</div>\n<div class=\"text-[6px] text-slate-500\">FAQ et tutoriels inclus</div>\n<div class=\"text-[6px] text-slate-500\">Aucun test de la compréhension</div>\n</div></div></div>",
+            "icon": "file-text",
+            "expl": "La documentation ne remplace pas le test de l’interface : si elle est nécessaire pour comprendre, l’UI est mal conçue.",
+            "debriefExpl": "Une documentation de 15 pages cache que l’interface n’est pas intuitive. Le test corridor révèle que même avec la doc, 3 paramètres restent confus. Mieux vaut simplifier l’interface que documenter sa complexité."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "J9. Décider de pivoter / poursuivre / arrêter",
+    "intent": "Prendre une décision éclairée sur la suite d’un projet en confrontant les résultats aux hypothèses initiales.",
+    "icon": "git-merge",
+    "scenarios": [
+      {
+        "text": "Le POC de l’algorithme de matching des doublons est terminé. Les résultats sont mitigés : 85% de détection contre 95% attendus. L’équipe ne sait pas si elle doit continuer ou changer d’approche.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"git-branch\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">POC terminé, résultats mitigés</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">POC terminé : 85% de détection</div>\n<div class=\"text-[6px] text-amber-700\">Objectif initial : 95%</div>\n<div class=\"text-[6px] text-amber-700\">Équipe divisée sur la conduite à tenir</div>\n</div></div></div>",
+        "correct": {
+          "title": "Organiser une rétrospective pour confronter résultats et hypothèses",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"git-merge\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Organiser une rétrospective pour confronter résultats et hypothèses</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Rétrospective organisée avec l’équipe</div>\n<div class=\"text-[6px] text-emerald-700\">3 hypothèses initiales non validées identifiées</div>\n<div class=\"text-[6px] text-emerald-700\">Décision : pivoter vers une approche hybride</div>\n</div></div></div>",
+          "icon": "git-merge",
+          "expl": "La rétrospective permet de confronter objectivement les résultats aux hypothèses pour décider en connaissance de cause.",
+          "debriefExpl": "La rétrospective révèle que 3 hypothèses initiales étaient erronées. L’équipe décide de pivoter vers une approche hybride combinant l’algo existant et une vérification manuelle ciblée, une solution mieux adaptée aux données réelles."
+        },
+        "wrong": [
+          {
+            "title": "Continuer le développement pour atteindre les 95%",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"code\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Continuer le développement pour atteindre les 95%</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Développement supplémentaire planifié</div>\n<div class=\"text-[6px] text-slate-500\">3 mois de travail supplémentaires</div>\n<div class=\"text-[6px] text-slate-500\">Sans remettre en cause les hypothèses initiales</div>\n</div></div></div>",
+            "icon": "code",
+            "expl": "Continuer sans analyser l’écart entre résultats et hypothèses risque de persévérer dans une voie inefficace.",
+            "debriefExpl": "Continuer sans analyser pourquoi l’objectif n’est pas atteint risque de produire le même résultat après 3 mois supplémentaires. La rétrospective montre que les hypothèses de départ étaient erronées."
+          },
+          {
+            "title": "Arrêter complètement le projet sans analyse",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"slash\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Arrêter complètement le projet sans analyse</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Projet abandonné immédiatement</div>\n<div class=\"text-[6px] text-slate-500\">Travail antérieur perdu</div>\n<div class=\"text-[6px] text-slate-500\">Aucun apprentissage capitalisé</div>\n</div></div></div>",
+            "icon": "slash",
+            "expl": "Arrêter sans analyser les causes prive l’équipe d’apprentissages précieux pour les prochains projets.",
+            "debriefExpl": "Arrêter complètement le projet sans comprendre les causes de l’échec relatif ne permet pas de capitaliser sur l’investissement de 2 mois de POC. Les apprentissages de la rétrospective peuvent être réutilisés."
+          }
+        ]
+      },
+      {
+        "text": "Le bêta-test du tableau de bord de suivi des dépistages montre une adoption faible (15% des utilisateurs). L’équipe a investi 4 mois et doit décider de la suite.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"layout-dashboard\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Bêta-test : adoption faible</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Tableau de bord en bêta depuis 1 mois</div>\n<div class=\"text-[6px] text-amber-700\">Taux d’adoption : 15%</div>\n<div class=\"text-[6px] text-amber-700\">4 mois de développement investis</div>\n</div></div></div>",
+        "correct": {
+          "title": "Positionner les apprentissages sur une matrice impact-effort",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"git-merge\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Positionner les apprentissages sur une matrice impact-effort</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Matrice impact-effort réalisée</div>\n<div class=\"text-[6px] text-emerald-700\">5 améliorations à fort impact identifiées</div>\n<div class=\"text-[6px] text-emerald-700\">Décision : poursuivre avec un périmètre réduit</div>\n</div></div></div>",
+          "icon": "git-merge",
+          "expl": "La matrice impact-effort permet de prioriser les actions correctives ou de décider objectivement de l’arrêt.",
+          "debriefExpl": "La matrice impact-effort montre que 5 améliorations à fort impact nécessitent peu d’effort. Vous décidez de poursuivre avec un périmètre réduit : 3 semaines pour intégrer les correctifs, puis nouvelle mesure d’adoption."
+        },
+        "wrong": [
+          {
+            "title": "Abandonner le tableau de bord et recommencer de zéro",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"rotate-ccw\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Abandonner le tableau de bord et recommencer de zéro</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Tableau de bord abandonné</div>\n<div class=\"text-[6px] text-slate-500\">Nouveau projet lancé</div>\n<div class=\"text-[6px] text-slate-500\">Aucune analyse des causes de l’échec</div>\n</div></div></div>",
+            "icon": "rotate-ccw",
+            "expl": "Recommencer de zéro sans analyser les causes de l’échec risque de reproduire les mêmes erreurs.",
+            "debriefExpl": "Recommencer un nouveau tableau de bord sans comprendre pourquoi le premier n’a pas été adopté risque de reproduire les mêmes erreurs de conception. Les 4 mois de développement ne sont pas perdus si vous capitalisez sur les apprentissages."
+          },
+          {
+            "title": "Pousser le tableau de bord existant sans rien changer",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"send\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Pousser le tableau de bord existant sans rien changer</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Aucune modification du dashboard</div>\n<div class=\"text-[6px] text-slate-500\">Nouvelles campagnes de communication</div>\n<div class=\"text-[6px] text-slate-500\">Causes de la non-adoption non traitées</div>\n</div></div></div>",
+            "icon": "send",
+            "expl": "Continuer sans traiter les causes de la non-adoption ne résoudra pas le problème.",
+            "debriefExpl": "Pousser le même tableau de bord sans les 5 améliorations identifiées dans la matrice ne fera pas remonter l’adoption. Les causes profondes doivent être traitées avant de relancer la communication."
+          }
+        ]
+      },
+      {
+        "text": "Le fake door test pour l’historique des fusions de doublons montre un taux de clics très élevé (78% des techniciens ont cliqué). L’équipe doit décider rapidement de la suite.",
+        "problemVisual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-amber-50 rounded border border-amber-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"history\" class=\"w-2 h-2 text-amber-600\"></i>\n<span class=\"text-[6px] font-semibold text-amber-800\">Fake door : fort intérêt mesuré</span>\n</div>\n<div class=\"text-[6px] text-amber-700\">Taux de clics sur « Voir l’historique » : 78%</div>\n<div class=\"text-[6px] text-amber-700\">Forte demande des techniciens confirmée</div>\n<div class=\"text-[6px] text-amber-700\">Décision attendue rapidement</div>\n</div></div></div>",
+        "correct": {
+          "title": "Décider dans les 48h de prioriser la fonctionnalité",
+          "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-emerald-50 rounded border border-emerald-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"git-merge\" class=\"w-2 h-2 text-emerald-500\"></i>\n<span class=\"text-[6px] font-semibold text-emerald-800\">Décider dans les 48h de prioriser la fonctionnalité</span>\n<span class=\"text-[5px] px-1 rounded-full bg-emerald-100 text-emerald-700 ml-auto\">CONSEILLÉ</span>\n</div>\n<div class=\"text-[6px] text-emerald-700\">Décision prise en 48h : développement prioritaire</div>\n<div class=\"text-[6px] text-emerald-700\">Fonctionnalité ajoutée au sprint en cours</div>\n<div class=\"text-[6px] text-emerald-700\">Planning de livraison : 3 semaines</div>\n</div></div></div>",
+          "icon": "git-merge",
+          "expl": "Quand la validation est claire, la décision doit être rapide pour capitaliser sur l’élan.",
+          "debriefExpl": "Les 78% de clics confirment un fort besoin. Décider dans les 48h de prioriser le développement permet de répondre rapidement à la demande et de maintenir la confiance des techniciens. La fonctionnalité sera livrée dans 3 semaines."
+        },
+        "wrong": [
+          {
+            "title": "Lancer un second test pour confirmer les résultats",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"rotate-ccw\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Lancer un second test pour confirmer les résultats</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Second test programmé dans 1 mois</div>\n<div class=\"text-[6px] text-slate-500\">Étude complémentaire demandée</div>\n<div class=\"text-[6px] text-slate-500\">Risque de perdre l’élan</div>\n</div></div></div>",
+            "icon": "rotate-ccw",
+            "expl": "Multiplier les tests quand la validation est déjà claire retarde la prise de décision inutilement.",
+            "debriefExpl": "Un second test pour confirmer 78% de clics serait une perte de temps. Les techniciens ont clairement exprimé leur besoin. Retarder la décision d’un mois risque de les frustrer et de perdre l’élan."
+          },
+          {
+            "title": "Planifier le développement dans 6 mois lors de la prochaine roadmap",
+            "visual": "<div class=\"visual-mockup\"><div class=\"mockup-container\"><div class=\"flex flex-col gap-1 p-1.5 bg-white rounded border border-slate-200\">\n<div class=\"flex items-center gap-1\">\n<i data-lucide=\"calendar\" class=\"w-2 h-2 text-slate-400\"></i>\n<span class=\"text-[6px] font-semibold text-slate-600\">Planifier le développement dans 6 mois lors de la prochaine roadmap</span>\n<span class=\"text-[5px] px-1 rounded-full bg-slate-100 text-slate-500 ml-auto\">ALTERNATIVE</span>\n</div>\n<div class=\"text-[6px] text-slate-500\">Fonctionnalité planifiée dans 6 mois</div>\n<div class=\"text-[6px] text-slate-500\">Priorités actuelles jugées plus importantes</div>\n<div class=\"text-[6px] text-slate-500\">Risque de déception des utilisateurs</div>\n</div></div></div>",
+            "icon": "calendar",
+            "expl": "Repousser une fonctionnalité validée risque de décrédibiliser la démarche et frustrer les utilisateurs.",
+            "debriefExpl": "Repousser à 6 mois une fonctionnalité que 78% des techniciens attendent enverrait un signal négatif. Les utilisateurs ne feront plus confiance aux prochains tests si leurs retours ne sont pas suivis d’effets."
+          }
+        ]
+      }
+    ]
+  }
+]

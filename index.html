@@ -309,6 +309,67 @@
             right: -48px;
         }
 
+        /* Edge navigation hints */
+        .edge-hint {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 70px;
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .left-hint {
+            left: 0;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.04), transparent);
+        }
+        .right-hint {
+            right: 0;
+            background: linear-gradient(to left, rgba(15, 23, 42, 0.04), transparent);
+        }
+        .hint-card {
+            width: 35px;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+        .left-hint .hint-card {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            transform: translateX(-15px);
+            opacity: 0.45;
+        }
+        .right-hint .hint-card {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            transform: translateX(15px);
+            opacity: 0.45;
+        }
+        .edge-hint:hover .hint-card {
+            background: rgba(255, 255, 255, 0.85);
+            opacity: 0.95;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+        }
+        .left-hint:hover .hint-card {
+            transform: translateX(0);
+        }
+        .right-hint:hover .hint-card {
+            transform: translateX(0);
+        }
+
         /* Atelier header — titre une ligne + sous-titre objectif */
         .atelier-header {
             display: flex;
@@ -1236,6 +1297,18 @@
 
         <!-- Horizontal Ateliers Paginated -->
         <div class="scroll-wrapper" id="scroll-wrapper">
+            <div id="left-edge-hint" class="edge-hint left-hint" style="display: none;">
+                <div class="hint-card">
+                    <i data-lucide="chevron-left" style="width: 14px; height: 14px; color: #64748b;"></i>
+                    <span style="writing-mode: vertical-lr; transform: rotate(180deg); font-size: 7px; font-weight: 900; color: #64748b; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px;">Atelier 6</span>
+                </div>
+            </div>
+            <div id="right-edge-hint" class="edge-hint right-hint" style="display: none;">
+                <div class="hint-card">
+                    <i data-lucide="chevron-right" style="width: 14px; height: 14px; color: #64748b;"></i>
+                    <span style="writing-mode: vertical-lr; font-size: 7px; font-weight: 900; color: #64748b; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px;">Atelier 1</span>
+                </div>
+            </div>
 
             <main class="ateliers-scroll" id="ateliers-scroll">
 
@@ -1805,7 +1878,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.02.02';
+        const APP_VERSION = '2026.06.02.03';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1929,6 +2002,9 @@
             let currentPage = 0;
             const totalPages = Math.ceil(allCols.length / perPage);
 
+            const leftHint = document.getElementById('left-edge-hint');
+            const rightHint = document.getElementById('right-edge-hint');
+
             function renderPage() {
                 allCols.forEach((col, i) => {
                     const start = currentPage * perPage;
@@ -1956,13 +2032,66 @@
                 if (pageInd) {
                     pageInd.innerText = `${currentPage + 1} / ${totalPages}`;
                 }
-                // Update arrow states
-                if (prevBtn) prevBtn.disabled = currentPage === 0;
-                if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
+                
+                // Show left hint only on page 0, and right hint only on page 1
+                if (leftHint) leftHint.style.display = (currentPage === 0) ? 'flex' : 'none';
+                if (rightHint) rightHint.style.display = (currentPage === totalPages - 1) ? 'flex' : 'none';
+
+                // Arrows are always active in wrap-around mode
+                if (prevBtn) prevBtn.disabled = false;
+                if (nextBtn) nextBtn.disabled = false;
             }
 
-            if (prevBtn) prevBtn.addEventListener('click', () => { if (currentPage > 0) { currentPage--; renderPage(); } });
-            if (nextBtn) nextBtn.addEventListener('click', () => { if (currentPage < totalPages - 1) { currentPage++; renderPage(); } });
+            // Click handlers for edge hints
+            if (leftHint) {
+                leftHint.addEventListener('click', () => {
+                    currentPage = (currentPage > 0) ? currentPage - 1 : totalPages - 1;
+                    renderPage();
+                });
+            }
+            if (rightHint) {
+                rightHint.addEventListener('click', () => {
+                    currentPage = (currentPage < totalPages - 1) ? currentPage + 1 : 0;
+                    renderPage();
+                });
+            }
+
+            // Wrap-around click handlers for pagination arrows
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => { 
+                    currentPage = (currentPage > 0) ? currentPage - 1 : totalPages - 1; 
+                    renderPage(); 
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => { 
+                    currentPage = (currentPage < totalPages - 1) ? currentPage + 1 : 0; 
+                    renderPage(); 
+                });
+            }
+
+            // Swipe gestures for scroll wrapper (Hub)
+            const scrollWrapper = document.getElementById('scroll-wrapper');
+            let hubTouchstartX = 0;
+            let hubTouchendX = 0;
+            if (scrollWrapper) {
+                scrollWrapper.addEventListener('touchstart', e => {
+                    hubTouchstartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                scrollWrapper.addEventListener('touchend', e => {
+                    hubTouchendX = e.changedTouches[0].screenX;
+                    if (hubTouchendX < hubTouchstartX - 50) {
+                        // Swipe left -> Go to next page (wrap-around)
+                        currentPage = (currentPage < totalPages - 1) ? currentPage + 1 : 0;
+                        renderPage();
+                    } else if (hubTouchendX > hubTouchstartX + 50) {
+                        // Swipe right -> Go to previous page (wrap-around)
+                        currentPage = (currentPage > 0) ? currentPage - 1 : totalPages - 1;
+                        renderPage();
+                    }
+                }, { passive: true });
+            }
+
             renderPage();
 
             // Update UI status badges with dynamic colors and x/y format

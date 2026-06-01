@@ -2,9 +2,9 @@
 
 ## 1. Stack & Architecture
 - **Stack** : HTML5, CSS3, JS Vanilla. Aucun framework/bundler en prod. Tailwind CDN & Lucide CDN.
-- **Fichiers** : `index.html` (Hub + Modal "Lesson" + Réf réflexes). Ateliers `1-a.html`, `1-b.html`, `2-c.html`, `2-d.html` (logique dans `<script>`).
-- **Data** : JSON en lecture seule via `fetch` (`1-a.json`...). Bypass cache : `?v=` + timestamp.
-- **Slides** : `1-0.md`, `2-0.md` (format Marp-like, séparateur `\n---\n`).
+- **Hub** : `index.html` (Hub + Lesson Modal + Ref Modal). Tous les ateliers via `exo.html?id={X}-{y}`.
+- **Data** : JSON en lecture seule via `fetch`. Bypass cache : `?v=` + timestamp.
+- **Slides** : `{1..6}-0.md` (format Marp-like, séparateur `\n---\n`).
 
 ## 2. Directives UI & Frontend
 - **Style** : Tailwind CSS (CDN) + `style.css` (partagés, `.shake`, `.correct`).
@@ -15,10 +15,10 @@
 - **Réflexes** : Layout étiré (`align-items: stretch`), cartes `bg-slate-50`, badges sémantiques.
 
 ## 3. Workflow, Économie de Tokens & Structure
-- **Structure** : `index.html` centralise le Hub et le chargement des référentiels via `showRef(id)`. Chaque fichier `{X}-{y}.html` contient la logique de jeu de son atelier respectif, et consomme `{X}-{y}.json` qui contient les questions, scénarios et visuels HTML.
+- **Structure** : `index.html` centralise le Hub et le chargement des référentiels via `showRef(id)`. Chaque fichier `{X}-{y}.json` contient les questions, scénarios et visuels HTML. `exo.html` est le template unique d'exercice.
 - **Économie de Tokens** :
   - **Ne pas lire de gros fichiers JSON** en entier ! Préférer des scripts Node de recherche ciblés (`fix-*.js`) ou `grep` pour inspecter des fragments.
-  - Utiliser `replace_file_content` sur des blocs ultra-ciblés de lignes au lieu de lire ou réécrire de larges portions d'un fichier.
+  - Utiliser `edit` sur des blocs ultra-ciblés de lignes au lieu de lire ou réécrire de larges portions d'un fichier.
   - Ne jamais charger `index.html` en entier si non requis ; cibler uniquement les blocs de script via des plages de lignes précises.
   - **Efficacité d'exécution** : Résoudre les tâches en un minimum d'étapes possibles.
   - **Réponses ultra-synthétiques** : Rédiger des réponses de fin de tour extrêmement courtes et condensées pour économiser les tokens.
@@ -26,80 +26,95 @@
 
 ## 4. Template Ateliers (Cycle 3 Phases)
 - **Layout Grid** (`h-[calc(100vh-70px)]`) : Gauche (1/3) = `#scenario-card` + `#phase2-question-container` (auto). Droite (2/3) = `#options-container` (Phase 1: `#reflex-grid`, Phase 2: `#questions-wrapper`/`#ui-grid`, Phase 3: `#debriefing-card`).
-- **localStorage** : `{po,ux,cso,evo}-progress-lv{level}-reflex{id}` et `{po,ux,cso,evo}-score-lv{level}`.
+- **localStorage** : `{key}-progress-lv{level}-reflex{id}` et `{key}-score-lv{level}` où `key` ∈ `{po,ux,cso,evo,road,feat,gsup,ticketing,veille,tln,analytics,kpi}`.
+- **ATELIERS_CONFIG** dans `exo.html` : mapping `{X}-{y}` → `{key, title, badge, levelNames, levelDescriptions, ...}`. Score localStorage = `{CONFIG.key}-score-lv{level}`.
 
 ## 5. Structures JSON
 
-| Fichier | Top-level | `icon` | `questions` | `scenarios[]` | `subOptions[]` | `explVisual` |
-|---------|-----------|--------|-------------|---------------|----------------|--------------|
-| **1-a (PO)** | `[]` | Non | `[{text}]` | `{text, problemVisual, correct, wrong, expl}` | N/A | Oui |
-| **1-b (UX)** | `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | N/A | Non |
-| **2-c (Support)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | N/A | Oui |
-| **2-d (Specs)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | N/A | Oui |
-| **3-e (Roadmap)**| `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | N/A | Non |
-| **3-f (Features)**| `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | N/A | Non |
+| Fichier | Top-level | `icon` | `questions` | `scenarios[]` | `explVisual` |
+|---------|-----------|--------|-------------|---------------|--------------|
+| **1-a (PO)** | `[]` | Non | `[{text}]` | `{text, problemVisual, correct, wrong, expl}` | Oui |
+| **1-b (UX)** | `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **2-c (Support)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | Oui |
+| **2-d (Specs)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | Oui |
+| **3-e (Roadmap)** | `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | Non |
+| **3-f (Features)** | `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | Non |
+| **4-g (Diag)** | `[]` | Non | `[{text}]` | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **4-h (Assist)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **5-i (Veille)** | `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **5-j (Test&Learn)**| `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **6-k (Analytics)**| `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **6-l (KPIs)**    | `[]` | Oui | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
 
-- `1-a.json` : `questions` index = niveau (0,1,2).
-- Tous (sauf `1-a`) : 1 `correct` + 2 `wrong[]` par scénario, structure `{title, visual, expl, debriefExpl, icon}`.
-- `1-a.json` : `correct` & `wrong` en `{title, visual, expl, debriefExpl, icon}`.
+- Tous (sauf `1-a`) : 1 `correct` + 2 `wrong[]` par scénario, chaque `{title, visual, expl, debriefExpl, icon}`.
+- `1-a.json` : `questions` index = niveau (0,1,2). `correct` & `wrong` en `{title, visual, expl, debriefExpl, icon}`.
+- Chaque scénario a son propre `expl` (principe générique, pas spécifique au scénario).
 
 ### 5.1 Règles métier des champs textuels
 
 **`expl`** (générique) : Description du **principe**, pas de la situation. Affiché dans le **référentiel réflexe** et dans le **choix de réponse (QCM)**.
 - Ne doit pas mentionner le scénario concret.
-- Pour `wrong[]` : description **neutre** de l'approche, **sans jugement** ni critique (ex : pas "Arbitrage non recommandé" ou "Action non recommandée").
+- Pour `wrong[]` : description **neutre** de l'approche, **sans jugement** ni critique.
 
-**`debriefExpl`** (contextuel) : Description **plus longue**, **adaptée au scénario**. Affiché en **phase de debrief** après validation de la réponse.
+**`debriefExpl`** (contextuel) : Description **plus longue**, **adaptée au scénario**. Affiché en **phase de debrief** après validation.
 - Doit expliquer *pourquoi* le choix (correct ou wrong) s'applique à la situation concrète.
-- **Jamais identique** à `expl` : si c'est le cas, c'est une erreur.
+- **Jamais identique** à `expl`.
 
 **`correct.title`** : Titre du choix correct, affiché dans le QCM.
-- Commence par un **verbe**.
+- Commence par un **verbe** (sauf rares exceptions comme "Démarrer une refonte...").
 - **3 à 5 mots** idéalement, 7 max si nécessaire à la clarté.
-- Ex : `"Fusionner manuellement les doublons "`, `"Transformer le blocage en alerte "`.
+- Langage simple et concret.
 
-**Public cible** : Population **métier et fonctionnelle** (pas technique).
-- Éviter : "couplage fort", "objet abstrait", "versionnée", "digitalisé", "sérialiseur", "intra-app".
-- Préférer un langage simple et concret.
+**Public cible** : Population **métier et fonctionnelle** (pas technique). Éviter jargon dev.
 
-### 5.2 Scénarios & Visuels (générique A-F)
+### 5.2 Scénarios & Visuels
 
-**`scenario.text`** : Situation concrète vécue par un utilisateur métier (CRDC, médecin, gestionnaire). Doit être crédible, contextualisée (lieu, date, conséquence), et exposer un problème tangible.
+**`scenario.text`** : Situation concrète vécue par un utilisateur métier (CRDC, médecin, gestionnaire). Doit être crédible, contextualisée, et exposer un problème tangible.
 
-**`problemVisual`** : État du problème **avant** résolution. Défaut ou blocage visible. Tons : rouge/ambre, bordures `red-200`, fonds `red-50`.
+**`problemVisual`** : État du problème **avant** résolution. Tons : rouge/ambre, bordures `red-200`, fonds `red-50`.
 
-**`correct.visual`** : Solution recommandée. État **après** application du réflexe. Tons : emeraude, bordure `emerald-500/200`, badge `CONSEILLÉ`.
+**`correct.visual`** : Solution recommandée. **Après** application du réflexe. Tons : emeraude, bordure `emerald-500/200`.
 
-**`wrong[].visual`** : Approche alternative non optimale.   
+**`wrong[].visual`** : Approche alternative non optimale.
+  **Couleurs neutres uniquement** : tons slate/gris (`border-slate-200`, `bg-slate-50`, `text-slate-500`).
+  **Pas de rouge/ambre** — les visuels wrong doivent sembler aussi crédibles que les corrects visuellement.
 
-## 6. Références (index.html - Ref-Modal)
-`showRef(reflexId)` charge les JSONs et dispatch :
-- **A** (PO) : badge `"Réflexe PO (Posture)"`, icône `"target"`. Questions = `q.text`. Exemples = 3 visuels de scénarios.
-- **B** (UX) : badge `"Réflexe UX (Conception)"`, icône `"mouse-pointer-click"`. Pas de questions. Visuels = `scenarios[].correct.visual`.
-- **C** (Support) : badge `"Réflexe Support & Client"`, icône `icon || "headset"`. Questions = string. Titres visuels = `correct.subOption.text`.
-- **D** (Specs) : badge `"Réflexe Spécs & Évolutions"`, icône `icon || "sparkles"`. Questions = string. Titres visuels = `correct.subOption.text`.
-- **E** (Roadmap) : badge `"Réflexe Roadmap (Vision)"`, icône `icon || "mountain"`. Questions = `sci.title : sci.expl`. Visuels = `sci.visual`.
-- **F** (Features) : badge `"Réflexe Features (Discovery)"`, icône `icon || "telescope"`. Questions = `sci.title : sci.expl`. Visuels = `sci.visual`.
+**Règle stricte** : Les visuels `correct.visual` et `wrong[].visual` ne doivent **jamais** contenir de texte ou d'indicateur visuel signalant la vérité ou la fausseté de la réponse (pas de badge `CONSEILLÉ`, pas de coche/checkmark, pas de `✅`/`❌`, pas de couleur de fond distinctive). Seul le conteneur du QCM (badge/encadré) distingue correct de wrong.
 
-**Modal DOM** : `#ref-examples-container` -> `#ref-examples-list`. `#ref-visuals-container` -> `#ref-visuals-list`.
+## 6. Références (showRef dans index.html)
+`showRef(reflexId)` charge **tous** les JSONs en une promesse, dispatch :
+- **A** (PO) : badge `"Réflexe PO"`, icône `"target"`. Questions = `q.text`. Visuels = scénarios.
+- **B** (UX) : badge `"Réflexe UX"`, icône `"mouse-pointer-click"`. Pas de questions.
+- **C** (Support) : badge `"Réflexe Support"`, icône `icon \|\| "headset"`. Questions = string.
+- **D** (Specs) : badge `"Réflexe Spécs"`, icône `icon \|\| "sparkles"`. Questions = string.
+- **E** (Roadmap) : badge `"Réflexe Roadmap"`, icône `icon \|\| "mountain"`. Questions = `sci.title : sci.expl`.
+- **F** (Features) : badge `"Réflexe Features"`, icône `icon \|\| "telescope"`. Questions = `sci.title : sci.expl`.
+- **G** (Diag) : badge `"Réflexe G - Diagnostic & Résolution"`, icône `icon \|\| "headset"`.
+- **H** (Assist) : badge `"Réflexe H - Assistance & Connaissance"`, icône `icon \|\| "book-open"`.
+- **I** (Veille) : badge `"Réflexe Veille & Benchmark"`, icône `"search"`.
+- **J** (Test & Learn) : badge `"Réflexe Test & Learn"`, icône `"flask"`.
+- **K** (Analytics) : badge `"Réflexe Analytics & Productivité"`, icône `"bar-chart-2"`.
+- **L** (KPIs) : badge `"Réflexe KPIs & Dashboard"`, icône `"database"`.
+
+**Modal DOM** : `#ref-examples-container` → `#ref-examples-list`. `#ref-visuals-container` → `#ref-visuals-list`.
 
 ## 7. Slides "Lesson" & Hub
-- **Slides** : `openLesson(atelierId)` charge `{atelierId}-0.md`. Séparateur `\n---\n`. Rend `<div class="lesson-slide">` + navigation + localStorage.
-- **Hub click handlers** : `#po-card` (`./1-a.html`), `#ux-card` (`./1-b.html`), `#evo-card` (`./2-d.html`), `#cso-card` (`./2-c.html`).
-- **Alignement des Titres** : Les intitulés des réflexes listés dans les slides `.md` doivent toujours correspondre exactement à l'attribut `title` défini dans les fichiers `.json` associés. En cas de modification d'un réflexe, mettre à jour le `.md` associé pour garantir la cohérence.
+- **Slides** : `openLesson(atelierId, startSlide = null)` charge `{atelierId}-0.md`. Parse Marp (`\n---\n`). Navigation, localStorage (lsKey = `{thème}-last-slide`).
+- **Hub cards** : chaque card a un clic principal et un bouton info (`openLesson`). Le badge de progression est géré par `updateCardStatusBadge(labelEl, x, y)`.
+- **Cards Hub existantes** : `#po-card` (1-a), `#ux-card` (1-b), `#backlog-card` (slides 1), `#dt-card` (slides 1), `#mvp-card` (slides 2), `#cso-card` (2-c), `#evo-card` (2-d), `#road-card` (3-e), `#feat-card` (3-f), `#gsup-card` (4-g), `#ticketing-card` (4-h), `#veille-card` (5-i), `#lean-card` (slides 5), `#poc-card` (5-j), `#data-driven-card` (slides 6), `#analytics-card` (6-k), `#kpi-card` (6-l).
+- **Alignement des Titres** : Les intitulés dans les slides `.md` doivent correspondre aux `title` des `.json`.
 
 ## 8. Guide des Visuels (HTML Tailwind)
 - Mockups HTML compacts injectés dans le JSON via `innerHTML`.
 - **Règles** : Police `text-[6px]` à `text-[9px]`, icônes avec `data-lucide` (puis `createIcons()`). Wrapper : `<div class="visual-mockup"><div class="mockup-container">...</div></div>`. Pas de commentaires HTML. Échapper `"` -> `\"` et `'` -> `&#39;`.
-- **explVisual** : PO = étapes connectées ; Support = matrice/dashboard ; Specs = couches/workflow.
-- **scenario.visual** : PO = interface métier ; Support = ticket ; Specs = mockup design/process. UX = 3 rendus côte-à-côte (correct + 2 wrong).
+- `explVisual` : PO = étapes connectées ; Support = matrice/dashboard ; Specs = couches/workflow.
+- `scenario.visual` : PO = interface métier ; Support = ticket ; Specs = mockup design/process. UX = 3 rendus côte-à-côte.
 
 ## 9. Bump, Commit & Déploiement
-- **Strictes restrictions** : **INTERDICTION** d'incrémenter la version (Bump), de commiter (Commit), de push ou de déployer (`git push` et `firebase deploy`) de manière automatique. Ces actions doivent être exécutées **UNIQUEMENT sur demande explicite** de l'utilisateur.
-- **Bump** (Sur demande) : Incrémenter `APP_VERSION` dans `index.html` (format `YYYY.MM.DD.NN`). `NN` = 01 le jour même, puis 02, 03...
+- **Strictes restrictions** : **INTERDICTION** d'incrémenter la version (Bump), de commiter (Commit), de push ou de déployer (`git push` et `firebase deploy`) de manière automatique.
+- **Bump** (Sur demande) : Incrémenter `APP_VERSION` dans `index.html` (format `YYYY.MM.DD.NN`). `NN` = 01, 02...
 - **Commit** (Sur demande) : `git add index.html [fichiers modifiés]; if ($?) { git commit -m "bump vYYYY.MM.DD.NN - <description>" }`
 - **Push & Deploy** (Sur demande) : `git push` et/ou `firebase deploy`.
-- Ne jamais commiter `.firebase/hosting..cache`.
 
 ## 10. Code Utile (Cheat Sheet)
 ```js
@@ -107,4 +122,6 @@
 el.innerHTML = html; lucide.createIcons();
 // Options Phase 2 (PO)
 const opts = reflex.questions.map((q, i) => ({ text: q.text || q, isCorrect: i === lv })).sort(() => Math.random() - 0.5);
+// updateCardStatusBadge(labelEl, x, y) — affiche "x / y" avec couleur (rouge=0, jaune, vert=100%)
+// Pour les slides badge, ajouter l'id à isLessonLabel[] pour vert sur les 2 dernières slides
 ```
