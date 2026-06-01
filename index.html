@@ -368,11 +368,11 @@
                 overflow: auto;
                 overflow-x: hidden;
                 height: auto;
-                padding: 0.5rem 1rem !important;
+                padding: 0.5rem 0rem !important;
             }
 
             .container {
-                padding: 0;
+                padding: 0 1rem;
             }
 
             .top-bar {
@@ -1772,7 +1772,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.23';
+        const APP_VERSION = '2026.06.01.24';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
