@@ -1766,7 +1766,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.05.31.03';
+        const APP_VERSION = '2026.06.01.01';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2497,11 +2497,12 @@
 
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
-                            if (sc.visual) {
+                            const sci = sc.correct;
+                            if (sci && sci.visual) {
                                 visuals.push({
-                                    title: item.questions[idx] ? item.questions[idx].text : '',
-                                    expl: sc.explanation || sc.text,
-                                    html: sc.visual
+                                    title: sci.title || (item.questions[idx] ? item.questions[idx].text : ''),
+                                    expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                    html: sci.visual
                                 });
                             }
                         });
@@ -2543,11 +2544,12 @@
                     isCD = true;
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
-                            if (sc.visual) {
+                            const sci = sc.correct;
+                            if (sci && sci.visual) {
                                 visuals.push({
-                                    title: item.questions[idx] || '',
-                                    expl: sc.explanation || sc.text,
-                                    html: sc.visual
+                                    title: sci.title || (item.questions[idx] || ''),
+                                    expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                    html: sci.visual
                                 });
                             }
                         });
@@ -2565,11 +2567,12 @@
                     isCD = true;
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
-                            if (sc.visual) {
+                            const sci = sc.correct;
+                            if (sci && sci.visual) {
                                 visuals.push({
-                                    title: item.questions[idx] || '',
-                                    expl: sc.explanation || sc.text,
-                                    html: sc.visual
+                                    title: sci.title || (item.questions[idx] || ''),
+                                    expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                    html: sci.visual
                                 });
                             }
                         });

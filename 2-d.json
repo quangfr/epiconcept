@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "D1. Séparer données / règles / interface",
+    "title": "D1. Découpler les couches applicatives",
     "intent": "Isoler les trois couches logicielles — donnée brute, règle métier, composant d'interface — pour mieux spécifier chaque couche indépendamment.",
     "icon": "layers",
     "scenarios": [
@@ -94,7 +94,7 @@
   },
   {
     "id": 2,
-    "title": "D2. Happy path / cas secondaires / exceptions",
+    "title": "D2. Cartographier le flux nominal",
     "intent": "Cartographier tous les chemins possibles du parcours utilisateur : le succès nominal, les variantes et les blocages.",
     "icon": "git-branch",
     "scenarios": [
@@ -187,7 +187,7 @@
   },
   {
     "id": 3,
-    "title": "D3. Validations et erreurs de saisie",
+    "title": "D3. Valider les règles de saisie",
     "intent": "Spécifier les règles de contrôle des données entrantes, les messages d'erreur et les actions correctives attendues.",
     "icon": "alert-triangle",
     "scenarios": [
@@ -280,7 +280,7 @@
   },
   {
     "id": 4,
-    "title": "D4. Obligatoire / automatique / défaut",
+    "title": "D4. Déterminer les champs requis",
     "intent": "Déterminer pour chaque champ son caractère obligatoire, sa valeur automatique et sa valeur par défaut, pour fluidifier la saisie.",
     "icon": "settings",
     "scenarios": [
@@ -373,7 +373,7 @@
   },
   {
     "id": 5,
-    "title": "D5. Prérequis et dépendances",
+    "title": "D5. Identifier les dépendances techniques",
     "intent": "Identifier les conditions nécessaires avant de réaliser une action et les dépendances entre fonctionnalités.",
     "icon": "git-merge",
     "scenarios": [
@@ -466,7 +466,7 @@
   },
   {
     "id": 6,
-    "title": "D6. Rôles, droits et permissions",
+    "title": "D6. Structurer les droits d'accès",
     "intent": "Définir qui peut voir, créer, modifier ou supprimer chaque donnée ou fonctionnalité selon son profil et son périmètre.",
     "icon": "shield",
     "scenarios": [
@@ -559,7 +559,7 @@
   },
   {
     "id": 7,
-    "title": "D7. Structure des objets et relations",
+    "title": "D7. Modéliser la structure d'objet",
     "intent": "Comprendre quels sont les objets métier, leurs attributs et leurs relations (parents/enfants, agrégation, référence).",
     "icon": "database",
     "scenarios": [
@@ -652,7 +652,7 @@
   },
   {
     "id": 8,
-    "title": "D8. Enchaînements et workflows",
+    "title": "D8. Définir les enchaînements logiques",
     "intent": "Définir la séquence des étapes, les transitions d'état et les actions automatisées ou manuelles à chaque étape.",
     "icon": "activity",
     "scenarios": [
@@ -745,7 +745,7 @@
   },
   {
     "id": 9,
-    "title": "D9. Échéances et notifications",
+    "title": "D9. Planifier les alertes temporelles",
     "intent": "Gérer les alertes temporelles, les délais réglementaires et les notifications automatiques vers les bons destinataires.",
     "icon": "clock",
     "scenarios": [
@@ -838,7 +838,7 @@
   },
   {
     "id": 10,
-    "title": "D10. Critères d'acceptation (BDD)",
+    "title": "D10. Établir les critères d'acceptation",
     "intent": "Formaliser le comportement attendu sous forme Given/When/Then pour chaque user story, afin de lever toute ambiguïté.",
     "icon": "check-square",
     "scenarios": [

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "B1. Saisie Assistée",
+    "title": "B1. Assister la saisie",
     "intent": "Remplacer la frappe clavier et les menus cachés par des clics directs pour limiter la fatigue cognitive.",
     "scenarios": [
       {
@@ -93,7 +93,7 @@
   },
   {
     "id": 2,
-    "title": "B2. Rappel Visuel (Sticky)",
+    "title": "B2. Ancrer les informations clés",
     "intent": "Maintenir l'information vitale ou l'action principale accrochée à l'écran lors du défilement.",
     "scenarios": [
       {
@@ -185,7 +185,7 @@
   },
   {
     "id": 3,
-    "title": "B3. Prévention d'Erreur Active",
+    "title": "B3. Prévenir activement les erreurs",
     "intent": "Contraindre l'interface ou alerter l'utilisateur avant même qu'il ne puisse soumettre une donnée fausse.",
     "scenarios": [
       {
@@ -277,7 +277,7 @@
   },
   {
     "id": 4,
-    "title": "B4. Sobriété Sémantique",
+    "title": "B4. Épurer la présentation visuelle",
     "intent": "Utiliser un design épuré et minimaliste où la couleur est réservée aux statuts et alertes cliniques majeures.",
     "scenarios": [
       {
@@ -369,7 +369,7 @@
   },
   {
     "id": 5,
-    "title": "B5. Aides Visuelles Intelligentes",
+    "title": "B5. Guider par l'aide contextuelle",
     "intent": "Guider l'utilisateur au bon moment avec des micro-informations non intrusives.",
     "scenarios": [
       {
@@ -461,7 +461,7 @@
   },
   {
     "id": 6,
-    "title": "B6. Personnalisation Utilisateurs",
+    "title": "B6. Personnaliser l'espace utilisateur",
     "intent": "Adapter l'interface au profil métier et sauvegarder les habitudes pour éviter la resaisie quotidienne.",
     "scenarios": [
       {
@@ -553,7 +553,7 @@
   },
   {
     "id": 7,
-    "title": "B7. Continuité de Tâche",
+    "title": "B7. Assurer la continuité d'action",
     "intent": "Préserver le travail face aux imprévus techniques ou hospitaliers (coupure WiFi, erreur de clic, appel urgent).",
     "scenarios": [
       {
@@ -645,7 +645,7 @@
   },
   {
     "id": 8,
-    "title": "B8. Lisibilité & Accessibilité",
+    "title": "B8. Rendre l'interface accessible",
     "intent": "Adapter l'interface visuelle aux réalités physiologiques (fatigue, obscurité, vieillesse) du milieu de la santé.",
     "scenarios": [
       {
@@ -737,7 +737,7 @@
   },
   {
     "id": 9,
-    "title": "B9. Confidentialité par le Design",
+    "title": "B9. Sécuriser les données sensibles",
     "intent": "Protéger par défaut le secret médical (RGPD) en garantissant la sécurité des accès, le moindre privilège et la traçabilité des modifications.",
     "scenarios": [
       {
@@ -829,7 +829,7 @@
   },
   {
     "id": 10,
-    "title": "B10. Guidage & Fil d'Ariane",
+    "title": "B10. Faciliter le guidage utilisateur",
     "intent": "Aider l'utilisateur à se repérer dans un protocole long ou lourd, sans le noyer sous la donnée d'un coup.",
     "scenarios": [
       {
@@ -921,7 +921,7 @@
   },
   {
     "id": 11,
-    "title": "B11. Copilote & IA Assistante",
+    "title": "B11. Collaborer avec l'assistant IA",
     "intent": "Intégrer l'intelligence artificielle (agents conversationnels, lecture de documents, analyse de données) pour accélérer le traitement clinique sans jamais imposer de décision.",
     "scenarios": [
       {
@@ -1013,7 +1013,7 @@
   },
   {
     "id": 12,
-    "title": "B12. Interface Compacte & Extensible",
+    "title": "B12. Simplifier l'affichage complexe",
     "intent": "Optimiser l'espace d'écran en utilisant des panneaux rétractables, des onglets dynamiques et des modales éphémères pour garder le contexte d'activité principal intact.",
     "scenarios": [
       {
@@ -1105,7 +1105,7 @@
   },
   {
     "id": 13,
-    "title": "B13. Traitement en masse",
+    "title": "B13. Permettre le traitement groupé",
     "intent": "Permettre d'éditer, de dupliquer ou de traiter plusieurs données simultanément pour accélérer le travail répétitif.",
     "scenarios": [
       {

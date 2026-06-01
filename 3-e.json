@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "E1. Cibler le \"Happy path\" (Valeur 80%)",
+    "title": "E1. Cibler le scénario nominal",
     "intent": "Concevoir le scénario nominal sans embûches qui couvre 80% des besoins réels, en reportant tout le reste pour garantir une livraison rapide.",
     "icon": "scissors",
     "scenarios": [
@@ -93,7 +93,7 @@
   },
   {
     "id": 2,
-    "title": "E2. Trancher et exclure pour la V1 (La \"Liste d'Exclusion\")",
+    "title": "E2. Exclure les fonctions secondaires",
     "intent": "Dresser explicitement la liste noire des fonctions exclues de la V1 pour éliminer le sur-mesure et la complexité des exceptions.",
     "icon": "ban",
     "scenarios": [
@@ -185,7 +185,7 @@
   },
   {
     "id": 3,
-    "title": "E3. Évacuer la complexité technique (La Simplification en cours de route)",
+    "title": "E3. Évacuer la complexité technique",
     "intent": "Simplifier les règles ou automatismes compliqués découverts en cours de dev en les remplaçant par des solutions visuelles ou manuelles simples.",
     "icon": "activity",
     "scenarios": [
@@ -277,7 +277,7 @@
   },
   {
     "id": 4,
-    "title": "E4. Valider la faisabilité par un prototype (Le POC)",
+    "title": "E4. Valider la faisabilité technique",
     "intent": "Éliminer les inconnues techniques majeures en codant des maquettes jetables (POC) avant de s'engager sur un planning.",
     "icon": "flask-conical",
     "scenarios": [
@@ -369,7 +369,7 @@
   },
   {
     "id": 5,
-    "title": "E5. Avancer par étapes testables (Le Phasage)",
+    "title": "E5. Avancer par étapes testables",
     "intent": "Découper le projet en jalons intermédiaires autonomes et testables avec de vraies données très tôt.",
     "icon": "git-commit",
     "scenarios": [
@@ -461,7 +461,7 @@
   },
   {
     "id": 6,
-    "title": "E6. Ajuster le périmètre, pas la date (Le Déscope de crise)",
+    "title": "E6. Ajuster le périmètre projet",
     "intent": "Face à une date cible inamovible, couper immédiatement les 20% de fonctionnalités non vitales en cas de retard.",
     "icon": "calendar",
     "scenarios": [
@@ -553,7 +553,7 @@
   },
   {
     "id": 7,
-    "title": "E7. Prévoir une marge de sécurité (La Marge 20%)",
+    "title": "E7. Prévoir une marge horaire",
     "intent": "Sanctuariser les derniers 20% du calendrier pour stabiliser, tester et déployer sereinement, hors nouveau code.",
     "icon": "shield-check",
     "scenarios": [
@@ -645,7 +645,7 @@
   },
   {
     "id": 8,
-    "title": "E8. Sécuriser les dépendances externes (Le \"Plan B\")",
+    "title": "E8. Sécuriser les dépendances externes",
     "intent": "Mocker les services tiers défaillants ou en retard par des simulateurs locaux (Mocks) pour rester autonome.",
     "icon": "git-merge",
     "scenarios": [
@@ -737,7 +737,7 @@
   },
   {
     "id": 9,
-    "title": "E9. Planifier la transition et l'impact (Dette & Décommissionnement)",
+    "title": "E9. Planifier la transition applicative",
     "intent": "Décider d'arrêter une fonctionnalité redondante, obsolète ou peu utilisée, c'est se libérer de sa maintenance.",
     "icon": "database",
     "scenarios": [
@@ -829,7 +829,7 @@
   },
   {
     "id": 10,
-    "title": "E10. Aligner la technique avec le terrain (Le \"Go-to-Market\" et la validation)",
+    "title": "E10. Aligner la technique terrain",
     "intent": "Faire tester l'outil en bac à sable et valider formellement la mise en service avec le support et la documentation prêts.",
     "icon": "rocket",
     "scenarios": [
@@ -921,7 +921,7 @@
   },
   {
     "id": 11,
-    "title": "E11. Préparer et accompagner la migration",
+    "title": "E11. Accompagner la migration utilisateur",
     "intent": "Déployer la migration par pilotes progressifs, avec une communication ciblée et un accompagnement intensif des utilisateurs pour vaincre les réticences au changement.",
     "icon": "users",
     "scenarios": [
@@ -1013,7 +1013,7 @@
   },
   {
     "id": 12,
-    "title": "E12. S'assurer de l'évolutivité du socle",
+    "title": "E12. Assurer l'évolutivité du socle",
     "intent": "Concevoir une architecture de base propre et extensible pour que les futurs besoins s'intègrent naturellement sans devoir tout réécrire.",
     "icon": "layers",
     "scenarios": [
