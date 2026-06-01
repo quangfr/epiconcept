@@ -485,8 +485,11 @@
 
     <!-- Right column: Interactions QCM (2/3) -->
     <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
-        <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md">
-            Phase 1 : Identification du réflexe
+        <div class="flex items-center gap-2.5 shrink-0">
+            <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shadow-md">
+                Orientation
+            </div>
+            <span id="phase1-question-text" class="text-xs font-semibold text-slate-600 italic">De quel réflexe s'agit t-il ?</span>
         </div>
         
         <div id="options-container" class="glass-panel rounded-xl p-3 sm:p-4 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
@@ -558,8 +561,8 @@ const ATELIERS_CONFIG = {
         icon: "target",
         emoji: "🎯",
         resetConfirm: "toute votre progression de Besoins Utilisateurs (PO)",
-        phase1Label: "Identification du réflexe PO",
-        phase2Label: "Réponse PO",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
         phase2Info: "Sélectionnez l'arbitrage PO correspondant à droite ➡️",
         phase3Label: "Interface Retenue",
         phase3Impact: "Impact Projet &amp; Équipes",
@@ -580,8 +583,8 @@ const ATELIERS_CONFIG = {
         icon: "mouse-pointer-click",
         emoji: "🏥",
         resetConfirm: "toute votre progression d'Ergonomie UX/UI",
-        phase1Label: "Identification du principe UX",
-        phase2Label: "Réponse UX",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
         phase2Info: "Identifiez la maquette UI correspondante à droite ➡️",
         phase3Label: "Interface Retenue",
         phase3Impact: "Impact Métier ESIS-3D",
@@ -602,7 +605,7 @@ const ATELIERS_CONFIG = {
         icon: "headset",
         emoji: "🎧",
         resetConfirm: "toute votre progression de Support & Client",
-        phase1Label: "Identification du réflexe",
+        phase1Label: "Orientation",
         phase2Label: "Réponse",
         phase2Info: "Sélectionnez le choix d'interaction correspondant à droite ➡️",
         phase3Label: "Décision Retenue",
@@ -624,8 +627,8 @@ const ATELIERS_CONFIG = {
         icon: "sparkles",
         emoji: "✨",
         resetConfirm: "toute votre progression de Spécs & Évolutions",
-        phase1Label: "Identification du réflexe Spécs",
-        phase2Label: "Réponse Spécs",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
         phase2Info: "Sélectionnez la spécification correspondante à droite ➡️",
         phase3Label: "Spécification Retenue",
         phase3Impact: "Impact Projet &amp; Équipes",
@@ -646,8 +649,8 @@ const ATELIERS_CONFIG = {
         icon: "mountain",
         emoji: "⛰️",
         resetConfirm: "toute votre progression de Roadmap & Jalons",
-        phase1Label: "Identification du réflexe Roadmap",
-        phase2Label: "Réponse Roadmap",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
         phase2Info: "Sélectionnez la décision de Roadmap correspondante à droite ➡️",
         phase3Label: "Décision Retenue",
         phase3Impact: "Impact Projet &amp; Équipes",
@@ -668,8 +671,8 @@ const ATELIERS_CONFIG = {
         icon: "telescope",
         emoji: "🔭",
         resetConfirm: "toute votre progression de Features Discovery",
-        phase1Label: "Identification du réflexe Features",
-        phase2Label: "Réponse Features",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
         phase2Info: "Sélectionnez la stratégie de Discovery correspondante à droite ➡️",
         phase3Label: "Stratégie Retenue",
         phase3Impact: "Impact Projet &amp; Équipes",
@@ -690,8 +693,8 @@ const ATELIERS_CONFIG = {
         icon: "wrench",
         emoji: "🔧",
         resetConfirm: "toute votre progression de G - Diagnostic & Résolution",
-        phase1Label: "Identification du réflexe Support N2",
-        phase2Label: "Réponse Support N2",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
         phase2Info: "Sélectionnez la décision de support correspondante à droite ➡️",
         phase3Label: "Décision Retenue",
         phase3Impact: "Impact Projet &amp; Équipes",
@@ -712,8 +715,8 @@ const ATELIERS_CONFIG = {
         icon: "clipboard-list",
         emoji: "📝",
         resetConfirm: "toute votre progression de H - Assistance & Connaissance",
-        phase1Label: "Identification du réflexe Ticketing",
-        phase2Label: "Réponse Ticketing",
+        phase1Label: "Orientation",
+        phase2Label: "Réponse",
         phase2Info: "Sélectionnez le choix de documentation ou ticketing correspondant à droite ➡️",
         phase3Label: "Décision Retenue",
         phase3Impact: "Impact Projet &amp; Équipes",
@@ -916,6 +919,7 @@ function loadStepPhase1() {
     
     document.getElementById('phase-label-container').innerText = CONFIG.phase1Label;
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase1-question-text').classList.remove('hidden');
     
     renderReflexChoices();
 }
@@ -975,6 +979,7 @@ function loadStepPhase2() {
     
     document.getElementById('phase-label-container').innerText = CONFIG.phase2Label;
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase1-question-text').classList.add('hidden');
     
     const phase2Container = document.getElementById('phase2-question-container');
     phase2Container.classList.remove('hidden');
@@ -1082,6 +1087,7 @@ function showDebriefing(correctOpt) {
     const phaseLabel = document.getElementById('phase-label-container');
     phaseLabel.innerText = "Synthèse";
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-700 text-white shadow-md shrink-0 transition-colors";
+    document.getElementById('phase1-question-text').classList.add('hidden');
 
     const nextBtn = document.getElementById('btn-next');
     if (answeredSteps.every(Boolean)) {
@@ -1108,6 +1114,7 @@ function goBackFromDebrief() {
     const phaseLabel = document.getElementById('phase-label-container');
     phaseLabel.innerText = CONFIG.phase2Label;
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase1-question-text').classList.add('hidden');
 
     currentPhase = 2;
     renderUIChoices();
@@ -1122,6 +1129,7 @@ function goBackToPhase1() {
     const phaseLabel = document.getElementById('phase-label-container');
     phaseLabel.innerText = CONFIG.phase1Label;
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+    document.getElementById('phase1-question-text').classList.remove('hidden');
 
     currentPhase = 1;
     renderReflexChoices();
