@@ -1640,7 +1640,7 @@
                                 title="Voir les slides">
                                 <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="lean-slides-status-label">0 / 4</span></div>
+                                <div class="card-status"><span id="lean-slides-status-label">0 / 7</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1805,7 +1805,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.02.01';
+        const APP_VERSION = '2026.06.02.02';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2030,7 +2030,7 @@
             const leanSlideIdx = savedLean ? parseInt(savedLean, 10) : -1;
             const leanSlidesStatusLabel = document.getElementById('lean-slides-status-label');
             if (leanSlidesStatusLabel) {
-                window.updateCardStatusBadge(leanSlidesStatusLabel, leanSlideIdx + 1, 4);
+                window.updateCardStatusBadge(leanSlidesStatusLabel, leanSlideIdx + 1, 7);
             }
 
             const savedDt = localStorage.getItem('design-thinking-last-slide');
@@ -2290,7 +2290,7 @@
                     <option value="2">Atelier 2 - Cadrage Product</option>
                     <option value="3">Atelier 3 - Vision Product</option>
                     <option value="4">Atelier 4 - Support Product</option>
-                    <option value="5">Atelier 5 - Veille Product</option>
+                    <option value="5">Atelier 5 - Innovation Product</option>
                     <option value="6">Atelier 6 - Data Product</option>
                 </select>
             </div>
