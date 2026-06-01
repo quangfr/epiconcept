@@ -69,6 +69,7 @@
             font-family: var(--font-body);
             height: 100vh;
             overflow: hidden;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             padding: 0.75rem 2rem;
@@ -365,6 +366,7 @@
         @media (max-width: 800px) {
             body {
                 overflow: auto;
+                overflow-x: hidden;
                 height: auto;
                 padding: 0.5rem 1rem !important;
             }
@@ -1770,7 +1772,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.22';
+        const APP_VERSION = '2026.06.01.23';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
