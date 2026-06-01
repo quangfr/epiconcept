@@ -1220,18 +1220,21 @@
                         <i data-lucide="info" style="width: 16px; height: 16px;"></i>
                     </button>
                 </div>
+                <div class="flex items-center gap-1">
+                    <button id="scroll-prev" aria-label="Atelier précédent" class="bg-slate-100 p-1.5 rounded-lg text-slate-500 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                        style="border: none; outline: none; width: 26px; height: 26px;">
+                        <i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i>
+                    </button>
+                    <button id="scroll-next" aria-label="Atelier suivant" class="bg-slate-100 p-1.5 rounded-lg text-slate-500 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                        style="border: none; outline: none; width: 26px; height: 26px;">
+                        <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                    </button>
+                </div>
             </section>
         </div>
 
         <!-- Horizontal Ateliers Paginated -->
         <div class="scroll-wrapper" id="scroll-wrapper">
-            <!-- Edge arrows (icon only, appear on hover) -->
-            <button class="edge-arrow edge-arrow-left" id="scroll-prev" aria-label="Atelier précédent">
-                <i data-lucide="chevron-left" style="width: 20px; height: 20px;"></i>
-            </button>
-            <button class="edge-arrow edge-arrow-right" id="scroll-next" aria-label="Atelier suivant">
-                <i data-lucide="chevron-right" style="width: 20px; height: 20px;"></i>
-            </button>
 
             <main class="ateliers-scroll" id="ateliers-scroll">
 
@@ -1767,8 +1770,6 @@
 
             </main>
 
-            <!-- Dot progress for pages -->
-            <div id="hub-dot-progress" style="display: flex; gap: 6px; justify-content: center; padding: 6px 0 2px; flex-shrink: 0;"></div>
         </div><!-- /.scroll-wrapper -->
 
     </div><!-- /.container -->
@@ -1776,7 +1777,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.62';
+        const APP_VERSION = '2026.06.01.63';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2321,7 +2322,7 @@
                 `;
                     } else {
                         html += `
-                    <p class="slide-footer-conclusion" style="font-size: 1.2rem; color: #475569; margin-top: 0.6rem; max-width: 750px; font-weight: 600; line-height: 1.5;">
+                    <p class="slide-footer-conclusion" style="font-size: 1.2rem; color: #475569; margin-top: 0.6rem; max-width: 750px; font-weight: 600; line-height: 1.5; text-align: center;">
                         ${slide.footer}
                     </p>
                 `;
