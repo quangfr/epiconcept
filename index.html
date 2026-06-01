@@ -1766,7 +1766,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.01';
+        const APP_VERSION = '2026.06.01.02';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2491,22 +2491,28 @@
                 if (item) {
                     title = item.title;
                     description = item.intent;
-                    examples = item.questions || [];
                     badgeText = "Réflexe PO (Posture)";
                     iconName = "target";
+                    examples = [];
 
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
                             const sci = sc.correct;
-                            if (sci && sci.visual) {
-                                visuals.push({
-                                    title: sci.title || (item.questions[idx] ? item.questions[idx].text : ''),
-                                    expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
-                                    html: sci.visual
-                                });
+                            if (sci) {
+                                if (sci.title) {
+                                    examples.push(`${sci.title} : ${sci.expl}`);
+                                }
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title || (item.questions[idx] ? item.questions[idx].text : ''),
+                                        expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
                             }
                         });
                     }
+                    if (!examples.length) examples = item.questions || [];
                 }
             } else if (reflexId.startsWith('B')) {
                 const num = parseInt(reflexId.substring(1), 10);
@@ -2538,22 +2544,28 @@
                 if (item) {
                     title = item.title;
                     description = item.intent;
-                    examples = item.questions || [];
                     badgeText = "Réflexe Support & Client";
                     iconName = item.icon || "headset";
                     isCD = true;
+                    examples = [];
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
                             const sci = sc.correct;
-                            if (sci && sci.visual) {
-                                visuals.push({
-                                    title: sci.title || (item.questions[idx] || ''),
-                                    expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
-                                    html: sci.visual
-                                });
+                            if (sci) {
+                                if (sci.title) {
+                                    examples.push(`${sci.title} : ${sci.expl}`);
+                                }
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title || (item.questions[idx] || ''),
+                                        expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
                             }
                         });
                     }
+                    if (!examples.length) examples = item.questions || [];
                 }
             } else if (reflexId.startsWith('D')) {
                 const num = parseInt(reflexId.substring(1), 10);
@@ -2561,22 +2573,28 @@
                 if (item) {
                     title = item.title;
                     description = item.intent;
-                    examples = item.questions || [];
                     badgeText = "Réflexe Spécs & Évolutions";
                     iconName = item.icon || "sparkles";
                     isCD = true;
+                    examples = [];
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
                             const sci = sc.correct;
-                            if (sci && sci.visual) {
-                                visuals.push({
-                                    title: sci.title || (item.questions[idx] || ''),
-                                    expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
-                                    html: sci.visual
-                                });
+                            if (sci) {
+                                if (sci.title) {
+                                    examples.push(`${sci.title} : ${sci.expl}`);
+                                }
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title || (item.questions[idx] || ''),
+                                        expl: sci.debriefExpl || sci.expl || sc.explanation || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
                             }
                         });
                     }
+                    if (!examples.length) examples = item.questions || [];
                 }
             } else if (reflexId.startsWith('E')) {
                 const num = parseInt(reflexId.substring(1), 10);
@@ -2659,7 +2677,7 @@
             if (badgeText.startsWith('Réflexe PO')) {
                 examplesContainer.style.display = 'flex';
                 if (visualsContainer) visualsContainer.style.display = 'flex';
-                label.innerText = "Questions";
+                label.innerText = "Principes";
                 list.innerHTML = '';
                 examples.forEach((q, idx) => {
                     const questionText = q.text || q;
@@ -2691,7 +2709,7 @@
             } else if (isCD) {
                 examplesContainer.style.display = 'flex';
                 if (visualsContainer) visualsContainer.style.display = 'flex';
-                label.innerText = "Questions";
+                label.innerText = "Principes";
                 list.innerHTML = '';
                 examples.forEach((q, idx) => {
                     const div = document.createElement('div');
@@ -2846,7 +2864,7 @@
             <div id="ref-examples-container" style="display: flex; flex-direction: column; gap: 0.25rem;">
                 <h4 id="ref-examples-label"
                     style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
-                    Questions</h4>
+                     Principes</h4>
                 <ul id="ref-examples-list"
                     style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem;">
                     <!-- Filled dynamically -->
