@@ -7,27 +7,12 @@
 - **Slides** : `1-0.md`, `2-0.md` (format Marp-like, séparateur `\n---\n`).
 
 ## 2. Directives UI & Frontend
-
-### A. Directives de Style des Fichiers .html (Hub & Ateliers)
-- **CSS & CDN** : Tailwind CSS (via CDN) pour le prototypage rapide. Les styles partagés et réutilisables (secousse `.shake`, réussite `.correct`, grilles d'options et mockups interactifs) sont factorisés dans `style.css`.
-- **Thème Visual Design (Glassmorphism)** :
-  - Utiliser la transparence floutée : `bg-white/90 border border-slate-200/60 backdrop-blur shadow-sm rounded-xl`.
-  - Nuancier harmonieux : Gris/Bleu ardoise (`slate`), Bleu/Indigo (`blue`/`indigo`) pour les focus et sélections, Vert émeraude (`emerald`) pour les validations et succès, Rose/Rouge (`rose`/`red`) pour les erreurs et frictions.
-- **Interactions & Feedback** : Micro-animations au survol (`hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200`). Animation de secousse `@keyframes shake` pour l'échec et vibration.
-- **Lucide Icons** : Appeler impérativement `lucide.createIcons()` après chaque modification dynamique du DOM (`innerHTML`) pour restituer les icônes à la volée.
-
-### B. Gestion Responsive des Slides "Lesson" & SVGs (Marp / index.html)
-- **Responsive Layout** : `.lesson-slide` est un conteneur flex vertical (`display: flex; flex-direction: column; overflow: hidden`) qui remplit l'espace de la modal sans provoquer de barre de défilement interne.
-- **Adaptabilité Typographique** : Les titres de slides utilisent un dimensionnement fluide (`font-size: clamp(2.8rem, 5.2vw, 4rem); font-weight: 900; margin-bottom: 0.3rem`).
-- **Gestion des SVGs Bruts** :
-  - **Règle d'or** : Les SVGs doivent obligatoirement posséder un attribut `viewBox="0 0 W H"` pour rester extensibles, sans dimensions fixes (`width`/`height` en pixels) codées en dur.
-  - Ajustement automatique : Le CSS force `.lesson-slide svg { max-height: 100% !important; max-width: 100% !important; height: auto !important; width: auto !important; display: block; }` pour s'étirer parfaitement dans l'espace disponible.
-- **Zoom Interactif au Clic** : Tout clic sur un SVG de slide déclenche l'affichage d'un clone dans un overlay plein écran flouté (`.zoom-overlay` avec `backdrop-filter: blur(10px)`) avec bouton de fermeture (icône Lucide `x`) et fermeture par touche Échap (`Escape`).
-- **Mobile** : Sur écran inférieur à 768px, les marges horizontales tombent à 0, et la hauteur maximale des SVGs est limitée à `70vh` pour libérer de l'espace pour le titre et le texte de conclusion.
-
-### C. Slides Récapitulatifs de Fin ("Réflexes")
-- **Layout Adapté** : Les slides de fin (type "Récapitulatif des Réflexes") reçoivent un alignement étiré (`align-items: stretch` au lieu de `center`) pour maximiser la largeur d'affichage des grilles et colonnes.
-- **Mise en Page** : Utiliser des structures en grille ou cartes horizontales flex avec fond neutre (`bg-slate-50 border border-slate-200`), icônes Lucide sémantiques et contrastées, et badges pour résumer les notions apprises sans surcharger.
+- **Style** : Tailwind CSS (CDN) + `style.css` (partagés, `.shake`, `.correct`).
+- **Glassmorphism** : `bg-white/90 border border-slate-200/60 backdrop-blur shadow-sm rounded-xl`. Palette : `slate` (gris), `blue/indigo` (focus), `emerald` (succès), `rose/red` (erreurs).
+- **Interactions** : Micro-animations (hover shadow/translate) et `@keyframes shake`. Appeler `lucide.createIcons()` après chaque `innerHTML`.
+- **Slides / SVGs** : `.lesson-slide` flex sans scroll. Titres fluides (`clamp`). SVGs avec `viewBox` (zéro dimension fixe), forcés en `max-size: 100%`.
+- **Zoom/Mobile** : Zoom overlay flouté sur clic. Mobile (<768px) : marges 0, `max-height: 70vh` pour les SVGs.
+- **Réflexes** : Layout étiré (`align-items: stretch`), cartes `bg-slate-50`, badges sémantiques.
 
 ## 3. Workflow, Économie de Tokens & Structure
 - **Structure** : `index.html` centralise le Hub et le chargement des référentiels via `showRef(id)`. Chaque fichier `{X}-{y}.html` contient la logique de jeu de son atelier respectif, et consomme `{X}-{y}.json` qui contient les questions, scénarios et visuels HTML.
