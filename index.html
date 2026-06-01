@@ -1563,14 +1563,14 @@
                                     data-lucide="clipboard-list"></i></div>
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
-                                H - Ticketing &amp; Documentation</h2>
+                                H - Assistance &amp; Connaissance</h2>
                             <button onclick="event.stopPropagation(); openLesson(4, 2)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les slides">
                                 <i data-lucide="info" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="ticketing-status-label">0 / 24</span></div>
+                                <div class="card-status"><span id="ticketing-status-label">0 / 27</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1765,7 +1765,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.40';
+        const APP_VERSION = '2026.06.01.41';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1853,7 +1853,7 @@
             let maxRoadScore = 36;
             let maxFeatScore = 27;
             let maxGsupScore = 30;
-            let maxTicketingScore = 24;
+            let maxTicketingScore = 27;
             let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore + maxFeatScore + maxGsupScore + maxTicketingScore;
 
             // Pagination: 3 ateliers per page

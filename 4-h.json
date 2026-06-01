@@ -742,5 +742,98 @@
       }
     ],
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Les Bonnes Pratiques du Template</div><div class=\"flex flex-col gap-1.5 text-[7px] font-semibold text-slate-600\"><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"check\" class=\"w-3 h-3 text-emerald-500\"></i> Personnaliser systématiquement (Nom, Numéro de ticket)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"shield\" class=\"w-3 h-3 text-blue-500\"></i> Valider réglementairement (DPO, Experts métiers)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"refresh-cw\" class=\"w-3 h-3 text-purple-500\"></i> Auditer périodiquement (chaque semestre au moins)</div></div></div>"
+  },
+  {
+    "id": 9,
+    "title": "H9. Construire une communauté d'utilisateurs",
+    "intent": "Fédérer, animer et s'appuyer sur un réseau d'utilisateurs experts et de relais supports pour diffuser les bonnes pratiques et co-construire le produit.",
+    "icon": "users",
+    "scenarios": [
+      {
+        "text": "Un grand CRDC partenaire souhaite structurer son support interne pour que les agents n'appellent plus Epiconcept pour des questions triviales de réinitialisation de mot de passe.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Surcharge du support direct</span></div><p class=\"text-[8.5px] text-slate-500 mb-1 leading-normal\">• 12 appels de réinitialisation ce jour.</p><div class=\"bg-slate-50 p-1.5 rounded text-[8px] text-slate-400\">Aucun relais identifié chez le client.</div></div>",
+        "correct": {
+          "title": "Avoir des relais d'utilisateurs supports",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Support décentralisé</div><div class=\"flex items-center gap-1\"><i data-lucide=\"award\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Super-utilisateur (relais support local)</span></div></div>",
+          "expl": "Identifier et former un correspondant support privilégié (super-utilisateur) au sein de chaque structure cliente.",
+          "debriefExpl": "Former un super-utilisateur local permet de filtrer les questions d'usage simples directement sur le terrain et assure une meilleure réactivité tout en allégeant le support Epiconcept.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Interdire les appels téléphoniques",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Restriction</div><div class=\"flex items-center gap-1\"><i data-lucide=\"phone-off\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Couper le canal téléphonique direct</span></div></div>",
+            "expl": "Bloquer les appels et exiger que chaque agent crée un ticket individuel en ligne.",
+            "debriefExpl": "Couper brutalement le téléphone sans relais local génère une frustration majeure et ne résout pas la cause racine du manque d'autonomie des utilisateurs.",
+            "icon": "x"
+          },
+          {
+            "title": "Ajouter un agent support dédié",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Coût élevé</div><div class=\"flex items-center gap-1\"><i data-lucide=\"user-plus\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Recruter un agent support à temps plein</span></div></div>",
+            "expl": "Recruter un nouvel agent de support dédié exclusivement à ce client.",
+            "debriefExpl": "Recruter un agent dédié est une solution coûteuse et non scalable. La co-animation avec un relais interne est infiniment plus efficace et pérenne.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Fidéliser et former des correspondants de support locaux permet de créer un premier filtre d'assistance efficace et au plus près du terrain."
+      },
+      {
+        "text": "Vous devez concevoir un nouveau module d'import de résultats CPAM complexe. Au lieu de l'imaginer seul dans votre coin, vous souhaitez impliquer les personnes qui réalisent cette tâche quotidiennement depuis des années.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"settings-2\" class=\"w-3.5 h-3.5 text-amber-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Nouveau module CPAM</span></div><p class=\"text-[8.5px] text-slate-500 leading-normal\">Spécification fonctionnelle en cours de rédaction par l'équipe produit.</p></div>",
+        "correct": {
+          "title": "Consulter les utilisateurs experts",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Co-conception</div><div class=\"flex items-center gap-1\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Groupe de travail avec 5 gestionnaires experts</span></div></div>",
+          "expl": "Créer un groupe de travail avec des utilisateurs experts pour tester les maquettes avant le développement.",
+          "debriefExpl": "Impliquer les utilisateurs experts garantit que l'outil répondra parfaitement à la réalité du terrain et évite les rejets lors du déploiement.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Se fier uniquement aux spécifications",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Théorique</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-text\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Rédiger les specs de manière isolée</span></div></div>",
+            "expl": "Rédiger les spécifications à partir des seuls textes réglementaires et envoyer le module en dev.",
+            "debriefExpl": "Les textes théoriques réglementaires ne décrivent jamais les contraintes physiques réelles des fichiers CPAM. Sans avis expert, le module échouera à coup sûr en production.",
+            "icon": "x"
+          },
+          {
+            "title": "Faire une enquête globale par e-mail",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Générique</div><div class=\"flex items-center gap-1\"><i data-lucide=\"mail\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Envoyer un questionnaire de 40 questions</span></div></div>",
+            "expl": "Envoyer un e-mail à 5 000 personnes en demandant ce qu'elles aimeraient voir dans le nouveau module.",
+            "debriefExpl": "Une enquête de masse sans focus produit produit un bruit immense difficile à analyser. Travailler en comité d'experts ciblés est infiniment plus qualitatif.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Consulter un panel d'utilisateurs experts terrain permet de confronter la théorie des specs à la réalité opérationnelle du travail."
+      },
+      {
+        "text": "Vous allez déployer une version majeure d'Epiconcept qui va profondément modifier l'ergonomie de l'écran de gestion des dossiers. Vous voulez préparer les 5 000 utilisateurs nationaux en amont pour éviter un choc au déploiement.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Changement majeur d'interface</span></div><p class=\"text-[8.5px] text-slate-500 mb-1 leading-normal\">Déploiement de la V4 programmé dans 15 jours.</p></div>",
+        "correct": {
+          "title": "Communiquer avec la communauté produit",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Accompagnement</div><div class=\"flex items-center gap-1\"><i data-lucide=\"megaphone\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Webinaires, pilotes relais & enquêtes</span></div></div>",
+          "expl": "Lancer une campagne de communication (webinaires, pilotes en avant-première et enquêtes de satisfaction) auprès de toute la communauté.",
+          "debriefExpl": "Une communication proactive (phase pilote avec les relais, webinaire de démo, enquête) prépare le terrain au changement et assure une transition fluide sans surcharge du support.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Déployer sans avertissement préalable",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Choc</div><div class=\"flex items-center gap-1\"><i data-lucide=\"zap\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Mise en ligne directe un lundi matin</span></div></div>",
+            "expl": "Déployer la mise à jour sans communication préalable pour laisser les utilisateurs découvrir la nouvelle ergonomie seuls.",
+            "debriefExpl": "Déployer une refonte ergonomique majeure sans communication préalable génère un rejet immédiat de l'outil et provoque une saturation instantanée du support téléphonique.",
+            "icon": "x"
+          },
+          {
+            "title": "Publier une note technique le jour J",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Trop tard</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-text\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Mise en ligne d'une note de version technique</span></div></div>",
+            "expl": "Publier une note de version technique de 10 pages dans les actualités le jour du déploiement.",
+            "debriefExpl": "Une note de version publiée au dernier moment n'aide pas à anticiper le changement. Les utilisateurs ont besoin d'être accompagnés en amont par des démos ou des groupes pilotes.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'animation proactive de la communauté produit (sessions démo, phases pilotes) est indispensable pour réussir la conduite du changement."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Animer sa Communauté Produit</div><div class=\"flex flex-col gap-1.5 text-[7px] font-semibold text-slate-600\"><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"award\" class=\"w-3 h-3 text-emerald-500\"></i> Super-utilisateurs : relais support locaux de 1er niveau</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"users\" class=\"w-3 h-3 text-blue-500\"></i> Utilisateurs experts : comité de co-conception de l'UX</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"megaphone\" class=\"w-3 h-3 text-purple-500\"></i> Communication : enquêtes, pilotes de conduite du changement</div></div></div>"
   }
 ]
