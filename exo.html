@@ -335,13 +335,13 @@
                 <i data-lucide="home" class="w-4 h-4"></i>
             </a>
             <select id="home-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
-                <option value="./pratique.html?a=1-a">A - Besoins Utilisateurs</option>
-                <option value="./pratique.html?a=1-b">B - Ergonomie UX/UI</option>
-                <option value="./pratique.html?a=2-c">C - Support &amp; Client</option>
-                <option value="./pratique.html?a=2-d">D - Évolutions &amp; Specs</option>
-                <option value="./pratique.html?a=3-e">E - Roadmap &amp; Jalons</option>
-                <option value="./pratique.html?a=3-f">F - Features Discovery</option>
-                <option value="./pratique.html?a=4-g">G - Diagnostic &amp; Résolution</option>
+                <option value="./exo.html?id=1-a">A - Besoins Utilisateurs</option>
+                <option value="./exo.html?id=1-b">B - Ergonomie UX/UI</option>
+                <option value="./exo.html?id=2-c">C - Support &amp; Client</option>
+                <option value="./exo.html?id=2-d">D - Évolutions &amp; Specs</option>
+                <option value="./exo.html?id=3-e">E - Roadmap &amp; Jalons</option>
+                <option value="./exo.html?id=3-f">F - Features Discovery</option>
+                <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
             </select>
         </div>
         <div class="flex gap-2">
@@ -411,13 +411,13 @@
                 </div>
             </a>
             <select id="header-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
-                <option value="./pratique.html?a=1-a">A - Besoins Utilisateurs</option>
-                <option value="./pratique.html?a=1-b">B - Ergonomie UX/UI</option>
-                <option value="./pratique.html?a=2-c">C - Support &amp; Client</option>
-                <option value="./pratique.html?a=2-d">D - Évolutions &amp; Specs</option>
-                <option value="./pratique.html?a=3-e">E - Roadmap &amp; Jalons</option>
-                <option value="./pratique.html?a=3-f">F - Features Discovery</option>
-                <option value="./pratique.html?a=4-g">G - Diagnostic &amp; Résolution</option>
+                <option value="./exo.html?id=1-a">A - Besoins Utilisateurs</option>
+                <option value="./exo.html?id=1-b">B - Ergonomie UX/UI</option>
+                <option value="./exo.html?id=2-c">C - Support &amp; Client</option>
+                <option value="./exo.html?id=2-d">D - Évolutions &amp; Specs</option>
+                <option value="./exo.html?id=3-e">E - Roadmap &amp; Jalons</option>
+                <option value="./exo.html?id=3-f">F - Features Discovery</option>
+                <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
             </select>
         </div>
         
@@ -704,7 +704,7 @@ const ATELIERS_CONFIG = {
 
 // Lecture de l'atelier depuis l'URL
 const urlParams = new URLSearchParams(window.location.search);
-const ATELIER_ID = urlParams.get('a') || "1-a";
+const ATELIER_ID = urlParams.get('id') || "1-a";
 
 if (!ATELIERS_CONFIG[ATELIER_ID]) {
     // Redirection automatique par défaut en cas d'atelier invalide
@@ -724,9 +724,9 @@ document.getElementById('modal-subtitle-display').innerText = `Les réflexes et 
 
 // Met en surbrillance l'atelier en cours dans les selecteurs
 const homeSel = document.getElementById('home-atelier-selector');
-if (homeSel) homeSel.value = `./pratique.html?a=${ATELIER_ID}`;
+if (homeSel) homeSel.value = `./exo.html?id=${ATELIER_ID}`;
 const headerSel = document.getElementById('header-atelier-selector');
-if (headerSel) headerSel.value = `./pratique.html?a=${ATELIER_ID}`;
+if (headerSel) headerSel.value = `./exo.html?id=${ATELIER_ID}`;
 
 // Mise en place de la thématique CSS globale
 document.body.className = "flex flex-col relative";
