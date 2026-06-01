@@ -1765,7 +1765,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.38';
+        const APP_VERSION = '2026.06.01.39';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1937,6 +1937,11 @@
                 window.updateCardStatusBadge(ticketingLabel, totalTicketingScore, maxTicketingScore);
             }
 
+            const ticketingLabel = document.getElementById('ticketing-status-label');
+            if (ticketingLabel) {
+                window.updateCardStatusBadge(ticketingLabel, totalTicketingScore, maxTicketingScore);
+            }
+
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
             const dtStatusLabel = document.getElementById('dt-status-label');
@@ -2056,6 +2061,13 @@
             if (runCard) {
                 runCard.addEventListener('click', () => {
                     window.location.href = './exo.html?id=4-g';
+                });
+            }
+
+            const supportCard = document.getElementById('support-card');
+            if (supportCard) {
+                supportCard.addEventListener('click', () => {
+                    window.location.href = './exo.html?id=4-h';
                 });
             }
 
