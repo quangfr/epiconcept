@@ -494,7 +494,7 @@
         
         <div id="options-container" class="glass-panel rounded-xl p-3 sm:p-4 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
             <!-- Phase 1 QCM list -->
-            <div id="reflex-grid" class="flex flex-col gap-1.5 h-full overflow-y-auto pr-2 pb-4"></div>
+            <div id="reflex-grid" class="flex flex-col gap-1.5 h-full overflow-y-auto pt-1.5 pl-1 pr-2 pb-4"></div>
 
             <!-- Phase 2 QCM list -->
             <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pr-2 pb-4">
@@ -513,8 +513,8 @@
                     <div class="flex items-center gap-4 mb-6 mt-4 shrink-0">
                         <div id="debrief-emoji" class="text-4xl bg-emerald-100 w-16 h-16 flex items-center justify-center rounded-2xl shadow-sm">🎯</div>
                         <div>
-                            <h2 id="debrief-main-title" class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight mb-0.5">Décision Validée !</h2>
-                            <p id="debrief-title" class="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Réflexe appliqué</p>
+                            <p id="debrief-main-title" class="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Décision Validée !</p>
+                            <h2 id="debrief-title" class="text-slate-800 font-black uppercase tracking-tight text-lg sm:text-xl">Réflexe appliqué</h2>
                         </div>
                     </div>
                     
@@ -1053,7 +1053,7 @@ function showDebriefing(correctOpt) {
     const reflex = reflexes.find(r => r.id === step.reflexId);
     
     document.getElementById('debrief-title').innerText = `${reflex.title}`;
-    document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title}</span></div>`;
+    document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</span></div>`;
     document.getElementById('debrief-ui-visual').innerHTML = correctOpt.visual;
     
     let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl || ''}</p>`;
