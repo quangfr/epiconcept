@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B - Ergonomie UX/UI - ESIS-3D</title>
+    <title id="page-title">ESIS-3D - Simulateur d'Atelier</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -53,7 +53,7 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
-
+        
         /* Protection anti-clic dans les maquettes */
         .mockup-container { pointer-events: none; }
 
@@ -89,7 +89,7 @@
                 height: auto !important;
                 overflow: visible !important;
             }
-            #scenario-card, #options-container, #reflex-grid, #ui-grid, #questions-wrapper, #question-list {
+            #scenario-card, #options-container, #reflex-grid, #ui-grid, #choices-wrapper, #choice-list {
                 height: auto !important;
                 overflow: visible !important;
             }
@@ -127,7 +127,6 @@
         }
 
         @media (max-width: 500px) {
-            /* Aggressive reductions for padding & margins */
             #home-screen, #debriefing-card, #modal-content, main, .p-4, .p-6, .p-8 {
                 padding: 0.25rem !important;
             }
@@ -189,7 +188,6 @@
                 margin-top: 0.1rem !important;
             }
 
-            /* Much smaller Lucide icons globally on the page */
             [data-lucide] {
                 width: 11px !important;
                 height: 11px !important;
@@ -200,7 +198,6 @@
                 height: 13px !important;
             }
             
-            /* Lesson page dynamic header up to three lines wrap */
             header {
                 height: auto !important;
                 padding: 0.25rem 0.4rem !important;
@@ -211,7 +208,6 @@
                 align-items: stretch !important;
                 gap: 0.2rem !important;
             }
-            /* Line 1: Left Navigation */
             header > div > div:first-child {
                 width: 100% !important;
                 display: flex !important;
@@ -225,7 +221,6 @@
                 padding: 0.2rem !important;
                 border-radius: 4px !important;
             }
-            /* Line 2: Lesson Title Context */
             header > div > div.text-center {
                 width: 100% !important;
                 text-align: center !important;
@@ -241,7 +236,6 @@
             header > div > div.text-center #level-title-display {
                 font-size: 0.65rem !important;
             }
-            /* Line 3: Score & Reset Action */
             header > div > div:last-child {
                 width: 100% !important;
                 display: flex !important;
@@ -297,38 +291,38 @@
 
 <div id="modal-referentiel" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
-        <!-- Bouton X en haut à droite -->
+        <!-- Close Button -->
         <button onclick="closeModal()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">
             ✕
         </button>
         
-        <!-- En-tête compacte -->
+        <!-- Header -->
         <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
             <div>
-                <h2 class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Réflexes Ergonomie UX/UI</h2>
-                <p class="text-slate-500 text-xs font-medium leading-none">Les 13 principes de l'ergonomie applicative rattachés aux principes de conception UX d'Epiconcept</p>
+                <h2 id="modal-title-display" class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Référentiel Réflexes</h2>
+                <p id="modal-subtitle-display" class="text-slate-500 text-xs font-medium leading-none">Les principes et réflexes associés.</p>
             </div>
-            <!-- Sélecteur pleine largeur -->
+            <!-- Selector -->
             <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
                 <option value="">-- Aller au Réflexe --</option>
             </select>
         </div>
         
-        <!-- Contenu de référentiel avec marges resserrées sur les côtés -->
+        <!-- Content -->
         <div id="modal-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50 relative">
-            <!-- Rempli dynamiquement en JS -->
+            <!-- Dynamically populated -->
         </div>
     </div>
 </div>
 
-<!-- MODAL D'INFO (POUR LE JEU) -->
+<!-- MODAL INFO (GAME) -->
 <div id="info-modal" class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6">
     <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
         <button onclick="closeInfoModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <div id="info-modal-content">
-            <!-- Injecté par JS -->
+            <!-- Injected by JS -->
         </div>
         <button onclick="closeInfoModal()" class="mt-8 w-full bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest">J'ai compris</button>
     </div>
@@ -340,70 +334,67 @@
             <a href="./index.html" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" aria-label="Retour au Hub">
                 <i data-lucide="home" class="w-4 h-4"></i>
             </a>
-            <select onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
-                <option value="./1-a.html">A - Besoins Utilisateurs</option>
-                <option value="./1-b.html" selected>B - Ergonomie UX/UI</option>
-                <option value="./2-c.html">C - Support &amp; Client</option>
-                <option value="./2-d.html">D - Évolutions &amp; Specs</option>
-                <option value="./3-e.html">E - Roadmap &amp; Jalons</option>
-                <option value="./3-f.html">F - Features Discovery</option>
+            <select id="home-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+                <option value="./pratique.html?a=1-a">A - Besoins Utilisateurs</option>
+                <option value="./pratique.html?a=1-b">B - Ergonomie UX/UI</option>
+                <option value="./pratique.html?a=2-c">C - Support &amp; Client</option>
+                <option value="./pratique.html?a=2-d">D - Évolutions &amp; Specs</option>
+                <option value="./pratique.html?a=3-e">E - Roadmap &amp; Jalons</option>
+                <option value="./pratique.html?a=3-f">F - Features Discovery</option>
+                <option value="./pratique.html?a=4-g">G - Diagnostic &amp; Résolution</option>
             </select>
         </div>
         <div class="flex gap-2">
             <button onclick="resetProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-red-600 hover:text-white transition-colors" title="Réinitialiser la progression">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             </button>
-            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" title="Référentiel UX">
+            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" title="Référentiel">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
         </div>
     </div>
     <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
         <div class="text-center mb-6 md:mb-12">
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">B - Ergonomie <span class="text-slate-800">UX/UI</span></h1>
-            <p class="text-slate-500 font-bold uppercase text-xs md:text-sm">Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).</p>
+            <h1 id="home-title" class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">Atelier</h1>
+            <p id="home-subtitle" class="text-slate-500 font-bold uppercase text-xs md:text-sm">Chargement de l'atelier...</p>
         </div>
 
-        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
             <div onclick="startLevel(0)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <i id="level-icon-0" data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Facile</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Composants d'interface simples et interactions directes au quotidien.</p>
+                <p id="level-desc-0" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau facile.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / 13</span>
+                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
                 </div>
                 </div>
             </div>
             <div onclick="startLevel(1)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <i id="level-icon-1" data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Moyen</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Parcours complexes, personnalisation et prévention des erreurs.</p>
+                <p id="level-desc-1" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau moyen.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / 13</span>
+                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
                 </div>
                 </div>
             </div>
             <div onclick="startLevel(2)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                <i id="level-icon-2" data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Difficile</h2>
-                <p class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Architecture d'information, accessibilité et continuité de service.</p>
+                <p id="level-desc-2" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau difficile.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / 13</span>
+                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
                 </div>
                 </div>
             </div>
         </div>
-
-        </div>
     </div>
-</div>
 </div>
 
 <header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
@@ -419,54 +410,54 @@
                     <i data-lucide="home" class="w-4 h-4"></i>
                 </div>
             </a>
-            <select onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
-                <option value="./1-a.html">A - Besoins Utilisateurs</option>
-                <option value="./1-b.html" selected>B - Ergonomie UX/UI</option>
-                <option value="./2-c.html">C - Support &amp; Client</option>
-                <option value="./2-d.html">D - Évolutions &amp; Specs</option>
-                <option value="./3-e.html">E - Roadmap &amp; Jalons</option>
-                <option value="./3-f.html">F - Features Discovery</option>
+            <select id="header-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+                <option value="./pratique.html?a=1-a">A - Besoins Utilisateurs</option>
+                <option value="./pratique.html?a=1-b">B - Ergonomie UX/UI</option>
+                <option value="./pratique.html?a=2-c">C - Support &amp; Client</option>
+                <option value="./pratique.html?a=2-d">D - Évolutions &amp; Specs</option>
+                <option value="./pratique.html?a=3-e">E - Roadmap &amp; Jalons</option>
+                <option value="./pratique.html?a=3-f">F - Features Discovery</option>
+                <option value="./pratique.html?a=4-g">G - Diagnostic &amp; Résolution</option>
             </select>
         </div>
         
         <div class="text-center flex-grow">
-            <span class="text-[10px] font-black uppercase tracking-tighter text-slate-400">1 - Design Product | B - Ergonomie UX/UI</span>
+            <span id="header-context-label" class="text-[10px] font-black uppercase tracking-tighter text-slate-400">Atelier</span>
             <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Facile</span>
         </div>
 
         <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
-            <!-- Reset Niveau -->
+            <!-- Reset Level -->
             <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             </button>
             <!-- Referentiel Button -->
-            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel UX">
+            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
             
-            <!-- Breadcrumb / Fil d'Ariane -->
+            <!-- Breadcrumbs -->
             <div id="breadcrumb-container" class="flex gap-1.5 hidden lg:flex flex-row items-center">
-                <!-- Généré par JS -->
+                <!-- Generated dynamically -->
             </div>
             
             <div class="text-right whitespace-nowrap">
-                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / 13</div>
+                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / --</div>
             </div>
         </div>
     </div>
 </header>
 
 <main class="flex-grow flex flex-col md:flex-row overflow-hidden p-4 gap-4 h-[calc(100vh-70px)]">
-    
-    <!-- Zone GAUCHE : Contexte (1/3) -->
+    <!-- Left column: Situation context (1/3) -->
     <div class="w-full md:w-4/12 flex flex-col gap-3 h-full">
-        <!-- Bannière Contexte Maximisée -->
+        <!-- Scenario card -->
         <div id="scenario-card" class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
             <div class="flex items-center justify-between mb-4 shrink-0">
                 <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Situation</div>
-                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / 13</div>
+                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / --</div>
             </div>
-            <div class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🏥</div>
+            <div id="scenario-emoji" class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🎯</div>
             <div class="overflow-y-auto flex-grow min-h-0 pr-2 pb-4 flex flex-col gap-4">
                 <div id="scenario-text" class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left">
                     Chargement du scénario...
@@ -475,33 +466,32 @@
             </div>
         </div>
 
-        <!-- Bloc Phase 2 Ancré en bas (Très compact) -->
+        <!-- Phase 2 validation card -->
         <div id="phase2-question-container" class="glass-panel rounded-lg p-4 shadow-sm border-emerald-200 bg-emerald-50 shrink-0 hidden flex-col justify-center transition-all duration-300 relative overflow-hidden">
             <div class="absolute right-2 top-2 text-4xl opacity-10">🎯</div>
             <div class="flex items-center gap-1.5 mb-1.5">
                 <span id="phase2-icon-container" class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
-                <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Principe Validé</span>
+                <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Réflexe Validé</span>
             </div>
             <div class="flex items-center gap-2 mb-1">
                 <span id="phase2-reflex-icon" class="text-emerald-700"></span>
                 <h3 id="validated-principle-title" class="text-sm font-black text-emerald-800 uppercase tracking-tight leading-tight">Titre</h3>
             </div>
-            <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Identifiez la maquette UI correspondante à droite ➡️</p>
+            <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Sélectionnez la décision d'ergonomie correspondante à droite ➡️</p>
         </div>
     </div>
 
-    <!-- Zone DROITE : Interactions (2/3) -->
+    <!-- Right column: Interactions QCM (2/3) -->
     <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
         <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md">
-            Phase 1 : Identification du principe UX
+            Phase 1 : Identification du réflexe
         </div>
         
         <div id="options-container" class="glass-panel rounded-xl p-3 sm:p-4 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
-            
-            <!-- Phase 1 : QCM Principes (Liste verticale en lignes) -->
+            <!-- Phase 1 QCM list -->
             <div id="reflex-grid" class="flex flex-col gap-1.5 h-full overflow-y-auto pr-2 pb-4"></div>
 
-            <!-- Phase 2 : QCM Maquettes UI (Liste verticale) -->
+            <!-- Phase 2 QCM list -->
             <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pr-2 pb-4">
                 <div class="flex items-center gap-2 shrink-0">
                     <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
@@ -511,38 +501,37 @@
                 <div id="ui-choices-wrapper" class="flex flex-col gap-2 flex-grow"></div>
             </div>
 
-            <!-- Phase 3 : Débriefing -->
+            <!-- Phase 3 Debriefing -->
             <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-6 flex flex-col justify-between overflow-y-auto">
-                <!-- Bouton de retour en haut à gauche -->
                 <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retour"><i data-lucide="arrow-left" class="w-3.5 h-3.5"></i></button>
                 <div class="flex flex-col h-full">
                     <div class="flex items-center gap-4 mb-6 mt-4 shrink-0">
                         <div id="debrief-emoji" class="text-4xl bg-emerald-100 w-16 h-16 flex items-center justify-center rounded-2xl shadow-sm">🎯</div>
                         <div>
-                            <h2 id="debrief-main-title" class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight mb-0.5">Visuel UX Validé !</h2>
-                            <p id="debrief-title" class="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Principe appliqué</p>
+                            <h2 id="debrief-main-title" class="text-xl sm:text-2xl font-black text-slate-900 uppercase tracking-tight mb-0.5">Décision Validée !</h2>
+                            <p id="debrief-title" class="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Réflexe appliqué</p>
                         </div>
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-6 flex-grow min-h-0">
-                        <!-- Clone Visuel du choix gagnant -->
+                        <!-- Clone Visuel -->
                         <div class="w-full sm:w-5/12 flex flex-col gap-2 shrink-0">
-                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Interface Retenue</span>
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Décision Retenue</span>
                             <div class="bg-slate-50 border-2 border-emerald-400 rounded-lg p-4 shadow-sm flex flex-col gap-3 relative overflow-hidden h-full min-h-[200px]">
                                 <div class="absolute inset-0 bg-emerald-400/5 z-0"></div>
-                                <div class="font-black text-slate-800 text-sm uppercase tracking-tight relative z-10" id="debrief-ui-title">Titre UI</div>
+                                <div class="font-black text-slate-800 text-sm uppercase tracking-tight relative z-10" id="debrief-ui-title">Titre Décision</div>
                                 <div class="w-full relative z-10 flex-grow flex items-center justify-center mockup-container" id="debrief-ui-visual">
-                                    <!-- Injection HTML -->
+                                    <!-- HTML Inject -->
                                 </div>
                             </div>
                         </div>
-                        <!-- Explication Métier -->
+                        <!-- Business Impact -->
                         <div class="w-full sm:w-7/12 flex flex-col gap-2 min-h-0">
-                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact Métier ESIS-3D</span>
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact Projet &amp; Équipes</span>
                             <div class="bg-slate-100/70 p-6 rounded-lg border border-slate-200 text-sm text-slate-800 font-medium leading-relaxed overflow-y-auto h-full relative">
                                 <div class="absolute top-4 right-4 text-3xl opacity-20">💡</div>
                                 <div id="debrief-text" class="relative z-10"></div>
-                            </div>
+                             </div>
                         </div>
                     </div>
 
@@ -556,34 +545,214 @@
 </main>
 
 <script>
-
-// Générateurs de mockups Tailwind compacts pour éviter de polluer le JSON
-const M = {
-    radioList: (opts, selIdx) => `<div class="flex flex-col gap-2 w-full">${opts.map((o,i) => `<div class="flex items-center gap-2 p-2 rounded border ${i===selIdx?'border-slate-1000 bg-slate-100':'border-slate-200 bg-white'}"><div class="w-4 h-4 rounded-full border-2 ${i===selIdx?'border-slate-1000 bg-slate-1000 flex items-center justify-center':''}">${i===selIdx?'<div class="w-1.5 h-1.5 bg-white rounded-full"></div>':''}</div><span class="text-xs font-bold text-slate-800">${o}</span></div>`).join('')}</div>`,
-    selectBox: (text) => `<div class="w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-600 flex justify-between items-center"><span>${text}</span><span>▼</span></div>`,
-    inputBox: (text) => `<div class="w-full border border-slate-300 bg-white rounded p-2 text-xs text-slate-400 italic">${text}</div>`,
-    button: (text, colorClass="bg-blue-900 text-white") => `<div class="${colorClass} px-4 py-2 rounded text-xs font-bold uppercase tracking-wide text-center w-full shadow-sm">${text}</div>`,
-    badge: (text, color) => `<span class="bg-${color}-100 text-${color}-800 border border-${color}-200 px-2 py-0.5 rounded text-[10px] font-bold uppercase">${text}</span>`
+const ATELIERS_CONFIG = {
+    "1-a": {
+        key: "po",
+        title: "A - Besoins Utilisateurs",
+        h1: "A - Besoins <span class='text-slate-800'>Utilisateurs</span>",
+        subtitle: "Adopter la posture de Product Owner pour qualifier les besoins.",
+        themeClass: "po-theme",
+        badge: "Réflexe PO (Posture)",
+        icon: "target",
+        emoji: "🎯",
+        resetConfirm: "toute votre progression de Besoins Utilisateurs (PO)",
+        phase1Label: "Identification du réflexe PO",
+        phase2Label: "Réponse PO",
+        phase2Info: "Sélectionnez l'arbitrage PO correspondant à droite ➡️",
+        phase3Label: "Interface Retenue",
+        phase3Impact: "Impact Projet &amp; Équipes",
+        levelNames: ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
+        levelDescriptions: [
+            "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
+            "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
+            "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
+        ]
+    },
+    "1-b": {
+        key: "ux",
+        title: "B - Ergonomie UX/UI",
+        h1: "B - Ergonomie <span class='text-slate-800'>UX/UI</span>",
+        subtitle: "Valider les choix d'interface via les principes fondamentaux.",
+        themeClass: "ux-theme",
+        badge: "Réflexe UX (Conception)",
+        icon: "mouse-pointer-click",
+        emoji: "🏥",
+        resetConfirm: "toute votre progression d'Ergonomie UX/UI",
+        phase1Label: "Identification du principe UX",
+        phase2Label: "Réponse UX",
+        phase2Info: "Identifiez la maquette UI correspondante à droite ➡️",
+        phase3Label: "Interface Retenue",
+        phase3Impact: "Impact Métier ESIS-3D",
+        levelNames: ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
+        levelDescriptions: [
+            "Composants d'interface simples et interactions directes au quotidien.",
+            "Parcours complexes, personnalisation et prévention des erreurs.",
+            "Architecture d'information, accessibilité et continuité de service."
+        ]
+    },
+    "2-c": {
+        key: "cso",
+        title: "C - Support & Client",
+        h1: "C - Support &amp; <span class='text-slate-800'>Client</span>",
+        subtitle: "Gérer la relation client et les escalades de support.",
+        themeClass: "cso-theme",
+        badge: "Réflexe Support & Client",
+        icon: "headset",
+        emoji: "🎧",
+        resetConfirm: "toute votre progression de Support & Client",
+        phase1Label: "Identification du réflexe",
+        phase2Label: "Réponse",
+        phase2Info: "Sélectionnez le choix d'interaction correspondant à droite ➡️",
+        phase3Label: "Décision Retenue",
+        phase3Impact: "Impact Projet &amp; Équipes",
+        levelNames: ["Facile", "Moyen", "Difficile"],
+        levelDescriptions: [
+            "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
+            "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
+            "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
+        ]
+    },
+    "2-d": {
+        key: "evo",
+        title: "D - Évolutions & Specs",
+        h1: "D - Évolutions &amp; <span class='text-slate-800'>Specs</span>",
+        subtitle: "Spécifier les évolutions fonctionnelles de manière robuste.",
+        themeClass: "evo-theme",
+        badge: "Réflexe Spécs & Évolutions",
+        icon: "sparkles",
+        emoji: "✨",
+        resetConfirm: "toute votre progression de Spécs & Évolutions",
+        phase1Label: "Identification du réflexe Spécs",
+        phase2Label: "Réponse Spécs",
+        phase2Info: "Sélectionnez la spécification correspondante à droite ➡️",
+        phase3Label: "Spécification Retenue",
+        phase3Impact: "Impact Projet &amp; Équipes",
+        levelNames: ["Facile", "Moyen", "Difficile"],
+        levelDescriptions: [
+            "Modifications simples, workflows standards et documentation.",
+            "Modifications complexes, API et intégrations tierces.",
+            "Changements majeurs d'architecture, migration de données et stratégie."
+        ]
+    },
+    "3-e": {
+        key: "roadmap",
+        title: "E - Roadmap & Jalons",
+        h1: "E - Roadmap &amp; <span class='text-slate-800'>Jalons</span>",
+        subtitle: "Planifier les jalons de livraison et la vision produit.",
+        themeClass: "roadmap-theme",
+        badge: "Réflexe Roadmap (Vision)",
+        icon: "mountain",
+        emoji: "⛰️",
+        resetConfirm: "toute votre progression de Roadmap & Jalons",
+        phase1Label: "Identification du réflexe Roadmap",
+        phase2Label: "Réponse Roadmap",
+        phase2Info: "Sélectionnez la décision de Roadmap correspondante à droite ➡️",
+        phase3Label: "Décision Retenue",
+        phase3Impact: "Impact Projet &amp; Équipes",
+        levelNames: ["Facile", "Moyen", "Difficile"],
+        levelDescriptions: [
+            "Planification à court terme et suivi des jalons hebdomadaires.",
+            "Gestion des dépendances inter-équipes et priorisation trimestrielle.",
+            "Vision stratégique à long terme et arbitrages budgétaires complexes."
+        ]
+    },
+    "3-f": {
+        key: "features",
+        title: "F - Features Discovery",
+        h1: "F - Features <span class='text-slate-800'>Discovery</span>",
+        subtitle: "Mener la phase de discovery et valider les fonctionnalités.",
+        themeClass: "features-theme",
+        badge: "Réflexe Features (Discovery)",
+        icon: "telescope",
+        emoji: "🔭",
+        resetConfirm: "toute votre progression de Features Discovery",
+        phase1Label: "Identification du réflexe Features",
+        phase2Label: "Réponse Features",
+        phase2Info: "Sélectionnez la stratégie de Discovery correspondante à droite ➡️",
+        phase3Label: "Stratégie Retenue",
+        phase3Impact: "Impact Projet &amp; Équipes",
+        levelNames: ["Facile", "Moyen", "Difficile"],
+        levelDescriptions: [
+            "Recherche utilisateur initiale et collecte des retours qualitatifs.",
+            "Tests utilisateurs rapides et validation de prototypes d'interface.",
+            "Analyses quantitatives poussées et validation de viabilité marché."
+        ]
+    },
+    "4-g": {
+        key: "gsup",
+        title: "G - Diagnostic & Résolution",
+        h1: "G - Diagnostic &amp; <span class='text-slate-800'>Résolution</span>",
+        subtitle: "Recevez, qualifiez, diagnostiquez et résolvez les demandes entrantes sans développement.",
+        themeClass: "run-support-theme",
+        badge: "Réflexe G - Diagnostic & Résolution",
+        icon: "wrench",
+        emoji: "🔧",
+        resetConfirm: "toute votre progression de G - Diagnostic & Résolution",
+        phase1Label: "Identification du réflexe Support N2",
+        phase2Label: "Réponse Support N2",
+        phase2Info: "Sélectionnez la décision de support correspondante à droite ➡️",
+        phase3Label: "Décision Retenue",
+        phase3Impact: "Impact Projet &amp; Équipes",
+        levelNames: ["Facile", "Moyen", "Difficile"],
+        levelDescriptions: [
+            "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
+            "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
+            "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
+        ]
+    }
 };
 
-let reflexes = [];
+// Lecture de l'atelier depuis l'URL
+const urlParams = new URLSearchParams(window.location.search);
+const ATELIER_ID = urlParams.get('a') || "1-a";
 
-const TOTAL_STEPS = 13;
+if (!ATELIERS_CONFIG[ATELIER_ID]) {
+    // Redirection automatique par défaut en cas d'atelier invalide
+    window.location.href = './index.html';
+}
+
+const CONFIG = ATELIERS_CONFIG[ATELIER_ID];
+
+// Configuration dynamique du titre et du thème
+document.getElementById('page-title').innerText = `${CONFIG.title} - ESIS-3D`;
+document.getElementById('home-title').innerHTML = CONFIG.h1;
+document.getElementById('home-subtitle').innerText = CONFIG.subtitle;
+document.getElementById('scenario-emoji').innerText = CONFIG.emoji;
+document.getElementById('header-context-label').innerText = `${CONFIG.title}`;
+document.getElementById('modal-title-display').innerText = `Référentiel - ${CONFIG.title}`;
+document.getElementById('modal-subtitle-display').innerText = `Les réflexes et principes associés de l'atelier ${CONFIG.title}.`;
+
+// Met en surbrillance l'atelier en cours dans les selecteurs
+const homeSel = document.getElementById('home-atelier-selector');
+if (homeSel) homeSel.value = `./pratique.html?a=${ATELIER_ID}`;
+const headerSel = document.getElementById('header-atelier-selector');
+if (headerSel) headerSel.value = `./pratique.html?a=${ATELIER_ID}`;
+
+// Mise en place de la thématique CSS globale
+document.body.className = "flex flex-col relative";
+
+// Application des variables de description des niveaux sur la page d'accueil
+document.getElementById('level-desc-0').innerText = CONFIG.levelDescriptions[0];
+document.getElementById('level-desc-1').innerText = CONFIG.levelDescriptions[1];
+document.getElementById('level-desc-2').innerText = CONFIG.levelDescriptions[2];
+
+// Variables du jeu
+let reflexes = [];
+let TOTAL_STEPS = 10;
 let currentLevel = 0;
 let currentStepIdx = 0;
 let levelSteps = [];
 let currentPhase = 1;
-let answeredSteps = new Array(TOTAL_STEPS).fill(false);
+let answeredSteps = [];
 
-// Initialisation au chargement
+// Initialisation de l'accueil
 function initHome() {
     document.getElementById('home-screen').classList.remove('hidden');
-    buildModalContent(); // Prépare le dictionnaire visuel en background
+    buildModalContent();
     
-    // Met à jour la progression affichée sur la page d'accueil
     for (let i = 0; i < 3; i++) {
-        const score = localStorage.getItem(`ux-score-lv${i}`);
-        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / 13` : "-- / 13";
+        const score = localStorage.getItem(`${CONFIG.key}-score-lv${i}`);
+        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / ${TOTAL_STEPS}` : `-- / ${TOTAL_STEPS}`;
     }
 }
 
@@ -592,18 +761,15 @@ function startLevel(lv) {
     currentStepIdx = 0;
     answeredSteps = new Array(TOTAL_STEPS).fill(false);
     
-    const titles = ["Terrain", "Système", "Stratégie"];
-    document.getElementById('level-title-display').innerText = `${['Facile', 'Moyen', 'Difficile'][lv]} : ${titles[lv]}`;
+    document.getElementById('level-title-display').innerText = `${CONFIG.levelNames[lv]}`;
     
-    // Tire un scénario par réflexe (selon le niveau)
     levelSteps = reflexes.map(r => ({
         reflexId: r.id,
         scenario: r.scenarios[lv]
     })).sort(() => Math.random() - 0.5);
 
-    // Charge la progression locale depuis le localStorage
     levelSteps.forEach((step, idx) => {
-        const savedProgress = localStorage.getItem('ux-progress-lv' + lv + '-reflex' + step.reflexId);
+        const savedProgress = localStorage.getItem(`${CONFIG.key}-progress-lv` + lv + '-reflex' + step.reflexId);
         if (savedProgress === 'true') {
             answeredSteps[idx] = true;
         }
@@ -612,7 +778,6 @@ function startLevel(lv) {
     document.getElementById('home-screen').classList.add('hidden');
     updateProgress();
     
-    // Se positionne sur le premier défi restant à faire
     const firstPendingIdx = answeredSteps.findIndex(v => !v);
     if (firstPendingIdx !== -1) {
         currentStepIdx = firstPendingIdx;
@@ -623,16 +788,16 @@ function startLevel(lv) {
     updateProgress();
     if (answeredSteps[currentStepIdx]) {
         const step = levelSteps[currentStepIdx];
-        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon });
+        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon || "check" });
     } else {
         loadStepPhase1();
     }
 }
 
 function resetProgress() {
-    if (confirm("Voulez-vous vraiment réinitialiser toute votre progression d'Ergonomie UX/UI ?")) {
+    if (confirm(`Voulez-vous vraiment réinitialiser ${CONFIG.resetConfirm} ?`)) {
         Object.keys(localStorage).forEach(key => {
-            if (key.startsWith('ux-')) {
+            if (key.startsWith(`${CONFIG.key}-`)) {
                 localStorage.removeItem(key);
             }
         });
@@ -642,13 +807,13 @@ function resetProgress() {
 
 function resetLevelProgress() {
     if (confirm("Réinitialiser uniquement ce niveau ?")) {
-        const prefix = 'ux-progress-lv' + currentLevel;
+        const prefix = `${CONFIG.key}-progress-lv` + currentLevel;
         Object.keys(localStorage).forEach(key => {
             if (key.startsWith(prefix)) {
                 localStorage.removeItem(key);
             }
         });
-        localStorage.removeItem('ux-score-lv' + currentLevel);
+        localStorage.removeItem(`${CONFIG.key}-score-lv` + currentLevel);
         location.reload();
     }
 }
@@ -660,6 +825,7 @@ function goHome() {
 
 function updateProgress() {
     document.getElementById('step-label').innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
+    document.getElementById('score-display').innerText = `0 / ${TOTAL_STEPS}`;
     
     const container = document.getElementById('breadcrumb-container');
     container.innerHTML = '';
@@ -689,8 +855,7 @@ function updateProgress() {
         scoreDisplay.innerText = `${completedCount} / ${TOTAL_STEPS}`;
     }
     
-    // Enregistre la progression en temps réel pour le Hub index.html
-    localStorage.setItem(`ux-score-lv${currentLevel}`, completedCount);
+    localStorage.setItem(`${CONFIG.key}-score-lv${currentLevel}`, completedCount);
 }
 
 function jumpToStep(idx) {
@@ -698,7 +863,7 @@ function jumpToStep(idx) {
     updateProgress();
     if (answeredSteps[idx]) {
         const step = levelSteps[idx];
-        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon });
+        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon || "check" });
     } else {
         loadStepPhase1();
     }
@@ -725,7 +890,7 @@ function loadStepPhase1() {
     document.getElementById('ui-grid').classList.add('hidden');
     document.getElementById('debriefing-card').classList.add('hidden');
     
-    document.getElementById('phase-label-container').innerText = "Réflexe";
+    document.getElementById('phase-label-container').innerText = CONFIG.phase1Label;
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
     renderReflexChoices();
@@ -737,7 +902,6 @@ function renderReflexChoices(readOnly) {
     const correctId = levelSteps[currentStepIdx].reflexId;
     const correctReflex = reflexes.find(r => r.id === correctId);
     
-    // Distracteurs aléatoires
     const others = reflexes.filter(r => r.id !== correctId).sort(() => Math.random() - 0.5).slice(0, 3);
     const options = [correctReflex, ...others].sort(() => Math.random() - 0.5);
     
@@ -748,12 +912,12 @@ function renderReflexChoices(readOnly) {
             btn.classList.add('correct');
         }
         btn.innerHTML = `
-            <div class="text-2xl sm:text-3xl shrink-0 filter drop-shadow-sm"><i data-lucide="${opt.icon}" class="w-7 h-7 text-slate-800"></i></div>
+            <div class="text-2xl sm:text-3xl shrink-0 filter drop-shadow-sm"><i data-lucide="${opt.icon || CONFIG.icon}" class="w-7 h-7 text-slate-800"></i></div>
             <div class="flex-grow">
                 <div class="font-black text-sm sm:text-base uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-[10px] sm:text-xs text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-1.5 right-1.5 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Principe">
+            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-1.5 right-1.5 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe">
                 <i data-lucide="info" class="w-4 h-4"></i>
             </button>
         `;
@@ -785,14 +949,16 @@ function loadStepPhase2() {
     document.getElementById('reflex-grid').classList.add('hidden');
     document.getElementById('ui-grid').classList.remove('hidden');
     
-    document.getElementById('phase-label-container').innerText = "Réponse";
+    document.getElementById('phase-label-container').innerText = CONFIG.phase2Label;
     document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
     
-    // Affiche la validation du principe à gauche
-    document.getElementById('phase2-question-container').classList.remove('hidden');
+    const phase2Container = document.getElementById('phase2-question-container');
+    phase2Container.classList.remove('hidden');
+    phase2Container.querySelector('p').innerHTML = CONFIG.phase2Info;
+    
     document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
-      document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon}" class="w-5 h-5"></i>`;
-    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
+    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
+    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
     lucide.createIcons();
     
     renderUIChoices();
@@ -804,9 +970,9 @@ function renderUIChoices(readOnly) {
     const step = levelSteps[currentStepIdx];
     
     let uiOptions = [
-        { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl, icon: step.scenario.correct.icon },
-        { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl, icon: step.scenario.wrong[0].icon },
-        { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl, icon: step.scenario.wrong[1].icon }
+        { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl, icon: step.scenario.correct.icon || "check" },
+        { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl, icon: step.scenario.wrong[0].icon || "alert-circle" },
+        { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl, icon: step.scenario.wrong[1].icon || "alert-circle" }
     ].sort(() => Math.random() - 0.5);
 
     uiOptions.forEach(opt => {
@@ -817,10 +983,10 @@ function renderUIChoices(readOnly) {
         }
         btn.innerHTML = `
             <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2">
-                <div class="font-black text-slate-800 text-sm sm:text-base uppercase tracking-tight leading-tight">${opt.title}</div>
+                <div class="font-black text-slate-800 text-sm sm:text-base uppercase tracking-tight leading-tight">${opt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</div>
                 <div class="text-[10px] sm:text-xs text-slate-500 font-semibold leading-normal pr-3">${opt.expl}</div>
             </div>
-            <div class="w-full sm:w-7/12 visual-mockup z-10" style="min-height:60px;">
+            <div class="w-full sm:w-7/12 visual-mockup z-10 animate-fade-in" style="min-height:60px;">
                 <div class="mockup-container">
                     ${opt.visual}
                 </div>
@@ -837,28 +1003,34 @@ function renderUIChoices(readOnly) {
 
 function handleUISelection(opt, btn) {
     if (currentPhase !== 2) return;
-    if (opt.isCorrect) { setTimeout(() => showDebriefing(opt), 150); }
+    if (opt.isCorrect) {
+        btn.classList.add('correct');
+        setTimeout(() => showDebriefing(opt), 500);
+    } else {
+        btn.classList.add('shake');
+        setTimeout(() => btn.classList.remove('shake'), 400);
+    }
 }
 
 function showDebriefing(correctOpt) {
     currentPhase = 3;
     answeredSteps[currentStepIdx] = true;
     
-    // Enregistre la progression de cette étape dans le localStorage
     const step = levelSteps[currentStepIdx];
-    localStorage.setItem('ux-progress-lv' + currentLevel + '-reflex' + step.reflexId, 'true');
+    localStorage.setItem(`${CONFIG.key}-progress-lv` + currentLevel + '-reflex' + step.reflexId, 'true');
     
     updateProgress();
 
     const reflex = reflexes.find(r => r.id === step.reflexId);
     
-    document.getElementById('debrief-title').innerText = `${reflex.emoji} ${reflex.title}`;
+    document.getElementById('debrief-title').innerText = `${reflex.title}`;
     document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title}</span></div>`;
     document.getElementById('debrief-ui-visual').innerHTML = correctOpt.visual;
-    let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl}</p>`;
+    
+    let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl || ''}</p>`;
     compHtml += `
         <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
-            <div class="text-[10px] font-black text-slate-1000 uppercase tracking-widest mb-2">Analyse comparative des choix :</div>
+            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative :</div>
             <div class="space-y-2">
                 <div class="text-xs text-slate-800 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
                     <strong class="text-emerald-700 font-black">🟢 ${step.scenario.correct.title} (Recommandé) :</strong>
@@ -881,7 +1053,6 @@ function showDebriefing(correctOpt) {
     document.getElementById('phase2-question-container').classList.add('hidden');
     document.getElementById('debriefing-card').classList.remove('hidden');
     
-    // Toujours afficher le bouton Retour pour revenir en Phase 2
     document.getElementById('debrief-back-btn').classList.remove('hidden');
     
     const phaseLabel = document.getElementById('phase-label-container');
@@ -889,13 +1060,14 @@ function showDebriefing(correctOpt) {
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-700 text-white shadow-md shrink-0 transition-colors";
 
     const nextBtn = document.getElementById('btn-next');
-    if(answeredSteps.every(Boolean)) {
+    if (answeredSteps.every(Boolean)) {
         nextBtn.innerHTML = "Terminer le Niveau <span class='text-2xl ml-2'>🏆</span>";
-        nextBtn.className = "mt-6 bg-emerald-600 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
+        nextBtn.className = "mt-6 bg-emerald-600 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0 cursor-pointer";
     } else {
         nextBtn.innerHTML = "Situation Suivante <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
-        nextBtn.className = "mt-6 bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0";
+        nextBtn.className = "mt-6 bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0 cursor-pointer";
     }
+    lucide.createIcons();
 }
 
 function goBackFromDebrief() {
@@ -906,11 +1078,11 @@ function goBackFromDebrief() {
     document.getElementById('ui-grid').classList.remove('hidden');
     document.getElementById('phase2-question-container').classList.remove('hidden');
     document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
-    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon}" class="w-5 h-5"></i>`;
-    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon}" class="w-4 h-4 text-white"></i>`;
+    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
+    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
 
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Réponse";
+    phaseLabel.innerText = CONFIG.phase2Label;
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
 
     currentPhase = 2;
@@ -924,7 +1096,7 @@ function goBackToPhase1() {
     document.getElementById('reflex-grid').classList.remove('hidden');
 
     const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Réflexe";
+    phaseLabel.innerText = CONFIG.phase1Label;
     phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
 
     currentPhase = 1;
@@ -932,19 +1104,20 @@ function goBackToPhase1() {
 }
 
 function nextStep() {
-    let nextIdx = currentStepIdx + 1;
-    while(nextIdx < TOTAL_STEPS && answeredSteps[nextIdx]) { nextIdx++; }
+    if (answeredSteps.every(Boolean)) {
+        goHome();
+        return;
+    }
     
-    if (nextIdx >= TOTAL_STEPS) {
-        if(answeredSteps.every(Boolean)) {
-            goHome();
-            return;
-        } else {
-            nextIdx = answeredSteps.findIndex(v => !v);
+    let nextIdx = currentStepIdx + 1;
+    for (let i = 0; i < TOTAL_STEPS; i++) {
+        const checkIdx = (nextIdx + i) % TOTAL_STEPS;
+        if (!answeredSteps[checkIdx]) {
+            currentStepIdx = checkIdx;
+            break;
         }
     }
     
-    currentStepIdx = nextIdx;
     updateProgress();
     loadStepPhase1();
 }
@@ -966,27 +1139,23 @@ function buildModalContent() {
             selector.appendChild(opt);
         }
         
-        // Pour chaque réflexe, on crée la carte globale de manière très compacte
         let reflexHtml = `
             <div id="ref-${r.id}" class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200">
                 <div class="flex items-center gap-2 mb-1">
-                    <span class="text-2xl shrink-0"><i data-lucide="${r.icon}" class="w-6 h-6 text-slate-800"></i></span>
+                    <span class="text-2xl shrink-0"><i data-lucide="${r.icon || CONFIG.icon}" class="w-6 h-6 text-slate-800"></i></span>
                     <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">${r.title}</h3>
                 </div>
                 <p class="text-[11px] text-slate-500 font-semibold mb-2.5 pb-1.5 border-b border-slate-100">${r.intent}</p>
                 <div class="space-y-2">
         `;
 
-        // Pour chaque scénario, on affiche uniquement la Bonne UI avec son explication en format ligne compacte
         r.scenarios.forEach((scen, idx) => {
             reflexHtml += `
                 <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 flex flex-col md:flex-row gap-3 items-center">
-                    <!-- Visuel compact de la solution recommandée -->
                     <div class="w-full md:w-4/12 flex items-center justify-center mockup-container p-1.5 bg-white border border-emerald-100 rounded-md shadow-sm relative overflow-hidden min-h-[80px] shrink-0">
                         <div class="absolute inset-0 bg-emerald-500/[0.01] z-0"></div>
                         <div class="w-full relative z-10 transform scale-90">${scen.correct.visual}</div>
                     </div>
-                    <!-- Description sémantique -->
                     <div class="w-full md:w-8/12 flex flex-col gap-1.5">
                         <div class="flex items-center gap-1.5">
                             <span class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
@@ -1016,12 +1185,10 @@ function scrollToReflex(id) {
 
 function openModal(focusId = null) {
     document.getElementById('modal-referentiel').classList.remove('hidden');
-    
     if (focusId) {
         setTimeout(() => {
             const el = document.getElementById(`ref-${focusId}`);
             if(el) {
-                // Scroll dans le conteneur du modal
                 document.getElementById('modal-content').scrollTo({
                     top: el.offsetTop - 24,
                     behavior: 'smooth'
@@ -1035,60 +1202,27 @@ function closeModal() {
     document.getElementById('modal-referentiel').classList.add('hidden');
 }
 
-function showReflexDetail(id) {
-    const reflex = reflexes.find(r => r.id === id);
-    const content = document.getElementById('info-modal-content');
-    
-    // Collect all unique correct UI titles from scenarios of this reflex
-    const examples = [...new Set(reflex.scenarios.map(s => s.correct.title))];
-    
-    content.innerHTML = `
-        <div class="flex items-center gap-4 mb-6">
-            <span class="text-6xl"><i data-lucide="${reflex.icon || 'palette'}" class="w-16 h-16 text-slate-800"></i></span>
-            <div>
-                <h3 class="text-2xl font-black text-slate-900 uppercase">${reflex.title}</h3>
-                <p class="text-slate-800 font-bold text-xs uppercase tracking-widest">Principe de Conception UX</p>
-            </div>
-        </div>
-        <p class="text-lg text-slate-600 font-medium leading-relaxed mb-6">${reflex.intent}</p>
-        <div class="bg-slate-100 p-6 rounded-2xl">
-            <p class="text-[10px] font-black uppercase text-slate-500 mb-4 tracking-widest">Applications types dans l'interface</p>
-            <ul class="space-y-3">
-                ${examples.map(ex => `<li class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                    <span class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
-                    ${ex}
-                </li>`).join('')}
-            </ul>
-        </div>
-    `;
-    document.getElementById('info-modal').classList.remove('hidden');
-    lucide.createIcons();
-}
-
-function closeInfoModal() {
-    document.getElementById('info-modal').classList.add('hidden');
-}
-
-// Support fermeture par la touche Echap
 window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeModal();
-        closeInfoModal();
+        document.getElementById('info-modal').classList.add('hidden');
     }
 });
 
 async function initApp() {
     try {
-        const response = await fetch('./1-b.json?v=' + new Date().getTime());
+        const response = await fetch(`./${ATELIER_ID}.json?v=` + new Date().getTime());
         reflexes = await response.json();
+        
+        TOTAL_STEPS = reflexes.length;
+        document.getElementById('score-display').innerText = `0 / ${TOTAL_STEPS}`;
+        
         initHome();
         lucide.createIcons();
     } catch (error) {
         console.error("Error loading reflexes:", error);
     }
 }
-
-
 
 window.onload = initApp;
 </script>
