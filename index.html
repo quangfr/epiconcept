@@ -1765,7 +1765,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.39';
+        const APP_VERSION = '2026.06.01.40';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1930,11 +1930,6 @@
             const gsupLabel = document.getElementById('gsup-status-label');
             if (gsupLabel) {
                 window.updateCardStatusBadge(gsupLabel, totalGsupScore, maxGsupScore);
-            }
-
-            const ticketingLabel = document.getElementById('ticketing-status-label');
-            if (ticketingLabel) {
-                window.updateCardStatusBadge(ticketingLabel, totalTicketingScore, maxTicketingScore);
             }
 
             const ticketingLabel = document.getElementById('ticketing-status-label');
