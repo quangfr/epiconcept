@@ -57,6 +57,37 @@
         /* Protection anti-clic dans les maquettes */
         .mockup-container { pointer-events: none; }
 
+        /* Option désactivée dans le sélecteur de niveau */
+        #header-level-selector option:disabled {
+            color: #94a3b8 !important;
+            font-style: italic !important;
+        }
+
+        /* Perfectly align all header elements height on desktop */
+        @media (min-width: 768px) {
+            header button,
+            header a .bg-slate-100,
+            #header-atelier-selector,
+            #header-level-container {
+                height: 38px !important;
+                border-radius: 8px !important;
+                box-sizing: border-box !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            header button,
+            header a .bg-slate-100 {
+                width: 38px !important;
+                padding: 0 !important;
+            }
+            header button [data-lucide],
+            header a [data-lucide] {
+                width: 18px !important;
+                height: 18px !important;
+            }
+        }
+
         /* Responsive vertical scroll support on mobile */
         @media (max-width: 767px) {
             body {
@@ -221,6 +252,28 @@
                 padding: 0.2rem !important;
                 border-radius: 4px !important;
             }
+            header button[onclick="resetLevelProgress()"] {
+                margin-left: auto !important;
+            }
+            header a .bg-slate-100,
+            header button[onclick="goHome()"] .bg-slate-100,
+            header button[onclick="resetLevelProgress()"],
+            header button[onclick="openModal()"] {
+                width: 26px !important;
+                height: 26px !important;
+                padding: 0 !important;
+                border-radius: 8px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            header a .bg-slate-100 [data-lucide],
+            header button[onclick="goHome()"] .bg-slate-100 [data-lucide],
+            header button[onclick="resetLevelProgress()"] [data-lucide],
+            header button[onclick="openModal()"] [data-lucide] {
+                width: 11px !important;
+                height: 11px !important;
+            }
             header > div > div.text-center {
                 width: 100% !important;
                 text-align: center !important;
@@ -242,10 +295,34 @@
                 flex-direction: row !important;
                 align-items: center !important;
                 justify-content: space-between !important;
-                gap: 0.2rem !important;
+                gap: 0.5rem !important;
             }
-            header > div > div:last-child #score-display {
-                font-size: 0.8rem !important;
+            header button[onclick="prevStepNav()"],
+            header button[onclick="nextStepNav()"] {
+                width: 26px !important;
+                height: 26px !important;
+                padding: 0 !important;
+                border-radius: 8px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            header button[onclick="prevStepNav()"] [data-lucide],
+            header button[onclick="nextStepNav()"] [data-lucide] {
+                width: 11px !important;
+                height: 11px !important;
+            }
+            #header-level-container,
+            #header-atelier-selector {
+                height: 26px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                box-sizing: border-box !important;
+            }
+            #header-level-selector {
+                height: 100% !important;
+                padding: 0 !important;
+                border: none !important;
             }
             
             #lesson-modal .lesson-slide svg,
@@ -364,7 +441,7 @@
             <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
                 <i id="level-icon-0" data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Facile</h2>
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau I</h2>
                 <p id="level-desc-0" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau facile.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
@@ -375,7 +452,7 @@
             <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
                 <i id="level-icon-1" data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Moyen</h2>
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau II</h2>
                 <p id="level-desc-1" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau moyen.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
@@ -386,7 +463,7 @@
             <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
                 <i id="level-icon-2" data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Difficile</h2>
+                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau III</h2>
                 <p id="level-desc-2" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau difficile.</p>
                 <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
                     <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
@@ -401,17 +478,17 @@
 <header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
     <div class="w-full flex items-center justify-between gap-4">
         <div class="flex items-center gap-1.5 shrink-0">
-            <button onclick="goHome()" class="flex items-center gap-2 group" aria-label="Quitter">
-                <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                </div>
-            </button>
             <a href="./index.html" class="flex items-center gap-2 group" aria-label="Retour au Hub">
                 <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
                     <i data-lucide="home" class="w-4 h-4"></i>
                 </div>
             </a>
-            <select id="header-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+            <button onclick="goHome()" class="flex items-center gap-2 group" aria-label="Quitter">
+                <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </div>
+            </button>
+            <select id="header-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg py-1.5 pl-1.5 pr-5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900 w-auto">
                 <option value="./exo.html?id=1-a">A - Besoins Utilisateurs</option>
                 <option value="./exo.html?id=1-b">B - Ergonomie UX/UI</option>
                 <option value="./exo.html?id=2-c">C - Support &amp; Client</option>
@@ -421,14 +498,6 @@
                 <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
                 <option value="./exo.html?id=4-h">H - Assistance &amp; Connaissance</option>
             </select>
-        </div>
-        
-        <div class="text-center flex-grow">
-            <span id="header-context-label" class="text-[10px] font-black uppercase tracking-tighter text-slate-400">Atelier</span>
-            <span class="text-sm font-bold text-slate-900 block" id="level-title-display">Facile</span>
-        </div>
-
-        <div class="flex items-center justify-end gap-4 shrink-0 whitespace-nowrap">
             <!-- Reset Level -->
             <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
@@ -437,14 +506,33 @@
             <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
-            
-            <!-- Breadcrumbs -->
-            <div id="breadcrumb-container" class="flex gap-1.5 hidden lg:flex flex-row items-center">
+        </div>
+        
+        <div class="text-center flex-grow"></div>
+
+        <div class="flex items-center justify-end gap-3 shrink-0 whitespace-nowrap">
+            <!-- header-level-selector dropdown -->
+            <div id="header-level-container" class="flex items-center gap-1.5 bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 cursor-pointer">
+                <select id="header-level-selector" onchange="switchLevel(parseInt(this.value))" class="bg-transparent text-slate-700 font-bold text-xs cursor-pointer outline-none focus:ring-0 p-0">
+                    <option value="0" id="header-opt-lvl-0" class="text-slate-800 bg-white font-semibold">Niveau I</option>
+                    <option value="1" id="header-opt-lvl-1" class="text-slate-800 bg-white font-semibold">Niveau II</option>
+                    <option value="2" id="header-opt-lvl-2" class="text-slate-800 bg-white font-semibold">Niveau III</option>
+                </select>
+            </div>
+
+            <!-- Breadcrumbs (dot-progress) -->
+            <div id="breadcrumb-container" class="flex gap-1.5 flex-row items-center font-bold">
                 <!-- Generated dynamically -->
             </div>
-            
-            <div class="text-right whitespace-nowrap">
-                <div class="text-xl font-black text-slate-800 leading-none" id="score-display">0 / --</div>
+
+            <!-- Navigation arrows -->
+            <div class="flex items-center gap-1">
+                <button onclick="prevStepNav()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors cursor-pointer" title="Question précédente">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <button onclick="nextStepNav()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors cursor-pointer" title="Question suivante">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -745,7 +833,9 @@ document.getElementById('page-title').innerText = `${CONFIG.title} - ESIS-3D`;
 document.getElementById('home-title').innerHTML = CONFIG.h1;
 document.getElementById('home-subtitle').innerText = CONFIG.subtitle;
 document.getElementById('scenario-emoji').innerText = CONFIG.emoji;
-document.getElementById('header-context-label').innerText = `${CONFIG.title}`;
+if (document.getElementById('header-context-label')) {
+    document.getElementById('header-context-label').innerText = `${CONFIG.title}`;
+}
 document.getElementById('modal-title-display').innerText = `Référentiel - ${CONFIG.title}`;
 document.getElementById('modal-subtitle-display').innerText = `Les réflexes et principes associés de l'atelier ${CONFIG.title}.`;
 
@@ -797,6 +887,7 @@ function initHome() {
         }
     }
     lucide.createIcons();
+    updateHeaderLevelButtons();
 }
 
 function isLevelUnlocked(lv) {
@@ -812,7 +903,10 @@ function startLevel(lv) {
     currentStepIdx = 0;
     answeredSteps = new Array(TOTAL_STEPS).fill(false);
     
-    document.getElementById('level-title-display').innerText = `${CONFIG.levelNames[lv]}`;
+    const lvlDisplay = document.getElementById('level-title-display');
+    if (lvlDisplay) {
+        lvlDisplay.innerText = `${CONFIG.levelNames[lv]}`;
+    }
     
     levelSteps = reflexes.map(r => ({
         reflexId: r.id,
@@ -877,7 +971,6 @@ function goHome() {
 
 function updateProgress() {
     document.getElementById('step-label').innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
-    document.getElementById('score-display').innerText = `0 / ${TOTAL_STEPS}`;
     
     const container = document.getElementById('breadcrumb-container');
     container.innerHTML = '';
@@ -886,28 +979,71 @@ function updateProgress() {
     for (let i = 0; i < TOTAL_STEPS; i++) {
         if (answeredSteps[i]) completedCount++;
         
-        const btn = document.createElement('button');
-        let stateClass = "bg-white text-slate-400 border-2 border-slate-200 hover:bg-slate-50"; 
+        const dot = document.createElement('div');
+        dot.style.width = (i === currentStepIdx) ? '8px' : '6px';
+        dot.style.height = (i === currentStepIdx) ? '8px' : '6px';
+        dot.style.borderRadius = '50%';
+        dot.style.transition = 'all 0.3s ease';
+        dot.style.cursor = 'pointer';
         
-        if (answeredSteps[i] && i !== currentStepIdx) {
-            stateClass = "bg-emerald-500 text-white border-2 border-emerald-500 shadow-sm hover:bg-emerald-400";
-        }
         if (i === currentStepIdx) {
-            stateClass = "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 transform scale-110 shadow-sm";
+            dot.style.background = 'var(--color-primary, #1e3a8a)';
+        } else if (answeredSteps[i]) {
+            dot.style.background = '#10b981';
+        } else {
+            dot.style.background = 'rgba(15, 23, 42, 0.15)';
         }
-
-        btn.className = `w-5 h-5 sm:w-6 sm:h-6 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center justify-center transition-all border cursor-pointer ${stateClass}`;
-        btn.innerText = i + 1;
-        btn.onclick = () => jumpToStep(i);
-        container.appendChild(btn);
+        
+        dot.onclick = () => jumpToStep(i);
+        container.appendChild(dot);
     }
     
-    const scoreDisplay = document.getElementById('score-display');
-    if (scoreDisplay) {
-        scoreDisplay.innerText = `${completedCount} / ${TOTAL_STEPS}`;
-    }
+    const pageLabel = document.createElement('span');
+    pageLabel.style.cssText = 'font-size:0.75rem;font-weight:700;color:#94a3b8;margin-left:6px;letter-spacing:0.02em;';
+    pageLabel.innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
+    container.appendChild(pageLabel);
     
     localStorage.setItem(`${CONFIG.key}-score-lv${currentLevel}`, completedCount);
+    updateHeaderLevelButtons();
+}
+
+function prevStepNav() {
+    let idx = (currentStepIdx - 1 + TOTAL_STEPS) % TOTAL_STEPS;
+    jumpToStep(idx);
+}
+
+function nextStepNav() {
+    let idx = (currentStepIdx + 1) % TOTAL_STEPS;
+    jumpToStep(idx);
+}
+
+function updateHeaderLevelButtons() {
+    const selector = document.getElementById('header-level-selector');
+    if (!selector) return;
+    
+    selector.value = currentLevel;
+    
+    for (let lv = 0; lv < 3; lv++) {
+        const opt = document.getElementById(`header-opt-lvl-${lv}`);
+        if (opt) {
+            opt.disabled = !isLevelUnlocked(lv);
+            
+            const isCompleted = localStorage.getItem(`${CONFIG.key}-score-lv${lv}`) !== null && parseInt(localStorage.getItem(`${CONFIG.key}-score-lv${lv}`)) >= TOTAL_STEPS;
+            const isUnlocked = isLevelUnlocked(lv);
+            const roman = ["I", "II", "III"][lv];
+            if (isCompleted) {
+                opt.text = `Niveau ${roman} (Terminé)`;
+            } else {
+                opt.text = `Niveau ${roman}`;
+            }
+        }
+    }
+
+}
+
+function switchLevel(lv) {
+    if (!isLevelUnlocked(lv)) return;
+    startLevel(lv);
 }
 
 function jumpToStep(idx) {
@@ -1271,8 +1407,9 @@ async function initApp() {
         const response = await fetch(`./${ATELIER_ID}.json?v=` + new Date().getTime());
         reflexes = await response.json();
         
+        buildModalContent();
+        
         TOTAL_STEPS = reflexes.length;
-        document.getElementById('score-display').innerText = `0 / ${TOTAL_STEPS}`;
 
         const savedLevel = localStorage.getItem('resume-' + CONFIG.key);
         let started = false;

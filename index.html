@@ -183,7 +183,7 @@
             font-family: var(--font-display);
             font-size: 0.72rem;
             font-weight: 800;
-            color: #4f46e5;
+            color: var(--color-primary, #1e3a8a);
             line-height: 1;
         }
 
@@ -320,9 +320,10 @@
 
         .atelier-title-line {
             display: flex;
-            align-items: baseline;
+            align-items: center;
+            justify-content: space-between;
             gap: 0.4rem;
-            flex-wrap: wrap;
+            width: 100%;
         }
 
         .atelier-number {
@@ -879,7 +880,9 @@
             }
 
             #dot-progress {
-                display: none !important;
+                display: flex !important;
+                gap: 4px !important;
+                align-items: center !important;
             }
 
             .lesson-slide svg {
@@ -1008,7 +1011,7 @@
                 margin-left: 0 !important;
             }
             #dot-progress > div {
-                display: none !important;
+                display: block !important;
             }
             #dot-progress > span {
                 font-size: 10px !important;
@@ -1202,7 +1205,14 @@
         <div class="top-bar">
             <!-- Header Section -->
             <header id="main-header">
-                <h1 id="title" class="flex items-center gap-2" style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 900; letter-spacing: -0.03em;"><i data-lucide="rocket" class="w-6 h-6 text-blue-900 shrink-0"></i>GO EPICO</h1>
+                <div class="flex items-center gap-2">
+                    <h1 id="title" class="flex items-center gap-2" style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 900; letter-spacing: -0.03em;"><i data-lucide="rocket" class="w-6 h-6 text-blue-900 shrink-0"></i>GO EPICO</h1>
+                    <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
+                        class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                        style="border: none; outline: none; width: 28px; height: 28px;">
+                        <i data-lucide="info" style="width: 14px; height: 14px;"></i>
+                    </button>
+                </div>
                 <p class="subtitle" id="desc">
                     Développez vos réflexes Product chez Epiconcept
                 </p>
@@ -1210,17 +1220,8 @@
 
             <!-- Compact Global Statistics -->
             <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux">
-                <div class="flex items-center gap-2">
-                    <div class="stat-bar-card" title="Progression Globale">
-                        <div class="stat-number" id="overall-completion">0%</div>
-                    </div>
-                    <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
-                        class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
-                        style="border: none; outline: none; width: 32px; height: 32px;">
-                        <i data-lucide="info" style="width: 16px; height: 16px;"></i>
-                    </button>
-                </div>
-                <div class="flex items-center gap-1">
+                <div class="flex items-center gap-1.5">
+                    <span id="hub-page-indicator" style="font-size: 11px; font-weight: 700; color: #64748b; margin-right: 0.25rem;">1 / 2</span>
                     <button id="scroll-prev" aria-label="Atelier précédent" class="bg-slate-100 p-1.5 rounded-lg text-slate-500 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                         style="border: none; outline: none; width: 26px; height: 26px;">
                         <i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i>
@@ -1242,15 +1243,17 @@
                 <section class="atelier-col" id="atelier-1">
                     <div class="atelier-header">
                         <div class="atelier-title-line">
-                            <span class="atelier-number">Atelier #1</span>
-                            <span class="atelier-sep">·</span>
-                            <span class="atelier-name">Design Product</span>
-                            <span class="atelier-sep">—</span>
-                            <span class="atelier-phase">Discovery I</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="atelier-number">Atelier #1</span>
+                                <span class="atelier-sep">·</span>
+                                <span class="atelier-name">Design Product</span>
+                            </div>
+                            <div class="stat-bar-card" id="atelier-1-completion" title="Progression de l'atelier">
+                                <div class="stat-number" id="atelier-1-completion-val">0%</div>
+                            </div>
                         </div>
                         <p class="atelier-objective">Réfléchir sur les besoins réels des utilisateurs via la démarche
                             Design Thinking.</p>
-
                     </div>
 
                     <article class="simulator-card po-theme" id="dt-card" style="cursor: pointer;">
@@ -1329,15 +1332,17 @@
                 <section class="atelier-col" id="atelier-2">
                     <div class="atelier-header">
                         <div class="atelier-title-line">
-                            <span class="atelier-number">Atelier #2</span>
-                            <span class="atelier-sep">·</span>
-                            <span class="atelier-name">Cadrage Product</span>
-                            <span class="atelier-sep">—</span>
-                            <span class="atelier-phase">Delivery I</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="atelier-number">Atelier #2</span>
+                                <span class="atelier-sep">·</span>
+                                <span class="atelier-name">Cadrage Product</span>
+                            </div>
+                            <div class="stat-bar-card" id="atelier-2-completion" title="Progression de l'atelier">
+                                <div class="stat-number" id="atelier-2-completion-val">0%</div>
+                            </div>
                         </div>
                         <p class="atelier-objective">Transformer le besoin en unités de développement actionnables et
                             garantir la qualité.</p>
-
                     </div>
 
                     <article class="simulator-card bug-theme" id="mvp-card" style="cursor: pointer;">
@@ -1420,11 +1425,14 @@
                 <section class="atelier-col" id="atelier-3">
                     <div class="atelier-header">
                         <div class="atelier-title-line">
-                            <span class="atelier-number">Atelier #3</span>
-                            <span class="atelier-sep">·</span>
-                            <span class="atelier-name">Vision Product</span>
-                            <span class="atelier-sep">—</span>
-                            <span class="atelier-phase">Discovery II</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="atelier-number">Atelier #3</span>
+                                <span class="atelier-sep">·</span>
+                                <span class="atelier-name">Vision Product</span>
+                            </div>
+                            <div class="stat-bar-card" id="atelier-3-completion" title="Progression de l'atelier">
+                                <div class="stat-number" id="atelier-3-completion-val">0%</div>
+                            </div>
                         </div>
                         <p class="atelier-objective">Anticiper les évolutions stratégiques et construire la trajectoire
                             produit long terme.</p>
@@ -1510,11 +1518,14 @@
                 <section class="atelier-col" id="atelier-4">
                     <div class="atelier-header">
                         <div class="atelier-title-line">
-                            <span class="atelier-number">Atelier #4</span>
-                            <span class="atelier-sep">·</span>
-                            <span class="atelier-name">Support Product</span>
-                            <span class="atelier-sep">—</span>
-                            <span class="atelier-phase">Delivery II</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="atelier-number">Atelier #4</span>
+                                <span class="atelier-sep">·</span>
+                                <span class="atelier-name">Support Product</span>
+                            </div>
+                            <div class="stat-bar-card" id="atelier-4-completion" title="Progression de l'atelier">
+                                <div class="stat-number" id="atelier-4-completion-val">0%</div>
+                            </div>
                         </div>
                         <p class="atelier-objective">Assurer la stabilité opérationnelle et l'assistance aux
                             utilisateurs au quotidien.</p>
@@ -1601,11 +1612,14 @@
                 <section class="atelier-col" id="atelier-5">
                     <div class="atelier-header">
                         <div class="atelier-title-line">
-                            <span class="atelier-number">Atelier #5</span>
-                            <span class="atelier-sep">·</span>
-                            <span class="atelier-name">Innovation Product</span>
-                            <span class="atelier-sep">—</span>
-                            <span class="atelier-phase">Discovery III</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="atelier-number">Atelier #5</span>
+                                <span class="atelier-sep">·</span>
+                                <span class="atelier-name">Innovation Product</span>
+                            </div>
+                            <div class="stat-bar-card" id="atelier-5-completion" title="Progression de l'atelier">
+                                <div class="stat-number" id="atelier-5-completion-val">0%</div>
+                            </div>
                         </div>
                         <p class="atelier-objective">Explorer de nouveaux horizons et valider des idées en rupture sans
                             risque.</p>
@@ -1686,11 +1700,14 @@
                 <section class="atelier-col" id="atelier-6">
                     <div class="atelier-header">
                         <div class="atelier-title-line">
-                            <span class="atelier-number">Atelier #6</span>
-                            <span class="atelier-sep">·</span>
-                            <span class="atelier-name">Data Product</span>
-                            <span class="atelier-sep">—</span>
-                            <span class="atelier-phase">Delivery III</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="atelier-number">Atelier #6</span>
+                                <span class="atelier-sep">·</span>
+                                <span class="atelier-name">Data Product</span>
+                            </div>
+                            <div class="stat-bar-card" id="atelier-6-completion" title="Progression de l'atelier">
+                                <div class="stat-number" id="atelier-6-completion-val">0%</div>
+                            </div>
                         </div>
                         <p class="atelier-objective">Piloter le produit par la preuve et mesurer l'impact des
                             fonctionnalités.</p>
@@ -1777,7 +1794,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.63';
+        const APP_VERSION = '2026.06.01.64';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1899,6 +1916,11 @@
                         dotContainer.appendChild(dot);
                     }
                 }
+                // Update page text indicator
+                const pageInd = document.getElementById('hub-page-indicator');
+                if (pageInd) {
+                    pageInd.innerText = `${currentPage + 1} / ${totalPages}`;
+                }
                 // Update arrow states
                 if (prevBtn) prevBtn.disabled = currentPage === 0;
                 if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
@@ -1977,13 +1999,41 @@
                 window.updateCardStatusBadge(gsupSlidesStatusLabel, gsupSlidesIdx + 1, 2);
             }
 
-            // Progression rate
-            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore + totalFeatScore + totalGsupScore + totalTicketingScore) / totalMaxScore) * 100);
-            const overallEl = document.getElementById('overall-completion');
-            overallEl.innerText = `${progressPercent}%`;
-            const overallCard = overallEl.parentElement;
-            if (overallCard) {
-                overallCard.style.setProperty('--progress', `${progressPercent}%`);
+            // Update individual atelier progress gauges (exercise scores)
+            const max1 = maxPoScore + maxUxScore;
+            const score1 = totalPoScore + totalUxScore;
+            const pct1 = Math.round((score1 / max1) * 100) || 0;
+            const el1Val = document.getElementById('atelier-1-completion-val');
+            if (el1Val) {
+                el1Val.innerText = `${pct1}%`;
+                el1Val.parentElement.style.setProperty('--progress', `${pct1}%`);
+            }
+
+            const max2 = maxEvoScore + maxCsoScore;
+            const score2 = totalEvoScore + totalCsoScore;
+            const pct2 = Math.round((score2 / max2) * 100) || 0;
+            const el2Val = document.getElementById('atelier-2-completion-val');
+            if (el2Val) {
+                el2Val.innerText = `${pct2}%`;
+                el2Val.parentElement.style.setProperty('--progress', `${pct2}%`);
+            }
+
+            const max3 = maxRoadScore + maxFeatScore;
+            const score3 = totalRoadScore + totalFeatScore;
+            const pct3 = Math.round((score3 / max3) * 100) || 0;
+            const el3Val = document.getElementById('atelier-3-completion-val');
+            if (el3Val) {
+                el3Val.innerText = `${pct3}%`;
+                el3Val.parentElement.style.setProperty('--progress', `${pct3}%`);
+            }
+
+            const max4 = maxGsupScore + maxTicketingScore;
+            const score4 = totalGsupScore + totalTicketingScore;
+            const pct4 = Math.round((score4 / max4) * 100) || 0;
+            const el4Val = document.getElementById('atelier-4-completion-val');
+            if (el4Val) {
+                el4Val.innerText = `${pct4}%`;
+                el4Val.parentElement.style.setProperty('--progress', `${pct4}%`);
             }
 
             // Display time metadata if available
@@ -2537,14 +2587,15 @@
             if (!reflexesData) {
                 try {
                     const v = new Date().getTime();
-                    const [poRes, uxRes, cRes, dRes, eRes, fRes, gRes] = await Promise.all([
+                    const [poRes, uxRes, cRes, dRes, eRes, fRes, gRes, hRes] = await Promise.all([
                         fetch('1-a.json?v=' + v),
                         fetch('1-b.json?v=' + v),
                         fetch('2-c.json?v=' + v),
                         fetch('2-d.json?v=' + v),
                         fetch('3-e.json?v=' + v),
                         fetch('3-f.json?v=' + v),
-                        fetch('4-g.json?v=' + v)
+                        fetch('4-g.json?v=' + v),
+                        fetch('4-h.json?v=' + v)
                     ]);
                     const cRaw = await cRes.json();
                     reflexesData = {
@@ -2554,7 +2605,8 @@
                         d: await dRes.json(),
                         e: await eRes.json(),
                         f: await fRes.json(),
-                        g: await gRes.json()
+                        g: await gRes.json(),
+                        h: await hRes.json()
                     };
                 } catch (e) {
                     console.error("Error loading reflex data:", e);
@@ -2764,6 +2816,33 @@
                     }
                     if (!examples.length) examples = item.questions || [];
                 }
+            } else if (reflexId.startsWith('H')) {
+                const num = parseInt(reflexId.substring(1), 10);
+                const item = reflexesData.h.find(x => x.id === num);
+                if (item) {
+                    title = item.title;
+                    description = item.intent;
+                    badgeText = "Réflexe H - Assistance & Connaissance";
+                    iconName = item.icon || "book-open";
+                    isCD = true;
+                    examples = [];
+                    if (item.scenarios) {
+                        item.scenarios.forEach((sc) => {
+                            const sci = sc.correct;
+                            if (sci && sci.title) {
+                                examples.push(sci.title);
+                                if (sci.visual) {
+                                    visuals.push({
+                                        title: sci.title,
+                                        expl: sci.expl || sc.text,
+                                        html: sci.visual
+                                    });
+                                }
+                            }
+                        });
+                    }
+                    if (!examples.length) examples = item.questions || [];
+                }
             }
 
             if (title) {
@@ -2862,7 +2941,7 @@
                         card.className = 'ref-visual-card-ux';
 
                         card.innerHTML = `
-                    <div class="visual-mockup" style="width:100%;min-height:80px;">
+                    <div class="visual-mockup" style="width:100%;max-height:50px !important;">
                         <div class="mockup-container">
                             ${v.html}
                         </div>
@@ -2920,20 +2999,24 @@
                     <i data-lucide="info" style="width: 24px; height: 24px;"></i>
                 </div>
                 <div>
-                    <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Informations</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Informations</span>
+                        <span style="font-size: 0.62rem; font-weight: 800; color: #475569; background: #e2e8f0; border-radius: 999px; padding: 0.15rem 0.45rem; line-height: 1;" id="info-version-value">2026.05.31.02</span>
+                    </div>
                     <h3 style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">GO EPICO</h3>
                 </div>
             </div>
 
             <div id="info-overview-panel" style="background:#f8fafc; padding:1.2rem; border-radius:1rem; border:1px solid rgba(15,23,42,0.04);">
-                <h4 style="font-size:0.75rem; font-weight:800; color:#475569; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem;">Contexte</h4>
-                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0 0 0.75rem 0;">Cet outil pédagogique est un référentiel et un simulateur conçu pour acquérir des réflexes Product à travers un cycle de 6 ateliers, chacun composé d'une introduction théorique et de 2 exercices d'entraînement.</p>
-                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0 0 0.75rem 0;">On utilise pour les situations le contexte d'un logiciel de suivi de dépistage de santé (ESIS-3D).</p>
-                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0;">La plateforme sert de support aux workshops et à leurs ressources: progression, référentiels, slides, et navigation entre exercices.</p>
-                <div style="margin-top:0.9rem; display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-                    <span style="font-size:0.7rem; font-weight:800; color:#0f172a; background:#e2e8f0; border-radius:999px; padding:0.2rem 0.55rem;">Version</span>
-                    <div style="font-size:1.1rem; font-weight:900; color:#0f172a; letter-spacing:0.04em;" id="info-version-value">2026.05.31.02</div>
-                </div>
+                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0;">Simulateur et référentiel pédagogique conçu pour acquérir les réflexes Product à travers 6 ateliers (théorie et exercices d'entraînement). Les situations concrètes s'appuient sur le contexte d'un logiciel de dépistage de santé (ESIS-3D).</p>
+            </div>
+
+            <!-- Footer copyright -->
+            <div style="border-top: 1px solid rgba(15, 23, 42, 0.06); padding-top: 0.8rem; text-align: center; margin-top: 0.2rem;">
+                <p style="font-size: 0.68rem; color: #64748b; line-height: 1.45; font-weight: 600; margin: 0; letter-spacing: 0.01em;">
+                    Usage réservé à Epiconcept.<br>
+                    Développé par Savane Go-Live. &copy; 2026
+                </p>
             </div>
         </div>
     </div>
