@@ -94,7 +94,7 @@
   },
   {
     "id": 2,
-    "title": "D2. Cartographier le flux nominal",
+    "title": "D2. Cartographier le parcours utilisateur",
     "intent": "Cartographier tous les chemins possibles du parcours utilisateur : le succès nominal, les variantes et les blocages.",
     "icon": "git-branch",
     "scenarios": [
@@ -102,7 +102,7 @@
         "text": "Un patient reçoit son invitation au dépistage colorectal par courrier. Dans 80% des cas, il suit le lien, prend rendez-vous chez son médecin traitant et réalise le test. Mais l'équipe du CRDC reçoit chaque jour des appels de personnes qui ont perdu leur courrier ou qui ne savent pas comment prendre rendez-vous en ligne.",
         "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Parcours Patient</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-1 text-[10px]\"><span class=\"w-2 h-2 rounded-full bg-emerald-500\"></span><span>Happy path : 80%</span></div><div class=\"flex items-center gap-1 text-[10px]\"><span class=\"w-2 h-2 rounded-full bg-amber-400\"></span><span>Courrier perdu : 12%</span></div><div class=\"flex items-center gap-1 text-[10px]\"><span class=\"w-2 h-2 rounded-full bg-red-400\"></span><span>Aide RDV : 8%</span></div></div></div>",
         "correct": {
-          "title": "Décrire le flux nominal puis les variantes ",
+          "title": "Décrire le parcours principal (Happy path) puis les variantes ",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Décrire flux nominal pui</div><div class=\"flex items-center gap-0.5 text-[7px] text-slate-600 font-semibold\"><span>Étape 1</span><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><span>Étape 2</span><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><span>Étape 3</span></div></div>",
           "expl": "Documenter d'abord le parcours principal (happy path), puis lister séparément les variantes et exceptions rencontrées.",
           "debriefExpl": "En décrivant étape par étape le parcours classique du patient (invitation → prise de RDV → test → résultat), puis en listant à part les cas particuliers (courrier perdu, difficulté à prendre RDV), le CRDC peut spécifier des solutions adaptées à chaque situation sans surcharger le flux principal.",
@@ -838,95 +838,95 @@
   },
   {
     "id": 10,
-    "title": "D10. Établir les critères d'acceptation",
-    "intent": "Formaliser le comportement attendu sous forme Given/When/Then pour chaque user story, afin de lever toute ambiguïté.",
+    "title": "D10. Établir les critères d'acceptation dans la US",
+    "intent": "Formaliser le comportement attendu, les cas à la marge et les cas non-traités par la US pour lever toute ambiguïté.",
     "icon": "check-square",
     "scenarios": [
       {
-        "text": "Le CRDC spécifie une US : \"En tant que gestionnaire, je veux filtrer la liste des patients par tranche d'âge\". L'équipe de développement livre un filtre par date de naissance EXACTE. Le gestionnaire ne peut pas sélectionner \"50-74 ans\". Résultat : le filtre est inutilisable et doit être repris.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Filtre Patients</div><div class=\"flex flex-col gap-1\"><div class=\"bg-red-100 p-1.5 rounded text-[9px]\">✗ Filtre : date exacte (inutilisable)</div><div class=\"bg-emerald-100 p-1.5 rounded text-[9px]\">✓ Attendu : tranche 50-74 ans</div></div></div>",
+        "text": "Le CRDC souhaite simplifier la recherche de patients : \"En tant que gestionnaire, je veux rechercher un patient\". La US ne précise rien d'autre. L'équipe développe une recherche stricte sur le nom exact. À l'usage, les fautes de frappe bloquent le quotidien, et le développeur a perdu du temps à tenter d'intégrer l'annuaire national alors que ce n'était pas prioritaire.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Recherche de Patients</div><div class=\"flex flex-col gap-1\"><div class=\"bg-red-100 p-1.5 rounded text-[9px] text-red-700\">✗ Recherche nom exact uniquement</div><div class=\"bg-orange-100 p-1.5 rounded text-[9px] text-orange-700\">⚠ Fautes de frappe non tolérées</div><div class=\"bg-slate-100 p-1.5 rounded text-[9px] text-slate-700\">? Intégration annuaire national ?</div></div></div>",
         "correct": {
-          "title": "Rédiger des critères d'acceptation BDD ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rédiger critères d'accep</div><div class=\"bg-slate-50 rounded p-1.5 border border-slate-150 font-mono text-[6px] text-slate-600 leading-relaxed\"><span class=\"font-bold text-slate-500\">Given</span> contexte<br><span class=\"font-bold text-slate-500\">When</span> action<br><span class=\"font-bold text-slate-500\">Then</span> résultat attendu</div></div>",
-          "expl": "Rédiger des critères d'acceptation précis au format Given / When / Then pour lever toute ambiguïté.",
-          "debriefExpl": "La spécification \"filtrer par tranche d'âge\" est ambiguë : date exacte ou fourchette ? Un critère BDD lève l'ambiguïté : \"Given un gestionnaire consulte la liste des patients / When il filtre par tranche d'âge 50-74 ans / Then seuls les patients de 50 à 74 ans inclus sont affichés.\" Le développeur livre exactement ce qui est attendu.",
+          "title": "Distinguer nominal, marge et hors-US ",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Définir les trois niveaux</div><div class=\"flex flex-col gap-0.5 font-mono text-[6.5px] text-slate-600\"><div class=\"text-emerald-700 font-bold\">✓ Nominal : Nom ou Prénom local</div><div class=\"text-amber-700 font-bold\">⚠ Marge : Tolérer 1 lettre d'écart</div><div class=\"text-red-700 font-bold\">✗ Exclu : Annuaire national (futur)</div></div></div>",
+          "expl": "Distinguer le comportement attendu (nominal), les cas aux limites (fautes de frappe) et les cas non traités (base nationale) dans la US.",
+          "debriefExpl": "En formalisant le cas nominal (recherche locale sur nom/prénom), le cas à la marge (tolérance aux fautes de frappe de 1 ou 2 caractères) et ce qui est explicitement hors-US (recherche sur la base nationale, repoussée à une US future), le développeur sait exactement quoi coder et tester, sans dérive de périmètre.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Laisser le développeur interpréter librement le besoin ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Laisser développeur inte</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Laisser le développeur interpréter libre</span></div></div>",
-            "expl": "Laisser le développeur libre d'interpréter le besoin fonctionnel sans critères précis.",
-            "debriefExpl": "Le développeur a compris \"filtrer par date de naissance\" alors que le gestionnaire voulait \"filtrer par tranche d'âge\". Sans critère BDD, les erreurs d'interprétation sont fréquentes.",
+            "title": "Laisser le développeur deviner les limites",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Aucune limite définie</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Laisser l'équipe deviner les règles</span></div></div>",
+            "expl": "Laisser l'équipe projet définir les limites fonctionnelles au fil du développement.",
+            "debriefExpl": "Sans distinction claire, le développeur risque de passer du temps à coder une intégration complexe de la base nationale non prioritaire, tout en oubliant la tolérance aux fautes de frappe de base.",
             "icon": "x"
           },
           {
-            "title": "Produire uniquement des maquettes graphiques détaillées ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Produire uniquement maqu</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Produire uniquement des maquettes graphi</span></div></div>",
-            "expl": "Produire uniquement des maquettes graphiques détaillées sans spécification écrite du comportement.",
-            "debriefExpl": "Une maquette montre un champ de filtre, mais ne dit pas si le résultat doit être une date exacte ou une tranche d'âge. Le comportement doit être écrit en toutes lettres.",
+            "title": "Rédiger une spécification de 50 pages ",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Cahier des charges lourd</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Décrire chaque détail fonctionnel</span></div></div>",
+            "expl": "Rédiger un cahier des charges exhaustif pour chaque fonctionnalité mineure.",
+            "debriefExpl": "Un document trop lourd décourage la lecture et retarde le projet. Il suffit de lister le nominal, 2 ou 3 cas à la marge critiques, et les limites du périmètre en quelques puces claires dans la US.",
             "icon": "x"
           }
         ],
-        "expl": "Un critère d'acceptation en BDD aurait levé l'ambiguïté : Given un gestionnaire consulte la liste des patients / When il filtre par tranche d'âge 50-74 ans / Then seuls les patients de 50 à 74 ans inclus sont affichés."
+        "expl": "La US doit distinguer clairement le cas nominal, les cas aux limites tolérés, et ce qui est explicitement hors-périmètre."
       },
       {
-        "text": "Une US spécifie : \"Le système envoie une relance aux patients non répondants après 6 mois.\" Le développeur comprend qu'il faut relancer tous les patients sans exception tous les 6 mois. Il programme un envoi automatique qui relance aussi les patients décédés, les refus et les patients déjà à jour de leur dépistage.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Relance Automatique</div><div class=\"p-2 bg-red-50 border border-red-200 rounded text-[9px]\"><span class=\"font-bold text-red-700\">Erreur : relance décédés et refus</span><div class=\"text-red-500\">Aurait été évitée avec un critère BDD</div></div></div>",
+        "text": "Le système doit relancer automatiquement par e-mail les patientes n'ayant pas répondu à leur invitation après 3 mois. La US omet de préciser ce qui se passe si l'adresse e-mail est invalide (cas à la marge) ou si la patiente a changé de situation médicale ou est décédée (cas d'exclusion). Résultat : des e-mails d'erreur s'accumulent et des relances inappropriées sont envoyées.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Relance Automatique</div><div class=\"flex flex-col gap-1\"><div class=\"bg-red-100 p-1.5 rounded text-[9px] text-red-700\">✗ E-mails d'erreur en boucle</div><div class=\"bg-red-100 p-1.5 rounded text-[9px] text-red-700\">✗ Relance envoyée à une patiente décédée</div></div></div>",
         "correct": {
-          "title": "Préciser le contexte initial des critères ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Préciser contexte initia</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Préciser le contexte initial des critère</span></div></div>",
-          "expl": "Définir précisément le contexte et les conditions initiales dans les critères d'acceptation.",
-          "debriefExpl": "Le critère \"relancer les patients après 6 mois\" est incomplet. Il faut préciser : seul un patient vivant, n'ayant pas refusé, et n'ayant pas déjà réalisé son dépistage doit être relancé. Sans ces précisions, le développeur relance tout le monde, y compris les patients décédés ou à jour.",
+          "title": "Spécifier les exclusions et anomalies ",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Définir exclusions</div><div class=\"flex flex-col gap-0.5 font-mono text-[6.5px] text-slate-600\"><div class=\"text-emerald-700 font-bold\">✓ Nominal : E-mail valide</div><div class=\"text-amber-700 font-bold\">⚠ Marge : Erreur mail → Relance papier</div><div class=\"text-red-700 font-bold\">✗ Exclu : Décédée ou Refus → Bloquer</div></div></div>",
+          "expl": "Préciser systématiquement les cas d'exclusion et le traitement des erreurs de parcours dans les critères d'acceptation.",
+          "debriefExpl": "Indiquer clairement que le cas nominal concerne les e-mails valides, que le cas à la marge (e-mail invalide) génère une tâche de relance postale, et que le cas exclu (patiente décédée ou ayant refusé le programme) bloque définitivement l'envoi, sécurise le parcours patient et évite des situations douloureuses pour les familles.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Soumettre chaque action à une double validation ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Soumettre chaque action </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Soumettre chaque action à une double val</span></div></div>",
-            "expl": "Soumettre chaque action automatique à une double validation humaine avant exécution.",
-            "debriefExpl": "Faire valider chaque relance par deux personnes ne résout pas l'ambiguïté de la règle. Le problème est dans la spécification, pas dans le circuit de validation.",
+            "title": "Décrire uniquement le scénario idéal ",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Parcours sans erreur</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Ignorer les anomalies possibles</span></div></div>",
+            "expl": "Spécifier uniquement le parcours sans erreur (happy path) pour accélérer la rédaction de la US.",
+            "debriefExpl": "Ignorer les anomalies (e-mails erronés) ou les exclusions (décès, refus) conduit à des bugs de production critiques ou à un parcours utilisateur dégradé.",
             "icon": "x"
           },
           {
-            "title": "Restreindre arbitrairement le périmètre de la règle ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Restreindre arbitraireme</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Restreindre arbitrairement le périmètre </span></div></div>",
-            "expl": "Restreindre arbitrairement le périmètre d'application de la règle sans analyse métier.",
-            "debriefExpl": "Limiter la relance aux seuls patients de 60 ans sans comprendre pourquoi exclut les 50-59 ans qui en auraient besoin.",
+            "title": "Bloquer l'envoi au moindre doute ",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Interruption générale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Stopper le processus au moindre écart</span></div></div>",
+            "expl": "Interrompre tout le processus automatique si un seul cas à la marge se présente.",
+            "debriefExpl": "Bloquer toutes les relances sous prétexte que quelques adresses sont erronées pénalise l'ensemble de la campagne. Il faut un traitement d'anomalie ciblé.",
             "icon": "x"
           }
         ],
-        "expl": "Un critère BDD précis aurait évité : Given un patient n'ayant pas réalisé son dépistage depuis 6 mois ET étant vivant ET n'ayant pas refusé / When la date de relance est atteinte / Then le système génère un courrier de relance avec le statut \"Relancé\"."
+        "expl": "La gestion des anomalies et des cas d'exclusion doit être inscrite au cœur de la US pour éviter des relances inappropriées et fiabiliser les automatisations."
       },
       {
-        "text": "Le CRDC veut pouvoir annuler une campagne d'invitation si le fichier d'adresses comporte trop d'erreurs. L'US est vague : \"Pouvoir annuler une campagne en cours\". L'équipe livre un bouton \"Annuler\" qui stoppe net l'envoi en masse, sans gérer les invitations déjà parties ni les patients déjà notifiés.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Annulation Campagne</div><div class=\"p-2 bg-emerald-50 border border-emerald-200 rounded text-[9px]\"><div>Déjà envoyés : 300 ✅</div><div>Restants annulés : 4700 🛑</div><div>Rapport généré automatiquement 📄</div></div></div>",
+        "text": "Un CRDC intègre un fichier d'inscriptions envoyé par un partenaire. La US indique : \"Importer les inscriptions du fichier\". En cours de route, le fichier contient des doublons (cas à la marge) et des inscrits hors-région (cas d'exclusion). Le système plante à la première erreur et aucun rapport n'est généré.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Import Inscriptions</div><div class=\"flex flex-col gap-1\"><div class=\"bg-red-100 p-1.5 rounded text-[9px] text-red-700\">✗ Plantage complet à la ligne 12</div><div class=\"bg-red-100 p-1.5 rounded text-[9px] text-red-700\">✗ Aucun rapport d'intégration produit</div></div></div>",
         "correct": {
-          "title": "Formaliser tous les cas limites en BDD ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Formaliser tous limites</div><div class=\"bg-slate-50 rounded p-1.5 border border-slate-150 font-mono text-[6px] text-slate-600 leading-relaxed\"><span class=\"font-bold text-slate-500\">Given</span> contexte<br><span class=\"font-bold text-slate-500\">When</span> action<br><span class=\"font-bold text-slate-500\">Then</span> résultat attendu</div></div>",
-          "expl": "Formaliser tous les cas limites dans les critères d'acceptation, pas seulement le cas nominal.",
-          "debriefExpl": "La spécification \"annuler une campagne\" semble simple, mais soulève des questions : que faire des 300 invitations déjà parties ? Faut-il notifier les patients déjà contactés ? Un critère BDD complet répond : \"Given une campagne avec 300 envois déjà effectués / When annulation / Then les 300 envois restent tracés, les 4700 suivants sont annulés, un rapport est généré.\"",
+          "title": "Définir le comportement sur rejets ",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Règles d'intégration</div><div class=\"flex flex-col gap-0.5 font-mono text-[6.5px] text-slate-600\"><div class=\"text-emerald-700 font-bold\">✓ Nominal : Ligne valide → Import</div><div class=\"text-amber-700 font-bold\">⚠ Marge : Doublon → Ignorer & Log</div><div class=\"text-red-700 font-bold\">✗ Exclu : Hors-région → Rejeter</div></div></div>",
+          "expl": "Définir précisément les règles de rejet, de tolérance et les limites de traitement de la US.",
+          "debriefExpl": "La US doit spécifier que le cas nominal intègre les lignes correctes, que le cas à la marge (doublons) ignore la ligne en la loggant, et que le cas exclu (hors-région) rejette la ligne avec alerte spécifique. Cela garantit un import robuste et un traitement fluide pour l'utilisateur.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Bloquer l'action si des envois ont débuté ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Bloquer l'action envois </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Bloquer l'action si des envois ont début</span></div></div>",
-            "expl": "Bloquer purement et simplement l'action d'annulation si des envois ont déjà commencé.",
-            "debriefExpl": "Si le fichier d'adresses contient trop d'erreurs, le gestionnaire doit pouvoir stopper la campagne même après quelques envois.",
+            "title": "Rejeter l'intégralité du fichier ",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Rejet total du fichier</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Bloquer l'import dès une seule erreur</span></div></div>",
+            "expl": "Bloquer tout l'import dès qu'un seul élément non conforme est détecté dans le fichier.",
+            "debriefExpl": "Rejeter tout le fichier pour un seul doublon ou une adresse hors-région oblige le partenaire à renvoyer sans cesse des fichiers corrigés, ralentissant le flux de données.",
             "icon": "x"
           },
           {
-            "title": "Proposer un arrêt d'urgence sans gérer l'état ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Proposer arrêt d'urgence</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Proposer un arrêt d'urgence sans gérer l</span></div></div>",
-            "expl": "Proposer un arrêt d'urgence qui stoppe net l'action sans gérer l'état des éléments déjà traités.",
-            "debriefExpl": "Arrêter net l'envoi sans savoir qui a été notifié et qui ne l'a pas été rend impossible le suivi de la campagne.",
+            "title": "Tout importer sans aucun filtre ",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Tout intégrer en base</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Intégrer les données brutes sans tri</span></div></div>",
+            "expl": "Intégrer toutes les données brutes dans la base de données et faire le tri a posteriori.",
+            "debriefExpl": "Importer des doublons et des dossiers hors-région pollue la base locale et génère des incohérences de facturation et de suivi très difficiles à nettoyer après coup.",
             "icon": "x"
           }
         ],
-        "expl": "Le critère BDD explicite les cas : Given une campagne d'invitation avec 300 envois déjà effectués sur 5000 / When le responsable annule la campagne / Then les 300 envois déjà partis restent tracés ET les 4700 envois restants sont marqués \"Annulé\" ET un rapport d'annulation est généré."
+        "expl": "Définir la tolérance aux doublons et le rejet sélectif des données hors périmètre assure la résilience du système face aux données externes."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">BDD — Given / When / Then</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-blue-50 border border-blue-200 rounded-lg p-2\"><span class=\"text-[7px] font-black text-blue-800 uppercase\">Given</span><br/><span class=\"text-[8px] text-blue-700\">Un filtre \"tranche d'âge\" est configuré</span></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2\"><span class=\"text-[7px] font-black text-amber-800 uppercase\">When</span><br/><span class=\"text-[8px] text-amber-700\">L'utilisateur sélectionne 50-74 ans</span></div><div class=\"bg-emerald-50 border border-emerald-200 rounded-lg p-2\"><span class=\"text-[7px] font-black text-emerald-800 uppercase\">Then</span><br/><span class=\"text-[8px] text-emerald-700\">Seuls les patients de 50 à 74 ans sont affichés (bornes incluses)</span></div><div class=\"text-center text-[7px] text-slate-500\">Critère d'acceptation sans ambiguïté</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Structure d'une US</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-emerald-50 border border-emerald-200 rounded-lg p-2\"><div class=\"flex justify-between items-center mb-0.5\"><span class=\"text-[7px] font-bold text-emerald-800 uppercase\">1. Cas Nominal</span><span class=\"text-[6px] bg-emerald-200 text-emerald-800 px-1 rounded font-bold\">Happy Path</span></div><div class=\"text-[7px] text-emerald-700 leading-normal\">Comportement standard attendu de l'utilisateur (ex: recherche exacte, e-mail correct).</div></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2\"><div class=\"flex justify-between items-center mb-0.5\"><span class=\"text-[7px] font-bold text-amber-800 uppercase\">2. Cas à la Marge</span><span class=\"text-[6px] bg-amber-200 text-amber-800 px-1 rounded font-bold\">Edge Cases</span></div><div class=\"text-[7px] text-amber-700 leading-normal\">Erreurs de saisie, formats alternatifs, limites du système (ex: tolérance typo, e-mail invalide).</div></div><div class=\"bg-red-50 border border-red-200 rounded-lg p-2\"><div class=\"flex justify-between items-center mb-0.5\"><span class=\"text-[7px] font-bold text-red-800 uppercase\">3. Exclus / Non Traité</span><span class=\"text-[6px] bg-red-200 text-red-800 px-1 rounded font-bold\">Out of Scope</span></div><div class=\"text-[7px] text-red-700 leading-normal\">Ce qui ne doit pas être géré dans cette US (ex: recherche externe, patient décédé).</div></div></div></div>"
   }
 ]

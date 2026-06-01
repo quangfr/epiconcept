@@ -497,10 +497,10 @@
         "text": "Le statut d'un bilan de dépistage du cancer du col de l'utérus est bloqué en « En attente de résultat » depuis 3 semaines alors que le laboratoire a confirmé avoir transmis le résultat par flux. Toutes les tentatives de modification via l'interface échouent car le statut ne permet pas la transition manuelle.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bilan bloqué en attente — CRDC Oise</span></div><p class=\"text-xs text-slate-500\">Statut figé malgré réception du résultat laboratoire</p></div>",
         "correct": {
-          "title": "Débloquer les changements non-autorisés via un accès super-admin tracé",
+          "title": "Débloquer les changements via un accès super-admin tracé",
           "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Accès super-admin tracé — Statut forcé de 'En attente' à 'Résultat reçu' avec enregistrement du motif</span></div></div>",
-          "expl": "Débloquer manuellement le statut figé via un outil d'administration sécurisé réservé aux super-administrateurs avec enregistrement de l'action.",
-          "debriefExpl": "L'utilisation d'un accès super-admin tracé permet de forcer la transition de statut impossible via l'interface standard. L'opération est enregistrée avec le motif de blocage et l'identifiant de l'intervenant pour des raisons de sécurité.",
+          "expl": "Débloquer manuellement le statut figé via un accès d'administration sécurisé réservé au support avec enregistrement de l'action.",
+          "debriefExpl": "L'utilisation d'un accès super-admin tracé permet de forcer la transition de statut impossible via l'interface standard. L'opération est à enregistrer avec le motif et l'identifiant du demandeur pour des raisons de sécurité.",
           "icon": "check"
         },
         "wrong": [

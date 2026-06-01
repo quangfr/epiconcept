@@ -86,6 +86,7 @@
 ## 7. Slides "Lesson" & Hub
 - **Slides** : `openLesson(atelierId)` charge `{atelierId}-0.md`. Séparateur `\n---\n`. Rend `<div class="lesson-slide">` + navigation + localStorage.
 - **Hub click handlers** : `#po-card` (`./1-a.html`), `#ux-card` (`./1-b.html`), `#evo-card` (`./2-d.html`), `#cso-card` (`./2-c.html`).
+- **Alignement des Titres** : Les intitulés des réflexes listés dans les slides `.md` doivent toujours correspondre exactement à l'attribut `title` défini dans les fichiers `.json` associés. En cas de modification d'un réflexe, mettre à jour le `.md` associé pour garantir la cohérence.
 
 ## 8. Guide des Visuels (HTML Tailwind)
 - Mockups HTML compacts injectés dans le JSON via `innerHTML`.
