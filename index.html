@@ -1003,10 +1003,20 @@
                 height: 11px !important;
             }
             #dot-progress {
+                display: flex !important;
+                gap: 2px !important;
+                margin-left: 0 !important;
+            }
+            #dot-progress > div {
                 display: none !important;
             }
+            #dot-progress > span {
+                font-size: 10px !important;
+                margin-left: 0 !important;
+                color: #64748b !important;
+            }
             #lesson-slides-container {
-                padding: 2px !important;
+                padding: 2px 2px 32px !important;
             }
             .lesson-slide {
                 padding: 0 !important;
@@ -1766,7 +1776,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.60';
+        const APP_VERSION = '2026.06.01.61';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2068,6 +2078,16 @@
             }
 
             lucide.createIcons();
+
+            const savedLesson = localStorage.getItem('lesson-modal-open');
+            if (savedLesson) {
+                openLesson(parseInt(savedLesson));
+            } else {
+                const savedRef = localStorage.getItem('ref-modal-open');
+                if (savedRef) {
+                    showRef(savedRef);
+                }
+            }
         });
     </script>
 
@@ -2110,7 +2130,7 @@
         </div>
 
         <div id="lesson-slides-container"
-            style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: 8px; padding-left: 12px; padding-right: 12px;">
+            style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 8px 12px 24px;">
             <!-- Generated dynamically from markdown -->
         </div>
     </div>
@@ -2136,6 +2156,8 @@
             if (atelierId !== 1 && atelierId !== 2 && atelierId !== 3 && atelierId !== 4) return;
             const modal = document.getElementById('lesson-modal');
             modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            localStorage.setItem('lesson-modal-open', atelierId);
 
             // Swipe gestures
             modal.addEventListener('touchstart', e => {
@@ -2318,6 +2340,8 @@
         function closeLesson() {
             const modal = document.getElementById('lesson-modal');
             modal.style.display = 'none';
+            document.body.style.overflow = '';
+            localStorage.removeItem('lesson-modal-open');
         }
 
         function changeSlide(dir) {
@@ -2742,6 +2766,7 @@
             }
 
             if (title) {
+                localStorage.setItem('ref-modal-open', reflexId);
                 openRefModal(title, description, examples, badgeText, iconName, visuals, isCD);
             }
         }
@@ -2860,6 +2885,7 @@
 
         function closeRefModal() {
             document.getElementById('ref-modal').style.display = 'none';
+            localStorage.removeItem('ref-modal-open');
         }
 
         function openInfoModal() {
