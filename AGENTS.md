@@ -13,10 +13,13 @@
 - **Mobile** : Marges vert 5px / horiz 0px. Max-height SVG : 55vh.
 - **Sémantique** : `content` = SVG brut uniquement. `footer` = Légende (si commence par `"<div"` -> flex, sinon `<p>`).
 
-## 3. Workflow & Remplacement
-- **Scripts** : Utiliser des scripts Node temporaires `fix-*.js` pour les modifications de masse (les supprimer après commit).
-- **Règles** : Valider les IDs du DOM avant `innerHTML`. Valider la structure des JSONs.
-- **Déploiement** : Sur demande `commit` uniquement. Commit et `git push` ainsi que `firebase deploy --project goepico` (https://goepico.web.app).
+## 3. Workflow, Économie de Tokens & Structure
+- **Structure** : `index.html` centralise le Hub et le chargement des référentiels via `showRef(id)`. Chaque fichier `{X}-{y}.html` contient la logique de jeu de son atelier respectif, et consomme `{X}-{y}.json` qui contient les questions, scénarios et visuels HTML.
+- **Économie de Tokens** :
+  - **Ne pas lire de gros fichiers JSON** en entier ! Préférer des scripts Node de recherche ciblés (`fix-*.js`) ou `grep` pour inspecter des fragments.
+  - Utiliser `replace_file_content` sur des blocs ultra-ciblés de lignes au lieu de lire ou réécrire de larges portions d'un fichier.
+  - Ne jamais charger `index.html` en entier si non requis ; cibler uniquement les blocs de script via des plages de lignes précises.
+- **Scripts** : Utiliser des scripts Node temporaires `fix-*.js` pour les modifications de masse (les supprimer immédiatement après exécution).
 
 ## 4. Template Ateliers (Cycle 3 Phases)
 - **Layout Grid** (`h-[calc(100vh-70px)]`) : Gauche (1/3) = `#scenario-card` + `#phase2-question-container` (auto). Droite (2/3) = `#options-container` (Phase 1: `#reflex-grid`, Phase 2: `#questions-wrapper`/`#ui-grid`, Phase 3: `#debriefing-card`).
@@ -57,7 +60,7 @@
 ## 9. Bump, Commit & Déploiement
 - **Bump** : Incrémenter `APP_VERSION` dans `index.html` (format `YYYY.MM.DD.NN`). `NN` = 01 le jour même, puis 02, 03...
 - **Commit** : `git add index.html [fichiers modifiés]; if ($?) { git commit -m "bump vYYYY.MM.DD.NN - <description>" }`
-- **Push + Deploy** : `git push; if ($?) { firebase deploy --project goepico }`
+- **Push & Deploy** : **INTERDICTION** de push ou de déployer (`git push` et `firebase deploy`) automatiquement. Ces actions doivent être exécutées **UNIQUEMENT sur demande explicite** de l'utilisateur.
 - Ne jamais commiter `.firebase/hosting..cache`.
 
 ## 10. Code Utile (Cheat Sheet)
