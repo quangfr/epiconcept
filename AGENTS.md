@@ -33,9 +33,11 @@
 | **1-b (UX)** | `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | N/A | Non |
 | **2-c (Support)** | `{value:[]}` | Oui | `[string]` | `{text, explanation, visual, subOptions[]}` | `{text, isCorrect}` (3/scénario) | Oui |
 | **2-d (Specs)** | `[]` | Oui | `[string]` | `{text, explanation, visual, subOptions[]}` | `{text, isCorrect}` (3/scénario) | Oui |
+| **3-e (Roadmap)**| `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | N/A | Non |
+| **3-f (Features)**| `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | N/A | Non |
 
 - `1-a.json` : `questions` index = niveau (0,1,2).
-- `1-b.json` : `correct` & `wrong[]` (2 dist.) ont la structure `{title, visual, expl, debriefExpl, icon}`.
+- `1-b.json`, `3-e.json`, `3-f.json` : `correct` & `wrong[]` (2 dist.) ont la structure `{title, visual, expl, debriefExpl, icon}`.
 - `2-c/2-d` : 1 correct et 2 faux dans `subOptions`.
 
 ## 6. Références (index.html - Ref-Modal)
@@ -44,6 +46,8 @@
 - **B** (UX) : badge `"Réflexe UX (Conception)"`, icône `"mouse-pointer-click"`. Pas de questions. Visuels = `scenarios[].correct.visual`.
 - **C** (Support) : badge `"Réflexe Support & Client"`, icône `icon || "headset"`. Questions = string. Titres visuels = `correct.subOption.text`.
 - **D** (Specs) : badge `"Réflexe Spécs & Évolutions"`, icône `icon || "sparkles"`. Questions = string. Titres visuels = `correct.subOption.text`.
+- **E** (Roadmap) : badge `"Réflexe Roadmap (Vision)"`, icône `icon || "mountain"`. Questions = `sci.title : sci.expl`. Visuels = `sci.visual`.
+- **F** (Features) : badge `"Réflexe Features (Discovery)"`, icône `icon || "telescope"`. Questions = `sci.title : sci.expl`. Visuels = `sci.visual`.
 
 **Modal DOM** : `#ref-examples-container` -> `#ref-examples-list`. `#ref-visuals-container` -> `#ref-visuals-list`.
 
