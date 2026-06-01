@@ -32,16 +32,52 @@
 
 | Fichier | Top-level | `icon` | `questions` | `scenarios[]` | `subOptions[]` | `explVisual` |
 |---------|-----------|--------|-------------|---------------|----------------|--------------|
-| **1-a (PO)** | `[]` | Non | `[{text}]` | `{text, explanation, visual}` | N/A | Oui |
+| **1-a (PO)** | `[]` | Non | `[{text}]` | `{text, problemVisual, correct, wrong, expl}` | N/A | Oui |
 | **1-b (UX)** | `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | N/A | Non |
-| **2-c (Support)** | `{value:[]}` | Oui | `[string]` | `{text, explanation, visual, subOptions[]}` | `{text, isCorrect}` (3/scénario) | Oui |
-| **2-d (Specs)** | `[]` | Oui | `[string]` | `{text, explanation, visual, subOptions[]}` | `{text, isCorrect}` (3/scénario) | Oui |
+| **2-c (Support)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | N/A | Oui |
+| **2-d (Specs)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | N/A | Oui |
 | **3-e (Roadmap)**| `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | N/A | Non |
 | **3-f (Features)**| `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | N/A | Non |
 
 - `1-a.json` : `questions` index = niveau (0,1,2).
-- `1-b.json`, `3-e.json`, `3-f.json` : `correct` & `wrong[]` (2 dist.) ont la structure `{title, visual, expl, debriefExpl, icon}`.
-- `2-c/2-d` : 1 correct et 2 faux dans `subOptions`.
+- Tous (sauf `1-a`) : 1 `correct` + 2 `wrong[]` par scénario, structure `{title, visual, expl, debriefExpl, icon}`.
+- `1-a.json` : `correct` & `wrong` en `{title, visual, expl, debriefExpl, icon}`.
+
+### 5.1 Règles métier des champs textuels
+
+**`expl`** (générique) : Description du **principe**, pas de la situation. Affiché dans le **référentiel réflexe** et dans le **choix de réponse (QCM)**.
+- Ne doit pas mentionner le scénario concret.
+- Pour `wrong[]` : description **neutre** de l'approche, **sans jugement** ni critique (ex : pas "Arbitrage non recommandé" ou "Action non recommandée").
+
+**`debriefExpl`** (contextuel) : Description **plus longue**, **adaptée au scénario**. Affiché en **phase de debrief** après validation de la réponse.
+- Doit expliquer *pourquoi* le choix (correct ou wrong) s'applique à la situation concrète.
+- **Jamais identique** à `expl` : si c'est le cas, c'est une erreur.
+
+**`correct.title`** : Titre du choix correct, affiché dans le QCM.
+- Commence par un **verbe**.
+- **3 à 5 mots** idéalement, 7 max si nécessaire à la clarté.
+- Ex : `"Fusionner manuellement les doublons "`, `"Transformer le blocage en alerte "`.
+
+**Public cible** : Population **métier et fonctionnelle** (pas technique).
+- Éviter : "couplage fort", "objet abstrait", "versionnée", "digitalisé", "sérialiseur", "intra-app".
+- Préférer un langage simple et concret.
+
+### 5.2 Scénarios & Visuels (générique A-F)
+
+**`scenario.text`** : Situation concrète vécue par un utilisateur métier (CRDC, médecin, gestionnaire). Doit être crédible, contextualisée (lieu, date, conséquence), et exposer un problème tangible.
+
+**`problemVisual`** : État du problème **avant** résolution. Défaut ou blocage visible. Tons : rouge/ambre, bordures `red-200`, fonds `red-50`.
+
+**`correct.visual`** : Solution recommandée. État **après** application du réflexe. Tons : emeraude, bordure `emerald-500/200`, badge `CONSEILLÉ`.
+
+**`wrong[].visual`** : Approche alternative non optimale. Tons : rouge, bordure `red-500/200`, badge `À ÉVITER`.
+
+**Format commun** :
+- HTML inline dans le JSON (échapper `"` → `\"`, `'` → `&#39;`)
+- Police `text-[6px]` à `text-[9px]`, icônes `data-lucide` (appeler `lucide.createIcons()` après injection)
+- Wrapper : `<div class="visual-mockup"><div class="mockup-container">...</div></div>` (pour `explVisual`, le visuel est directement intégré)
+- Pas de dimensions fixes — utiliser `w-full`, `max-w-xs`, `min-h-[90px]`
+- Contraste clair entre les 3 visuels d'un même scénario pour guider le choix
 
 ## 6. Références (index.html - Ref-Modal)
 `showRef(reflexId)` charge les JSONs et dispatch :
