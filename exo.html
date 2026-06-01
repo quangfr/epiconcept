@@ -361,7 +361,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
-            <div onclick="startLevel(0)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+            <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
                 <i id="level-icon-0" data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Facile</h2>
@@ -372,7 +372,7 @@
                 </div>
                 </div>
             </div>
-            <div onclick="startLevel(1)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+            <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
                 <i id="level-icon-1" data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Moyen</h2>
@@ -383,7 +383,7 @@
                 </div>
                 </div>
             </div>
-            <div onclick="startLevel(2)" class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+            <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
                 <i id="level-icon-2" data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
                 <div class="flex-grow flex flex-col md:items-center">
                 <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Difficile</h2>
@@ -497,7 +497,7 @@
             <div id="reflex-grid" class="flex flex-col gap-1.5 h-full overflow-y-auto pt-1.5 pl-1 pr-2 pb-4"></div>
 
             <!-- Phase 2 QCM list -->
-            <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pr-2 pb-4">
+            <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pt-1.5 pl-1 pr-2 pb-4">
                 <div class="flex items-center gap-2 shrink-0">
                     <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
                         <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
@@ -780,10 +780,34 @@ function initHome() {
     for (let i = 0; i < 3; i++) {
         const score = localStorage.getItem(`${CONFIG.key}-score-lv${i}`);
         document.getElementById(`score-lv${i}`).innerText = score ? `${score} / ${TOTAL_STEPS}` : `-- / ${TOTAL_STEPS}`;
+        
+        const card = document.querySelectorAll('.level-card')[i];
+        const unlocked = isLevelUnlocked(i);
+        const icon = document.getElementById(`level-icon-${i}`);
+        if (unlocked) {
+            card.style.opacity = '1';
+            card.style.cursor = 'pointer';
+            card.onclick = function() { startLevel(i); };
+            icon.setAttribute('data-lucide', ['signal-low', 'signal-medium', 'signal'][i]);
+        } else {
+            card.style.opacity = '0.5';
+            card.style.cursor = 'not-allowed';
+            card.onclick = null;
+            icon.setAttribute('data-lucide', 'lock');
+        }
     }
+    lucide.createIcons();
+}
+
+function isLevelUnlocked(lv) {
+    if (lv === 0) return true;
+    const prevScore = localStorage.getItem(`${CONFIG.key}-score-lv${lv - 1}`);
+    return prevScore !== null && parseInt(prevScore) >= TOTAL_STEPS;
 }
 
 function startLevel(lv) {
+    if (!isLevelUnlocked(lv)) return;
+    localStorage.setItem('resume-' + CONFIG.key, lv);
     currentLevel = lv;
     currentStepIdx = 0;
     answeredSteps = new Array(TOTAL_STEPS).fill(false);
@@ -846,6 +870,7 @@ function resetLevelProgress() {
 }
 
 function goHome() {
+    localStorage.removeItem('resume-' + CONFIG.key);
     document.getElementById('home-screen').classList.remove('hidden');
     initHome();
 }
@@ -864,11 +889,11 @@ function updateProgress() {
         const btn = document.createElement('button');
         let stateClass = "bg-white text-slate-400 border-2 border-slate-200 hover:bg-slate-50"; 
         
-        if (answeredSteps[i]) stateClass = "bg-blue-900 text-white border-2 border-blue-900 shadow-sm hover:bg-blue-800";
+        if (answeredSteps[i] && i !== currentStepIdx) {
+            stateClass = "bg-emerald-500 text-white border-2 border-emerald-500 shadow-sm hover:bg-emerald-400";
+        }
         if (i === currentStepIdx) {
-            stateClass = answeredSteps[i] 
-                ? "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 transform scale-110" 
-                : "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 shadow-sm transform scale-110";
+            stateClass = "bg-blue-900 text-white border-2 border-blue-900 ring-2 ring-blue-300 transform scale-110 shadow-sm";
         }
 
         btn.className = `w-5 h-5 sm:w-6 sm:h-6 rounded-full text-[9px] sm:text-[10px] font-bold flex items-center justify-center transition-all border cursor-pointer ${stateClass}`;
@@ -1248,8 +1273,25 @@ async function initApp() {
         
         TOTAL_STEPS = reflexes.length;
         document.getElementById('score-display').innerText = `0 / ${TOTAL_STEPS}`;
-        
-        initHome();
+
+        const savedLevel = localStorage.getItem('resume-' + CONFIG.key);
+        let started = false;
+        if (savedLevel !== null && isLevelUnlocked(parseInt(savedLevel))) {
+            startLevel(parseInt(savedLevel));
+            started = true;
+        } else {
+            for (let i = 2; i >= 0; i--) {
+                if (isLevelUnlocked(i)) {
+                    startLevel(i);
+                    started = true;
+                    break;
+                }
+            }
+        }
+        if (!started) {
+            initHome();
+        }
+
         lucide.createIcons();
     } catch (error) {
         console.error("Error loading reflexes:", error);
