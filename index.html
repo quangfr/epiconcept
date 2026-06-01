@@ -1770,7 +1770,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.19';
+        const APP_VERSION = '2026.06.01.20';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1783,7 +1783,8 @@
             parent.style.setProperty('--progress', `${percent}%`);
 
             let color, accent;
-            if (percent === 100) {
+            const isLessonLabel = ['dt-status-label', 'mvp-status-label', 'road-slides-status-label'].includes(labelEl.id);
+            if (percent === 100 || (isLessonLabel && y > 0 && x >= y - 1)) {
                 color = 'green';
                 accent = '#10b981';
             } else if (percent === 0) {
