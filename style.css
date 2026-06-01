@@ -44,14 +44,14 @@
 /* Thumbnail variant inside ref-visual-card */
 .ref-visual-card .visual-mockup {
     width: 33.333%;
-    max-height: 50px !important;
+    max-height: 100px !important;
     /* strict maximum height */
 }
 
 @media (max-width: 640px) {
     .ref-visual-card .visual-mockup {
         width: 100%;
-        max-height: 50px !important;
+        max-height: 100px !important;
     }
 }
 
