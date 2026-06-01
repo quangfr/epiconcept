@@ -1,0 +1,746 @@
+[
+  {
+    "id": 1,
+    "title": "H1. Qualifier et prioriser la demande (Réception)",
+    "intent": "Savoir identifier la nature d'une demande et en évaluer l'urgence réglementaire ou l'impact fonctionnel pour traiter les dossiers dans le bon ordre.",
+    "icon": "tag",
+    "scenarios": [
+      {
+        "text": "Une secrétaire médicale d'un centre de radiologie vous appelle : « Je n'arrive plus à importer mes clichés de mammographies depuis ce matin. J'ai un message qui dit que mon compte a été suspendu par le CRDC de la Somme. » Elle a 10 dossiers en attente et s'inquiète pour le suivi des patientes programmées ce jour.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"alert-circle\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Alerte Compte Suspendu</span></div><p class=\"text-[9px] text-slate-600 mb-2 leading-relaxed\">Accès bloqué : « Votre compte radiologue a été suspendu temporairement pour mise à jour administrative. »</p><div class=\"flex justify-between items-center bg-slate-50 p-1.5 rounded-lg border border-slate-100\"><span class=\"text-[8px] text-slate-400 font-medium\">Statut dossier</span><span class=\"px-1.5 py-0.5 rounded bg-red-100 text-red-700 font-bold text-[7px]\">Bloqué</span></div></div>",
+        "correct": {
+          "title": "Opération métier à traiter",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Type : Opération support</div><div class=\"flex items-center gap-1\"><i data-lucide=\"settings\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Traitement administratif N1/N2</span></div></div>",
+          "expl": "Qualifier la demande comme une opération métier à traiter en contactant le CRDC pour débloquer le compte de la secrétaire.",
+          "debriefExpl": "Il ne s'agit pas d'un bug logiciel (anomalie) ni d'une demande d'évolution, mais d'une opération administrative standard. La solution consiste à vérifier auprès du CRDC les raisons de la suspension et à réactiver le compte pour débloquer l'activité.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Anomalie technique logicielle",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Type : Bug système</div><div class=\"flex items-center gap-1\"><i data-lucide=\"bug\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Anomalie technique</span></div></div>",
+            "expl": "Ouvrir un ticket de correction de bug auprès de l'équipe de développement N3.",
+            "debriefExpl": "L'application fonctionne correctement et affiche un message prévu suite à une action volontaire du CRDC. Qualifier cela en bug ferait perdre un temps précieux et saturerait inutilement les développeurs.",
+            "icon": "x"
+          },
+          {
+            "title": "Demande d'évolution produit",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Type : Évolution</div><div class=\"flex items-center gap-1\"><i data-lucide=\"lightbulb\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Demande d'évolution</span></div></div>",
+            "expl": "Proposer une modification du système d'authentification pour éviter les suspensions automatiques.",
+            "debriefExpl": "Modifier le fonctionnement du système ne répond pas à l'urgence immédiate de la secrétaire qui doit enregistrer ses clichés aujourd'hui. Il s'agit d'une simple réactivation administrative.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Il s'agit d'une opération de paramétrage ou de gestion des comptes (opération métier) et non d'une anomalie de l'application ou d'une demande d'évolution."
+      },
+      {
+        "text": "Le CRDC d'Arras signale par ticket : « Nous avons reçu les nouveaux fichiers d'intégration de dépistage de la CPAM sous un format modifié. Il nous est impossible de charger les données dans notre base pour ce mois-ci, le bouton d'import refuse le fichier. »",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"file-text\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Import CPAM 62</span></div><p class=\"text-[8px] text-red-600 font-semibold mb-1\">Erreur : Format de fichier non supporté</p><div class=\"bg-slate-50 p-1.5 rounded border border-slate-100 text-[8px] text-slate-500 font-mono\">Attendu : CSV (séparateur point-virgule)<br>Reçu : XLSX (classeur Excel multi-feuilles)</div></div>",
+        "correct": {
+          "title": "Rassembler les informations d'identification minimales",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Recherche d'éléments</div><div class=\"flex items-center gap-1\"><i data-lucide=\"search\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Récupération du fichier CPAM</span></div></div>",
+          "expl": "Demander le fichier CPAM reçu, le message d'erreur précis et le numéro de département du CRDC.",
+          "debriefExpl": "Pour comprendre le blocage, le support fonctionnel doit analyser la structure du fichier envoyé par la CPAM, vérifier le message d'erreur exact et savoir quel site est touché. Cela évite les allers-retours inutiles.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Déléguer immédiatement au N3",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Escalade</div><div class=\"flex items-center gap-1\"><i data-lucide=\"arrow-up-right\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Transfert sans données</span></div></div>",
+            "expl": "Transmettre le ticket à l'équipe technique pour qu'elle reconfigure le module d'import sans investiguer davantage.",
+            "debriefExpl": "Sans le fichier source et sans qualification des écarts de format, le N3 va rejeter le ticket pour manque d'informations ou perdre du temps à essayer de deviner le problème.",
+            "icon": "x"
+          },
+          {
+            "title": "Proposer de ressaisir les données à la main",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Contournement lourd</div><div class=\"flex items-center gap-1\"><i data-lucide=\"keyboard\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Saisie manuelle brute</span></div></div>",
+            "expl": "Recommander au gestionnaire du CRDC de saisir manuellement les 5 000 lignes du fichier.",
+            "debriefExpl": "Une saisie manuelle de 5 000 lignes CPAM est impossible en termes de charge de travail pour le CRDC et présente un risque d'erreurs majeures. Il faut qualifier le format avant tout.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La première étape indispensable est de récolter les éléments factuels (le fichier source et le message d'erreur précis) pour qualifier la structure du fichier."
+      },
+      {
+        "text": "Le CRDC d'Amiens vous alerte : « Les courriers d'invitation au dépistage colorectal de notre département ne partent plus depuis hier soir. Nous avons une campagne de 8 000 plis qui doit impérativement être déposée à La Poste demain matin pour respecter le calendrier. »",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"mail\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Campagne Colorectal 80</span></div><div class=\"space-y-1 text-[8px]\"><div class=\"flex justify-between\"><span class=\"text-slate-400\">Plis générés</span><span class=\"font-semibold text-slate-700\">8 000</span></div><div class=\"flex justify-between\"><span class=\"text-slate-400\">Statut envoi</span><span class=\"text-red-600 font-bold\">Bloqué (Erreur passerelle)</span></div><div class=\"flex justify-between text-amber-600 font-medium\"><span class=\"text-slate-400\">Date butoir</span><span>Demain 08h00</span></div></div></div>",
+        "correct": {
+          "title": "Évaluer l'urgence et le nombre d'utilisateurs impactés",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Priorisation</div><div class=\"flex items-center gap-1\"><i data-lucide=\"alert-triangle\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Priorité Haute - Impact stratégique</span></div></div>",
+          "expl": "Qualifier le ticket en priorité haute / critique en raison de la date butoir réglementaire et du volume important de bénéficiaires.",
+          "debriefExpl": "Avec 8 000 courriers bloqués et une deadline réglementaire de dépôt postal à demain matin, l'impact financier et le respect du calendrier de santé publique sont menacés. C'est une priorité critique nécessitant un traitement immédiat.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Prioriser en priorité basse standard",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Priorisation</div><div class=\"flex items-center gap-1\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Priorité Basse - File d'attente</span></div></div>",
+            "expl": "Placer la demande dans la file d'attente standard des tickets de messagerie pour traitement sous 48h.",
+            "debriefExpl": "Laisser ce ticket en attente standard garantit que la campagne de dépistage ratera sa date butoir postale. L'impact fonctionnel et réglementaire est trop fort pour attendre.",
+            "icon": "x"
+          },
+          {
+            "title": "Escalader comme bug matériel",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Priorisation</div><div class=\"flex items-center gap-1\"><i data-lucide=\"cpu\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Incident serveur matériel</span></div></div>",
+            "expl": "Déclarer un incident d'infrastructure réseau globale pour tout le pays.",
+            "debriefExpl": "Le problème est localisé sur les envois de ce CRDC ou de cette passerelle postale de dépistage, pas sur l'infrastructure générale de l'entreprise. Sur-escalader en panne réseau nationale dilue l'effort d'analyse.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'urgence réglementaire (dépôt demain matin) et le volume (8 000 patientes) imposent de classer ce ticket en priorité critique pour un déblocage immédiat."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Matrice de Qualification Support</div><div class=\"grid grid-cols-4 gap-1 text-[7px] font-bold text-center mb-1.5\"><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Demande</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Question</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Opération</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Anomalie</div></div><div class=\"grid grid-cols-4 gap-1 text-[7px] text-center\"><div class=\"bg-blue-50 p-1 rounded text-blue-700\">Action</div><div class=\"FAQ p-1 rounded text-slate-600\">Explication</div><div class=\"bg-amber-50 p-1 rounded text-amber-700\">Réactivation</div><div class=\"bg-red-50 p-1 rounded text-red-700\">Escalade N3</div></div></div>"
+  },
+  {
+    "id": 2,
+    "title": "H2. Rendre le ticket exploitable (Analyse)",
+    "intent": "Être capable de documenter un problème de manière précise pour que le niveau supérieur puisse reproduire et résoudre le bug instantanément.",
+    "icon": "clipboard-list",
+    "scenarios": [
+      {
+        "text": "Un médecin du travail vous contacte car il a un écran blanc lors de la validation d'une aptitude au dépistage. Il vous envoie ce message laconique : « L'outil bugge, je ne peux pas valider la fiche. Merci de corriger au plus vite. »",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Validation Fiche Aptitude</span></div><div class=\"border-2 border-dashed border-red-200 bg-red-50 p-2.5 rounded text-center text-[9px] text-red-600 font-semibold\">Une erreur inattendue est survenue (ERR_VALIDATION_DOM)</div></div>",
+        "correct": {
+          "title": "Faire des captures d'écran ciblées et annotées",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Capture illustrative</div><div class=\"flex items-center gap-1\"><i data-lucide=\"image\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Copie d'écran avec l'erreur ERR_VAL</span></div></div>",
+          "expl": "Lui demander une capture d'écran de l'affichage complet incluant la barre d'adresse et le message d'erreur.",
+          "debriefExpl": "Une capture d'écran de l'écran entier permet de repérer la version de l'application, l'URL de la page et le message d'erreur précis (ici ERR_VALIDATION_DOM), ce qui permet au support d'isoler immédiatement le formulaire concerné.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Croire l'utilisateur sur parole",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Réception passive</div><div class=\"flex items-center gap-1\"><i data-lucide=\"message-square\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Créer le ticket sans image</span></div></div>",
+            "expl": "Ouvrir un ticket à l'équipe technique en recopiant le texte : « Le médecin a un bug et ne peut pas valider. »",
+            "debriefExpl": "Rédiger un ticket sans aucun visuel ni code d'erreur forcera les développeurs à refuser le ticket ou à perdre plusieurs jours à recontacter le médecin.",
+            "icon": "x"
+          },
+          {
+            "title": "Demander des fichiers de logs système",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Jargon technique</div><div class=\"flex items-center gap-1\"><i data-lucide=\"terminal\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Demande de trace technique</span></div></div>",
+            "expl": "Lui demander de presser F12, d'aller dans l'onglet Console et de copier le fichier de trace JavaScript.",
+            "debriefExpl": "Un médecin n'a ni les compétences ni l'autorisation de sécurité pour manipuler la console d'administration de son navigateur. C'est trop technique pour lui et cela nuit à la relation client.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La capture d'écran annotée permet d'avoir instantanément le message d'erreur exact sans exiger de compétences techniques de l'utilisateur."
+      },
+      {
+        "text": "Une secrétaire de dépistage vous indique qu'elle a un comportement anormal : « Quand je tente de lier une mammographie de relance, le système me renvoie parfois sur la page d'accueil de manière aléatoire. » Elle n'arrive pas à comprendre pourquoi.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"git-commit\" class=\"w-3.5 h-3.5 text-amber-500\"></i></div><span class=\"font-semibold text-[10px] text-slate-800\">Liaison Mammographie</span></div><div class=\"bg-slate-50 p-2 rounded text-[8px] text-slate-500 leading-relaxed\">Séquence : Clic bouton lier ➔ Redirection ➔ Page de connexion. Pas de message d'erreur visible.</div></div>",
+        "correct": {
+          "title": "Décrire les étapes de reproduction précises",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Éléments factuels</div><div class=\"flex items-center gap-1\"><i data-lucide=\"list-ordered\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">1. Sélection 2. Double-clic 3. Retour</span></div></div>",
+          "expl": "Reconstituer la liste ordonnée des actions physiques (clics, touches) qui déclenchent le problème.",
+          "debriefExpl": "Les bugs dits « aléatoires » s'expliquent souvent par un enchaînement précis d'actions (ex. double-cliquer très vite sur le bouton au lieu d'un clic simple). Établir cette chronologie permet au support de reproduire le bug à coup sûr.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Conclure à une panne générale",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Analyse globale</div><div class=\"flex items-center gap-1\"><i data-lucide=\"alert-octagon\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Signaler un crash global</span></div></div>",
+            "expl": "Déclarer que le module d'association de mammographies est inutilisable et bloquer la fonctionnalité pour tout le pays.",
+            "debriefExpl": "C'est un cas particulier lié à une manipulation spécifique ou une session expirée. Bloquer tout le module pénaliserait des milliers d'utilisateurs sans régler le problème ciblé.",
+            "icon": "x"
+          },
+          {
+            "title": "Lui conseiller de changer de PC",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Solution matérielle</div><div class=\"flex items-center gap-1\"><i data-lucide=\"monitor\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Changer de poste de travail</span></div></div>",
+            "expl": "Lui dire que son ordinateur ou son navigateur est trop vieux et clore le ticket.",
+            "debriefExpl": "Renvoyer la faute sur l'ordinateur de l'utilisateur sans analyse approfondie crée une insatisfaction majeure et masque un éventuel dysfonctionnement applicatif réel.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Détailler pas-à-pas les actions de l'utilisateur permet de lever le mystère des bugs dits « aléatoires » en permettant leur reproduction systématique."
+      },
+      {
+        "text": "Le CRDC d'Amiens signale que la fonctionnalité de glisser-déposer de fichiers de résultats d'examens dans le dossier patient ne fonctionne plus depuis la dernière version. L'action est complexe et dépend de l'endroit exact où le fichier est relâché.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"move\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-semibold text-[10px] text-slate-800\">Glisser-Déposer CRDC 80</span></div><div class=\"border-2 border-dashed border-slate-200 bg-slate-50 p-2.5 rounded text-center text-[8px] text-slate-400\">Zone de dépôt inactive (le curseur reste rouge 🚫)</div></div>",
+        "correct": {
+          "title": "Réaliser un enregistrement vidéo ou une capture dynamique",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Preuve vidéo</div><div class=\"flex items-center gap-1\"><i data-lucide=\"video\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Vidéo du geste utilisateur (6s)</span></div></div>",
+          "expl": "Demander ou réaliser une courte vidéo de l'écran pour montrer le mouvement précis de la souris et la réaction de l'interface.",
+          "debriefExpl": "Pour un bug d'interface dynamique comme le glisser-déposer, une image fixe ne suffit pas à montrer le comportement du curseur. Une courte vidéo de 5 secondes clarifie instantanément le problème pour le N3.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Demander une description textuelle de 3 pages",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Lenteur support</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-text\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Rédaction d'un rapport de texte</span></div></div>",
+            "expl": "Exiger que l'utilisateur décrive par écrit chaque pixel de sa trajectoire de souris.",
+            "debriefExpl": "C'est une demande fastidieuse pour l'utilisateur, et le texte sera de toute façon très difficile à interpréter par les développeurs. Une image animée vaut mille mots.",
+            "icon": "x"
+          },
+          {
+            "title": "Faire un appel téléphonique sans support visuel",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Échange oral</div><div class=\"flex items-center gap-1\"><i data-lucide=\"phone\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Essayer d'expliquer par téléphone</span></div></div>",
+            "expl": "Passer une heure au téléphone à essayer de se faire décrire le geste de l'utilisateur : « Vous le lâchez à gauche ou à droite ? »",
+            "debriefExpl": "Tenter de décrire oralement un problème de positionnement graphique à l'écran est inefficace, frustrant pour les deux parties, et impossible à transmettre par écrit au N3.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les bugs graphiques et les problèmes d'ergonomie dynamique se décrivent infiniment mieux par un enregistrement vidéo ou un GIF de quelques secondes."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Outils d'Analyse Recommandés</div><div class=\"flex justify-around items-center gap-2\"><div class=\"text-center p-1 bg-slate-50 rounded border border-slate-100 w-1/3\"><i data-lucide=\"image\" class=\"w-4 h-4 mx-auto text-emerald-500 mb-1\"></i><span class=\"text-[7px] font-bold text-slate-600\">Capture d'écran (Bugs d'affichage)</span></div><div class=\"text-center p-1 bg-slate-50 rounded border border-slate-100 w-1/3\"><i data-lucide=\"list-ordered\" class=\"w-4 h-4 mx-auto text-blue-500 mb-1\"></i><span class=\"text-[7px] font-bold text-slate-600\">Pas-à-pas (Bugs fonctionnels)</span></div><div class=\"text-center p-1 bg-slate-50 rounded border border-slate-100 w-1/3\"><i data-lucide=\"video\" class=\"w-4 h-4 mx-auto text-purple-500 mb-1\"></i><span class=\"text-[7px] font-bold text-slate-600\">Vidéo / GIF (Bugs de gestes)</span></div></div></div>"
+  },
+  {
+    "id": 3,
+    "title": "H3. Préparer et valider l'escalade (Résolution)",
+    "intent": "Savoir structurer son dossier de support en validant les prérequis pour s'assurer que le problème nécessite bien une intervention technique du niveau supérieur.",
+    "icon": "share-2",
+    "scenarios": [
+      {
+        "text": "Un gestionnaire de campagne vous signale que l'export Excel des résultats trimestriels échoue systématiquement. Vous avez eu une longue conversation avec lui et avez fait plusieurs essais concluants de votre côté avec un compte test, sans trouver la cause.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"file-spreadsheet\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Export Trimestriel Excel</span></div><div class=\"bg-red-50 border border-red-200 rounded p-1.5 text-[8px] text-red-700 font-medium\">Erreur : Échec du rendu du document de synthèse (Timeout)</div></div>",
+        "correct": {
+          "title": "Documenter : poser par écrit ce qui a été validé",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Preuves de test</div><div class=\"flex items-center gap-1\"><i data-lucide=\"edit-3\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Historique écrit des tests effectués</span></div></div>",
+          "expl": "Rédiger dans le ticket la liste des tests déjà faits (ex: l'export fonctionne sur 100 lignes, échoue sur 10 000).",
+          "debriefExpl": "Documenter précisément vos tests initiaux évite que les équipes techniques ne perdent du temps à refaire les mêmes manipulations de premier niveau. Cela cadre l'analyse directement sur le problème de volume ou de timeout.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Escalader sans aucun détail de test",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Escalade vide</div><div class=\"flex items-center gap-1\"><i data-lucide=\"arrow-up-right\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Transférer tel quel en N3</span></div></div>",
+            "expl": "Transférer le ticket en écrivant uniquement : « L'export Excel échoue. Merci de regarder. »",
+            "debriefExpl": "Ce type de transfert sec conduit généralement à un rejet du ticket par le N3 pour manque d'éléments d'analyse, retardant la résolution d'autant de jours.",
+            "icon": "x"
+          },
+          {
+            "title": "Considérer le problème comme insoluble",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Abandon</div><div class=\"flex items-center gap-1\"><i data-lucide=\"x-circle\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Abandonner et clore le ticket</span></div></div>",
+            "expl": "Dire à l'utilisateur que l'outil ne supporte pas l'export pour son volume et fermer le ticket.",
+            "debriefExpl": "C'est un abandon de service non justifié. La fonction d'export doit fonctionner. C'est le rôle du support fonctionnel d'escalader les cas de limites techniques réelles avec dossier.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Poser par écrit les tests déjà réalisés permet de cadrer précisément l'intervention du N3 et de lui éviter de refaire les vérifications de premier niveau."
+      },
+      {
+        "text": "Un gestionnaire de base de données d'un CRDC vous alerte : « Les codes postaux du département 02 (Aisne) ne se mettent pas à jour lors de l'intégration du fichier civilités. » Vous suspectez un problème sur le fichier, mais vous devez vous assurer qu'il ne s'agit pas d'une erreur humaine avant d'alerter les développeurs.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"file-spreadsheet\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Mise à jour Civilités 02</span></div><p class=\"text-[8px] text-slate-500 mb-1\">Erreur : Le traitement a ignoré 342 fiches bénéficiaires.</p><div class=\"bg-slate-50 p-1 rounded text-[7px] text-slate-500 font-mono\">Log : SKIP_ROW: Code postal invalide.</div></div>",
+        "correct": {
+          "title": "Faire et suivre la checklist de vérifications",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Checklist support</div><div class=\"flex items-center gap-1\"><i data-lucide=\"check-square\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Checklist d'intégration validée</span></div></div>",
+          "expl": "Suivre la checklist de contrôle : format du fichier (CSV standard), présence d'espaces superflus et encodage des caractères.",
+          "debriefExpl": "Vérifier le fichier via une checklist rigoureuse permet d'éliminer 90 % des erreurs courantes (par exemple, des espaces cachés ou des en-têtes mal orthographiés) avant de déranger l'équipe de dev.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Escalader immédiatement au N3",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Escalade hâtive</div><div class=\"flex items-center gap-1\"><i data-lucide=\"arrow-up-right\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Envoyer au dev immédiatement</span></div></div>",
+            "expl": "Ouvrir un ticket d'anomalie critique en demandant une correction urgente de l'outil d'intégration.",
+            "debriefExpl": "Si le problème vient d'une simple erreur de formatage du fichier CPAM (ex : séparateur point au lieu de virgule), l'équipe N3 va renvoyer le ticket et vous aurez perdu du temps à attendre.",
+            "icon": "x"
+          },
+          {
+            "title": "Proposer de refaire le fichier à la main",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Action lourde</div><div class=\"flex items-center gap-1\"><i data-lucide=\"refresh-cw\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Demander une regénération</span></div></div>",
+            "expl": "Demander au CRDC de re-générer intégralement son fichier de civilités depuis son outil source sans l'inspecter.",
+            "debriefExpl": "Demander un nouveau fichier sans expliquer ce qui n'allait pas dans le premier risque de produire exactement le même blocage si le système source applique les mêmes règles.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Une checklist systématique (format, encodage, en-têtes) permet de lever les doutes sur la qualité des données d'entrée avant de mobiliser la production."
+      },
+      {
+        "text": "Le raccordement au téléservice national de vérification d'identité (INS) échoue pour tous les nouveaux dossiers de la Marne. L'anomalie semble structurelle et nécessite une action des développeurs en base de données. Vous devez préparer le dossier d'escalade.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"shield-alert\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Téléservice INS Marne</span></div><div class=\"bg-red-50 border border-red-200 rounded p-1.5 text-[8px] text-red-700 font-mono\">HTTP/1.1 401 Unauthorized<br>Body: Credential certificate has expired.</div></div>",
+        "correct": {
+          "title": "Rédiger une synthèse de diagnostic claire et structurée",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Dossier complet</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-text\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Synthèse : Impact, Constat, Hypothèse</span></div></div>",
+          "expl": "Rédiger une fiche de synthèse contenant l'impact fonctionnel, les messages d'erreur constatés et le certificat expiré suspecté.",
+          "debriefExpl": "Une synthèse structurée (Impact, Constats factuels, Hypothèses formulées) permet aux développeurs de comprendre la cause racine (certificat expiré) en 30 secondes et d'appliquer le correctif immédiatement.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Envoyer un e-mail informel à un développeur",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Échange direct</div><div class=\"flex items-center gap-1\"><i data-lucide=\"mail\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Message Teams : « Ça marche plus »</span></div></div>",
+            "expl": "Envoyer un message privé sur Teams à un développeur de votre connaissance pour qu'il jette un œil.",
+            "debriefExpl": "Les sollicitations informelles hors-outil de ticketing déstructurent le travail des développeurs, ne garantissent aucune traçabilité et nuisent à la mesure de la performance du support.",
+            "icon": "x"
+          },
+          {
+            "title": "Créer un doublon de ticket générique",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Doublon</div><div class=\"flex items-center gap-1\"><i data-lucide=\"copy\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Créer un ticket standard vide</span></div></div>",
+            "expl": "Créer un ticket contenant uniquement la phrase de l'utilisateur : « L'INSMarne ne fonctionne plus. »",
+            "debriefExpl": "Un ticket dénué d'éléments concrets comme le code retour 401 ou l'explication sur le certificat expiré sera relégué au bas de la pile par manque d'éléments d'analyse.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La synthèse de diagnostic structurée avec constats et hypothèses facilite le travail du N3 et accélère drastiquement la résolution."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Structure d'une Synthèse d'Escalade</div><div class=\"space-y-1.5 text-[8px]\"><div class=\"flex items-center gap-1.5 text-slate-700 font-bold\"><div class=\"w-3 h-3 bg-red-100 rounded text-red-700 flex items-center justify-center text-[7px]\">1</div><span>Impact : volume de bénéficiaires et criticité métier</span></div><div class=\"flex items-center gap-1.5 text-slate-700 font-bold\"><div class=\"w-3 h-3 bg-blue-100 rounded text-blue-700 flex items-center justify-center text-[7px]\">2</div><span>Constats : captures d'écran, messages d'erreurs exacts</span></div><div class=\"flex items-center gap-1.5 text-slate-700 font-bold\"><div class=\"w-3 h-3 bg-purple-100 rounded text-purple-700 flex items-center justify-center text-[7px]\">3</div><span>Hypothèses : diagnostic du support (ex. certificat expiré)</span></div></div></div>"
+  },
+  {
+    "id": 4,
+    "title": "H4. Suivre, communiquer et clore proprement (Relation Client)",
+    "intent": "Maîtriser le cycle de vie de la relation client en informant l'utilisateur de manière rassurante et pédagogique, tout en s'assurant de la résolution complète.",
+    "icon": "message-circle",
+    "scenarios": [
+      {
+        "text": "Le développeur vient de vous informer sur Teams qu'il a corrigé le problème d'import des mammographies du CRDC 59 en base. Le ticket est en attente de clôture, l'utilisateur n'a pas été contacté depuis 24h.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center\"><i data-lucide=\"message-square\" class=\"w-3.5 h-3.5 text-blue-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Ticket INC-4819</span></div><div class=\"space-y-1.5 text-[8px]\"><div class=\"flex justify-between text-slate-400\"><span>Statut technique</span><span class=\"text-emerald-600 font-bold\">Résolu</span></div><div class=\"flex justify-between text-slate-400\"><span>Statut ticket</span><span class=\"text-amber-600 font-semibold\">Attente confirmation</span></div></div></div>",
+        "correct": {
+          "title": "Obtenir la confirmation explicite de l'utilisateur",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Clôture collaborative</div><div class=\"flex items-center gap-1\"><i data-lucide=\"check-circle\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Appel / Mail pour confirmation de reprise</span></div></div>",
+          "expl": "Contacter l'utilisateur pour lui demander d'effectuer un test de son côté et confirmer que tout fonctionne avant de clore.",
+          "debriefExpl": "Ne fermez jamais un ticket sur la seule parole d'un développeur. L'utilisateur final doit valider que son environnement réel est débloqué pour éviter de réouvrir le ticket quelques heures plus tard.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Clore le ticket immédiatement",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Clôture automatique</div><div class=\"flex items-center gap-1\"><i data-lucide=\"x\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Clore le ticket en base</span></div></div>",
+            "expl": "Marquer immédiatement le ticket comme résolu et fermé pour améliorer vos statistiques de temps de traitement.",
+            "debriefExpl": "Une clôture unilatérale sans en informer l'utilisateur engendre de la frustration et dégrade fortement la relation de confiance avec le CRDC.",
+            "icon": "x"
+          },
+          {
+            "title": "Attendre une semaine sans action",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Inaction</div><div class=\"flex items-center gap-1\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Laisser le ticket ouvert sans écrire</span></div></div>",
+            "expl": "Laisser le ticket ouvert dans un coin pour vérifier si le client rappelle de lui-même.",
+            "debriefExpl": "Garder des tickets résolus ouverts artificiellement fausse les indicateurs du support et laisse le client dans le flou complet sur l'état de son dossier.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La validation par l'utilisateur final garantit que le problème est réellement corrigé sur le terrain et assure une clôture propre et définitive."
+      },
+      {
+        "text": "Un médecin du CRDC de la Somme s'est trompé de format lors de l'envoi de son fichier d'examens trimestriels, provoquant le blocage de son traitement de données. Le correctif a été appliqué manuellement par le support.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-3.5 h-3.5 text-blue-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Explication cause</span></div><div class=\"bg-slate-50 p-2 rounded text-[8px] text-slate-600 leading-relaxed\">Constat : Fichier Excel enregistré en format 'Macintosh' au lieu de 'Windows CSV'.</div></div>",
+        "correct": {
+          "title": "Expliquer avec pédagogie la cause fonctionnelle",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Pédagogie</div><div class=\"flex items-center gap-1\"><i data-lucide=\"smile\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Explications claires sur le séparateur</span></div></div>",
+          "expl": "Lui expliquer aimablement comment enregistrer son fichier au bon format CSV Excel pour éviter le blocage la prochaine fois.",
+          "debriefExpl": "Donner des clés d'explication pédagogiques responsabilise l'utilisateur et lui donne l'autonomie nécessaire pour éviter de reproduire la même erreur le trimestre suivant.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Blâmer l'utilisateur pour son erreur",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Jargon moralisateur</div><div class=\"flex items-center gap-1\"><i data-lucide=\"frown\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Réponse agressive technique</span></div></div>",
+            "expl": "Lui écrire sèchement : « Le système a planté car vous avez envoyé un mauvais encodage de caractères. Veuillez respecter les consignes. »",
+            "debriefExpl": "Une communication culpabilisante et truffée de jargon technique braque l'utilisateur et donne une mauvaise image du service support.",
+            "icon": "x"
+          },
+          {
+            "title": "Ne donner aucune explication",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Clôture minimale</div><div class=\"flex items-center gap-1\"><i data-lucide=\"alert-circle\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">« Résolu en base. Cordialement. »</span></div></div>",
+            "expl": "Clore le ticket avec la simple mention : « Fichier réintégré. Ticket fermé. »",
+            "debriefExpl": "Sans explication de la cause, le médecin commettra à coup sûr la même erreur le trimestre prochain, provoquant un nouveau ticket identique.",
+            "icon": "x"
+          }
+        ],
+        "expl": "La pédagogie est le meilleur moyen de réduire le volume des tickets récurrents en rendant les utilisateurs autonomes."
+      },
+      {
+        "text": "Le service de transfert de clichés de mammographies national d'Epiconcept sera interrompu pour maintenance samedi matin de 08h à 12h. Vous devez informer les 12 CRDC partenaires pour éviter une vague d'appels d'urgence.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"wrench\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Alerte Maintenance Nationale</span></div><p class=\"text-[8px] text-slate-500 mb-2 leading-relaxed\">Maintenance programmée le Samedi 06 Juin. Coupure temporaire des serveurs de transfert.</p></div>",
+        "correct": {
+          "title": "Rédiger et diffuser un message d'information proactive",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Information proactive</div><div class=\"flex items-center gap-1\"><i data-lucide=\"megaphone\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Bannière et mail d'alerte programmés</span></div></div>",
+          "expl": "Publier une bannière d'alerte claire sur le portail d'accueil 48h à l'avance et envoyer un e-mail d'information aux correspondants des CRDC.",
+          "debriefExpl": "Prévenir proactivement les administrateurs et secrétaires évite les paniques inutiles le samedi matin et allège drastiquement la charge du support d'astreinte.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Attendre que les utilisateurs constatent la panne",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Passivité</div><div class=\"flex items-center gap-1\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Attendre et répondre au coup par coup</span></div></div>",
+            "expl": "Ne rien dire et attendre que les utilisateurs constatent l'indisponibilité pour leur expliquer lors de leurs appels.",
+            "debriefExpl": "Cette approche génère une saturation instantanée de la ligne d'assistance d'astreinte et donne une image d'amateurisme au service.",
+            "icon": "x"
+          },
+          {
+            "title": "Envoyer un e-mail technique complexe",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Sur-complexité</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-text\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Mail technique sur les infrastructures</span></div></div>",
+            "expl": "Envoyer un long descriptif technique des opérations de migration de base de données à l'ensemble du personnel médical.",
+            "debriefExpl": "Les détails d'infrastructure n'intéressent pas le personnel de santé. Ils ont besoin de savoir simplement : quand ça coupe, combien de temps, et ce qu'ils doivent faire (attendre midi).",
+            "icon": "x"
+          }
+        ],
+        "expl": "Une communication proactive (bannière ciblée, e-mail synthétique aux coordinateurs) prévient les appels de détresse en période de maintenance programmée."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Cycle de Vie de la Clôture</div><div class=\"flex justify-between items-center text-[7px] font-bold text-center gap-1\"><div class=\"bg-emerald-50 text-emerald-800 p-1 rounded w-1/3\">1. Validation terrain par l'usager</div><div class=\"bg-blue-50 text-blue-800 p-1 rounded w-1/3\">2. Explication pédagogique simple</div><div class=\"bg-purple-50 text-purple-800 p-1 rounded w-1/3\">3. Enregistrement des acquis</div></div></div>"
+  },
+  {
+    "id": 5,
+    "title": "H5. Rendre la documentation accessible (Self-Service)",
+    "intent": "Savoir structurer une base de connaissances claire et accessible pour réduire les appels répétitifs et autonomiser les utilisateurs.",
+    "icon": "book-open",
+    "scenarios": [
+      {
+        "text": "Suite au déploiement du nouveau module d'import INS, le support a reçu plus de 15 appels de secrétariats médicaux différents demandant comment générer les jetons de connexion sécurisés CPS.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"help-circle\" class=\"w-3.5 h-3.5 text-amber-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Appels Récurrents CPS</span></div><div class=\"space-y-1 text-[8px] text-slate-500\"><p>• Appel 1 : « Comment activer la carte CPS ? »</p><p>• Appel 2 : « Mon jeton INS est invalide... »</p><p class=\"text-amber-600 font-bold\">• 15 appels similaires aujourd'hui</p></div></div>",
+        "correct": {
+          "title": "Alimenter une foire aux questions (FAQ)",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Création FAQ</div><div class=\"flex items-center gap-1\"><i data-lucide=\"plus-circle\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Nouvel article : 'Générer mon jeton CPS'</span></div></div>",
+          "expl": "Rédiger immédiatement un article court dans la FAQ intitulé : « Comment générer mon jeton de connexion CPS ? ».",
+          "debriefExpl": "Dès qu'une question revient de façon récurrente, il faut formaliser la réponse dans une FAQ accessible en ligne. Cela permet aux secrétaires de trouver la solution par elles-mêmes.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Continuer à répondre au cas par cas",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Perte de temps</div><div class=\"flex items-center gap-1\"><i data-lucide=\"phone\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Passer la journée au téléphone</span></div></div>",
+            "expl": "Continuer à expliquer oralement la manipulation à chaque secrétaire qui appelle sans documenter.",
+            "debriefExpl": "C'est un gouffre temporel pour le support. Répéter 50 fois la même procédure par téléphone empêche de traiter les dossiers réellement complexes.",
+            "icon": "x"
+          },
+          {
+            "title": "Demander une formation obligatoire",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Contrainte excessive</div><div class=\"flex items-center gap-1\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Planifier un webinaire obligatoire</span></div></div>",
+            "expl": "Imposer un webinaire de formation obligatoire de 2 heures à toutes les secrétariats médicaux de France.",
+            "debriefExpl": "Bloquer deux heures dans l'emploi du temps surchargé de secrétaires médicales pour une procédure de 2 minutes est irréaliste et inefficace.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Alimenter la FAQ avec des fiches courtes dès l'apparition d'un motif d'appel récurrent permet d'endiguer la charge de support."
+      },
+      {
+        "text": "La base de connaissances d'Epiconcept contient désormais plus de 150 articles d'aide en vrac. Les utilisateurs des CRDC se plaignent de ne plus rien y trouver, certains articles datant de versions de 2018.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"folder-open\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Base Doc Epiconcept</span></div><p class=\"text-[8px] text-slate-500 mb-1\">150 articles non triés.</p><div class=\"bg-red-50 text-red-700 font-semibold p-1 rounded text-[7px]\">Alerte : Taux de recherche infructueuse = 64 %</div></div>",
+        "correct": {
+          "title": "Faciliter la recherche par un index thématique",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Indexation</div><div class=\"flex items-center gap-1\"><i data-lucide=\"layout-grid\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Index thématique : 'Imports', 'INS', 'Campagnes'</span></div></div>",
+          "expl": "Restructurer la base en créant un index thématique simple et archiver les anciens articles obsolètes.",
+          "debriefExpl": "Une documentation volumineuse doit être structurée par thèmes métiers (Dépistages, Facturation, Imports) pour rester lisible et exploitable pour un non-technicien.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Ajouter un moteur de recherche par intelligence artificielle",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Technicisme</div><div class=\"flex items-center gap-1\"><i data-lucide=\"cpu\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Lancer un projet IA d'indexation</span></div></div>",
+            "expl": "Ouvrir un grand chantier technique pour installer un robot d'indexation par IA sémantique sur la base.",
+            "debriefExpl": "Déployer un projet technique complexe prendra des mois et coûtera cher. Un simple tri des articles et une table des matières claire règlent le problème immédiatement.",
+            "icon": "x"
+          },
+          {
+            "title": "Tout supprimer et recommencer",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Action extrême</div><div class=\"flex items-center gap-1\"><i data-lucide=\"trash-2\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Supprimer tous les anciens articles</span></div></div>",
+            "expl": "Vider complètement la base de connaissances actuelle et demander aux agents de réécrire les fiches de zéro.",
+            "debriefExpl": "Supprimer toute la documentation fait perdre un capital intellectuel précieux. Il faut nettoyer et classer, pas tout détruire.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'organisation par index thématique et le nettoyage des articles obsolètes sont les clés d'une base documentaire efficace."
+      },
+      {
+        "text": "Pour expliquer la nouvelle procédure complexe de fusion d'homonymes (INS), la documentation papier existante fait plus de 15 pages de texte continu, ce qui décourage les secrétaires médicales à la lire.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"file-text\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Procédure Fusion INS</span></div><div class=\"bg-slate-50 p-2 rounded text-[7px] text-slate-500 font-mono\">Guide_INS_V3.pdf (18 pages, texte brut sans image)</div></div>",
+        "correct": {
+          "title": "Enregistrer des séquences courtes GIF ou des tutoriels courts",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Médias dynamiques</div><div class=\"flex items-center gap-1\"><i data-lucide=\"play-circle\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">GIF animé de fusion INS (15s)</span></div></div>",
+          "expl": "Créer de courts tutoriels vidéo de 2 minutes et des captures animées (GIF) montrant la manipulation physique à l'écran.",
+          "debriefExpl": "Pour un geste métier précis comme la sélection d'une fiche homonyme, une courte animation de 15 secondes intégrée à la FAQ est mille fois plus parlante qu'un long manuel textuel complexe.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Remplacer par un manuel PDF de 30 pages",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Inflation doc</div><div class=\"flex items-center gap-1\"><i data-lucide=\"book\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Manuel PDF exhaustif imprimable</span></div></div>",
+            "expl": "Rédiger un manuel utilisateur exhaustif reprenant l'historique complet de la réglementation INS depuis 2018.",
+            "debriefExpl": "Ajouter du texte réglementaire noie l'utilisateur sous l'information et n'aide en rien à la prise en main opérationnelle immédiate du logiciel.",
+            "icon": "x"
+          },
+          {
+            "title": "Ne proposer aucun support visuel",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Inaction visuelle</div><div class=\"flex items-center gap-1\"><i data-lucide=\"slash\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Laisser le guide texte brut existant</span></div></div>",
+            "expl": "Considérer que les secrétaires médicales doivent faire l'effort de lire le document brut.",
+            "debriefExpl": "Une documentation indigeste conduit les utilisateurs à appeler directement le support à la moindre question, annulant tout bénéfice du self-service.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les séquences animées très courtes (GIF ou vidéos ciblées) permettent d'acquérir le geste métier sans effort de lecture d'une longue procédure."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Format Préféré par les Usagers</div><div class=\"space-y-1.5 text-[8px]\"><div class=\"flex items-center gap-1.5 text-slate-600\"><i data-lucide=\"image\" class=\"w-3.5 h-3.5 text-emerald-500\"></i><span><strong>85 %</strong> préfèrent une vidéo courte ou un GIF animé</span></div><div class=\"flex items-center gap-1.5 text-slate-600\"><i data-lucide=\"help-circle\" class=\"w-3.5 h-3.5 text-blue-500\"></i><span><strong>70 %</strong> résolvent leur question via une FAQ thématique</span></div></div></div>"
+  },
+  {
+    "id": 6,
+    "title": "H6. Accompagner la prise en main (Guides pas-à-pas)",
+    "intent": "Assurer l'appropriation durable de l'outil en concevant des parcours d'intégration et des aides contextuelles pour autonomiser les nouveaux usagers.",
+    "icon": "compass",
+    "scenarios": [
+      {
+        "text": "Le CRDC de la Somme accueille 3 nouvelles gestionnaires de dossiers de dépistage ce matin. L'outil d'Epiconcept est complexe et leur intégration doit se faire sans saturer le coordinateur local déjà très occupé.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center\"><i data-lucide=\"users\" class=\"w-3.5 h-3.5 text-blue-600\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Intégration Recrues CRDC</span></div><div class=\"bg-slate-50 p-2 rounded text-[8px] text-slate-500 leading-relaxed\">Situation : 3 nouvelles arrivantes. Pas de parcours de formation prévu. Le coordinateur est absent.</div></div>",
+        "correct": {
+          "title": "Avoir un processus et une checklist d'onboarding du client",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Parcours d'intégration</div><div class=\"flex items-center gap-1\"><i data-lucide=\"check-square\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Checklist Onboarding : Jour 1 à Jour 5</span></div></div>",
+          "expl": "Fournir un parcours d'onboarding structuré sous forme de checklist (création de compte, première connexion, premier import test).",
+          "debriefExpl": "Une checklist d'onboarding claire responsabilise le nouvel utilisateur et lui permet de s'auto-former pas-à-pas durant ses premiers jours sans dépendre entièrement de ses collègues ou du support.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Donner les accès et les laisser tester",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Onboarding brut</div><div class=\"flex items-center gap-1\"><i data-lucide=\"key-round\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Envoi simple d'identifiants</span></div></div>",
+            "expl": "Envoyer simplement les identifiants de connexion et leur écrire : « Connectez-vous et découvrez l'outil par vous-mêmes. »",
+            "debriefExpl": "Lancer de nouvelles utilisatrices sans aucun cadre de progression sur un outil métier sensible engendre des erreurs de saisie en cascade et une anxiété forte dès le jour 1.",
+            "icon": "x"
+          },
+          {
+            "title": "Planifier une formation collective dans un mois",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Différé</div><div class=\"flex items-center gap-1\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Formation physique le mois prochain</span></div></div>",
+            "expl": " leur dire d'attendre la formation en présentiel prévue dans quatre semaines et de ne pas toucher au logiciel d'ici là.",
+            "debriefExpl": "Bloquer l'activité opérationnelle de recrues pendant un mois pour attendre une formation externe nuit à la productivité du CRDC.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le parcours d'onboarding structuré par checklist garantit une mise en route sereine, rapide et standardisée pour tout nouvel utilisateur."
+      },
+      {
+        "text": "Une modification réglementaire majeure sur le ciblage d'âge des mammographies (passage de 74 à 79 ans dans un cadre expérimental dans l'Oise) perturbe le comportement des formulaires. Les utilisateurs font beaucoup de fausses saisies.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"bell\" class=\"w-3.5 h-3.5 text-amber-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Formulaire Expérimental Oise</span></div><div class=\"bg-red-50 text-red-600 font-semibold p-2 rounded text-[8.5px]\">Saisie d'âge refusée : « Conforme HAS requis (50-74 ans). »</div></div>",
+        "correct": {
+          "title": "Proposer de la documentation contextuelle dans l'application",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Aide contextuelle</div><div class=\"flex items-center gap-1\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Infobulle : 'Expérimentation 60 autorisée'</span></div></div>",
+          "expl": "Intégrer une infobulle (tooltip) d'explication ou un pop-up informatif directement à côté du champ d'âge dans l'outil.",
+          "debriefExpl": "Placer l'information d'aide directement là où l'erreur se produit (aide contextuelle au clic ou au survol) évite de forcer l'utilisateur à quitter son formulaire pour aller fouiller dans une base de connaissances.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Envoyer un e-mail d'alerte à tous les gestionnaires",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Alerte générale</div><div class=\"flex items-center gap-1\"><i data-lucide=\"mail\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Envoi d'une note d'information par e-mail</span></div></div>",
+            "expl": "Envoyer une note réglementaire de 4 pages récapitulant les détails de l'expérimentation par e-mail à l'ensemble du personnel.",
+            "debriefExpl": "Les e-mails d'information générale sont souvent oubliés ou non lus. Au moment de faire sa saisie le lendemain, le gestionnaire aura déjà oublié la consigne.",
+            "icon": "x"
+          },
+          {
+            "title": "Mettre à jour le manuel général PDF",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Documentation statique</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-text\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Mise à jour de la page 24 du PDF</span></div></div>",
+            "expl": "Mettre à jour la documentation générale stockée sur le serveur commun et espérer que les secrétaires aillent la lire.",
+            "debriefExpl": "Personne ne va ouvrir un manuel utilisateur PDF de 80 pages pour une simple question de saisie sur un champ d'âge. L'aide doit être visible à l'écran.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'aide contextuelle (pop-up ou infobulle intégrée) apporte la réponse immédiatement au moment opportun du geste métier, évitant ainsi l'erreur à la source."
+      },
+      {
+        "text": "Les usagers de dépistage externe (médecins, secrétaires, correspondants d'agences régionales) ont du mal à centraliser leurs demandes. Ils vous contactent via leurs e-mails personnels, par SMS ou sur Teams, ce qui rend le tri et la traçabilité impossibles.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"inbox\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Canaux de Support Éparpillés</span></div><div class=\"space-y-1 text-[8px] text-slate-500\"><p>• Dr. Martin : SMS à 07h12</p><p>• Secrétaire CRDC : E-mail Outlook perso</p><p class=\"text-red-600 font-bold\">• Aucun historique partagé</p></div></div>",
+        "correct": {
+          "title": "Proposer un self-service desk pour les clients",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Portail unifié</div><div class=\"flex items-center gap-1\"><i data-lucide=\"external-link\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Portail Support unique (Formulaires, FAQ)</span></div></div>",
+          "expl": "Mettre en place un guichet unique (self-service desk) regroupant la documentation, les annonces importantes et un formulaire de contact structuré.",
+          "debriefExpl": "Canaliser l'ensemble des flux d'aide sur un portail unique garantit la traçabilité des tickets, leur qualification automatique par thématiques et libère du temps d'analyse pour le support.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Interdire les demandes hors-formulaire de force",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Mesure coercitive</div><div class=\"flex items-center gap-1\"><i data-lucide=\"ban\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Ne plus répondre aux SMS / Teams</span></div></div>",
+            "expl": "Bloquer et ignorer sans explication toute demande envoyée par e-mail ou SMS pour forcer l'usage du système officiel.",
+            "debriefExpl": "Ignorer vos utilisateurs sans leur fournir d'alternative intuitive crée une rupture de service intolérable et détruit l'image du support.",
+            "icon": "x"
+          },
+          {
+            "title": "Gérer les sollicitations à la main dans un tableau Excel",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Artisanal</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-spreadsheet\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Tableau Excel de suivi manuel</span></div></div>",
+            "expl": "Saisir manuellement tous les e-mails et SMS reçus dans un grand tableau Excel partagé tous les soirs.",
+            "debriefExpl": "Cette saisie manuelle est extrêmement chronophage et n'offre aucune réactivité pour le client. C'est le portail d'assistance qui doit automatiser cette collecte.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le portail de self-service unifié (desk) centralise les flux, qualifie les demandes en amont et valorise les articles de FAQ."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Les 3 Piliers de l'Onboarding Client</div><div class=\"grid grid-cols-3 gap-1.5 text-[7px] text-center\"><div class=\"p-1 bg-slate-50 border border-slate-100 rounded\"><i data-lucide=\"check-square\" class=\"w-3.5 h-3.5 text-emerald-500 mx-auto mb-1\"></i><strong>Checklist pas-à-pas</strong> d'intégration</div><div class=\"p-1 bg-slate-50 border border-slate-100 rounded\"><i data-lucide=\"help-circle\" class=\"w-3.5 h-3.5 text-blue-500 mx-auto mb-1\"></i><strong>Aide contextuelle</strong> (Infobulles)</div><div class=\"p-1 bg-slate-50 border border-slate-100 rounded\"><i data-lucide=\"external-link\" class=\"w-3.5 h-3.5 text-purple-500 mx-auto mb-1\"></i><strong>Portail Self-service</strong> unique</div></div></div>"
+  },
+  {
+    "id": 7,
+    "title": "H7. Soigner la lisibilité des supports (Mise en page)",
+    "intent": "Savoir présenter et mettre en forme la documentation écrite pour la rendre engageante, aérée et immédiatement exploitable par un utilisateur non-technique.",
+    "icon": "layout",
+    "scenarios": [
+      {
+        "text": "Le guide de gestion des doublons civilités rédigé par le support est un pavé de texte ininterrompu de 40 lignes, sans en-tête ni paragraphe différencié. Les gestionnaires du CRDC s'y perdent.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"align-justify\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Manuel Doublons 59</span></div><div class=\"bg-slate-50 p-2 rounded text-[6px] text-slate-400 leading-tight font-mono\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, tempor ac, dui. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor.</div></div>",
+        "correct": {
+          "title": "Structurer le texte en rubriques et sections aérées",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Mise en page aérée</div><div class=\"flex items-center gap-1\"><i data-lucide=\"columns\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Sections séparées : 1. Prérequis | 2. Action</span></div></div>",
+          "expl": "Découper le texte en paragraphes distincts, séparés par des lignes vides et coiffés de titres clairs de niveaux cohérents.",
+          "debriefExpl": "Le découpage en rubriques aérées permet au cerveau de scanner le document en quelques secondes pour repérer directement l'étape recherchée.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Laisser le texte brut sous format d'e-mail continu",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Pas d'effort</div><div class=\"flex items-center gap-1\"><i data-lucide=\"slash\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-[8px] font-bold text-slate-700\">Conserver le pavé textuel en bloc</span></div></div>",
+            "expl": "Considérer que la mise en page est accessoire et que les utilisateurs feront l'effort de lire si besoin.",
+            "debriefExpl": "Un pavé de texte indigeste est le plus sûr moyen de décourager la lecture et de pousser les utilisateurs à saturer le téléphone du support.",
+            "icon": "x"
+          },
+          {
+            "title": "Ajouter du texte juridique complémentaire",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Inflation textuelle</div><div class=\"flex items-center gap-1\"><i data-lucide=\"file-text\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Ajouter 10 lignes de règlement RGPD</span></div></div>",
+            "expl": "Ajouter des textes juridiques et des citations du code de santé publique pour asseoir la légitimité du document.",
+            "debriefExpl": "L'utilisateur cherche une consigne opérationnelle de clic, pas un traité de droit. Allonger encore le texte aggrave le problème de lisibilité.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Aérer sa mise en page avec des sous-titres descriptifs est le premier pas indispensable pour rendre un support exploitable."
+      },
+      {
+        "text": "La procédure d'authentification par carte CPS est jugée trop dense et complexe par les médecins généralistes de la Marne, qui n'arrivent pas à repérer les consignes critiques de sécurité au milieu des instructions.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center\"><i data-lucide=\"shield\" class=\"w-3.5 h-3.5 text-amber-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Procédure CPS Marne</span></div><div class=\"bg-slate-50 p-2 rounded text-[7.5px] text-slate-600 leading-relaxed\">Insérer la carte CPS dans le lecteur de cartes SESAM-Vitale. Attendre que le témoin vert s'allume. (IMPORTANT: ne jamais laisser le code PIN écrit sous le clavier...)</div></div>",
+        "correct": {
+          "title": "Faciliter la lecture par des visuels et éléments stylisés",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Stylisation</div><div class=\"flex items-center gap-1\"><i data-lucide=\"alert-triangle\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Badge d'avertissement rouge + icône de clé</span></div></div>",
+          "expl": "Mettre en valeur les consignes de sécurité majeures à l'aide de badges colorés, d'icônes de mise en garde et d'encadrés de couleur.",
+          "debriefExpl": "Utiliser des codes graphiques clairs (icône de cadenas, badge « CRITIQUE » rouge) accroche le regard et garantit que les règles fondamentales ne seront pas ignorées lors de la manipulation.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Écrire tout le paragraphe de sécurité en MAJUSCULES",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Lisibilité altérée</div><div class=\"flex items-center gap-1\"><i data-lucide=\"type\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">« ATTENTION NE JAMAIS LAISSER... »</span></div></div>",
+            "expl": "Passer l'ensemble des consignes de sécurité en lettres capitales et en gras continu pour forcer le regard.",
+            "debriefExpl": "Écrire en majuscules continues nuit à la lisibilité et donne l'impression d'agresser l'utilisateur (effet de cri). Il est préférable d'utiliser des encadrés structurés et des icônes.",
+            "icon": "x"
+          },
+          {
+            "title": "Souligner toutes les phrases du manuel",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Surcharge</div><div class=\"flex items-center gap-1\"><i data-lucide=\"underline\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Soulignement systématique</span></div></div>",
+            "expl": "Souligner plus de la moitié du texte pour faire croire que tout est important dans le guide.",
+            "debriefExpl": "Quand tout est souligné ou mis en gras, plus rien n'est visible. La sur-stylisation noie le message au lieu de le clarifier.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'utilisation de visuels harmonieux (badges colorés, icônes descriptives) capte l'attention sur les points essentiels sans surcharger la page."
+      },
+      {
+        "text": "Dans le manuel d'utilisation du module d'exportation CPAM, la section expliquant comment résoudre les erreurs d'en-tête renvoie à une autre procédure générale située sur le serveur commun, sans préciser où elle se trouve.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"link\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Résolution Erreurs CPAM</span></div><p class=\"text-[7.5px] text-slate-500 mb-2 leading-relaxed\">« En cas d'erreur de clé, référez-vous au guide de chiffrement national disponible sur notre serveur intranet commun. »</p></div>",
+        "correct": {
+          "title": "Insérer des liens de redirection internes et des ancres",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Navigation fluide</div><div class=\"flex items-center gap-1\"><i data-lucide=\"external-link\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Lien direct cliquable vers #guide-chiffrement</span></div></div>",
+          "expl": "Insérer un lien hypertexte direct vers l'ancre précise du document cible pour éviter à l'utilisateur de chercher à la main.",
+          "debriefExpl": "Un document d'aide ne doit pas être une impasse. Insérer des liens de redirection internes et externes cliquables fait gagner un temps précieux et évite les décrochages de lecture.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Donner le chemin d'accès brut au serveur réseau",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Chemin réseau lourd</div><div class=\"flex items-center gap-1\"><i data-lucide=\"terminal\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">« Voir dans \\\\SERVSUPP\\partage\\doc\\v2\\... »</span></div></div>",
+            "expl": "Écrire le chemin de dossier Windows réseau complet sous format texte brut dans le manuel.",
+            "debriefExpl": "Les chemins réseau sont souvent inaccessibles depuis certains postes externes (VPN) et nécessitent une copie manuelle fastidieuse pour l'utilisateur. Le lien hypertexte direct et sécurisé est obligatoire.",
+            "icon": "x"
+          },
+          {
+            "title": "Recopier l'intégralité du guide de chiffrement",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Inflation doc</div><div class=\"flex items-center gap-1\"><i data-lucide=\"copy\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Fusionner les deux manuels en un seul</span></div></div>",
+            "expl": "Fusionner les deux documents de 30 pages chacun en un immense manuel unique de 60 pages.",
+            "debriefExpl": "Créer un pavé de 60 pages rend le document global illisible. Il est préférable de conserver des articles courts et spécialisés connectés par des liens hypertextes cliquables.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Les renvois cliquables et les ancres internes permettent une navigation instantanée et évitent de perdre l'utilisateur dans les méandres des serveurs."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Règles de Style d'un Manuel Réussi</div><div class=\"flex flex-col gap-1.5 text-[7px] font-semibold text-slate-600\"><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"check-square\" class=\"w-3 h-3 text-emerald-500\"></i> Rubriques courtes (max. 10 lignes par paragraphe)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"alert-circle\" class=\"w-3 h-3 text-amber-500\"></i> Badges visuels de couleur pour les points d'attention</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"link\" class=\"w-3 h-3 text-blue-500\"></i> Liens hypertextes directs pour les renvois de pages</div></div></div>"
+  },
+  {
+    "id": 8,
+    "title": "H8. Harmoniser les réponses et templates (Modèles de messages)",
+    "intent": "Savoir utiliser, concevoir et réviser des modèles de réponses types pour accélérer le traitement des tickets tout en garantissant un ton bienveillant et professionnel.",
+    "icon": "mail",
+    "scenarios": [
+      {
+        "text": "Le service de support fonctionnel d'Epiconcept reçoit chaque jour une dizaine de demandes de réinitialisation de mot de passe de médecins suite au verrouillage de leur compte après 3 tentatives infructueuses.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center\"><i data-lucide=\"key\" class=\"w-3.5 h-3.5 text-blue-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Verrouillage Médecin</span></div><div class=\"bg-slate-50 p-2 rounded text-[7.5px] text-slate-500 font-mono\">Demande : « Compte bloqué. Merci d'envoyer un code temporaire pour le Dr. Legrand. »</div></div>",
+        "correct": {
+          "title": "Utiliser et adapter des modèles de messages prédéfinis",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Template de mail</div><div class=\"flex items-center gap-1\"><i data-lucide=\"mail-check\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Réponse type : 'Dr. Legrand, voici votre lien...'</span></div></div>",
+          "expl": "Utiliser le modèle de réponse type de réinitialisation en personnalisant uniquement le nom du médecin et le lien sécurisé généré.",
+          "debriefExpl": "Utiliser un modèle de message type pré-validé pour les tâches récurrentes assure un traitement en 30 secondes, élimine le risque de fautes d'orthographe et garantit la bonne formulation des consignes de sécurité.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Réécrire un e-mail personnalisé de zéro",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Artisanal</div><div class=\"flex items-center gap-1\"><i data-lucide=\"edit-3\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Rédiger un mail original à la main</span></div></div>",
+            "expl": "Rédiger un e-mail personnalisé original à chaque fois : « Bonjour Dr, j'espère que vous allez bien. C'est fait... »",
+            "debriefExpl": "Réécrire le même message 10 fois par jour est une perte de temps majeure et augmente le risque de donner des instructions incomplètes ou mal formulées.",
+            "icon": "x"
+          },
+          {
+            "title": "Répondre par téléphone systématiquement",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Perte de temps</div><div class=\"flex items-center gap-1\"><i data-lucide=\"phone\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Rappeler le médecin pour lui dicter le lien</span></div></div>",
+            "expl": "Rappeler systématiquement chaque médecin par téléphone pour lui dicter oralement son code de réinitialisation temporaire.",
+            "debriefExpl": "Dicter un lien internet complexe ou un mot de passe temporaire par téléphone est long, source d'erreurs d'audition, et peu sécurisé par rapport à un e-mail officiel automatique.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Le recours aux modèles de messages types pré-validés garantit rapidité, rigueur réglementaire et harmonisation des réponses du support."
+      },
+      {
+        "text": "Une patiente de l'Oise vous écrit, furieuse, car elle a reçu une convocation pour un dépistage cervical qu'elle a déjà réalisé de manière privée le mois dernier. Elle menace de porter plainte pour harcèlement et violation de ses données personnelles.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-octagon\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Réclamation Mme. Durant</span></div><p class=\"text-[8px] text-red-600 font-semibold mb-1\">Plainte RGPD en cours.</p><div class=\"bg-slate-50 p-1.5 rounded border border-slate-100 text-[7px] text-slate-500\">« C'est inadmissible, vous exploitez mes données sans mon accord... »</div></div>",
+        "correct": {
+          "title": "Co-rédiger des modèles de réponses clairs et bienveillants",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Gestion de crise</div><div class=\"flex items-center gap-1\"><i data-lucide=\"heart\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Courrier type d'excuses validé par le DPO</span></div></div>",
+          "expl": "Utiliser un modèle de courrier d'excuses pré-validé par le délégué à la protection des données (DPO) réexpliquant le cadre légal du dépistage.",
+          "debriefExpl": "Pour les situations de tension ou juridiquement sensibles (RGPD, plaintes), l'improvisation est dangereuse. Le recours à un modèle de réponse type rédigé avec bienveillance et validé par un expert juridique protège l'entreprise et apaise l'usager.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Répondre avec agressivité technique",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Escalade de tension</div><div class=\"flex items-center gap-1\"><i data-lucide=\"shield-alert\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">« Notre traitement est légal sous l'article L.241... »</span></div></div>",
+            "expl": "Lui répondre de manière froide et très juridique en citant directement les décrets pour lui prouver qu'elle a tort.",
+            "debriefExpl": "Répondre à une usagère inquiète par des citations d'articles de loi secs et sans empathie ne fait qu'aggraver sa colère et renforce sa volonté de porter l'affaire devant les tribunaux.",
+            "icon": "x"
+          },
+          {
+            "title": "Lui proposer de supprimer tout son dossier sans vérification",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Précipitation</div><div class=\"flex items-center gap-1\"><i data-lucide=\"trash-2\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Suppression intégrale immédiate</span></div></div>",
+            "expl": "Supprimer immédiatement toutes les traces administratives de la patiente dans la base de production pour calmer le jeu.",
+            "debriefExpl": "Supprimer des données de santé à la va-vite sans l'accord du médecin traitant ou du responsable de traitement est illégal et peut perturber l'historique médical de la patiente. Il faut respecter le parcours de dérogation légale.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Pour les réclamations et incidents sensibles, l'usage d'un modèle de réponse type d'apaisement validé par le DPO est le seul moyen de sécuriser l'échange."
+      },
+      {
+        "text": "Le support fonctionnel d'Epiconcept s'est rendu compte que certains modèles de courriels d'aide à la connexion au dépistage font référence à l'ancien portail de 2021, ce qui engendre des erreurs d'authentification à l'arrivée.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-3 shadow-xs max-w-xs\"><div class=\"flex items-center gap-1.5 mb-2\"><div class=\"w-6 h-6 rounded-full bg-red-50 flex items-center justify-center\"><i data-lucide=\"refresh-cw\" class=\"w-3.5 h-3.5 text-red-500\"></i></div><span class=\"font-bold text-[10px] text-slate-800\">Audit des Templates</span></div><p class=\"text-[7.5px] text-slate-500 mb-2 leading-relaxed\">Alerte : Le template 'Lien_Connexion' pointe vers http://oldportal.epiconcept.fr (inactif).</p></div>",
+        "correct": {
+          "title": "Réviser périodiquement la bibliothèque de réponses types",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Audit et mise à jour</div><div class=\"flex items-center gap-1\"><i data-lucide=\"shield-check\" class=\"w-2.5 h-2.5 text-blue-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Révision semestrielle de la bibliothèque de mails</span></div></div>",
+          "expl": "Planifier une réunion semestrielle de revue de l'ensemble de la bibliothèque de réponses types avec l'équipe produit pour corriger les liens obsolètes.",
+          "debriefExpl": "Une bibliothèque de réponses types non mise à jour devient rapidement obsolète et propage des erreurs à grande échelle auprès des utilisateurs. Un audit périodique est indispensable.",
+          "icon": "check"
+        },
+        "wrong": [
+          {
+            "title": "Demander aux agents de modifier les liens à la volée",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Correctif manuel</div><div class=\"flex items-center gap-1\"><i data-lucide=\"edit\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Consigne orale de changer les liens à chaque envoi</span></div></div>",
+            "expl": "Dire oralement à tous les agents du support de penser à modifier manuellement le lien de l'e-mail à chaque fois qu'ils l'envoient.",
+            "debriefExpl": "Les consignes orales volages conduisent inévitablement à des oublis. Si le template contient une erreur, c'est le template lui-même qu'il faut corriger à la source dans l'outil.",
+            "icon": "x"
+          },
+          {
+            "title": "Supprimer complètement le modèle défectueux",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-lg p-2 shadow-xs\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-0.5\">Action radicale</div><div class=\"flex items-center gap-1\"><i data-lucide=\"trash-2\" class=\"w-2.5 h-2.5 text-amber-500\"></i><span class=\"text-[8px] font-bold text-slate-700\">Supprimer le template de connexion</span></div></div>",
+            "expl": "Supprimer définitivement le modèle pour que plus aucun agent n'envoie le mauvais lien par erreur.",
+            "debriefExpl": "Supprimer le modèle oblige les agents à réécrire la procédure complète de connexion de zéro à chaque fois, ce qui ralentit le temps de réponse global.",
+            "icon": "x"
+          }
+        ],
+        "expl": "L'audit et la révision périodique des réponses pré-enregistrées garantissent la qualité et la conformité des informations diffusées à grande échelle."
+      }
+    ],
+    "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Les Bonnes Pratiques du Template</div><div class=\"flex flex-col gap-1.5 text-[7px] font-semibold text-slate-600\"><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"check\" class=\"w-3 h-3 text-emerald-500\"></i> Personnaliser systématiquement (Nom, Numéro de ticket)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"shield\" class=\"w-3 h-3 text-blue-500\"></i> Valider réglementairement (DPO, Experts métiers)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"refresh-cw\" class=\"w-3 h-3 text-purple-500\"></i> Auditer périodiquement (chaque semestre au moins)</div></div></div>"
+  }
+]

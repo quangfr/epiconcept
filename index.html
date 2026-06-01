@@ -1549,8 +1549,8 @@
                                 Recevez, qualifiez, diagnostiquez et résolvez les demandes entrantes sans développement.</p>
                         </div>
                     </article>
-                    <article class="simulator-card run-support-theme disabled-card" id="support-card"
-                        style="opacity: 0.7;">
+                    <article class="simulator-card run-support-theme" id="support-card"
+                        style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1559,10 +1559,8 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 H - Ticketing &amp; Documentation</h2>
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status coming"><span class="status-dot"></span><span>À venir</span>
-                                </div>
+                            <div style="margin-left: auto; flex-shrink: 0;">
+                                <div class="card-status"><span id="ticketing-status-label">0 / 24</span></div>
                             </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
@@ -1757,7 +1755,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.01.35';
+        const APP_VERSION = '2026.06.01.36';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1833,6 +1831,11 @@
             let gsup2 = parseInt(localStorage.getItem('gsup-score-lv2') || '0', 10);
             let totalGsupScore = gsup0 + gsup1 + gsup2;
 
+            let ticketing0 = parseInt(localStorage.getItem('ticketing-score-lv0') || '0', 10);
+            let ticketing1 = parseInt(localStorage.getItem('ticketing-score-lv1') || '0', 10);
+            let ticketing2 = parseInt(localStorage.getItem('ticketing-score-lv2') || '0', 10);
+            let totalTicketingScore = ticketing0 + ticketing1 + ticketing2;
+
             let maxPoScore = 36;
             let maxUxScore = 39;
             let maxEvoScore = 30;
@@ -1840,7 +1843,8 @@
             let maxRoadScore = 36;
             let maxFeatScore = 27;
             let maxGsupScore = 30;
-            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore + maxFeatScore + maxGsupScore;
+            let maxTicketingScore = 24;
+            let totalMaxScore = maxPoScore + maxUxScore + maxEvoScore + maxCsoScore + maxRoadScore + maxFeatScore + maxGsupScore + maxTicketingScore;
 
             // Pagination: 3 ateliers per page
             const scrollEl = document.getElementById('ateliers-scroll');
@@ -1918,6 +1922,11 @@
                 window.updateCardStatusBadge(gsupLabel, totalGsupScore, maxGsupScore);
             }
 
+            const ticketingLabel = document.getElementById('ticketing-status-label');
+            if (ticketingLabel) {
+                window.updateCardStatusBadge(ticketingLabel, totalTicketingScore, maxTicketingScore);
+            }
+
             const savedDt = localStorage.getItem('design-thinking-last-slide');
             const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
             const dtStatusLabel = document.getElementById('dt-status-label');
@@ -1947,7 +1956,7 @@
             }
 
             // Progression rate
-            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore + totalFeatScore + totalGsupScore) / totalMaxScore) * 100);
+            let progressPercent = Math.round(((totalPoScore + totalUxScore + totalEvoScore + totalCsoScore + totalRoadScore + totalFeatScore + totalGsupScore + totalTicketingScore) / totalMaxScore) * 100);
             const overallEl = document.getElementById('overall-completion');
             overallEl.innerText = `${progressPercent}%`;
             const overallCard = overallEl.parentElement;
@@ -2062,7 +2071,7 @@
                     <option value="1">Atelier 1 - Design Thinking</option>
                     <option value="2">Atelier 2 - MVP &amp; Viable</option>
                     <option value="3">Atelier 3 - Backlog &amp; Roadmap</option>
-                    <option value="4">Atelier 4 - G - Diagnostic & Résolution</option>
+                    <option value="4">Atelier 4 - G &amp; H - Diagnostic, Résolution &amp; Documentation</option>
                 </select>
             </div>
 
