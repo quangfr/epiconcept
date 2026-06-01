@@ -94,9 +94,10 @@
 - **scenario.visual** : PO = interface métier ; Support = ticket ; Specs = mockup design/process. UX = 3 rendus côte-à-côte (correct + 2 wrong).
 
 ## 9. Bump, Commit & Déploiement
-- **Bump** : Incrémenter `APP_VERSION` dans `index.html` (format `YYYY.MM.DD.NN`). `NN` = 01 le jour même, puis 02, 03...
-- **Commit** : `git add index.html [fichiers modifiés]; if ($?) { git commit -m "bump vYYYY.MM.DD.NN - <description>" }`
-- **Push & Deploy** : **INTERDICTION** de push ou de déployer (`git push` et `firebase deploy`) automatiquement. Ces actions doivent être exécutées **UNIQUEMENT sur demande explicite** de l'utilisateur.
+- **Strictes restrictions** : **INTERDICTION** d'incrémenter la version (Bump), de commiter (Commit), de push ou de déployer (`git push` et `firebase deploy`) de manière automatique. Ces actions doivent être exécutées **UNIQUEMENT sur demande explicite** de l'utilisateur.
+- **Bump** (Sur demande) : Incrémenter `APP_VERSION` dans `index.html` (format `YYYY.MM.DD.NN`). `NN` = 01 le jour même, puis 02, 03...
+- **Commit** (Sur demande) : `git add index.html [fichiers modifiés]; if ($?) { git commit -m "bump vYYYY.MM.DD.NN - <description>" }`
+- **Push & Deploy** (Sur demande) : `git push` et/ou `firebase deploy`.
 - Ne jamais commiter `.firebase/hosting..cache`.
 
 ## 10. Code Utile (Cheat Sheet)

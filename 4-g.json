@@ -52,9 +52,9 @@
             "icon": "arrow-up-right"
           },
           {
-            "title": "Corriger la base de données sans comprendre",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">UPDATE en base sans diagnostic de la cause</span></div></div>",
-            "expl": "Modifier directement les données en base pour 'réparer' les statuts sans comprendre l'origine.",
+            "title": "Corriger la système de données sans comprendre",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Modification non tracée de la cause</span></div></div>",
+            "expl": "Modifier directement les données dans les données pour 'réparer' les statuts sans comprendre l'origine.",
             "debriefExpl": "Corriger le symptôme sans la cause expose à une récidive immédiate et à la perte de traçabilité.",
             "icon": "database"
           }
@@ -62,13 +62,13 @@
         "expl": "Une vérification rapide de l'environnement utilisateur (filtres, profils, préférences) évite de transformer une fausse alerte en incident."
       },
       {
-        "text": "Le CHU de Rouen signale un problème sur le module de facturation des bilans de dépistage. Le ticket mélange trois sujets : les montants calculés ne correspondent pas aux nouveaux tarifs ARS (évolution réglementaire), le bouton de génération de facture provoque une erreur 500 (bug technique), et la gestionnaire souhaite ajouter une ligne de remise manuelle (évolution fonctionnelle).",
+        "text": "Le CHU de Rouen signale un problème sur le module de facturation des bilans de dépistage. Le ticket mélange trois sujets : les montants calculés ne correspondent pas aux nouveaux tarifs ARS (évolution réglementaire), le bouton de génération de facture provoque une erreur technique inattendue (bug technique), et la gestionnaire souhaite ajouter une ligne de remise manuelle (évolution fonctionnelle).",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Ticket complexe CHU Rouen</span></div><p class=\"text-xs text-slate-500\">1 signalement = 3 problèmes de nature différente entremêlés</p></div>",
         "correct": {
           "title": "Démêler les sujets avant d'agir",
           "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Décomposition ticket en 3 sous-tickets — Évolution + Bug + Demande séparés et orientés</span></div></div>",
           "expl": "Un ticket complexe doit être désolidarisé en plusieurs entités de nature distincte avant toute action.",
-          "debriefExpl": "Ce signalement unique contient une évolution réglementaire (nouveaux tarifs), un bug technique (erreur 500) et une demande fonctionnelle (remise). Chacun doit suivre sa filière propre : le bug part au N3, l'évolution au PO, la demande est qualifiée.",
+          "debriefExpl": "Ce signalement unique contient une évolution réglementaire (nouveaux tarifs), un bug technique (erreur technique inattendue) et une demande fonctionnelle (remise). Chacun doit suivre sa filière propre : le bug part au N3, l'évolution au PO, la demande est qualifiée.",
           "icon": "check"
         },
         "wrong": [
@@ -76,12 +76,12 @@
             "title": "Tout traiter comme un bug N3",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket unique transmis au N3 sans désolidarisation</span></div></div>",
             "expl": "Transmettre au N3 l'intégralité du signalement comme un bug de facturation.",
-            "debriefExpl": "N3 va résoudre l'erreur 500 mais l'évolution réglementaire et la demande resteront en attente sans visibility.",
+            "debriefExpl": "N3 va résoudre l'erreur technique inattendue mais l'évolution réglementaire et la demande resteront en attente sans visibility.",
             "icon": "bug"
           },
           {
             "title": "Répondre partiellement sur le seul bug technique",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction de l'erreur 500 sans traiter les 2 autres sujets</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction de l'erreur technique inattendue sans traiter les 2 autres sujets</span></div></div>",
             "expl": "Ne corriger que l'erreur technique visible sans traiter les deux autres demandes légitimes.",
             "debriefExpl": "Le client reste insatisfait car la moitié de sa demande n'a pas été traitée, générant un 2e ticket.",
             "icon": "slash"
@@ -157,10 +157,10 @@
         "text": "Depuis 3 jours, entre 14h et 15h, 5 centres de dépistage différents signalent une latence importante sur la validation des bilans. En dehors de cette tranche horaire, tout fonctionne normalement. Les centres sont géographiquement dispersés et utilisent des FAI différents.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Latence intermittente multi-sites</span></div><p class=\"text-xs text-slate-500\">5 centres, 14h-15h, validation bilans lente — pas de point commun apparent</p></div>",
         "correct": {
-          "title": "Corréler les signalements pour trouver le dénominateur commun",
+          "title": "Corréler les signalements pour trouver le groupe de calcul commun",
           "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Analyse croisée des signalements — Horaires + métrique serveur = pic CPU lié à la sauvegarde</span></div></div>",
           "expl": "Croiser les données de tous les signalements (horaire, fonction, utilisateur) pour trouver la variable commune.",
-          "debriefExpl": "En corrélant les signalements avec les métriques serveur, on découvre que la sauvegarde automatisée des bases démarre à 14h sur le serveur mutualisé. La latence disparaît en décalant la sauvegarde à 23h.",
+          "debriefExpl": "En corrélant les signalements avec les métriques serveur, on découvre que la sauvegarde automatisée des données démarre à 14h sur le serveur mutualisé. La latence disparaît en décalant la sauvegarde à 23h.",
           "icon": "check"
         },
         "wrong": [
@@ -229,10 +229,10 @@
         },
         "wrong": [
           {
-            "title": "Contourner en désactivant la contrainte en base",
+            "title": "Contourner en désactivant la contrainte dans les données",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Désactivation SQL de la contrainte de validation en BDD</span></div></div>",
-            "expl": "Désactiver directement la contrainte de validation dans la base de données pour permettre l'enregistrement.",
-            "debriefExpl": "Désactiver une contrainte en base crée un risque d'intégrité des données. La prochaine sauvegarde pourrait corrompre le dossier.",
+            "expl": "Désactiver directement la contrainte de validation dans la système de données pour permettre l'enregistrement.",
+            "debriefExpl": "Désactiver une contrainte dans les données crée un risque d'intégrité des données. La prochaine sauvegarde pourrait corrompre le dossier.",
             "icon": "alert-triangle"
           },
           {
@@ -264,10 +264,10 @@
             "icon": "x-circle"
           },
           {
-            "title": "Demander au client de fournir sa base complète",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Envoyez-nous votre base de production par FTP » — risque de données personnelles</span></div></div>",
-            "expl": "Demander au client d'exporter et transmettre l'intégralité de sa base de production.",
-            "debriefExpl": "Risque RGHP élevé car la base contient des données de santé. De plus, le volume rend le transfert impossible.",
+            "title": "Demander au client de fournir ses données complètes",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Envoyez-nous votre données de production par partage de fichier sécurisé » — risque de données personnelles</span></div></div>",
+            "expl": "Demander au client d'exporter et transmettre l'intégralité de sa données de production.",
+            "debriefExpl": "Risque RGPD élevé car la base contient des données de santé. De plus, le volume rend le transfert impossible.",
             "icon": "download-cloud"
           }
         ],
@@ -285,10 +285,10 @@
         "text": "Une gestionnaire du CRDC de Laon vient de créer une fiche patient il y a 30 minutes mais ne la retrouve plus dans sa liste de patients. Elle craint d'avoir perdu son travail et ne peut pas poursuivre le suivi.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Fiche patient introuvable — CRDC Laon</span></div><p class=\"text-xs text-slate-500\">\"Je viens de la créer et elle a disparu !\"</p></div>",
         "correct": {
-          "title": "Vérifier la présence en base de production",
+          "title": "Vérifier la présence dans les données de production",
           "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Requête de vérification en lecture — Fiche présente en BDD → filtre ou pagination en cause</span></div></div>",
-          "expl": "Consulter la base de production en lecture seule pour confirmer l'existence de la donnée avant d'alarmer.",
-          "debriefExpl": "Une requête en lecture sur la table des patients confirme que la fiche a bien été créée (présente en base depuis 30 min). Le problème vient d'un filtre de pagination : la gestionnaire est sur la 2e page et la fiche s'affiche page 1.",
+          "expl": "Consulter la données de production en lecture seule pour confirmer l'existence de la donnée avant d'alarmer.",
+          "debriefExpl": "Une consultation des données sur la table des patients confirme que la fiche a bien été créée (présente dans les données depuis 30 min). Le problème vient d'un filtre de pagination : la gestionnaire est sur la 2e page et la fiche s'affiche page 1.",
           "icon": "check"
         },
         "wrong": [
@@ -302,7 +302,7 @@
           {
             "title": "Escalader au N3 avec suspicion de perte de données",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket criticité haute : « Perte de données en production »</span></div></div>",
-            "expl": "Ouvrir un incident critique de perte de données sans avoir vérifié la présence de la fiche en base.",
+            "expl": "Ouvrir un incident critique de perte de données sans avoir vérifié la présence de la fiche dans les données.",
             "debriefExpl": "N3 mobilisé pour une fausse alerte qui se résout par un simple changement de page.",
             "icon": "alert-triangle"
           }
@@ -313,9 +313,9 @@
         "text": "Le responsable du CRDC de Valenciennes conteste le nombre de bilans valorisés dans le rapport mensuel transmis à l'ARS. Selon lui, le rapport affiche 234 bilans traités alors que son équipe en a saisi 289. Un écart de 55 bilans doit être expliqué avant la réunion ARS de demain.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Écart de comptage — CRDC Valenciennes</span></div><p class=\"text-xs text-slate-500\">Rapport = 234 bilans, saisie terrain = 289 — écart de 55</p></div>",
         "correct": {
-          "title": "Comparer les comptages en base avec l'affichage",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Décompte en base vs rapport — Requête de comptage = 289 → filtre de statut dans le rapport = écart identifié</span></div></div>",
-          "expl": "Exécuter des requêtes de comptage en base pour comparer avec les chiffres affichés dans le rapport.",
+          "title": "Comparer les comptages dans les données avec l'affichage",
+          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Décompte dans les données vs rapport — Requête de comptage = 289 → filtre de statut dans le rapport = écart identifié</span></div></div>",
+          "expl": "Exécuter des vérifications des décomptes dans les données pour comparer avec les chiffres affichés dans le rapport.",
           "debriefExpl": "Le comptage SQL renvoie 289 enregistrements, confirmant les dires du responsable. Le rapport filtre sur le statut 'Validé' alors que 55 bilans sont en statut 'En attente de signature'. L'écart vient du périmètre du rapport.",
           "icon": "check"
         },
@@ -335,7 +335,7 @@
             "icon": "clock"
           }
         ],
-        "expl": "Un écart de comptabilité doit être investigué en base avant d'être expliqué ou corrigé."
+        "expl": "Un écart de comptabilité doit être investigué dans les données avant d'être expliqué ou corrigé."
       },
       {
         "text": "Lors de la migration de l'ancien système vers Epiconcept, le CRDC de l'Oise a importé 12 000 dossiers patients. Le référent signale que les doublons sont nombreux et que les correspondances NIR-patients semblent incohérentes. Il faut analyser la reprise de données sans compromettre l'intégrité.",
@@ -351,7 +351,7 @@
           {
             "title": "Relancer l'import complet depuis zéro",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Nouvel import massif sans nettoyage préalable des données source</span></div></div>",
-            "expl": "Tronquer la base et réimporter les 12 000 dossiers depuis le fichier source sans correction des anomalies.",
+            "expl": "Réinitialiser les données et réimporter les 12 000 dossiers depuis le fichier source sans correction des anomalies.",
             "debriefExpl": "Le second import produit exactement les mêmes anomalies car le fichier source n'a pas été nettoyé. C'est une perte de temps et de ressources.",
             "icon": "rotate-ccw"
           },
@@ -363,7 +363,7 @@
             "icon": "mouse-pointer"
           }
         ],
-        "expl": "Une analyse quantitative en base permet de dimensionner le vrai problème avant de décider d'une action corrective."
+        "expl": "Une analyse quantitative dans les données permet de dimensionner le vrai problème avant de décider d'une action corrective."
       }
     ]
   },
@@ -392,7 +392,7 @@
             "icon": "user-check"
           },
           {
-            "title": "Escalader au N3 pour audit des logs d'accès",
+            "title": "Escalader au N3 pour suivi de sécurité des logs d'accès",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Audit des logs d'accès nécessaire »</span></div></div>",
             "expl": "Demander au N3 de fouiller les logs plutôt que de comparer les profils en 2 minutes.",
             "debriefExpl": "Le N3 passe 30 min dans les logs alors que la solution était visible en 2 min dans la console d'administration des profils.",
@@ -433,7 +433,7 @@
         "text": "Deux CRDC (Somme et Aisne) ont exactement la même configuration apparente d'après l'interface d'administration. Pourtant, le calcul du score de risque colorectal (basé sur l'âge, les antécédents familiaux et le résultat de test) donne des résultats différents pour des profils patients identiques.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Score de risque divergent — Somme vs Aisne</span></div><p class=\"text-xs text-slate-500\">Même config affichée, même patient entré, résultat différent</p></div>",
         "correct": {
-          "title": "Comparer les règles métier enregistrées en base",
+          "title": "Comparer les règles métier enregistrées dans les données",
           "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Analyse des règles métier sous-jacentes — Règle version antérieure sur Aisne → version mise à jour sur Somme</span></div></div>",
           "expl": "Creuser sous l'interface pour comparer les règles métier effectives, pas seulement leur affichage dans l'IHM.",
           "debriefExpl": "En consultant la table des règles métier, on découvre que le CRDC de l'Aisne a une règle de calcul datant de l'année précédente (seuil à 50 ans) alors que la Somme a la règle mise à jour (seuil à 45 ans selon la nouvelle recommandation HAS). L'écran d'administration affiche les deux configurations comme identiques car il n'affiche pas la version de la règle.",
@@ -442,8 +442,8 @@
         "wrong": [
           {
             "title": "Forcer la même valeur dans la table des scores",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">UPDATE SQL des scores pour les aligner manuellement</span></div></div>",
-            "expl": "Modifier directement les scores en base pour que les deux centres affichent les mêmes résultats.",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Mise à jour SQL des scores pour les aligner manuellement</span></div></div>",
+            "expl": "Modifier directement les scores dans les données pour que les deux centres affichent les mêmes résultats.",
             "debriefExpl": "La modification directe des scores ne résout pas la cause : la règle sous-jacente reste incorrecte. Les nouveaux bilans continueront à produire des scores divergents.",
             "icon": "database"
           },
@@ -455,24 +455,24 @@
             "icon": "user-x"
           }
         ],
-        "expl": "L'interface d'administration n'affiche pas toujours la réalité des règles sous-jacentes. L'investigation doit descendre au niveau de la base de configuration."
+        "expl": "L'interface d'administration n'affiche pas toujours la réalité des règles sous-jacentes. L'investigation doit descendre au niveau de la paramètres système."
       }
     ]
   },
   {
     "id": 6,
     "title": "G6. Corriger les petites anomalies directement sur les données",
-    "intent": "Appliquer des corrections ciblées en base ou via les outils d'administration pour les anomalies simples, avec traçabilité obligatoire.",
+    "intent": "Appliquer des corrections ciblées (unitaire ou via script d'automatisation / import en masse), avec traçabilité obligatoire.",
     "icon": "pen-tool",
     "scenarios": [
       {
         "text": "Lors de l'import d'un nouveau fichier de patients, une gestionnaire du CRDC de Laon a saisi le mauvais médecin traitant pour une patiente. Le dossier est déjà actif et la modification via l'interface n'est pas possible car la validation est déjà en cours.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Mauvais médecin traitant — CRDC Laon</span></div><p class=\"text-xs text-slate-500\">Import récent, dossier actif, modification IHM impossible</p></div>",
         "correct": {
-          "title": "Corriger la référence en base avec traçabilité",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Mise à jour ciblée en base — UPDATE tracé : champs 'medecin_traitant' et 'auteur_modification' renseignés</span></div></div>",
-          "expl": "Modifier les données erronées en base avec enregistrement de l'auteur, de la date et de la raison de la modification.",
-          "debriefExpl": "Une correction unitaire en base, avec journalisation de l'opération (qui, quand, quoi, pourquoi) résout le problème en 2 minutes. La patiente est réassociée au bon médecin traitant sans impact sur les autres données.",
+          "title": "Corriger la donnée dans les données avec traçabilité",
+          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Mise à jour ciblée dans les données — Modification journalisée : champs médecin et auteur de la modification renseignés</span></div></div>",
+          "expl": "Modifier les données erronées en données en traçant le demandeur, la date et de la raison de la modification.",
+          "debriefExpl": "Une correction ciblée ou un script d'import en masse tracé résout l'anomalie en quelques minutes sans impact sur les autres dossiers.",
           "icon": "check"
         },
         "wrong": [
@@ -491,16 +491,16 @@
             "icon": "file-plus"
           }
         ],
-        "expl": "Une correction unitaire en base avec traçabilité est la méthode la plus rapide pour les anomalies simples et non récurrentes."
+        "expl": "Une correction ciblée ou via script automatisé/import en masse est idéale pour corriger rapidement les anomalies."
       },
       {
         "text": "Le statut d'un bilan de dépistage du cancer du col de l'utérus est bloqué en « En attente de résultat » depuis 3 semaines alors que le laboratoire a confirmé avoir transmis le résultat par flux. Toutes les tentatives de modification via l'interface échouent car le statut ne permet pas la transition manuelle.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bilan bloqué en attente — CRDC Oise</span></div><p class=\"text-xs text-slate-500\">Statut figé malgré réception du résultat laboratoire</p></div>",
         "correct": {
-          "title": "Forcer le changement de statut avec audit trail",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Forçage du statut avec traçabilité — Statut passé de 'En attente' à 'Résultat reçu' via backoffice tracé</span></div></div>",
-          "expl": "Modifier le statut en base avec une opération tracée, en documentant la cause (flux laboratoire non abouti) et l'autorisation.",
-          "debriefExpl": "Le flux d'import du laboratoire n'a pas déclenché le changement de statut à cause d'un décalage de format de date. La correction du statut en base est tracée avec le motif 'Erreur de flux laboratoire' et l'ID d'incident. Le bilan est débloqué et visible par le médecin.",
+          "title": "Débloquer les changements non-autorisés via un accès super-admin tracé",
+          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Accès super-admin tracé — Statut forcé de 'En attente' à 'Résultat reçu' avec enregistrement du motif</span></div></div>",
+          "expl": "Débloquer manuellement le statut figé via un outil d'administration sécurisé réservé aux super-administrateurs avec enregistrement de l'action.",
+          "debriefExpl": "L'utilisation d'un accès super-admin tracé permet de forcer la transition de statut impossible via l'interface standard. L'opération est enregistrée avec le motif de blocage et l'identifiant de l'intervenant pour des raisons de sécurité.",
           "icon": "check"
         },
         "wrong": [
@@ -519,7 +519,7 @@
             "icon": "trash-2"
           }
         ],
-        "expl": "Un forçage de statut avec audit trail et documentation de la cause est préférable à l'attente ou la suppression-recréation."
+        "expl": "Le déblocage de statut non-autorisé via un accès super-admin tracé est préférable à l'attente ou à la suppression-recréation du dossier."
       },
       {
         "text": "Suite à l'import d'un fichier CSV de l'ancien système de gestion, 300 dossiers patients ont été créés avec un NIR invalide (format non conforme). Les dossiers sont réels et les patients existent, mais les NIR ne passent pas les contrôles de format et le module d'échange avec l'Assurance Maladie rejette les flux.",
@@ -597,9 +597,9 @@
         },
         "wrong": [
           {
-            "title": "Cacher les données en base",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Marquage 'invisible = true' en base pour les patients décédés</span></div></div>",
-            "expl": "Modifier la base pour que les patients décédés ne soient plus remontés dans les listes.",
+            "title": "Cacher les données dans les données",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Marquage 'invisible = true' dans les données pour les patients décédés</span></div></div>",
+            "expl": "Modifier les données pour que les patients décédés ne soient plus remontés dans les listes.",
             "debriefExpl": "Les patients décédés sont alors invisibles aussi dans le module de statistiques et d'archives. Effet de bord grave.",
             "icon": "eye-off"
           },
@@ -645,8 +645,8 @@
   },
   {
     "id": 8,
-    "title": "G8. Escalader au N3 pour poser des actions pérennes",
-    "intent": "Transmettre au N3 un dossier structuré qui permet de corriger durablement et d'automatiser les résolutions fréquentes.",
+    "title": "G8. Escalader pour poser des actions pérennes",
+    "intent": "Transmettre au support produit un dossier structuré qui permet de corriger durablement et d'automatiser les résolutions fréquentes.",
     "icon": "arrow-up-right",
     "scenarios": [
       {
@@ -748,7 +748,7 @@
           "title": "Faire confirmer la résolution par le client",
           "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Validation client enregistrée — « Je confirme, je peux me connecter et accéder à mes dossiers »</span></div></div>",
           "expl": "Contacter le client pour qu'il confirme lui-même la résolution avant de clore le ticket.",
-          "debriefExpl": "Le gestionnaire confirme par email qu'il a pu se connecter et accéder à ses dossiers. Le ticket est clos avec la mention 'Confirmé par l'utilisateur'. La procédure de déverrouillage est mise à jour dans la base de connaissance pour les prochains cas.",
+          "debriefExpl": "Le gestionnaire confirme par email qu'il a pu se connecter et accéder à ses dossiers. Le ticket est clos avec la mention 'Confirmé par l'utilisateur'. La procédure de déverrouillage est mise à jour dans la base de connaissances pour les prochains cas.",
           "icon": "check"
         },
         "wrong": [
@@ -760,9 +760,9 @@
             "icon": "x-circle"
           },
           {
-            "title": "Ne rien documenter dans la base de connaissance",
+            "title": "Ne rien documenter dans la base de connaissances",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket clôturé, aucune trace dans le référentiel</span></div></div>",
-            "expl": "Fermer le ticket sans capitaliser la résolution dans la base de connaissance de l'équipe.",
+            "expl": "Fermer le ticket sans capitaliser la résolution dans la base de connaissances de l'équipe.",
             "debriefExpl": "Le prochain N2 qui traitera un verrouillage de compte repartira de zéro, sans savoir quelle procédure appliquer.",
             "icon": "book"
           }
@@ -770,13 +770,13 @@
         "expl": "Un ticket n'est résolu que lorsque le client l'a confirmé. La capitalisation dans le référentiel évite de réinventer la solution."
       },
       {
-        "text": "Le CH de Compiègne signalait un affichage erroné des statistiques mensuelles : les pourcentages de participation au dépistage dépassaient 100%. L'équipe N2 a identifié un problème de paramétrage du dénominateur (population cible mal configurée) et a corrigé la règle de calcul dans la configuration du CRDC.",
+        "text": "Le CH de Compiègne signalait un affichage erroné des statistiques mensuelles : les pourcentages de participation au dépistage dépassaient 100%. L'équipe N2 a identifié un problème de paramétrage du groupe de calcul (groupe de patients concerné mal configurée) et a corrigé la règle de calcul dans la configuration du CRDC.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Statistiques >100% — CH Compiègne</span></div><p class=\"text-xs text-slate-500\">Dénominateur incorrect dans la règle de calcul configurée</p></div>",
         "correct": {
           "title": "Documenter le diagnostic et la solution dans le référentiel de l'équipe",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Fiche référentiel créée — [Config] Correction d'un dénominateur de calcul de participation</span></div></div>",
-          "expl": "Rédiger une fiche de résolution dans la base de connaissance pour que le diagnostic et la solution soient réutilisables.",
-          "debriefExpl": "La résolution (paramétrage du dénominateur) est documentée dans la base de connaissance avec : 1) les symptômes (%, >100%), 2) la cause (mauvaise population cible), 3) la correction (chemin de paramétrage), 4) le CRDC concerné et la date de correction.",
+          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Fiche référentiel créée — [Config] Correction d'un groupe de calcul de calcul de participation</span></div></div>",
+          "expl": "Rédiger une fiche de résolution dans la base de connaissances pour que le diagnostic et la solution soient réutilisables.",
+          "debriefExpl": "La résolution (paramétrage du groupe de calcul) est documentée dans la base de connaissances avec : 1) les symptômes (%, >100%), 2) la cause (mauvaise groupe de patients concerné), 3) la correction (chemin de paramétrage), 4) le CRDC concerné et la date de correction.",
           "icon": "check"
         },
         "wrong": [
