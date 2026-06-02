@@ -1,0 +1,381 @@
+{
+  "_comment": "Personnalisation client. Modifiez les textes ci-dessous pour adapter la plateforme à votre marque/contexte.",
+  "app": {
+    "title": "GO EPICO",
+    "subtitle": "Développez vos réflexes Product chez Epiconcept",
+    "metaTitle": "GO EPICO - Simulateur de réflexes Product",
+    "metaDescription": "Développez vos compétences métiers de Product Owner (PO) et d'ergonomie User Experience (UX) avec nos simulateurs interactifs d'entraînement.",
+    "description": "Simulateur et référentiel pédagogique conçu pour acquérir les réflexes Product à travers 6 ateliers (théorie et exercices d'entraînement). Les situations concrètes s'appuient sur le contexte d'un logiciel de dépistage de santé (ESIS-3D).",
+    "footer": "Usage réservé à Epiconcept.<br>Développé par Savane Go-Live. © 2026",
+    "contextSuffix": "ESIS-3D"
+  },
+  "ateliers": [
+    {
+      "id": 1,
+      "name": "Design Product",
+      "objective": "Réfléchir sur les besoins réels des utilisateurs.",
+      "items": [
+        { "cardId": "dt-card", "icon": "lightbulb", "title": "1 - Design Thinking", "infoTitle": "Voir les slides Design Thinking", "statusId": "dt-status-label", "maxSteps": 8, "description": "Principes du Design Thinking (Empathie, Définition, Idéation, Prototype, Test).", "action": "lesson", "actionParam": "1, 0" },
+        { "cardId": "po-card", "icon": "target", "title": "A - Besoins Utilisateurs", "infoTitle": "Voir les réflexes PO", "statusId": "po-status-label", "maxSteps": 36, "description": "Maîtrisez les réflexes PO face aux frictions : creusez l'intention et quantifiez l'irritant.", "action": "lesson", "actionParam": "1, 6" },
+        { "cardId": "ux-card", "icon": "palette", "title": "B - Ergonomie UX/UI", "infoTitle": "Voir les réflexes UX", "statusId": "ux-status-label", "maxSteps": 39, "description": "Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).", "action": "lesson", "actionParam": "1, 7" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Cadrage Product",
+      "objective": "Transformer le besoin en unités de développement actionnables",
+      "items": [
+        { "cardId": "mvp-card", "icon": "rocket", "title": "2- Produit Minimum Viable", "infoTitle": "Voir les slides MVP", "statusId": "mvp-status-label", "maxSteps": 7, "description": "Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester et à livrer.", "action": "lesson", "actionParam": "2, 0" },
+        { "cardId": "cso-card", "icon": "headset", "title": "C - Support & Client", "infoTitle": "Voir les réflexes Support & Client", "statusId": "cso-status-label", "maxSteps": 27, "description": "Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.", "action": "lesson", "actionParam": "2, 5" },
+        { "cardId": "evo-card", "icon": "sparkles", "title": "D - Évolutions & Specs", "infoTitle": "Voir les réflexes Évolutions & Specs", "statusId": "evo-status-label", "maxSteps": 30, "description": "Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.", "action": "lesson", "actionParam": "2, 6" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Vision Product",
+      "objective": "Anticiper les évolutions et construire la trajectoire produit.",
+      "items": [
+        { "cardId": "backlog-card", "icon": "layers", "title": "3 - Product Backlog", "infoTitle": "Voir les slides Product Backlog", "statusId": "road-slides-status-label", "maxSteps": 7, "description": "Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.", "action": "lesson", "actionParam": "3, 3" },
+        { "cardId": "roadmap-card", "icon": "mountain", "title": "E - Roadmap & Jalons", "infoTitle": "Voir les réflexes Roadmap & Jalons", "statusId": "road-status-label", "maxSteps": 36, "description": "Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.", "action": "lesson", "actionParam": "3, 6" },
+        { "cardId": "features-card", "icon": "telescope", "title": "F - Features Discovery", "infoTitle": "Voir les réflexes Features Discovery", "statusId": "feat-status-label", "maxSteps": 27, "description": "Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.", "action": "lesson", "actionParam": "3, 7" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Support Product",
+      "objective": "Assurer la stabilité opérationnelle et l'assistance aux utilisateurs.",
+      "items": [
+        { "cardId": "sla-card", "icon": "shield-check", "title": "4 - Service-Level-Agreement", "infoTitle": "Voir les slides", "statusId": "gsup-slides-status-label", "maxSteps": 0, "description": "Garantir les engagements de service, la disponibilité et le respect des SLA.", "action": "lesson", "actionParam": "4, 0" },
+        { "cardId": "run-card", "icon": "wrench", "title": "G - Diagnostic & Résolution", "infoTitle": "Voir les slides", "statusId": "gsup-status-label", "maxSteps": 30, "description": "Recevez, qualifiez, diagnostiquez et résolvez les demandes entrantes sans développement.", "action": "lesson", "actionParam": "4, 4" },
+        { "cardId": "support-card", "icon": "clipboard-list", "title": "H - Assistance & Connaissance", "infoTitle": "Voir les slides", "statusId": "ticketing-status-label", "maxSteps": 27, "description": "Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.", "action": "lesson", "actionParam": "4, 5" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Innovation Product",
+      "objective": "Explorer de nouveaux horizons et valider des idées en rupture sans risque.",
+      "items": [
+        { "cardId": "lean-card", "icon": "flask-conical", "title": "5 - Innovation", "infoTitle": "Voir les slides", "statusId": "lean-slides-status-label", "maxSteps": 7, "description": "Les principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses disruptives sans gaspiller de ressources.", "action": "lesson", "actionParam": "5, 0" },
+        { "cardId": "veille-card", "icon": "search", "title": "I - Veille & Benchmark", "infoTitle": "Voir les slides", "statusId": "veille-status-label", "maxSteps": 27, "description": "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.", "action": "lesson", "actionParam": "5, 0" },
+        { "cardId": "poc-card", "icon": "flask-conical", "title": "J - Test & Learn", "infoTitle": "Voir les slides", "statusId": "tln-status-label", "maxSteps": 27, "description": "Expérimentez, testez et validez vos idées avant d'investir grâce au cycle discovery.", "action": "lesson", "actionParam": "5, 3" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Data Product",
+      "objective": "Piloter le produit par la preuve et mesurer l'impact des fonctionnalités.",
+      "items": [
+        { "cardId": "data-driven-card", "icon": "pie-chart", "title": "6 - Data Driven", "infoTitle": "Voir les slides", "statusId": "analytics-slides-status-label", "maxSteps": 7, "description": "Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.", "action": "lesson", "actionParam": "6, 0" },
+        { "cardId": "analytics-card", "icon": "bar-chart-2", "title": "K - Analytics & Productivité", "infoTitle": "Voir les réflexes K", "statusId": "analytics-status-label", "maxSteps": 24, "description": "Analysez les données d'usage, identifiez les frictions et validez par les KPIs.", "action": "ref", "actionParam": "K1" },
+        { "cardId": "kpi-card", "icon": "line-chart", "title": "L - KPIs & Dashboard", "infoTitle": "Voir les réflexes L", "statusId": "kpi-status-label", "maxSteps": 24, "description": "Définissez les indicateurs clés et construisez des tableaux de bord décisionnels efficaces.", "action": "ref", "actionParam": "L1" }
+      ]
+    }
+  ],
+  "lessonSelectorOptions": [
+    "Atelier 1 - Design Product",
+    "Atelier 2 - Cadrage Product",
+    "Atelier 3 - Vision Product",
+    "Atelier 4 - Support Product",
+    "Atelier 5 - Innovation Product",
+    "Atelier 6 - Data Product"
+  ],
+  "workshops": {
+    "1-a": {
+      "key": "po",
+      "title": "A - Besoins Utilisateurs",
+      "h1": "A - Besoins <span class='text-slate-800'>Utilisateurs</span>",
+      "subtitle": "Adopter la posture de Product Owner pour qualifier les besoins.",
+      "themeClass": "po-theme",
+      "badge": "Réflexe PO (Posture)",
+      "icon": "target",
+      "emoji": "🎯",
+      "resetConfirm": "toute votre progression de Besoins Utilisateurs (PO)",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez l'arbitrage PO correspondant à droite ➡️",
+      "phase3Label": "Interface Retenue",
+      "phase3Impact": "Impact Projet &amp; Équipes",
+      "levelNames": ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
+      "levelDescriptions": [
+        "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
+        "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
+        "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
+      ]
+    },
+    "1-b": {
+      "key": "ux",
+      "title": "B - Ergonomie UX/UI",
+      "h1": "B - Ergonomie <span class='text-slate-800'>UX/UI</span>",
+      "subtitle": "Valider les choix d'interface via les principes fondamentaux.",
+      "themeClass": "ux-theme",
+      "badge": "Réflexe UX (Conception)",
+      "icon": "mouse-pointer-click",
+      "emoji": "🏥",
+      "resetConfirm": "toute votre progression d'Ergonomie UX/UI",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Identifiez la maquette UI correspondante à droite ➡️",
+      "phase3Label": "Interface Retenue",
+      "phase3Impact": "Impact Métier ESIS-3D",
+      "levelNames": ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
+      "levelDescriptions": [
+        "Composants d'interface simples et interactions directes au quotidien.",
+        "Parcours complexes, personnalisation et prévention des erreurs.",
+        "Architecture d'information, accessibilité et continuité de service."
+      ]
+    },
+    "2-c": {
+      "key": "cso",
+      "title": "C - Support &amp; Client",
+      "h1": "C - Support &amp; <span class='text-slate-800'>Client</span>",
+      "subtitle": "Gérer la relation client et les escalades de support.",
+      "themeClass": "cso-theme",
+      "badge": "Réflexe Support &amp; Client",
+      "icon": "headset",
+      "emoji": "🎧",
+      "resetConfirm": "toute votre progression de Support &amp; Client",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez le choix d'interaction correspondant à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact Projet &amp; Équipes",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
+        "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
+        "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
+      ]
+    },
+    "2-d": {
+      "key": "evo",
+      "title": "D - Évolutions &amp; Specs",
+      "h1": "D - Évolutions &amp; <span class='text-slate-800'>Specs</span>",
+      "subtitle": "Spécifier les évolutions fonctionnelles de manière robuste.",
+      "themeClass": "evo-theme",
+      "badge": "Réflexe Spécs &amp; Évolutions",
+      "icon": "sparkles",
+      "emoji": "✨",
+      "resetConfirm": "toute votre progression de Spécs &amp; Évolutions",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez la spécification correspondante à droite ➡️",
+      "phase3Label": "Spécification Retenue",
+      "phase3Impact": "Impact Projet &amp; Équipes",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Modifications simples, workflows standards et documentation.",
+        "Modifications complexes, API et intégrations tierces.",
+        "Changements majeurs d'architecture, migration de données et stratégie."
+      ]
+    },
+    "3-e": {
+      "key": "roadmap",
+      "title": "E - Roadmap &amp; Jalons",
+      "h1": "E - Roadmap &amp; <span class='text-slate-800'>Jalons</span>",
+      "subtitle": "Planifier les jalons de livraison et la vision produit.",
+      "themeClass": "roadmap-theme",
+      "badge": "Réflexe Roadmap (Vision)",
+      "icon": "mountain",
+      "emoji": "⛰️",
+      "resetConfirm": "toute votre progression de Roadmap &amp; Jalons",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez la décision de Roadmap correspondante à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact Projet &amp; Équipes",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Planification à court terme et suivi des jalons hebdomadaires.",
+        "Gestion des dépendances inter-équipes et priorisation trimestrielle.",
+        "Vision stratégique à long terme et arbitrages budgétaires complexes."
+      ]
+    },
+    "3-f": {
+      "key": "features",
+      "title": "F - Features Discovery",
+      "h1": "F - Features <span class='text-slate-800'>Discovery</span>",
+      "subtitle": "Mener la phase de discovery et valider les fonctionnalités.",
+      "themeClass": "features-theme",
+      "badge": "Réflexe Features (Discovery)",
+      "icon": "telescope",
+      "emoji": "🔭",
+      "resetConfirm": "toute votre progression de Features Discovery",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez la stratégie de Discovery correspondante à droite ➡️",
+      "phase3Label": "Stratégie Retenue",
+      "phase3Impact": "Impact Projet &amp; Équipes",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Recherche utilisateur initiale et collecte des retours qualitatifs.",
+        "Tests utilisateurs rapides et validation de prototypes d'interface.",
+        "Analyses quantitatives poussées et validation de viabilité marché."
+      ]
+    },
+    "4-g": {
+      "key": "gsup",
+      "title": "G - Diagnostic &amp; Résolution",
+      "h1": "G - Diagnostic &amp; <span class='text-slate-800'>Résolution</span>",
+      "subtitle": "Recevez, qualifiez, diagnostiquez et résolvez les demandes entrantes sans développement.",
+      "themeClass": "run-support-theme",
+      "badge": "Réflexe G - Diagnostic &amp; Résolution",
+      "icon": "wrench",
+      "emoji": "🔧",
+      "resetConfirm": "toute votre progression de G - Diagnostic &amp; Résolution",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez la décision de support correspondante à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact Projet &amp; Équipes",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
+        "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
+        "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
+      ]
+    },
+    "4-h": {
+      "key": "ticketing",
+      "title": "H - Assistance &amp; Connaissance",
+      "h1": "H - Ticketing &amp; <span class='text-slate-800'>Documentation</span>",
+      "subtitle": "Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.",
+      "themeClass": "run-support-theme",
+      "badge": "Réflexe H - Assistance &amp; Connaissance",
+      "icon": "clipboard-list",
+      "emoji": "📝",
+      "resetConfirm": "toute votre progression de H - Assistance &amp; Connaissance",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez le choix de documentation ou ticketing correspondant à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact Projet &amp; Équipes",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Qualification, catégorisation et rédaction de tickets d'anomalies simples.",
+        "Documentation de solutions de contournement et rédaction d'articles de FAQ.",
+        "Analyse de causes racines, post-mortems et amélioration continue de la documentation."
+      ]
+    },
+    "5-i": {
+      "key": "veille",
+      "title": "I - Veille &amp; Benchmark",
+      "h1": "I - Veille &amp; <span class='text-slate-800'>Benchmark</span>",
+      "subtitle": "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.",
+      "themeClass": "innov-theme",
+      "badge": "Réflexe I - Veille &amp; Benchmark",
+      "icon": "search",
+      "emoji": "🔍",
+      "resetConfirm": "toute votre progression de Veille &amp; Benchmark",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Sélectionnez la décision de veille correspondante à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact Stratégique &amp; Vision",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Observation terrain et collecte d'informations concurrentielles de base.",
+        "Analyse comparative et identification des tendances émergentes.",
+        "Synthèse stratégique et recommandations d'innovation produit."
+      ]
+    },
+    "5-j": {
+      "key": "tln",
+      "title": "J - Test &amp; Learn",
+      "h1": "J - Test &amp; <span class='text-slate-800'>Learn</span>",
+      "subtitle": "Expérimentez, testez et validez vos idées avant d'investir massivement.",
+      "themeClass": "innov-theme",
+      "badge": "Réflexe J - Test &amp; Learn",
+      "icon": "flask",
+      "emoji": "🔬",
+      "resetConfirm": "toute votre progression de Test &amp; Learn",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Choisissez l'expérimentation appropriée à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact Discovery &amp; Innovation",
+      "levelNames": ["Facile", "Moyen", "Difficile"],
+      "levelDescriptions": [
+        "Identifier les expérimentations simples pour valider une hypothèse.",
+        "Mettre en œuvre des tests utilisateurs et des bêtas ciblés.",
+        "Analyser les résultats et décider de pivoter ou de poursuivre."
+      ]
+    },
+    "6-k": {
+      "key": "analytics",
+      "title": "K - Analytics &amp; Productivité",
+      "h1": "K - Analytics &amp; <span class='text-slate-800'>Productivité</span>",
+      "subtitle": "Mesurer et optimiser le parcours utilisateur et l'efficacité opérationnelle.",
+      "themeClass": "data-theme",
+      "badge": "Réflexe Analytics &amp; Productivité",
+      "icon": "bar-chart-2",
+      "emoji": "📊",
+      "resetConfirm": "toute votre progression d'Analytics &amp; Productivité",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Choisissez l'action d'analytics ou d'optimisation à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact Analytics &amp; Performance",
+      "levelNames": ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
+      "levelDescriptions": [
+        "Définir des KPIs simples, chiffrer les gains évidents et segmenter par usage.",
+        "Analyser les points de friction, tester des variantes et visualiser pour décider.",
+        "Piloter l'amélioration continue, prioriser et automatiser les processus."
+      ]
+    },
+    "6-l": {
+      "key": "kpi",
+      "title": "L - KPIs &amp; Dashboard",
+      "h1": "L - KPIs &amp; <span class='text-slate-800'>Dashboard</span>",
+      "subtitle": "Mesurer et piloter la performance produit, l'activité business et la viabilité des initiatives.",
+      "themeClass": "data-theme",
+      "badge": "Réflexe KPIs &amp; Dashboard",
+      "icon": "database",
+      "emoji": "📊",
+      "resetConfirm": "toute votre progression de KPIs &amp; Dashboard",
+      "phase1Label": "Orientation",
+      "phase2Label": "Réponse",
+      "phase2Info": "Choisissez la réponse la plus stratégique à droite ➡️",
+      "phase3Label": "Décision Retenue",
+      "phase3Impact": "Impact KPIs &amp; Performance",
+      "levelNames": ["Opérationnel (Facile)", "Décisionnel (Moyen)", "Stratégique (Difficile)"],
+      "levelDescriptions": [
+        "Connecter et centraliser les sources de données clés.",
+        "Arbitrer les opportunités d'amélioration par la valeur business.",
+        "Évaluer la rentabilité à long terme et la viabilité d'un projet."
+      ]
+    }
+  },
+  "reflexBadges": {
+    "A": "Réflexe PO (Posture)",
+    "B": "Réflexe UX (Conception)",
+    "C": "Réflexe Support &amp; Client",
+    "D": "Réflexe Spécs &amp; Évolutions",
+    "E": "Réflexe Roadmap (Vision)",
+    "F": "Réflexe Features (Discovery)",
+    "G": "Réflexe G - Diagnostic &amp; Résolution",
+    "H": "Réflexe H - Assistance &amp; Connaissance",
+    "I": "Réflexe I - Veille &amp; Benchmark",
+    "J": "Réflexe J - Test &amp; Learn",
+    "K": "Réflexe Analytics &amp; Productivité",
+    "L": "Réflexe KPIs &amp; Dashboard"
+  },
+  "reflexIcons": {
+    "A": "target",
+    "B": "mouse-pointer-click",
+    "C": "headset",
+    "D": "sparkles",
+    "E": "mountain",
+    "F": "telescope",
+    "G": "wrench",
+    "H": "clipboard-list",
+    "I": "search",
+    "J": "flask",
+    "K": "bar-chart-2",
+    "L": "line-chart"
+  },
+  "refModal": {
+    "intentLabel": "Intention &amp; Philosophie",
+    "principlesLabel": "Principes",
+    "examplesLabel": "Exemples"
+  }
+}

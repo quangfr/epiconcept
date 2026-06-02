@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GO EPICO - Simulateur de réflexes Product</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🚀</text></svg>">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🚀</text></svg>">
     <meta name="description"
         content="Développez vos compétences métiers de Product Owner (PO) et d'ergonomie User Experience (UX) avec nos simulateurs interactifs d'entraînement.">
 
@@ -319,15 +320,20 @@
             background: transparent;
             transition: all 0.3s ease;
         }
-        #lesson-left-edge, #lesson-right-edge {
+
+        #lesson-left-edge,
+        #lesson-right-edge {
             top: 46px;
         }
+
         .left-hint {
             left: 0;
         }
+
         .right-hint {
             right: 0;
         }
+
         .hint-card {
             position: absolute;
             top: 0;
@@ -343,25 +349,30 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             user-select: none;
         }
+
         .left-hint .hint-card {
             left: 0;
             border-radius: 0 12px 12px 0;
             transform: translateX(-30px);
             opacity: 0.45;
         }
+
         .right-hint .hint-card {
             right: 0;
             border-radius: 12px 0 0 12px;
             transform: translateX(30px);
             opacity: 0.45;
         }
+
         .edge-hint:hover .hint-card {
             opacity: 0.95;
             box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
         }
+
         .left-hint:hover .hint-card {
             transform: translateX(0);
         }
+
         .right-hint:hover .hint-card {
             transform: translateX(0);
         }
@@ -567,16 +578,19 @@
             border-color: rgba(16, 185, 129, 0.22);
             background: linear-gradient(to right, rgba(16, 185, 129, 0.22) var(--progress, 0%), rgba(16, 185, 129, 0.05) var(--progress, 0%));
         }
+
         .card-status[data-color="yellow"] {
             color: #b45309;
             border-color: rgba(245, 158, 11, 0.22);
             background: linear-gradient(to right, rgba(245, 158, 11, 0.22) var(--progress, 0%), rgba(245, 158, 11, 0.05) var(--progress, 0%));
         }
+
         .card-status[data-color="red"] {
             color: #b91c1c;
             border-color: rgba(239, 68, 68, 0.22);
             background: linear-gradient(to right, rgba(239, 68, 68, 0.22) var(--progress, 0%), rgba(239, 68, 68, 0.05) var(--progress, 0%));
         }
+
         .card-status[data-color="grey"] {
             color: #64748b;
             border-color: rgba(100, 116, 139, 0.2);
@@ -584,8 +598,14 @@
         }
 
         @media (max-width: 768px) {
-            .edge-hint { display: none !important; }
-            #lesson-left-edge, #lesson-right-edge { display: none !important; }
+            .edge-hint {
+                display: none !important;
+            }
+
+            #lesson-left-edge,
+            #lesson-right-edge {
+                display: none !important;
+            }
         }
 
         @media (max-width: 640px) {
@@ -857,7 +877,8 @@
             justify-content: flex-start;
             padding: 6px 0px 8px 0px;
             box-sizing: border-box;
-            overflow: hidden; /* Prevent scrolling within slide */
+            overflow: hidden;
+            /* Prevent scrolling within slide */
         }
 
         .lesson-slide h1 {
@@ -925,12 +946,12 @@
                 margin-bottom: 0 !important;
             }
 
-            #lesson-header > div:first-child {
+            #lesson-header>div:first-child {
                 width: 100%;
                 gap: 0.5rem !important;
             }
 
-            #lesson-header > div:last-child {
+            #lesson-header>div:last-child {
                 width: 100%;
                 justify-content: space-between !important;
             }
@@ -1032,6 +1053,7 @@
             #lesson-modal {
                 padding: 2px 0 !important;
             }
+
             #lesson-header {
                 height: auto !important;
                 flex-direction: column !important;
@@ -1042,8 +1064,9 @@
                 margin-bottom: 0 !important;
                 border-bottom: none !important;
             }
-            #lesson-header > div:first-child,
-            #lesson-header > div:last-child {
+
+            #lesson-header>div:first-child,
+            #lesson-header>div:last-child {
                 width: 100% !important;
                 display: flex !important;
                 flex-direction: row !important;
@@ -1051,47 +1074,57 @@
                 justify-content: space-between !important;
                 gap: 0.2rem !important;
             }
+
             #lesson-selector {
                 font-size: 9px !important;
                 min-height: 1.6rem !important;
                 padding: 0.2rem 0.35rem !important;
                 flex-grow: 1 !important;
             }
+
             #lesson-header button,
             #lesson-header .icon-btn {
                 width: 26px !important;
                 height: 26px !important;
                 padding: 0 !important;
             }
+
             #lesson-header [data-lucide] {
                 width: 11px !important;
                 height: 11px !important;
             }
+
             #dot-progress {
                 display: flex !important;
                 gap: 2px !important;
                 margin-left: 0 !important;
             }
-            #dot-progress > div {
+
+            #dot-progress>div {
                 display: block !important;
             }
-            #dot-progress > span {
+
+            #dot-progress>span {
                 font-size: 10px !important;
                 margin-left: 0 !important;
                 color: #64748b !important;
             }
+
             #lesson-slides-container {
                 padding: 2px 2px 32px !important;
             }
+
             .lesson-slide {
                 padding: 0 !important;
                 margin: 0 !important;
                 height: auto !important;
                 overflow-y: visible !important;
             }
+
             .lesson-slide svg {
                 max-height: 52vh !important;
             }
+
             .lesson-slide h2 {
                 font-size: 18px !important;
                 margin-top: 0.15rem !important;
@@ -1099,15 +1132,20 @@
                 padding-top: 0 !important;
                 order: 1 !important;
             }
-            .lesson-slide h1, .lesson-slide h3, .lesson-slide h4 {
+
+            .lesson-slide h1,
+            .lesson-slide h3,
+            .lesson-slide h4 {
                 font-size: 0.85rem !important;
                 margin-top: 0.1rem !important;
                 margin-bottom: 0.1rem !important;
                 line-height: 1.15 !important;
             }
+
             .lesson-slide p {
                 order: 2 !important;
             }
+
             .slide-content-wrapper {
                 order: 3 !important;
                 display: flex !important;
@@ -1119,11 +1157,13 @@
                 flex: 1 1 auto !important;
                 min-height: 0 !important;
             }
+
             .slide-content-wrapper .grid {
                 margin-top: 0 !important;
                 position: relative !important;
                 top: auto !important;
             }
+
             .slide-footer-conclusion {
                 order: 4 !important;
                 margin-top: 0.4rem !important;
@@ -1134,12 +1174,14 @@
                 font-size: 0.65rem !important;
                 line-height: 1.15 !important;
             }
+
             .lesson-slide p,
             .lesson-slide li,
             .lesson-slide span {
                 font-size: 0.65rem !important;
                 line-height: 1.1 !important;
             }
+
             /* Much smaller Lucide icons globally on index.html for other smaller items too */
             [data-lucide] {
                 width: 11px !important;
@@ -1226,13 +1268,13 @@
                 padding-bottom: 0.75rem !important;
             }
 
-            #lesson-header > div:first-child {
+            #lesson-header>div:first-child {
                 width: 100%;
                 flex-wrap: wrap;
                 gap: 0.5rem !important;
             }
 
-            #lesson-header > div:last-child {
+            #lesson-header>div:last-child {
                 width: 100%;
                 justify-content: flex-end !important;
             }
@@ -1249,12 +1291,11 @@
                 justify-content: flex-end;
             }
 
-            #dot-progress > * {
+            #dot-progress>* {
                 transform: scale(0.85);
                 transform-origin: center;
             }
         }
-
     </style>
 
 </head>
@@ -1268,27 +1309,32 @@
             <!-- Header Section -->
             <header id="main-header">
                 <div class="flex items-center gap-2">
-                    <h1 id="title" class="flex items-center gap-2" style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 900; letter-spacing: -0.03em;"><i data-lucide="rocket" class="w-6 h-6 text-blue-900 shrink-0"></i>GO EPICO</h1>
+    <h1 id="title" class="flex items-center gap-2"
+        style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 900; letter-spacing: -0.03em;"><i
+            data-lucide="rocket" class="w-6 h-6 text-blue-900 shrink-0"></i><span data-i18n="app-title">GO EPICO</span></h1>
                     <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
                         class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                         style="border: none; outline: none; width: 28px; height: 28px;">
                         <i data-lucide="info" style="width: 14px; height: 14px;"></i>
                     </button>
                 </div>
-                <p class="subtitle" id="desc">
-                    Développez vos réflexes Product chez Epiconcept
-                </p>
+            <p class="subtitle" id="desc" data-i18n="app-subtitle">
+                Développez vos réflexes Product chez Epiconcept
+            </p>
             </header>
 
             <!-- Compact Global Statistics -->
             <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux">
                 <div class="flex items-center gap-1.5">
-                    <span id="hub-page-indicator" style="font-size: 11px; font-weight: 700; color: #64748b; margin-right: 0.25rem;">1 / 2</span>
-                    <button id="scroll-prev" aria-label="Atelier précédent" class="bg-slate-100 p-1.5 rounded-lg text-slate-500 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                    <span id="hub-page-indicator"
+                        style="font-size: 11px; font-weight: 700; color: #64748b; margin-right: 0.25rem;">1 / 2</span>
+                    <button id="scroll-prev" aria-label="Atelier précédent"
+                        class="bg-slate-100 p-1.5 rounded-lg text-slate-500 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                         style="border: none; outline: none; width: 26px; height: 26px;">
                         <i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i>
                     </button>
-                    <button id="scroll-next" aria-label="Atelier suivant" class="bg-slate-100 p-1.5 rounded-lg text-slate-500 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                    <button id="scroll-next" aria-label="Atelier suivant"
+                        class="bg-slate-100 p-1.5 rounded-lg text-slate-500 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                         style="border: none; outline: none; width: 26px; height: 26px;">
                         <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
                     </button>
@@ -1313,8 +1359,7 @@
                                 <div class="stat-number" id="atelier-1-completion-val">0%</div>
                             </div>
                         </div>
-                        <p class="atelier-objective">Réfléchir sur les besoins réels des utilisateurs via la démarche
-                            Design Thinking.</p>
+                        <p class="atelier-objective">Réfléchir sur les besoins réels des utilisateurs.</p>
                     </div>
 
                     <article class="simulator-card po-theme" id="dt-card" style="cursor: pointer;">
@@ -1402,8 +1447,7 @@
                                 <div class="stat-number" id="atelier-2-completion-val">0%</div>
                             </div>
                         </div>
-                        <p class="atelier-objective">Transformer le besoin en unités de développement actionnables et
-                            garantir la qualité.</p>
+                        <p class="atelier-objective">Transformer le besoin en unités de développement actionnables</p>
                     </div>
 
                     <article class="simulator-card bug-theme" id="mvp-card" style="cursor: pointer;">
@@ -1428,7 +1472,8 @@
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
-                                Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester et à livrer.</p>
+                                Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester
+                                et à livrer.</p>
                         </div>
                     </article>
                     <article class="simulator-card evo-theme" id="cso-card" style="cursor: pointer;">
@@ -1452,7 +1497,8 @@
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
-                                Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.</p>
+                                Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.
+                            </p>
                         </div>
                     </article>
                     <article class="simulator-card evo-theme" id="evo-card" style="cursor: pointer;">
@@ -1495,8 +1541,8 @@
                                 <div class="stat-number" id="atelier-3-completion-val">0%</div>
                             </div>
                         </div>
-                        <p class="atelier-objective">Anticiper les évolutions stratégiques et construire la trajectoire
-                            produit long terme.</p>
+                        <p class="atelier-objective">Anticiper les évolutions et construire la trajectoire
+                            produit.</p>
                     </div>
 
                     <article class="simulator-card vision-theme" id="backlog-card" style="cursor: pointer;">
@@ -1589,7 +1635,7 @@
                             </div>
                         </div>
                         <p class="atelier-objective">Assurer la stabilité opérationnelle et l'assistance aux
-                            utilisateurs au quotidien.</p>
+                            utilisateurs.</p>
                     </div>
 
                     <article class="simulator-card run-support-theme" id="sla-card" style="cursor: pointer;">
@@ -1637,11 +1683,11 @@
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
-                                Recevez, qualifiez, diagnostiquez et résolvez les demandes entrantes sans développement.</p>
+                                Recevez, qualifiez, diagnostiquez et résolvez les demandes entrantes sans développement.
+                            </p>
                         </div>
                     </article>
-                    <article class="simulator-card run-support-theme" id="support-card"
-                        style="cursor: pointer;">
+                    <article class="simulator-card run-support-theme" id="support-card" style="cursor: pointer;">
                         <div class="card-header"
                             style="justify-content: flex-start; align-items: center; gap: 0.7rem; padding-bottom: 0.5rem;  margin-bottom: 0.5rem;">
                             <div class="card-icon-wrapper" aria-hidden="true"
@@ -1665,7 +1711,7 @@
                                 Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.
                             </p>
                         </div>
-                        
+
                     </article>
                 </section>
 
@@ -1710,7 +1756,7 @@
                                 principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses
                                 disruptives sans gaspiller de ressources.</p>
                         </div>
-                        
+
                     </article>
                     <article class="simulator-card innov-theme" id="veille-card" style="cursor: pointer;">
                         <div class="card-header"
@@ -1735,7 +1781,7 @@
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.</p>
                         </div>
-                        
+
                     </article>
                     <article class="simulator-card innov-theme" id="poc-card" style="cursor: pointer;">
                         <div class="card-header"
@@ -1760,7 +1806,7 @@
                                 style="margin-top: 0; line-height: 1.4; font-size: 0.7rem; margin-bottom: 0.1rem;">
                                 Expérimentez, testez et validez vos idées avant d'investir grâce au cycle discovery.</p>
                         </div>
-                        
+
                     </article>
                 </section>
 
@@ -1876,7 +1922,79 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.02.05';
+        const APP_VERSION = '2026.06.02.06';
+        let EPICO_CONFIG = null;
+
+        async function loadEpicoConfig() {
+            try {
+                const res = await fetch('epico.json?v=' + Date.now());
+                EPICO_CONFIG = await res.json();
+                applyEpicoConfig();
+            } catch (e) {
+                console.warn('epico.json not loaded, using defaults');
+            }
+        }
+
+        function applyEpicoConfig() {
+            if (!EPICO_CONFIG) return;
+            const c = EPICO_CONFIG;
+
+            // meta
+            document.title = c.app.metaTitle;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = c.app.metaDescription;
+
+            // header
+            document.getElementById('desc').textContent = c.app.subtitle;
+            const titleSpan = document.querySelector('#title [data-i18n="app-title"]');
+            if (titleSpan) titleSpan.textContent = c.app.title;
+
+            // atelier cards
+            c.ateliers.forEach(atelier => {
+                const col = document.getElementById('atelier-' + atelier.id);
+                if (!col) return;
+                const nameEl = col.querySelector('.atelier-name');
+                if (nameEl) nameEl.textContent = atelier.name;
+                const objEl = col.querySelector('.atelier-objective');
+                if (objEl) objEl.textContent = atelier.objective;
+                (atelier.items || []).forEach(item => {
+                    const card = document.getElementById(item.cardId);
+                    if (!card) return;
+                    const h2 = card.querySelector('h2');
+                    if (h2) h2.textContent = item.title;
+                    const desc = card.querySelector('.card-description');
+                    if (desc) desc.textContent = item.description;
+                    const infoBtn = card.querySelector('button[title]');
+                    if (infoBtn) infoBtn.title = item.infoTitle;
+                });
+            });
+
+            // lesson selector
+            const sel = document.getElementById('lesson-selector');
+            if (sel && c.lessonSelectorOptions) {
+                sel.innerHTML = c.lessonSelectorOptions.map((label, i) =>
+                    '<option value="' + (i + 1) + '">' + label + '</option>'
+                ).join('');
+            }
+
+            // info modal
+            const infoBadge = document.querySelector('#info-modal span[style*="text-transform: uppercase;"]');
+            if (infoBadge) infoBadge.textContent = 'Informations';
+            const infoH3 = document.querySelector('#info-modal h3');
+            if (infoH3) infoH3.innerHTML = c.app.title;
+            const infoDesc = document.querySelector('#info-overview-panel p');
+            if (infoDesc) infoDesc.textContent = c.app.description;
+            const footerEls = document.querySelectorAll('#info-modal .ref-modal-card p[style*="font-size: 0.68rem"]');
+            if (footerEls.length) footerEls[0].innerHTML = c.app.footer;
+
+            // ref modal labels
+            const intentH4 = document.querySelector('#ref-modal h4');
+            if (intentH4) intentH4.innerHTML = c.refModal.intentLabel;
+            const examplesLabel = document.getElementById('ref-examples-label');
+            if (examplesLabel) examplesLabel.innerHTML = c.refModal.principlesLabel;
+            const visualsH4 = document.querySelector('#ref-visuals-container h4');
+            if (visualsH4) visualsH4.innerHTML = c.refModal.examplesLabel;
+        }
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -1910,6 +2028,7 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
+            loadEpicoConfig();
             // Load Product Owner scores from localStorage
             let poLv0 = localStorage.getItem('po-score-lv0');
             let poLv1 = localStorage.getItem('po-score-lv1');
@@ -2030,7 +2149,7 @@
                 if (pageInd) {
                     pageInd.innerText = `${currentPage + 1} / ${totalPages}`;
                 }
-                
+
                 // Always show edge hints on both sides
                 if (leftHint) leftHint.style.display = 'flex';
                 if (rightHint) rightHint.style.display = 'flex';
@@ -2056,15 +2175,15 @@
 
             // Wrap-around click handlers for pagination arrows
             if (prevBtn) {
-                prevBtn.addEventListener('click', () => { 
-                    currentPage = (currentPage > 0) ? currentPage - 1 : totalPages - 1; 
-                    renderPage(); 
+                prevBtn.addEventListener('click', () => {
+                    currentPage = (currentPage > 0) ? currentPage - 1 : totalPages - 1;
+                    renderPage();
                 });
             }
             if (nextBtn) {
-                nextBtn.addEventListener('click', () => { 
-                    currentPage = (currentPage < totalPages - 1) ? currentPage + 1 : 0; 
-                    renderPage(); 
+                nextBtn.addEventListener('click', () => {
+                    currentPage = (currentPage < totalPages - 1) ? currentPage + 1 : 0;
+                    renderPage();
                 });
             }
 
@@ -2407,7 +2526,8 @@
             style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 38px; flex-shrink: 0; padding-bottom: 4px; padding-left: 12px; padding-right: 12px; border-bottom: 1px solid rgba(15, 23, 42, 0.04); margin-bottom: 8px;">
             <!-- Left Side: Home (Close) + Dropdown Selector -->
             <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <button onclick="closeLesson()" class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                <button onclick="closeLesson()"
+                    class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                     style="border: none; outline: none; width: 32px; height: 32px;" aria-label="Retour à l'accueil">
                     <i data-lucide="home" style="width: 16px; height: 16px;"></i>
                 </button>
@@ -2427,11 +2547,13 @@
                 <div id="dot-progress" style="display: flex; gap: 5px; align-items: center; margin-left: 0.5rem;">
                     <!-- Generated dynamically -->
                 </div>
-                <button onclick="changeSlide(-1)" class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                <button onclick="changeSlide(-1)"
+                    class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                     style="border: none; outline: none; width: 32px; height: 32px;" aria-label="Page précédente">
                     <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
                 </button>
-                <button onclick="changeSlide(1)" class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+                <button onclick="changeSlide(1)"
+                    class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                     style="border: none; outline: none; width: 32px; height: 32px;" aria-label="Page suivante">
                     <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
                 </button>
@@ -2833,24 +2955,24 @@
                 document.body.appendChild(overlay);
 
                 if (window.lucide) {
-            lucide.createIcons();
+                    lucide.createIcons();
 
-            // Edge arrow auto-hide after 4 seconds
-            const scrollWrapper = document.getElementById('scroll-wrapper');
-            let arrowTimer = null;
-            function showArrows() {
-                if (prevBtn) prevBtn.style.pointerEvents = 'auto';
-                if (nextBtn) nextBtn.style.pointerEvents = 'auto';
-                clearTimeout(arrowTimer);
-                arrowTimer = setTimeout(() => {
-                    if (prevBtn) prevBtn.style.pointerEvents = 'none';
-                    if (nextBtn) nextBtn.style.pointerEvents = 'none';
-                }, 4000);
-            }
-            if (scrollWrapper) {
-                scrollWrapper.addEventListener('mouseenter', showArrows);
-                scrollWrapper.addEventListener('mousemove', showArrows);
-            }
+                    // Edge arrow auto-hide after 4 seconds
+                    const scrollWrapper = document.getElementById('scroll-wrapper');
+                    let arrowTimer = null;
+                    function showArrows() {
+                        if (prevBtn) prevBtn.style.pointerEvents = 'auto';
+                        if (nextBtn) nextBtn.style.pointerEvents = 'auto';
+                        clearTimeout(arrowTimer);
+                        arrowTimer = setTimeout(() => {
+                            if (prevBtn) prevBtn.style.pointerEvents = 'none';
+                            if (nextBtn) nextBtn.style.pointerEvents = 'none';
+                        }, 4000);
+                    }
+                    if (scrollWrapper) {
+                        scrollWrapper.addEventListener('mouseenter', showArrows);
+                        scrollWrapper.addEventListener('mousemove', showArrows);
+                    }
                 }
 
                 overlay.addEventListener('click', (ev) => {
@@ -2915,69 +3037,31 @@
             let visuals = [];
             let isCD = false;
 
-            if (reflexId.startsWith('A')) {
+            const prefix = reflexId.charAt(0);
+            const dataMap = {
+                'A': { key: 'po', isCD: false },
+                'B': { key: 'ux', isCD: true },
+                'C': { key: 'c', isCD: true },
+                'D': { key: 'd', isCD: true },
+                'E': { key: 'e', isCD: true },
+                'F': { key: 'f', isCD: true },
+                'G': { key: 'g', isCD: true },
+                'H': { key: 'h', isCD: true },
+                'I': { key: 'i', isCD: true },
+                'J': { key: 'j', isCD: true },
+                'K': { key: 'k', isCD: true },
+                'L': { key: 'l', isCD: true }
+            };
+            const mapping = dataMap[prefix];
+            if (mapping) {
                 const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.po.find(x => x.id === num);
+                const item = reflexesData[mapping.key] ? reflexesData[mapping.key].find(x => x.id === num) : null;
                 if (item) {
                     title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe PO (Posture)";
-                    iconName = "target";
-                    examples = [];
-
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc, idx) => {
-                            const sci = sc.correct;
-                            if (sci) {
-                                if (sci.title) {
-                                    examples.push(sci.title);
-                                }
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title || (item.questions[idx] ? item.questions[idx].text : ''),
-                                        expl: sci.expl || sc.explanation || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('B')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.ux.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent || "Principe d'ergonomie et de conception d'interface.";
-                    badgeText = "Réflexe UX (Conception)";
-                    iconName = "mouse-pointer-click";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios && item.scenarios.length > 0) {
-                        item.scenarios.forEach((sc, idx) => {
-                            if (sc.correct && sc.correct.title) {
-                                examples.push(sc.correct.title);
-                                if (sc.correct.visual) {
-                                    visuals.push({
-                                        title: sc.correct.title,
-                                        expl: sc.correct.expl || sc.expl || sc.text,
-                                        html: sc.correct.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                }
-            } else if (reflexId.startsWith('C')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.c.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe Support & Client";
-                    iconName = item.icon || "headset";
-                    isCD = true;
+                    description = item.intent || (prefix === 'B' ? "Principe d'ergonomie et de conception d'interface." : '');
+                    badgeText = EPICO_CONFIG ? (EPICO_CONFIG.reflexBadges[prefix] || 'Réflexe') : 'Réflexe';
+                    iconName = EPICO_CONFIG ? (EPICO_CONFIG.reflexIcons[prefix] || item.icon || "lightbulb") : (item.icon || "lightbulb");
+                    isCD = mapping.isCD;
                     examples = [];
                     if (item.scenarios) {
                         item.scenarios.forEach((sc, idx) => {
@@ -2988,7 +3072,7 @@
                                 }
                                 if (sci.visual) {
                                     visuals.push({
-                                        title: sci.title || (item.questions[idx] || ''),
+                                        title: sci.title || (item.questions ? (item.questions[idx] || '') : ''),
                                         expl: sci.expl || sc.explanation || sc.text,
                                         html: sci.visual
                                     });
@@ -2996,252 +3080,7 @@
                             }
                         });
                     }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('D')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.d.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe Spécs & Évolutions";
-                    iconName = item.icon || "sparkles";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc, idx) => {
-                            const sci = sc.correct;
-                            if (sci) {
-                                if (sci.title) {
-                                    examples.push(sci.title);
-                                }
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title || (item.questions[idx] || ''),
-                                        expl: sci.expl || sc.explanation || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('E')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.e.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe Roadmap (Vision)";
-                    iconName = item.icon || "mountain";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('F')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.f.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe Features (Discovery)";
-                    iconName = item.icon || "telescope";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('G')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.g.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe G - Diagnostic & Résolution";
-                    iconName = item.icon || "headset";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('H')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.h.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe H - Assistance & Connaissance";
-                    iconName = item.icon || "book-open";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('I')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.i.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe Veille & Benchmark";
-                    iconName = item.icon || "search";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('J')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.j.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe Test & Learn";
-                    iconName = item.icon || "flask";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('K')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.k.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe Analytics & Productivité";
-                    iconName = item.icon || "bar-chart-2";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
-                }
-            } else if (reflexId.startsWith('L')) {
-                const num = parseInt(reflexId.substring(1), 10);
-                const item = reflexesData.l.find(x => x.id === num);
-                if (item) {
-                    title = item.title;
-                    description = item.intent;
-                    badgeText = "Réflexe KPIs & Dashboard";
-                    iconName = item.icon || "line-chart";
-                    isCD = true;
-                    examples = [];
-                    if (item.scenarios) {
-                        item.scenarios.forEach((sc) => {
-                            const sci = sc.correct;
-                            if (sci && sci.title) {
-                                examples.push(sci.title);
-                                if (sci.visual) {
-                                    visuals.push({
-                                        title: sci.title,
-                                        expl: sci.expl || sc.text,
-                                        html: sci.visual
-                                    });
-                                }
-                            }
-                        });
-                    }
-                    if (!examples.length) examples = item.questions || [];
+                    if (!examples.length && item.questions) examples = item.questions;
                 }
             }
 
@@ -3395,25 +3234,35 @@
             </button>
 
             <div style="display:flex; align-items:center; gap:0.75rem; padding-right: 1.5rem;">
-                <div style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <div
+                    style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                     <i data-lucide="info" style="width: 24px; height: 24px;"></i>
                 </div>
                 <div>
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Informations</span>
-                        <span style="font-size: 0.62rem; font-weight: 800; color: #475569; background: #e2e8f0; border-radius: 999px; padding: 0.15rem 0.45rem; line-height: 1;" id="info-version-value">2026.05.31.02</span>
+                        <span
+                            style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Informations</span>
+                        <span
+                            style="font-size: 0.62rem; font-weight: 800; color: #475569; background: #e2e8f0; border-radius: 999px; padding: 0.15rem 0.45rem; line-height: 1;"
+                            id="info-version-value">2026.05.31.02</span>
                     </div>
                     <h3 style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">GO EPICO</h3>
                 </div>
             </div>
 
-            <div id="info-overview-panel" style="background:#f8fafc; padding:1.2rem; border-radius:1rem; border:1px solid rgba(15,23,42,0.04);">
-                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0;">Simulateur et référentiel pédagogique conçu pour acquérir les réflexes Product à travers 6 ateliers (théorie et exercices d'entraînement). Les situations concrètes s'appuient sur le contexte d'un logiciel de dépistage de santé (ESIS-3D).</p>
+            <div id="info-overview-panel"
+                style="background:#f8fafc; padding:1.2rem; border-radius:1rem; border:1px solid rgba(15,23,42,0.04);">
+                <p style="font-size:0.85rem; color:#334155; line-height:1.55; font-weight:500; margin:0;">Simulateur et
+                    référentiel pédagogique conçu pour acquérir les réflexes Product à travers 6 ateliers (théorie et
+                    exercices d'entraînement). Les situations concrètes s'appuient sur le contexte d'un logiciel de
+                    dépistage de santé (ESIS-3D).</p>
             </div>
 
             <!-- Footer copyright -->
-            <div style="border-top: 1px solid rgba(15, 23, 42, 0.06); padding-top: 0.8rem; text-align: center; margin-top: 0.2rem;">
-                <p style="font-size: 0.68rem; color: #64748b; line-height: 1.45; font-weight: 600; margin: 0; letter-spacing: 0.01em;">
+            <div
+                style="border-top: 1px solid rgba(15, 23, 42, 0.06); padding-top: 0.8rem; text-align: center; margin-top: 0.2rem;">
+                <p
+                    style="font-size: 0.68rem; color: #64748b; line-height: 1.45; font-weight: 600; margin: 0; letter-spacing: 0.01em;">
                     Usage réservé à Epiconcept.<br>
                     Développé par Savane Go-Live. &copy; 2026
                 </p>
@@ -3463,7 +3312,7 @@
             <div id="ref-examples-container" style="display: flex; flex-direction: column; gap: 0.25rem;">
                 <h4 id="ref-examples-label"
                     style="font-size: 0.75rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
-                     Principes</h4>
+                    Principes</h4>
                 <ul id="ref-examples-list"
                     style="font-size: 0.8rem; color: #334155; font-weight: 600; list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem;">
                     <!-- Filled dynamically -->

@@ -717,310 +717,9 @@
 </div>
 
 <script>
-const ATELIERS_CONFIG = {
-    "1-a": {
-        key: "po",
-        title: "A - Besoins Utilisateurs",
-        h1: "A - Besoins <span class='text-slate-800'>Utilisateurs</span>",
-        subtitle: "Adopter la posture de Product Owner pour qualifier les besoins.",
-        themeClass: "po-theme",
-        badge: "Réflexe PO (Posture)",
-        icon: "target",
-        emoji: "🎯",
-        resetConfirm: "toute votre progression de Besoins Utilisateurs (PO)",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez l'arbitrage PO correspondant à droite ➡️",
-        phase3Label: "Interface Retenue",
-        phase3Impact: "Impact Projet &amp; Équipes",
-        levelNames: ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
-        levelDescriptions: [
-            "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
-            "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
-            "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
-        ]
-    },
-    "1-b": {
-        key: "ux",
-        title: "B - Ergonomie UX/UI",
-        h1: "B - Ergonomie <span class='text-slate-800'>UX/UI</span>",
-        subtitle: "Valider les choix d'interface via les principes fondamentaux.",
-        themeClass: "ux-theme",
-        badge: "Réflexe UX (Conception)",
-        icon: "mouse-pointer-click",
-        emoji: "🏥",
-        resetConfirm: "toute votre progression d'Ergonomie UX/UI",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Identifiez la maquette UI correspondante à droite ➡️",
-        phase3Label: "Interface Retenue",
-        phase3Impact: "Impact Métier ESIS-3D",
-        levelNames: ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
-        levelDescriptions: [
-            "Composants d'interface simples et interactions directes au quotidien.",
-            "Parcours complexes, personnalisation et prévention des erreurs.",
-            "Architecture d'information, accessibilité et continuité de service."
-        ]
-    },
-    "2-c": {
-        key: "cso",
-        title: "C - Support & Client",
-        h1: "C - Support &amp; <span class='text-slate-800'>Client</span>",
-        subtitle: "Gérer la relation client et les escalades de support.",
-        themeClass: "cso-theme",
-        badge: "Réflexe Support & Client",
-        icon: "headset",
-        emoji: "🎧",
-        resetConfirm: "toute votre progression de Support & Client",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez le choix d'interaction correspondant à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact Projet &amp; Équipes",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
-            "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
-            "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
-        ]
-    },
-    "2-d": {
-        key: "evo",
-        title: "D - Évolutions & Specs",
-        h1: "D - Évolutions &amp; <span class='text-slate-800'>Specs</span>",
-        subtitle: "Spécifier les évolutions fonctionnelles de manière robuste.",
-        themeClass: "evo-theme",
-        badge: "Réflexe Spécs & Évolutions",
-        icon: "sparkles",
-        emoji: "✨",
-        resetConfirm: "toute votre progression de Spécs & Évolutions",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez la spécification correspondante à droite ➡️",
-        phase3Label: "Spécification Retenue",
-        phase3Impact: "Impact Projet &amp; Équipes",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Modifications simples, workflows standards et documentation.",
-            "Modifications complexes, API et intégrations tierces.",
-            "Changements majeurs d'architecture, migration de données et stratégie."
-        ]
-    },
-    "3-e": {
-        key: "roadmap",
-        title: "E - Roadmap & Jalons",
-        h1: "E - Roadmap &amp; <span class='text-slate-800'>Jalons</span>",
-        subtitle: "Planifier les jalons de livraison et la vision produit.",
-        themeClass: "roadmap-theme",
-        badge: "Réflexe Roadmap (Vision)",
-        icon: "mountain",
-        emoji: "⛰️",
-        resetConfirm: "toute votre progression de Roadmap & Jalons",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez la décision de Roadmap correspondante à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact Projet &amp; Équipes",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Planification à court terme et suivi des jalons hebdomadaires.",
-            "Gestion des dépendances inter-équipes et priorisation trimestrielle.",
-            "Vision stratégique à long terme et arbitrages budgétaires complexes."
-        ]
-    },
-    "3-f": {
-        key: "features",
-        title: "F - Features Discovery",
-        h1: "F - Features <span class='text-slate-800'>Discovery</span>",
-        subtitle: "Mener la phase de discovery et valider les fonctionnalités.",
-        themeClass: "features-theme",
-        badge: "Réflexe Features (Discovery)",
-        icon: "telescope",
-        emoji: "🔭",
-        resetConfirm: "toute votre progression de Features Discovery",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez la stratégie de Discovery correspondante à droite ➡️",
-        phase3Label: "Stratégie Retenue",
-        phase3Impact: "Impact Projet &amp; Équipes",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Recherche utilisateur initiale et collecte des retours qualitatifs.",
-            "Tests utilisateurs rapides et validation de prototypes d'interface.",
-            "Analyses quantitatives poussées et validation de viabilité marché."
-        ]
-    },
-    "4-g": {
-        key: "gsup",
-        title: "G - Diagnostic & Résolution",
-        h1: "G - Diagnostic &amp; <span class='text-slate-800'>Résolution</span>",
-        subtitle: "Recevez, qualifiez, diagnostiquez et résolvez les demandes entrantes sans développement.",
-        themeClass: "run-support-theme",
-        badge: "Réflexe G - Diagnostic & Résolution",
-        icon: "wrench",
-        emoji: "🔧",
-        resetConfirm: "toute votre progression de G - Diagnostic & Résolution",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez la décision de support correspondante à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact Projet &amp; Équipes",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Qualification & Questions (Premier tri, questionnement et reproduction sur instance).",
-            "Diagnostic & Correction (Données, comparaison d'instances et correction manuelle).",
-            "Paramétrage & Capitalisation (Configuration, escalade N3 et analyse des tendances)."
-        ]
-    },
-    "4-h": {
-        key: "ticketing",
-        title: "H - Assistance & Connaissance",
-        h1: "H - Ticketing &amp; <span class='text-slate-800'>Documentation</span>",
-        subtitle: "Structurez le ticketing, la base de connaissance et l'accompagnement des utilisateurs.",
-        themeClass: "run-support-theme",
-        badge: "Réflexe H - Assistance & Connaissance",
-        icon: "clipboard-list",
-        emoji: "📝",
-        resetConfirm: "toute votre progression de H - Assistance & Connaissance",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez le choix de documentation ou ticketing correspondant à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact Projet &amp; Équipes",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Qualification, catégorisation et rédaction de tickets d'anomalies simples.",
-            "Documentation de solutions de contournement et rédaction d'articles de FAQ.",
-            "Analyse de causes racines, post-mortems et amélioration continue de la documentation."
-        ]
-    },
-    "5-i": {
-        key: "veille",
-        title: "I - Veille & Benchmark",
-        h1: "I - Veille &amp; <span class='text-slate-800'>Benchmark</span>",
-        subtitle: "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.",
-        themeClass: "innov-theme",
-        badge: "Réflexe I - Veille & Benchmark",
-        icon: "search",
-        emoji: "🔍",
-        resetConfirm: "toute votre progression de Veille & Benchmark",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Sélectionnez la décision de veille correspondante à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact Stratégique &amp; Vision",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Observation terrain et collecte d'informations concurrentielles de base.",
-            "Analyse comparative et identification des tendances émergentes.",
-            "Synthèse stratégique et recommandations d'innovation produit."
-        ]
-    },
-    "5-j": {
-        key: "tln",
-        title: "J - Test & Learn",
-        h1: "J - Test &amp; <span class='text-slate-800'>Learn</span>",
-        subtitle: "Expérimentez, testez et validez vos idées avant d'investir massivement.",
-        themeClass: "innov-theme",
-        badge: "Réflexe J - Test & Learn",
-        icon: "flask",
-        emoji: "🔬",
-        resetConfirm: "toute votre progression de Test & Learn",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Choisissez l'expérimentation appropriée à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact Discovery &amp; Innovation",
-        levelNames: ["Facile", "Moyen", "Difficile"],
-        levelDescriptions: [
-            "Identifier les expérimentations simples pour valider une hypothèse.",
-            "Mettre en œuvre des tests utilisateurs et des bêtas ciblés.",
-            "Analyser les résultats et décider de pivoter ou de poursuivre."
-        ]
-    },
-    "6-k": {
-        key: "analytics",
-        title: "K - Analytics & Productivité",
-        h1: "K - Analytics &amp; <span class='text-slate-800'>Productivité</span>",
-        subtitle: "Mesurer et optimiser le parcours utilisateur et l'efficacité opérationnelle.",
-        themeClass: "data-theme",
-        badge: "Réflexe Analytics & Productivité",
-        icon: "bar-chart-2",
-        emoji: "📊",
-        resetConfirm: "toute votre progression d'Analytics & Productivité",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Choisissez l'action d'analytics ou d'optimisation à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact Analytics &amp; Performance",
-        levelNames: ["Terrain (Facile)", "Système (Moyen)", "Stratégie (Difficile)"],
-        levelDescriptions: [
-            "Définir des KPIs simples, chiffrer les gains évidents et segmenter par usage.",
-            "Analyser les points de friction, tester des variantes et visualiser pour décider.",
-            "Piloter l'amélioration continue, prioriser et automatiser les processus."
-        ]
-    },
-    "6-l": {
-        key: "kpi",
-        title: "L - KPIs & Dashboard",
-        h1: "L - KPIs &amp; <span class='text-slate-800'>Dashboard</span>",
-        subtitle: "Mesurer et piloter la performance produit, l'activité business et la viabilité des initiatives.",
-        themeClass: "data-theme",
-        badge: "Réflexe KPIs & Dashboard",
-        icon: "database",
-        emoji: "📊",
-        resetConfirm: "toute votre progression de KPIs & Dashboard",
-        phase1Label: "Orientation",
-        phase2Label: "Réponse",
-        phase2Info: "Choisissez la réponse la plus stratégique à droite ➡️",
-        phase3Label: "Décision Retenue",
-        phase3Impact: "Impact KPIs &amp; Performance",
-        levelNames: ["Opérationnel (Facile)", "Décisionnel (Moyen)", "Stratégique (Difficile)"],
-        levelDescriptions: [
-            "Connecter et centraliser les sources de données clés.",
-            "Arbitrer les opportunités d'amélioration par la valeur business.",
-            "Évaluer la rentabilité à long terme et la viabilité d'un projet."
-        ]
-    }
-};
-
-// Lecture de l'atelier depuis l'URL
-const urlParams = new URLSearchParams(window.location.search);
-const ATELIER_ID = urlParams.get('id') || "1-a";
-
-if (!ATELIERS_CONFIG[ATELIER_ID]) {
-    // Redirection automatique par défaut en cas d'atelier invalide
-    window.location.href = './index.html';
-}
-
-const CONFIG = ATELIERS_CONFIG[ATELIER_ID];
-
-// Configuration dynamique du titre et du thème
-document.getElementById('page-title').innerText = `${CONFIG.title} - ESIS-3D`;
-document.getElementById('home-title').innerHTML = CONFIG.h1;
-document.getElementById('home-subtitle').innerText = CONFIG.subtitle;
-document.getElementById('scenario-emoji').innerText = CONFIG.emoji;
-if (document.getElementById('header-context-label')) {
-    document.getElementById('header-context-label').innerText = `${CONFIG.title}`;
-}
-document.getElementById('modal-title-display').innerText = `Référentiel - ${CONFIG.title}`;
-document.getElementById('modal-subtitle-display').innerText = `Les réflexes et principes associés de l'atelier ${CONFIG.title}.`;
-
-// Met en surbrillance l'atelier en cours dans les selecteurs
-const homeSel = document.getElementById('home-atelier-selector');
-if (homeSel) homeSel.value = `./exo.html?id=${ATELIER_ID}`;
-const headerSel = document.getElementById('header-atelier-selector');
-if (headerSel) headerSel.value = `./exo.html?id=${ATELIER_ID}`;
-
-// Mise en place de la thématique CSS globale
-document.body.className = "flex flex-col relative";
-
-// Application des variables de description des niveaux sur la page d'accueil
-document.getElementById('level-desc-0').innerText = CONFIG.levelDescriptions[0];
-document.getElementById('level-desc-1').innerText = CONFIG.levelDescriptions[1];
-document.getElementById('level-desc-2').innerText = CONFIG.levelDescriptions[2];
-
-// Variables du jeu
+let ATELIERS_CONFIG = {};
+let CONFIG = null;
+let ATELIER_ID = "1-a";
 let reflexes = [];
 let TOTAL_STEPS = 10;
 let currentLevel = 0;
@@ -1028,6 +727,80 @@ let currentStepIdx = 0;
 let levelSteps = [];
 let currentPhase = 1;
 let answeredSteps = [];
+let EPICO_CONTEXT_SUFFIX = 'ESIS-3D';
+
+async function loadEpicoConfig() {
+    try {
+        const res = await fetch('epico.json?v=' + Date.now());
+        const data = await res.json();
+        ATELIERS_CONFIG = data.workshops || {};
+        EPICO_CONTEXT_SUFFIX = data.app?.contextSuffix || 'ESIS-3D';
+        window.EPICO_APP_DESC = data.app?.description || '';
+        ATELIER_ID = new URLSearchParams(window.location.search).get('id') || "1-a";
+        if (!ATELIERS_CONFIG[ATELIER_ID]) {
+            window.location.href = './index.html';
+            return false;
+        }
+        CONFIG = ATELIERS_CONFIG[ATELIER_ID];
+        applyWorkshopConfig();
+        return true;
+    } catch (e) {
+        console.warn('epico.json not loaded, using fallback config');
+        ATELIERS_CONFIG = {
+            "1-a": { key: "po", title: "Atelier", h1: "Atelier", subtitle: "", themeClass: "po-theme", badge: "Réflexe", icon: "target", emoji: "🎯", resetConfirm: "la progression", phase1Label: "Orientation", phase2Label: "Réponse", phase2Info: "Sélectionnez la décision", phase3Label: "Décision Retenue", phase3Impact: "Impact Projet &amp; Équipes", levelNames: ["Facile", "Moyen", "Difficile"], levelDescriptions: ["Niveau facile.", "Niveau moyen.", "Niveau difficile."] }
+        };
+        ATELIER_ID = new URLSearchParams(window.location.search).get('id') || "1-a";
+        CONFIG = ATELIERS_CONFIG[ATELIER_ID] || ATELIERS_CONFIG["1-a"];
+        applyWorkshopConfig();
+        return true;
+    }
+}
+
+function applyWorkshopConfig() {
+    document.getElementById('page-title').innerText = CONFIG.title + ' - ' + EPICO_CONTEXT_SUFFIX;
+    document.getElementById('home-title').innerHTML = CONFIG.h1;
+    document.getElementById('home-subtitle').innerText = CONFIG.subtitle;
+    document.getElementById('scenario-emoji').innerText = CONFIG.emoji;
+    if (document.getElementById('header-context-label')) {
+        document.getElementById('header-context-label').innerText = CONFIG.title;
+    }
+    document.getElementById('modal-title-display').innerText = 'Référentiel - ' + CONFIG.title;
+    document.getElementById('modal-subtitle-display').innerText = 'Les réflexes et principes associés de l\'atelier ' + CONFIG.title + '.';
+
+    const homeSel = document.getElementById('home-atelier-selector');
+    if (homeSel) homeSel.value = './exo.html?id=' + ATELIER_ID;
+    const headerSel = document.getElementById('header-atelier-selector');
+    if (headerSel) headerSel.value = './exo.html?id=' + ATELIER_ID;
+
+    document.body.className = "flex flex-col relative";
+    document.getElementById('level-desc-0').innerText = CONFIG.levelDescriptions[0];
+    document.getElementById('level-desc-1').innerText = CONFIG.levelDescriptions[1];
+    document.getElementById('level-desc-2').innerText = CONFIG.levelDescriptions[2];
+
+    // Info modal in exo.html
+    const infoContent = document.getElementById('info-modal-content');
+    if (infoContent) {
+        infoContent.innerHTML = '<h3 class=\"text-lg font-black text-slate-800\">' + CONFIG.badge + '</h3><p class=\"text-sm text-slate-600 mt-2 leading-relaxed\">' + (window.EPICO_APP_DESC || '') + '</p>';
+    }
+}
+
+function populateWorkshopSelectors() {
+    const ids = Object.keys(ATELIERS_CONFIG);
+    const homeSel = document.getElementById('home-atelier-selector');
+    const headerSel = document.getElementById('header-atelier-selector');
+    if (homeSel) {
+        homeSel.innerHTML = ids.map(id =>
+            '<option value="./exo.html?id=' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
+        ).join('');
+        homeSel.value = './exo.html?id=' + ATELIER_ID;
+    }
+    if (headerSel) {
+        headerSel.innerHTML = ids.map(id =>
+            '<option value="./exo.html?id=' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
+        ).join('');
+        headerSel.value = './exo.html?id=' + ATELIER_ID;
+    }
+}
 
 // Initialisation de l'accueil
 function initHome() {
@@ -1596,8 +1369,11 @@ window.addEventListener('keydown', function(e) {
 });
 
 async function initApp() {
+    const loaded = await loadEpicoConfig();
+    if (!loaded) return;
+    populateWorkshopSelectors();
     try {
-        const response = await fetch(`./${ATELIER_ID}.json?v=` + new Date().getTime());
+        const response = await fetch('./' + ATELIER_ID + '.json?v=' + new Date().getTime());
         reflexes = await response.json();
         
         buildModalContent();
