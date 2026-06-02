@@ -89,7 +89,8 @@
         ],
         "expl": "Aller voir l'utilisateur en vie réelle est le seul moyen de comprendre les douleurs subtiles d'utilisabilité."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Signaux Usage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-red-50 border border-red-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"font-bold text-red-800\">2h/saisie manuelle</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer la douleur terrain</div></div></div>"
   },
   {
     "id": 2,
@@ -181,7 +182,8 @@
         ],
         "expl": "La normalisation des formats (PDF, DICOM) est le seul moyen viable de gérer l'imagerie ou les rapports de santé."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Shadowing</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Immersion terrain</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer le rush réel des soignants</div></div></div>"
   },
   {
     "id": 3,
@@ -273,7 +275,8 @@
         ],
         "expl": "S'assurer de la faisabilité technique dès la découverte d'une idée complexe protège la roadmap."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Filtrer Demandes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Fort impact</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-slate-500\">Faible impact</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Prioriser à la valeur</div></div></div>"
   },
   {
     "id": 4,
@@ -365,7 +368,8 @@
         ],
         "expl": "En ergonomie médicale, moins il y a de stimuli visuels colorés, plus l'interface est sûre et reposante."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Aligner Équipe</div><div class=\"flex flex-col gap-1.5\"><div class=\"relative h-12 bg-slate-50 rounded-lg border border-slate-200 flex\"><div class=\"absolute inset-0 flex items-center justify-center\"><div class=\"bg-blue-100 border-2 border-blue-400 rounded-full w-6 h-6 -ml-3\"></div><div class=\"bg-emerald-100 border-2 border-emerald-400 rounded-full w-6 h-6 -ml-1\"></div><div class=\"bg-amber-100 border-2 border-amber-400 rounded-full w-6 h-6\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Métier + Dev + Design alignés</div></div></div>"
   },
   {
     "id": 5,
@@ -457,7 +461,8 @@
         ],
         "expl": "Trancher des dilemmes ergonomiques par de simples croquis terrain est le propre de la Discovery agile."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Clarté Cognitive</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border-2 border-dashed border-slate-300 rounded-lg p-2 text-center\"><div class=\"text-[9px] font-bold text-slate-500 uppercase\">Papier</div><div class=\"flex gap-1 justify-center mt-1\"><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-8 h-6 bg-slate-300 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Wireframe simple avant codage</div></div></div>"
   },
   {
     "id": 6,
@@ -549,7 +554,8 @@
         ],
         "expl": "Les tests d'utilisabilité à blanc révèlent les dangers de sécurité clinique induits par la mise en page."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Prototypage Low-fi</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-2 flex flex-col gap-1\"><div class=\"h-1 w-full bg-slate-200 rounded\"></div><div class=\"h-3 w-3/4 bg-slate-100 rounded mx-auto\"></div><div class=\"flex gap-1 justify-center\"><div class=\"h-4 w-4 bg-slate-200 rounded\"></div><div class=\"h-4 w-4 bg-slate-200 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Croquis papier pour valider le concept</div></div></div>"
   },
   {
     "id": 7,
@@ -641,7 +647,8 @@
         ],
         "expl": "Le canal informel sert à rassurer les pilotes et à classer intelligemment les retours terrain."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Test Utilisabilité</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"video\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Session filmée</span></div><div class=\"text-[7px] text-slate-500 text-center\">3 utilisateurs testent le prototype</div></div></div>"
   },
   {
     "id": 8,
@@ -733,7 +740,8 @@
         ],
         "expl": "L'accompagnement du changement s'appuie sur la pédagogie et l'influence des référents de proximité."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Pilote Bêta</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Groupe pilote 5 centres</span></div><div class=\"text-[7px] text-slate-500 text-center\">Validation terrain avant déploiement</div></div></div>"
   },
   {
     "id": 9,
@@ -825,6 +833,7 @@
         ],
         "expl": "Réutiliser intelligemment les fonctionnalités ou fichiers d'échange existants pour répondre au besoin au lieu de réinventer la roue."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Quick-wins</div><div class=\"flex flex-col gap-1.5\"><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold text-center\"><div class=\"bg-emerald-100 text-emerald-800 p-1 rounded\">Fort impact<br/>Faible effort</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded\">Fort impact<br/>Fort effort</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded\">Faible impact<br/>Faible effort</div><div class=\"bg-slate-100 text-slate-400 p-1 rounded\">Faible impact<br/>Fort effort</div></div><div class=\"text-[7px] text-emerald-600 font-bold text-center\">Matrice impact / effort</div></div></div>"
   }
 ]

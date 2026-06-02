@@ -89,7 +89,8 @@
         ],
         "expl": "Un bon tableau de bord produit doit hiérarchiser la donnée : un objectif final clair, soutenu par des leviers opérationnels précis."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">KPI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center bg-slate-50 border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Taux participation</span><span class=\"font-black text-slate-800\">42%</span></div><div class=\"flex justify-between items-center bg-slate-50 border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Délai moyen</span><span class=\"font-black text-slate-800\">12j</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Indicateurs clés de pilotage</div></div></div>"
   },
   {
     "id": 2,
@@ -181,7 +182,8 @@
         ],
         "expl": "Un portail de résultats sécurisé réduit drastiquement les coûts administratifs et améliore le confort psychologique des patients."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Chiffrer Gains</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"trending-up\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Économie 18 250€/an</span></div><div class=\"text-[7px] text-slate-500 text-center\">ROI chiffré pour la décision</div></div></div>"
   },
   {
     "id": 3,
@@ -273,7 +275,8 @@
         ],
         "expl": "Un usage minoritaire en volume peut s'avérer stratégiquement décisif pour les utilisateurs clés en situation de mobilité."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Segmenter</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-blue-100 text-blue-800 p-1 rounded flex-1\">18-34 ans<br/>35%</div><div class=\"bg-emerald-100 text-emerald-800 p-1 rounded flex-1\">35-50 ans<br/>42%</div><div class=\"bg-amber-100 text-amber-800 p-1 rounded flex-1\">50+ ans<br/>23%</div></div><div class=\"text-[7px] text-slate-500 text-center\">Analyser par groupe d&#39;utilisateurs</div></div></div>"
   },
   {
     "id": 4,
@@ -365,7 +368,8 @@
         ],
         "expl": "Pour les formulaires administratifs ou médicaux, masquez la complexité par défaut. 90% des utilisateurs n'ont besoin que du flux le plus simple."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Points Friction</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-1.5 bg-red-50 border border-red-200 rounded p-1.5 text-[8px]\"><i data-lucide=\"alert-triangle\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"font-bold text-red-800\">Étape 3 : 45% d&#39;abandon</span></div><div class=\"text-[7px] text-slate-500 text-center\">Identifier les goulots d&#39;étranglement</div></div></div></div>"
   },
   {
     "id": 5,
@@ -457,7 +461,8 @@
         ],
         "expl": "Un test A/B doit impérativement atteindre son seuil de significativité statistique (généralement 95%) pour écarter le hasard."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">A/B Testing</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Version A</div><div class=\"text-emerald-600 font-bold\">42%</div></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Version B</div><div class=\"text-emerald-600 font-bold\">58%</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Tester deux variantes</div></div></div>"
   },
   {
     "id": 6,
@@ -549,7 +554,8 @@
         ],
         "expl": "Le suivi en cohorte est la seule méthode rigoureuse pour mesurer l'ancrage des habitudes de dépistage régulier sur plusieurs années."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Visualiser</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-end justify-around h-10 bg-slate-50 border border-slate-200 rounded-lg p-1\"><div class=\"w-4 bg-blue-400 rounded-t\" style=\"height:60%\"></div><div class=\"w-4 bg-emerald-400 rounded-t\" style=\"height:90%\"></div><div class=\"w-4 bg-amber-400 rounded-t\" style=\"height:40%\"></div><div class=\"w-4 bg-purple-400 rounded-t\" style=\"height:70%\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">Graphique pour l&#39;intuition</div></div></div>"
   },
   {
     "id": 7,
@@ -641,7 +647,8 @@
         ],
         "expl": "Toute optimisation produit réussie doit être documentée et intégrée dans le modèle standard pour faire progresser l'ensemble du système de soins."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Optimisation Continue</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex justify-center gap-1 text-[8px] font-bold\"><div class=\"w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center\">M</div><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300 self-center\"></i><div class=\"w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center\">A</div><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300 self-center\"></i><div class=\"w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center\">I</div></div><div class=\"text-[7px] text-slate-500 text-center\">Cycle Mesurer-Analyser-Itérer</div></div></div>"
   },
   {
     "id": 8,
@@ -733,6 +740,7 @@
         ],
         "expl": "Les rappels automatisés et contextualisés basés sur des déclencheurs temporels sont la solution la plus douce et la plus efficace pour réduire les délais de prise en charge."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Automatiser</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"zap\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Rapport auto. hebdo</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"check\" class=\"w-2.5 h-2.5\"></i><span>Export + envoi sans intervention</span></div></div></div>"
   }
 ]

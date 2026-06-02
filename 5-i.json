@@ -89,7 +89,8 @@
         ],
         "expl": "S'inspirer des meilleurs du marché évite de réinventer des solutions qui existent déjà et permet d'élever le niveau d'exigence produit."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Créneau Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Vendredi 14h-15h</span></div><div class=\"text-[7px] text-slate-500 text-center\">Temps dédié chaque semaine</div></div></div>"
   },
   {
     "id": 2,
@@ -181,7 +182,8 @@
         ],
         "expl": "Les dashboards publics sont une mine d'or gratuite pour comprendre les standards attendus par les décideurs avant même de commencer à concevoir."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Benchmark</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 text-slate-600 p-1 rounded flex-1\">Nous<br/>Score: 3/5</div><div class=\"bg-blue-100 text-blue-700 p-1 rounded flex-1\">Concurrent A<br/>Score: 4/5</div><div class=\"bg-blue-100 text-blue-700 p-1 rounded flex-1\">Concurrent B<br/>Score: 5/5</div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparaison marché</div></div></div>"
   },
   {
     "id": 3,
@@ -273,7 +275,8 @@
         ],
         "expl": "Multiplier les variantes visuelles permet de comparer et de choisir, plutôt que d'améliorer sans vision."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Prototypage IA</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-1.5\"><div class=\"text-[7px] text-slate-500 italic\">Prompt:</div><div class=\"text-[7px] text-slate-800 font-bold\">Génère un mockup de dashboard patient...</div></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"sparkles\" class=\"w-2.5 h-2.5 text-purple-500\"></i><span>Explorer les possibilités IA</span></div></div></div>"
   },
   {
     "id": 4,
@@ -365,7 +368,8 @@
         ],
         "expl": "Les médecins n'ont pas le temps de décrypter des tableaux denses. Une interface moderne parle d'elle-même en un coup d'œil."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Standards UI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"w-5 h-3 bg-slate-200 rounded\"></div><div class=\"w-5 h-3 bg-slate-300 rounded\"></div><div class=\"w-5 h-3 bg-slate-200 rounded\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">S&#39;inspirer des patterns connus</div></div></div>"
   },
   {
     "id": 5,
@@ -457,7 +461,8 @@
         ],
         "expl": "Les API de visioconférence sont matures, sécurisées et économiques. Les développer en interne est un non-sens pour un éditeur de logiciel de dépistage."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Outils Tiers</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-blue-500\"></i><span>Outil X</span></div><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-emerald-500\"></i><span>Outil Y</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Écosystème et plugins</div></div></div>"
   },
   {
     "id": 6,
@@ -549,7 +554,8 @@
         ],
         "expl": "Les partenaires d'infrastructure ont leur propre roadmap. L'ignorer expose à des migrations subies. L'intégrer dans sa planification permet de les maîtriser."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Évolutions Partenaires</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"alert-triangle\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">API v3 dépréciée</span></div><div class=\"text-[7px] text-slate-500 text-center\">Anticiper les changements</div></div></div>"
   },
   {
     "id": 7,
@@ -641,7 +647,8 @@
         ],
         "expl": "Les bases de données publiques comme la Base Adresse Nationale sont gratuites et fiables. Les utiliser est plus efficace que tout processus de vérification manuelle."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Données Externes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"globe\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Open Data ARS</span></div><div class=\"text-[7px] text-slate-500 text-center\">Sources publiques exploitables</div></div></div>"
   },
   {
     "id": 8,
@@ -733,7 +740,8 @@
         ],
         "expl": "Le partage des découvertes est aussi important que la découverte elle-même. Un format informel et court garantit la diffusion sans alourdir le planning."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Partager Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"share-2\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Flash veille mensuel</span></div><div class=\"text-[7px] text-slate-500 text-center\">Diffuser à l&#39;équipe</div></div></div>"
   },
   {
     "id": 9,
@@ -825,6 +833,7 @@
         ],
         "expl": "La documentation technique ne fait pas foi. Un test d'intégration réel est le seul moyen de valider qu'une API fonctionne dans votre contexte spécifique."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Tester Réel</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-purple-50 border border-purple-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"flask\" class=\"w-2.5 h-2.5 text-purple-600\"></i><span class=\"font-bold text-purple-800\">Conditions réelles</span></div><div class=\"text-[7px] text-slate-500 text-center\">Valider hors production</div></div></div>"
   }
 ]

@@ -89,7 +89,8 @@
         ],
         "expl": "Un ticket qui mélange plusieurs sujets de natures différentes doit être décomposé pour que chaque filière (N3, PO, support) traite ce qui la concerne."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Qualifier Demande</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"inbox\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Ticket entrant</span></div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold\"><div class=\"bg-blue-50 text-blue-700 p-1 rounded text-center\">Incident</div><div class=\"bg-emerald-50 text-emerald-700 p-1 rounded text-center\">Question</div><div class=\"bg-amber-50 text-amber-700 p-1 rounded text-center\">Évolution</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded text-center\">Trainer</div></div><div class=\"text-[7px] text-slate-500 text-center\">Trier avant d&#39;agir</div></div></div>"
   },
   {
     "id": 2,
@@ -181,7 +182,8 @@
         ],
         "expl": "Un pattern temporel ou fonctionnel commun entre plusieurs signalements indique une cause centrale qu'il faut corréler."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Questionner</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1 text-[8px]\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-slate-700\">Quel utilisateur ?</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-slate-700\">Quel module ?</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Narrow down par questions</div></div></div>"
   },
   {
     "id": 3,
@@ -273,7 +275,8 @@
         ],
         "expl": "Quand un bug n'est reproductible que chez un client, il faut utiliser ses données (anonymisées) sur une instance dédiée."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Reproduire</div><div class=\"flex flex-col gap-1.5\"><ol class=\"list-decimal list-inside text-[8px] text-slate-700 space-y-0.5 font-bold\"><li>Ouvrir dossier patient</li><li>Cliquer Exporter PDF</li><li>Observer le texte</li></ol><div class=\"bg-amber-50 border border-amber-200 rounded p-1.5 text-[7px] text-amber-800 font-bold text-center\">Étapes exactes de reproduction</div></div></div>"
   },
   {
     "id": 4,
@@ -365,7 +368,8 @@
         ],
         "expl": "Une analyse quantitative dans les données permet de dimensionner le vrai problème avant de décider d'une action corrective."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Données Production</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"database\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Accès lecture seule</span></div><div class=\"flex items-center gap-1.5 text-[7px] text-slate-500\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5\"></i><span>Requête SQL sur recette</span></div></div></div>"
   },
   {
     "id": 5,
@@ -457,7 +461,8 @@
         ],
         "expl": "L'interface d'administration n'affiche pas toujours la réalité des règles sous-jacentes. L'investigation doit descendre au niveau de la paramètres système."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Élimination</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance A</div><div class=\"text-slate-400\">Bug</div></div><div class=\"flex items-center\"><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300\"></i></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance B</div><div class=\"text-slate-400\">OK</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparer pour isoler la cause</div></div></div>"
   },
   {
     "id": 6,
@@ -549,7 +554,8 @@
         ],
         "expl": "Un script de correction par lot avec validation et rapport permet de traiter les anomalies de masse sans risque ni surcharge humaine."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Corriger Données</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"terminal\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Script de correction</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"check\" class=\"w-2.5 h-2.5\"></i><span>UPDATE patient SET statut = &#39;OK&#39;</span></div></div></div>"
   },
   {
     "id": 7,
@@ -641,7 +647,8 @@
         ],
         "expl": "Les APIs et fichiers d'import/export de configuration permettent de déployer des paramétrages standards en masse sans développement ni saisie manuelle."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Paramétrage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Seuil âge</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">74 ans</span></div><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Périmètre</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">Colorectal</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Configuration sans dev</div></div></div>"
   },
   {
     "id": 8,
@@ -733,7 +740,8 @@
         ],
         "expl": "Un dossier d'escalade complet avec données, captures et critères de (non)reproduction permet au N3 de traiter efficacement."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Escalader</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col items-center text-[7px] font-bold\"><div class=\"bg-slate-100 border border-slate-200 rounded p-1 w-full text-center text-slate-600\">N1 : Support</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-blue-100 border border-blue-200 rounded p-1 w-full text-center text-blue-700\">N2 : Expert</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-red-100 border border-red-200 rounded p-1 w-full text-center text-red-700\">N3 : Développement</div></div></div></div>"
   },
   {
     "id": 9,
@@ -825,7 +833,8 @@
         ],
         "expl": "Un incident critique mérite un suivi différé pour prévenir les récurrences, même après le rétablissement du service."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Clôturer</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"check-circle\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Validation terrain</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"check\" class=\"w-2.5 h-2.5\"></i><span>Utilisateur confirme la résolution</span></div></div></div>"
   },
   {
     "id": 10,
@@ -917,6 +926,7 @@
         ],
         "expl": "Les tendances structurelles doivent être identifiées et remontées à l'équipe produit avant qu'elles ne submergent le support N2."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Tendances</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-end justify-around h-10 bg-slate-50 border border-slate-200 rounded-lg p-1\"><div class=\"w-3 bg-red-300 rounded-t\" style=\"height:60%\"></div><div class=\"w-3 bg-red-400 rounded-t\" style=\"height:80%\"></div><div class=\"w-3 bg-amber-400 rounded-t\" style=\"height:50%\"></div><div class=\"w-3 bg-emerald-400 rounded-t\" style=\"height:30%\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">Patterns et récurrences</div></div></div>"
   }
 ]

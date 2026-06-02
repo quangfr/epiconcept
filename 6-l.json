@@ -89,7 +89,8 @@
         ],
         "expl": "Une source unique de vérité, gérée par un pipeline BI automatisé, élimine les incohérences de calcul et accélère les prises de décision."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Sources BI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1 justify-center text-[8px]\"><div class=\"bg-slate-100 p-1 rounded text-slate-600\">CRM</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-100 p-1 rounded text-slate-600\">ESIS</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-emerald-100 p-1 rounded text-emerald-700 font-bold\">BI</div></div><div class=\"text-[7px] text-slate-500 text-center\">Intégration multi-sources</div></div></div>"
   },
   {
     "id": 2,
@@ -181,7 +182,8 @@
         ],
         "expl": "La stabilité du service est le socle de la croissance. Il est plus rentable de fidéliser sa base en corrigeant les bugs que de chercher l'acquisition à tout prix."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Arbitrer</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-emerald-100 text-emerald-800 p-1 rounded flex-1\">Urgent<br/>Important</div><div class=\"bg-blue-100 text-blue-800 p-1 rounded flex-1\">Important<br/>Pas urgent</div></div><div class=\"text-[7px] text-slate-500 text-center\">Matrice de priorisation</div></div></div>"
   },
   {
     "id": 3,
@@ -273,7 +275,8 @@
         ],
         "expl": "Les refontes globales ont souvent un ROI très faible. Identifier et corriger uniquement les écrans à forte friction génère le maximum de valeur pour un investissement minimal."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Viabilité</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Coût</div><div class=\"text-red-600 font-bold\">15 000€</div></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Bénéfice</div><div class=\"text-emerald-600 font-bold\">45 000€</div></div></div><div class=\"text-[7px] text-emerald-600 font-bold text-center\">ROI = 3x</div></div></div>"
   },
   {
     "id": 4,
@@ -365,7 +368,8 @@
         ],
         "expl": "La synchronisation inter-régionale via un index national sécurisé est indispensable pour assurer la continuité des soins dans une population mobile."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Qualité Données</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"check-circle\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Taux complétude: 87%</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"alert-triangle\" class=\"w-2 h-2\"></i><span>13% NIR manquants</span></div></div></div>"
   },
   {
     "id": 5,
@@ -457,7 +461,8 @@
         ],
         "expl": "La santé d'un compte client se mesure par son usage réel. Lier l'inactivité produit au CRM permet de sauver les comptes à forte valeur avant qu'il ne soit trop tard."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">CRM</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Données unifiées</span></div><div class=\"text-[7px] text-slate-500 text-center\">Vision 360° du bénéficiaire</div></div></div>"
   },
   {
     "id": 6,
@@ -549,7 +554,8 @@
         ],
         "expl": "L'interoperabilité des bases de données cliniques via des modèles standardisés (OMOP, FHIR) démultiplie la valeur scientifique des logiciels de santé."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Anonymisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-purple-50 border border-purple-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"shield\" class=\"w-2.5 h-2.5 text-purple-600\"></i><span class=\"font-bold text-purple-800\">Données pseudonymisées</span></div><div class=\"text-[7px] text-slate-500 text-center\">RGPD compliant</div></div></div>"
   },
   {
     "id": 7,
@@ -641,7 +647,8 @@
         ],
         "expl": "Le suivi des anomalies positives doit être sécurisé par des alertes logicielles intelligentes auprès du médecin traitant pour éviter les cas de perdus de vue critiques."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Performance</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><span class=\"font-bold text-slate-600\">Temps réponse</span><span class=\"text-amber-600 font-bold\">2.4s</span></div><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><span class=\"font-bold text-slate-600\">SLA</span><span class=\"font-black text-emerald-600\">99.5%</span></div><div class=\"text-[7px] text-slate-500 text-center\">Tableau de bord technique</div></div></div>"
   },
   {
     "id": 8,
@@ -733,6 +740,7 @@
         ],
         "expl": "Une amélioration sur une métrique (ex: le volume de RDV) ne doit pas se faire au détriment de la qualité opérationnelle globale (ex: doubles réservations)."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Impact Évolution</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5 items-center\"><div class=\"flex-1 bg-red-50 border border-red-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-red-700\">Avant</div><div class=\"text-red-600\">45 min/jour</div></div><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-emerald-500\"></i><div class=\"flex-1 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-emerald-700\">Après</div><div class=\"text-emerald-600\">5 min/jour</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparaison avant/après</div></div></div>"
   }
 ]

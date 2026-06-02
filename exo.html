@@ -65,9 +65,9 @@
         .ui-btn .visual-mockup,
         .ui-btn > :last-child { min-height: 110px; }
         .ui-btn .visual-mockup,
-        #debrief-ui-visual { width: 100%; max-width: 350px; }
+        #debrief-ui-visual { width: 100%; max-width: 320px; }
         .ui-btn .visual-mockup .mockup-container > :first-child,
-        #debrief-ui-visual > :first-child { transform: scale(2); transform-origin: left center; }
+        #debrief-ui-visual > :first-child { transform: scale(1.4); transform-origin: left top; }
 
         /* Option désactivée dans le sélecteur de niveau */
         #header-level-selector option:disabled {
@@ -194,8 +194,8 @@
                 inset: auto !important;
                 width: 100% !important;
                 height: auto !important;
-                min-height: 400px !important;
-                padding: 1.5rem !important;
+                min-height: 300px !important;
+                padding: 1rem !important;
             }
             #modal-referentiel {
                 padding: 0 !important;
@@ -207,13 +207,10 @@
                 max-height: 100vh !important;
                 width: 100% !important;
             }
-            #debriefing-card .flex.items-center.gap-4.mb-6.mt-4.shrink-0 {
+            #debriefing-card .flex.items-center.gap-2.mb-3.mt-1.shrink-0 {
                 flex-direction: column !important;
                 align-items: flex-start !important;
-                gap: 0.75rem !important;
-            }
-            #debriefing-card .grid.grid-cols-1.md\:grid-cols-3.gap-3.md\:gap-6.mb-6.md\:mb-10 {
-                grid-template-columns: 1fr !important;
+                gap: 0.5rem !important;
             }
         }
 
@@ -663,42 +660,39 @@
             </div>
 
             <!-- Phase 3 Debriefing -->
-            <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-6 flex flex-col justify-between overflow-y-auto">
-                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-6 left-6 flex items-center justify-center bg-white border-2 border-slate-200 w-8 h-8 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retour"><i data-lucide="arrow-left" class="w-3.5 h-3.5"></i></button>
+            <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-4 md:p-5 flex flex-col justify-between overflow-y-auto">
+                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-3 left-3 flex items-center justify-center bg-white border-2 border-slate-200 w-7 h-7 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retour"><i data-lucide="arrow-left" class="w-3 h-3"></i></button>
                 <div class="flex flex-col h-full">
-                    <div class="flex items-center gap-4 mb-6 mt-4 shrink-0">
-                        <div id="debrief-emoji" class="text-4xl bg-emerald-100 w-16 h-16 flex items-center justify-center rounded-2xl shadow-sm">🎯</div>
+                    <div class="flex items-center gap-2 mb-3 mt-1 shrink-0">
+                        <div id="debrief-emoji" class="text-2xl bg-emerald-100 w-10 h-10 flex items-center justify-center rounded-xl shadow-sm">🎯</div>
                         <div>
-                            <p id="debrief-main-title" class="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Décision Validée !</p>
-                            <h2 id="debrief-title" class="text-slate-800 font-black uppercase tracking-tight text-lg sm:text-xl">Réflexe appliqué</h2>
+                            <p id="debrief-main-title" class="text-slate-500 font-bold uppercase tracking-wider text-[9px]">Décision Validée</p>
+                            <h2 id="debrief-title" class="text-slate-800 font-black uppercase tracking-tight text-sm">Réflexe appliqué</h2>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row gap-6 flex-grow min-h-0">
-                        <!-- Clone Visuel -->
+                    <div class="flex flex-col sm:flex-row gap-3 flex-grow min-h-0">
+                        <!-- Clone Visuel + Button -->
                         <div class="w-full sm:w-5/12 flex flex-col gap-2 shrink-0">
-                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Décision Retenue</span>
-                            <div class="bg-slate-50 border-2 border-emerald-400 rounded-lg p-4 shadow-sm flex flex-col gap-3 relative overflow-hidden h-full min-h-[200px]">
+                            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Décision Retenue</span>
+                            <div class="bg-slate-50 border-2 border-emerald-400 rounded-lg p-3 shadow-sm flex flex-col gap-2 relative overflow-hidden flex-grow min-h-[140px]">
                                 <div class="absolute inset-0 bg-emerald-400/5 z-0"></div>
-                                <div class="font-black text-slate-800 text-sm uppercase tracking-tight relative z-10" id="debrief-ui-title">Titre Décision</div>
-                                <div class="w-full relative z-10 flex-grow flex items-center justify-start mockup-container" id="debrief-ui-visual">
-                                    <!-- HTML Inject -->
-                                </div>
+                                <div class="font-black text-slate-800 text-xs uppercase tracking-tight relative z-10" id="debrief-ui-title">Titre Décision</div>
+                                <div class="w-full relative z-10 flex items-center justify-start mockup-container" id="debrief-ui-visual"></div>
                             </div>
+                            <button id="btn-next" onclick="nextStep()" class="bg-slate-900 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full">
+                                Suivant <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
                         </div>
                         <!-- Business Impact -->
-                        <div class="w-full sm:w-7/12 flex flex-col gap-2 min-h-0">
-                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact Projet &amp; Équipes</span>
-                            <div class="bg-slate-100/70 p-6 rounded-lg border border-slate-200 text-sm text-slate-800 font-medium leading-relaxed overflow-y-auto h-full relative">
-                                <div class="absolute top-4 right-4 text-3xl opacity-20">💡</div>
+                        <div class="w-full sm:w-7/12 flex flex-col gap-1.5 min-h-0">
+                            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact Projet &amp; Équipes</span>
+                            <div class="bg-slate-100/70 p-4 rounded-lg border border-slate-200 text-xs text-slate-800 font-medium leading-relaxed overflow-y-auto h-full relative">
+                                <div class="absolute top-3 right-3 text-2xl opacity-20">💡</div>
                                 <div id="debrief-text" class="relative z-10"></div>
                              </div>
                         </div>
                     </div>
-
-                    <button id="btn-next" onclick="nextStep()" class="mt-6 bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0">
-                        Situation Suivante <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </button>
                 </div>
             </div>
         </div>
@@ -1208,11 +1202,11 @@ function showDebriefing(correctOpt) {
 
     const nextBtn = document.getElementById('btn-next');
     if (answeredSteps.every(Boolean)) {
-        nextBtn.innerHTML = "Terminer le Niveau <span class='text-2xl ml-2'>🏆</span>";
-        nextBtn.className = "mt-6 bg-emerald-600 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0 cursor-pointer";
+        nextBtn.innerHTML = "Terminer <span class='text-lg ml-1'>🏆</span>";
+        nextBtn.className = "bg-emerald-600 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full cursor-pointer";
     } else {
-        nextBtn.innerHTML = "Situation Suivante <svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
-        nextBtn.className = "mt-6 bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-3 shrink-0 cursor-pointer";
+        nextBtn.innerHTML = "Suivant <svg class=\"w-4 h-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
+        nextBtn.className = "bg-slate-900 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full cursor-pointer";
     }
     lucide.createIcons();
 }

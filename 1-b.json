@@ -89,7 +89,8 @@
         "expl": "Le pré-remplissage intelligent basé sur l'historique permet d'anticiper 90% des saisies récurrentes sans action clavier."
       }
     ],
-    "icon": "mouse-pointer-click"
+    "icon": "mouse-pointer-click",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Assistance Saisie</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1\"><button class=\"flex-1 bg-blue-50 border-2 border-blue-600 text-blue-800 rounded-lg text-center py-1.5 text-[8px] font-black\">Option 1</button><button class=\"flex-1 bg-white border border-slate-200 text-slate-500 rounded-lg text-center py-1.5 text-[8px] font-bold\">Option 2</button><button class=\"flex-1 bg-white border border-slate-200 text-slate-500 rounded-lg text-center py-1.5 text-[8px] font-bold\">Option 3</button></div><div class=\"text-[7px] text-emerald-600 font-bold text-center\">Choix directs visibles, zéro clic de navigation</div></div></div>"
   },
   {
     "id": 2,
@@ -181,7 +182,8 @@
         "expl": "Un menu de navigation latéral fixe permet de sauter de section en section tout en gardant tous les contenus sur une seule page défilable (scrollable), évitant les clics inutiles."
       }
     ],
-    "icon": "pin"
+    "icon": "pin",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Auto-Complétion</div><div class=\"flex flex-col gap-1.5\"><div class=\"relative\"><div class=\"border border-slate-300 bg-white rounded p-1.5 text-[8px] font-bold text-slate-800 flex items-center gap-1\"><i data-lucide=\"search\" class=\"w-2.5 h-2.5\"></i><span>Mar<span class=\"text-blue-600\">|</span></span></div><div class=\"absolute top-full left-0 right-0 mt-0.5 bg-white border border-slate-200 shadow rounded overflow-hidden\"><div class=\"px-2 py-1 text-[7px] border-b hover:bg-slate-50 font-bold text-slate-700\">Martin Sophie</div><div class=\"px-2 py-1 text-[7px] hover:bg-slate-50 text-slate-500\">Martinez Luc</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Suggestions filtrées en temps réel</div></div></div>"
   },
   {
     "id": 3,
@@ -273,7 +275,8 @@
         "expl": "L'alerte avec suggestion d'actions permet d'aider l'utilisateur à la source de sa saisie en lui proposant plusieurs choix de résolutions adaptés plutôt qu'une erreur ou un blocage."
       }
     ],
-    "icon": "check-circle"
+    "icon": "check-circle",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Pré-remplissage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-emerald-200 bg-emerald-50 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-700\">Anesthésie</span><span class=\"bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded font-bold\">Générale</span></div><div class=\"flex justify-between items-center border border-emerald-200 bg-emerald-50 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-700\">Salle</span><span class=\"bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded font-bold\">Endoscopie 1</span></div></div><div class=\"text-[7px] text-emerald-600 font-bold text-center\">Valeurs par défaut intelligentes</div></div></div>"
   },
   {
     "id": 4,
@@ -365,7 +368,8 @@
         "expl": "Les messages d'alerte doivent être formulés en langage naturel court, homogène et orienté action : ils décrivent l'anomalie et comment la résoudre simplement."
       }
     ],
-    "icon": "palette"
+    "icon": "palette",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Ancrage Info</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-700 text-white p-1.5 rounded-lg flex justify-between items-center text-[8px] font-black\"><span>DUPONT Jean</span><span class=\"bg-indigo-800 px-1 py-0.5 rounded text-[7px]\">IPP: 9901</span></div><div class=\"h-6 bg-slate-100 rounded opacity-40\"></div><div class=\"text-[7px] text-slate-500 text-center\">Header fixe pendant le défilement</div></div></div>"
   },
   {
     "id": 5,
@@ -457,7 +461,8 @@
         "expl": "L'indicateur de statut par icône et code couleur résume instantanément l'état global du dossier sans effort cognitif."
       }
     ],
-    "icon": "lightbulb"
+    "icon": "lightbulb",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Barre Flottante</div><div class=\"flex flex-col gap-1.5\"><div class=\"h-8 bg-slate-100 rounded opacity-30\"></div><div class=\"flex justify-end gap-1 border-t border-slate-200 pt-1.5\"><div class=\"bg-slate-200 px-2 py-1 text-[7px] font-bold rounded\">Annuler</div><div class=\"bg-slate-700 text-white px-2 py-1 text-[7px] font-bold rounded\">Valider</div></div><div class=\"text-[7px] text-slate-500 text-center\">Actions toujours accessibles en bas</div></div></div>"
   },
   {
     "id": 6,
@@ -549,7 +554,8 @@
         "expl": "La complexité doit être cachée par défaut selon le profil (Progressive Disclosure). Une patiente ne voit qu'une vulgarisation rassurante, un médecin voit la donnée brute."
       }
     ],
-    "icon": "settings"
+    "icon": "settings",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Navigation Latérale</div><div class=\"flex gap-1.5\"><div class=\"w-1/3 bg-slate-50 border border-slate-200 rounded p-1 flex flex-col gap-1 text-[7px]\"><span class=\"font-bold text-slate-400\">1. ID</span><span class=\"font-black text-slate-800 bg-white rounded px-1\">2. Imagerie</span><span class=\"text-slate-400\">3. Bio</span></div><div class=\"w-2/3 bg-slate-100 rounded opacity-30\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">Sommaire cliquable fixe à gauche</div></div></div>"
   },
   {
     "id": 7,
@@ -641,7 +647,8 @@
         "expl": "Retirer les fenêtres 'Êtes-vous sûr' qui deviennent invisibles par habitude. Rendre l'action fluide, mais offrir une fenêtre de 5 secondes pour 'Annuler' (Undo) l'erreur."
       }
     ],
-    "icon": "refresh-cw"
+    "icon": "refresh-cw",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Masque Saisie</div><div class=\"flex flex-col gap-1.5\"><div class=\"border border-slate-300 ring-2 ring-indigo-100 rounded p-1.5 text-[9px] font-mono text-slate-800 tracking-widest bg-white\">06 <span class=\"text-slate-300\">_ _ _ _ _ _ _</span></div><div class=\"text-[7px] text-indigo-600 font-bold text-center\">Seuls les chiffres sont acceptés</div></div></div>"
   },
   {
     "id": 8,
@@ -733,7 +740,8 @@
         "expl": "Le 'Zebra Striping' (alternance de fond blanc / gris très clair) crée un rail visuel doux qui sécurise le suivi horizontal sans alourdir le design avec des bordures noires épaisses."
       }
     ],
-    "icon": "glasses"
+    "icon": "glasses",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Validation Inline</div><div class=\"flex flex-col gap-1.5\"><div class=\"border border-red-300 bg-red-50 rounded p-1.5 text-[8px] text-slate-800 flex justify-between items-center\"><span>Champ obligatoire</span><span class=\"text-red-600 font-bold\">✖</span></div><div class=\"text-[7px] text-red-700 font-bold text-center\">Erreur visible immédiatement</div></div></div>"
   },
   {
     "id": 9,
@@ -825,7 +833,8 @@
         "expl": "Un journal d'Audit Trail inaltérable assure la traçabilité complète des données de santé, indispensable à la sécurité juridique et clinique du service."
       }
     ],
-    "icon": "shield"
+    "icon": "shield",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Détection Doublon</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-amber-50 border border-amber-200 rounded p-1.5\"><div class=\"text-[8px] font-bold text-amber-800 flex items-center gap-1\"><i data-lucide=\"alert-triangle\" class=\"w-2.5 h-2.5\"></i>Doublon suspecté</div><div class=\"text-[7px] text-slate-600 mt-0.5\">MARTIN (née DUPONT) Jeanne</div></div><div class=\"flex gap-1 text-[7px] font-bold\"><button class=\"flex-1 bg-amber-600 text-white p-1 rounded\">Fusionner</button><button class=\"flex-1 bg-white border border-slate-200 p-1 rounded\">Consulter</button></div></div></div>"
   },
   {
     "id": 10,
@@ -917,7 +926,8 @@
         "expl": "Un formulaire effrayant cause de l'abandon. L'approche 'Wizard' découpe la montagne en étapes logiques thématiques. L'effort semble moindre, et la barre de progression motive à terminer."
       }
     ],
-    "icon": "map-pin"
+    "icon": "map-pin",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Interface Épurée</div><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-slate-200 bg-white rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-700\">Dossier #9941</span><span class=\"bg-slate-100 text-slate-500 px-1 py-0.5 rounded font-bold\">Clos</span></div><div class=\"flex justify-between items-center border border-indigo-200 bg-indigo-50 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-800\">Dossier #9942</span><span class=\"bg-indigo-600 text-white px-1 py-0.5 rounded font-bold\">À relire</span></div><div class=\"text-[7px] text-slate-500 text-center\">Monochrome, seule l&#39;action compte</div></div></div>"
   },
   {
     "id": 11,
@@ -1009,7 +1019,8 @@
         "expl": "La commande textuelle en langage naturel permet au clinicien de s'adresser au logiciel comme à un collègue, éliminant les formulaires de filtres complexes."
       }
     ],
-    "icon": "bot"
+    "icon": "bot",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Vocabulaire Visuel</div><div class=\"flex flex-wrap gap-1\"><span class=\"bg-amber-50 text-amber-800 border border-amber-100 text-[7px] px-1.5 py-0.5 rounded font-bold flex items-center gap-0.5\"><i data-lucide=\"clock\" class=\"w-2 h-2\"></i>En attente</span><span class=\"bg-emerald-50 text-emerald-700 border border-emerald-100 text-[7px] px-1.5 py-0.5 rounded font-bold flex items-center gap-0.5\"><i data-lucide=\"check\" class=\"w-2 h-2\"></i>Transmis</span><span class=\"bg-rose-50 text-rose-800 border border-rose-100 text-[7px] px-1.5 py-0.5 rounded font-bold flex items-center gap-0.5\"><i data-lucide=\"x\" class=\"w-2 h-2\"></i>Bloqué</span></div><div class=\"text-[7px] text-slate-500 text-center\">Reconnaissance en 100ms par icône</div></div></div>"
   },
   {
     "id": 12,
@@ -1101,7 +1112,8 @@
         "expl": "La modal d'édition d'un objet permet de concentrer l'attention sur la tâche de saisie sans casser la continuité du flux de travail."
       }
     ],
-    "icon": "sidebar"
+    "icon": "sidebar",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Messages Clairs</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-red-50 border border-red-200 rounded-lg p-1.5 flex items-center gap-1.5\"><i data-lucide=\"alert-circle\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"text-[8px] font-bold text-red-700\">IPP obligatoire pour continuer</span></div><div class=\"text-[7px] text-slate-500 text-center\">Court, métier, orienté action</div></div></div>"
   },
   {
     "id": 13,
@@ -1193,6 +1205,7 @@
         "expl": "La duplication directe (clonage) permet d'utiliser le travail déjà effectué sur un objet comme modèle dynamique immédiat, supprimant l'effort de ressaisie."
       }
     ],
-    "icon": "copy"
+    "icon": "copy",
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Aide Contextuelle</div><div class=\"flex flex-col gap-1.5\"><div class=\"text-[8px] text-slate-700 leading-relaxed\">Examen <span class=\"border-b border-dashed border-indigo-500 font-bold text-indigo-700 cursor-help\">TRD<span class=\"hidden\">: Toucher Rectal Digital</span></span> requis.</div><div class=\"flex items-center gap-1 border border-slate-200 rounded p-1.5 text-[7px]\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-indigo-500\"></i><span class=\"text-slate-500 italic\">Survolez pour voir la définition</span></div></div></div>"
   }
 ]

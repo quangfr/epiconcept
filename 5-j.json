@@ -89,7 +89,8 @@
         ],
         "expl": "Un pilote limité avec mesure avant-après permet de quantifier l&#39;impact réel avant généralisation."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">POC</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-blue-50 border border-blue-200 rounded-lg p-2 text-center\"><div class=\"text-[9px] font-black text-blue-800 uppercase\">Proof of Concept</div><div class=\"text-[7px] text-blue-600\">Valider la faisabilité technique</div></div><div class=\"flex items-center gap-1 justify-center text-[7px] text-slate-500\"><i data-lucide=\"flask\" class=\"w-2.5 h-2.5\"></i><span>Test rapide avant engagement</span></div></div></div>"
   },
   {
     "id": 2,
@@ -181,7 +182,8 @@
         ],
         "expl": "Une session de test live avec des utilisateurs cibles permet de valider l’utilité et la compréhension de l’outil en temps réel."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Bêta Testeur</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Panel de testeurs</span></div><div class=\"text-[7px] text-slate-500 text-center\">Groupe restreint d&#39;utilisateurs</div></div></div>"
   },
   {
     "id": 3,
@@ -273,7 +275,8 @@
         ],
         "expl": "La simulation manuelle (Wizard of Oz) permet de tester le concept sans développer la technologie."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Mesurer Intérêt</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-center gap-2 text-[8px]\"><div class=\"bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-center\"><div class=\"font-bold text-emerald-800\">78%</div><div class=\"text-[7px] text-emerald-600\">Intéressés</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center\"><div class=\"font-bold text-slate-600\">22%</div><div class=\"text-[7px] text-slate-400\">Réticents</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Sonder avant de construire</div></div></div>"
   },
   {
     "id": 4,
@@ -365,7 +368,8 @@
         ],
         "expl": "L’entretien libre permet d’explorer en profondeur les raisons d’un comportement sans présupposés."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Feedback</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"message-square\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Collecte d&#39;avis</span></div><div class=\"flex gap-1 text-[7px]\"><div class=\"bg-slate-100 p-1 rounded flex-1 text-center\">NPS</div><div class=\"bg-slate-100 p-1 rounded flex-1 text-center\">Satisfaction</div></div></div></div>"
   },
   {
     "id": 5,
@@ -457,7 +461,8 @@
         ],
         "expl": "Le storyboard filmé permet de simuler le parcours utilisateur complet avant tout développement."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Co-conception</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-purple-50 border border-purple-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"edit\" class=\"w-2.5 h-2.5 text-purple-600\"></i><span class=\"font-bold text-purple-800\">Atelier collaboratif</span></div><div class=\"text-[7px] text-slate-500 text-center\">Métier + équipe conçoivent ensemble</div></div></div>"
   },
   {
     "id": 6,
@@ -549,7 +554,8 @@
         ],
         "expl": "Un pilote avec traitement manuel des premiers cas valide la demande avant d’automatiser."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Pilote Minimal</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"play\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">1 centre pilote</span></div><div class=\"text-[7px] text-slate-500 text-center\">Échelle minimale pour apprendre</div></div></div>"
   },
   {
     "id": 7,
@@ -641,7 +647,8 @@
         ],
         "expl": "Un test en bac à sable avec de vraies données valide l’intégration technique avant l’achat en série."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Faisabilité Tierce</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"shield\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Évaluation partenaire</span></div><div class=\"text-[7px] text-slate-500 text-center\">Vérifier la maturité technique</div></div></div>"
   },
   {
     "id": 8,
@@ -733,7 +740,8 @@
         ],
         "expl": "Le test corridor (5 minutes avec un collègue) révèle rapidement les problèmes d’ergonomie majeurs."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Test Filmé</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-rose-50 border border-rose-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"video\" class=\"w-2.5 h-2.5 text-rose-600\"></i><span class=\"font-bold text-rose-800\">Session utilisateur filmée</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer les comportements réels</div></div></div>"
   },
   {
     "id": 9,
@@ -825,6 +833,7 @@
         ],
         "expl": "Quand la validation est claire, la décision doit être rapide pour capitaliser sur l’élan."
       }
-    ]
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Pivoter</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[8px] font-bold\"><div class=\"flex-1 bg-slate-100 text-slate-500 p-1.5 rounded text-center line-through\">Plan A</div><i data-lucide=\"arrow-right\" class=\"w-3 h-3 text-amber-500 self-center\"></i><div class=\"flex-1 bg-amber-50 border border-amber-200 text-amber-800 p-1.5 rounded text-center\">Plan B</div></div><div class=\"text-[7px] text-slate-500 text-center\">Changer de cap si nécessaire</div></div></div>"
   }
 ]
