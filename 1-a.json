@@ -31,7 +31,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le bouton zoom n'est qu'un outil. Poser cette question révèle que le but ultime est de garantir la détection précoce des micro-calcifications. Cela réoriente le débat sur le calibrage des écrans plutôt que l'ajout d'une fonction logicielle inutile."
+        "expl": "Poser cette question permet de dissocier l'outil demandé de l'intention réelle de l'utilisateur pour identifier une meilleure solution globale."
       },
       {
         "text": "La DSI exige un export CSV complexe quotidien de tous les logs de connexion des médecins. Face à la lourdeur de la demande, vous devez évaluer la criticité du besoin en les interrogeant sur ce qui se passerait concrètement si vous refusiez ce développement.",
@@ -59,7 +59,7 @@
             "icon": "x"
           }
         ],
-        "expl": "En demandant l'impact direct d'un refus sur leur métier, la DSI admet que sans cet export, ils ne peuvent pas réaliser l'audit de sécurité obligatoire exigé par la certification. Cela valide l'obligation légale et ouvre la voie à un outil d'audit intégré plus adapté."
+        "expl": "Mesurer les conséquences concrètes d'un refus permet d'évaluer la criticité du besoin et de séparer le confort de l'obligation métier."
       },
       {
         "text": "Une secrétaire gérant 200 dossiers par jour demande de faire clignoter en rouge vif le fond des fiches en attente. Pour dépasser ce choix d'interface anxiogène, vous lui demandez de décrire le dysfonctionnement quotidien précis qu'elle espère éradiquer avec ce visuel.",
@@ -87,7 +87,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Cette question permet à l'utilisatrice d'exprimer que son vrai problème est la peur d'oublier des dossiers urgents dans la masse. Le clignotement rouge n'est qu'un pansement ; la vraie solution est un tri automatique par degré de priorité."
+        "expl": "Interroger sur le dysfonctionnement quotidien évite de concevoir des pansements visuels et permet de soigner la cause racine de la friction."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Analyse de la Demande</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center shrink-0\"><i data-lucide=\"message-circle\" class=\"w-3 h-3 text-blue-700\"></i></div><div class=\"text-[9px] font-bold text-slate-800\">Ajouter un zoom 12x</div></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-3 h-3 text-slate-300\"></i></div><div class=\"flex items-center gap-2 bg-indigo-50 border border-indigo-200 rounded-lg p-2\"><div class=\"w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center shrink-0\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-indigo-700\"></i></div><div class=\"text-[9px] text-indigo-700 font-bold\">Pourquoi ce besoin ?</div></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-3 h-3 text-slate-300\"></i></div><div class=\"flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-lg p-2\"><div class=\"w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0\"><i data-lucide=\"target\" class=\"w-3 h-3 text-emerald-700\"></i></div><div class=\"text-[9px] text-emerald-800 font-bold\">Détecter les micro-calcifications</div></div></div></div>"
@@ -124,7 +124,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'utilisateur attribue une note d'impact de 9/10, expliquant qu'il perd 45 minutes par jour à attendre devant l'écran, ce qui retarde la sortie des patients. La productivité est lourdement impactée, justifiant une action immédiate."
+        "expl": "Obtenir une note d'impact chiffrée par l'utilisateur permet de mesurer le frein sur son rythme de travail et de justifier ou non un arbitrage."
       },
       {
         "text": "Un médecin signale que le nom de jeune fille disparaît parfois de l'affichage. Le ticket est marqué 'BLOQUANT'. Vous devez catégoriser le danger de ce bug pour le centre afin de valider cette urgence.",
@@ -152,7 +152,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Cette question permet d'identifier le risque majeur : une erreur fatale d'identification du patient (risque médical et juridique extrême). Le qualificatif 'Bloquant' est ici pleinement légitimé par la gravité de l'impact."
+        "expl": "Catégoriser le danger (médical, réglementaire, de productivité ou d'adoption) permet de légitimer le degré d'urgence de la demande."
       },
       {
         "text": "Un client majeur affirme que l'absence de SMS de rappel de rendez-vous est 'inacceptable' car l'absentéisme est catastrophique. Avant de financer ce module, vous voulez évaluer l'évolution du préjudice financier et organisationnel si rien ne changeait dans les prochains mois.",
@@ -180,7 +180,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Se projeter dans le temps permet de chiffrer la perte financière cumulée sur un an (estimée à 15 000 €). Cette quantification du statu quo à long terme démontre la rentabilité immédiate du développement du module SMS."
+        "expl": "Projeter le préjudice dans le temps permet de chiffrer l'impact financier ou organisationnel cumulé et de valider la rentabilité du développement."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Impact métrique</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-between bg-slate-50 rounded-lg p-2 border border-slate-200\"><span class=\"text-[8px] font-bold text-slate-500 uppercase\">Fréquence</span><span class=\"text-xs font-black text-slate-800\">~120x/jour</span></div><div class=\"flex items-center justify-between bg-slate-50 rounded-lg p-2 border border-slate-200\"><span class=\"text-[8px] font-bold text-slate-500 uppercase\">Temps perdu</span><span class=\"text-xs font-black text-amber-600\">45 min/jour</span></div><div class=\"flex items-center justify-between bg-red-50 rounded-lg p-2 border border-red-200\"><span class=\"text-[8px] font-bold text-slate-500 uppercase\">Coût / an</span><span class=\"text-xs font-black text-red-600\">18 250 €</span></div><div class=\"bg-blue-50 border border-blue-200 rounded-lg p-2 text-center\"><span class=\"text-[8px] font-bold text-blue-700\">Coût du statu quo vs solution</span></div></div></div>"
@@ -217,7 +217,7 @@
             "icon": "x"
           }
         ],
-        "expl": "En observant le moment précis de la frustration, vous découvrez qu'elle clique frénétiquement à double reprise sur le bouton de validation, ce qui vide accidentellement les champs saisis en relançant la soumission."
+        "expl": "Observer en direct l'instant exact du blocage révèle les comportements utilisateurs réels et les anomalies invisibles pour les logs."
       },
       {
         "text": "Un médecin trouve le parcours de validation 'inutilement long' et réclame une refonte ergonomique majeure. Vous souhaitez analyser sa navigation en direct, dans ses conditions habituelles de stress, sans le guider.",
@@ -245,7 +245,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'observation passive révèle que le médecin perd 80% de son temps à scroller pour chercher des boutons d'actions excentrés. Cela valide un besoin de raccourcis ou de boutons ancrés, plutôt qu'une refonte complète."
+        "expl": "L'observation passive dans les conditions habituelles révèle les manipulations répétitives, les allers-retours fatigants et les contournements physiques."
       },
       {
         "text": "La secrétaire affirme que le logiciel 'se fige' systématiquement à l'enregistrement du dossier. Pour isoler la cause technique invisible pour le support, vous lui demandez de situer l'instant exact où le système ne répond plus à ses actions.",
@@ -273,7 +273,7 @@
             "icon": "x"
           }
         ],
-        "expl": "La secrétaire indique qu'elle perd le contrôle juste après le clic de signature électronique. Cela permet de pointer le lecteur de cartes SESAM-Vitale local comme coupable du freeze, et non l'application elle-même."
+        "expl": "Identifier le moment précis du manque de retour d'information du système permet de cibler le composant technique ou l'appareil externe défaillant."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Observation Utilisateur</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-2 text-[9px]\"><span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span><span class=\"text-slate-600\">Double-clic sur le dossier</span></div><div class=\"flex items-center gap-2 text-[9px]\"><span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span><span class=\"text-slate-600\">Attente 8 secondes</span></div><div class=\"flex items-center gap-2 text-[9px]\"><span class=\"w-4 h-4 rounded-full bg-red-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span><span class=\"text-red-700 font-bold\">Rage-click ×3</span></div><div class=\"flex items-center gap-2 text-[9px]\"><span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">4</span><span class=\"text-slate-600\">Abandonne et recommence</span></div><div class=\"mt-1 bg-amber-50 border border-amber-200 rounded-lg px-2 py-1 text-center text-[7px] font-bold text-amber-700\">3 frictions invisibles identifiées</div></div></div>"
@@ -310,7 +310,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'utilisateur explique qu'il exporte la liste complète et effectue un tri manuel laborieux dans Excel. En creusant son contournement, vous réalisez que la fonction de filtre avancé existe déjà dans le logiciel mais qu'il ignorait son existence."
+        "expl": "Étudier la méthode de secours actuelle de l'utilisateur permet de découvrir si une fonctionnalité existante mais méconnue répond déjà au besoin."
       },
       {
         "text": "Un client réclame un développement lourd pour imprimer un code-barres spécifique pour un laboratoire partenaire. Vous cherchez s'il a trouvé une astuce interne pour imprimer ses étiquettes sans modification du code source.",
@@ -338,7 +338,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le client révèle qu'un de ses confrères utilise une police système de code-barres gratuite installée sur l'ordinateur. Cette astuce de paramétrage matériel résout le problème en 5 minutes sans écrire la moindre ligne de code."
+        "expl": "Rechercher des solutions officieuses révèle comment le besoin est déjà partiellement traité et comment l'interface peut le simplifier."
       },
       {
         "text": "Le responsable qualité réclame un outil de reporting sur mesure pour extraire la liste des fiches non conformes. Avant de lancer l'équipe sur ce développement, vous vérifiez si notre guide utilisateur détaille déjà la marche à suivre.",
@@ -366,7 +366,7 @@
             "icon": "x"
           }
         ],
-        "expl": "La documentation décrit précisément comment générer cet export via les 'Filtres Dynamiques d'Audit'. Il s'agit d'un besoin d'accompagnement et de formation du client sur l'existant documenté, pas d'une demande de code."
+        "expl": "S'assurer que la réponse au problème ne réside pas dans une documentation ou un guide de formation évite les développements doublons."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Recherche Solution Existante</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"search\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[9px] text-slate-400 italic\">Filtre par code postal...</span></div><div class=\"bg-emerald-50 border border-emerald-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-600 shrink-0\"></i><span class=\"text-[9px] font-bold text-emerald-800\">Filtre existant (v3.2) : <br/><span class=\"font-normal\">Paramétrage CP × 5 min</span></span></div><div class=\"text-center text-[8px] text-slate-400 bg-slate-50 rounded p-1.5\">Aucun développement nécessaire</div></div></div>"
@@ -403,7 +403,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Les archives révèlent qu'un projet similaire a été rejeté l'an dernier car l'IA générait trop de faux positifs, stressant inutilement les patientes. Connaître ce refus évite de répéter la même erreur coûteuse."
+        "expl": "Rechercher des précédents évite de répéter des erreurs passées et permet de comprendre les contraintes qui avaient motivé les anciens arbitrages."
       },
       {
         "text": "Un nouveau client veut supprimer le système de double validation pour l'envoi des comptes-rendus. Avant de supprimer cette sécurité, vous interrogez l'équipe historique pour comprendre les raisons initiales de son implémentation.",
@@ -431,7 +431,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'historique montre que ce verrou a été mis en place suite à un incident grave de transmission d'un mauvais diagnostic. Connaître les freins du passé permet de justifier la conservation de cette sécurité auprès du nouveau client."
+        "expl": "Analyser pourquoi les tentatives antérieures ont échoué met en lumière les contraintes techniques latentes ou les rejets de conduite du changement."
       },
       {
         "text": "L'équipe technique propose d'adopter une nouvelle base de stockage pour les clichés lourds. Emballé, vous fouillez les backlogs Jira pour voir si une étude ou un ticket d'architecture similaire est déjà en attente d'arbitrage.",
@@ -459,7 +459,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Vous découvrez un ticket ouvert il y a 6 mois décrivant exactement les spécifications de cette migration de base. L'historique évite de repartir de zéro et permet de réactiver un travail d'analyse déjà qualifié."
+        "expl": "Vérifier l'état d'avancement des demandes similaires en cours évite la dispersion des développements et favorise la mutualisation."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"flex justify-between items-center mb-2\"><span class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider\">Historique</span><span class=\"text-[7px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded font-bold\">3 tentatives</span></div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-2 p-1.5 bg-red-50 border border-red-200 rounded\"><i data-lucide=\"x-circle\" class=\"w-3 h-3 text-red-500 shrink-0\"></i><span class=\"text-[8px] text-red-700 font-bold\">IA nodules rejetée (coût)</span></div><div class=\"flex items-center gap-2 p-1.5 bg-amber-50 border border-amber-200 rounded\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-amber-500 shrink-0\"></i><span class=\"text-[8px] text-amber-700 font-bold\">Double validation abandonnée</span></div><div class=\"flex items-center gap-2 p-1.5 bg-red-50 border border-red-200 rounded\"><i data-lucide=\"x-circle\" class=\"w-3 h-3 text-red-500 shrink-0\"></i><span class=\"text-[8px] text-red-700 font-bold\">Migration stockage échouée</span></div><div class=\"text-center text-[8px] text-slate-400 bg-slate-50 rounded p-1 mt-1\">Le passé éclaire la décision</div></div></div>"
@@ -496,7 +496,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le client admet que ce besoin est ultra-spécifique à leur étude épidémiologique locale. Vous décidez donc de ne pas ajouter ce champ dans l'application standard pour tous, mais de leur paramétrer un champ personnalisé libre."
+        "expl": "Évaluer si la demande répond à une habitude personnelle ou à un standard de profession permet de ne pas surcharger l'outil pour tous."
       },
       {
         "text": "Un CHU exige une intégration directe avec leur logiciel de recherche unique au monde. Pour évaluer la pertinence de cette passerelle, vous leur demandez comment les autres hôpitaux équipés du même outil partagent leurs données.",
@@ -524,7 +524,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le CHU reconnaît que les autres centres travaillent via des exports standardisés. Demander ce comparatif confrères vous permet de leur proposer un export pivot standardisé plutôt qu'une passerelle sur mesure coûteuse et non maintenable."
+        "expl": "Étudier les pratiques d'autres établissements permet d'identifier des processus standards et d'aligner le produit sur l'usage le plus répandu."
       },
       {
         "text": "Une secrétaire demande d'imprimer les courriers de convocation au format A5 pour économiser le papier, affirmant que c'est l'avenir du dépistage. Avant de modifier le moteur d'édition globale, vous interrogez vos statistiques de support pour voir si cette demande est largement partagée.",
@@ -552,7 +552,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'analyse des retours montre que moins de 0.5% des centres souhaitent du A5, la majorité étant équipée uniquement d'imprimantes A4. La demande est trop marginale pour justifier une modification structurelle du produit."
+        "expl": "S'appuyer sur la voix du plus grand nombre permet de prioriser les développements qui génèrent le plus de valeur collective."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Analyse de Généralisation</div><div class=\"flex flex-col gap-2\"><div class=\"bg-blue-50 border border-blue-200 rounded-lg p-2\"><div class=\"text-[7px] font-black uppercase text-blue-700 mb-1\">Spécifique Client</div><div class=\"text-[8px] text-slate-600\">Micro-région Corse — besoin isolé (1 seul client)</div></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-3 h-3 text-slate-300\"></i></div><div class=\"bg-emerald-50 border border-emerald-200 rounded-lg p-2\"><div class=\"text-[7px] font-black uppercase text-emerald-700 mb-1\">Généralisable</div><div class=\"text-[8px] text-emerald-800 font-bold\">Mutualisable pour 4 autres clients</div></div><div class=\"text-center text-[8px] text-slate-500 mt-1\">ROI × 5 si conception générique</div></div></div>"
@@ -589,7 +589,7 @@
             "icon": "x"
           }
         ],
-        "expl": "En comparant activement les deux options, l'utilisateur réalise que le popup A couperait sa saisie en cours et provoquerait des erreurs. Il valide l'option B, beaucoup plus fluide au quotidien."
+        "expl": "Proposer deux approches concrètes à l'utilisateur permet de recueillir des retours factuels sur l'ergonomie et la faisabilité."
       },
       {
         "text": "L'équipe hésite pour sécuriser la connexion entre intégrer un lecteur de cartes physiques CPS (très lourd à coder), forcer un mot de passe fort (simple) ou installer de la biométrie (complexe). Vous devez faire arbitrer la solution la plus rentable.",
@@ -617,7 +617,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'arbitrage démontre que l'option du mot de passe renforcé combiné à un code OTP par email offre 90% de la sécurité pour 10% de l'effort technique. Cette comparaison pragmatique préserve la roadmap."
+        "expl": "Rechercher l'approche qui apporte le maximum d'impact pour un coût technique minimal sécurise les délais de livraison."
       },
       {
         "text": "Le client réclame un chat interne. Certains veulent un outil de messagerie complet type Slack, d'autres une simple zone de commentaires partagée sur la fiche. Vous réunissez un panel d'utilisateurs pour évaluer l'ergonomie de ces deux flux.",
@@ -645,7 +645,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Les secrétaires déclarent à l'unanimité que la zone de commentaires contextuelle sur la fiche patient est infiniment plus intuitive pour leur travail que de gérer un outil de chat externe. L'approche simple l'emporte."
+        "expl": "Faire choisir l'option qui minimise la charge cognitive quotidienne garantit une adoption maximale et réduit le support."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Comparatif Approches</div><div class=\"flex gap-2\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"text-[7px] font-black text-slate-500 uppercase mb-1\">Approche A</div><div class=\"text-[8px] font-bold text-slate-800\">Popup modale</div><div class=\"flex items-center gap-0.5 mt-1\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5 text-red-500\"></i><span class=\"text-[7px] text-red-600\">4j dev</span></div></div><div class=\"flex items-center\"><i data-lucide=\"arrow-right\" class=\"w-3 h-3 text-slate-300\"></i></div><div class=\"flex-1 bg-emerald-50 border border-emerald-200 rounded-lg p-2\"><div class=\"text-[7px] font-black text-emerald-700 uppercase mb-1\">Approche B</div><div class=\"text-[8px] font-bold text-emerald-800\">Notification silencieuse</div><div class=\"flex items-center gap-0.5 mt-1\"><i data-lucide=\"check\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"text-[7px] text-emerald-700\">1j dev</span></div></div></div><div class=\"text-center text-[7px] text-blue-700 font-bold mt-1\">B 4× plus efficiente</div></div></div>"
@@ -682,7 +682,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Poser cette question permet de concevoir un 'Générateur de filtres dynamiques multicritères' plutôt que de coder deux filtres statiques distincts. Vous résolvez deux besoins avec un seul outil puissant."
+        "expl": "Concevoir une résolution transverse permet de traiter plusieurs irritants à la fois en limitant le volume de code."
       },
       {
         "text": "La biologie réclame un outil pour téléverser ses résultats. La radiologie veut un stockage de clichés. Vous interrogez les utilisateurs sur la globalité de leur flux quotidien pour voir si ces imports partagent le même parcours de validation.",
@@ -710,7 +710,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'analyse montre que le flux de validation final est strictement identique. Vous concevez donc une 'Passerelle d'importation universelle' qui s'intègre parfaitement avec leurs tâches de relecture communes."
+        "expl": "Étudier le parcours complet de l'utilisateur évite d'optimiser une tâche isolée en complexifiant le reste de sa journée."
       },
       {
         "text": "La DSI demande un script pour supprimer automatiquement les comptes utilisateurs inactifs. La RH a besoin d'un registre d'accès pour le RGPD. Vous cherchez à élargir le périmètre de la demande pour créer une solution globale d'administration.",
@@ -738,7 +738,7 @@
             "icon": "x"
           }
         ],
-        "expl": "En élargissant le sujet, vous développez un module complet d'IAM (Identity & Access Management) qui gère à la fois les purges d'inactivité de la DSI et les exports de conformité de la RH, mutualisant l'effort de développement."
+        "expl": "Anticiper des besoins similaires permet de concevoir un composant générique et évolutif plutôt qu'une solution temporaire."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Impact Transverse</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 p-1.5 bg-red-50 border border-red-200 rounded\"><div class=\"w-1.5 h-1.5 rounded-full bg-red-500 shrink-0\"></div><span class=\"text-[8px] text-red-700\">Besoin A : Filtre âge</span></div><div class=\"flex items-center gap-2 p-1.5 bg-amber-50 border border-amber-200 rounded\"><div class=\"w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0\"></div><span class=\"text-[8px] text-amber-700\">Besoin B : Envoi email ciblé</span></div><div class=\"flex items-center gap-2 p-1.5 bg-blue-50 border border-blue-200 rounded\"><div class=\"w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0\"></div><span class=\"text-[8px] text-blue-700\">Besoin C : Rappels personnalisés</span></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-3 h-3 text-slate-300\"></i></div><div class=\"bg-emerald-50 border border-emerald-200 rounded-lg p-2 text-center\"><span class=\"text-[9px] font-black text-emerald-800\">Solution unique transverse</span><br/><span class=\"text-[7px] text-emerald-600\">Règle métier centralisée</span></div></div></div>"
@@ -775,7 +775,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le client accepte de repousser la refonte en comprenant qu'inclure sa demande dans la migration future garantira un outil plus moderne et évitera de jeter un code spécifique dans six mois."
+        "expl": "Décider si le besoin nécessite une correction immédiate ou s'il s'inscrit plus logiquement dans une refonte globale prévue."
       },
       {
         "text": "On vous réclame un patch pour faire fonctionner l'application hors-ligne sur les tablettes de dépistage mobile. Or, la roadmap prévoit une refonte complète de l'application mobile le trimestre prochain. Vous évaluez l'intérêt de ce patch.",
@@ -803,7 +803,7 @@
             "icon": "x"
           }
         ],
-        "expl": "La nouvelle application mobile intègre nativement un moteur de synchronisation hors-ligne performant, ce qui rend le patch temporaire obsolète. On choisit de concentrer l'effort sur la livraison de la nouvelle version."
+        "expl": "Vérifier si un chantier futur de la roadmap ne va pas naturellement éliminer le problème évite de développer une fonction jetable."
       },
       {
         "text": "Un groupe de centres réclame des exports PDF ultra-personnalisés. Votre roadmap planifie un moteur de templates universel pour l'an prochain. Vous étudiez comment leur demande concrète peut affiner les spécifications de ce futur moteur.",
@@ -831,7 +831,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Utiliser cette demande client comme cas d'usage réel permet de concevoir le moteur de templates avec la flexibilité exacte requise par le terrain. La demande client enrichit directement le projet de la roadmap."
+        "expl": "Utiliser les retours immédiats pour enrichir et affiner les choix de conception des futurs modules de la roadmap."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Roadmap Produit</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-2 text-[8px]\"><div class=\"w-2 h-2 rounded-full bg-emerald-500 shrink-0\"></div><span class=\"text-emerald-700 font-bold\">S1 : Refonte RDV (en cours)</span></div><div class=\"flex items-center gap-2 text-[8px]\"><div class=\"w-2 h-2 rounded-full bg-blue-500 shrink-0\"></div><span class=\"text-blue-700\">S2 : Module hors-ligne</span></div><div class=\"flex items-center gap-2 text-[8px]\"><div class=\"w-2 h-2 rounded-full bg-slate-300 shrink-0\"></div><span class=\"text-slate-400\">S3 : Export PDF (planifié)</span></div><div class=\"flex items-center gap-2 text-[8px] bg-amber-50 border border-amber-200 rounded p-1.5\"><i data-lucide=\"map-pin\" class=\"w-3 h-3 text-amber-600 shrink-0\"></i><span class=\"text-amber-800 font-bold\">Demande alignée avec S1</span></div><div class=\"bg-slate-50 rounded p-1.5 text-center text-[7px] text-slate-500\">Pas de nouveau développement</div></div></div>"
@@ -868,7 +868,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le calcul en direct sur 50 000 lignes ferait crasher la base de données. Poser la question de la performance réoriente la solution vers un calcul asynchrone affiché uniquement lors de l'ouverture d'un dossier unique."
+        "expl": "Analyser si l'évolution n'introduit pas des lenteurs serveurs ou une surcharge de maintenance critique pour l'équipe technique."
       },
       {
         "text": "Le client demande de pouvoir modifier librement le numéro de sécurité sociale d'un dossier déjà validé. Vous devez lui exposer l'impact structurel de cette action, le numéro servant de clé unique dans toute l'architecture de la base.",
@@ -896,7 +896,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Comprendre que changer cette clé unique briserait toutes les liaisons historiques avec les examens de biologie et d'imagerie fait réaliser au client la dangerosité technique de sa demande. On opte pour une procédure de correction sécurisée."
+        "expl": "Partager la complexité technique du développement avec le demandeur permet de négocier un périmètre plus réaliste et simplifié."
       },
       {
         "text": "Un grand centre exige qu'ESIS-3D soit compatible avec Internet Explorer 11 pour éviter de mettre à jour son parc informatique. Vous devez analyser si supporter ce navigateur obsolète ne va pas briser les composants modernes pour tous les autres utilisateurs.",
@@ -924,7 +924,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'analyse montre que coder pour IE11 imposerait de désactiver des protocoles de sécurité modernes, créant de graves failles de sécurité et des bugs d'affichage majeurs sur Chrome et Firefox. Le risque d'erreur globale est trop grand, la demande est refusée."
+        "expl": "Analyser si le nouveau comportement ne risque pas de déstabiliser des flux existants ou de générer de nouveaux cas limites."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Analyse de Complexité</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2\"><div class=\"flex items-center gap-1\"><i data-lucide=\"alert-triangle\" class=\"w-3 h-3 text-amber-600\"></i><span class=\"text-[7px] font-black text-amber-800 uppercase\">Risques identifiés</span></div><ul class=\"mt-1 text-[8px] text-slate-600 space-y-0.5\"><li>• Score temps réel : impact perf base</li><li>• Modification N° SS : 3 modules impactés</li><li>• Compatibilité IE11 : EOL imminente</li></ul></div><div class=\"bg-red-50 border border-red-200 rounded-lg p-2 text-center\"><span class=\"text-[9px] font-black text-red-700\">Dette technique : ÉLEVÉE</span></div></div></div>"
@@ -961,7 +961,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le client préfère avoir immédiatement un bouton 'Générer le PDF de publipostage' pour imprimer lui-même le lendemain, plutôt que d'attendre 4 mois pour l'envoi 100% automatique. La marge temporelle is trouvée."
+        "expl": "Négocier la date de mise en service permet de choisir entre une livraison ultra-rapide simplifiée ou une version exhaustive plus tard."
       },
       {
         "text": "L'hôpital exige un module de facturation automatique complexe pour le 1er janvier. L'équipe est saturée. Vous leur proposez une version simplifiée où la saisie est assistée mais la télétransmission requiert une validation manuelle temporaire.",
@@ -989,7 +989,7 @@
             "icon": "x"
           }
         ],
-        "expl": "L'hôpital accepte la validation manuelle pour tenir l'échéance du 1er janvier. Cette marge opérationnelle évite le burnout de l'équipe de développement et assure une livraison à l'heure."
+        "expl": "Vérifier si un accompagnement humain ou un traitement manuel est accepté par le terrain pour éviter de coder un automatisme lourd."
       },
       {
         "text": "Le client réclame un système d'IA autonome qui valide automatiquement les dossiers sains sans aucune intervention humaine. Face au risque médical, vous l'invitez à isoler le noyau indispensable de sa demande.",
@@ -1017,7 +1017,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le client admet que la vraie valeur est de trier automatiquement les 95% de dossiers évidents pour libérer du temps médical. Il accepte que l'IA ne fasse que 50% du chemin et laisse la validation finale à l'humain pour la sécurité."
+        "expl": "Forcer l'utilisateur à désigner l'unique action indispensable permet de délimiter le périmètre de la V1 et d'éliminer les fonctions secondaires."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Négociation des Marges</div><div class=\"flex flex-col gap-2\"><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-2\"><span class=\"text-[8px] font-bold text-slate-600\">Délai</span><div class=\"flex gap-1\"><span class=\"px-1.5 py-0.5 bg-blue-100 text-blue-800 text-[7px] font-bold rounded\">+30j</span></div></div><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-2\"><span class=\"text-[8px] font-bold text-slate-600\">Périmètre</span><div class=\"flex gap-1\"><span class=\"px-1.5 py-0.5 bg-amber-100 text-amber-800 text-[7px] font-bold rounded\">Version allégée</span></div></div><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-2\"><span class=\"text-[8px] font-bold text-slate-600\">Budget</span><div class=\"flex gap-1\"><span class=\"px-1.5 py-0.5 bg-emerald-100 text-emerald-800 text-[7px] font-bold rounded\">Accepté</span></div></div><div class=\"text-center text-[8px] text-slate-500 bg-slate-50 rounded p-1.5\">3 variables à ajuster avec le client</div></div></div>"
@@ -1054,7 +1054,7 @@
             "icon": "x"
           }
         ],
-        "expl": "La solution minimale est d'intégrer un simple lien vers un formulaire de contact email standard existant. Zéro code écrit, besoin couvert en une heure, le temps de valider l'appétence réelle des utilisatrices."
+        "expl": "Privilégier la formation, le paramétrage existant ou une réorganisation humaine permet de régler le problème sans aucun développement."
       },
       {
         "text": "Un médecin exige un algorithme complexe basé sur 15 critères croisés pour détecter les doublons à la saisie. Vous cherchez à définir le seuil minimal de détection qui réglerait son angoisse immédiate d'erreur.",
@@ -1082,7 +1082,7 @@
             "icon": "x"
           }
         ],
-        "expl": "Le médecin valide qu'une simple alerte sur l'exactitude stricte 'Nom + Date de naissance' lui sauve déjà la journée en bloquant 99% des doublons accidentels. L'algorithme complexe à 15 critères est abandonné au profit de ce MVP."
+        "expl": "Définir le strict seuil d'utilité du logiciel pour livrer un outil minimaliste mais immédiatement fonctionnel et libérateur."
       },
       {
         "text": "La direction réclame un tableau de bord décisionnel en 3D composé de 25 indicateurs statistiques croisés. Vous leur proposez de livrer uniquement les 3 indicateurs de flux vitaux sous forme de tableau simple.",
@@ -1110,7 +1110,7 @@
             "icon": "x"
           }
         ],
-        "expl": "La direction convient que ces 3 indicateurs clés résolvent 80% de leur besoin de pilotage hebdomadaire. Vous évitez un développement d'interface lourd en livrant la valeur essentielle en un temps record."
+        "expl": "Valider si une implémentation simple et rapide couvre l'essentiel de l'irritant et permet de clore le sujet à moindre coût."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Solution Minimale (MVP)</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 opacity-50\"><div class=\"text-[7px] font-black text-slate-400 uppercase\">Périmètre total</div><div class=\"text-[8px] text-slate-400\">Portail patient + docs + chat + historisation</div><div class=\"text-[7px] text-slate-400 font-bold mt-0.5\">Estimation : 45j</div></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-3 h-3 text-emerald-500\"></i></div><div class=\"bg-emerald-50 border border-emerald-200 rounded-lg p-2 border-2 border-emerald-400\"><div class=\"text-[7px] font-black text-emerald-700 uppercase\">MVP</div><div class=\"text-[9px] font-bold text-emerald-800\">Portail patient simple</div><div class=\"flex items-center justify-between mt-1\"><span class=\"text-[7px] text-emerald-600\">Valeur immédiate</span><span class=\"text-[7px] bg-emerald-200 text-emerald-800 px-1.5 py-0.5 rounded font-bold\">5j</span></div></div></div></div>"

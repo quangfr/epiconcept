@@ -57,6 +57,18 @@
         /* Protection anti-clic dans les maquettes */
         .mockup-container { pointer-events: none; }
 
+        /* Wrappers visuels : pas de padding/marge pour maximiser la zone */
+        .visual-mockup, .visual-mockup .mockup-container { padding: 0; margin: 0; border: none; box-shadow: none; background: none; display: flex; justify-content: flex-start; }
+        .visual-mockup .mockup-container > * { border: none; box-shadow: none; background: none !important; background-color: transparent !important; }
+        .visual-mockup .mockup-container { min-width: 120px; }
+        .ui-btn { min-height: 160px; }
+        .ui-btn .visual-mockup,
+        .ui-btn > :last-child { min-height: 110px; }
+        .ui-btn .visual-mockup,
+        #debrief-ui-visual { width: 100%; max-width: 350px; }
+        .ui-btn .visual-mockup .mockup-container > :first-child,
+        #debrief-ui-visual > :first-child { transform: scale(2); transform-origin: left center; }
+
         /* Option désactivée dans le sélecteur de niveau */
         #header-level-selector option:disabled {
             color: #94a3b8 !important;
@@ -608,7 +620,7 @@
                 <div id="scenario-text" class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left">
                     Chargement du scénario...
                 </div>
-                <div id="scenario-visual" class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex justify-center items-center mockup-container mt-4 hidden"></div>
+                <div id="scenario-visual" class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex justify-start items-center mockup-container mt-4 hidden"></div>
             </div>
         </div>
 
@@ -669,7 +681,7 @@
                             <div class="bg-slate-50 border-2 border-emerald-400 rounded-lg p-4 shadow-sm flex flex-col gap-3 relative overflow-hidden h-full min-h-[200px]">
                                 <div class="absolute inset-0 bg-emerald-400/5 z-0"></div>
                                 <div class="font-black text-slate-800 text-sm uppercase tracking-tight relative z-10" id="debrief-ui-title">Titre Décision</div>
-                                <div class="w-full relative z-10 flex-grow flex items-center justify-center mockup-container" id="debrief-ui-visual">
+                                <div class="w-full relative z-10 flex-grow flex items-center justify-start mockup-container" id="debrief-ui-visual">
                                     <!-- HTML Inject -->
                                 </div>
                             </div>
@@ -1331,10 +1343,8 @@ function renderUIChoices(readOnly) {
                 <div class="font-black text-slate-800 text-sm sm:text-base uppercase tracking-tight leading-tight">${opt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</div>
                 <div class="text-[10px] sm:text-xs text-slate-500 font-semibold leading-normal pr-3">${opt.expl}</div>
             </div>
-            <div class="w-full sm:w-7/12 visual-mockup z-10 animate-fade-in" style="min-height:60px;">
-                <div class="mockup-container">
-                    ${opt.visual}
-                </div>
+            <div class="w-full sm:w-7/12 z-10 animate-fade-in flex items-center justify-start">
+                ${opt.visual}
             </div>
         `;
         
@@ -1370,28 +1380,50 @@ function showDebriefing(correctOpt) {
     
     document.getElementById('debrief-title').innerText = `${reflex.title}`;
     document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</span></div>`;
-    document.getElementById('debrief-ui-visual').innerHTML = correctOpt.visual;
+    document.getElementById('debrief-ui-visual').innerHTML = reflex.explVisual || correctOpt.visual;
     
     let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl || ''}</p>`;
-    compHtml += `
-        <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
-            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative :</div>
-            <div class="space-y-2">
-                <div class="text-xs text-slate-800 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
-                    <strong class="text-emerald-700 font-black">🟢 ${step.scenario.correct.title} (Recommandé) :</strong>
-                    <p class="mt-0.5 text-slate-600 font-medium">${step.scenario.correct.debriefExpl || step.scenario.correct.expl}</p>
-                </div>
-                <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
-                    <strong class="text-red-600 font-black">🔴 ${step.scenario.wrong[0].title} :</strong>
-                    <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[0].debriefExpl || step.scenario.wrong[0].expl}</p>
-                </div>
-                <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
-                    <strong class="text-red-600 font-black">🔴 ${step.scenario.wrong[1].title} :</strong>
-                    <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[1].debriefExpl || step.scenario.wrong[1].expl}</p>
+    if (CONFIG.key === 'tln') {
+        compHtml += `
+            <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
+                <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative :</div>
+                <div class="space-y-2">
+                    <div class="text-xs text-slate-800 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
+                        <strong class="text-emerald-700 font-black"><i data-lucide="check-circle" class="w-3.5 h-3.5 inline-block -mt-0.5"></i> ${step.scenario.correct.title} :</strong>
+                        <p class="mt-0.5 text-slate-600 font-medium">${step.scenario.correct.debriefExpl || step.scenario.correct.expl}</p>
+                    </div>
+                    <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                        <strong class="text-red-600 font-black"><i data-lucide="x-circle" class="w-3.5 h-3.5 inline-block -mt-0.5"></i> ${step.scenario.wrong[0].title} :</strong>
+                        <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[0].debriefExpl || step.scenario.wrong[0].expl}</p>
+                    </div>
+                    <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                        <strong class="text-red-600 font-black"><i data-lucide="x-circle" class="w-3.5 h-3.5 inline-block -mt-0.5"></i> ${step.scenario.wrong[1].title} :</strong>
+                        <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[1].debriefExpl || step.scenario.wrong[1].expl}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
+    } else {
+        compHtml += `
+            <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
+                <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative :</div>
+                <div class="space-y-2">
+                    <div class="text-xs text-slate-800 bg-emerald-50/50 border border-emerald-100 rounded-xl p-3">
+                        <strong class="text-emerald-700 font-black"><i data-lucide="check-circle" class="w-3.5 h-3.5 inline-block -mt-0.5"></i> ${step.scenario.correct.title} :</strong>
+                        <p class="mt-0.5 text-slate-600 font-medium">${step.scenario.correct.debriefExpl || step.scenario.correct.expl}</p>
+                    </div>
+                    <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                        <strong class="text-red-600 font-black"><i data-lucide="x-circle" class="w-3.5 h-3.5 inline-block -mt-0.5"></i> ${step.scenario.wrong[0].title} :</strong>
+                        <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[0].debriefExpl || step.scenario.wrong[0].expl}</p>
+                    </div>
+                    <div class="text-xs text-slate-800 bg-red-50/30 border border-red-100/60 rounded-xl p-3">
+                        <strong class="text-red-600 font-black"><i data-lucide="x-circle" class="w-3.5 h-3.5 inline-block -mt-0.5"></i> ${step.scenario.wrong[1].title} :</strong>
+                        <p class="mt-0.5 text-slate-500 font-medium">${step.scenario.wrong[1].debriefExpl || step.scenario.wrong[1].expl}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
     document.getElementById('debrief-text').innerHTML = compHtml;
     
     document.getElementById('ui-grid').classList.add('hidden');

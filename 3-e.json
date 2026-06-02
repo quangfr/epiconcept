@@ -767,7 +767,7 @@
             "icon": "refresh-cw"
           }
         ],
-        "expl": "Décommissionner une fonctionnalité peu utilisée libère instantanément de la charge mentale et de la maintenance technique récurrente."
+        "expl": "Identifier et retirer les fonctions redondantes ou sous-utilisées en proposant une alternative standard plus simple."
       },
       {
         "text": "Lors de l'introduction de la nouvelle interface de saisie d'examen, l'équipe technique propose de conserver l'ancienne interface fonctionnelle en parallèle 'au cas où' les secrétaires la préféreraient, forçant les développeurs à maintenir et corriger les bugs sur deux écrans différents.",
@@ -795,7 +795,7 @@
             "icon": "clock"
           }
         ],
-        "expl": "Stopper la double maintenance évite la fragmentation du produit et concentre toute la qualité sur la nouvelle version stable."
+        "expl": "Couper l'ancien écran dès que le nouveau est stabilisé pour forcer l'usage unique et éliminer la maintenance croisée."
       },
       {
         "text": "Pour supprimer un ancien champ d'adresse secondaire redondant dans la fiche patient, le PO envoie un document technique complexe de 10 pages à tous les directeurs de centres expliquant les modifications SQL internes sous-jacentes.",

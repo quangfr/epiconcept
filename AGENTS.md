@@ -15,7 +15,7 @@
 - **Réflexes** : Layout étiré (`align-items: stretch`), cartes `bg-slate-50`, badges sémantiques.
 
 ## 3. Workflow, Économie de Tokens & Structure
-- **Structure** : `index.html` centralise le Hub et le chargement des référentiels via `showRef(id)`. Chaque fichier `{X}-{y}.json` contient les questions, scénarios et visuels HTML. `exo.html` est le template unique d'exercice.
+- **Structure** : `index.html` centralise le Hub et le chargement des référentiels via `showRef(id)`. Chaque fichier `{X}-{y}.json` contient les scénarios et visuels HTML. `exo.html` est le template unique d'exercice.
 - **Économie de Tokens** :
   - **Ne pas lire de gros fichiers JSON** en entier ! Préférer des scripts Node de recherche ciblés (`fix-*.js`) ou `grep` pour inspecter des fragments.
   - Utiliser `edit` sur des blocs ultra-ciblés de lignes au lieu de lire ou réécrire de larges portions d'un fichier.
@@ -25,29 +25,28 @@
 - **Scripts** : Utiliser des scripts Node temporaires `fix-*.js` pour les modifications de masse (les supprimer immédiatement après exécution).
 
 ## 4. Template Ateliers (Cycle 3 Phases)
-- **Layout Grid** (`h-[calc(100vh-70px)]`) : Gauche (1/3) = `#scenario-card` + `#phase2-question-container` (auto). Droite (2/3) = `#options-container` (Phase 1: `#reflex-grid`, Phase 2: `#questions-wrapper`/`#ui-grid`, Phase 3: `#debriefing-card`).
+- **Layout Grid** (`h-[calc(100vh-70px)]`) : Gauche (1/3) = `#scenario-card` + `#phase2-question-container` (auto). Droite (2/3) = `#options-container` (Phase 1: `#reflex-grid`, Phase 2: `#ui-grid`, Phase 3: `#debriefing-card`).
 - **localStorage** : `{key}-progress-lv{level}-reflex{id}` et `{key}-score-lv{level}` où `key` ∈ `{po,ux,cso,evo,road,feat,gsup,ticketing,veille,tln,analytics,kpi}`.
 - **ATELIERS_CONFIG** dans `exo.html` : mapping `{X}-{y}` → `{key, title, badge, levelNames, levelDescriptions, ...}`. Score localStorage = `{CONFIG.key}-score-lv{level}`.
 
 ## 5. Structures JSON
 
-| Fichier | Top-level | `icon` | `questions` | `scenarios[]` | `explVisual` |
-|---------|-----------|--------|-------------|---------------|--------------|
-| **1-a (PO)** | `[]` | Non | `[{text}]` | `{text, problemVisual, correct, wrong, expl}` | Oui |
-| **1-b (UX)** | `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
-| **2-c (Support)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | Oui |
-| **2-d (Specs)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | Oui |
-| **3-e (Roadmap)** | `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | Non |
-| **3-f (Features)** | `[]` | Oui | Optionnel | `{text, problemVisual, correct, wrong}` | Non |
-| **4-g (Diag)** | `[]` | Non | `[{text}]` | `{text, problemVisual, correct, wrong, expl}` | Non |
-| **4-h (Assist)** | `[]` | Oui | `[string]` | `{text, problemVisual, correct, wrong, expl}` | Non |
-| **5-i (Veille)** | `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
-| **5-j (Test&Learn)**| `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
-| **6-k (Analytics)**| `[]` | Non | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
-| **6-l (KPIs)**    | `[]` | Oui | N/A | `{text, problemVisual, correct, wrong, expl}` | Non |
+| Fichier | Top-level | `icon` | `scenarios[]` | `explVisual` |
+|---------|-----------|--------|---------------|--------------|
+| **1-a (PO)** | `[]` | Non | `{text, problemVisual, correct, wrong, expl}` | Oui |
+| **1-b (UX)** | `[]` | Non | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **2-c (Support)** | `[]` | Oui | `{text, problemVisual, correct, wrong, expl}` | Oui |
+| **2-d (Specs)** | `[]` | Oui | `{text, problemVisual, correct, wrong, expl}` | Oui |
+| **3-e (Roadmap)** | `[]` | Oui | `{text, problemVisual, correct, wrong}` | Non |
+| **3-f (Features)** | `[]` | Oui | `{text, problemVisual, correct, wrong}` | Non |
+| **4-g (Diag)** | `[]` | Non | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **4-h (Assist)** | `[]` | Oui | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **5-i (Veille)** | `[]` | Non | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **5-j (Test&Learn)**| `[]` | Non | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **6-k (Analytics)**| `[]` | Non | `{text, problemVisual, correct, wrong, expl}` | Non |
+| **6-l (KPIs)**    | `[]` | Oui | `{text, problemVisual, correct, wrong, expl}` | Non |
 
-- Tous (sauf `1-a`) : 1 `correct` + 2 `wrong[]` par scénario, chaque `{title, visual, expl, debriefExpl, icon}`.
-- `1-a.json` : `questions` index = niveau (0,1,2). `correct` & `wrong` en `{title, visual, expl, debriefExpl, icon}`.
+- Tous : 1 `correct` + 2 `wrong[]` par scénario, chaque `{title, visual, expl, debriefExpl, icon}`.
 - Chaque scénario a son propre `expl` (principe générique, pas spécifique au scénario).
 
 ### 5.1 Règles métier des champs textuels
@@ -83,12 +82,12 @@
 
 ## 6. Références (showRef dans index.html)
 `showRef(reflexId)` charge **tous** les JSONs en une promesse, dispatch :
-- **A** (PO) : badge `"Réflexe PO"`, icône `"target"`. Questions = `q.text`. Visuels = scénarios.
-- **B** (UX) : badge `"Réflexe UX"`, icône `"mouse-pointer-click"`. Pas de questions.
-- **C** (Support) : badge `"Réflexe Support"`, icône `icon \|\| "headset"`. Questions = string.
-- **D** (Specs) : badge `"Réflexe Spécs"`, icône `icon \|\| "sparkles"`. Questions = string.
-- **E** (Roadmap) : badge `"Réflexe Roadmap"`, icône `icon \|\| "mountain"`. Questions = `sci.title : sci.expl`.
-- **F** (Features) : badge `"Réflexe Features"`, icône `icon \|\| "telescope"`. Questions = `sci.title : sci.expl`.
+- **A** (PO) : badge `"Réflexe PO"`, icône `"target"`. Visuels = scénarios.
+- **B** (UX) : badge `"Réflexe UX"`, icône `"mouse-pointer-click"`.
+- **C** (Support) : badge `"Réflexe Support"`, icône `icon \|\| "headset"`.
+- **D** (Specs) : badge `"Réflexe Spécs"`, icône `icon \|\| "sparkles"`.
+- **E** (Roadmap) : badge `"Réflexe Roadmap"`, icône `icon \|\| "mountain"`.
+- **F** (Features) : badge `"Réflexe Features"`, icône `icon \|\| "telescope"`.
 - **G** (Diag) : badge `"Réflexe G - Diagnostic & Résolution"`, icône `icon \|\| "headset"`.
 - **H** (Assist) : badge `"Réflexe H - Assistance & Connaissance"`, icône `icon \|\| "book-open"`.
 - **I** (Veille) : badge `"Réflexe Veille & Benchmark"`, icône `"search"`.
@@ -120,8 +119,6 @@
 ```js
 // Injection + Lucide
 el.innerHTML = html; lucide.createIcons();
-// Options Phase 2 (PO)
-const opts = reflex.questions.map((q, i) => ({ text: q.text || q, isCorrect: i === lv })).sort(() => Math.random() - 0.5);
 // updateCardStatusBadge(labelEl, x, y) — affiche "x / y" avec couleur (rouge=0, jaune, vert=100%)
 // Pour les slides badge, ajouter l'id à isLessonLabel[] pour vert sur les 2 dernières slides
 ```

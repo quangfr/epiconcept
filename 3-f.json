@@ -767,7 +767,7 @@
             "icon": "ban"
           }
         ],
-        "expl": "Estimer la simplicité technique permet d'isoler des fonctionnalités à très fort ROI opérationnel pour soulager les utilisateurs sans effort."
+        "expl": "Préférer une solution techniquement élémentaire et rapide à implémenter qui répond immédiatement au besoin soignant."
       },
       {
         "text": "Les secrétaires oublient régulièrement de joindre la notice explicative lors de l'envoi du kit de dépistage. Le PO veut développer un automate de détection optique de présence de feuille dans l'enveloppe, alors qu'un simple rappel de couleur vive lors de l'impression de l'étiquette pourrait suffire.",
@@ -795,7 +795,7 @@
             "icon": "smile"
           }
         ],
-        "expl": "Se concentrer sur l'impact immédiat permet de résoudre des problèmes critiques sans perturber le planning technique."
+        "expl": "Identifier les petits changements d'interface ou de process qui suppriment l'irritant utilisateur majeur avec un effort insignifiant."
       },
       {
         "text": "Pour la relance des patients, le PO souhaite coder un module complet de publipostage papier interne avec gestion des marges d'impression, alors que le système possède déjà un bouton d'export de liste Excel standard que le prestataire d'impression externe sait traiter directement.",
@@ -823,7 +823,7 @@
             "icon": "user-x"
           }
         ],
-        "expl": "Capitaliser sur l'existant permet d'offrir le service immédiatement en évitant des développements superflus."
+        "expl": "Réutiliser intelligemment les fonctionnalités ou fichiers d'échange existants pour répondre au besoin au lieu de réinventer la roue."
       }
     ]
   }
