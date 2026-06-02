@@ -25,7 +25,7 @@
       "name": "Cadrage Product",
       "objective": "Transformer le besoin en unités de développement actionnables",
       "items": [
-        { "cardId": "mvp-card", "icon": "rocket", "title": "2- Produit Minimum Viable", "infoTitle": "Voir les slides MVP", "statusId": "mvp-status-label", "maxSteps": 7, "description": "Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester et à livrer.", "action": "lesson", "actionParam": "2, 0" },
+        { "cardId": "mvp-card", "icon": "rocket", "title": "2- Produit Minimum Viable", "infoTitle": "Voir les slides MVP", "statusId": "mvp-status-label", "maxSteps": 7, "description": "Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester et à livrer.", "action": "lesson", "actionParam": "2, 1" },
         { "cardId": "cso-card", "icon": "headset", "title": "C - Support & Client", "infoTitle": "Voir les réflexes Support & Client", "statusId": "cso-status-label", "maxSteps": 27, "description": "Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.", "action": "lesson", "actionParam": "2, 5" },
         { "cardId": "evo-card", "icon": "sparkles", "title": "D - Évolutions & Specs", "infoTitle": "Voir les réflexes Évolutions & Specs", "statusId": "evo-status-label", "maxSteps": 30, "description": "Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.", "action": "lesson", "actionParam": "2, 6" }
       ]
@@ -35,7 +35,7 @@
       "name": "Vision Product",
       "objective": "Anticiper les évolutions et construire la trajectoire produit.",
       "items": [
-        { "cardId": "backlog-card", "icon": "layers", "title": "3 - Product Backlog", "infoTitle": "Voir les slides Product Backlog", "statusId": "road-slides-status-label", "maxSteps": 7, "description": "Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.", "action": "lesson", "actionParam": "3, 3" },
+        { "cardId": "backlog-card", "icon": "layers", "title": "3 - Product Backlog", "infoTitle": "Voir les slides Product Backlog", "statusId": "road-slides-status-label", "maxSteps": 7, "description": "Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.", "action": "lesson", "actionParam": "3, 4" },
         { "cardId": "roadmap-card", "icon": "mountain", "title": "E - Roadmap & Jalons", "infoTitle": "Voir les réflexes Roadmap & Jalons", "statusId": "road-status-label", "maxSteps": 36, "description": "Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.", "action": "lesson", "actionParam": "3, 6" },
         { "cardId": "features-card", "icon": "telescope", "title": "F - Features Discovery", "infoTitle": "Voir les réflexes Features Discovery", "statusId": "feat-status-label", "maxSteps": 27, "description": "Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.", "action": "lesson", "actionParam": "3, 7" }
       ]
