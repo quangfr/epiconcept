@@ -971,11 +971,7 @@ function updateHeaderLevelButtons() {
             const isCompleted = localStorage.getItem(`${CONFIG.key}-score-lv${lv}`) !== null && parseInt(localStorage.getItem(`${CONFIG.key}-score-lv${lv}`)) >= TOTAL_STEPS;
             const isUnlocked = isLevelUnlocked(lv);
             const roman = ["I", "II", "III"][lv];
-            if (isCompleted) {
-                opt.text = `Niveau ${roman} (Terminé)`;
-            } else {
-                opt.text = `Niveau ${roman}`;
-            }
+            opt.text = `Niveau ${roman}`;
         }
     }
 

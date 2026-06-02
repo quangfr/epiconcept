@@ -1922,7 +1922,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.02.06';
+        const APP_VERSION = '2026.06.02.07';
         let EPICO_CONFIG = null;
 
         async function loadEpicoConfig() {
@@ -2660,10 +2660,10 @@
             updateSlides();
         }
 
-        async function switchLessonFromDropdown(atelierId) {
+        async function switchLessonFromDropdown(atelierId, startSlide) {
             const id = parseInt(atelierId, 10);
             if (id >= 1 && id <= 6) {
-                await openLesson(id, 0);
+                await openLesson(id, startSlide !== undefined ? startSlide : 0);
             }
         }
 
@@ -2793,9 +2793,39 @@
         function changeSlide(dir) {
             const slides = document.querySelectorAll('.lesson-slide');
             if (slides.length === 0) return;
-            currentSlide += dir;
-            if (currentSlide < 0) currentSlide = 0;
-            if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+            const nextSlide = currentSlide + dir;
+
+            // Cross-atelier navigation at boundaries
+            if (dir === 1 && nextSlide >= slides.length) {
+                const nextId = currentAtelierId + 1;
+                if (nextId <= 6) {
+                    switchLessonFromDropdown(nextId, 0);
+                }
+                return;
+            }
+            if (dir === -1 && nextSlide < 0) {
+                const prevId = currentAtelierId - 1;
+                if (prevId >= 1) {
+                    // Temporarily open at slide 0, then jump to last slide after load
+                    switchLessonFromDropdown(prevId, 0).then(() => {
+                        const prevSlides = document.querySelectorAll('.lesson-slide');
+                        if (prevSlides.length > 0) {
+                            currentSlide = prevSlides.length - 1;
+                            let lsKey = 'design-thinking-last-slide';
+                            if (currentAtelierId === 2) lsKey = 'mvp-last-slide';
+                            else if (currentAtelierId === 3) lsKey = 'roadmap-last-slide';
+                            else if (currentAtelierId === 4) lsKey = 'gsup-last-slide';
+                            else if (currentAtelierId === 5) lsKey = 'veille-last-slide';
+                            else if (currentAtelierId === 6) lsKey = 'analytics-last-slide';
+                            localStorage.setItem(lsKey, currentSlide);
+                            updateSlides();
+                        }
+                    });
+                }
+                return;
+            }
+
+            currentSlide = nextSlide;
 
             // Save last viewed slide
             let lsKey = 'design-thinking-last-slide';
@@ -2842,11 +2872,11 @@
                 dotContainer.appendChild(pageLabel);
             }
 
-            // Toggle lesson edge hints
+            // Toggle lesson edge hints (always shown if cross-atelier nav possible)
             const leftEdge = document.getElementById('lesson-left-edge');
             const rightEdge = document.getElementById('lesson-right-edge');
-            if (leftEdge) leftEdge.style.display = (currentSlide > 0) ? '' : 'none';
-            if (rightEdge) rightEdge.style.display = (currentSlide < slides.length - 1) ? '' : 'none';
+            if (leftEdge) leftEdge.style.display = (currentSlide > 0 || currentAtelierId > 1) ? '' : 'none';
+            if (rightEdge) rightEdge.style.display = (currentSlide < slides.length - 1 || currentAtelierId < 6) ? '' : 'none';
 
             // Update progress badge on the card status dot
             if (slides.length > 0) {
