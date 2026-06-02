@@ -88,8 +88,56 @@
             }
         }
 
+        /* Edge hint cards (navigation flottante) */
+        .edge-hint {
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            width: 52px;
+            z-index: 100;
+            cursor: pointer;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .left-hint { left: 0; }
+        .right-hint { right: 0; }
+        .hint-card {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+        .left-hint .hint-card {
+            left: 0;
+            border-radius: 0 12px 12px 0;
+            transform: translateX(-30px);
+            opacity: 0.45;
+        }
+        .right-hint .hint-card {
+            right: 0;
+            border-radius: 12px 0 0 12px;
+            transform: translateX(30px);
+            opacity: 0.45;
+        }
+        .edge-hint:hover .hint-card {
+            opacity: 0.95;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+        }
+        .left-hint:hover .hint-card { transform: translateX(0); }
+        .right-hint:hover .hint-card { transform: translateX(0); }
+
         /* Responsive vertical scroll support on mobile */
         @media (max-width: 767px) {
+            .edge-hint { display: none !important; }
             body {
                 overflow: auto !important;
                 height: auto !important;
@@ -644,6 +692,17 @@
         </div>
     </div>
 </main>
+
+<div id="exo-left-edge" class="edge-hint left-hint" onclick="prevStepNav()">
+    <div class="hint-card">
+        <i data-lucide="chevron-left" style="width: 28px; height: 28px; color: #475569;"></i>
+    </div>
+</div>
+<div id="exo-right-edge" class="edge-hint right-hint" onclick="nextStepNav()">
+    <div class="hint-card">
+        <i data-lucide="chevron-right" style="width: 28px; height: 28px; color: #475569;"></i>
+    </div>
+</div>
 
 <script>
 const ATELIERS_CONFIG = {
@@ -1495,6 +1554,12 @@ window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeModal();
         document.getElementById('info-modal').classList.add('hidden');
+    }
+    if (e.key === 'ArrowLeft' && document.getElementById('home-screen').classList.contains('hidden')) {
+        prevStepNav();
+    }
+    if (e.key === 'ArrowRight' && document.getElementById('home-screen').classList.contains('hidden')) {
+        nextStepNav();
     }
 });
 

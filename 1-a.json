@@ -745,7 +745,7 @@
   },
   {
     "id": 9,
-    "title": "A9. Aligner avec la Roadmap",
+    "title": "A9. Aligner avec la roadmap",
     "intent": "Vérifier si des solutions planifiées rendent le problème obsolète ou si la demande peut enrichir une conception future.",
     "icon": "calendar",
     "scenarios": [

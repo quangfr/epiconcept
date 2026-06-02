@@ -78,7 +78,6 @@
 
         /* Layout Container */
         .container {
-            max-width: 1440px;
             width: 100%;
             margin: 0 auto;
             display: flex;
@@ -314,52 +313,49 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 70px;
+            width: 52px;
             z-index: 10;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: transparent;
             transition: all 0.3s ease;
+        }
+        #lesson-left-edge, #lesson-right-edge {
+            top: 46px;
         }
         .left-hint {
             left: 0;
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.04), transparent);
         }
         .right-hint {
             right: 0;
-            background: linear-gradient(to left, rgba(15, 23, 42, 0.04), transparent);
         }
         .hint-card {
-            width: 35px;
-            height: 50%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(8px);
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             user-select: none;
         }
         .left-hint .hint-card {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            transform: translateX(-15px);
+            left: 0;
+            border-radius: 0 12px 12px 0;
+            transform: translateX(-30px);
             opacity: 0.45;
         }
         .right-hint .hint-card {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            transform: translateX(15px);
+            right: 0;
+            border-radius: 12px 0 0 12px;
+            transform: translateX(30px);
             opacity: 0.45;
         }
         .edge-hint:hover .hint-card {
-            background: rgba(255, 255, 255, 0.85);
             opacity: 0.95;
             box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
         }
@@ -585,6 +581,11 @@
             color: #64748b;
             border-color: rgba(100, 116, 139, 0.2);
             background: rgba(241, 245, 249, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .edge-hint { display: none !important; }
+            #lesson-left-edge, #lesson-right-edge { display: none !important; }
         }
 
         @media (max-width: 640px) {
@@ -1297,19 +1298,6 @@
 
         <!-- Horizontal Ateliers Paginated -->
         <div class="scroll-wrapper" id="scroll-wrapper">
-            <div id="left-edge-hint" class="edge-hint left-hint" style="display: none;">
-                <div class="hint-card">
-                    <i data-lucide="chevron-left" style="width: 14px; height: 14px; color: #64748b;"></i>
-                    <span style="writing-mode: vertical-lr; transform: rotate(180deg); font-size: 7px; font-weight: 900; color: #64748b; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px;">Atelier 6</span>
-                </div>
-            </div>
-            <div id="right-edge-hint" class="edge-hint right-hint" style="display: none;">
-                <div class="hint-card">
-                    <i data-lucide="chevron-right" style="width: 14px; height: 14px; color: #64748b;"></i>
-                    <span style="writing-mode: vertical-lr; font-size: 7px; font-weight: 900; color: #64748b; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px;">Atelier 1</span>
-                </div>
-            </div>
-
             <main class="ateliers-scroll" id="ateliers-scroll">
 
                 <!-- ═══ ATELIER 1 ═══ -->
@@ -1875,10 +1863,20 @@
 
     </div><!-- /.container -->
 
+    <div id="left-edge-hint" class="edge-hint left-hint">
+        <div class="hint-card">
+            <i data-lucide="chevron-left" style="width: 28px; height: 28px; color: #475569;"></i>
+        </div>
+    </div>
+    <div id="right-edge-hint" class="edge-hint right-hint">
+        <div class="hint-card">
+            <i data-lucide="chevron-right" style="width: 28px; height: 28px; color: #475569;"></i>
+        </div>
+    </div>
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.02.03';
+        const APP_VERSION = '2026.06.02.04';
 
         window.updateCardStatusBadge = function (labelEl, x, y) {
             if (!labelEl) return;
@@ -2033,9 +2031,9 @@
                     pageInd.innerText = `${currentPage + 1} / ${totalPages}`;
                 }
                 
-                // Show left hint only on page 0, and right hint only on page 1
-                if (leftHint) leftHint.style.display = (currentPage === 0) ? 'flex' : 'none';
-                if (rightHint) rightHint.style.display = (currentPage === totalPages - 1) ? 'flex' : 'none';
+                // Always show edge hints on both sides
+                if (leftHint) leftHint.style.display = 'flex';
+                if (rightHint) rightHint.style.display = 'flex';
 
                 // Arrows are always active in wrap-around mode
                 if (prevBtn) prevBtn.disabled = false;
@@ -2413,7 +2411,7 @@
                     style="border: none; outline: none; width: 32px; height: 32px;" aria-label="Retour à l'accueil">
                     <i data-lucide="home" style="width: 16px; height: 16px;"></i>
                 </button>
-                <select id="lesson-selector" onchange="switchLessonFromDropdown(this.value)"
+                <select id="lesson-selector" onchange="switchLessonFromDropdown(this.value); this.blur();"
                     style="background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 0px 8px; height: 32px; cursor: pointer; outline: none; box-sizing: border-box;">
                     <option value="1">Atelier 1 - Design Product</option>
                     <option value="2">Atelier 2 - Cadrage Product</option>
@@ -2443,6 +2441,17 @@
         <div id="lesson-slides-container"
             style="flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 8px 12px 24px;">
             <!-- Generated dynamically from markdown -->
+        </div>
+
+        <div id="lesson-left-edge" class="edge-hint left-hint" onclick="changeSlide(-1)" style="display: none;">
+            <div class="hint-card">
+                <i data-lucide="chevron-left" style="width: 28px; height: 28px; color: #475569;"></i>
+            </div>
+        </div>
+        <div id="lesson-right-edge" class="edge-hint right-hint" onclick="changeSlide(1)" style="display: none;">
+            <div class="hint-card">
+                <i data-lucide="chevron-right" style="width: 28px; height: 28px; color: #475569;"></i>
+            </div>
         </div>
     </div>
 
@@ -2710,6 +2719,12 @@
                 pageLabel.innerText = `${currentSlide + 1} / ${slides.length}`;
                 dotContainer.appendChild(pageLabel);
             }
+
+            // Toggle lesson edge hints
+            const leftEdge = document.getElementById('lesson-left-edge');
+            const rightEdge = document.getElementById('lesson-right-edge');
+            if (leftEdge) leftEdge.style.display = (currentSlide > 0) ? '' : 'none';
+            if (rightEdge) rightEdge.style.display = (currentSlide < slides.length - 1) ? '' : 'none';
 
             // Update progress badge on the card status dot
             if (slides.length > 0) {
