@@ -7,10 +7,10 @@
     "scenarios": [
       {
         "text": "Au centre de dépistage d'Orléans, les secrétaires médicales passent 2 heures par jour à recopier manuellement les résultats d'analyses sanguines reçus par courrier dans le dossier patient informatique. L'équipe produit hésite sur l'opportunité de s'attaquer à ce sujet.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-2\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Tâche quotidienne secrétariat</div><div class=\"bg-white border p-2 rounded flex flex-col gap-1\"><span class=\"text-[8px] font-semibold text-red-600\">✗ Courrier papier ➔ Saisie manuelle (120 min/jour)</span><span class=\"text-[8px] font-semibold text-red-650\">✗ Risque d'erreur de saisie de résultats</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-2\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Tâche quotidienne secrétariat</div><div class=\"bg-white border p-2 rounded flex flex-col gap-1\"><span class=\"text-[8px] font-semibold text-red-600\">✗ Courrier papier ➔ Saisie manuelle (120 min/jour)</span><span class=\"text-[8px] font-semibold text-red-650\">✗ Risque d'erreur de saisie de résultats</span></div></div>",
         "correct": {
           "title": "F1.1. Identifier les dysfonctionnements des processus actuels",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Opportunité Discovery prioritaire</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 flex justify-between items-center text-[8px] font-black text-slate-800\"><span>Automatisation Saisie</span><span class=\"text-emerald-700 font-bold\">Gain : 2h/secrétaire/jour</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Cibler et chiffrer la perte de temps réelle</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Opportunité Discovery prioritaire</div><div class=\"bg-white border border-slate-200 rounded p-1.5 flex justify-between items-center text-[8px] font-black text-slate-800\"><span>Automatisation Saisie</span><span class=\"text-slate-700 font-bold\">Gain : 2h/secrétaire/jour</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Cibler et chiffrer la perte de temps réelle</div></div>",
           "expl": "Repérer les tâches répétitives et pénibles pour concevoir la solution là où elle apporte une valeur indiscutable.",
           "debriefExpl": "Capter la perte de temps réelle (2h/jour) justifie immédiatement de lancer une phase de discovery sur ce dysfonctionnement.",
           "icon": "target"
@@ -38,7 +38,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><span class=\"text-[9px] font-bold text-red-700\">Spécifications théoriques (150 pages)</span><p class=\"text-[8px] text-slate-500 mt-1 italic\">\"On code les écrans exactement selon le document sans aller voir les centres\"</p></div>",
         "correct": {
           "title": "F1.2. Mener des observations in situ en immersion (Shadowing)",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Shadowing terrain</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-semibold text-slate-800\">Observation de 3 consultations réelles de gynécologues</div><div class=\"text-[7px] text-emerald-600 font-bold\">Capter les coupures, urgences et réalité de l'environnement</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Shadowing terrain</div><div class=\"bg-white border border-slate-200 p-2 rounded text-[8px] font-semibold text-slate-800\">Observation de 3 consultations réelles de gynécologues</div><div class=\"text-[7px] text-slate-600 font-bold\">Capter les coupures, urgences et réalité de l'environnement</div></div>",
           "expl": "Passer du temps en observation passive auprès des soignants en situation de rush pour comprendre les contraintes invisibles à l'écrit.",
           "debriefExpl": "L'immersion physique révèle les vrais besoins d'ergonomie (ex: pouvoir suspendre la saisie lors d'une interruption physique).",
           "icon": "eye"
@@ -66,7 +66,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] text-red-700 font-bold\">Avis utilisateur : \"C'est nul, l'impression ne marche pas\"</div><div class=\"text-[8px] text-slate-400 mt-1\">Zéro contexte, ticket brut de 5 mots</div></div>",
         "correct": {
           "title": "F1.2. Mener des observations in situ en immersion (Shadowing)",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Shadowing Impression</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-mono text-slate-700\">Constat : L'utilisateur doit faire 5 clics et changer d'onglet pour chaque patient</div><div class=\"text-[7px] text-emerald-600 font-bold\">Douleur identifiée : La répétition de clics unitaires</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Shadowing Impression</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-mono text-slate-700\">Constat : L'utilisateur doit faire 5 clics et changer d'onglet pour chaque patient</div><div class=\"text-[7px] text-slate-600 font-bold\">Douleur identifiée : La répétition de clics unitaires</div></div>",
           "expl": "Se déplacer physiquement dans le centre pour regarder l'utilisateur effectuer l'action critique et découvrir le vrai blocage.",
           "debriefExpl": "Observer l'utilisateur en action permet de voir l'inefficacité du parcours (la répétition des clics) que le ticket de bug n'exprimait pas.",
           "icon": "eye"
@@ -90,7 +90,7 @@
         "expl": "Aller voir l'utilisateur en vie réelle est le seul moyen de comprendre les douleurs subtiles d'utilisabilité."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Signaux Usage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-red-50 border border-red-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"font-bold text-red-800\">2h/saisie manuelle</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer la douleur terrain</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Signaux Usage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-red-50 border border-red-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"font-bold text-red-800\">2h/saisie manuelle</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer la douleur terrain</div></div></div>"
   },
   {
     "id": 2,
@@ -100,10 +100,10 @@
     "scenarios": [
       {
         "text": "Lors du cadrage du dépistage organisé colorectal, un médecin de l'ARS d'Amiens exige l'intégration d'un outil de chat vidéo direct médecin-patient dans le portail Epiconcept pour 'moderniser le parcours'.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Demande d'évolution Clinique</div><div class=\"p-2 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">Chat Vidéo Médecin-Patient (12 semaines de dev)</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Demande d'évolution Clinique</div><div class=\"p-2 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">Chat Vidéo Médecin-Patient (12 semaines de dev)</div></div>",
         "correct": {
           "title": "F2.1. Évaluer la valeur clinique ajoutée",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Filtre de Valeur Produit</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] text-center font-black text-slate-800\">Refus : Zéro impact prouvé sur la participation au dépistage</div><div class=\"text-[7px] text-emerald-600 font-bold\">Recentrer sur le retour de kits de test</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Filtre de Valeur Produit</div><div class=\"bg-white border border-slate-200 rounded p-1.5 text-[8px] text-center font-black text-slate-800\">Refus : Zéro impact prouvé sur la participation au dépistage</div><div class=\"text-[7px] text-slate-600 font-bold\">Recentrer sur le retour de kits de test</div></div>",
           "expl": "Analyser si la fonction améliore directement le taux de dépistage ou la qualité de prise en charge clinique réelle avant d'investir.",
           "debriefExpl": "Le chat vidéo est un gadget coûteux sans impact sur la mission essentielle d'Epiconcept (renvoyer le kit de dépistage).",
           "icon": "shield-alert"
@@ -128,10 +128,10 @@
       },
       {
         "text": "Un coordinateur de centre de dépistage demande à pouvoir personnaliser la couleur de fond de son tableau de bord de suivi avec 12 options différentes pour 'rendre le logiciel plus chaleureux'.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Demande Confort</div><div class=\"flex gap-1 justify-center\"><div class=\"w-3 h-3 bg-red-400 rounded-full\"></div><div class=\"w-3 h-3 bg-blue-400 rounded-full\"></div><div class=\"w-3 h-3 bg-emerald-400 rounded-full\"></div><div class=\"text-[8px] font-bold text-slate-500 ml-1\">+ 12 thèmes personnalisés</div></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Demande Confort</div><div class=\"flex gap-1 justify-center\"><div class=\"w-3 h-3 bg-red-400 rounded-full\"></div><div class=\"w-3 h-3 bg-slate-400 rounded-full\"></div><div class=\"w-3 h-3 bg-slate-400 rounded-full\"></div><div class=\"text-[8px] font-bold text-slate-500 ml-1\">+ 12 thèmes personnalisés</div></div></div>",
         "correct": {
           "title": "F2.2. Rejeter les fausses bonnes idées \"gadgets\"",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Charte standard préservée</div><div class=\"bg-white border p-1.5 rounded text-center text-xs font-black text-slate-800\">Palette Unique standardisée</div><div class=\"text-[7px] text-emerald-600 font-bold\">Refus catégorique du sur-mesure cosmétique</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Charte standard préservée</div><div class=\"bg-white border p-1.5 rounded text-center text-xs font-black text-slate-800\">Palette Unique standardisée</div><div class=\"text-[7px] text-slate-600 font-bold\">Refus catégorique du sur-mesure cosmétique</div></div>",
           "expl": "Refuser de polluer le produit avec des options cosmétiques secondaires qui créent de la dette technique graphique.",
           "debriefExpl": "Rejeter cette demande cosmétique protège la cohérence de la charte de l'application et économise du temps de test.",
           "icon": "ban"
@@ -156,10 +156,10 @@
       },
       {
         "text": "Pour le dépistage du cancer du col de l'utérus, un gynécologue demande de pouvoir associer des photos d'examens directement à la fiche patient dans un format propriétaire rare qu'il utilise sur son équipement local.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Format d'image exotique</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] font-mono text-red-800\">Viewer propriétaire .XYZ (5% des praticiens)</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Format d'image exotique</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] font-mono text-red-800\">Viewer propriétaire .XYZ (5% des praticiens)</div></div>",
         "correct": {
           "title": "F2.2. Rejeter les fausses bonnes idées \"gadgets\"",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Choix Standard Format</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] text-center font-bold text-slate-800\">Formats supportés : PDF standard anonymisé</div><div class=\"text-[7px] text-emerald-600 font-bold\">Aucun support de format exclusif ou propriétaire</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Choix Standard Format</div><div class=\"bg-white border border-slate-200 rounded p-1.5 text-[8px] text-center font-bold text-slate-800\">Formats supportés : PDF standard anonymisé</div><div class=\"text-[7px] text-slate-600 font-bold\">Aucun support de format exclusif ou propriétaire</div></div>",
           "expl": "Refuser de concevoir des modules d'affichage spécifiques pour des niches d'équipements non standardisés.",
           "debriefExpl": "Imposer le format standardisé PDF évite de développer un visualiseur propriétaire complexe pour seulement 5% d'utilisateurs.",
           "icon": "ban"
@@ -183,7 +183,7 @@
         "expl": "La normalisation des formats (PDF, DICOM) est le seul moyen viable de gérer l'imagerie ou les rapports de santé."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Shadowing</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Immersion terrain</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer le rush réel des soignants</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Shadowing</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Immersion terrain</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer le rush réel des soignants</div></div></div>"
   },
   {
     "id": 3,
@@ -196,7 +196,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><span class=\"text-[9px] text-red-700 font-bold\">PO conçoit les écrans Carto seul (3 semaines)</span><p class=\"text-[8px] text-slate-400 mt-1\">Aucun échange technique sur la faisabilité des cartes</p></div>",
         "correct": {
           "title": "F3.1. Associer le développement et l'UX en amont",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Réunion Cadrage Flash (Jour 1)</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-semibold text-slate-800\">Avis Dev : \"L'API IGN nationale est gratuite et déjà intégrée !\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">Cadrage technique et UX synchronisé en 1 heure</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Réunion Cadrage Flash (Jour 1)</div><div class=\"bg-white border border-slate-200 p-2 rounded text-[8px] font-semibold text-slate-800\">Avis Dev : \"L'API IGN nationale est gratuite et déjà intégrée !\"</div><div class=\"text-[7px] text-slate-600 font-bold\">Cadrage technique et UX synchronisé en 1 heure</div></div>",
           "expl": "Impliquer un tech lead et l'UX dès la genèse de l'idée pour identifier immédiatement les accélérateurs techniques et les limites de faisabilité.",
           "debriefExpl": "Associer les développeurs dès le Jour 1 évite de maquetter des écrans impossibles à coder ou d'ignorer des outils existants.",
           "icon": "users"
@@ -221,10 +221,10 @@
       },
       {
         "text": "L'équipe produit doit concevoir le flux d'intégration de l'identité INS (Identifiant National de Santé). Le processus comporte 10 cas d'anomalies de saisie de nom d'usage et de prénoms multiples complexes.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Règles INS compliquées</div><div class=\"text-[8px] text-slate-600\">Comment définir la gestion des prénoms multiples ?</div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Règles INS compliquées</div><div class=\"text-[8px] text-slate-600\">Comment définir la gestion des prénoms multiples ?</div></div>",
         "correct": {
           "title": "F3.2. Réaliser des ateliers de co-conception rapides",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Atelier Co-design INS</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-bold text-slate-800 text-center\">PO + Dev + Secrétaire référente (45 min)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Processus de résolution validé en direct sur tableau blanc</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Atelier Co-design INS</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-bold text-slate-800 text-center\">PO + Dev + Secrétaire référente (45 min)</div><div class=\"text-[7px] text-slate-600 font-bold\">Processus de résolution validé en direct sur tableau blanc</div></div>",
           "expl": "Réunir les personnes clés pendant un temps court et focalisé pour modéliser le flux ensemble plutôt que par allers-retours écrits.",
           "debriefExpl": "Un atelier court avec une secrétaire et un dev permet de fixer des règles réalistes et conformes à l'INS en moins d'une heure.",
           "icon": "users"
@@ -249,10 +249,10 @@
       },
       {
         "text": "L'ARS demande que le module de dépistage colorectal gère les contraintes complexes de double signature électronique des comptes-rendus d'analyses biomédicales. Comment cadrer ce sujet à haut risque technique ?",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Sécurité Signature Électronique</div><div class=\"p-1 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">Contraintes cryptographiques et légales élevées</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Sécurité Signature Électronique</div><div class=\"p-1 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">Contraintes cryptographiques et légales élevées</div></div>",
         "correct": {
           "title": "F3.1. Associer le développement et l'UX en amont",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Validation architecture amont</div><div class=\"bg-white border-2 border-emerald-500 rounded p-2 text-[8px] font-mono text-slate-700\">Dev : \"La brique de signature de la MSSanté est utilisable nativement\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">Gain : 4 semaines de dev économisées</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Validation architecture amont</div><div class=\"bg-white border-2 border-slate-200 rounded p-2 text-[8px] font-mono text-slate-700\">Dev : \"La brique de signature de la MSSanté est utilisable nativement\"</div><div class=\"text-[7px] text-slate-600 font-bold\">Gain : 4 semaines de dev économisées</div></div>",
           "expl": "Confronter la demande légale/client à l'architecte technique immédiatement pour voir s'il existe déjà des outils homologués ou si le socle technique le supporte.",
           "debriefExpl": "Faire intervenir le dev amont évite de concevoir un système de signature sur-mesure complexe et hors standard.",
           "icon": "users"
@@ -276,7 +276,7 @@
         "expl": "S'assurer de la faisabilité technique dès la découverte d'une idée complexe protège la roadmap."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Filtrer Demandes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Fort impact</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-slate-500\">Faible impact</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Prioriser à la valeur</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Filtrer Demandes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Fort impact</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-slate-500\">Faible impact</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Prioriser à la valeur</div></div></div>"
   },
   {
     "id": 4,
@@ -286,10 +286,10 @@
     "scenarios": [
       {
         "text": "L'écran d'accueil du suivi d'un dépistage colorectal doit afficher les informations clés du dossier. Les utilisateurs demandent à voir 40 champs d'informations administratives et médicales en même temps sur l'écran principal.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Tableau de bord surchargé</div><div class=\"grid grid-cols-4 gap-1 text-[6px] text-slate-500\"><span>Nom</span><span>Prénom</span><span>NIR</span><span>Médecin</span><span>Tél</span><span>Mail</span><span>Adresse</span><span>Code</span><span>Ville</span><span>Kit ID</span><span>Date envoi</span><span>Date retour</span><span>Analyse</span><span>Labo</span><span>Statut</span><span>Alerte</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Tableau de bord surchargé</div><div class=\"grid grid-cols-4 gap-1 text-[6px] text-slate-500\"><span>Nom</span><span>Prénom</span><span>NIR</span><span>Médecin</span><span>Tél</span><span>Mail</span><span>Adresse</span><span>Code</span><span>Ville</span><span>Kit ID</span><span>Date envoi</span><span>Date retour</span><span>Analyse</span><span>Labo</span><span>Statut</span><span>Alerte</span></div></div>",
         "correct": {
           "title": "F4.2. Respecter la hiérarchie visuelle métier",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Hiérarchie de Fiche Épurée</div><div class=\"bg-white border p-2 rounded-lg\"><div class=\"flex justify-between items-center\"><span class=\"text-[9px] font-black text-slate-800\">Identité patient INS : Jean Dupont</span><span class=\"bg-red-500 text-white text-[7px] px-1 rounded font-bold\">ALERTE KIT EN RETARD</span></div></div><div class=\"text-[7px] text-emerald-600 font-bold\">40 informations secondaires rangées dans des sous-onglets</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Hiérarchie de Fiche Épurée</div><div class=\"bg-white border p-2 rounded-lg\"><div class=\"flex justify-between items-center\"><span class=\"text-[9px] font-black text-slate-800\">Identité patient INS : Jean Dupont</span><span class=\"bg-red-500 text-white text-[7px] px-1 rounded font-bold\">ALERTE KIT EN RETARD</span></div></div><div class=\"text-[7px] text-slate-600 font-bold\">40 informations secondaires rangées dans des sous-onglets</div></div>",
           "expl": "Placer au premier plan les informations vitales (identité, alertes, statut du kit) et masquer le secondaire pour éviter la surcharge cognitive.",
           "debriefExpl": "Respecter la hiérarchie visuelle métier permet au soignant de comprendre l'état du patient en moins d'une seconde sans se noyer.",
           "icon": "layout"
@@ -314,10 +314,10 @@
       },
       {
         "text": "Lors de la saisie d'un nouveau patient, le flux de navigation oblige l'utilisateur à faire 3 allers-retours entre le clavier et la souris pour valider les adresses et le médecin traitant.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux de saisie chaotique</div><div class=\"text-[8px] text-red-700\">Clavier ➔ Clic Souris (Recherche) ➔ Clavier ➔ Clic Valider</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Flux de saisie chaotique</div><div class=\"text-[8px] text-red-700\">Clavier ➔ Clic Souris (Recherche) ➔ Clavier ➔ Clic Valider</div></div>",
         "correct": {
           "title": "F4.1. Cartographier le parcours utilisateur idéal",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Flux nominal linéaire</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-white p-1.5 rounded border\"><span>1. Nom ➔ 2. INS ➔ 3. Saisie adresse ➔ [Entrée]</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Parcours 100% au clavier sans toucher à la souris</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Flux nominal linéaire</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-white p-1.5 rounded border\"><span>1. Nom ➔ 2. INS ➔ 3. Saisie adresse ➔ [Entrée]</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Parcours 100% au clavier sans toucher à la souris</div></div>",
           "expl": "Modéliser le parcours de saisie pour qu'il soit fluide, fluide et linéaire (ex: progression par la touche Tabulation).",
           "debriefExpl": "Un flux fluide et linéaire divise par deux le temps de saisie d'un dossier et élimine la fatigue des secrétaires.",
           "icon": "git-commit"
@@ -342,10 +342,10 @@
       },
       {
         "text": "L'équipe produit crée l'écran de consultation des résultats de dépistage. L'UX propose un magnifique tableau avec 15 couleurs de statuts différentes pour marquer l'état d'avancement des dossiers.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Tableau Arc-en-ciel</div><div class=\"flex gap-1 justify-around text-[7px] font-black\"><span class=\"bg-red-200 p-0.5 rounded text-red-800\">Alerte</span><span class=\"bg-blue-200 p-0.5 rounded text-blue-800\">Attente</span><span class=\"bg-emerald-200 p-0.5 rounded text-emerald-800\">Reçu</span><span class=\"bg-amber-200 p-0.5 rounded text-amber-800\">Envoi</span><span class=\"bg-purple-200 p-0.5 rounded text-purple-800\">Relance</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Tableau Arc-en-ciel</div><div class=\"flex gap-1 justify-around text-[7px] font-black\"><span class=\"bg-red-200 p-0.5 rounded text-red-800\">Alerte</span><span class=\"bg-slate-200 p-0.5 rounded text-slate-800\">Attente</span><span class=\"bg-slate-200 p-0.5 rounded text-slate-800\">Reçu</span><span class=\"bg-amber-200 p-0.5 rounded text-amber-800\">Envoi</span><span class=\"bg-slate-200 p-0.5 rounded text-slate-800\">Relance</span></div></div>",
         "correct": {
           "title": "F4.2. Respecter la hiérarchie visuelle métier",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Codes Couleur Restreints</div><div class=\"flex gap-2 text-[8px] font-black\"><span class=\"bg-red-500 text-white px-1.5 py-0.5 rounded\">1. Action requise (Urgent)</span><span class=\"bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded\">2. Autre</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Seules les anomalies attirent l'œil en couleur vive</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Codes Couleur Restreints</div><div class=\"flex gap-2 text-[8px] font-black\"><span class=\"bg-red-500 text-white px-1.5 py-0.5 rounded\">1. Action requise (Urgent)</span><span class=\"bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded\">2. Autre</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Seules les anomalies attirent l'œil en couleur vive</div></div>",
           "expl": "Restreindre drastiquement le nombre de signaux de couleur. La couleur ne doit servir qu'à attirer l'attention sur une action ou anomalie.",
           "debriefExpl": "Restreindre les couleurs évite l'effet de fatigue visuelle et garantit que l'utilisateur repère instantanément le cas critique.",
           "icon": "layout"
@@ -369,7 +369,7 @@
         "expl": "En ergonomie médicale, moins il y a de stimuli visuels colorés, plus l'interface est sûre et reposante."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Aligner Équipe</div><div class=\"flex flex-col gap-1.5\"><div class=\"relative h-12 bg-slate-50 rounded-lg border border-slate-200 flex\"><div class=\"absolute inset-0 flex items-center justify-center\"><div class=\"bg-blue-100 border-2 border-blue-400 rounded-full w-6 h-6 -ml-3\"></div><div class=\"bg-emerald-100 border-2 border-emerald-400 rounded-full w-6 h-6 -ml-1\"></div><div class=\"bg-amber-100 border-2 border-amber-400 rounded-full w-6 h-6\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Métier + Dev + Design alignés</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Aligner Équipe</div><div class=\"flex flex-col gap-1.5\"><div class=\"relative h-12 bg-slate-50 rounded-lg border border-slate-200 flex\"><div class=\"absolute inset-0 flex items-center justify-center\"><div class=\"bg-slate-100 border-2 border-slate-200 rounded-full w-6 h-6 -ml-3\"></div><div class=\"bg-slate-100 border-2 border-slate-200 rounded-full w-6 h-6 -ml-1\"></div><div class=\"bg-amber-100 border-2 border-amber-400 rounded-full w-6 h-6\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Métier + Dev + Design alignés</div></div></div>"
   },
   {
     "id": 5,
@@ -382,7 +382,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] font-bold text-red-700\">Démarrage direct en développement</div><div class=\"text-[8px] text-slate-400 mt-1\">Coder l'écran directement en HTML en production</div></div>",
         "correct": {
           "title": "F5.1. Esquisser des wireframes papier ou des schémas rapides",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Croquis papier (10 minutes)</div><div class=\"border-2 border-dashed border-slate-300 bg-white rounded p-2 text-center text-[8px] font-mono text-slate-400\">[Nom Patient] [NIR] [Bouton OK]</div><div class=\"text-[7px] text-emerald-600 font-bold\">Ajustement des champs en direct avec l'utilisateur pilote</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Croquis papier (10 minutes)</div><div class=\"border-2 border-dashed border-slate-300 bg-white rounded p-2 text-center text-[8px] font-mono text-slate-400\">[Nom Patient] [NIR] [Bouton OK]</div><div class=\"text-[7px] text-slate-600 font-bold\">Ajustement des champs en direct avec l'utilisateur pilote</div></div>",
           "expl": "Dessiner à main levée ou avec des outils filaires très simples pour valider le squelette fonctionnel avec les soignants.",
           "debriefExpl": "Esquisser un wireframe papier de 10 minutes permet d'ajuster les champs immédiatement avant d'investir le moindre centime en dev.",
           "icon": "scissors"
@@ -410,7 +410,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><span class=\"text-[9px] text-red-700 font-bold\">Débats infinis en réunion de projet</span><p class=\"text-[8px] text-slate-400 mt-1\">\"On devrait cliquer ici\" vs \"Non, là-bas\"</p></div>",
         "correct": {
           "title": "F5.2. Créer un prototype interactif simplifié",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Prototype Figma Cliquable</div><div class=\"flex justify-center items-center gap-1 text-[8px] font-bold text-slate-700 bg-white p-1 rounded border\"><span>Écran 1</span><span>➔</span><span>Écran 2</span><span>➔</span><span>Écran 3</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Flux testé et tranché en 15 minutes par les pilotes</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Prototype Figma Cliquable</div><div class=\"flex justify-center items-center gap-1 text-[8px] font-bold text-slate-700 bg-white p-1 rounded border\"><span>Écran 1</span><span>➔</span><span>Écran 2</span><span>➔</span><span>Écran 3</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Flux testé et tranché en 15 minutes par les pilotes</div></div>",
           "expl": "Assembler un enchaînement interactif d'écrans simplifiés pour faire vivre le parcours avant de coder.",
           "debriefExpl": "Le prototype interactif résout immédiatement les conflits d'opinion en mettant le parcours à l'épreuve du geste.",
           "icon": "layout"
@@ -435,10 +435,10 @@
       },
       {
         "text": "L'équipe produit prépare le nouveau module de saisie des antécédents médicaux. Ils hésitent sur deux approches : une liste à puces à cocher ou un moteur de recherche par autocomplétion.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Dilemme de Saisie</div><div class=\"grid grid-cols-2 gap-2 text-center text-[7px] font-bold\"><div class=\"bg-slate-50 p-1 border\">Liste de 50 Cases</div><div class=\"bg-slate-50 p-1 border\">Moteur Recherche</div></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Dilemme de Saisie</div><div class=\"grid grid-cols-2 gap-2 text-center text-[7px] font-bold\"><div class=\"bg-slate-50 p-1 border\">Liste de 50 Cases</div><div class=\"bg-slate-50 p-1 border\">Moteur Recherche</div></div></div>",
         "correct": {
           "title": "F5.1. Esquisser des wireframes papier ou des schémas rapides",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">A/B Test Papier express</div><div class=\"bg-white border p-1 rounded text-center text-[8px] font-semibold text-slate-700\">Test en direct : 5 secrétaires comparent les deux croquis</div><div class=\"text-[7px] text-emerald-600 font-bold\">Résultat : L'autocomplétion plébiscitée en 5 minutes</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">A/B Test Papier express</div><div class=\"bg-white border p-1 rounded text-center text-[8px] font-semibold text-slate-700\">Test en direct : 5 secrétaires comparent les deux croquis</div><div class=\"text-[7px] text-slate-600 font-bold\">Résultat : L'autocomplétion plébiscitée en 5 minutes</div></div>",
           "expl": "Comparer deux croquis papier alternatifs en direct avec des utilisateurs de terrain pour trancher instantanément.",
           "debriefExpl": "L'esquisse papier rapide permet de faire de l'A/B testing ergonomique pour un coût nul et avec un feedback instantané.",
           "icon": "scissors"
@@ -462,7 +462,7 @@
         "expl": "Trancher des dilemmes ergonomiques par de simples croquis terrain est le propre de la Discovery agile."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Clarté Cognitive</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border-2 border-dashed border-slate-300 rounded-lg p-2 text-center\"><div class=\"text-[9px] font-bold text-slate-500 uppercase\">Papier</div><div class=\"flex gap-1 justify-center mt-1\"><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-8 h-6 bg-slate-300 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Wireframe simple avant codage</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Clarté Cognitive</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border-2 border-dashed border-slate-300 rounded-lg p-2 text-center\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Papier</div><div class=\"flex gap-1 justify-center mt-1\"><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-8 h-6 bg-slate-300 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Wireframe simple avant codage</div></div></div>"
   },
   {
     "id": 6,
@@ -475,7 +475,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] font-bold text-red-700\">Démonstration guidée classique</div><div class=\"text-[8px] text-slate-400 mt-1\">\"Voici le bouton pour enregistrer, je clique dessus pour vous montrer...\"</div></div>",
         "correct": {
           "title": "F6.1. Conduire des tests utilisateurs sans consignes directes",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Observation à blanc</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Consigne : \"Enregistrez ce kit.\" (Et se taire)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Capter le moment d'hésitation exact sur le bouton</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Observation à blanc</div><div class=\"bg-white border border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800\">Consigne : \"Enregistrez ce kit.\" (Et se taire)</div><div class=\"text-[7px] text-slate-600 font-bold\">Capter le moment d'hésitation exact sur le bouton</div></div>",
           "expl": "Observer l'utilisateur découvrir l'interface en silence sans lui expliquer le parcours pour déceler les manques d'intuitivité.",
           "debriefExpl": "Se taire et observer l'utilisateur face au produit à blanc est le seul moyen de voir si l'ergonomie se suffit à elle-même.",
           "icon": "user-check"
@@ -500,10 +500,10 @@
       },
       {
         "text": "Pendant le test à blanc du module d'invitation, deux secrétaires hésitent longuement devant une icône de sablier bleu, pensant qu'il s'agit d'un indicateur de chargement réseau alors qu'elle représente un 'dossier en attente'.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 items-center relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Friction visuelle</div><i data-lucide=\"hourglass\" class=\"w-6 h-6 text-blue-500 animate-spin\"></i><span class=\"text-[7px] text-slate-500\">Hésitation de 8 secondes détectée</span></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 items-center relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Friction visuelle</div><i data-lucide=\"hourglass\" class=\"w-6 h-6 text-slate-500 animate-spin\"></i><span class=\"text-[7px] text-slate-500\">Hésitation de 8 secondes détectée</span></div>",
         "correct": {
           "title": "F6.2. Documenter les frictions cognitives",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Correction après test</div><div class=\"bg-white border border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 flex items-center justify-between\"><span>Icône Sablier ➔ Remplacée par texte : \"En attente\"</span></div><div class=\"text-[7px] text-emerald-600 font-bold\">Friction supprimée pour la V1 définitive</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Correction après test</div><div class=\"bg-white border border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800 flex items-center justify-between\"><span>Icône Sablier ➔ Remplacée par texte : \"En attente\"</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Friction supprimée pour la V1 définitive</div></div>",
           "expl": "Noter scrupuleusement les incompréhensions, fausses routes et erreurs de l'utilisateur pour corriger le design immédiatement.",
           "debriefExpl": "Documenter ces frictions cognitives (comme l'ambiguïté de l'icône) permet de corriger le design avant le développement.",
           "icon": "edit-3"
@@ -531,7 +531,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex justify-around gap-2\"><div class=\"bg-red-500 text-white p-1 rounded text-[8px] font-bold\">Exclure définitivement</div><div class=\"bg-slate-200 text-slate-700 p-1 rounded text-[8px]\">Retour</div></div>",
         "correct": {
           "title": "F6.2. Documenter les frictions cognitives",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Correction Sécurité UX</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-bold text-slate-800\">Bouton critique déplacé à droite + Confirmation requise</div><div class=\"text-[7px] text-emerald-600 font-bold\">Zéro risque d'exclusion accidentelle suite au test</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Correction Sécurité UX</div><div class=\"bg-white border border-slate-200 p-2 rounded text-[8px] font-bold text-slate-800\">Bouton critique déplacé à droite + Confirmation requise</div><div class=\"text-[7px] text-slate-600 font-bold\">Zéro risque d'exclusion accidentelle suite au test</div></div>",
           "expl": "Identifier et documenter les actions critiques accidentelles pour sécuriser le parcours utilisateur.",
           "debriefExpl": "Capter ce geste accidentel en test permet de sécuriser un bouton à haut risque médical avant son déploiement.",
           "icon": "shield-check"
@@ -555,7 +555,7 @@
         "expl": "Les tests d'utilisabilité à blanc révèlent les dangers de sécurité clinique induits par la mise en page."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Prototypage Low-fi</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-2 flex flex-col gap-1\"><div class=\"h-1 w-full bg-slate-200 rounded\"></div><div class=\"h-3 w-3/4 bg-slate-100 rounded mx-auto\"></div><div class=\"flex gap-1 justify-center\"><div class=\"h-4 w-4 bg-slate-200 rounded\"></div><div class=\"h-4 w-4 bg-slate-200 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Croquis papier pour valider le concept</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Prototypage Low-fi</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-2 flex flex-col gap-1\"><div class=\"h-1 w-full bg-slate-200 rounded\"></div><div class=\"h-3 w-3/4 bg-slate-100 rounded mx-auto\"></div><div class=\"flex gap-1 justify-center\"><div class=\"h-4 w-4 bg-slate-200 rounded\"></div><div class=\"h-4 w-4 bg-slate-200 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Croquis papier pour valider le concept</div></div></div>"
   },
   {
     "id": 7,
@@ -565,10 +565,10 @@
     "scenarios": [
       {
         "text": "Le nouveau module de dépistage colorectal est prêt à être déployé. Le responsable produit veut tester la stabilité sur le terrain sans risquer une avalanche de plaintes au niveau national.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lancement national direct</div><div class=\"bg-red-150 p-2 rounded text-center text-[9px] font-bold text-red-800\">Mise en production pour les 17 CRDC de France d'un coup</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Lancement national direct</div><div class=\"bg-red-150 p-2 rounded text-center text-[9px] font-bold text-red-800\">Mise en production pour les 17 CRDC de France d'un coup</div></div>",
         "correct": {
           "title": "F7.1. Recruter un panel réduit d'utilisateurs pilotes",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Lancement Pilote ultra-ciblé</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] text-center font-black text-slate-800\">Déploiement initial : 2 centres pilotes (Amiens et Lille)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Rayon d'impact limité aux bêtatesteurs proactifs</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Lancement Pilote ultra-ciblé</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] text-center font-black text-slate-800\">Déploiement initial : 2 centres pilotes (Amiens et Lille)</div><div class=\"text-[7px] text-slate-600 font-bold\">Rayon d'impact limité aux bêtatesteurs proactifs</div></div>",
           "expl": "Ouvrir l'application à un très petit groupe d'utilisateurs volontaires et engagés pour valider la stabilité fonctionnelle.",
           "debriefExpl": "Déployer auprès de 2 centres pilotes permet de corriger les plâtres en toute sécurité avant de généraliser.",
           "icon": "users"
@@ -593,10 +593,10 @@
       },
       {
         "text": "Le pilote démarre dans le centre de dépistage de Valenciennes. Le coordinateur rencontre un blocage lors de la génération des courriers, mais n'a pas le temps d'ouvrir un ticket sur le portail de support formel d'Epiconcept.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Blocage en situation réelle</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] text-red-800\">L'utilisateur abandonne la fonction par manque de temps</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Blocage en situation réelle</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] text-red-800\">L'utilisateur abandonne la fonction par manque de temps</div></div>",
         "correct": {
           "title": "F7.2. Établir une boucle de feedback ultra-courte",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Boucle de proximité</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">Bouton direct Whatsapp / Slack direct Bêta</div><div class=\"text-[7px] text-emerald-600 font-bold\">Alerte reçue par le PO en 30 secondes et fixée dans l'heure</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Boucle de proximité</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">Bouton direct Whatsapp / Slack direct Bêta</div><div class=\"text-[7px] text-slate-600 font-bold\">Alerte reçue par le PO en 30 secondes et fixée dans l'heure</div></div>",
           "expl": "Fournir un moyen de communication informel et instantané aux testeurs pour remonter les anomalies sans effort administratif.",
           "debriefExpl": "Un canal direct (Slack/Teams/Bouton intégré) permet de capter les vrais problèmes avant que l'utilisateur n'abandonne par dépit.",
           "icon": "message-square"
@@ -621,10 +621,10 @@
       },
       {
         "text": "Pendant le pilote de mammographie à Amiens, l'équipe produit s'aperçoit que les utilisateurs découvrent un bug d'affichage mineur qui décale le titre des colonnes de 5 pixels vers la droite, sans bloquer le travail.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase mb-2\">Bug cosmétique mineur</div><div class=\"text-[8px] text-slate-500 italic\">\"Le bouton est décalé mais on peut cliquer dessus\"</div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Bug cosmétique mineur</div><div class=\"text-[8px] text-slate-500 italic\">\"Le bouton est décalé mais on peut cliquer dessus\"</div></div>",
         "correct": {
           "title": "F7.2. Établir une boucle de feedback ultra-courte",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Gestion Bêta Agile</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-bold text-slate-800\">Noté dans le canal direct - Planifié pour le Sprint 2</div><div class=\"text-[7px] text-emerald-600 font-bold\">Correction transparente sans interrompre le pilote</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Gestion Bêta Agile</div><div class=\"bg-white border border-slate-200 p-2 rounded text-[8px] font-bold text-slate-800\">Noté dans le canal direct - Planifié pour le Sprint 2</div><div class=\"text-[7px] text-slate-600 font-bold\">Correction transparente sans interrompre le pilote</div></div>",
           "expl": "Capter et trier les anomalies de manière informelle pour maintenir le focus sur le fonctionnel vital.",
           "debriefExpl": "Capter ce bug mineur via le canal informel permet de le planifier sereinement sans panique ni déploiement d'urgence.",
           "icon": "check-square"
@@ -648,7 +648,7 @@
         "expl": "Le canal informel sert à rassurer les pilotes et à classer intelligemment les retours terrain."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Test Utilisabilité</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"video\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Session filmée</span></div><div class=\"text-[7px] text-slate-500 text-center\">3 utilisateurs testent le prototype</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Test Utilisabilité</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"video\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Session filmée</span></div><div class=\"text-[7px] text-slate-500 text-center\">3 utilisateurs testent le prototype</div></div></div>"
   },
   {
     "id": 8,
@@ -658,10 +658,10 @@
     "scenarios": [
       {
         "text": "La V1 du module de ciblage de santé publique est livrée. Elle ne comporte pas encore les exports Excel demandés par l'ARS pour la V2. Les pilotes s'inquiètent de cette absence.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Inquiétude Périmètre V1</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Rumeur : \"Le logiciel ne sait rien exporter !\"</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Inquiétude Périmètre V1</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] font-bold text-red-800\">✗ Rumeur : \"Le logiciel ne sait rien exporter !\"</div></div>",
         "correct": {
           "title": "F8.1. Assumer et communiquer l'imperfection fonctionnelle",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Transparence Roadmap</div><div class=\"bg-white border border-emerald-400 p-2 rounded text-[8px] font-semibold text-slate-800\">Guide V1 : \"La V1 se concentre sur l'INS. Export Excel : Sprint 3.\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">Confiance renforcée par la franchise de la roadmap</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Transparence Roadmap</div><div class=\"bg-white border border-slate-200 p-2 rounded text-[8px] font-semibold text-slate-800\">Guide V1 : \"La V1 se concentre sur l'INS. Export Excel : Sprint 3.\"</div><div class=\"text-[7px] text-slate-600 font-bold\">Confiance renforcée par la franchise de la roadmap</div></div>",
           "expl": "Assumer ouvertement les limites de la V1 et fournir la roadmap claire des versions suivantes pour rassurer les utilisateurs.",
           "debriefExpl": "Communiquer en transparence désamorce la frustration en transformant un manque temporaire en jalon planifié.",
           "icon": "shield-check"
@@ -689,7 +689,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 text-center\"><div class=\"text-[9px] font-bold text-red-700\">Formation centralisée impossible</div><div class=\"text-[8px] text-slate-400 mt-1\">Zéro budget de déplacement pour 400 formations physiques</div></div>",
         "correct": {
           "title": "F8.2. Identifier et former les premiers ambassadeurs",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Démultiplication de formation</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">Formation de 17 Ambassadeurs Régionaux</div><div class=\"text-[7px] text-emerald-600 font-bold\">Chaque ambassadeur forme son équipe locale de proximité</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Démultiplication de formation</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">Formation de 17 Ambassadeurs Régionaux</div><div class=\"text-[7px] text-slate-600 font-bold\">Chaque ambassadeur forme son équipe locale de proximité</div></div>",
           "expl": "Former en priorité un référent proactif par région ou par centre pour qu'il devienne le relais de formation local auprès de ses collègues.",
           "debriefExpl": "S'appuyer sur des ambassadeurs régionaux démultiplie l'accompagnement et assure un support de proximité efficace.",
           "icon": "award"
@@ -714,10 +714,10 @@
       },
       {
         "text": "Lors de la généralisation de l'identité INS, le centre de dépistage de Marseille se plaint de spécificités locales dans ses pratiques administratives et menace de rejeter le logiciel si sa méthode n'est pas codée.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Blocage local Marseille</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] text-red-800\">Exigence de dérogation locale aux règles INS</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Blocage local Marseille</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[8px] text-red-800\">Exigence de dérogation locale aux règles INS</div></div>",
         "correct": {
           "title": "F8.2. Identifier et former les premiers ambassadeurs",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Relais Ambassadeur local</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">L'ambassadeur de Marseille cadre la bonne pratique</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Relais Ambassadeur local</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800 text-center\">L'ambassadeur de Marseille cadre la bonne pratique</div></div>",
           "expl": "Faire intervenir le référent régional local pour réassurer les équipes et expliquer la standardisation nationale par la pédagogie de pair à pair.",
           "debriefExpl": "Faire intervenir un homologue (ambassadeur) désamorce la posture de rejet beaucoup plus efficacement qu'un arbitrage de l'éditeur.",
           "icon": "users"
@@ -741,7 +741,7 @@
         "expl": "L'accompagnement du changement s'appuie sur la pédagogie et l'influence des référents de proximité."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Pilote Bêta</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Groupe pilote 5 centres</span></div><div class=\"text-[7px] text-slate-500 text-center\">Validation terrain avant déploiement</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Pilote Bêta</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Groupe pilote 5 centres</span></div><div class=\"text-[7px] text-slate-500 text-center\">Validation terrain avant déploiement</div></div></div>"
   },
   {
     "id": 9,
@@ -751,10 +751,10 @@
     "scenarios": [
       {
         "text": "Pour aider les soignants à filtrer les dossiers de dépistage prioritaires en V1, le client demande un moteur de recherche intelligente basé sur des règles d'IA complexes. Le PO doit décider de s'engager sur cette voie estimée à 3 semaines de dev ou de chercher un contournement simple.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Filtrage Intelligent Dossiers</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Moteur de recherche IA complexe (3 semaines)</div><div class=\"text-[7px] text-red-650\">⚠️ Risque élevé de retard et d'instabilité en V1</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Filtrage Intelligent Dossiers</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Moteur de recherche IA complexe (3 semaines)</div><div class=\"text-[7px] text-red-650\">⚠️ Risque élevé de retard et d'instabilité en V1</div></div>",
         "correct": {
           "title": "F9.1. Estimer si la solution est techniquement simple",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Filtre Rapide (Quick-Win)</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Bouton de tri rapide \"Dossiers Urgents\" (1h de dev)</div><div class=\"text-[7px] text-emerald-600 font-bold\">95% de l'impact immédiat atteint avec un effort minimal</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Filtre Rapide (Quick-Win)</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800\">Bouton de tri rapide \"Dossiers Urgents\" (1h de dev)</div><div class=\"text-[7px] text-slate-600 font-bold\">95% de l'impact immédiat atteint avec un effort minimal</div></div>",
           "expl": "Préférer une solution techniquement élémentaire et rapide à implémenter qui répond immédiatement au besoin soignant.",
           "debriefExpl": "Estimer la simplicité technique permet d'isoler des fonctionnalités à très fort ROI opérationnel pour soulager les utilisateurs sans effort.",
           "icon": "trending-up"
@@ -779,10 +779,10 @@
       },
       {
         "text": "Les secrétaires oublient régulièrement de joindre la notice explicative lors de l'envoi du kit de dépistage. Le PO veut développer un automate de détection optique de présence de feuille dans l'enveloppe, alors qu'un simple rappel de couleur vive lors de l'impression de l'étiquette pourrait suffire.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Contrôle d'Oubli</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Automate de détection de pli par webcam (très complexe)</div><div class=\"text-[7px] text-red-650\">⚠️ Projet dans le projet, complexité folle</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Contrôle d'Oubli</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Automate de détection de pli par webcam (très complexe)</div><div class=\"text-[7px] text-red-650\">⚠️ Projet dans le projet, complexité folle</div></div>",
         "correct": {
           "title": "F9.2. Prioriser l'impact utilisateur immédiat",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Rappel Visuel d'Impression</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Mention géante sur l'étiquette : \"JOINDRE LA NOTICE JAUNE\"</div><div class=\"text-[7px] text-emerald-600 font-bold\">80% d'erreurs en moins pour 10 minutes de modification du template</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Rappel Visuel d'Impression</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800\">Mention géante sur l'étiquette : \"JOINDRE LA NOTICE JAUNE\"</div><div class=\"text-[7px] text-slate-600 font-bold\">80% d'erreurs en moins pour 10 minutes de modification du template</div></div>",
           "expl": "Identifier les petits changements d'interface ou de process qui suppriment l'irritant utilisateur majeur avec un effort insignifiant.",
           "debriefExpl": "Se concentrer sur l'impact immédiat permet de résoudre des problèmes critiques sans perturber le planning technique.",
           "icon": "zap"
@@ -807,10 +807,10 @@
       },
       {
         "text": "Pour la relance des patients, le PO souhaite coder un module complet de publipostage papier interne avec gestion des marges d'impression, alors que le système possède déjà un bouton d'export de liste Excel standard que le prestataire d'impression externe sait traiter directement.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Publipostage Interne</div><div class=\"bg-red-150 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Coder un éditeur de courriers PDF complexes (2 semaines)</div><div class=\"text-[7px] text-red-650\">⚠️ Retard et maintenance lourde d'un moteur de mise en page</div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Publipostage Interne</div><div class=\"bg-red-150 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Coder un éditeur de courriers PDF complexes (2 semaines)</div><div class=\"text-[7px] text-red-650\">⚠️ Retard et maintenance lourde d'un moteur de mise en page</div></div>",
         "correct": {
           "title": "F9.3. Capitaliser sur les outils déjà disponibles ou externes",
-          "visual": "<div class=\"w-full bg-slate-50 border border-emerald-250 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-slate-400 uppercase\">Export Excel (Quick-Win)</div><div class=\"bg-white border-2 border-emerald-500 rounded p-1.5 text-[8px] font-black text-slate-800\">Bouton \"Exporter la liste des relances\" (Existant)</div><div class=\"text-[7px] text-emerald-600 font-bold\">Zéro ligne de code écrite, le routeur externe fait la mise en page</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Export Excel (Quick-Win)</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800\">Bouton \"Exporter la liste des relances\" (Existant)</div><div class=\"text-[7px] text-slate-600 font-bold\">Zéro ligne de code écrite, le routeur externe fait la mise en page</div></div>",
           "expl": "Réutiliser intelligemment les fonctionnalités ou fichiers d'échange existants pour répondre au besoin au lieu de réinventer la roue.",
           "debriefExpl": "Capitaliser sur l'existant permet d'offrir le service immédiatement en évitant des développements superflus.",
           "icon": "repeat"
@@ -834,6 +834,6 @@
         "expl": "Réutiliser intelligemment les fonctionnalités ou fichiers d'échange existants pour répondre au besoin au lieu de réinventer la roue."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Quick-wins</div><div class=\"flex flex-col gap-1.5\"><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold text-center\"><div class=\"bg-emerald-100 text-emerald-800 p-1 rounded\">Fort impact<br/>Faible effort</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded\">Fort impact<br/>Fort effort</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded\">Faible impact<br/>Faible effort</div><div class=\"bg-slate-100 text-slate-400 p-1 rounded\">Faible impact<br/>Fort effort</div></div><div class=\"text-[7px] text-emerald-600 font-bold text-center\">Matrice impact / effort</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Quick-wins</div><div class=\"flex flex-col gap-1.5\"><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 text-slate-800 p-1 rounded\">Fort impact<br/>Faible effort</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded\">Fort impact<br/>Fort effort</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded\">Faible impact<br/>Faible effort</div><div class=\"bg-slate-100 text-slate-400 p-1 rounded\">Faible impact<br/>Fort effort</div></div><div class=\"text-[7px] text-slate-600 font-bold text-center\">Matrice impact / effort</div></div></div>"
   }
 ]

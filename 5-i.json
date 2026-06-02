@@ -7,10 +7,10 @@
     "scenarios": [
       {
         "text": "Le portail de suivi de dépistage des partenaires n'a pas évolué depuis 3 ans. La PO veut le moderniser mais n'a jamais le temps d'explorer les nouvelles tendances UX santé car son agenda est saturé de réunions opérationnelles et de corrections de bugs.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Agenda PO</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex justify-between bg-red-50 p-1 rounded\"><span class=\"text-red-600 font-bold\">09:00</span><span class=\"text-red-700\">Réunion bugs CRDC ✗</span></div><div class=\"flex justify-between p-1\"><span>10:00</span><span>Point hebdo équipe</span></div><div class=\"flex justify-between p-1\"><span>11:00</span><span>Rétro sprint</span></div><div class=\"text-red-500 font-bold text-center mt-1\">┃ Aucun créneau libre pour la veille ┃</div></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Agenda PO</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex justify-between bg-red-50 p-1 rounded\"><span class=\"text-red-600 font-bold\">09:00</span><span class=\"text-red-700\">Réunion bugs CRDC ✗</span></div><div class=\"flex justify-between p-1\"><span>10:00</span><span>Point hebdo équipe</span></div><div class=\"flex justify-between p-1\"><span>11:00</span><span>Rétro sprint</span></div><div class=\"text-red-500 font-bold text-center mt-1\">┃ Aucun créneau libre pour la veille ┃</div></div></div>",
         "correct": {
           "title": "Bloquer un créneau de veille hebdomadaire",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Planning Veille</div><div class=\"bg-emerald-50 border border-emerald-200 rounded p-1 text-center\"><span class=\"font-bold text-[8px] text-emerald-700\">Jeudi 10h-12h : VEILLE PRODUIT</span><br><span class=\"text-[6px] text-emerald-500 italic\">(récurrent, non négociable)</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Planning Veille</div><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-center\"><span class=\"font-bold text-[8px] text-slate-700\">Jeudi 10h-12h : VEILLE PRODUIT</span><br><span class=\"text-[6px] text-slate-500 italic\">(récurrent, non négociable)</span></div></div>",
           "expl": "Sanctuariser dans l'agenda un temps récurrent dédié à l'exploration, sans aucun livrable opérationnel attendu.",
           "debriefExpl": "En bloquant 2h fixes par semaine, la PO peut explorer des portails santé modernes, tester des parcours patients fluides, et nourrir sa vision pour moderniser le portail de dépistage.",
           "icon": "check"
@@ -18,14 +18,14 @@
         "wrong": [
           {
             "title": "Consacrer 2h par mois de manière irrégulière",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Pas le temps !</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Stagiaire : faire une veille pour moi</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Pas le temps !</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Stagiaire : faire une veille pour moi</span></div></div>",
             "expl": "Consacrer un volume horaire aléatoire sans créneau dédié",
             "debriefExpl": "Dans ce contexte de veille concurrentielle, allouer du temps de manière irrégulière expose à des angles morts et ne permet pas un suivi continu des évolutions du marché santé.",
             "icon": "x"
           },
           {
             "title": "Faire de la veille uniquement en période creuse",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Reporté</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Je ferai de la veille pendant les congés</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Reporté</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Je ferai de la veille pendant les congés</span></div></div>",
             "expl": "Reporter la veille aux périodes de faible activité",
             "debriefExpl": "Face aux nouveautés du secteur, attendre une accalmie fait prendre un retard important sur les innovations et les mouvements concurrentiels.",
             "icon": "x"
@@ -35,10 +35,10 @@
       },
       {
         "text": "Le module d'envoi des résultats de dépistage aux patients utilise les mêmes écrans depuis 2019. Le designer UX n'a jamais le temps d'étudier comment les applis grand public présentent les résultats médicaux de façon rassurante.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Module Résultats 2019</div><div class=\"text-center\"><span class=\"text-[12px]\">📄</span><p class=\"text-[7px] text-slate-500\">Tableau statique • PDF brut • Pas de suivi</p><span class=\"text-[7px] text-amber-600\">⚠️ Aucune évolution depuis 3 ans</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Module Résultats 2019</div><div class=\"text-center\"><span class=\"text-[12px]\">📄</span><p class=\"text-[7px] text-slate-500\">Tableau statique • PDF brut • Pas de suivi</p><span class=\"text-[7px] text-amber-600\">⚠️ Aucune évolution depuis 3 ans</span></div></div>",
         "correct": {
           "title": "Explorer 3 applis santé innovantes par mois",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Discovery Mensuelle</div><div class=\"flex gap-1 justify-center\"><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🧬 Doctolib</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🏥 Maiia</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Qare</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Discovery Mensuelle</div><div class=\"flex gap-1 justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🧬 Doctolib</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🏥 Maiia</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Qare</span></div></div>",
           "expl": "Se fixer un rythme d'exploration régulier pour s'inspirer des innovations du marché.",
           "debriefExpl": "En analysant 3 applis par mois, le designer découvre que les résultats sont présentés avec des timelines visuelles et un code couleur rassurant — des idées directement applicables au module de dépistage.",
           "icon": "check"
@@ -46,14 +46,14 @@
         "wrong": [
           {
             "title": "Explorer uniquement lors des salons annuels",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Feuille de route</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Refonte module résultats : T3 2026</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Feuille de route</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Refonte module résultats : T3 2026</span></div></div>",
             "expl": "Limiter la découverte d'innovations aux événements périodiques",
             "debriefExpl": "Dans un secteur santé en évolution rapide, espacer la veille de 12 mois laisse passer des innovations majeures et des changements réglementaires.",
             "icon": "x"
           },
           {
             "title": "Surveiller uniquement les concurrents directs",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Formation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Je me forme en ligne sur mon temps perso</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Je me forme en ligne sur mon temps perso</span></div></div>",
             "expl": "Restreindre le périmètre de veille aux acteurs connus",
             "debriefExpl": "En se limitant aux concurrents habituels, on manque les innovations venues de secteurs connexes ou de startups émergentes.",
             "icon": "x"
@@ -63,10 +63,10 @@
       },
       {
         "text": "Le nouveau tableau de bord de pilotage des campagnes de dépistage doit être conçu. L'équipe produit aimerait s'inspirer des dashboards analytics modernes, mais entre les réunions clients et les urgences support, personne ne prend le temps d'explorer des outils comme Metabase ou Tableau.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Backlog Priorités</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>🔴 Urgence support CRDC</span><span>🟡 Réunion client ARS</span><span>🔴 Bug module labo</span><span class=\"text-slate-300 italic\">Veille dashboard...</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Backlog Priorités</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>🔴 Urgence support CRDC</span><span>🟡 Réunion client ARS</span><span>🔴 Bug module labo</span><span class=\"text-slate-300 italic\">Veille dashboard...</span></div></div>",
         "correct": {
           "title": "Planifier 2h de benchmark analytics",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Session Benchmark</div><div class=\"flex gap-1 justify-center\"><span class=\"bg-indigo-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📊 Metabase</span><span class=\"bg-indigo-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📈 Tableau</span><span class=\"bg-indigo-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📉 Power BI</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Session Benchmark</div><div class=\"flex gap-1 justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📊 Metabase</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📈 Tableau</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📉 Power BI</span></div></div>",
           "expl": "Réserver un temps dédié pour étudier des outils de référence et en extraire les meilleures pratiques.",
           "debriefExpl": "Après 2h de benchmark sur Metabase et Tableau, l'équipe identifie 3 patterns clés (filtres croisés, export PDF, alertes visuelles) à intégrer au dashboard de pilotage des campagnes.",
           "icon": "check"
@@ -74,14 +74,14 @@
         "wrong": [
           {
             "title": "Concevoir le dashboard en interne sans benchmark",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Tableau Blanc</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"layout\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On invente notre propre design de dashboard</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Tableau Blanc</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"layout\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On invente notre propre design de dashboard</span></div></div>",
             "expl": "Partir d'une page blanche sans analyser les solutions existantes",
             "debriefExpl": "Réinventer un dashboard sans regarder ce qui se fait ailleurs aboutit souvent à des fonctionnalités déjà standardisées sur le marché.",
             "icon": "x"
           },
           {
             "title": "Déléguer l'analyse au service commercial",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Cahier des charges</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le client nous décrit ce qu'il veut par mail</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Cahier des charges</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le client nous décrit ce qu'il veut par mail</span></div></div>",
             "expl": "Transférer la responsabilité de la veille à une équipe non dédiée",
             "debriefExpl": "Les besoins d'analytics produit ne coïncident pas toujours avec la vision commerciale, ce qui biaise les priorités et retarde les arbitrages.",
             "icon": "x"
@@ -90,7 +90,7 @@
         "expl": "S'inspirer des meilleurs du marché évite de réinventer des solutions qui existent déjà et permet d'élever le niveau d'exigence produit."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Créneau Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Vendredi 14h-15h</span></div><div class=\"text-[7px] text-slate-500 text-center\">Temps dédié chaque semaine</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Créneau Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Vendredi 14h-15h</span></div><div class=\"text-[7px] text-slate-500 text-center\">Temps dédié chaque semaine</div></div></div>"
   },
   {
     "id": 2,
@@ -100,10 +100,10 @@
     "scenarios": [
       {
         "text": "L'équipe doit concevoir un module de prise de rendez-vous en ligne pour le portail de dépistage. Personne n'a étudié Doctolib ni Maiia. Le premier maquettage montre un parcours en 7 étapes avec validation à chaque écran.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Parcours RDV Proposé</div><div class=\"flex flex-col gap-1 text-[7px]\"><span>1️⃣ Sélectionner centre ➔ 2️⃣ Choisir créneau</span><span>➔ 3️⃣ S'authentifier ➔ 4️⃣ Motif</span><span>➔ 5️⃣ Confirmer ➔ 6️⃣ Paiement ➔ 7️⃣ Validation</span><span class=\"text-red-500 font-bold\">❌ 7 étapes = abandon probable</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Parcours RDV Proposé</div><div class=\"flex flex-col gap-1 text-[7px]\"><span>1️⃣ Sélectionner centre ➔ 2️⃣ Choisir créneau</span><span>➔ 3️⃣ S'authentifier ➔ 4️⃣ Motif</span><span>➔ 5️⃣ Confirmer ➔ 6️⃣ Paiement ➔ 7️⃣ Validation</span><span class=\"text-red-500 font-bold\">❌ 7 étapes = abandon probable</span></div></div>",
         "correct": {
           "title": "Analyser 3 parcours concurrents avant de concevoir",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Benchmark Parcours</div><div class=\"flex gap-1 flex-wrap justify-center\"><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🩺 Doctolib (4 étapes)</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Maiia (3 étapes)</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🏥 Qare (3 étapes)</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Benchmark Parcours</div><div class=\"flex gap-1 flex-wrap justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🩺 Doctolib (4 étapes)</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Maiia (3 étapes)</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🏥 Qare (3 étapes)</span></div></div>",
           "expl": "Étudier systématiquement les parcours utilisateur des solutions de référence avant de concevoir le vôtre.",
           "debriefExpl": "L'analyse de Doctolib, Maiia et Qare révèle que les meilleurs parcours de RDV se font en 3-4 étapes maximum. L'équipe réduit son projet de 7 à 4 étapes, supprimant l'authentification obligatoire avant le choix du créneau.",
           "icon": "check"
@@ -111,14 +111,14 @@
         "wrong": [
           {
             "title": "Concevoir le parcours en réunion interne",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Brainstorming Interne</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"users\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">L'équipe imagine le parcours parfait en réunion</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Brainstorming Interne</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"users\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">L'équipe imagine le parcours parfait en réunion</span></div></div>",
             "expl": "Définir le parcours utilisateur à partir des hypothèses de l'équipe",
             "debriefExpl": "Sans référence aux parcours existants, l'équipe risque de reproduire des schémas connus sans tirer parti des innovations du marché.",
             "icon": "x"
           },
           {
             "title": "Copier le parcours du leader sans l'adapter",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Copie Simple</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"copy\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On reproduit exactement le parcours Doctolib</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Copie Simple</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"copy\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On reproduit exactement le parcours Doctolib</span></div></div>",
             "expl": "Reprendre à l'identique un parcours concurrent",
             "debriefExpl": "Chaque contexte métier et réglementaire est spécifique ; copier sans adaptation expose à des incohérences fonctionnelles et juridiques.",
             "icon": "x"
@@ -128,10 +128,10 @@
       },
       {
         "text": "Le module d'affichage des résultats d'analyse doit être repensé. L'équipe UX hésite entre un tableau statique (comme aujourd'hui) et une timeline visuelle, mais personne n'a étudié comment les laboratoires privés (Cerba, Eurofins, Synlab) présentent leurs résultats aux patients.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Résultats Actuels</div><div class=\"text-center\"><span class=\"text-[10px]\">📋</span><p class=\"text-[7px]\">Tableau HTML : 45 lignes • pas de couleur • valeurs brutes sans interprétation</p><span class=\"text-[6px] text-red-500\">≈ copie d'écran du LIMS</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Résultats Actuels</div><div class=\"text-center\"><span class=\"text-[10px]\">📋</span><p class=\"text-[7px]\">Tableau HTML : 45 lignes • pas de couleur • valeurs brutes sans interprétation</p><span class=\"text-[6px] text-red-500\">≈ copie d'écran du LIMS</span></div></div>",
         "correct": {
           "title": "Étudier les portails patients des labos privés",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Benchmark Labos</div><div class=\"flex gap-1 flex-wrap justify-center\"><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🔬 Cerba</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🧪 Eurofins</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📊 Synlab</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Benchmark Labos</div><div class=\"flex gap-1 flex-wrap justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🔬 Cerba</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🧪 Eurofins</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📊 Synlab</span></div></div>",
           "expl": "Analyser les interfaces des acteurs reconnus du marché pour identifier les standards de présentation des résultats.",
           "debriefExpl": "Les trois labos utilisent une approche similaire : résultats normaux en vert, anomalies en rouge/ambre, avec des jauges visuelles et un commentaire interprétatif. L'équipe abandonne le tableau brut pour une timeline visuelle avec code couleur.",
           "icon": "check"
@@ -139,14 +139,14 @@
         "wrong": [
           {
             "title": "Reproduire le portail de l'éditeur historique",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Sondage Utilisateurs</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"message-square\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On demande aux secrétaires ce qu'elles aimeraient</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Sondage Utilisateurs</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"message-square\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On demande aux secrétaires ce qu'elles aimeraient</span></div></div>",
             "expl": "S'aligner sur le leader sans analyser les alternatives",
             "debriefExpl": "Les portails des labos privés innovent plus vite ; ne pas les étudier, c'est passer à côté de standards émergents attendus par les patients.",
             "icon": "x"
           },
           {
             "title": "Concevoir selon les préférences techniques internes",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Choix Technique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le dev préfère un tableau simple à coder</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Choix Technique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le dev préfère un tableau simple à coder</span></div></div>",
             "expl": "Privilégier la faisabilité technique aux usages réels",
             "debriefExpl": "Un portail conçu autour des contraintes techniques plutôt que des attentes utilisateurs risque un faible taux d'adoption.",
             "icon": "x"
@@ -156,10 +156,10 @@
       },
       {
         "text": "Le tableau de bord de pilotage destiné aux directeurs régionaux doit être repensé. L'équipe veut créer un outil de visualisation des indicateurs clés sans avoir jamais consulté les dashboards des ARS ou de la DGOS qui existent pourtant en open data.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Dashboard Actuel</div><div class=\"text-center\"><span class=\"text-[10px]\">📊</span><p class=\"text-[7px]\">3 graphiques figés • export Excel • mise à jour hebdo</p><span class=\"text-[6px] text-slate-400\">Conçu en interne sans référence</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Dashboard Actuel</div><div class=\"text-center\"><span class=\"text-[10px]\">📊</span><p class=\"text-[7px]\">3 graphiques figés • export Excel • mise à jour hebdo</p><span class=\"text-[6px] text-slate-400\">Conçu en interne sans référence</span></div></div>",
         "correct": {
           "title": "Analyser les dashboards publics des ARS",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Benchmark Public</div><div class=\"flex gap-1 flex-wrap justify-center\"><span class=\"bg-indigo-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📈 Data.ARS</span><span class=\"bg-indigo-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📉 DGOS</span><span class=\"bg-indigo-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🗺️ Santé Publique</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Benchmark Public</div><div class=\"flex gap-1 flex-wrap justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📈 Data.ARS</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📉 DGOS</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🗺️ Santé Publique</span></div></div>",
           "expl": "Étudier les visualisations de données publiques existantes pour s'inspirer des indicateurs et formats attendus par les décideurs.",
           "debriefExpl": "Les dashboards ARS utilisent des cartes choroplèthes, des jauges de progression et des filtres temporels. L'équipe intègre ces standards directement dans la maquette du nouveau pilotage régional.",
           "icon": "check"
@@ -167,14 +167,14 @@
         "wrong": [
           {
             "title": "Reconduire le même dashboard que l'année précédente",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Peinture Fraîche</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"palette\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On garde la même structure, on change les couleurs</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Peinture Fraîche</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"palette\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On garde la même structure, on change les couleurs</span></div></div>",
             "expl": "Conserver l'existant sans actualiser les indicateurs",
             "debriefExpl": "Les ARS font évoluer leurs indicateurs chaque année ; ne pas les analyser conduit à un décalage avec les attentes règlementaires.",
             "icon": "x"
           },
           {
             "title": "Créer un dashboard basé sur les demandes internes uniquement",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Dashboard Géant</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"grid\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute tous les KPIs disponibles dans une seule vue</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Dashboard Géant</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"grid\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute tous les KPIs disponibles dans une seule vue</span></div></div>",
             "expl": "Se fier aux besoins exprimés en interne sans références externes",
             "debriefExpl": "Les utilisateurs internes n'ont pas toujours une vision des dashboards disponibles ailleurs, ce qui limite l'ambition et la pertinence des indicateurs.",
             "icon": "x"
@@ -183,7 +183,7 @@
         "expl": "Les dashboards publics sont une mine d'or gratuite pour comprendre les standards attendus par les décideurs avant même de commencer à concevoir."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Benchmark</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 text-slate-600 p-1 rounded flex-1\">Nous<br/>Score: 3/5</div><div class=\"bg-blue-100 text-blue-700 p-1 rounded flex-1\">Concurrent A<br/>Score: 4/5</div><div class=\"bg-blue-100 text-blue-700 p-1 rounded flex-1\">Concurrent B<br/>Score: 5/5</div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparaison marché</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Benchmark</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 text-slate-600 p-1 rounded flex-1\">Nous<br/>Score: 3/5</div><div class=\"bg-slate-100 text-slate-700 p-1 rounded flex-1\">Concurrent A<br/>Score: 4/5</div><div class=\"bg-slate-100 text-slate-700 p-1 rounded flex-1\">Concurrent B<br/>Score: 5/5</div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparaison marché</div></div></div>"
   },
   {
     "id": 3,
@@ -193,10 +193,10 @@
     "scenarios": [
       {
         "text": "Pour concevoir le nouveau tableau de bord des directeurs de CRDC, la PO a passé 3 semaines à rédiger un cahier des charges de 40 pages. Le métier ne parvient pas à se projeter et valide « en aveugle » sans mesurer l'ergonomie réelle.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Cahier des Charges</div><div class=\"text-center\"><span class=\"text-[14px]\">📄</span><span class=\"block font-bold text-[8px]\">40 pages de specs textuelles</span><span class=\"text-[6px] text-red-500\">❌ Le métier valide sans comprendre</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Cahier des Charges</div><div class=\"text-center\"><span class=\"text-[14px]\">📄</span><span class=\"block font-bold text-[8px]\">40 pages de specs textuelles</span><span class=\"text-[6px] text-red-500\">❌ Le métier valide sans comprendre</span></div></div>",
         "correct": {
           "title": "Générer 3 maquettes IA en 30 minutes",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Prototypage IA</div><div class=\"flex justify-center gap-1\"><span class=\"bg-violet-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🎨 Variante A</span><span class=\"bg-violet-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🎨 Variante B</span><span class=\"bg-violet-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🎨 Variante C</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Prototypage IA</div><div class=\"flex justify-center gap-1\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🎨 Variante A</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🎨 Variante B</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🎨 Variante C</span></div></div>",
           "expl": "Utiliser un outil de génération visuelle pour produire des variantes d'interface rapidement et les soumettre au métier.",
           "debriefExpl": "Avec 3 maquettes générées en 30 min, l'atelier de co-conception devient concret : le directeur voit immédiatement la différence entre un dashboard en barres et un dashboard en cartes, et peut trancher en connaissance de cause.",
           "icon": "check"
@@ -204,14 +204,14 @@
         "wrong": [
           {
             "title": "Rédiger un cahier des charges avant toute maquette",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Process Classique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On finalise les 40 pages et on les transmet aux développeurs</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Process Classique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On finalise les 40 pages et on les transmet aux développeurs</span></div></div>",
             "expl": "Formaliser les exigences par écrit avant d'explorer des pistes visuelles",
             "debriefExpl": "Le cahier des charges fige les hypothèses sans validation visuelle, ce qui allonge les cycles d'allers-retours ultérieurs.",
             "icon": "x"
           },
           {
             "title": "Organiser un atelier de co-conception de 3 jours",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Dev Direct</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On donne les specs aux devs et on corrigera après</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Dev Direct</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On donne les specs aux devs et on corrigera après</span></div></div>",
             "expl": "Mobiliser l'équipe sur un atelier long sans prototype préalable",
             "debriefExpl": "Un atelier sans support visuel pré-généré consomme du temps collectif sans garantir l'exploration de pistes variées.",
             "icon": "x"
@@ -221,10 +221,10 @@
       },
       {
         "text": "Le parcours d'inscription au dépistage doit être modernisé. L'équipe UX a une idée claire mais n'arrive pas à la communiquer au métier par écrit. Chaque réunion génère des incompréhensions et des allers-retours stériles.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Processus Actuel</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>📝 → 📧 → ❓ → 🤔 → 🔄 → ❌</span><span class=\"text-slate-400\">Réunion → Compte-rendu → Incompréhension → Nouvelle réunion</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Processus Actuel</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>📝 → 📧 → ❓ → 🤔 → 🔄 → ❌</span><span class=\"text-slate-400\">Réunion → Compte-rendu → Incompréhension → Nouvelle réunion</span></div></div>",
         "correct": {
           "title": "Générer un prototype cliquable avec l'IA",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Prototype Interactif</div><div class=\"flex justify-center gap-1\"><span class=\"bg-emerald-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Écran 1</span><span class=\"text-[6px]\">➔</span><span class=\"bg-emerald-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Écran 2</span><span class=\"text-[6px]\">➔</span><span class=\"bg-emerald-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Écran 3</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Prototype Interactif</div><div class=\"flex justify-center gap-1\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Écran 1</span><span class=\"text-[6px]\">➔</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Écran 2</span><span class=\"text-[6px]\">➔</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📱 Écran 3</span></div></div>",
           "expl": "Transformer l'idée en prototype navigable que le métier peut tester et critiquer concrètement.",
           "debriefExpl": "Le prototype cliquable révèle immédiatement que l'étape de consentement est trop longue. Le métier le voit et propose une simplification directe — ce qui aurait pris 3 allers-retours par email.",
           "icon": "check"
@@ -232,14 +232,14 @@
         "wrong": [
           {
             "title": "Rédiger un storyboard texte détaillé",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Storyboard</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On écrit scène par scène le parcours utilisateur</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Storyboard</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On écrit scène par scène le parcours utilisateur</span></div></div>",
             "expl": "Décrire le parcours utilisateur sous forme textuelle",
             "debriefExpl": "Le texte laisse place à l'interprétation et ne permet pas de tester concrètement le parcours avec les utilisateurs.",
             "icon": "x"
           },
           {
             "title": "Organiser un atelier post-it exploratoire",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Atelier Post-it</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"sticky-note\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On fait un atelier paper-board de co-conception</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Atelier Post-it</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"sticky-note\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On fait un atelier paper-board de co-conception</span></div></div>",
             "expl": "Animer une session de réflexion collective sans maquette interactive",
             "debriefExpl": "Les post-it ne restituent ni le rythme ni l'enchaînement réel du parcours de questionnaire patient.",
             "icon": "x"
@@ -249,10 +249,10 @@
       },
       {
         "text": "Le workflow interne de gestion des kits de dépistage est jugé complexe par les gestionnaires de CRDC. L'équipe produit veut le simplifier mais peine à explorer différentes options de parcours rapidement.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Workflow Actuel</div><div class=\"flex flex-col text-[6px]\"><span>📦 ➔ 📋 ➔ 🔄 ➔ ✅ ➔ 📬 ➔ 🔙 ➔ 📊 ➔ 📧 ➔ 🗑️</span><span class=\"text-red-400 font-bold\">9 étapes — gestionnaires perdus</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Workflow Actuel</div><div class=\"flex flex-col text-[6px]\"><span>📦 ➔ 📋 ➔ 🔄 ➔ ✅ ➔ 📬 ➔ 🔙 ➔ 📊 ➔ 📧 ➔ 🗑️</span><span class=\"text-red-400 font-bold\">9 étapes — gestionnaires perdus</span></div></div>",
         "correct": {
           "title": "Générer 3 variantes de workflow avec l'IA",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Variantes Testées</div><div class=\"flex justify-center gap-1 flex-wrap\"><span class=\"bg-violet-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📦 Simplifié (5 étapes)</span><span class=\"bg-violet-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🚀 Automatisé (4 étapes)</span><span class=\"bg-violet-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">💡 Externalisé (3 étapes)</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Variantes Testées</div><div class=\"flex justify-center gap-1 flex-wrap\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">📦 Simplifié (5 étapes)</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">🚀 Automatisé (4 étapes)</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">💡 Externalisé (3 étapes)</span></div></div>",
           "expl": "Explorer rapidement plusieurs architectures de workflow avant de s'engager dans le développement.",
           "debriefExpl": "Les 3 variantes générées permettent aux gestionnaires de comparer concrètement les options et de choisir le workflow à 5 étapes qui supprime les doublons de saisie.",
           "icon": "check"
@@ -260,14 +260,14 @@
         "wrong": [
           {
             "title": "Optimiser le workflow actuel sans alternatives",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Optimisation Locale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"edit\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On améliore l'existant étape par étape</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Optimisation Locale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"edit\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On améliore l'existant étape par étape</span></div></div>",
             "expl": "Améliorer le processus existant sans explorer d'autres modèles",
             "debriefExpl": "Sans générer plusieurs variantes, on reste dans le cadre connu et on passe à côté d'architectures plus efficaces.",
             "icon": "x"
           },
           {
             "title": "Faire valider le nouveau workflow par courriel",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Validation Email</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On envoie une proposition et on attend les retours</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Validation Email</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On envoie une proposition et on attend les retours</span></div></div>",
             "expl": "Recueillir les retours par email plutôt que par test utilisateur",
             "debriefExpl": "Un simple email ne remplace pas l'observation des blocages réels des manipulateurs face au nouveau workflow.",
             "icon": "x"
@@ -276,7 +276,7 @@
         "expl": "Multiplier les variantes visuelles permet de comparer et de choisir, plutôt que d'améliorer sans vision."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Prototypage IA</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-1.5\"><div class=\"text-[7px] text-slate-500 italic\">Prompt:</div><div class=\"text-[7px] text-slate-800 font-bold\">Génère un mockup de dashboard patient...</div></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"sparkles\" class=\"w-2.5 h-2.5 text-purple-500\"></i><span>Explorer les possibilités IA</span></div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Prototypage IA</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-1.5\"><div class=\"text-[7px] text-slate-500 italic\">Prompt:</div><div class=\"text-[7px] text-slate-800 font-bold\">Génère un mockup de dashboard patient...</div></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"sparkles\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span>Explorer les possibilités IA</span></div></div></div>"
   },
   {
     "id": 4,
@@ -286,10 +286,10 @@
     "scenarios": [
       {
         "text": "L'outil de saisie médicale des infirmier·ères CRDC utilise des grilles denses avec des petits boutons gris et des champs obligatoires non différenciés. Les utilisatrices, habituées à des applications fluides sur leur téléphone, trouvent l'outil archaïque.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Interface Actuelle</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"grid grid-cols-3 gap-0.5\"><span class=\"bg-slate-100 p-0.5 text-center\">Nom</span><span class=\"bg-slate-100 p-0.5 text-center\">Prénom</span><span class=\"bg-slate-100 p-0.5 text-center\">NIR</span></div><span class=\"text-center text-red-500\">⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ (grille 15 champs)</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Interface Actuelle</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"grid grid-cols-3 gap-0.5\"><span class=\"bg-slate-100 p-0.5 text-center\">Nom</span><span class=\"bg-slate-100 p-0.5 text-center\">Prénom</span><span class=\"bg-slate-100 p-0.5 text-center\">NIR</span></div><span class=\"text-center text-red-500\">⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛ (grille 15 champs)</span></div></div>",
         "correct": {
           "title": "Moderniser avec des composants grand public",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Interface Modernisée</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1 flex items-center gap-1\"><span class=\"text-[8px]\">🔍</span><input class=\"text-[7px] border-0 outline-none flex-1\" placeholder=\"Rechercher un patient...\" disabled></div><div class=\"flex gap-1\"><span class=\"bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded-full text-[6px] font-bold\">🟢 En cours</span><span class=\"bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded-full text-[6px] font-bold\">🟡 En attente</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Interface Modernisée</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1 flex items-center gap-1\"><span class=\"text-[8px]\">🔍</span><input class=\"text-[7px] border-0 outline-none flex-1\" placeholder=\"Rechercher un patient...\" disabled></div><div class=\"flex gap-1\"><span class=\"bg-slate-50 text-slate-700 px-1.5 py-0.5 rounded-full text-[6px] font-bold\">🟢 En cours</span><span class=\"bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded-full text-[6px] font-bold\">🟡 En attente</span></div></div></div>",
           "expl": "Remplacer les grilles denses par des composants d'interface modernes (recherche, badges, espacements aérés) que les utilisateurs reconnaissent immédiatement.",
           "debriefExpl": "Les infirmières retrouvent les codes de leurs apps quotidiennes : barre de recherche prédictive, statuts en badges colorés, espacements généreux. L'outil devient intuitif sans formation.",
           "icon": "check"
@@ -297,14 +297,14 @@
         "wrong": [
           {
             "title": "Ajouter un bandeau d'aide contextuel dans chaque écran",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Didacticiel</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute des infobulles d'aide sur l'interface complexe</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Didacticiel</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute des infobulles d'aide sur l'interface complexe</span></div></div>",
             "expl": "Compenser la complexité par de l'aide au lieu de simplifier l'interface",
             "debriefExpl": "Ajouter de l'aide ne règle pas le problème de fond : l'interface doit être intuitive sans mode d'emploi.",
             "icon": "x"
           },
           {
             "title": "Former les utilisateurs à l'interface existante",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Formation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"graduation-cap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On forme les équipes à naviguer dans la grille complexe</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"graduation-cap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On forme les équipes à naviguer dans la grille complexe</span></div></div>",
             "expl": "Adapter l'utilisateur à l'outil plutôt que l'inverse",
             "debriefExpl": "Former systématiquement masque les défauts d'ergonomie et augmente le coût d'adoption des nouveaux arrivants.",
             "icon": "x"
@@ -314,10 +314,10 @@
       },
       {
         "text": "La page de connexion au portail de dépistage affiche 12 champs et boutons différents sans hiérarchie visuelle claire. Les médecins âgés peinent à trouver le bouton « Se connecter » perdu dans la densité.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Page Login Actuelle</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><input placeholder=\"Identifiant\" class=\"border p-0.5\" disabled><input placeholder=\"Mot de passe\" class=\"border p-0.5\" disabled><span class=\"text-center text-[6px] text-slate-400\">Mot de passe oublié • Aide • CGU • Contact</span><span class=\"bg-slate-200 text-center p-0.5\">◄ Retour à l'accueil</span><span class=\"bg-slate-200 text-center p-0.5\">Créer un compte</span><span class=\"bg-slate-300 text-center p-0.5 font-bold\">Se connecter</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Page Login Actuelle</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><input placeholder=\"Identifiant\" class=\"border p-0.5\" disabled><input placeholder=\"Mot de passe\" class=\"border p-0.5\" disabled><span class=\"text-center text-[6px] text-slate-400\">Mot de passe oublié • Aide • CGU • Contact</span><span class=\"bg-slate-200 text-center p-0.5\">◄ Retour à l'accueil</span><span class=\"bg-slate-200 text-center p-0.5\">Créer un compte</span><span class=\"bg-slate-300 text-center p-0.5 font-bold\">Se connecter</span></div></div>",
         "correct": {
           "title": "Déduire et reproduire les interfaces intuitives du marché",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Login Simplifié</div><div class=\"text-[7px]\"><input placeholder=\"Identifiant ou email\" class=\"border border-slate-300 w-full p-1 rounded mb-1\" disabled><input placeholder=\"Mot de passe\" class=\"border border-slate-300 w-full p-1 rounded mb-1\" disabled><span class=\"block bg-blue-900 text-white text-center p-1 rounded font-bold\">Se connecter</span><span class=\"block text-center text-[6px] text-blue-500 mt-0.5\">Mot de passe oublié ?</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Login Simplifié</div><div class=\"text-[7px]\"><input placeholder=\"Identifiant ou email\" class=\"border border-slate-300 w-full p-1 rounded mb-1\" disabled><input placeholder=\"Mot de passe\" class=\"border border-slate-300 w-full p-1 rounded mb-1\" disabled><span class=\"block bg-slate-900 text-white text-center p-1 rounded font-bold\">Se connecter</span><span class=\"block text-center text-[6px] text-slate-500 mt-0.5\">Mot de passe oublié ?</span></div></div>",
           "expl": "Observer les standards d'interaction des applications grand public et les reproduire dans le produit santé pour offrir une expérience immédiatement familière.",
           "debriefExpl": "Au lieu d'un formulaire de connexion surchargé, on reproduit le schéma standard des applications modernes : champ email, champ mot de passe, bouton principal « Se connecter », lien « Mot de passe oublié » discret. Les médecins retrouvent un réflexe.",
           "icon": "check"
@@ -325,14 +325,14 @@
         "wrong": [
           {
             "title": "Surcharger l'interface d'informations contextuelles",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Aide</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute un bouton d'aide flottant pour la connexion</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Aide</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"help-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute un bouton d'aide flottant pour la connexion</span></div></div>",
             "expl": "Ajouter des aides et des explications plutôt que de simplifier le parcours utilisateur",
             "debriefExpl": "Les infobulles et les aides contextuelles ne remplacent pas une interface qui parle d'elle-même et suit les codes établis.",
             "icon": "x"
           },
           {
             "title": "Personnaliser l'interface pour chaque utilisateur",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Bouton Flashy</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"palette\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On met le bouton en rose fluo pour qu'il se voie</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Bouton Flashy</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"palette\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On met le bouton en rose fluo pour qu'il se voie</span></div></div>",
             "expl": "Adapter l'interface au cas par cas au lieu d'appliquer un standard reconnu universellement",
             "debriefExpl": "La personnalisation augmente la complexité de maintenance et prive les utilisateurs de repères communs partagés entre collègues.",
             "icon": "x"
@@ -342,10 +342,10 @@
       },
       {
         "text": "Les résultats de dépistage sont affichés dans un tableau HTML avec bordures serrées, lignes alternées grises et pas de distinction visuelle entre normal et anormal. Les médecins doivent scruter chaque ligne pour repérer les anomalies.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Tableau Actuel</div><div class=\"flex flex-col text-[6px]\"><div class=\"flex gap-2 border-b\"><span class=\"w-8 font-bold\">Date</span><span class=\"w-10 font-bold\">Test</span><span class=\"w-6 font-bold\">Val.</span></div><div class=\"flex gap-2\"><span>01/03</span><span>PSA</span><span>0.8</span></div><div class=\"flex gap-2 bg-slate-100\"><span>01/03</span><span>Hémoglobine</span><span class=\"text-red-400 font-bold bg-red-50\">ALARM 6.2</span></div></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Tableau Actuel</div><div class=\"flex flex-col text-[6px]\"><div class=\"flex gap-2 border-b\"><span class=\"w-8 font-bold\">Date</span><span class=\"w-10 font-bold\">Test</span><span class=\"w-6 font-bold\">Val.</span></div><div class=\"flex gap-2\"><span>01/03</span><span>PSA</span><span>0.8</span></div><div class=\"flex gap-2 bg-slate-100\"><span>01/03</span><span>Hémoglobine</span><span class=\"text-red-400 font-bold bg-red-50\">ALARM 6.2</span></div></div></div>",
         "correct": {
           "title": "Démarrer une refonte UI progressive de l'existant",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Résultats Modernes</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-emerald-200 rounded p-1 flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-emerald-400\"></span><span class=\"text-[7px] font-bold flex-1\">PSA</span><span class=\"text-[7px] text-emerald-600\">0.8 ng/mL ✓</span></div><div class=\"bg-white border border-red-200 rounded p-1 flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-red-400\"></span><span class=\"text-[7px] font-bold flex-1\">Hémoglobine</span><span class=\"text-[7px] text-red-600 font-bold\">6.2 ⚠️ Alarme</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Résultats Modernes</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1 flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-slate-400\"></span><span class=\"text-[7px] font-bold flex-1\">PSA</span><span class=\"text-[7px] text-slate-600\">0.8 ng/mL ✓</span></div><div class=\"bg-white border border-red-200 rounded p-1 flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-red-400\"></span><span class=\"text-[7px] font-bold flex-1\">Hémoglobine</span><span class=\"text-[7px] text-red-600 font-bold\">6.2 ⚠️ Alarme</span></div></div></div>",
           "expl": "Remplacer progressivement les composants d'interface obsolètes par des versions modernisées, écran par écran, sans refonte big-bang risquée.",
           "debriefExpl": "Au lieu d'un tableau de résultats dense à parcourir ligne par ligne, on remplace d'abord la vue des résultats par des cartes individuelles avec codes couleur. Prochaine étape : le formulaire de saisie. La refonte progressive permet d'apprendre et d'ajuster sans bloquer les utilisateurs.",
           "icon": "check"
@@ -353,14 +353,14 @@
         "wrong": [
           {
             "title": "Lancer une refonte complète en une seule version",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Filtres</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"arrow-up-down\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute du tri et du filtrage sur le tableau existant</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Filtres</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"arrow-up-down\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute du tri et du filtrage sur le tableau existant</span></div></div>",
             "expl": "Tout réécrire d'un coup sans validation itérative des nouveaux composants",
             "debriefExpl": "Une refonte big-bang paralyse les utilisateurs, génère des régressions massives et prend des mois sans retour utilisateur intermédiaire.",
             "icon": "x"
           },
           {
             "title": "Conserver l'interface actuelle en ajoutant des filtres",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Export PDF</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On génère un beau PDF que les médecins téléchargent</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Export PDF</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On génère un beau PDF que les médecins téléchargent</span></div></div>",
             "expl": "Ajouter des fonctionnalités sans traiter le problème structurel de l'interface",
             "debriefExpl": "Des filtres et tris ne changent pas fondamentalement l'ergonomie du tableau ; les médecins continuent à scruter des lignes pour trouver une alerte.",
             "icon": "x"
@@ -369,7 +369,7 @@
         "expl": "Les médecins n'ont pas le temps de décrypter des tableaux denses. Une interface moderne parle d'elle-même en un coup d'œil."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Standards UI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"w-5 h-3 bg-slate-200 rounded\"></div><div class=\"w-5 h-3 bg-slate-300 rounded\"></div><div class=\"w-5 h-3 bg-slate-200 rounded\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">S&#39;inspirer des patterns connus</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Standards UI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"w-5 h-3 bg-slate-200 rounded\"></div><div class=\"w-5 h-3 bg-slate-300 rounded\"></div><div class=\"w-5 h-3 bg-slate-200 rounded\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">S&#39;inspirer des patterns connus</div></div></div>"
   },
   {
     "id": 5,
@@ -379,10 +379,10 @@
     "scenarios": [
       {
         "text": "L'équipe décide de coder en interne le module d'envoi de SMS de relance pour les patients qui n'ont pas renvoyé leur kit de dépistage. Après 3 mois de développement, la solution est instable : problèmes de délivrabilité, pas de suivi des échecs, plaintes des patients.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Projet SMS Interne</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📱 Module SMS — Dev Interne</span><div class=\"flex justify-between\"><span>Budget : 45 000€</span><span>Délai : 3 mois</span></div><span class=\"text-red-500\">⚠️ 23% d'échec de délivrabilité</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Projet SMS Interne</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📱 Module SMS — Dev Interne</span><div class=\"flex justify-between\"><span>Budget : 45 000€</span><span>Délai : 3 mois</span></div><span class=\"text-red-500\">⚠️ 23% d'échec de délivrabilité</span></div></div>",
         "correct": {
           "title": "Documenter l'usage d'outils tiers pour palier les manques de son produit",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Intégration Tiers</div><div class=\"flex items-center gap-1 justify-center\"><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Twilio</span><span class=\"text-[6px]\">+</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Sendinblue</span><span class=\"text-[6px]\">=</span><span class=\"bg-emerald-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">✅ Prêt en 2 jours</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Intégration Tiers</div><div class=\"flex items-center gap-1 justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Twilio</span><span class=\"text-[6px]\">+</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Sendinblue</span><span class=\"text-[6px]\">=</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">✅ Prêt en 2 jours</span></div></div>",
           "expl": "Consigner systématiquement les besoins non couverts et identifier les outils du marché qui pourraient les satisfaire avant d'envisager un développement interne.",
           "debriefExpl": "En documentant précisément les manques du module SMS maison et en listant les passerelles SMS existantes (Twilio, Sendinblue), l'équipe aurait identifié dès le départ qu'une intégration de 2 jours remplaçait 3 mois de développement hasardeux.",
           "icon": "check"
@@ -390,14 +390,14 @@
         "wrong": [
           {
             "title": "Développer des fonctionnalités génériques en interne",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Correctif Urgent</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"alert-triangle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On reprend le code maison pour le stabiliser en urgence</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Correctif Urgent</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On reprend le code maison pour le stabiliser en urgence</span></div></div>",
             "expl": "Construire ce qui existe déjà sur le marché sans évaluer préalablement les alternatives",
             "debriefExpl": "Construire soi-même une fonctionnalité générique existante consomme du temps et des ressources qui pourraient être investis sur les spécificités métier.",
             "icon": "x"
           },
           {
             "title": "Ignorer le besoin faute de solution disponible",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Abandon</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On abandonne la relance SMS, les patients ne sont pas relancés</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Abandon</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On abandonne la relance SMS, les patients ne sont pas relancés</span></div></div>",
             "expl": "Renoncer à traiter le problème plutôt que d'explorer les options d'intégration",
             "debriefExpl": "Laisser le besoin insatisfait dégrade l'expérience utilisateur alors que des solutions éprouvées existent sur le marché.",
             "icon": "x"
@@ -407,10 +407,10 @@
       },
       {
         "text": "Pour permettre le paiement en ligne du complément d'acte médical (dépassement d'honoraire non remboursé), l'équipe veut développer son propre module de paiement. Le CTO est enthousiaste mais le projet s'annonce complexe avec les normes de sécurité bancaire.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Paiement Maison</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">💳 Module Paiement</span><span>PCI-DSS : 6 mois de coût de conformité</span><span>Dev : 4 mois • Tests sécurité : 3 mois</span><span class=\"text-red-500\">🚫 Lancement estimé dans 10 mois</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Paiement Maison</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">💳 Module Paiement</span><span>PCI-DSS : 6 mois de coût de conformité</span><span>Dev : 4 mois • Tests sécurité : 3 mois</span><span class=\"text-red-500\">🚫 Lancement estimé dans 10 mois</span></div></div>",
         "correct": {
           "title": "Tester les échanges de fichiers, de données ou d'emails avec les outils tiers",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Intégration Paiement</div><div class=\"flex items-center gap-1 justify-center\"><span class=\"bg-indigo-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Stripe</span><span class=\"text-[6px]\">📦</span><span class=\"bg-emerald-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">✅ Prêt en 1 semaine</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Intégration Paiement</div><div class=\"flex items-center gap-1 justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Stripe</span><span class=\"text-[6px]\">📦</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">✅ Prêt en 1 semaine</span></div></div>",
           "expl": "Valider techniquement les flux d'échange avec un outil tiers avant de généraliser son intégration, en vérifiant formats, volumétrie et sécurité.",
           "debriefExpl": "Avant de lancer le paiement en ligne via Stripe, il faut tester les flux de données : transmission sécurisée du montant, réception des notifications de paiement, gestion des remboursements. Sans ces tests, l'intégration compromise l'expérience patient.",
           "icon": "check"
@@ -418,14 +418,14 @@
         "wrong": [
           {
             "title": "Supposer la compatibilité sans test préalable",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Prestataire</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"briefcase\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On confie le dev à un prestataire externe</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Prestataire</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"briefcase\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On confie le dev à un prestataire externe</span></div></div>",
             "expl": "Partir du principe qu'un outil tiers fonctionnera sans valider techniquement les échanges",
             "debriefExpl": "Des formats incompatibles, des limites de volumétrie ou des latences non anticipées peuvent bloquer l'intégration une fois en production.",
             "icon": "x"
           },
           {
             "title": "Développer un adaptateur sans valider le besoin",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Manuel</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On envoie une facture PDF et le patient paie par virement</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Manuel</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On envoie une facture PDF et le patient paie par virement</span></div></div>",
             "expl": "Coder une interface d'échange sans vérifier d'abord que l'outil tiers répond au besoin",
             "debriefExpl": "Un adaptateur développé dans l'urgence peut s'avérer inadapté si le périmètre fonctionnel du tiers n'est pas validé en amont.",
             "icon": "x"
@@ -435,10 +435,10 @@
       },
       {
         "text": "Les gestionnaires de CRDC demandent un module de visioconférence intégré pour les consultations de suivi post-dépistage. L'équipe technique veut développer sa propre solution de webRTC pour ne pas dépendre d'un éditeur externe.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Visio Maison</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📹 Visio Intégrée</span><span>WebRTC : 4 mois de dev • stabilité aléatoire</span><span>Tests perf : 150 000€ d'infra</span><span class=\"text-red-500\">⚠️ Qualité audio/vidéo non garantie</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Visio Maison</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📹 Visio Intégrée</span><span>WebRTC : 4 mois de dev • stabilité aléatoire</span><span>Tests perf : 150 000€ d'infra</span><span class=\"text-red-500\">⚠️ Qualité audio/vidéo non garantie</span></div></div>",
         "correct": {
           "title": "Imaginer des cas d'usage avec des informations ou des actions tierces",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Intégration Visio</div><div class=\"flex items-center gap-1 justify-center\"><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Whereby</span><span class=\"text-[6px]\">/</span><span class=\"bg-blue-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Daily.co</span><span class=\"text-[6px]\">→</span><span class=\"bg-emerald-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">✅ 3 jours d'intégration</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Intégration Visio</div><div class=\"flex items-center gap-1 justify-center\"><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Whereby</span><span class=\"text-[6px]\">/</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">Daily.co</span><span class=\"text-[6px]\">→</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-[6px] font-bold\">✅ 3 jours d'intégration</span></div></div>",
           "expl": "Explorer les possibilités offertes par un outil tiers au-delà de son usage initial, en imaginant des scénarios où ses données ou actions enrichissent le produit.",
           "debriefExpl": "Au lieu de développer une visio maison, l'équipe aurait pu imaginer des cas d'usage enrichis : enclencher la visio depuis le dossier patient, horodater la consultation, transcrire automatiquement les échanges — des fonctionnalités offertes par les API de Daily.co inexploitées par une solution sur mesure.",
           "icon": "check"
@@ -446,14 +446,14 @@
         "wrong": [
           {
             "title": "Limiter l'usage du tiers à son minimum technique",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Outil Séparé</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"external-link\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On utilise Teams en parallèle, l'utilisateur change d'outil</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Outil Séparé</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"external-link\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On utilise Teams en parallèle, l'utilisateur change d'outil</span></div></div>",
             "expl": "Utiliser un outil tiers sans imaginer les usages avancés qu'il pourrait apporter au produit",
             "debriefExpl": "Se contenter de la fonction de base d'un outil tiers fait passer à côté d'opportunités de différenciation produit.",
             "icon": "x"
           },
           {
             "title": "Attendre que le marché mature pour innover",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Reporté</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On attend l'année prochaine pour la visio</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Reporté</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On attend l'année prochaine pour la visio</span></div></div>",
             "expl": "Reporter l'exploration des usages tiers à plus tard par crainte de la complexité",
             "debriefExpl": "Attendre prive l'équipe d'apprentissages précoces et retarde l'innovation produit face aux concurrents.",
             "icon": "x"
@@ -462,7 +462,7 @@
         "expl": "Les API de visioconférence sont matures, sécurisées et économiques. Les développer en interne est un non-sens pour un éditeur de logiciel de dépistage."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Outils Tiers</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-blue-500\"></i><span>Outil X</span></div><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-emerald-500\"></i><span>Outil Y</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Écosystème et plugins</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Outils Tiers</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-slate-500\"></i><span>Outil X</span></div><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-slate-500\"></i><span>Outil Y</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Écosystème et plugins</div></div></div>"
   },
   {
     "id": 6,
@@ -472,10 +472,10 @@
     "scenarios": [
       {
         "text": "La connexion FranceConnect du portail de dépistage s'interrompt brutalement un lundi matin. L'équipe découvre que FranceConnect a migré vers OAuth 2.1 avec un délai de 6 mois — largement dépassé. Les patients ne peuvent plus s'authentifier.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">FranceConnect HS</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-red-400\"></span><span class=\"font-bold\">FranceConnect</span></div><span>🔴 Service interrompu lundi 08:00</span><span>📧 Mail d'alerte reçu... il y a 6 mois !</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">FranceConnect HS</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-red-400\"></span><span class=\"font-bold\">FranceConnect</span></div><span>🔴 Service interrompu lundi 08:00</span><span>📧 Mail d'alerte reçu... il y a 6 mois !</span></div></div>",
         "correct": {
           "title": "S'abonner aux flux d'actualité des partenaires",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Veille Partenaires</div><div class=\"flex flex-col gap-1\"><span class=\"bg-blue-50 px-1 py-0.5 rounded text-[6px]\">📬 Abonné newsletter FranceConnect</span><span class=\"bg-blue-50 px-1 py-0.5 rounded text-[6px]\">🔔 Alertes technique partenaire activées</span><span class=\"bg-emerald-50 px-1 py-0.5 rounded text-[6px] font-bold text-emerald-700\">📅 Revue mensuelle des migrations</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Veille Partenaires</div><div class=\"flex flex-col gap-1\"><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px]\">📬 Abonné newsletter FranceConnect</span><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px]\">🔔 Alertes technique partenaire activées</span><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px] font-bold text-slate-700\">📅 Revue mensuelle des migrations</span></div></div>",
           "expl": "S'abonner aux canaux officiels de chaque partenaire technique et planifier une revue régulière des évolutions à venir.",
           "debriefExpl": "En s'abonnant à la newsletter technique FranceConnect et en ajoutant une revue mensuelle des partenaires dans la planification, l'équipe aurait anticipé la migration OAuth 2.1.",
           "icon": "check"
@@ -483,14 +483,14 @@
         "wrong": [
           {
             "title": "Migrer vers une solution alternative dès l'annonce",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Correctif Urgent</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On patch en urgence le WE pour rétablir le service</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Correctif Urgent</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On patch en urgence le WE pour rétablir le service</span></div></div>",
             "expl": "Changer de fournisseur sans analyser l'impact",
             "debriefExpl": "Une migration précipitée peut causer des ruptures de service pour les utilisateurs connectés via FranceConnect.",
             "icon": "x"
           },
           {
             "title": "Basculer vers un autre fournisseur d'identité",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Contournement</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"shield-off\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On crée un login/mot de passe maison en attendant</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contournement</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"shield-off\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On crée un login/mot de passe maison en attendant</span></div></div>",
             "expl": "Contourner l'évolution en changeant de partenaire",
             "debriefExpl": "Changer de fournisseur sans anticiper les implications techniques et contractuelles expose à des régressions.",
             "icon": "x"
@@ -500,10 +500,10 @@
       },
       {
         "text": "L'API d'envoi des résultats vers le LIMS (système d'information du laboratoire) a été mise à jour sans que l'équipe ne soit prévenue. Les résultats ne remontent plus depuis 48h, des centaines de patients sont en attente.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">API LIMS HS</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-red-400\"></span><span class=\"font-bold\">API LIMS</span></div><span>🔴 Résultats bloqués depuis 48h</span><span>⚠️ 347 patients en attente</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">API LIMS HS</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-red-400\"></span><span class=\"font-bold\">API LIMS</span></div><span>🔴 Résultats bloqués depuis 48h</span><span>⚠️ 347 patients en attente</span></div></div>",
         "correct": {
           "title": "Suivre le changelog et les versions des API",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Suivi API</div><div class=\"flex flex-col gap-1\"><span class=\"bg-blue-50 px-1 py-0.5 rounded text-[6px]\">📋 Changelog API LIMS surveillé</span><span class=\"bg-blue-50 px-1 py-0.5 rounded text-[6px]\">🔗 Webhook version partenaire configuré</span><span class=\"bg-emerald-50 px-1 py-0.5 rounded text-[6px] font-bold text-emerald-700\">✅ Nouvelle version intégrée avant mise en prod</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Suivi API</div><div class=\"flex flex-col gap-1\"><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px]\">📋 Changelog API LIMS surveillé</span><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px]\">🔗 Webhook version partenaire configuré</span><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px] font-bold text-slate-700\">✅ Nouvelle version intégrée avant mise en prod</span></div></div>",
           "expl": "Surveiller activement les changelogs et les versions des API partenaires pour anticiper les incompatibilités.",
           "debriefExpl": "En surveillant le changelog du LIMS et en configurant un webhook d'alerte, l'équipe aurait testé et intégré la mise à jour avant qu'elle ne casse les envois de résultats.",
           "icon": "check"
@@ -511,14 +511,14 @@
         "wrong": [
           {
             "title": "Contacter le support du LIMS au cas par cas",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Support LIMS</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On demande au LIMS de rétablir l'ancienne version</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Support LIMS</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On demande au LIMS de rétablir l'ancienne version</span></div></div>",
             "expl": "Réagir à chaque changement sans vision d'ensemble",
             "debriefExpl": "Sans abonnement au changelog, l'équipe découvre les mises à jour par des incidents, en mode réactif.",
             "icon": "x"
           },
           {
             "title": "Mettre à jour l'API sans environnement de test",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">API Alternative</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"alert-triangle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On se connecte à une autre API LIMS en urgence</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">API Alternative</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On se connecte à une autre API LIMS en urgence</span></div></div>",
             "expl": "Appliquer les évolutions d'API directement en production",
             "debriefExpl": "Une mise à jour sans test préalable peut casser les flux de données entre le LIMS et l'application santé.",
             "icon": "x"
@@ -528,10 +528,10 @@
       },
       {
         "text": "Le fournisseur d'hébergement certifié santé (HDS) annonce une migration vers un nouveau datacenter. L'équipe n'avait pas anticipé et découvre que la fenêtre de migration impose 72h d'indisponibilité complète.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">HDS Migration</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-amber-400\"></span><span class=\"font-bold\">Hébergeur Santé</span></div><span>📦 Migration datacenter dans 3 semaines</span><span>⏱️ 72h d'indisponibilité annoncée</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">HDS Migration</div><div class=\"flex flex-col gap-1 text-[7px]\"><div class=\"flex items-center gap-1\"><span class=\"w-2 h-2 rounded-full bg-amber-400\"></span><span class=\"font-bold\">Hébergeur Santé</span></div><span>📦 Migration datacenter dans 3 semaines</span><span>⏱️ 72h d'indisponibilité annoncée</span></div></div>",
         "correct": {
           "title": "Intégrer la roadmap partenaires dans la planification",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Planning Anticipé</div><div class=\"flex flex-col gap-1\"><span class=\"bg-blue-50 px-1 py-0.5 rounded text-[6px]\">📅 Revue semestrielle des partenaires</span><span class=\"bg-blue-50 px-1 py-0.5 rounded text-[6px]\">🗓️ Migration HDS intégrée au planning produit</span><span class=\"bg-emerald-50 px-1 py-0.5 rounded text-[6px] font-bold text-emerald-700\">✅ Communication utilisateurs planifiée</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Planning Anticipé</div><div class=\"flex flex-col gap-1\"><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px]\">📅 Revue semestrielle des partenaires</span><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px]\">🗓️ Migration HDS intégrée au planning produit</span><span class=\"bg-slate-50 px-1 py-0.5 rounded text-[6px] font-bold text-slate-700\">✅ Communication utilisateurs planifiée</span></div></div>",
           "expl": "Ajouter une revue régulière des évolutions partenaires dans le cycle de planification produit.",
           "debriefExpl": "En intégrant la migration HDS dans la planification 6 mois avant, l'équipe aurait pu négocier une fenêtre de nuit et préparer la communication aux CRDC.",
           "icon": "check"
@@ -539,14 +539,14 @@
         "wrong": [
           {
             "title": "Repousser la migration à la prochaine release majeure",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Négociation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"handshake\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On demande à l'hébergeur de ne pas migrer</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Négociation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"handshake\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On demande à l'hébergeur de ne pas migrer</span></div></div>",
             "expl": "Retarder l'adaptation pour éviter l'effort immédiat",
             "debriefExpl": "Reporter expose à une désactivation brutale du service si le partenaire impose sa roadmap sans préavis.",
             "icon": "x"
           },
           {
             "title": "Externaliser la migration à un prestataire sans supervision",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Migration Directe</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"rocket\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On lance la migration sans environnement de test</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Migration Directe</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"rocket\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On lance la migration sans environnement de test</span></div></div>",
             "expl": "Déléguer entièrement la mise en conformité sans suivi interne",
             "debriefExpl": "Sans supervision interne, la migration peut dévier des contraintes métier spécifiques à l'établissement.",
             "icon": "x"
@@ -555,7 +555,7 @@
         "expl": "Les partenaires d'infrastructure ont leur propre roadmap. L'ignorer expose à des migrations subies. L'intégrer dans sa planification permet de les maîtriser."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Évolutions Partenaires</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"alert-triangle\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">API v3 dépréciée</span></div><div class=\"text-[7px] text-slate-500 text-center\">Anticiper les changements</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Évolutions Partenaires</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">API v3 dépréciée</span></div><div class=\"text-[7px] text-slate-500 text-center\">Anticiper les changements</div></div></div>"
   },
   {
     "id": 7,
@@ -565,10 +565,10 @@
     "scenarios": [
       {
         "text": "Les secrétaires des CRDC doivent saisir le numéro SIRET, l'adresse et le code FINESS de chaque nouvelle structure de santé. Ces informations sont disponibles dans les bases publiques. Conséquence : 12% des fiches contiennent des erreurs.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Saisie Manuelle</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📝 Nouvelle Structure</span><div class=\"flex justify-between\"><span>SIRET :</span><span class=\"text-red-400\">________</span></div><div class=\"flex justify-between\"><span>FINESS :</span><span class=\"text-red-400\">________</span></div><div class=\"flex justify-between\"><span>Adresse :</span><span class=\"text-red-400\">________</span></div><span class=\"text-red-500\">⚠️ 12% d'erreurs de saisie</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Saisie Manuelle</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📝 Nouvelle Structure</span><div class=\"flex justify-between\"><span>SIRET :</span><span class=\"text-red-400\">________</span></div><div class=\"flex justify-between\"><span>FINESS :</span><span class=\"text-red-400\">________</span></div><div class=\"flex justify-between\"><span>Adresse :</span><span class=\"text-red-400\">________</span></div><span class=\"text-red-500\">⚠️ 12% d'erreurs de saisie</span></div></div>",
         "correct": {
           "title": "Préremplir via les bases officielles",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Auto-complétion</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1 flex items-center gap-1\"><span class=\"text-[8px]\">🔍</span><input class=\"text-[7px] border-0 outline-none flex-1\" placeholder=\"Nom ou N° identification...\" disabled></div><div class=\"bg-emerald-50 border border-emerald-200 rounded p-1 text-[7px]\"><span class=\"font-bold text-emerald-700\">🏥 CHU Amiens</span><br><span>SIRET: 782 932 456 00012</span><br><span>FINESS: 800012345</span><br><span class=\"text-[6px] text-emerald-500\">✅ Informations préremplies depuis la base Sirene</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Auto-complétion</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1 flex items-center gap-1\"><span class=\"text-[8px]\">🔍</span><input class=\"text-[7px] border-0 outline-none flex-1\" placeholder=\"Nom ou N° identification...\" disabled></div><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px]\"><span class=\"font-bold text-slate-700\">🏥 CHU Amiens</span><br><span>SIRET: 782 932 456 00012</span><br><span>FINESS: 800012345</span><br><span class=\"text-[6px] text-slate-500\">✅ Informations préremplies depuis la base Sirene</span></div></div></div>",
           "expl": "Connecter le formulaire aux API des bases de données publiques (Sirene, FINESS) pour préremplir automatiquement les informations.",
           "debriefExpl": "En connectant le formulaire à la base Sirene via API, la secrétaire saisit simplement le nom de la structure et toutes les informations sont pré-remplies automatiquement.",
           "icon": "check"
@@ -576,14 +576,14 @@
         "wrong": [
           {
             "title": "Former les secrétaires à une meilleure saisie",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Formation Saisie</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"graduation-cap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On forme les secrétaires à recopier sans erreur</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formation Saisie</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"graduation-cap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On forme les secrétaires à recopier sans erreur</span></div></div>",
             "expl": "Compenser l'absence d'automatisation par de la formation",
             "debriefExpl": "La formation réduit les erreurs mais ne supprime pas la ressaisie manuelle, chronophage et source d'oublis.",
             "icon": "x"
           },
           {
             "title": "Ajouter des contrôles de validation stricts",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Contrôles</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute 15 règles de validation sur le formulaire</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contrôles</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On ajoute 15 règles de validation sur le formulaire</span></div></div>",
             "expl": "Multiplier les règles de validation sans réduire la saisie",
             "debriefExpl": "Les contrôles bloquent les erreurs mais n'éliminent pas le travail de ressaisie : le bénéfice est partiel.",
             "icon": "x"
@@ -593,10 +593,10 @@
       },
       {
         "text": "Pour affecter un médecin référent à chaque patient, les gestionnaires consultent manuellement l'annuaire RPPS pour vérifier le numéro et la spécialité. Cette vérification prend 2 minutes par fiche.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Vérification Manuelle</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">👨‍⚕️ Médecin traitant</span><span>Nom : ___________ (Recherche manuelle RPPS)</span><span>RPPS : ___________</span><span>Spécialité : ___________</span><span class=\"text-amber-500\">⏱️ 2 min par fiche × 50 fiches/jour</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Vérification Manuelle</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">👨‍⚕️ Médecin traitant</span><span>Nom : ___________ (Recherche manuelle RPPS)</span><span>RPPS : ___________</span><span>Spécialité : ___________</span><span class=\"text-amber-500\">⏱️ 2 min par fiche × 50 fiches/jour</span></div></div>",
         "correct": {
           "title": "Interroger l'annuaire RPPS automatiquement",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Auto-complétion RPPS</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1 flex items-center gap-1\"><span class=\"text-[8px]\">🔍</span><input class=\"text-[7px] border-0 outline-none flex-1\" placeholder=\"Rechercher un médecin...\" disabled></div><div class=\"bg-emerald-50 border border-emerald-200 rounded p-1 text-[7px]\"><span class=\"font-bold\">Dr. Sophie Martin</span><br><span>RPPS: 10012345678</span><br><span>Généraliste — CHU Amiens</span><br><span class=\"text-[6px] text-emerald-500\">✅ Données issues du RPPS</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Auto-complétion RPPS</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1 flex items-center gap-1\"><span class=\"text-[8px]\">🔍</span><input class=\"text-[7px] border-0 outline-none flex-1\" placeholder=\"Rechercher un médecin...\" disabled></div><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px]\"><span class=\"font-bold\">Dr. Sophie Martin</span><br><span>RPPS: 10012345678</span><br><span>Généraliste — CHU Amiens</span><br><span class=\"text-[6px] text-slate-500\">✅ Données issues du RPPS</span></div></div></div>",
           "expl": "Connecter la recherche médecin à l'annuaire RPPS officiel pour préremplir automatiquement les informations.",
           "debriefExpl": "La gestionnaire tape les premières lettres du nom et le formulaire affiche les suggestions issues du RPPS avec le numéro et la spécialité déjà vérifiés.",
           "icon": "check"
@@ -604,14 +604,14 @@
         "wrong": [
           {
             "title": "Constituer une base interne des médecins",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Base Interne</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"hard-drive\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On crée notre propre annuaire saisi manuellement</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Base Interne</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"hard-drive\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On crée notre propre annuaire saisi manuellement</span></div></div>",
             "expl": "Créer et maintenir un annuaire maison des professionnels",
             "debriefExpl": "Une base interne est rapidement obsolète et nécessite une mise à jour manuelle chronophage.",
             "icon": "x"
           },
           {
             "title": "Demander au patient le nom de son médecin traitant",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Déclaration Patient</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"users\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On laisse le patient déclarer son médecin traitant</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Déclaration Patient</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"users\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On laisse le patient déclarer son médecin traitant</span></div></div>",
             "expl": "Se reposer sur la déclaration orale du patient",
             "debriefExpl": "Les patients peuvent se tromper ou donner un nom approximatif, générant des erreurs de rattachement.",
             "icon": "x"
@@ -621,10 +621,10 @@
       },
       {
         "text": "Les adresses postales des patients sont saisies manuellement par les secrétaires lors de l'envoi des kits de dépistage. Les adresses erronées provoquent 8% de retours postaux non distribuables.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Adresse Erronée</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📮 Adresse Patient</span><span>Rue : _______________ (saisie libre)</span><span>CP : _______________</span><span>Ville : _______________</span><span class=\"text-red-500\">📬 8% de kits retournés (erreur adresse)</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Adresse Erronée</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📮 Adresse Patient</span><span>Rue : _______________ (saisie libre)</span><span>CP : _______________</span><span>Ville : _______________</span><span class=\"text-red-500\">📬 8% de kits retournés (erreur adresse)</span></div></div>",
         "correct": {
           "title": "Ajouter une autocomplétion via la Base Adresse Nationale",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Autocomplétion Adresse</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1\"><span class=\"text-[7px]\">🔍 <span class=\"font-bold\">12 rue de</span></span></div><div class=\"bg-white border border-slate-200 rounded text-[6px]\"><span class=\"block p-0.5 border-b\">12 rue de la <span class=\"font-bold\">Paix</span>, 75002 Paris</span><span class=\"block p-0.5\">12 rue du <span class=\"font-bold\">Dépistage</span>, 80000 Amiens</span></div><span class=\"text-emerald-600 text-[6px] font-bold\">✅ Adresse normalisée — 0% d'erreur</span></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Autocomplétion Adresse</div><div class=\"flex flex-col gap-1\"><div class=\"bg-white border border-slate-200 rounded p-1\"><span class=\"text-[7px]\">🔍 <span class=\"font-bold\">12 rue de</span></span></div><div class=\"bg-white border border-slate-200 rounded text-[6px]\"><span class=\"block p-0.5 border-b\">12 rue de la <span class=\"font-bold\">Paix</span>, 75002 Paris</span><span class=\"block p-0.5\">12 rue du <span class=\"font-bold\">Dépistage</span>, 80000 Amiens</span></div><span class=\"text-slate-600 text-[6px] font-bold\">✅ Adresse normalisée — 0% d'erreur</span></div></div>",
           "expl": "Intégrer l'API de la Base Adresse Nationale (data.gouv.fr) pour normaliser et valider les adresses à la saisie.",
           "debriefExpl": "En connectant le champ adresse à la Base Adresse Nationale, les suggestions normalisées apparaissent dès les premières frappes. Les retours postaux passent de 8% à quasiment 0%.",
           "icon": "check"
@@ -632,14 +632,14 @@
         "wrong": [
           {
             "title": "Vérifier l'adresse en appelant le patient",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Appel</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On appelle chaque patient pour vérifier son adresse</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Appel</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"phone\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On appelle chaque patient pour vérifier son adresse</span></div></div>",
             "expl": "Contrôler manuellement chaque adresse par téléphone",
             "debriefExpl": "L'appel manuel est chronophage pour les équipes et n'est pas scalable en période d'envoi massif.",
             "icon": "x"
           },
           {
             "title": "Envoyer un courrier de confirmation avant le kit",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Double Envoi</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On envoie une lettre de confirmation avant d'expédier le kit</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Double Envoi</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On envoie une lettre de confirmation avant d'expédier le kit</span></div></div>",
             "expl": "Valider l'adresse par courrier postal avant envoi du dépistage",
             "debriefExpl": "Un courrier de confirmation double le délai et le coût logistique, sans garantir que l'adresse est correcte.",
             "icon": "x"
@@ -648,7 +648,7 @@
         "expl": "Les bases de données publiques comme la Base Adresse Nationale sont gratuites et fiables. Les utiliser est plus efficace que tout processus de vérification manuelle."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Données Externes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"globe\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Open Data ARS</span></div><div class=\"text-[7px] text-slate-500 text-center\">Sources publiques exploitables</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Données Externes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"globe\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Open Data ARS</span></div><div class=\"text-[7px] text-slate-500 text-center\">Sources publiques exploitables</div></div></div>"
   },
   {
     "id": 8,
@@ -658,10 +658,10 @@
     "scenarios": [
       {
         "text": "L'ergonome a découvert une technique pour rendre l'import CSV d'analyses plus tolérant aux erreurs de colonnage. N'ayant pas partagé cette veille, un autre projet développe un import strict qui bloque les utilisateurs.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Deux Imports</div><div class=\"flex gap-2 text-[6px]\"><div class=\"flex-1 border border-red-200 rounded p-1\"><span class=\"font-bold text-red-500\">❌ Projet B</span><br>Import strict<br>bloque les erreurs</div><div class=\"flex-1 border border-slate-200 rounded p-1\"><span class=\"font-bold text-slate-400\">? Projet A</span><br>Technique<br>innovante...</div></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Deux Imports</div><div class=\"flex gap-2 text-[6px]\"><div class=\"flex-1 border border-red-200 rounded p-1\"><span class=\"font-bold text-red-500\">❌ Projet B</span><br>Import strict<br>bloque les erreurs</div><div class=\"flex-1 border border-slate-200 rounded p-1\"><span class=\"font-bold text-slate-400\">? Projet A</span><br>Technique<br>innovante...</div></div></div>",
         "correct": {
           "title": "Organiser un Show & Tell mensuel",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Show & Tell</div><div class=\"flex flex-col gap-1\"><div class=\"bg-blue-50 border border-blue-200 rounded p-1 text-[7px] text-center font-bold\">📣 Show & Tell — Dernier vendredi du mois</div><div class=\"flex gap-1 justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">🎨 UX</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">⚙️ Tech</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">📊 Produit</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Show & Tell</div><div class=\"flex flex-col gap-1\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px] text-center font-bold\">📣 Show & Tell — Dernier vendredi du mois</div><div class=\"flex gap-1 justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">🎨 UX</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">⚙️ Tech</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">📊 Produit</span></div></div></div>",
           "expl": "Mettre en place un rendez-vous régulier et court de partage des découvertes pour aligner l'équipe.",
           "debriefExpl": "Lors du premier Show & Tell, l'ergonome présente sa technique d'import tolérant. Le projet B l'adopte immédiatement, évitant des semaines de refonte.",
           "icon": "check"
@@ -669,14 +669,14 @@
         "wrong": [
           {
             "title": "Documenter la découverte dans le wiki",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Wiki</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">L'ergonome écrit un article dans le wiki technique</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Wiki</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">L'ergonome écrit un article dans le wiki technique</span></div></div>",
             "expl": "Consigner l'information sans la partager oralement",
             "debriefExpl": "Le wiki est consulté ponctuellement ; sans présentation orale, l'information reste peu diffusée et rarement discutée.",
             "icon": "x"
           },
           {
             "title": "Envoyer un compte-rendu par email à l'équipe",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Email</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">L'ergonome envoie un mail récapitulatif à tout le monde</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Email</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">L'ergonome envoie un mail récapitulatif à tout le monde</span></div></div>",
             "expl": "Diffuser l'information par courriel sans échange",
             "debriefExpl": "Un email est vite noyé dans la boîte de réception et ne permet pas les questions ni les débats.",
             "icon": "x"
@@ -686,10 +686,10 @@
       },
       {
         "text": "L'équipe UX a identifié un pattern de design très prometteur pour simplifier le parcours multi-étapes des patients d'un CRDC. Si les développeurs ne sont pas informés, ils continueront à coder dans l'ancienne direction.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Travail en Silos</div><div class=\"flex gap-1 text-[6px]\"><div class=\"p-1 border border-blue-200 rounded flex-1\"><span class=\"font-bold text-blue-600\">🎨 UX</span><br>Nouveau pattern identifié</div><div class=\"p-1 border border-slate-200 rounded flex-1\"><span class=\"font-bold text-slate-400\">⚙️ Dev</span><br>Code l'ancienne approche</div></div></div>",
+        "problemVisual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Travail en Silos</div><div class=\"flex gap-1 text-[6px]\"><div class=\"p-1 border border-slate-200 rounded flex-1\"><span class=\"font-bold text-slate-600\">🎨 UX</span><br>Nouveau pattern identifié</div><div class=\"p-1 border border-slate-200 rounded flex-1\"><span class=\"font-bold text-slate-400\">⚙️ Dev</span><br>Code l'ancienne approche</div></div></div>",
         "correct": {
           "title": "Présenter la découverte au daily ou à la rétro",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Partage Agile</div><div class=\"flex flex-col gap-1\"><div class=\"bg-blue-50 border border-blue-200 rounded p-1 text-[7px] text-center font-bold\">🔄 Rétrospective Sprint</div><div class=\"text-[6px] text-center\">« J'ai testé ce pattern — regardez la différence ! »</div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Partage Agile</div><div class=\"flex flex-col gap-1\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px] text-center font-bold\">🔄 Rétrospective Sprint</div><div class=\"text-[6px] text-center\">« J'ai testé ce pattern — regardez la différence ! »</div></div></div>",
           "expl": "Utiliser les rituels agiles existants (daily, rétro, sprint review) pour partager les découvertes transverses.",
           "debriefExpl": "Lors de la rétro, l'UX designer montre le nouveau pattern en 5 minutes. Les développeurs l'intègrent dans leur backlog technique pour le prochain sprint.",
           "icon": "check"
@@ -697,14 +697,14 @@
         "wrong": [
           {
             "title": "Attendre la prochaine réunion de pôle",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Réunion Pôle</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On en parlera à la réunion de pôle dans 3 semaines</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Réunion Pôle</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On en parlera à la réunion de pôle dans 3 semaines</span></div></div>",
             "expl": "Reporter la diffusion à un rendez-vous formel lointain",
             "debriefExpl": "Attendre une réunion de pôle retarde la prise de décision et l'information peut perdre de sa pertinence.",
             "icon": "x"
           },
           {
             "title": "Publier dans le canal général sans discussion",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Slack</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"message-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On poste dans #général et on espère être vu</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Slack</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"message-circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On poste dans #général et on espère être vu</span></div></div>",
             "expl": "Poster l'information sans susciter d'échange",
             "debriefExpl": "Un message dans un canal général est souvent survolé et n'engage pas de réflexion collective.",
             "icon": "x"
@@ -714,10 +714,10 @@
       },
       {
         "text": "Le développeur lead a trouvé une bibliothèque open-source qui pourrait remplacer le lourd système de génération de rapports PDF. Cette veille technique n'est pas partagée et l'équipe continue de subir le système legacy.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Legacy PDF</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📄 Générateur PDF Actuel</span><span>🐌 Temps de génération : 45 secondes</span><span>💣 Crash si > 1000 pages</span><span>🔧 Maintenu par 1 développeur à temps partiel</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Legacy PDF</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📄 Générateur PDF Actuel</span><span>🐌 Temps de génération : 45 secondes</span><span>💣 Crash si > 1000 pages</span><span>🔧 Maintenu par 1 développeur à temps partiel</span></div></div>",
         "correct": {
           "title": "Animer un Tech Lunch sur le sujet",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Tech Lunch</div><div class=\"flex flex-col gap-1\"><div class=\"bg-blue-50 border border-blue-200 rounded p-1 text-[7px] text-center font-bold\">🥪 Tech Lunch — Vendredi 12h30</div><div class=\"text-[6px] text-center\">« Alternative PDF : démo en 15 min »</div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Tech Lunch</div><div class=\"flex flex-col gap-1\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px] text-center font-bold\">🥪 Tech Lunch — Vendredi 12h30</div><div class=\"text-[6px] text-center\">« Alternative PDF : démo en 15 min »</div></div></div>",
           "expl": "Organiser un temps informel de partage technique (Tech Lunch, Brown Bag) pour diffuser les découvertes dans un cadre détendu.",
           "debriefExpl": "Le Tech Lunch permet au développeur de montrer la librairie en 15 minutes. L'équipe décide collectivement de l'intégrer dans la prochaine itération.",
           "icon": "check"
@@ -725,14 +725,14 @@
         "wrong": [
           {
             "title": "Créer une POC sans la présenter à l'équipe",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">POC Caché</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le dév crée un POC dans son coin sans le présenter</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">POC Caché</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"code\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le dév crée un POC dans son coin sans le présenter</span></div></div>",
             "expl": "Développer une preuve de concept en silo",
             "debriefExpl": "Sans partage, la POC risque de ne pas correspondre aux besoins réels et l'investissement est perdu.",
             "icon": "x"
           },
           {
             "title": "Remplacer l'outil sans concertation préalable",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Changement Brutal</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le dév remplace le système en une nuit sans prévenir</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Changement Brutal</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"zap\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Le dév remplace le système en une nuit sans prévenir</span></div></div>",
             "expl": "Choisir un nouvel outil sans avis de l'équipe",
             "debriefExpl": "Un changement unilatéral génère de la résistance et peut passer à côté de contraintes d'équipe ignorées.",
             "icon": "x"
@@ -741,7 +741,7 @@
         "expl": "Le partage des découvertes est aussi important que la découverte elle-même. Un format informel et court garantit la diffusion sans alourdir le planning."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Partager Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"share-2\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Flash veille mensuel</span></div><div class=\"text-[7px] text-slate-500 text-center\">Diffuser à l&#39;équipe</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Partager Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"share-2\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Flash veille mensuel</span></div><div class=\"text-[7px] text-slate-500 text-center\">Diffuser à l&#39;équipe</div></div></div>"
   },
   {
     "id": 9,
@@ -751,10 +751,10 @@
     "scenarios": [
       {
         "text": "L'équipe produit achète une licence d'outil de dataviz coûteuse sur la foi d'une démonstration commerciale flatteuse. Au déploiement, le format des données de santé (BDD entiers, mesures répétées) s'avère incompatible sans un immense chantier.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Licence Achetée</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📊 Outil Dataviz — 50 000€/an</span><span>✅ Démo commerciale : impressionnante</span><span>❌ Données réelles : incompatibles</span><span class=\"text-red-500\">⚠️ 3 mois de chantier data supplémentaire</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Licence Achetée</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📊 Outil Dataviz — 50 000€/an</span><span>✅ Démo commerciale : impressionnante</span><span>❌ Données réelles : incompatibles</span><span class=\"text-red-500\">⚠️ 3 mois de chantier data supplémentaire</span></div></div>",
         "correct": {
           "title": "Exiger un PoC de 48h avec des données réelles",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">PoC 48h</div><div class=\"flex flex-col gap-1\"><div class=\"bg-emerald-50 border border-emerald-200 rounded p-1 text-[7px] text-center\"><span class=\"font-bold text-emerald-700\">🧪 PoC 48h — Données anonymisées</span></div><div class=\"flex gap-1 justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">📊 3 jeux de données test</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">🔗 API connectée</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">✅ Rapport de compatibilité</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">PoC 48h</div><div class=\"flex flex-col gap-1\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px] text-center\"><span class=\"font-bold text-slate-700\">🧪 PoC 48h — Données anonymisées</span></div><div class=\"flex gap-1 justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">📊 3 jeux de données test</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">🔗 API connectée</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">✅ Rapport de compatibilité</span></div></div></div>",
           "expl": "Exiger une période d'évaluation pratique avec des données de test représentatives avant tout engagement financier.",
           "debriefExpl": "Le PoC de 48h révèle que l'outil ne gère pas les séries temporelles de mesures de dépistage. L'équipe évite un achat à 50 000€ et choisit un outil compatible.",
           "icon": "check"
@@ -762,14 +762,14 @@
         "wrong": [
           {
             "title": "Se fier à la démonstration commerciale",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Démo Commerciale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"presentation\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">La démo était parfaite, on achète</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Démo Commerciale</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"presentation\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">La démo était parfaite, on achète</span></div></div>",
             "expl": "Valider sur une démo préparée par le fournisseur",
             "debriefExpl": "Une démo commerciale montre toujours le meilleur cas, pas les limites avec des données réelles de laboratoire.",
             "icon": "x"
           },
           {
             "title": "Comparer les fiches techniques des outils",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Négociation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"percent\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On négocie une ristourne et on achète quand même</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Négociation</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"percent\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On négocie une ristourne et on achète quand même</span></div></div>",
             "expl": "Choisir sur documentation sans test pratique",
             "debriefExpl": "La fiche technique ne remplace pas un test réel sur un flux d'analyses représentatif du quotidien du laboratoire.",
             "icon": "x"
@@ -779,10 +779,10 @@
       },
       {
         "text": "Un fournisseur de chatbot santé propose une solution clé en main. La démonstration est bluffante mais quand l'équipe teste avec des questions réelles de patients (termes médicaux, acronymes CRDC, codes d'examens), le chatbot ne comprend rien.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Chatbot HS</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">🤖 Chatbot Santé</span><span>Démo : « Délai d'envoi ? » → ✅ Réponse parfaite</span><span class=\"text-red-500\">Test réel : « Délai pour le CRC ? » → ❌ « Je n'ai pas compris »</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Chatbot HS</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">🤖 Chatbot Santé</span><span>Démo : « Délai d'envoi ? » → ✅ Réponse parfaite</span><span class=\"text-red-500\">Test réel : « Délai pour le CRC ? » → ❌ « Je n'ai pas compris »</span></div></div>",
         "correct": {
           "title": "Tester avec un jeu de questions patients réelles",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Test Réaliste</div><div class=\"flex flex-col gap-1\"><div class=\"bg-emerald-50 border border-emerald-200 rounded p-1 text-[7px] text-center\"><span class=\"font-bold text-emerald-700\">🧪 Test : 20 questions patients authentiques</span></div><div class=\"flex gap-1 flex-wrap justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">❓ Kit perdu</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">❓ Résultat anormal</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">❓ Remboursement</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Test Réaliste</div><div class=\"flex flex-col gap-1\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px] text-center\"><span class=\"font-bold text-slate-700\">🧪 Test : 20 questions patients authentiques</span></div><div class=\"flex gap-1 flex-wrap justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">❓ Kit perdu</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">❓ Résultat anormal</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">❓ Remboursement</span></div></div></div>",
           "expl": "Soumettre la solution à un test avec des cas d'usage concrets et authentiques avant toute décision.",
           "debriefExpl": "Le test avec 20 questions réelles montre un taux de compréhension de seulement 35%. L'équipe renonce et cherche une solution mieux entraînée sur le vocabulaire médical du dépistage.",
           "icon": "check"
@@ -790,14 +790,14 @@
         "wrong": [
           {
             "title": "Personnaliser le chatbot après l'achat",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Achat + Custom</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"shopping-cart\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On achète, on personnalisera le modèle après</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Achat + Custom</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"shopping-cart\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On achète, on personnalisera le modèle après</span></div></div>",
             "expl": "Acquérir la licence avant d'avoir validé l'adaptation au domaine",
             "debriefExpl": "Investir sans validation préalable expose à découvrir après achat que les réponses du chatbot ne correspondent pas au vocabulaire médical.",
             "icon": "x"
           },
           {
             "title": "Déployer le chatbot à tous les services dès la livraison",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Former Patients</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On forme les patients à utiliser les bons termes</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Former Patients</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On forme les patients à utiliser les bons termes</span></div></div>",
             "expl": "Étendre immédiatement sans phase pilote",
             "debriefExpl": "Un déploiement large sans pilote amplifie les erreurs et rend les corrections plus coûteuses.",
             "icon": "x"
@@ -807,10 +807,10 @@
       },
       {
         "text": "Un fournisseur d'API de télémédecine propose une solution d'ordonnance électronique. La documentation technique est impressionnante, mais aucune validation n'est faite avec le SI des CRDC. À l'intégration, tout est à revoir.",
-        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Doc Impressionnante</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📄 Doc Technique API</span><span>📚 200 pages de spécifications</span><span>✅ Architecture REST conforme</span><span>❌ Pas de test avec notre SI</span><span class=\"text-amber-500\">⚠️ 6 semaines de ré-intégration</span></div></div>",
+        "problemVisual": "<div class=\"w-full border border-amber-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Doc Impressionnante</div><div class=\"flex flex-col gap-1 text-[7px]\"><span class=\"font-bold\">📄 Doc Technique API</span><span>📚 200 pages de spécifications</span><span>✅ Architecture REST conforme</span><span>❌ Pas de test avec notre SI</span><span class=\"text-amber-500\">⚠️ 6 semaines de ré-intégration</span></div></div>",
         "correct": {
           "title": "Réaliser un connectathon avec le fournisseur",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Connectathon</div><div class=\"flex flex-col gap-1\"><div class=\"bg-emerald-50 border border-emerald-200 rounded p-1 text-[7px] text-center\"><span class=\"font-bold text-emerald-700\">🔗 Connectathon : 1 semaine d'intégration croisée</span></div><div class=\"flex gap-1 justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">🔌 API branchée</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">📋 Tests de flux</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">✅ Compatible</span></div></div></div>",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Connectathon</div><div class=\"flex flex-col gap-1\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 text-[7px] text-center\"><span class=\"font-bold text-slate-700\">🔗 Connectathon : 1 semaine d'intégration croisée</span></div><div class=\"flex gap-1 justify-center text-[6px]\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">🔌 API branchée</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">📋 Tests de flux</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">✅ Compatible</span></div></div></div>",
           "expl": "Organiser une session d'intégration en conditions réelles avant de finaliser le contrat.",
           "debriefExpl": "Le connectathon révèle que l'API ne gère pas les NIR temporaires des nouveau-nés et que le format de signature n'est pas compatible. Corrections faites avant signature.",
           "icon": "check"
@@ -818,14 +818,14 @@
         "wrong": [
           {
             "title": "Signer le contrat sur la base de la documentation",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Signature sur Doc</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-signature\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">La doc était bonne, on signe</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Signature sur Doc</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-signature\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">La doc était bonne, on signe</span></div></div>",
             "expl": "S'engager sans interopérabilité testée",
             "debriefExpl": "La documentation promet une compatibilité qui n'est pas toujours vérifiée avec les systèmes d'information hospitaliers réels.",
             "icon": "x"
           },
           {
             "title": "Valider avec un jeu de données synthétique uniquement",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Adaptateur</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"puzzle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On développe un adaptateur pour faire fonctionner l'API</span></div></div>",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Adaptateur</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"puzzle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">On développe un adaptateur pour faire fonctionner l'API</span></div></div>",
             "expl": "Tester dans un environnement artificiel, sans données réelles",
             "debriefExpl": "Les données synthétiques ne reproduisent pas la variabilité et les anomalies des données réelles de laboratoire.",
             "icon": "x"
@@ -834,6 +834,6 @@
         "expl": "La documentation technique ne fait pas foi. Un test d'intégration réel est le seul moyen de valider qu'une API fonctionne dans votre contexte spécifique."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Tester Réel</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-purple-50 border border-purple-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"flask\" class=\"w-2.5 h-2.5 text-purple-600\"></i><span class=\"font-bold text-purple-800\">Conditions réelles</span></div><div class=\"text-[7px] text-slate-500 text-center\">Valider hors production</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Tester Réel</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"flask\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Conditions réelles</span></div><div class=\"text-[7px] text-slate-500 text-center\">Valider hors production</div></div></div>"
   }
 ]

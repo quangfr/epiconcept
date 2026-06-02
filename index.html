@@ -543,11 +543,9 @@
             align-items: center;
             justify-content: center;
             font-size: 1.25rem;
-            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
             position: relative;
             transition: var(--transition-smooth);
-            background: rgba(30, 58, 138, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: transparent;
             color: var(--text-main);
         }
 
@@ -1313,9 +1311,9 @@
         style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 900; letter-spacing: -0.03em;"><i
             data-lucide="rocket" class="w-6 h-6 text-blue-900 shrink-0"></i><span data-i18n="app-title">GO EPICO</span></h1>
                     <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
-                        class="bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors flex items-center justify-center shrink-0 cursor-pointer"
-                        style="border: none; outline: none; width: 28px; height: 28px;">
-                        <i data-lucide="info" style="width: 14px; height: 14px;"></i>
+                        class="cursor-pointer"
+                        style="background: none; border: none; outline: none; padding: 0;">
+                        <i data-lucide="info" style="width: 20px; height: 20px; color: #64748b;"></i>
                     </button>
                 </div>
             <p class="subtitle" id="desc" data-i18n="app-subtitle">
@@ -1922,7 +1920,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.02.09';
+        const APP_VERSION = '2026.06.02.10';
         let EPICO_CONFIG = null;
 
         async function loadEpicoConfig() {
@@ -3216,6 +3214,9 @@
             document.getElementById('info-version-value').innerText = APP_VERSION;
             modal.style.display = 'flex';
             lucide.createIcons();
+            // Close on Escape key
+            const handler = (e) => { if (e.key === 'Escape') { closeInfoModal(); document.removeEventListener('keydown', handler); } };
+            document.addEventListener('keydown', handler);
         }
 
         function closeInfoModal() {

@@ -7,10 +7,10 @@
     "scenarios": [
       {
         "text": "Le docteur Moreau du CH de Beauvais vous appelle en urgence : « L'application est complètement bloquée, je n'arrive plus à travailler ! » Après quelques questions, il s'avère qu'il ne trouve pas le bouton pour basculer d'une vue à l'autre dans le tableau de bord des patients.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Appel urgent Dr Moreau</span></div><p class=\"text-xs text-slate-500\">\"L'appli ne marche plus !\" — constat : simple changement de vue non trouvé</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Appel urgent Dr Moreau</span></div><p class=\"text-xs text-slate-500\">\"L'appli ne marche plus !\" — constat : simple changement de vue non trouvé</p></div>",
         "correct": {
           "title": "Rediriger une urgence déclarée vers de l'aide à l'usage",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Qualification incident vs usage — Questionner 30s avant de prioriser</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Qualification incident vs usage — Questionner 30s avant de prioriser</span></div></div>",
           "expl": "Distinguer un vraI incident technique d'un besoin d'aide à l'utilisation par un questionnement rapide.",
           "debriefExpl": "Le Dr Moreau n'a pas de bug, il ne trouve simplement pas la bascule de vue. Ce n'est pas un incident mais un besoin de guidage. La demande est requalifiée en aide à l'usage, pas en ticket incident bloquant.",
           "icon": "check"
@@ -18,14 +18,14 @@
         "wrong": [
           {
             "title": "Ouvrir un incident prioritaire immédiat",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Incident prioritaire ouvert sans diagnostic</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Incident prioritaire ouvert sans diagnostic</span></div></div>",
             "expl": "Ouvrir un ticket PRIORITAIRE sur la base de l'appel sans vérifier la nature réelle du problème.",
             "debriefExpl": "Créer un incident critique pour un besoin d'accompagnement submerge le flux N2 et retarde les vrais incidents bloquants.",
             "icon": "alert-triangle"
           },
           {
             "title": "Raccrocher en renvoyant vers la documentation",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Lisez le manuel utilisateur » — appel terminé</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Lisez le manuel utilisateur » — appel terminé</span></div></div>",
             "expl": "Clôturer l'appel en renvoyant l'utilisateur vers le guide PDF sans vérifier sa compréhension.",
             "debriefExpl": "Ignorer la détresse de l'utilisateur nuit à la relation client et ne résout pas son besoin immédiat.",
             "icon": "phone-off"
@@ -35,10 +35,10 @@
       },
       {
         "text": "Une gestionnaire du CRDC de Lille ouvre un ticket urgent : « Tous les statuts des kits sont erronés depuis ce matin, c'est une catastrophe ». En investiguant, vous découvrez que la vue a été filtrée accidentellement sur le statut \"En attente\" uniquement, masquant les autres statuts.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Ticket urgent CRDC Lille</span></div><p class=\"text-xs text-slate-500\">\"100% des statuts sont faux !\" — cause : filtre actif sur un seul statut</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Ticket urgent CRDC Lille</span></div><p class=\"text-xs text-slate-500\">\"100% des statuts sont faux !\" — cause : filtre actif sur un seul statut</p></div>",
         "correct": {
           "title": "Requalifier après investigation rapide",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Ticket requalifié en erreur de manipulation — Filtre de vue neutralisé en 2 clics</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Ticket requalifié en erreur de manipulation — Filtre de vue neutralisé en 2 clics</span></div></div>",
           "expl": "Avant de propager une alerte, reproduire le constat et vérifier les réglages locaux de l'utilisateur.",
           "debriefExpl": "Les statuts ne sont pas erronés, un simple filtre de vue était actif. La gestionnaire a surréagi car la vue par défaut avait été modifiée. Le ticket est requalifié en 'fausse alerte' et la correction est immédiate.",
           "icon": "check"
@@ -46,14 +46,14 @@
         "wrong": [
           {
             "title": "Escalader au N3 sans vérification",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket escaladé au N3 comme anomalie critique</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket escaladé au N3 comme anomalie critique</span></div></div>",
             "expl": "Transmettre immédiatement au N3 le signalement d'un dysfonctionnement général des statuts.",
             "debriefExpl": "L'escalade non filtrée noie le N3 dans de fausses alertes et retarde le traitement des vrais bugs.",
             "icon": "arrow-up-right"
           },
           {
             "title": "Corriger la système de données sans comprendre",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Modification non tracée de la cause</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Modification non tracée de la cause</span></div></div>",
             "expl": "Modifier directement les données dans les données pour 'réparer' les statuts sans comprendre l'origine.",
             "debriefExpl": "Corriger le symptôme sans la cause expose à une récidive immédiate et à la perte de traçabilité.",
             "icon": "database"
@@ -63,10 +63,10 @@
       },
       {
         "text": "Le CHU de Rouen signale un problème sur le module de facturation des bilans de dépistage. Le ticket mélange trois sujets : les montants calculés ne correspondent pas aux nouveaux tarifs ARS (évolution réglementaire), le bouton de génération de facture provoque une erreur technique inattendue (bug technique), et la gestionnaire souhaite ajouter une ligne de remise manuelle (évolution fonctionnelle).",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Ticket complexe CHU Rouen</span></div><p class=\"text-xs text-slate-500\">1 signalement = 3 problèmes de nature différente entremêlés</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Ticket complexe CHU Rouen</span></div><p class=\"text-xs text-slate-500\">1 signalement = 3 problèmes de nature différente entremêlés</p></div>",
         "correct": {
           "title": "Démêler les sujets avant d'agir",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Décomposition ticket en 3 sous-tickets — Évolution + Bug + Demande séparés et orientés</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Décomposition ticket en 3 sous-tickets — Évolution + Bug + Demande séparés et orientés</span></div></div>",
           "expl": "Un ticket complexe doit être désolidarisé en plusieurs entités de nature distincte avant toute action.",
           "debriefExpl": "Ce signalement unique contient une évolution réglementaire (nouveaux tarifs), un bug technique (erreur technique inattendue) et une demande fonctionnelle (remise). Chacun doit suivre sa filière propre : le bug part au N3, l'évolution au PO, la demande est qualifiée.",
           "icon": "check"
@@ -74,14 +74,14 @@
         "wrong": [
           {
             "title": "Tout traiter comme un bug N3",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket unique transmis au N3 sans désolidarisation</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket unique transmis au N3 sans désolidarisation</span></div></div>",
             "expl": "Transmettre au N3 l'intégralité du signalement comme un bug de facturation.",
             "debriefExpl": "N3 va résoudre l'erreur technique inattendue mais l'évolution réglementaire et la demande resteront en attente sans visibility.",
             "icon": "bug"
           },
           {
             "title": "Répondre partiellement sur le seul bug technique",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction de l'erreur technique inattendue sans traiter les 2 autres sujets</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction de l'erreur technique inattendue sans traiter les 2 autres sujets</span></div></div>",
             "expl": "Ne corriger que l'erreur technique visible sans traiter les deux autres demandes légitimes.",
             "debriefExpl": "Le client reste insatisfait car la moitié de sa demande n'a pas été traitée, générant un 2e ticket.",
             "icon": "slash"
@@ -90,7 +90,7 @@
         "expl": "Un ticket qui mélange plusieurs sujets de natures différentes doit être décomposé pour que chaque filière (N3, PO, support) traite ce qui la concerne."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Qualifier Demande</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"inbox\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Ticket entrant</span></div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold\"><div class=\"bg-blue-50 text-blue-700 p-1 rounded text-center\">Incident</div><div class=\"bg-emerald-50 text-emerald-700 p-1 rounded text-center\">Question</div><div class=\"bg-amber-50 text-amber-700 p-1 rounded text-center\">Évolution</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded text-center\">Trainer</div></div><div class=\"text-[7px] text-slate-500 text-center\">Trier avant d&#39;agir</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Qualifier Demande</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"inbox\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Ticket entrant</span></div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold\"><div class=\"bg-slate-50 text-slate-700 p-1 rounded text-center\">Incident</div><div class=\"bg-slate-50 text-slate-700 p-1 rounded text-center\">Question</div><div class=\"bg-amber-50 text-amber-700 p-1 rounded text-center\">Évolution</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded text-center\">Trainer</div></div><div class=\"text-[7px] text-slate-500 text-center\">Trier avant d&#39;agir</div></div></div>"
   },
   {
     "id": 2,
@@ -100,10 +100,10 @@
     "scenarios": [
       {
         "text": "Une secrétaire du CRDC d'Amiens ouvre un ticket : « Je n'arrive pas à imprimer les convocations ». Le message est trop vague pour savoir s'il s'agit d'un problème de droits, de configuration d'imprimante, de navigateur ou de données manquantes.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Ticket vague CRDC Amiens</span></div><p class=\"text-xs text-slate-500\">\"Je n'arrive pas à imprimer\" — aucune précision sur l'étape de blocage</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Ticket vague CRDC Amiens</span></div><p class=\"text-xs text-slate-500\">\"Je n'arrive pas à imprimer\" — aucune précision sur l'étape de blocage</p></div>",
         "correct": {
           "title": "Isoler par questions fermées successives",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Questionnaire de diagnostic rapide — Profil ? Navigateur ? Étape ? Type de document ?</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Questionnaire de diagnostic rapide — Profil ? Navigateur ? Étape ? Type de document ?</span></div></div>",
           "expl": "Poser des questions fermées (oui/non) sur chaque variable possible pour réduire le périmètre d'investigation.",
           "debriefExpl": "En 5 questions fermées, le périmètre passe de 10 variables à 1 : le profil de la secrétaire n'a pas les droits d'impression. Le diagnostic est ciblé et la résolution (mise à jour du profil) est immédiate.",
           "icon": "check"
@@ -111,14 +111,14 @@
         "wrong": [
           {
             "title": "Demander une capture d'écran et attendre",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Envoyez-moi une capture d'écran par email » — attente 24h</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Envoyez-moi une capture d'écran par email » — attente 24h</span></div></div>",
             "expl": "Réclamer une capture d'écran sans fournir de grille de questionnement, puis attendre la réponse.",
             "debriefExpl": "La capture d'écran arrive 24h plus tard et ne montre que le message d'erreur incompréhensible. Le temps perdu est double.",
             "icon": "camera"
           },
           {
             "title": "Supposer un problème de matériel local",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket fermé : « Problème d'imprimante locale »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket fermé : « Problème d'imprimante locale »</span></div></div>",
             "expl": "Conclure immédiatement que le problème vient de l'imprimante sans investiguer plus loin.",
             "debriefExpl": "Le problème venait des droits utilisateur, pas de l'imprimante. Le ticket est rouvert avec un retard de 2 jours.",
             "icon": "printer"
@@ -128,10 +128,10 @@
       },
       {
         "text": "Le CRDC de l'Aisne signale que les relances automatiques par courrier ne partent plus depuis 3 jours. Les causes possibles sont nombreuses : le moteur de batch, la configuration des règles de relance, les données patients, ou le prestataire d'envoi postal.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Incident relances CRDC Aisne</span></div><p class=\"text-xs text-slate-500\">Flux de relances à l'arrêt depuis 72h — 4 causes possibles</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Incident relances CRDC Aisne</span></div><p class=\"text-xs text-slate-500\">Flux de relances à l'arrêt depuis 72h — 4 causes possibles</p></div>",
         "correct": {
           "title": "Diagnostiquer par élimination progressive",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Arbre de décision appliqué — Batch ? Config ? Données ? Prestataire ? Éliminé un par un</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Arbre de décision appliqué — Batch ? Config ? Données ? Prestataire ? Éliminé un par un</span></div></div>",
           "expl": "Utiliser un arbre de décision pour éliminer les branches une par une jusqu'à isoler la cause racine.",
           "debriefExpl": "En éliminant successivement : le batch est actif (1), la config est correcte (2), les données patients sont valides (3) → il reste le prestataire d'envoi. L'API du prestataire a changé son endpoint sans préavis.",
           "icon": "check"
@@ -139,14 +139,14 @@
         "wrong": [
           {
             "title": "Relancer manuellement tout le batch en urgence",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Forcer le batch sans comprendre pourquoi il s'est arrêté</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Forcer le batch sans comprendre pourquoi il s'est arrêté</span></div></div>",
             "expl": "Contourner le problème en exécutant le batch manuellement sans identifier la cause de l'arrêt.",
             "debriefExpl": "La relance manuelle fonctionne une fois mais le lendemain le batch est de nouveau bloqué. Le diagnostic n'a pas été fait.",
             "icon": "refresh-cw"
           },
           {
             "title": "Escalader au N3 sans débuter l'investigation",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket transmis au N3 avec le message : « Les relances ne marchent pas »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket transmis au N3 avec le message : « Les relances ne marchent pas »</span></div></div>",
             "expl": "Transmettre directement au niveau 3 sans avoir éliminé aucune piste.",
             "debriefExpl": "N3 doit repartir de zéro sur l'investigation alors que N2 aurait pu éliminer 3 causes sur 4 en 15 minutes.",
             "icon": "arrow-up-right"
@@ -156,10 +156,10 @@
       },
       {
         "text": "Depuis 3 jours, entre 14h et 15h, 5 centres de dépistage différents signalent une latence importante sur la validation des bilans. En dehors de cette tranche horaire, tout fonctionne normalement. Les centres sont géographiquement dispersés et utilisent des FAI différents.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Latence intermittente multi-sites</span></div><p class=\"text-xs text-slate-500\">5 centres, 14h-15h, validation bilans lente — pas de point commun apparent</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Latence intermittente multi-sites</span></div><p class=\"text-xs text-slate-500\">5 centres, 14h-15h, validation bilans lente — pas de point commun apparent</p></div>",
         "correct": {
           "title": "Corréler les signalements pour trouver le groupe de calcul commun",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Analyse croisée des signalements — Horaires + métrique serveur = pic CPU lié à la sauvegarde</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Analyse croisée des signalements — Horaires + métrique serveur = pic CPU lié à la sauvegarde</span></div></div>",
           "expl": "Croiser les données de tous les signalements (horaire, fonction, utilisateur) pour trouver la variable commune.",
           "debriefExpl": "En corrélant les signalements avec les métriques serveur, on découvre que la sauvegarde automatisée des données démarre à 14h sur le serveur mutualisé. La latence disparaît en décalant la sauvegarde à 23h.",
           "icon": "check"
@@ -167,14 +167,14 @@
         "wrong": [
           {
             "title": "Traiter chaque centre indépendamment",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">5 tickets séparés, 5 investigations parallèles sans recoupement</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">5 tickets séparés, 5 investigations parallèles sans recoupement</span></div></div>",
             "expl": "Ouvrir un ticket par centre et investiguer chaque signalement sans les corréler entre eux.",
             "debriefExpl": "Chaque N2 perd 30 min à investiguer seul, au lieu de 5 min pour corréler et trouver la cause commune.",
             "icon": "layers"
           },
           {
             "title": "Accuser le réseau des centres",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Réponse générique : « Vérifiez votre connexion internet »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Réponse générique : « Vérifiez votre connexion internet »</span></div></div>",
             "expl": "Attribuer le problème à une panne réseau locale dans chaque centre sans vérifier la métrique serveur.",
             "debriefExpl": "5 centres de régions différentes avec 5 FAI différents n'ont pas une panne réseau simultanée. C'est une perte de crédibilité.",
             "icon": "wifi-off"
@@ -183,7 +183,7 @@
         "expl": "Un pattern temporel ou fonctionnel commun entre plusieurs signalements indique une cause centrale qu'il faut corréler."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Questionner</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1 text-[8px]\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-slate-700\">Quel utilisateur ?</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-slate-700\">Quel module ?</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Narrow down par questions</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Questionner</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1 text-[8px]\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-700\">Quel utilisateur ?</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-700\">Quel module ?</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Narrow down par questions</div></div></div>"
   },
   {
     "id": 3,
@@ -193,10 +193,10 @@
     "scenarios": [
       {
         "text": "Une secrétaire du CH de Compiègne signale qu'elle ne peut pas modifier l'adresse d'une patiente dans sa fiche. Le bouton « Modifier » est grisé sans message d'erreur. Elle a toujours pu le faire auparavant.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bouton modifié grisé — CH Compiègne</span></div><p class=\"text-xs text-slate-500\">Adresse patient verrouillée sans explication</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bouton modifié grisé — CH Compiègne</span></div><p class=\"text-xs text-slate-500\">Adresse patient verrouillée sans explication</p></div>",
         "correct": {
           "title": "Reproduire sur recette avec profil identique",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Reproduction sur instance recette — Même profil, même patient, même écran = constat confirmé</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Reproduction sur instance recette — Même profil, même patient, même écran = constat confirmé</span></div></div>",
           "expl": "Recréer l'environnement exact de l'utilisateur sur une instance de test pour confirmer le bug avant d'agir.",
           "debriefExpl": "Sur la recette avec le même profil, le bouton est effectivement grisé. En comparant avec un profil admin, on constate que le droit 'Édition adresse patient' a été retiré du profil. Le bug est confirmé et documenté avant correction.",
           "icon": "check"
@@ -204,14 +204,14 @@
         "wrong": [
           {
             "title": "Modifier les droits sans reproduire",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ajout du droit 'Édition adresse' à l'aveugle sur le profil</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ajout du droit 'Édition adresse' à l'aveugle sur le profil</span></div></div>",
             "expl": "Modifier les droits de l'utilisateur sans avoir confirmé le problème sur un environnement de test.",
             "debriefExpl": "Le problème venait en réalité d'un verrouillage d'édition lié à un bilan en cours de validation. La modification des droits n'a rien résolu.",
             "icon": "user-cog"
           },
           {
             "title": "Demander une vidéo de l'écran au médecin",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Filmez votre écran avec votre téléphone et envoyez-nous la vidéo »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Filmez votre écran avec votre téléphone et envoyez-nous la vidéo »</span></div></div>",
             "expl": "Externaliser la reproduction du bug vers l'utilisateur en lui demandant de fournir des preuves.",
             "debriefExpl": "L'utilisateur perd du temps et la video montre le bug mais ne permet pas d'en identifier la cause.",
             "icon": "video"
@@ -221,10 +221,10 @@
       },
       {
         "text": "Un médecin du CHU d'Amiens obtient l'erreur « Échec de l'enregistrement : contrainte de validation non respectée » lorsqu'il tente de clôturer un bilan de dépistage cervical. Le message est générique et n'indique pas quel champ est en cause.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Erreur validation bilan — CHU Amiens</span></div><p class=\"text-xs text-slate-500\">Message générique sans champ ni contrainte identifié</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Erreur validation bilan — CHU Amiens</span></div><p class=\"text-xs text-slate-500\">Message générique sans champ ni contrainte identifié</p></div>",
         "correct": {
           "title": "Reproduire avec les mêmes données et étapes",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Reproduction à l'identique — Données réelles du bilan recréées en recette → champ manquant identifié</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Reproduction à l'identique — Données réelles du bilan recréées en recette → champ manquant identifié</span></div></div>",
           "expl": "Reproduire le scénario avec des données identiques pour isoler précisément la contrainte qui échoue.",
           "debriefExpl": "En recréant le bilan avec les mêmes valeurs en recette, on identifie que le champ 'Date de dernier examen' est vide alors que la règle le rend obligatoire pour les patientes de plus de 50 ans. Le message d'erreur est améliorable mais le bug est un défaut de contrôle à la saisie.",
           "icon": "check"
@@ -232,14 +232,14 @@
         "wrong": [
           {
             "title": "Contourner en désactivant la contrainte dans les données",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Désactivation SQL de la contrainte de validation en BDD</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Désactivation SQL de la contrainte de validation en BDD</span></div></div>",
             "expl": "Désactiver directement la contrainte de validation dans la système de données pour permettre l'enregistrement.",
             "debriefExpl": "Désactiver une contrainte dans les données crée un risque d'intégrité des données. La prochaine sauvegarde pourrait corrompre le dossier.",
             "icon": "alert-triangle"
           },
           {
             "title": "Transmettre au N3 sans reproduction",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Message d'erreur inconnu à la validation d'un bilan »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Message d'erreur inconnu à la validation d'un bilan »</span></div></div>",
             "expl": "Escalader au N3 avec uniquement le message d'erreur sans tentative de reproduction.",
             "debriefExpl": "N3 doit reprendre l'investigation depuis le début, perdant le temps que N2 aurait passé à reproduire.",
             "icon": "corner-up-right"
@@ -249,10 +249,10 @@
       },
       {
         "text": "Le CRDC de l'Oise signale un bug de copie d'informations entre deux bilans d'un même patient : une donnée chiffrée est systématiquement dupliquée d'un bilan à l'autre. Le bug est reproductible sur leur instance mais pas sur l'instance de recette standard, ce qui laisse penser que des données spécifiques sont en cause.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bug de copie non reproductible sur recette standard</span></div><p class=\"text-xs text-slate-500\">Fonctionne sur recette mais bug sur instance client — données spécifiques ?</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bug de copie non reproductible sur recette standard</span></div><p class=\"text-xs text-slate-500\">Fonctionne sur recette mais bug sur instance client — données spécifiques ?</p></div>",
         "correct": {
           "title": "Reproduire avec les données client sur recette dédiée",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Instance avec données client anonymisées — Jeu de données importé → bug reproductible → cause isolée</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Instance avec données client anonymisées — Jeu de données importé → bug reproductible → cause isolée</span></div></div>",
           "expl": "Utiliser un jeu de données client anonymisées sur une instance de diagnostic pour reproduire les conditions exactes.",
           "debriefExpl": "En important des données client anonymisées sur l'instance de diagnostic, le bug devient reproductible. La cause est un ancien format de champ 'Résultat' qui n'est plus présent dans les nouveaux bilans mais existe encore dans les données historiques.",
           "icon": "check"
@@ -260,14 +260,14 @@
         "wrong": [
           {
             "title": "Déclarer le bug non reproductible et fermer",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket fermé : « Non reproductible sur recette, probable environnement local »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket fermé : « Non reproductible sur recette, probable environnement local »</span></div></div>",
             "expl": "Fermer le ticket en déclarant le bug non reproductible sans creuser les données spécifiques du client.",
             "debriefExpl": "Le client reste avec son bug et perd confiance dans la capacité du support à traiter les cas complexes.",
             "icon": "x-circle"
           },
           {
             "title": "Demander au client de fournir ses données complètes",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Envoyez-nous votre données de production par partage de fichier sécurisé » — risque de données personnelles</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Envoyez-nous votre données de production par partage de fichier sécurisé » — risque de données personnelles</span></div></div>",
             "expl": "Demander au client d'exporter et transmettre l'intégralité de sa données de production.",
             "debriefExpl": "Risque RGPD élevé car la base contient des données de santé. De plus, le volume rend le transfert impossible.",
             "icon": "download-cloud"
@@ -276,7 +276,7 @@
         "expl": "Quand un bug n'est reproductible que chez un client, il faut utiliser ses données (anonymisées) sur une instance dédiée."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Reproduire</div><div class=\"flex flex-col gap-1.5\"><ol class=\"list-decimal list-inside text-[8px] text-slate-700 space-y-0.5 font-bold\"><li>Ouvrir dossier patient</li><li>Cliquer Exporter PDF</li><li>Observer le texte</li></ol><div class=\"bg-amber-50 border border-amber-200 rounded p-1.5 text-[7px] text-amber-800 font-bold text-center\">Étapes exactes de reproduction</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Reproduire</div><div class=\"flex flex-col gap-1.5\"><ol class=\"list-decimal list-inside text-[8px] text-slate-700 space-y-0.5 font-bold\"><li>Ouvrir dossier patient</li><li>Cliquer Exporter PDF</li><li>Observer le texte</li></ol><div class=\"bg-amber-50 border border-amber-200 rounded p-1.5 text-[7px] text-amber-800 font-bold text-center\">Étapes exactes de reproduction</div></div></div>"
   },
   {
     "id": 4,
@@ -286,10 +286,10 @@
     "scenarios": [
       {
         "text": "Une gestionnaire du CRDC de Laon vient de créer une fiche patient il y a 30 minutes mais ne la retrouve plus dans sa liste de patients. Elle craint d'avoir perdu son travail et ne peut pas poursuivre le suivi.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Fiche patient introuvable — CRDC Laon</span></div><p class=\"text-xs text-slate-500\">\"Je viens de la créer et elle a disparu !\"</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Fiche patient introuvable — CRDC Laon</span></div><p class=\"text-xs text-slate-500\">\"Je viens de la créer et elle a disparu !\"</p></div>",
         "correct": {
           "title": "Vérifier la présence dans les données de production",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Requête de vérification en lecture — Fiche présente en BDD → filtre ou pagination en cause</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Requête de vérification en lecture — Fiche présente en BDD → filtre ou pagination en cause</span></div></div>",
           "expl": "Consulter la données de production en lecture seule pour confirmer l'existence de la donnée avant d'alarmer.",
           "debriefExpl": "Une consultation des données sur la table des patients confirme que la fiche a bien été créée (présente dans les données depuis 30 min). Le problème vient d'un filtre de pagination : la gestionnaire est sur la 2e page et la fiche s'affiche page 1.",
           "icon": "check"
@@ -297,14 +297,14 @@
         "wrong": [
           {
             "title": "Demander de recréer la fiche sans vérifier",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Recréez la fiche, ça devrait marcher cette fois »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Recréez la fiche, ça devrait marcher cette fois »</span></div></div>",
             "expl": "Inviter l'utilisateur à ressaisir l'intégralité de la fiche sans vérifier si la première existe.",
             "debriefExpl": "La gestionnaire recrée la fiche, créant un doublon qui devra être fusionné ultérieurement par le support.",
             "icon": "file-plus"
           },
           {
             "title": "Escalader au N3 avec suspicion de perte de données",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket criticité haute : « Perte de données en production »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket criticité haute : « Perte de données en production »</span></div></div>",
             "expl": "Ouvrir un incident critique de perte de données sans avoir vérifié la présence de la fiche dans les données.",
             "debriefExpl": "N3 mobilisé pour une fausse alerte qui se résout par un simple changement de page.",
             "icon": "alert-triangle"
@@ -314,10 +314,10 @@
       },
       {
         "text": "Le responsable du CRDC de Valenciennes conteste le nombre de bilans valorisés dans le rapport mensuel transmis à l'ARS. Selon lui, le rapport affiche 234 bilans traités alors que son équipe en a saisi 289. Un écart de 55 bilans doit être expliqué avant la réunion ARS de demain.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Écart de comptage — CRDC Valenciennes</span></div><p class=\"text-xs text-slate-500\">Rapport = 234 bilans, saisie terrain = 289 — écart de 55</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Écart de comptage — CRDC Valenciennes</span></div><p class=\"text-xs text-slate-500\">Rapport = 234 bilans, saisie terrain = 289 — écart de 55</p></div>",
         "correct": {
           "title": "Comparer les comptages dans les données avec l'affichage",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Décompte dans les données vs rapport — Requête de comptage = 289 → filtre de statut dans le rapport = écart identifié</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Décompte dans les données vs rapport — Requête de comptage = 289 → filtre de statut dans le rapport = écart identifié</span></div></div>",
           "expl": "Exécuter des vérifications des décomptes dans les données pour comparer avec les chiffres affichés dans le rapport.",
           "debriefExpl": "Le comptage SQL renvoie 289 enregistrements, confirmant les dires du responsable. Le rapport filtre sur le statut 'Validé' alors que 55 bilans sont en statut 'En attente de signature'. L'écart vient du périmètre du rapport.",
           "icon": "check"
@@ -325,14 +325,14 @@
         "wrong": [
           {
             "title": "Corriger le chiffre dans le rapport manuellement",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Modification du rapport PDF au pied pour afficher 289</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Modification du rapport PDF au pied pour afficher 289</span></div></div>",
             "expl": "Modifier manuellement la valeur affichée dans le rapport pour qu'elle corresponde aux attentes.",
             "debriefExpl": "Le rapport devient incohérent avec les données. Le mois suivant l'écart réapparaît et la confiance est perdue.",
             "icon": "edit-3"
           },
           {
             "title": "Expliquer que c'est un bug connu sans enquêter",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« C'est un bug connu, l'équipe technique travaille dessus »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« C'est un bug connu, l'équipe technique travaille dessus »</span></div></div>",
             "expl": "Répondre au client que c'est un problème récurrent sans apporter d'explication ni de délai.",
             "debriefExpl": "Le client n'a pas d'argument pour l'ARS et son mécontentement s'aggrave. Le bug n'est pas un bug mais un périmètre différent.",
             "icon": "clock"
@@ -342,10 +342,10 @@
       },
       {
         "text": "Lors de la migration de l'ancien système vers Epiconcept, le CRDC de l'Oise a importé 12 000 dossiers patients. Le référent signale que les doublons sont nombreux et que les correspondances NIR-patients semblent incohérentes. Il faut analyser la reprise de données sans compromettre l'intégrité.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Reprise de données incohérente — CRDC Oise</span></div><p class=\"text-xs text-slate-500\">12 000 dossiers importés, NIR-patients non concordants</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Reprise de données incohérente — CRDC Oise</span></div><p class=\"text-xs text-slate-500\">12 000 dossiers importés, NIR-patients non concordants</p></div>",
         "correct": {
           "title": "Analyser les tables de correspondance par requêtes croisées",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Requêtes croisées sur les données importées — 3 tables comparées → 15% de doublons sur NIR, 8% d'inexploitables</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Requêtes croisées sur les données importées — 3 tables comparées → 15% de doublons sur NIR, 8% d'inexploitables</span></div></div>",
           "expl": "Interroger les tables de correspondance et croiser les clés pour qualifier le niveau d'incohérence avant toute action.",
           "debriefExpl": "Les requêtes révèlent 3 catégories : 77% de correspondances exactes, 15% de doublons (même NIR, nom différent) et 8% de NIR invalides. Le diagnostic permet de dimensionner le plan de reprise et de cibler les corrections nécessaires.",
           "icon": "check"
@@ -353,14 +353,14 @@
         "wrong": [
           {
             "title": "Relancer l'import complet depuis zéro",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Nouvel import massif sans nettoyage préalable des données source</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Nouvel import massif sans nettoyage préalable des données source</span></div></div>",
             "expl": "Réinitialiser les données et réimporter les 12 000 dossiers depuis le fichier source sans correction des anomalies.",
             "debriefExpl": "Le second import produit exactement les mêmes anomalies car le fichier source n'a pas été nettoyé. C'est une perte de temps et de ressources.",
             "icon": "rotate-ccw"
           },
           {
             "title": "Corriger les NIR un par un dans l'interface",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction manuelle de 1800 dossiers dans l'IHM — 3 mois de travail</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction manuelle de 1800 dossiers dans l'IHM — 3 mois de travail</span></div></div>",
             "expl": "Demander au CRDC de corriger chaque fiche patient une par une via l'interface utilisateur.",
             "debriefExpl": "Le volume est trop important. La correction manuelle prendrait des mois et bloquerait la secrétaire sur cette tâche uniquement.",
             "icon": "mouse-pointer"
@@ -369,7 +369,7 @@
         "expl": "Une analyse quantitative dans les données permet de dimensionner le vrai problème avant de décider d'une action corrective."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Données Production</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"database\" class=\"w-2.5 h-2.5 text-blue-600\"></i><span class=\"font-bold text-blue-800\">Accès lecture seule</span></div><div class=\"flex items-center gap-1.5 text-[7px] text-slate-500\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5\"></i><span>Requête SQL sur recette</span></div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Données Production</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"database\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Accès lecture seule</span></div><div class=\"flex items-center gap-1.5 text-[7px] text-slate-500\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5\"></i><span>Requête SQL sur recette</span></div></div></div>"
   },
   {
     "id": 5,
@@ -379,10 +379,10 @@
     "scenarios": [
       {
         "text": "Un gestionnaire du CH de Saint-Quentin n'a pas accès au module de statistiques. En regardant rapidement, un collègue du même service avec le même poste y a accès depuis son poste.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Accès refusé statistiques — CH Saint-Quentin</span></div><p class=\"text-xs text-slate-500\">Même poste, même service, 2 accès différents</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Accès refusé statistiques — CH Saint-Quentin</span></div><p class=\"text-xs text-slate-500\">Même poste, même service, 2 accès différents</p></div>",
         "correct": {
           "title": "Comparer les profils entre utilisateurs",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Comparaison de profils — Différence : profil A = 'Gestionnaire avancé', profil B = 'Gestionnaire standard'</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Comparaison de profils — Différence : profil A = 'Gestionnaire avancé', profil B = 'Gestionnaire standard'</span></div></div>",
           "expl": "Comparer les profils, rôles et droits d'un utilisateur qui a accès avec ceux qui n'en a pas pour isoler la différence.",
           "debriefExpl": "En ouvrant les deux profils côte à côte, la différence apparaît immédiatement : le gestionnaire bloqué a le profil « Gestionnaire standard » qui ne comporte pas le droit de visualisation des statistiques. Le collègue a le profil « Gestionnaire avancé ».",
           "icon": "check"
@@ -390,14 +390,14 @@
         "wrong": [
           {
             "title": "Ajouter tous les droits au profil pour débloquer",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Attribution massive de tous les droits au profil du gestionnaire</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Attribution massive de tous les droits au profil du gestionnaire</span></div></div>",
             "expl": "Donner tous les droits disponibles au profil pour résoudre rapidement le problème d'accès.",
             "debriefExpl": "Le gestionnaire se retrouve avec des droits d'administration qu'il n'aurait pas dû avoir. Risque de sécurité et de manipulation non autorisée.",
             "icon": "user-check"
           },
           {
             "title": "Escalader au N3 pour suivi de sécurité des logs d'accès",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Audit des logs d'accès nécessaire »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Audit des logs d'accès nécessaire »</span></div></div>",
             "expl": "Demander au N3 de fouiller les logs plutôt que de comparer les profils en 2 minutes.",
             "debriefExpl": "Le N3 passe 30 min dans les logs alors que la solution était visible en 2 min dans la console d'administration des profils.",
             "icon": "activity"
@@ -407,10 +407,10 @@
       },
       {
         "text": "Les courriels de notification automatique ne sont plus envoyés par le module de relance du CRDC de l'Aisne. La configuration SMTP semble pourtant correcte dans l'interface d'administration. L'instance de recette elle, envoie bien les courriels.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Notifications absentes — CRDC Aisne</span></div><p class=\"text-xs text-slate-500\">Instance client sans envoi, recette OK — config SMTP en cause</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Notifications absentes — CRDC Aisne</span></div><p class=\"text-xs text-slate-500\">Instance client sans envoi, recette OK — config SMTP en cause</p></div>",
         "correct": {
           "title": "Comparer la configuration SMTP entre instances",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Comparaison SMTP production vs recette — Différence : mot de passe SMTP révoqué sur le compte partagé</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Comparaison SMTP production vs recette — Différence : mot de passe SMTP révoqué sur le compte partagé</span></div></div>",
           "expl": "Comparer point par point la configuration fonctionnelle entre une instance qui marche et celle qui ne marche plus.",
           "debriefExpl": "En ouvrant les deux configurations SMTP côte à côte, tout est identique sauf que le mot de passe du compte SMTP de production a expiré (rotation trimestrielle). Le mot de passe est à mettre à jour. N2 résout en changeant le mot de passe dans la config.",
           "icon": "check"
@@ -418,14 +418,14 @@
         "wrong": [
           {
             "title": "Réinstaller le module de notification complet",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Réinstallation du module de notification sans diagnostic</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Réinstallation du module de notification sans diagnostic</span></div></div>",
             "expl": "Tenter de résoudre par la réinstallation complète du module fonctionnel.",
             "debriefExpl": "La réinstallation n'a pas changé le mot de passe SMTP. Le problème persiste et le temps perdu est conséquent.",
             "icon": "rotate-ccw"
           },
           {
             "title": "Escalader au N3 pour investigation réseau",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Problème réseau SMTP à investiguer »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Problème réseau SMTP à investiguer »</span></div></div>",
             "expl": "Suspecter un blocage réseau et transmettre au N3 sans avoir vérifié la configuration SMTP.",
             "debriefExpl": "Le N3 investigate les pare-feux, les règles de routage et les politiques de sécurité pendant 2 jours. Le mot de passe était pourtant le problème.",
             "icon": "radio"
@@ -435,10 +435,10 @@
       },
       {
         "text": "Deux CRDC (Somme et Aisne) ont exactement la même configuration apparente d'après l'interface d'administration. Pourtant, le calcul du score de risque colorectal (basé sur l'âge, les antécédents familiaux et le résultat de test) donne des résultats différents pour des profils patients identiques.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Score de risque divergent — Somme vs Aisne</span></div><p class=\"text-xs text-slate-500\">Même config affichée, même patient entré, résultat différent</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Score de risque divergent — Somme vs Aisne</span></div><p class=\"text-xs text-slate-500\">Même config affichée, même patient entré, résultat différent</p></div>",
         "correct": {
           "title": "Comparer les règles métier enregistrées dans les données",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Analyse des règles métier sous-jacentes — Règle version antérieure sur Aisne → version mise à jour sur Somme</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Analyse des règles métier sous-jacentes — Règle version antérieure sur Aisne → version mise à jour sur Somme</span></div></div>",
           "expl": "Creuser sous l'interface pour comparer les règles métier effectives, pas seulement leur affichage dans l'IHM.",
           "debriefExpl": "En consultant la table des règles métier, on découvre que le CRDC de l'Aisne a une règle de calcul datant de l'année précédente (seuil à 50 ans) alors que la Somme a la règle mise à jour (seuil à 45 ans selon la nouvelle recommandation HAS). L'écran d'administration affiche les deux configurations comme identiques car il n'affiche pas la version de la règle.",
           "icon": "check"
@@ -446,14 +446,14 @@
         "wrong": [
           {
             "title": "Forcer la même valeur dans la table des scores",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Mise à jour SQL des scores pour les aligner manuellement</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Mise à jour SQL des scores pour les aligner manuellement</span></div></div>",
             "expl": "Modifier directement les scores dans les données pour que les deux centres affichent les mêmes résultats.",
             "debriefExpl": "La modification directe des scores ne résout pas la cause : la règle sous-jacente reste incorrecte. Les nouveaux bilans continueront à produire des scores divergents.",
             "icon": "database"
           },
           {
             "title": "Conclure à une différence de pratique médicale",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Les médecins n'évaluent probablement pas de la même façon »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">« Les médecins n'évaluent probablement pas de la même façon »</span></div></div>",
             "expl": "Attribuer la différence à la subjectivité des cliniciens sans enquêter sur les règles métier.",
             "debriefExpl": "La confiance est rompue car les utilisateurs savent que la configuration est censée être identique. La réponse est perçue comme une esquive.",
             "icon": "user-x"
@@ -462,7 +462,7 @@
         "expl": "L'interface d'administration n'affiche pas toujours la réalité des règles sous-jacentes. L'investigation doit descendre au niveau de la paramètres système."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Élimination</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance A</div><div class=\"text-slate-400\">Bug</div></div><div class=\"flex items-center\"><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300\"></i></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance B</div><div class=\"text-slate-400\">OK</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparer pour isoler la cause</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Élimination</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance A</div><div class=\"text-slate-400\">Bug</div></div><div class=\"flex items-center\"><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300\"></i></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance B</div><div class=\"text-slate-400\">OK</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparer pour isoler la cause</div></div></div>"
   },
   {
     "id": 6,
@@ -472,10 +472,10 @@
     "scenarios": [
       {
         "text": "Lors de l'import d'un nouveau fichier de patients, une gestionnaire du CRDC de Laon a saisi le mauvais médecin traitant pour une patiente. Le dossier est déjà actif et la modification via l'interface n'est pas possible car la validation est déjà en cours.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Mauvais médecin traitant — CRDC Laon</span></div><p class=\"text-xs text-slate-500\">Import récent, dossier actif, modification IHM impossible</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Mauvais médecin traitant — CRDC Laon</span></div><p class=\"text-xs text-slate-500\">Import récent, dossier actif, modification IHM impossible</p></div>",
         "correct": {
           "title": "Corriger la donnée dans les données avec traçabilité",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Mise à jour ciblée dans les données — Modification journalisée : champs médecin et auteur de la modification renseignés</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Mise à jour ciblée dans les données — Modification journalisée : champs médecin et auteur de la modification renseignés</span></div></div>",
           "expl": "Modifier les données erronées en données en traçant le demandeur, la date et de la raison de la modification.",
           "debriefExpl": "Une correction ciblée ou un script d'import en masse tracé résout l'anomalie en quelques minutes sans impact sur les autres dossiers.",
           "icon": "check"
@@ -483,14 +483,14 @@
         "wrong": [
           {
             "title": "Désactiver la validation pour permettre la modification IHM",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Désactivation de la contrainte de validation dans le code</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Désactivation de la contrainte de validation dans le code</span></div></div>",
             "expl": "Modifier le comportement de l'application pour permettre la modification de l'adresse en cours de validation.",
             "debriefExpl": "Désactiver les contraintes de validation est une modification du comportement de l'application qui peut avoir des effets de bord sur d'autres écrans.",
             "icon": "toggle-left"
           },
           {
             "title": "Recréer un nouveau dossier patient complet",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Création d'un nouveau dossier et abandon de l'ancien</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Création d'un nouveau dossier et abandon de l'ancien</span></div></div>",
             "expl": "Créer une nouvelle fiche patient avec le bon médecin et laisser l'ancienne fiche orpheline.",
             "debriefExpl": "Un dossier orphelin avec des données de validation en cours crée des incohérences dans les statistiques et les suivis.",
             "icon": "file-plus"
@@ -500,10 +500,10 @@
       },
       {
         "text": "Le statut d'un bilan de dépistage du cancer du col de l'utérus est bloqué en « En attente de résultat » depuis 3 semaines alors que le laboratoire a confirmé avoir transmis le résultat par flux. Toutes les tentatives de modification via l'interface échouent car le statut ne permet pas la transition manuelle.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bilan bloqué en attente — CRDC Oise</span></div><p class=\"text-xs text-slate-500\">Statut figé malgré réception du résultat laboratoire</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Bilan bloqué en attente — CRDC Oise</span></div><p class=\"text-xs text-slate-500\">Statut figé malgré réception du résultat laboratoire</p></div>",
         "correct": {
           "title": "Débloquer les changements via un accès super-admin tracé",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Accès super-admin tracé — Statut forcé de 'En attente' à 'Résultat reçu' avec enregistrement du motif</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Accès super-admin tracé — Statut forcé de 'En attente' à 'Résultat reçu' avec enregistrement du motif</span></div></div>",
           "expl": "Débloquer manuellement le statut figé via un accès d'administration sécurisé réservé au support avec enregistrement de l'action.",
           "debriefExpl": "L'utilisation d'un accès super-admin tracé permet de forcer la transition de statut impossible via l'interface standard. L'opération est à enregistrer avec le motif et l'identifiant du demandeur pour des raisons de sécurité.",
           "icon": "check"
@@ -511,14 +511,14 @@
         "wrong": [
           {
             "title": "Attendre que le flux laboratoire retente automatiquement",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Aucune action — « Le flux va retenter dans 24h »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Aucune action — « Le flux va retenter dans 24h »</span></div></div>",
             "expl": "Ne rien faire et laisser le mécanisme de retry du flux tenter à nouveau la mise à jour de statut.",
             "debriefExpl": "Le flux retente depuis 3 semaines sans succès car le format de date est incorrect. 24h de plus ne résoudront rien.",
             "icon": "clock"
           },
           {
             "title": "Supprimer et recréer le bilan",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Suppression du bilan bloqué et ressaisie manuelle complète</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Suppression du bilan bloqué et ressaisie manuelle complète</span></div></div>",
             "expl": "Supprimer le bilan existant et demander au médecin de ressaisir toutes les informations.",
             "debriefExpl": "Le médecin doit tout ressaisir et la traçabilité du bilan initial est perdue. La solution est lourde et risquée.",
             "icon": "trash-2"
@@ -528,10 +528,10 @@
       },
       {
         "text": "Suite à l'import d'un fichier CSV de l'ancien système de gestion, 300 dossiers patients ont été créés avec un NIR invalide (format non conforme). Les dossiers sont réels et les patients existent, mais les NIR ne passent pas les contrôles de format et le module d'échange avec l'Assurance Maladie rejette les flux.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">300 NIR invalides — reprise de données CSV</span></div><p class=\"text-xs text-slate-500\">Dossiers réels, patients existants, NIR au mauvais format</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">300 NIR invalides — reprise de données CSV</span></div><p class=\"text-xs text-slate-500\">Dossiers réels, patients existants, NIR au mauvais format</p></div>",
         "correct": {
           "title": "Corriger les données par script unitaire après validation",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Script de correction avec validation amont — Correction par lot avec vérification préalable de chaque NIR</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Script de correction avec validation amont — Correction par lot avec vérification préalable de chaque NIR</span></div></div>",
           "expl": "Utiliser un script de correction unitaire qui valide chaque enregistrement avant de l'appliquer, avec rapport détaillé.",
           "debriefExpl": "Un script est écrit pour : 1) identifier les 300 NIR invalides, 2) tenter une correction automatique par règles de format (espace, tirets, lettres), 3) marquer les cas non résolus pour correction manuelle. Résultat : 270 corrigés automatiquement, 30 nécessitent une recherche manuelle (appel au CRDC).",
           "icon": "check"
@@ -539,14 +539,14 @@
         "wrong": [
           {
             "title": "Supprimer les 300 dossiers et réimporter",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">TRUNCATE + réimport sans correction du fichier source</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">TRUNCATE + réimport sans correction du fichier source</span></div></div>",
             "expl": "Supprimer les 300 dossiers et relancer l'import du fichier CSV d'origine non corrigé.",
             "debriefExpl": "Le second import produit exactement les mêmes 300 NIR invalides car le fichier source n'a pas été modifié.",
             "icon": "rotate-ccw"
           },
           {
             "title": "Corriger un par un dans l'interface",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction manuelle de 300 fiches — 15 jours de travail pour le CRDC</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction manuelle de 300 fiches — 15 jours de travail pour le CRDC</span></div></div>",
             "expl": "Demander au CRDC de corriger chaque NIR un par un dans l'interface utilisateur.",
             "debriefExpl": "Le volume est trop important pour une correction manuelle. Cela bloquerait une ressource du CRDC pendant des semaines.",
             "icon": "mouse-pointer"
@@ -555,7 +555,7 @@
         "expl": "Un script de correction par lot avec validation et rapport permet de traiter les anomalies de masse sans risque ni surcharge humaine."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Corriger Données</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"terminal\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Script de correction</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"check\" class=\"w-2.5 h-2.5\"></i><span>UPDATE patient SET statut = &#39;OK&#39;</span></div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Corriger Données</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"terminal\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Script de correction</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5\"></i><span>UPDATE patient SET statut = &#39;OK&#39;</span></div></div></div>"
   },
   {
     "id": 7,
@@ -565,10 +565,10 @@
     "scenarios": [
       {
         "text": "Un gestionnaire du CRDC de la Somme ne voit pas la colonne « Date de dernier contact » dans sa vue de la liste des patients. Il a besoin de cette colonne pour prioriser ses relances téléphoniques de la semaine.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Colonne absente — CRDC Somme</span></div><p class=\"text-xs text-slate-500\">Vue patients par défaut incomplète pour l'activité de relance</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Colonne absente — CRDC Somme</span></div><p class=\"text-xs text-slate-500\">Vue patients par défaut incomplète pour l'activité de relance</p></div>",
         "correct": {
           "title": "Exploiter la personnalisation de colonnes existante",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Personnalisation de colonnes via l'IHM — Colonne ajoutée dans les préférences de vue en 2 clics</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Personnalisation de colonnes via l'IHM — Colonne ajoutée dans les préférences de vue en 2 clics</span></div></div>",
           "expl": "Utiliser les options de personnalisation de l'interface existantes (colonnes, filtres, tris) sans modifier le code.",
           "debriefExpl": "La fonctionnalité de personnalisation des colonnes existe déjà dans l'interface. L'utilisateur n'en avait pas connaissance. En 2 clics sur l'icône d'engrenage, la colonne est ajoutée. Aucune intervention technique nécessaire.",
           "icon": "check"
@@ -576,14 +576,14 @@
         "wrong": [
           {
             "title": "Ouvrir une demande d'évolution pour ajouter la colonne",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Demande d'évolution soumise au PO pour ajout de colonne</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Demande d'évolution soumise au PO pour ajout de colonne</span></div></div>",
             "expl": "Soumettre une demande d'évolution au cycle produit pour que la colonne soit ajoutée dans le code.",
             "debriefExpl": "La fonctionnalité existe déjà mais personne ne l'a vérifié. La demande d'évolution part au PO et le développement est chiffré 2 semaines pour rien.",
             "icon": "trello"
           },
           {
             "title": "Modifier les droits utilisateur sans vérifier",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ajout de droits sans lien avec la colonne manquante</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ajout de droits sans lien avec la colonne manquante</span></div></div>",
             "expl": "Modifier les droits du gestionnaire en supposant que la colonne est liée à un profil.",
             "debriefExpl": "Les droits ne changent rien car la colonne est une option d'affichage, pas une restriction de profil.",
             "icon": "user-cog"
@@ -593,10 +593,10 @@
       },
       {
         "text": "Le centre de Saint-Quentin souhaite masquer les patients décédés de sa liste de suivi active. Actuellement, le tri doit se faire manuellement par le gestionnaire, ce qui lui prend 15 minutes chaque matin.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Filtrage manuel quotidien — CRDC Saint-Quentin</span></div><p class=\"text-xs text-slate-500\">15 min/jour à exclure manuellement les patients décédés</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Filtrage manuel quotidien — CRDC Saint-Quentin</span></div><p class=\"text-xs text-slate-500\">15 min/jour à exclure manuellement les patients décédés</p></div>",
         "correct": {
           "title": "Recréer l'objet fautif dans l'état attendu via l'interface",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Créer un filtre sauvegardé personnalisé — Filtre 'statut ≠ Décédé' sauvegardé en tant que vue par défaut</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Créer un filtre sauvegardé personnalisé — Filtre 'statut ≠ Décédé' sauvegardé en tant que vue par défaut</span></div></div>",
           "expl": "Créer un objet (filtre, règle, vue) via les fonctionnalités existantes pour répondre au besoin sans développement.",
           "debriefExpl": "L'interface permet de créer des filtres personnalisés et de les sauvegarder comme vue par défaut. On crée un filtre 'Statut patient ≠ Décédé' et on le définit comme vue par défaut de ce gestionnaire. Le tri manuel n'est plus nécessaire.",
           "icon": "check"
@@ -604,14 +604,14 @@
         "wrong": [
           {
             "title": "Cacher les données dans les données",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Marquage 'invisible = true' dans les données pour les patients décédés</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Marquage 'invisible = true' dans les données pour les patients décédés</span></div></div>",
             "expl": "Modifier les données pour que les patients décédés ne soient plus remontés dans les listes.",
             "debriefExpl": "Les patients décédés sont alors invisibles aussi dans le module de statistiques et d'archives. Effet de bord grave.",
             "icon": "eye-off"
           },
           {
             "title": "Former le gestionnaire à la manipulation manuelle",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Formation de 30 min à l'utilisation du filtre manuel quotidien</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Formation de 30 min à l'utilisation du filtre manuel quotidien</span></div></div>",
             "expl": "Former l'utilisateur à la manipulation manuelle comme solution pérenne.",
             "debriefExpl": "La formation ne résout pas la perte de temps quotidienne. 15 min/jour = 5h/mois = une perte d'efficacité durable.",
             "icon": "book-open"
@@ -621,10 +621,10 @@
       },
       {
         "text": "Un nouveau CRDC vient d'être ouvert dans l'Aube. Il doit être configuré pour les relances automatiques avec un échéancier spécifique : relance à J+15 pour les patients de 50-65 ans, et J+30 pour les 66-74 ans, avec des modèles de courrier différents. Aucune évolution du code n'est nécessaire.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Nouveau CRDC Aube — configuration des relances</span></div><p class=\"text-xs text-slate-500\">Règles par tranche d'âge, 2 modèles, 2 échéances</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Nouveau CRDC Aube — configuration des relances</span></div><p class=\"text-xs text-slate-500\">Règles par tranche d'âge, 2 modèles, 2 échéances</p></div>",
         "correct": {
           "title": "Corriger via les import / export de fichiers ou les APIs",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Import d'un fichier de configuration standard — Fichier modèle exporté d'un CRDC existant, adapté puis importé via API</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Import d'un fichier de configuration standard — Fichier modèle exporté d'un CRDC existant, adapté puis importé via API</span></div></div>",
           "expl": "Utiliser les APIs ou les imports de configuration existants pour déployer une configuration standard sans saisie manuelle.",
           "debriefExpl": "Un fichier de configuration est exporté depuis le CRDC de la Somme qui a les mêmes règles. Il est adapté (modification des délais) puis importé via l'API de configuration du nouveau CRDC. La mise en place complète prend 15 minutes au lieu de 2 jours de paramétrage manuel écran par écran.",
           "icon": "check"
@@ -632,14 +632,14 @@
         "wrong": [
           {
             "title": "Paramétrer chaque règle manuellement dans l'interface",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Saisie manuelle de 12 règles de relance dans l'interface</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Saisie manuelle de 12 règles de relance dans l'interface</span></div></div>",
             "expl": "Configurer chaque règle de relance une par une dans l'interface d'administration du nouveau CRDC.",
             "debriefExpl": "Le paramétrage manuel est long, répétitif et sujet à erreur de saisie. 12 règles × 2 modèles = 24 saisies manuelles.",
             "icon": "keyboard"
           },
           {
             "title": "Développer une interface de configuration simplifiée",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket d'évolution : « Interface de config simplifiée pour les nouveaux CRDC »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket d'évolution : « Interface de config simplifiée pour les nouveaux CRDC »</span></div></div>",
             "expl": "Demander une évolution du produit pour faciliter la configuration des relances pour les nouveaux centres.",
             "debriefExpl": "L'API d'import existe déjà. Développer une nouvelle interface est un détour inutile par le cycle produit de plusieurs semaines.",
             "icon": "code"
@@ -648,7 +648,7 @@
         "expl": "Les APIs et fichiers d'import/export de configuration permettent de déployer des paramétrages standards en masse sans développement ni saisie manuelle."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Paramétrage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Seuil âge</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">74 ans</span></div><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Périmètre</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">Colorectal</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Configuration sans dev</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Paramétrage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Seuil âge</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">74 ans</span></div><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Périmètre</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">Colorectal</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Configuration sans dev</div></div></div>"
   },
   {
     "id": 8,
@@ -658,10 +658,10 @@
     "scenarios": [
       {
         "text": "L'équipe N2 corrige manuellement chaque semaine 5 à 10 doublons de dossiers patients créés lors de l'import CSV hebdomadaire du fichier des nouveaux arrivants. Le pattern est toujours le même : un format de nom différent (nom-prénom vs prénom-nom) génère des doublons.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">5 à 10 fusions manuelles par semaine</span></div><p class=\"text-xs text-slate-500\">Toujours le même motif : format de nom inversé dans le CSV d'import</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">5 à 10 fusions manuelles par semaine</span></div><p class=\"text-xs text-slate-500\">Toujours le même motif : format de nom inversé dans le CSV d'import</p></div>",
         "correct": {
           "title": "Suggérer des pistes d'automatisation pour les corrections manuelles fréquentes",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Proposition d'automatisation jointe au dossier N3 — Algorithme de matching flou sur nom+prénom avant création</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Proposition d'automatisation jointe au dossier N3 — Algorithme de matching flou sur nom+prénom avant création</span></div></div>",
           "expl": "Proposer au N3 des pistes concrètes d'automatisation pour les corrections manuelles répétitives documentées.",
           "debriefExpl": "Le dossier d'escalade inclut : 1) le pattern exact de chaque doublon (nom inversé), 2) une suggestion d'automatisation (matching flou à l'import), 3) le coût estimé du temps N2 (30 min/semaine). N3 chiffre l'évolution et la priorise dans le backlog.",
           "icon": "check"
@@ -669,14 +669,14 @@
         "wrong": [
           {
             "title": "Continuer les fusions manuelles sans escalader",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Fusion manuelle semaine après semaine, sans alerter personne</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Fusion manuelle semaine après semaine, sans alerter personne</span></div></div>",
             "expl": "Continuer à corriger les doublons manuellement sans escalader ni documenter le pattern.",
             "debriefExpl": "Le temps N2 est gaspillé chaque semaine sur une tâche qui pourrait être automatisée. Personne n'est informé du problème récurrent.",
             "icon": "repeat"
           },
           {
             "title": "Escalader sans recommandation",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Il y a des doublons d'import chaque semaine »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « Il y a des doublons d'import chaque semaine »</span></div></div>",
             "expl": "Transmettre au N3 le constat sans analyse ni piste d'automatisation.",
             "debriefExpl": "N3 doit ré-analyser le problème depuis le début, perdant du temps pour comprendre un pattern que N2 connaît déjà parfaitement.",
             "icon": "help-circle"
@@ -686,10 +686,10 @@
       },
       {
         "text": "Trois centres de dépistage différents (Somme, Oise, Aisne) signalent indépendamment le même message d'erreur : « Session expirée » lorsque les utilisateurs tentent de valider un bilan après 30 minutes d'inactivité. Chaque centre a ouvert son propre ticket.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Erreur Session expirée — 3 centres</span></div><p class=\"text-xs text-slate-500\">3 tickets indépendants pour le même problème technique</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Erreur Session expirée — 3 centres</span></div><p class=\"text-xs text-slate-500\">3 tickets indépendants pour le même problème technique</p></div>",
         "correct": {
           "title": "Regrouper les bugs similaires autour du problème source commun",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Regroupement des tickets sous un incident unique — 3 tickets fusionnés en 1 incident N3 avec occurrence et impact global</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Regroupement des tickets sous un incident unique — 3 tickets fusionnés en 1 incident N3 avec occurrence et impact global</span></div></div>",
           "expl": "Identifier les tickets qui décrivent le même phénomène et les regrouper pour éviter la dispersion des correctifs.",
           "debriefExpl": "Les 3 tickets décrivent le même problème : un timeout de session paramétré à 30 minutes dans la configuration du serveur d'application. Le regroupement permet de : 1) donner une vision globale de l'impact, 2) éviter 3 correctifs séparés, 3) prioriser une correction unique.",
           "icon": "check"
@@ -697,14 +697,14 @@
         "wrong": [
           {
             "title": "Traiter chaque centre séparément",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">3 tickets traités indépendamment par 3 N2 différents</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">3 tickets traités indépendamment par 3 N2 différents</span></div></div>",
             "expl": "Chaque N2 prend en charge son ticket sans regarder les signalements similaires des autres centres.",
             "debriefExpl": "3 corrections séparées, 3 communications différentes, et potentiellement 3 solutions divergentes pour le même problème.",
             "icon": "layers"
           },
           {
             "title": "Augmenter le timeout sur chaque serveur individuellement",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Modification du timeout session sur 3 serveurs différents</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Modification du timeout session sur 3 serveurs différents</span></div></div>",
             "expl": "Corriger le timeout au cas par cas sur chaque centre sans regarder la configuration centrale.",
             "debriefExpl": "La configuration est centralisée : une modification sur le paramètre global résoudrait pour tous. Les 3 modifications individuelles créent un risque de dérive de configuration.",
             "icon": "server"
@@ -714,10 +714,10 @@
       },
       {
         "text": "Les performances du module de reporting se dégradent progressivement sur tous les centres utilisant la même infrastructure mutualisée. Les exports qui prenaient 5 secondes en janvier prennent désormais 40 secondes. Aucune modification applicative n'a été déployée.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Dégradation progressive reporting — tous centres</span></div><p class=\"text-xs text-slate-500\">Temps d'export : 5s → 40s en 6 mois, sans évolution applicative</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Dégradation progressive reporting — tous centres</span></div><p class=\"text-xs text-slate-500\">Temps d'export : 5s → 40s en 6 mois, sans évolution applicative</p></div>",
         "correct": {
           "title": "Joindre captures, données et critères de reproduction et non-reproduction",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Dossier d'escalade complet avec métriques — Chronologie des temps, captures des plans d'exécution SQL, critères de test</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Dossier d'escalade complet avec métriques — Chronologie des temps, captures des plans d'exécution SQL, critères de test</span></div></div>",
           "expl": "Fournir au N3 un dossier structuré incluant les éléments objectifs, les critères de reproduction et les cas où le problème ne se manifeste pas.",
           "debriefExpl": "Le dossier d'escalade contient : 1) la chronologie des temps d'exécution (5s → 7s → 15s → 40s), 2) les captures des plans d'exécution SQL, 3) les critères de non-reproduction (exports à date fixe = rapides, exports avec intervalle de date large = lents). N3 identifie un index manquant sur la table des bilans.",
           "icon": "check"
@@ -725,14 +725,14 @@
         "wrong": [
           {
             "title": "Redémarrer le serveur pour 'nettoyer'",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Redémarrage hebdomadaire du serveur sans investigation</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Redémarrage hebdomadaire du serveur sans investigation</span></div></div>",
             "expl": "Redémarrer les serveurs régulièrement pour 'rafraîchir' les performances sans identifier la cause.",
             "debriefExpl": "Le redémarrage est une solution temporaire qui ne résout pas l'accumulation des données. Le problème revient plus vite à chaque fois.",
             "icon": "refresh-ccw"
           },
           {
             "title": "Escalader sans élément de diagnostic",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « C'est lent, à investiguer »</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket N3 : « C'est lent, à investiguer »</span></div></div>",
             "expl": "Transmettre le constat de lenteur sans aucune donnée métrique ni critère de test.",
             "debriefExpl": "N3 ne sait pas par où commencer, ne peut pas reproduire le problème immédiatement, et doit configurer son propre monitoring.",
             "icon": "meh"
@@ -741,7 +741,7 @@
         "expl": "Un dossier d'escalade complet avec données, captures et critères de (non)reproduction permet au N3 de traiter efficacement."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Escalader</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col items-center text-[7px] font-bold\"><div class=\"bg-slate-100 border border-slate-200 rounded p-1 w-full text-center text-slate-600\">N1 : Support</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-blue-100 border border-blue-200 rounded p-1 w-full text-center text-blue-700\">N2 : Expert</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-red-100 border border-red-200 rounded p-1 w-full text-center text-red-700\">N3 : Développement</div></div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Escalader</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col items-center text-[7px] font-bold\"><div class=\"bg-slate-100 border border-slate-200 rounded p-1 w-full text-center text-slate-600\">N1 : Support</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-100 border border-slate-200 rounded p-1 w-full text-center text-slate-700\">N2 : Expert</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-red-100 border border-red-200 rounded p-1 w-full text-center text-red-700\">N3 : Développement</div></div></div></div>"
   },
   {
     "id": 9,
@@ -751,10 +751,10 @@
     "scenarios": [
       {
         "text": "Un nouveau gestionnaire du CRDC d'Amiens n'arrivait plus à se connecter suite à un verrouillage de compte après 5 tentatives avec un mot de passe incorrect. L'équipe N2 a déverrouillé le compte et réinitialisé le mot de passe. Le gestionnaire confirme qu'il peut se reconnecter.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Compte verrouillé — CRDC Amiens</span></div><p class=\"text-xs text-slate-500\">Déverrouillage et réinitialisation effectués par N2</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Compte verrouillé — CRDC Amiens</span></div><p class=\"text-xs text-slate-500\">Déverrouillage et réinitialisation effectués par N2</p></div>",
         "correct": {
           "title": "Faire confirmer la résolution par le client",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Validation client enregistrée — « Je confirme, je peux me connecter et accéder à mes dossiers »</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Validation client enregistrée — « Je confirme, je peux me connecter et accéder à mes dossiers »</span></div></div>",
           "expl": "Contacter le client pour qu'il confirme lui-même la résolution avant de clore le ticket.",
           "debriefExpl": "Le gestionnaire confirme par email qu'il a pu se connecter et accéder à ses dossiers. Le ticket est clos avec la mention 'Confirmé par l'utilisateur'. La procédure de déverrouillage est mise à jour dans la base de connaissances pour les prochains cas.",
           "icon": "check"
@@ -762,14 +762,14 @@
         "wrong": [
           {
             "title": "Fermer le ticket sans confirmation",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket fermé statut 'Résolu' sans validation utilisateur</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket fermé statut 'Résolu' sans validation utilisateur</span></div></div>",
             "expl": "Marquer le ticket comme résolu et clôturer sans attendre la confirmation de l'utilisateur.",
             "debriefExpl": "Le gestionnaire n'a pas reçu le nouveau mot de passe par SMS comme attendu. Il reste bloqué. Le ticket doit être rouvert avec un délai supplémentaire.",
             "icon": "x-circle"
           },
           {
             "title": "Ne rien documenter dans la base de connaissances",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket clôturé, aucune trace dans le référentiel</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket clôturé, aucune trace dans le référentiel</span></div></div>",
             "expl": "Fermer le ticket sans capitaliser la résolution dans la base de connaissances de l'équipe.",
             "debriefExpl": "Le prochain N2 qui traitera un verrouillage de compte repartira de zéro, sans savoir quelle procédure appliquer.",
             "icon": "book"
@@ -779,10 +779,10 @@
       },
       {
         "text": "Le CH de Compiègne signalait un affichage erroné des statistiques mensuelles : les pourcentages de participation au dépistage dépassaient 100%. L'équipe N2 a identifié un problème de paramétrage du groupe de calcul (groupe de patients concerné mal configurée) et a corrigé la règle de calcul dans la configuration du CRDC.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Statistiques >100% — CH Compiègne</span></div><p class=\"text-xs text-slate-500\">Dénominateur incorrect dans la règle de calcul configurée</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Statistiques >100% — CH Compiègne</span></div><p class=\"text-xs text-slate-500\">Dénominateur incorrect dans la règle de calcul configurée</p></div>",
         "correct": {
           "title": "Documenter le diagnostic et la solution dans le référentiel de l'équipe",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Fiche référentiel créée — [Config] Correction d'un groupe de calcul de calcul de participation</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Fiche référentiel créée — [Config] Correction d'un groupe de calcul de calcul de participation</span></div></div>",
           "expl": "Rédiger une fiche de résolution dans la base de connaissances pour que le diagnostic et la solution soient réutilisables.",
           "debriefExpl": "La résolution (paramétrage du groupe de calcul) est documentée dans la base de connaissances avec : 1) les symptômes (%, >100%), 2) la cause (mauvaise groupe de patients concerné), 3) la correction (chemin de paramétrage), 4) le CRDC concerné et la date de correction.",
           "icon": "check"
@@ -790,14 +790,14 @@
         "wrong": [
           {
             "title": "Corriger sans documenter la cause réelle",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction appliquée, ticket clos, aucune fiche dans le référentiel</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Correction appliquée, ticket clos, aucune fiche dans le référentiel</span></div></div>",
             "expl": "Corriger le paramétrage et fermer le ticket sans écrire de documentation réutilisable.",
             "debriefExpl": "Un autre centre aura exactement le même problème dans 3 semaines. Le diagnostic devra être refait entièrement.",
             "icon": "file-minus"
           },
           {
             "title": "Escalader au N3 pour correction définitive",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket d'évolution N3 : 'Corriger le calcul des % de participation'</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket d'évolution N3 : 'Corriger le calcul des % de participation'</span></div></div>",
             "expl": "Soumettre une demande d'évolution pour que le calcul soit modifié dans le code.",
             "debriefExpl": "Ce n'est pas un bug mais un paramétrage. La correction est déjà faite en 5 minutes. L'escalade N3 est un détour inutile de plusieurs semaines.",
             "icon": "corner-up-right"
@@ -807,10 +807,10 @@
       },
       {
         "text": "Le flux d'import quotidien des résultats d'analyses du laboratoire du CHU d'Amiens a été interrompu pendant 48h suite à un changement de certificat TLS du partenaire non communiqué au préalable. L'équipe N2 a identifié la cause, coordonné le renouvellement du certificat avec le laboratoire et rétabli le flux. 2 jours de données doivent être rejoués.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Flux d'import interrompu 48h — CHU Amiens</span></div><p class=\"text-xs text-slate-500\">Changement de certificat TLS non communiqué par le laboratoire</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Flux d'import interrompu 48h — CHU Amiens</span></div><p class=\"text-xs text-slate-500\">Changement de certificat TLS non communiqué par le laboratoire</p></div>",
         "correct": {
           "title": "Proposer un suivi différé après un incident critique",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Plan de suivi différé proposé — Rejeu des données + point à J+7 pour confirmer la stabilité</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Plan de suivi différé proposé — Rejeu des données + point à J+7 pour confirmer la stabilité</span></div></div>",
           "expl": "Après un incident critique, planifier un point de suivi différé pour confirmer la stabilité et prévenir les récurrences.",
           "debriefExpl": "Le flux est rétabli et les 48h de données sont rejouées. Un point téléphonique est planifié à J+7 pour vérifier que le flux est stable. Une fiche de procédure 'Changement de certificat TLS' est ajoutée au référentiel N2. Le laboratoire est informé qu'il doit communiquer les changements 30 jours à l'avance.",
           "icon": "check"
@@ -818,14 +818,14 @@
         "wrong": [
           {
             "title": "Clôturer immédiatement après le rétablissement du flux",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket clos à J0, aucun suivi, aucune procédure documentée</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Ticket clos à J0, aucun suivi, aucune procédure documentée</span></div></div>",
             "expl": "Fermer le ticket dès que le flux est de nouveau opérationnel sans planifier de suivi.",
             "debriefExpl": "Le flux se re-dégrade à J+3 car un second certificat avait aussi été changé. Le même incident se reproduit avec un nouveau délai de 48h.",
             "icon": "x-circle"
           },
           {
             "title": "Escalader la relation fournisseur au commercial",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Incident transféré au commercial 'pour gestion du partenaire'</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Incident transféré au commercial 'pour gestion du partenaire'</span></div></div>",
             "expl": "Transférer tout le suivi au commercial, y compris la partie technique de rejeu des données.",
             "debriefExpl": "Le commercial n'a pas les compétences techniques pour rejouer les données. Le rejeu n'est pas fait et les données sont perdues.",
             "icon": "briefcase"
@@ -834,7 +834,7 @@
         "expl": "Un incident critique mérite un suivi différé pour prévenir les récurrences, même après le rétablissement du service."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Clôturer</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"check-circle\" class=\"w-2.5 h-2.5 text-emerald-600\"></i><span class=\"font-bold text-emerald-800\">Validation terrain</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"check\" class=\"w-2.5 h-2.5\"></i><span>Utilisateur confirme la résolution</span></div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Clôturer</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Validation terrain</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5\"></i><span>Utilisateur confirme la résolution</span></div></div></div>"
   },
   {
     "id": 10,
@@ -844,10 +844,10 @@
     "scenarios": [
       {
         "text": "Depuis le déploiement de la nouvelle politique de sécurité (expiration du mot de passe tous les 60 jours), 8 tickets d'oubli de mot de passe ont été ouverts en 5 jours. Auparavant, ce type de ticket était rare (1 à 2 par mois).",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">8 tickets oubli mot de passe en 5 jours</span></div><p class=\"text-xs text-slate-500\">Pic net depuis la nouvelle politique de sécurité</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-red-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-red-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">8 tickets oubli mot de passe en 5 jours</span></div><p class=\"text-xs text-slate-500\">Pic net depuis la nouvelle politique de sécurité</p></div>",
         "correct": {
           "title": "Repérer les motifs de demandes identiques dans le flux entrant",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Tendance identifiée : pic de réinitialisations — 8 tickets en 5 jours vs 2/mois avant → pattern lié à la politique</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Tendance identifiée : pic de réinitialisations — 8 tickets en 5 jours vs 2/mois avant → pattern lié à la politique</span></div></div>",
           "expl": "Analyser le flux de tickets entrants pour détecter des pics ou des patterns inhabituels dès les premiers signes.",
           "debriefExpl": "En comparant avec les mois précédents, la tendance est nette : le changement de politique de sécurité a généré un pic de verrouillages. L'alerte remontée au N3 permet d'anticiper : soit communiquer sur la nouvelle politique, soit ajuster le nombre de tentatives avant verrouillage.",
           "icon": "check"
@@ -855,14 +855,14 @@
         "wrong": [
           {
             "title": "Traiter les tickets un par un sans recul",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">8 tickets traités séparément, aucun signalement de tendance</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">8 tickets traités séparément, aucun signalement de tendance</span></div></div>",
             "expl": "Réinitialiser les mots de passe un par un sans noter la fréquence inhabituelle.",
             "debriefExpl": "Le 9e et le 10e ticket arrivent le lendemain. Aucune action préventive n'a été déclenchée.",
             "icon": "list"
           },
           {
             "title": "Attendre le bilan mensuel pour analyser",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Analyse des tickets prévue au comité de fin de mois</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Analyse des tickets prévue au comité de fin de mois</span></div></div>",
             "expl": "Remettre l'analyse des tendances au rendez-vous mensuel d'équipe.",
             "debriefExpl": "15 jours de tickets en trop avant d'agir. La communication préventive sur la politique de sécurité arrive trop tard.",
             "icon": "calendar"
@@ -872,10 +872,10 @@
       },
       {
         "text": "Depuis 2 semaines, 12 tickets signalent des exports de rapports vides ou tronqués. Tous ces tickets ont été ouverts entre 8h30 et 9h30 du matin. Les utilisateurs concernés sont dans des CRDC différents et utilisent des configurations différentes.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">12 exports vides entre 8h30-9h30</span></div><p class=\"text-xs text-slate-500\">Même créneau horaire, CRDC différents → corrélation temporelle</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">12 exports vides entre 8h30-9h30</span></div><p class=\"text-xs text-slate-500\">Même créneau horaire, CRDC différents → corrélation temporelle</p></div>",
         "correct": {
           "title": "Distinguer les incidents isolés des fragilités récurrentes",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Corrélation temporelle identifiée — Créneau 8h30-9h30 = fenêtre de sauvegarde nocturne du serveur</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Corrélation temporelle identifiée — Créneau 8h30-9h30 = fenêtre de sauvegarde nocturne du serveur</span></div></div>",
           "expl": "Analyser les tickets par créneau horaire, profil utilisateur et fonction pour repérer les fragilités système sous-jacentes.",
           "debriefExpl": "En croisant les horaires des signalements, on constate que tous tombent dans la fenêtre de sauvegarde nocturne. Les exports échouent car le serveur est en verrouillage partiel pendant la sauvegarde. Le pattern est récurrent (tous les matins) mais non détecté car les utilisateurs ne font pas le lien.",
           "icon": "check"
@@ -883,14 +883,14 @@
         "wrong": [
           {
             "title": "Demander à chaque centre de vérifier son réseau local",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">12 demandes de diagnostic réseau envoyées aux CRDC</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">12 demandes de diagnostic réseau envoyées aux CRDC</span></div></div>",
             "expl": "Traiter chaque ticket comme un problème isolé de réseau local dans chaque centre.",
             "debriefExpl": "12 centres de régions différentes n'ont pas une panne réseau simultanée à 8h30 chaque matin. La piste est fausse et le temps perdu.",
             "icon": "wifi-off"
           },
           {
             "title": "Corriger chaque export un par un",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Relance manuelle de 12 exports individuels</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Relance manuelle de 12 exports individuels</span></div></div>",
             "expl": "Relancer un par un les exports qui ont échoué sans chercher la cause commune.",
             "debriefExpl": "L'export défaillant à 8h35 sera de nouveau défaillant à 8h35 le lendemain car la cause (sauvegarde) n'est pas traitée.",
             "icon": "rotate-ccw"
@@ -900,10 +900,10 @@
       },
       {
         "text": "Depuis 3 mois, le nombre de tickets liés à la gestion des droits et des profils augmente de 20% par mois. Cette augmentation coïncide avec la fusion administrative de 3 CRDC (Somme, Oise, Aisne) en une entité régionale unique qui doit harmoniser ses profils utilisateurs.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"alert-triangle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Tickets droits/profils : +20%/mois depuis 3 mois</span></div><p class=\"text-xs text-slate-500\">Corrélé à la fusion régionale des 3 CRDC</p></div>",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-amber-200 p-3 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-2\"><div class=\"w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-amber-600\"></i></div><span class=\"font-bold text-xs text-slate-800\">Tickets droits/profils : +20%/mois depuis 3 mois</span></div><p class=\"text-xs text-slate-500\">Corrélé à la fusion régionale des 3 CRDC</p></div>",
         "correct": {
           "title": "Alerter l'équipe produit sur les anomalies qui montent en fréquence",
-          "visual": "<div class=\"w-full bg-white border border-emerald-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Solution N2</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"check-circle\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Alerte produite : tendance structurelle — +20%/mois sur 3 mois → alerte envoyée au PO avec préconisations</span></div></div>",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-700\">Alerte produite : tendance structurelle — +20%/mois sur 3 mois → alerte envoyée au PO avec préconisations</span></div></div>",
           "expl": "Remonter à l'équipe produit les tendances structurelles avec un préconisation pour traiter la cause racine.",
           "debriefExpl": "L'augmentation des tickets n'est pas conjoncturelle mais structurelle : la fusion des CRDC a créé une complexité de gestion des droits que l'interface actuelle ne gère pas bien. L'alerte au PO inclut : 1) les chiffres (évolution +20%/mois), 2) la cause racine (fusion CRDC), 3) une proposition d'évolution (profil régional unique avec déclinaison locale).",
           "icon": "check"
@@ -911,14 +911,14 @@
         "wrong": [
           {
             "title": "Continuer à traiter sans alerter personne",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Les tickets droits sont traités au fil de l'eau sans analyse de tendance</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Les tickets droits sont traités au fil de l'eau sans analyse de tendance</span></div></div>",
             "expl": "Absorber l'augmentation des tickets sans la mesurer ni la remonter à l'équipe produit.",
             "debriefExpl": "Dans 6 mois, l'équipe N2 sera saturée par les tickets droits. Le PO découvre le problème trop tard dans les chiffres du bilan annuel.",
             "icon": "trending-up"
           },
           {
             "title": "Fermer les tickets en 'non reproduit' pour réduire les chiffres",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-slate-400 uppercase mb-1\">Approche non retenue</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"x\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Tickets marqués 'non reproduit' pour faire baisser les stats</span></div></div>",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Solution</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-500\">Tickets marqués 'non reproduit' pour faire baisser les stats</span></div></div>",
             "expl": "Masquer artificiellement l'augmentation en fermant des tickets sans résolution complète.",
             "debriefExpl": "Les utilisateurs insatisfaits rouvrent leurs tickets. La fraude sur les indicateurs retarde la prise de décision et aggrave la situation.",
             "icon": "eye-off"
@@ -927,6 +927,6 @@
         "expl": "Les tendances structurelles doivent être identifiées et remontées à l'équipe produit avant qu'elles ne submergent le support N2."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2\">Tendances</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-end justify-around h-10 bg-slate-50 border border-slate-200 rounded-lg p-1\"><div class=\"w-3 bg-red-300 rounded-t\" style=\"height:60%\"></div><div class=\"w-3 bg-red-400 rounded-t\" style=\"height:80%\"></div><div class=\"w-3 bg-amber-400 rounded-t\" style=\"height:50%\"></div><div class=\"w-3 bg-emerald-400 rounded-t\" style=\"height:30%\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">Patterns et récurrences</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Tendances</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-end justify-around h-10 bg-slate-50 border border-slate-200 rounded-lg p-1\"><div class=\"w-3 bg-red-300 rounded-t\" style=\"height:60%\"></div><div class=\"w-3 bg-red-400 rounded-t\" style=\"height:80%\"></div><div class=\"w-3 bg-amber-400 rounded-t\" style=\"height:50%\"></div><div class=\"w-3 bg-slate-400 rounded-t\" style=\"height:30%\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">Patterns et récurrences</div></div></div>"
   }
 ]

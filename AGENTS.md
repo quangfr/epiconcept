@@ -75,7 +75,7 @@
 **`correct.visual`** : Solution recommandée. **Après** application du réflexe. Tons : emeraude, bordure `emerald-500/200`.
 
 **`wrong[].visual`** : Approche alternative non optimale.
-  **Couleurs neutres uniquement** : tons slate/gris (`border-slate-200`, `bg-slate-50`, `text-slate-500`).
+  **Couleurs : majorité slate** : tons slate/gris (`border-slate-200`, `bg-slate-50`, `text-slate-500`). 0 à 2 éléments par visuel peuvent être en `blue` (`text-blue-500` pour icône unique, `text-blue-600` pour titre de section, `bg-blue-600/700` pour badge/bouton). Aucune autre couleur primaire.
   **Pas de rouge/ambre** — les visuels wrong doivent sembler aussi crédibles que les corrects visuellement.
 
 **Règle stricte** : Les visuels `correct.visual` et `wrong[].visual` ne doivent **jamais** contenir de texte ou d'indicateur visuel signalant la vérité ou la fausseté de la réponse (pas de badge `CONSEILLÉ`, pas de coche/checkmark, pas de `✅`/`❌`, pas de couleur de fond distinctive). Seul le conteneur du QCM (badge/encadré) distingue correct de wrong.
