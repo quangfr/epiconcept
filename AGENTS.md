@@ -24,6 +24,14 @@
   - **Réponses ultra-synthétiques** : Rédiger des réponses de fin de tour extrêmement courtes et condensées pour économiser les tokens.
 - **Scripts** : Utiliser des scripts Node temporaires `fix-*.js` pour les modifications de masse (les supprimer immédiatement après exécution).
 
+### 3.1 Directives pour éditions rapides (SVG/slides)
+
+- **Slide reordering** : Utiliser `git show HEAD:file.md` pour récupérer l'original, puis un script Node qui `split(/\n---\n/)` pour réarranger les slides par indice. Ne jamais réécrire de gros blocs SVG à la main.
+- **SVG edits** : Pour modifier un SVG existant, utiliser `grep` avec le texte SVG unique (ex. `viewBox=`) pour trouver la ligne, puis `read -o offset -n 3` pour cibler la zone exacte. Préférer `edit` sur des chaînes uniques à l'intérieur du SVG plutôt que de remplacer tout le bloc.
+- **Éditions parallèles** : Quand 2+ sections indépendantes d'un même fichier doivent être modifiées, faire les `edit` en un seul message (appels parallèles) pour gagner un tour.
+- **Nouveau slide** : Ajouter un slide en faisant `edit` qui remplace le séparateur `\n---\n` entre deux slides existants par `\n---\n<new slide>\n---\n` — pas besoin de réécrire le fichier entier.
+- **Restauration** : Pour restaurer un slide écrasé, utiliser `git show HEAD:file.md | sed -n '/^# Title/,/^---$/p'` pour en extraire le contenu exact sans le stocker en mémoire de la conversation.
+
 ## 4. Template Ateliers (Cycle 3 Phases)
 - **Layout Grid** (`h-[calc(100vh-70px)]`) : Gauche (1/3) = `#scenario-card` + `#phase2-question-container` (auto). Droite (2/3) = `#options-container` (Phase 1: `#reflex-grid`, Phase 2: `#ui-grid`, Phase 3: `#debriefing-card`).
 - **localStorage** : `{key}-progress-lv{level}-reflex{id}` et `{key}-score-lv{level}` où `key` ∈ `{po,ux,cso,evo,road,feat,gsup,ticketing,veille,tln,analytics,kpi}`.

@@ -997,11 +997,11 @@
         }
 
         .zoom-content {
-            width: 95%;
-            max-width: 1000px;
-            max-height: 90vh;
+            width: 98%;
+            max-width: 98vw;
+            max-height: 95vh;
             background: white;
-            padding: 15px;
+            padding: 8px;
             border-radius: 12px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: flex;
@@ -1307,9 +1307,8 @@
             <!-- Header Section -->
             <header id="main-header">
                 <div class="flex items-center gap-2">
-    <h1 id="title" class="flex items-center gap-2"
-        style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 900; letter-spacing: -0.03em;"><i
-            data-lucide="rocket" class="w-6 h-6 text-blue-900 shrink-0"></i><span data-i18n="app-title">GO EPICO</span></h1>
+    <h1 id="title" class="flex items-center justify-between w-full"
+        style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 900; letter-spacing: -0.03em;"><span class="flex items-center gap-2"><i data-lucide="rocket" class="w-6 h-6 text-blue-900 shrink-0"></i><span data-i18n="app-title">GO EPICO</span></span><span style="font-size:0.7rem;color:#94a3b8;font-weight:500;margin:0 4px">par</span><img src="logo.png" alt="GO EPICO" style="height:36px;width:auto;border-radius:4px;object-fit:contain"></h1>
                     <button onclick="openInfoModal()" aria-label="Informations sur la plateforme" title="Informations"
                         class="cursor-pointer"
                         style="background: none; border: none; outline: none; padding: 0;">
@@ -1577,7 +1576,7 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 E - Roadmap &amp; Jalons</h2>
-                            <button onclick="event.stopPropagation(); openLesson(3, 6)"
+                            <button onclick="event.stopPropagation(); openLesson(3, 7)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les réflexes Roadmap &amp; Jalons">
@@ -1601,7 +1600,7 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 F - Features Discovery</h2>
-                            <button onclick="event.stopPropagation(); openLesson(3, 7)"
+                            <button onclick="event.stopPropagation(); openLesson(3, 8)"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
                                 title="Voir les réflexes Features Discovery">
@@ -1920,7 +1919,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.02.10';
+        const APP_VERSION = '2026.06.02.11';
         let EPICO_CONFIG = null;
 
         async function loadEpicoConfig() {
@@ -2295,7 +2294,7 @@
             const roadSlidesIdx = savedRoadSlides ? parseInt(savedRoadSlides, 10) : -1;
             const roadSlidesStatusLabel = document.getElementById('road-slides-status-label');
             if (roadSlidesStatusLabel) {
-                window.updateCardStatusBadge(roadSlidesStatusLabel, roadSlidesIdx + 1, 7);
+                window.updateCardStatusBadge(roadSlidesStatusLabel, roadSlidesIdx + 1, 10);
             }
 
             const savedGsupSlides = localStorage.getItem('gsup-last-slide');
@@ -3242,15 +3241,15 @@
                     style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                     <i data-lucide="info" style="width: 24px; height: 24px;"></i>
                 </div>
-                <div>
-                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span
-                            style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Informations</span>
-                        <span
-                            style="font-size: 0.62rem; font-weight: 800; color: #475569; background: #e2e8f0; border-radius: 999px; padding: 0.15rem 0.45rem; line-height: 1;"
-                            id="info-version-value">2026.05.31.02</span>
+                <div style="flex:1">
+                    <div style="display:flex;align-items:center;margin-top:4px">
+                        <span class="flex items-center gap-2"><i data-lucide="rocket" class="w-5 h-5 text-blue-900 shrink-0"></i><h3 style="font-size: 1.5rem; font-weight: 900; color: #1e40af; margin: 0;">GO EPICO</h3></span>
+                        <span style="font-size:0.7rem;color:#94a3b8;font-weight:500;margin:0 8px">par</span>
+                        <img src="logo.png" alt="GO EPICO" style="height:36px;width:auto;border-radius:4px;object-fit:contain">
                     </div>
-                    <h3 style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">GO EPICO</h3>
+                    <span
+                        style="font-size: 0.62rem; font-weight: 800; color: #475569; background: #e2e8f0; border-radius: 999px; padding: 0.15rem 0.45rem; line-height: 1; margin-top:6px;display:inline-block;"
+                        id="info-version-value">2026.05.31.02</span>
                 </div>
             </div>
 
