@@ -1,73 +1,197 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">ESIS-3D - Simulateur d'Atelier</title>
+    <title id="page-title">GO EPICO - Simulateur de réflexes Product</title>
     <link rel="stylesheet" href="style.css?v=2026.06.01.66">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              blue: {
-                900: '#1e3a8a',
-                800: '#1e40af',
-              }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: {
+                            900: '#1e3a8a',
+                            800: '#1e40af',
+                        }
+                    }
+                }
             }
-          }
         }
-      }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-deep); color: var(--text-main); overflow: hidden; height: 100vh; }
-        
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+        }
+
         /* Conteneurs et Effets */
-        .glass-panel { background: white; border: 1px solid #E2E8F0; display: flex; flex-direction: column; }
-        
+        .glass-panel {
+            background: white;
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+        }
+
         /* Boutons de Phase 1 */
-        .reflex-btn { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid #F8FAFC; }
-        .reflex-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: var(--color-primary); box-shadow: 0 10px 15px -3px var(--color-primary-glow); }
-        
+        .reflex-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid #F8FAFC;
+        }
+
+        .reflex-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            border-color: var(--color-primary);
+            box-shadow: 0 10px 15px -3px var(--color-primary-glow);
+        }
+
         /* Boutons UI de Phase 2 */
-        .ui-btn { transition: all 0.2s; border: 2px solid #F1F5F9; background: #FAFAF9; }
-        .ui-btn:hover:not(:disabled) { border-color: #10B981; background-color: #F0FDF4; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1); }
-        
+        .ui-btn {
+            transition: all 0.2s;
+            border: 2px solid #F1F5F9;
+            background: #FAFAF9;
+        }
+
+        .ui-btn:hover:not(:disabled) {
+            border-color: #10B981;
+            background-color: #F0FDF4;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1);
+        }
+
         /* Animations de Validation/Erreur */
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-        .shake { animation: shake 0.3s ease-in-out; border-color: #b91c1c !important; background-color: #FEF2F2 !important; }
-        .correct { border-color: #047857 !important; background-color: #ECFDF5 !important; }
-        
-        .scenario-text { font-size: clamp(0.9rem, 1.1vw, 1.15rem); line-height: 1.6; }
-        .explanation-overlay { animation: fadeIn 0.3s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-        
-        .level-card { transition: all 0.3s ease; cursor: pointer; }
-        .level-card:hover { transform: scale(1.02); border-color: var(--color-primary); }
-        
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.3s ease-in-out;
+            border-color: #b91c1c !important;
+            background-color: #FEF2F2 !important;
+        }
+
+        .correct {
+            border-color: #047857 !important;
+            background-color: #ECFDF5 !important;
+        }
+
+        .scenario-text {
+            font-size: clamp(0.9rem, 1.1vw, 1.15rem);
+            line-height: 1.6;
+        }
+
+        .explanation-overlay {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .level-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .level-card:hover {
+            transform: scale(1.02);
+            border-color: var(--color-primary);
+        }
+
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
-        
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+
         /* Protection anti-clic dans les maquettes */
-        .mockup-container { pointer-events: none; }
+        .mockup-container {
+            pointer-events: none;
+        }
 
         /* Wrappers visuels : pas de padding/marge pour maximiser la zone */
-        .visual-mockup, .visual-mockup .mockup-container { padding: 0; margin: 0; border: none; box-shadow: none; background: none; display: flex; justify-content: flex-start; }
-        .visual-mockup .mockup-container > * { border: none; box-shadow: none; background: none !important; background-color: transparent !important; }
-        .visual-mockup .mockup-container { min-width: 120px; }
-        .ui-btn { min-height: 160px; }
+        .visual-mockup,
+        .visual-mockup .mockup-container {
+            padding: 0;
+            margin: 0;
+            border: none;
+            box-shadow: none;
+            background: none;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .visual-mockup .mockup-container>* {
+            border: none;
+            box-shadow: none;
+            background: none !important;
+            background-color: transparent !important;
+        }
+
+        .visual-mockup .mockup-container {
+            min-width: 120px;
+        }
+
+        .ui-btn {
+            min-height: 160px;
+        }
+
         .ui-btn .visual-mockup,
-        .ui-btn > :last-child { min-height: 110px; }
+        .ui-btn> :last-child {
+            min-height: 110px;
+        }
+
         .ui-btn .visual-mockup,
-        #debrief-ui-visual { width: 100%; max-width: 320px; }
-        .ui-btn .visual-mockup .mockup-container > :first-child,
-        #debrief-ui-visual > :first-child { transform: scale(1.4); transform-origin: left top; }
+        #debrief-ui-visual {
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .ui-btn .visual-mockup .mockup-container> :first-child,
+        #debrief-ui-visual> :first-child {
+            transform: scale(1.4);
+            transform-origin: left top;
+        }
 
         /* Option désactivée dans le sélecteur de niveau */
         #header-level-selector option:disabled {
@@ -77,6 +201,7 @@
 
         /* Perfectly align all header elements height on desktop */
         @media (min-width: 768px) {
+
             header button,
             header a .bg-slate-100,
             #header-atelier-selector,
@@ -88,11 +213,13 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+
             header button,
             header a .bg-slate-100 {
                 width: 38px !important;
                 padding: 0 !important;
             }
+
             header button [data-lucide],
             header a [data-lucide] {
                 width: 18px !important;
@@ -111,8 +238,15 @@
             background: transparent;
             transition: all 0.3s ease;
         }
-        .left-hint { left: 0; }
-        .right-hint { right: 0; }
+
+        .left-hint {
+            left: 0;
+        }
+
+        .right-hint {
+            right: 0;
+        }
+
         .hint-card {
             position: absolute;
             top: 0;
@@ -128,66 +262,93 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             user-select: none;
         }
+
         .left-hint .hint-card {
             left: 0;
             border-radius: 0 12px 12px 0;
             transform: translateX(-30px);
             opacity: 0.45;
         }
+
         .right-hint .hint-card {
             right: 0;
             border-radius: 12px 0 0 12px;
             transform: translateX(30px);
             opacity: 0.45;
         }
+
         .edge-hint:hover .hint-card {
             opacity: 0.95;
             box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
         }
-        .left-hint:hover .hint-card { transform: translateX(0); }
-        .right-hint:hover .hint-card { transform: translateX(0); }
+
+        .left-hint:hover .hint-card {
+            transform: translateX(0);
+        }
+
+        .right-hint:hover .hint-card {
+            transform: translateX(0);
+        }
 
         /* Responsive vertical scroll support on mobile */
         @media (max-width: 767px) {
-            .edge-hint { display: none !important; }
+            .edge-hint {
+                display: none !important;
+            }
+
             body {
                 overflow: auto !important;
                 height: auto !important;
             }
+
             #home-screen {
                 padding: 0.75rem !important;
             }
+
             #home-screen .w-full.max-w-6xl.flex.justify-between.items-center {
                 flex-direction: column !important;
                 align-items: stretch !important;
                 gap: 0.75rem !important;
             }
-            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center > div:first-child {
+
+            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center>div:first-child {
                 width: 100%;
                 flex-wrap: wrap;
             }
-            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center > div:last-child {
+
+            #home-screen .w-full.max-w-6xl.flex.justify-between.items-center>div:last-child {
                 justify-content: flex-start !important;
             }
+
             #home-screen select {
                 width: 100%;
             }
+
             main {
                 height: auto !important;
                 overflow: visible !important;
             }
-            main > div {
+
+            main>div {
                 height: auto !important;
                 overflow: visible !important;
             }
-            #scenario-card, #options-container, #reflex-grid, #ui-grid, #choices-wrapper, #choice-list {
+
+            #scenario-card,
+            #options-container,
+            #reflex-grid,
+            #ui-grid,
+            #choices-wrapper,
+            #choice-list {
                 height: auto !important;
                 overflow: visible !important;
             }
+
             #reflex-grid {
                 display: flex !important;
                 flex-direction: column !important;
             }
+
             #debriefing-card {
                 position: relative !important;
                 z-index: 20 !important;
@@ -197,16 +358,19 @@
                 min-height: 300px !important;
                 padding: 1rem !important;
             }
+
             #skills-modal {
                 padding: 0 !important;
             }
-            #skills-modal > div {
+
+            #skills-modal>div {
                 margin: 0 !important;
                 border-radius: 0 !important;
                 height: 100vh !important;
                 max-height: 100vh !important;
                 width: 100% !important;
             }
+
             #debriefing-card .flex.items-center.gap-2.mb-3.mt-1.shrink-0 {
                 flex-direction: column !important;
                 align-items: flex-start !important;
@@ -215,26 +379,45 @@
         }
 
         @media (max-width: 500px) {
-            #home-screen, #debriefing-card, #skills-content, main, .p-4, .p-6, .p-8 {
+
+            #home-screen,
+            #debriefing-card,
+            #skills-content,
+            main,
+            .p-4,
+            .p-6,
+            .p-8 {
                 padding: 0.25rem !important;
             }
-            .level-card, .glass-panel, .reflex-btn, .ui-btn, .mb-6, .mb-4, .my-4 {
+
+            .level-card,
+            .glass-panel,
+            .reflex-btn,
+            .ui-btn,
+            .mb-6,
+            .mb-4,
+            .my-4 {
                 padding: 0.35rem !important;
                 margin-bottom: 0.25rem !important;
                 margin-top: 0.15rem !important;
                 gap: 0.2rem !important;
             }
-            .gap-4, .gap-6, .gap-3 {
+
+            .gap-4,
+            .gap-6,
+            .gap-3 {
                 gap: 0.25rem !important;
             }
-            
+
             #home-screen .w-full.max-w-6xl.flex.justify-between.items-center {
                 gap: 0.2rem !important;
                 margin-bottom: 0.3rem !important;
             }
+
             #home-screen .flex.items-center.gap-2 {
                 gap: 0.25rem !important;
             }
+
             #home-screen h1,
             #lesson-modal h1,
             h1 {
@@ -243,12 +426,19 @@
                 margin-bottom: 0.1rem !important;
                 margin-top: 0.1rem !important;
             }
-            #home-screen h3, #lesson-modal h3, h3, #home-screen h4, #lesson-modal h4, h4 {
+
+            #home-screen h3,
+            #lesson-modal h3,
+            h3,
+            #home-screen h4,
+            #lesson-modal h4,
+            h4 {
                 font-size: 0.68rem !important;
                 line-height: 1.15 !important;
                 margin-top: 0.1rem !important;
                 margin-bottom: 0.1rem !important;
             }
+
             #home-screen p,
             #lesson-modal p,
             p,
@@ -260,16 +450,19 @@
                 margin-bottom: 0.1rem !important;
                 margin-top: 0.1rem !important;
             }
+
             #home-screen select,
             #lesson-selector,
             select {
                 padding: 0.2rem 0.35rem !important;
                 min-height: 1.6rem !important;
             }
+
             #home-screen .level-card h2,
             #lesson-modal .level-card h2 {
                 font-size: 0.75rem !important;
             }
+
             #home-screen .level-card p,
             #lesson-modal .level-card p {
                 font-size: 0.58rem !important;
@@ -280,23 +473,26 @@
                 width: 11px !important;
                 height: 11px !important;
             }
+
             .level-card [data-lucide],
             i[data-lucide] {
                 width: 13px !important;
                 height: 13px !important;
             }
-            
+
             header {
                 height: auto !important;
                 padding: 0.25rem 0.4rem !important;
                 min-height: auto !important;
             }
-            header > div {
+
+            header>div {
                 flex-direction: column !important;
                 align-items: stretch !important;
                 gap: 0.2rem !important;
             }
-            header > div > div:first-child {
+
+            header>div>div:first-child {
                 width: 100% !important;
                 display: flex !important;
                 flex-direction: row !important;
@@ -304,14 +500,17 @@
                 justify-content: flex-start !important;
                 gap: 0.2rem !important;
             }
+
             header button,
             header .bg-slate-100 {
                 padding: 0.2rem !important;
                 border-radius: 4px !important;
             }
+
             header button[onclick="resetLevelProgress()"] {
                 margin-left: auto !important;
             }
+
             header a .bg-slate-100,
             header button[onclick="goHome()"] .bg-slate-100,
             header button[onclick="resetLevelProgress()"],
@@ -324,6 +523,7 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+
             header a .bg-slate-100 [data-lucide],
             header button[onclick="goHome()"] .bg-slate-100 [data-lucide],
             header button[onclick="resetLevelProgress()"] [data-lucide],
@@ -331,22 +531,26 @@
                 width: 11px !important;
                 height: 11px !important;
             }
-            header > div > div.text-center {
+
+            header>div>div.text-center {
                 width: 100% !important;
                 text-align: center !important;
                 padding: 0.15rem 0 !important;
                 border-top: 1px solid #e2e8f0 !important;
                 border-bottom: 1px solid #e2e8f0 !important;
             }
-            header > div > div.text-center span {
+
+            header>div>div.text-center span {
                 display: inline-block !important;
                 margin: 0 0.15rem !important;
                 font-size: 0.58rem !important;
             }
-            header > div > div.text-center #level-title-display {
+
+            header>div>div.text-center #level-title-display {
                 font-size: 0.65rem !important;
             }
-            header > div > div:last-child {
+
+            header>div>div:last-child {
                 width: 100% !important;
                 display: flex !important;
                 flex-direction: row !important;
@@ -354,6 +558,7 @@
                 justify-content: space-between !important;
                 gap: 0.5rem !important;
             }
+
             header button[onclick="prevStepNav()"],
             header button[onclick="nextStepNav()"] {
                 width: 26px !important;
@@ -364,11 +569,13 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+
             header button[onclick="prevStepNav()"] [data-lucide],
             header button[onclick="nextStepNav()"] [data-lucide] {
                 width: 11px !important;
                 height: 11px !important;
             }
+
             #header-level-container,
             #header-atelier-selector {
                 height: 26px !important;
@@ -376,12 +583,13 @@
                 align-items: center !important;
                 box-sizing: border-box !important;
             }
+
             #header-level-selector {
                 height: 100% !important;
                 padding: 0 !important;
                 border: none !important;
             }
-            
+
             #lesson-modal .lesson-slide svg,
             #lesson-modal .mockup-container svg {
                 max-height: 52vh !important;
@@ -392,20 +600,24 @@
             #home-screen {
                 padding: 0.5rem !important;
             }
+
             #home-screen .w-full.max-w-6xl.flex.justify-between.items-center,
             #lesson-header {
                 gap: 0.4rem !important;
             }
+
             #home-screen h1,
             #lesson-modal h1 {
                 font-size: 1.45rem !important;
                 line-height: 1.1 !important;
             }
+
             #home-screen p,
             #lesson-modal p {
                 font-size: 0.72rem !important;
                 line-height: 1.25 !important;
             }
+
             #home-screen .level-card,
             #lesson-modal .level-card,
             #lesson-modal .glass-panel,
@@ -414,6 +626,7 @@
                 max-width: 100% !important;
                 min-width: 0 !important;
             }
+
             #lesson-modal .lesson-slide svg,
             #lesson-modal .mockup-container svg {
                 max-height: 62vh !important;
@@ -421,616 +634,702 @@
         }
     </style>
 </head>
+
 <body class="flex flex-col relative">
 
-<div id="skills-modal" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
-    <div class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
-        <!-- Close Button -->
-        <button onclick="closeSkillsModal()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">
-            ✕
-        </button>
-        
-        <!-- Header -->
-        <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
-            <div>
-                <select id="skills-title" onchange="switchSkillsWorkshop(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-sm font-black text-slate-800 uppercase tracking-tight shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800 cursor-pointer">
+    <div id="skills-modal"
+        class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
+        <div
+            class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
+            <!-- Close Button -->
+            <button onclick="closeSkillsModal()"
+                class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold"
+                aria-label="Fermer">
+                ✕
+            </button>
+
+            <!-- Header -->
+            <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
+                <div>
+                    <select id="skills-title" onchange="switchSkillsWorkshop(this.value)"
+                        class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-sm font-black text-slate-800 uppercase tracking-tight shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800 cursor-pointer">
+                    </select>
+                </div>
+                <!-- Selector -->
+                <select id="skills-selector" onchange="scrollToSkill(this.value)"
+                    class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
+                    <option value="">-- Aller au Réflexe --</option>
                 </select>
             </div>
-            <!-- Selector -->
-            <select id="skills-selector" onchange="scrollToSkill(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
-                <option value="">-- Aller au Réflexe --</option>
-            </select>
-        </div>
-        
-        <!-- Content -->
-        <div id="skills-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50 relative">
-            <!-- Dynamically populated -->
+
+            <!-- Content -->
+            <div id="skills-content"
+                class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50 relative">
+                <!-- Dynamically populated -->
+            </div>
         </div>
     </div>
-</div>
 
-<!-- MODAL INFO (GAME) -->
-<div id="info-modal" class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6">
-    <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
-        <button onclick="closeInfoModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <div id="info-modal-content">
-            <!-- Injected by JS -->
-        </div>
-        <button onclick="closeInfoModal()" class="mt-8 w-full bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest">J'ai compris</button>
-    </div>
-</div>
-
-<div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 hidden overflow-y-auto">
-    <div class="w-full max-w-6xl flex justify-between items-center h-[70px] shrink-0 mb-3 md:mb-8">
-        <div class="flex items-center gap-2">
-            <a href="./index.html" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" aria-label="Retour au Hub">
-                <i data-lucide="home" class="w-4 h-4"></i>
-            </a>
-            <select id="home-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
-                <option value="./exo.html?id=1-a">A - Besoins Utilisateurs</option>
-                <option value="./exo.html?id=1-b">B - Ergonomie UX/UI</option>
-                <option value="./exo.html?id=2-c">C - Support &amp; Client</option>
-                <option value="./exo.html?id=2-d">D - Évolutions &amp; Specs</option>
-                <option value="./exo.html?id=3-e">E - Roadmap &amp; Jalons</option>
-                <option value="./exo.html?id=3-f">F - Features Discovery</option>
-                <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
-                <option value="./exo.html?id=4-h">H - Assistance &amp; Connaissance</option>
-                <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
-                <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
-                <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
-                <option value="./exo.html?id=6-l">L - Suivi &amp; Données</option>
-            </select>
-        </div>
-        <div class="flex gap-2">
-            <button onclick="resetProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-red-600 hover:text-white transition-colors" title="Réinitialiser la progression">
-                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+    <!-- MODAL INFO (GAME) -->
+    <div id="info-modal"
+        class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6">
+        <div class="bg-white rounded-xl max-w-lg w-full p-8 shadow-2xl relative">
+            <button onclick="closeInfoModal()"
+                class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
             </button>
-            <button onclick="openSkillsModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" title="Référentiel">
-                <i data-lucide="help-circle" class="w-4 h-4"></i>
-            </button>
+            <div id="info-modal-content">
+                <!-- Injected by JS -->
+            </div>
+            <button onclick="closeInfoModal()"
+                class="mt-8 w-full bg-slate-900 text-white py-4 rounded-lg font-black uppercase tracking-widest">J'ai
+                compris</button>
         </div>
     </div>
-    <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
-        <div class="text-center mb-6 md:mb-12">
-            <h1 id="home-title" class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">Atelier</h1>
-            <p id="home-subtitle" class="text-slate-500 font-bold uppercase text-xs md:text-sm">Chargement de l'atelier...</p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
-            <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i id="level-icon-0" data-lucide="signal-low" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
-                <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau I</h2>
-                <p id="level-desc-0" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau facile.</p>
-                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
-                </div>
-                </div>
-            </div>
-            <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i id="level-icon-1" data-lucide="signal-medium" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
-                <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau II</h2>
-                <p id="level-desc-1" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau moyen.</p>
-                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
-                </div>
-                </div>
-            </div>
-            <div class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
-                <i id="level-icon-2" data-lucide="signal" class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
-                <div class="flex-grow flex flex-col md:items-center">
-                <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau III</h2>
-                <p id="level-desc-2" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau difficile.</p>
-                <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
-                    <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
-    <div class="w-full flex items-center justify-between gap-4">
-        <div class="flex items-center gap-1.5 shrink-0">
-            <a href="./index.html" class="flex items-center gap-2 group" aria-label="Retour au Hub">
-                <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
+    <div id="home-screen" class="fixed inset-0 z-50 bg-slate-50 flex flex-col items-center p-6 hidden overflow-y-auto">
+        <div class="w-full max-w-6xl flex justify-between items-center h-[70px] shrink-0 mb-3 md:mb-8">
+            <div class="flex items-center gap-2">
+                <a href="./index.html"
+                    class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors"
+                    aria-label="Retour au Hub">
                     <i data-lucide="home" class="w-4 h-4"></i>
-                </div>
-            </a>
-            <button onclick="goHome()" class="flex items-center gap-2 group" aria-label="Quitter">
-                <div class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
-                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                </div>
-            </button>
-            <select id="header-atelier-selector" onchange="window.location.href=this.value" class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg py-1.5 pl-1.5 pr-5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900 w-auto">
-                <option value="./exo.html?id=1-a">A - Besoins Utilisateurs</option>
-                <option value="./exo.html?id=1-b">B - Ergonomie UX/UI</option>
-                <option value="./exo.html?id=2-c">C - Support &amp; Client</option>
-                <option value="./exo.html?id=2-d">D - Évolutions &amp; Specs</option>
-                <option value="./exo.html?id=3-e">E - Roadmap &amp; Jalons</option>
-                <option value="./exo.html?id=3-f">F - Features Discovery</option>
-                <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
-                <option value="./exo.html?id=4-h">H - Assistance &amp; Connaissance</option>
-                <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
-                <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
-                <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
-                <option value="./exo.html?id=6-l">L - Suivi &amp; Données</option>
-            </select>
-            <!-- Reset Level -->
-            <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
-                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-            </button>
-            <!-- Referentiel Button -->
-            <button onclick="openSkillsModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel">
-                <i data-lucide="help-circle" class="w-4 h-4"></i>
-            </button>
-        </div>
-        
-        <div class="text-center flex-grow"></div>
-
-        <div class="flex items-center justify-end gap-3 shrink-0 whitespace-nowrap">
-            <!-- header-level-selector dropdown -->
-            <div id="header-level-container" class="flex items-center gap-1.5 bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 cursor-pointer">
-                <select id="header-level-selector" onchange="switchLevel(parseInt(this.value))" class="bg-transparent text-slate-700 font-bold text-xs cursor-pointer outline-none focus:ring-0 p-0">
-                    <option value="0" id="header-opt-lvl-0" class="text-slate-800 bg-white font-semibold">Niveau I</option>
-                    <option value="1" id="header-opt-lvl-1" class="text-slate-800 bg-white font-semibold">Niveau II</option>
-                    <option value="2" id="header-opt-lvl-2" class="text-slate-800 bg-white font-semibold">Niveau III</option>
+                </a>
+                <select id="home-atelier-selector" onchange="window.location.href=this.value"
+                    class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg px-2.5 py-1.5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900">
+                    <option value="./exo.html?id=1-a">A - Besoins Utilisateurs</option>
+                    <option value="./exo.html?id=1-b">B - Ergonomie UX/UI</option>
+                    <option value="./exo.html?id=2-c">C - Support &amp; Client</option>
+                    <option value="./exo.html?id=2-d">D - Évolutions &amp; Specs</option>
+                    <option value="./exo.html?id=3-e">E - Roadmap &amp; Jalons</option>
+                    <option value="./exo.html?id=3-f">F - Features Discovery</option>
+                    <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
+                    <option value="./exo.html?id=4-h">H - Assistance &amp; Connaissance</option>
+                    <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
+                    <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
+                    <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
+                    <option value="./exo.html?id=6-l">L - Suivi &amp; Données</option>
                 </select>
             </div>
-
-            <!-- Breadcrumbs (dot-progress) -->
-            <div id="breadcrumb-container" class="flex gap-1.5 flex-row items-center font-bold">
-                <!-- Generated dynamically -->
-            </div>
-
-            <!-- Navigation arrows -->
-            <div class="flex items-center gap-1">
-                <button onclick="prevStepNav()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors cursor-pointer" title="Question précédente">
-                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            <div class="flex gap-2">
+                <button onclick="resetProgress()"
+                    class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-red-600 hover:text-white transition-colors"
+                    title="Réinitialiser la progression">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
                 </button>
-                <button onclick="nextStepNav()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors cursor-pointer" title="Question suivante">
-                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <button onclick="openSkillsModal()"
+                    class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors"
+                    title="Référentiel">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
                 </button>
             </div>
         </div>
-    </div>
-</header>
-
-<main class="flex-grow flex flex-col md:flex-row overflow-hidden p-4 gap-4 h-[calc(100vh-70px)]">
-    <!-- Left column: Situation context (1/3) -->
-    <div class="w-full md:w-4/12 flex flex-col gap-3 h-full">
-        <!-- Scenario card -->
-        <div id="scenario-card" class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
-            <div class="flex items-center justify-between mb-4 shrink-0">
-                <div class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">Situation</div>
-                <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded" id="step-label">1 / --</div>
+        <div class="max-w-4xl w-full flex-grow flex flex-col justify-center">
+            <div class="text-center mb-6 md:mb-12">
+                <h1 id="home-title"
+                    class="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-2 md:mb-4">
+                    Atelier</h1>
+                <p id="home-subtitle" class="text-slate-500 font-bold uppercase text-xs md:text-sm">Chargement de
+                    l'atelier...</p>
             </div>
-            <div id="scenario-emoji" class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🎯</div>
-            <div class="overflow-y-auto flex-grow min-h-0 pr-2 pb-4 flex flex-col gap-4">
-                <div id="scenario-text" class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left">
-                    Chargement du scénario...
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
+                <div
+                    class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                    <i id="level-icon-0" data-lucide="signal-low"
+                        class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                    <div class="flex-grow flex flex-col md:items-center">
+                        <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau I</h2>
+                        <p id="level-desc-0" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau
+                            facile.</p>
+                        <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
+                            <span id="score-lv0" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
+                        </div>
+                    </div>
                 </div>
-                <div id="scenario-visual" class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex justify-start items-center mockup-container mt-4 hidden"></div>
+                <div
+                    class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                    <i id="level-icon-1" data-lucide="signal-medium"
+                        class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                    <div class="flex-grow flex flex-col md:items-center">
+                        <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau II</h2>
+                        <p id="level-desc-1" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau
+                            moyen.</p>
+                        <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
+                            <span id="score-lv1" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="level-card bg-white p-4 md:p-8 rounded-xl border-2 border-slate-100 shadow-xl flex flex-row md:flex-col items-center md:text-center gap-4 md:gap-0">
+                    <i id="level-icon-2" data-lucide="signal"
+                        class="w-8 h-8 md:w-12 md:h-12 md:mb-4 text-slate-800 flex-shrink-0"></i>
+                    <div class="flex-grow flex flex-col md:items-center">
+                        <h2 class="text-base md:text-xl font-black uppercase text-slate-800">Niveau III</h2>
+                        <p id="level-desc-2" class="text-slate-500 text-xs md:text-sm mt-1 md:mt-2 flex-grow">Niveau
+                            difficile.</p>
+                        <div class="mt-2 md:mt-6 md:pt-4 md:border-t border-slate-50 w-full">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase block">Progression</span>
+                            <span id="score-lv2" class="text-lg md:text-2xl font-black text-slate-800">-- / --</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!-- Phase 2 validation card -->
-        <div id="phase2-question-container" class="glass-panel rounded-lg p-4 shadow-sm border-emerald-200 bg-emerald-50 shrink-0 hidden flex-col justify-center transition-all duration-300 relative overflow-hidden">
-            <div class="absolute right-2 top-2 text-4xl opacity-10">🎯</div>
-            <div class="flex items-center gap-1.5 mb-1.5">
-                <span id="phase2-icon-container" class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
-                <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Réflexe Validé</span>
-            </div>
-            <div class="flex items-center gap-2 mb-1">
-                <span id="phase2-reflex-icon" class="text-emerald-700"></span>
-                <h3 id="validated-principle-title" class="text-sm font-black text-emerald-800 uppercase tracking-tight leading-tight">Titre</h3>
-            </div>
-            <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Sélectionnez la décision d'ergonomie correspondante à droite ➡️</p>
         </div>
     </div>
 
-    <!-- Right column: Interactions QCM (2/3) -->
-    <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
-        <div class="flex items-center gap-2.5 shrink-0">
-            <div id="phase-label-container" class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shadow-md">
-                Orientation
+    <header class="bg-white border-b border-slate-200 py-3 px-6 h-[70px] flex items-center shrink-0">
+        <div class="w-full flex items-center justify-between gap-4">
+            <div class="flex items-center gap-1.5 shrink-0">
+                <a href="./index.html" class="flex items-center gap-2 group" aria-label="Retour au Hub">
+                    <div
+                        class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                    </div>
+                </a>
+                <button onclick="goHome()" class="flex items-center gap-2 group" aria-label="Quitter">
+                    <div
+                        class="bg-slate-100 p-2 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    </div>
+                </button>
+                <select id="header-atelier-selector" onchange="window.location.href=this.value"
+                    class="bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-lg py-1.5 pl-1.5 pr-5 cursor-pointer outline-none focus:ring-2 focus:ring-blue-900 w-auto">
+                    <option value="./exo.html?id=1-a">A - Besoins Utilisateurs</option>
+                    <option value="./exo.html?id=1-b">B - Ergonomie UX/UI</option>
+                    <option value="./exo.html?id=2-c">C - Support &amp; Client</option>
+                    <option value="./exo.html?id=2-d">D - Évolutions &amp; Specs</option>
+                    <option value="./exo.html?id=3-e">E - Roadmap &amp; Jalons</option>
+                    <option value="./exo.html?id=3-f">F - Features Discovery</option>
+                    <option value="./exo.html?id=4-g">G - Diagnostic &amp; Résolution</option>
+                    <option value="./exo.html?id=4-h">H - Assistance &amp; Connaissance</option>
+                    <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
+                    <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
+                    <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
+                    <option value="./exo.html?id=6-l">L - Suivi &amp; Données</option>
+                </select>
+                <!-- Reset Level -->
+                <button onclick="resetLevelProgress()"
+                    class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0"
+                    title="Réinitialiser ce niveau">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                </button>
+                <!-- Referentiel Button -->
+                <button onclick="openSkillsModal()"
+                    class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0"
+                    title="Référentiel">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                </button>
             </div>
-            <span id="phase1-question-text" class="text-xs font-semibold text-slate-600 italic">De quel réflexe s'agit t-il ?</span>
-        </div>
-        
-        <div id="options-container" class="glass-panel rounded-xl p-3 sm:p-4 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
-            <!-- Phase 1 QCM list -->
-            <div id="reflex-grid" class="flex flex-col gap-1.5 h-full overflow-y-auto pt-1.5 pl-1 pr-2 pb-4"></div>
 
-            <!-- Phase 2 QCM list -->
-            <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pt-1.5 pl-1 pr-2 pb-4">
-                <div class="flex items-center gap-2 shrink-0">
-                    <button onclick="goBackToPhase1()" class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm" title="Retour">
-                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <div class="text-center flex-grow"></div>
+
+            <div class="flex items-center justify-end gap-3 shrink-0 whitespace-nowrap">
+                <!-- header-level-selector dropdown -->
+                <div id="header-level-container"
+                    class="flex items-center gap-1.5 bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 cursor-pointer">
+                    <select id="header-level-selector" onchange="switchLevel(parseInt(this.value))"
+                        class="bg-transparent text-slate-700 font-bold text-xs cursor-pointer outline-none focus:ring-0 p-0">
+                        <option value="0" id="header-opt-lvl-0" class="text-slate-800 bg-white font-semibold">Niveau I
+                        </option>
+                        <option value="1" id="header-opt-lvl-1" class="text-slate-800 bg-white font-semibold">Niveau II
+                        </option>
+                        <option value="2" id="header-opt-lvl-2" class="text-slate-800 bg-white font-semibold">Niveau III
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Breadcrumbs (dot-progress) -->
+                <div id="breadcrumb-container" class="flex gap-1.5 flex-row items-center font-bold">
+                    <!-- Generated dynamically -->
+                </div>
+
+                <!-- Navigation arrows -->
+                <div class="flex items-center gap-1">
+                    <button onclick="prevStepNav()"
+                        class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors cursor-pointer"
+                        title="Question précédente">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="nextStepNav()"
+                        class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors cursor-pointer"
+                        title="Question suivante">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 </div>
-                <div id="ui-choices-wrapper" class="flex flex-col gap-2 flex-grow"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col md:flex-row overflow-hidden p-4 gap-4 h-[calc(100vh-70px)]">
+        <!-- Left column: Situation context (1/3) -->
+        <div class="w-full md:w-4/12 flex flex-col gap-3 h-full">
+            <!-- Scenario card -->
+            <div id="scenario-card"
+                class="glass-panel rounded-xl p-6 shadow-sm border-slate-100 flex flex-col flex-grow overflow-hidden relative min-h-0">
+                <div class="flex items-center justify-between mb-4 shrink-0">
+                    <div
+                        class="bg-blue-900 text-white px-2 py-1 rounded md text-[10px] font-black uppercase tracking-widest shadow-sm">
+                        Situation</div>
+                    <div class="text-slate-500 text-xs font-black uppercase tracking-widest bg-slate-100 px-2 py-1 rounded"
+                        id="step-label">1 / --</div>
+                </div>
+                <div id="scenario-emoji" class="absolute right-4 top-4 text-7xl opacity-5 pointer-events-none">🎯</div>
+                <div class="overflow-y-auto flex-grow min-h-0 pr-2 pb-4 flex flex-col gap-4">
+                    <div id="scenario-text"
+                        class="scenario-text text-slate-800 font-medium italic first-letter:text-5xl first-letter:font-black first-letter:text-slate-800 first-letter:mr-3 first-letter:float-left">
+                        Chargement du scénario...
+                    </div>
+                    <div id="scenario-visual"
+                        class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex justify-start items-center mockup-container mt-4 hidden">
+                    </div>
+                </div>
             </div>
 
-            <!-- Phase 3 Debriefing -->
-            <div id="debriefing-card" class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-4 md:p-5 flex flex-col justify-between overflow-y-auto">
-                <button id="debrief-back-btn" onclick="goBackFromDebrief()" class="absolute top-3 left-3 flex items-center justify-center bg-white border-2 border-slate-200 w-7 h-7 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden" title="Retour"><i data-lucide="arrow-left" class="w-3 h-3"></i></button>
-                <div class="flex flex-col h-full">
-                    <div class="flex items-center gap-2 mb-3 mt-1 shrink-0">
-                        <div id="debrief-emoji" class="text-2xl bg-emerald-100 w-10 h-10 flex items-center justify-center rounded-xl shadow-sm">🎯</div>
-                        <div>
-                            <p id="debrief-main-title" class="text-slate-500 font-bold uppercase tracking-wider text-[9px]">Décision Validée</p>
-                            <h2 id="debrief-title" class="text-slate-800 font-black uppercase tracking-tight text-sm">Réflexe appliqué</h2>
-                        </div>
+            <!-- Phase 2 validation card -->
+            <div id="phase2-question-container"
+                class="glass-panel rounded-lg p-4 shadow-sm border-emerald-200 bg-emerald-50 shrink-0 hidden flex-col justify-center transition-all duration-300 relative overflow-hidden">
+                <div class="absolute right-2 top-2 text-4xl opacity-10">🎯</div>
+                <div class="flex items-center gap-1.5 mb-1.5">
+                    <span id="phase2-icon-container"
+                        class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold">✓</span>
+                    <span class="text-[9px] font-black uppercase tracking-widest text-emerald-700">Réflexe Validé</span>
+                </div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span id="phase2-reflex-icon" class="text-emerald-700"></span>
+                    <h3 id="validated-principle-title"
+                        class="text-sm font-black text-emerald-800 uppercase tracking-tight leading-tight">Titre</h3>
+                </div>
+                <p class="text-emerald-800/80 text-[10px] font-bold leading-tight">Sélectionnez la décision d'ergonomie
+                    correspondante à droite ➡️</p>
+            </div>
+        </div>
+
+        <!-- Right column: Interactions QCM (2/3) -->
+        <div class="w-full md:w-8/12 flex flex-col gap-3 h-full relative">
+            <div class="flex items-center gap-2.5 shrink-0">
+                <div id="phase-label-container"
+                    class="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shadow-md">
+                    Orientation
+                </div>
+                <span id="phase1-question-text" class="text-xs font-semibold text-slate-600 italic">De quel réflexe
+                    s'agit t-il ?</span>
+            </div>
+
+            <div id="options-container"
+                class="glass-panel rounded-xl p-3 sm:p-4 shadow-sm border-slate-100 relative overflow-hidden flex-grow bg-white">
+                <!-- Phase 1 QCM list -->
+                <div id="reflex-grid" class="flex flex-col gap-1.5 h-full overflow-y-auto pt-1.5 pl-1 pr-2 pb-4"></div>
+
+                <!-- Phase 2 QCM list -->
+                <div id="ui-grid" class="hidden flex flex-col gap-3 h-full overflow-y-auto pt-1.5 pl-1 pr-2 pb-4">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button onclick="goBackToPhase1()"
+                            class="flex items-center justify-center text-slate-500 hover:text-slate-900 transition-colors bg-white border border-slate-200 rounded-full w-8 h-8 hover:border-slate-900 shadow-sm"
+                            title="Retour">
+                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        </button>
                     </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-3 flex-grow min-h-0">
-                        <!-- Clone Visuel + Button -->
-                        <div class="w-full sm:w-5/12 flex flex-col gap-2 shrink-0">
-                            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Décision Retenue</span>
-                            <div class="bg-slate-50 border-2 border-emerald-400 rounded-lg p-3 shadow-sm flex flex-col gap-2 relative overflow-hidden flex-grow min-h-[140px]">
-                                <div class="absolute inset-0 bg-emerald-400/5 z-0"></div>
-                                <div class="font-black text-slate-800 text-xs uppercase tracking-tight relative z-10" id="debrief-ui-title">Titre Décision</div>
-                                <div class="w-full relative z-10 flex items-center justify-start mockup-container" id="debrief-ui-visual"></div>
+                    <div id="ui-choices-wrapper" class="flex flex-col gap-2 flex-grow"></div>
+                </div>
+
+                <!-- Phase 3 Debriefing -->
+                <div id="debriefing-card"
+                    class="hidden explanation-overlay absolute inset-0 bg-white z-20 p-4 md:p-5 flex flex-col justify-between overflow-y-auto">
+                    <button id="debrief-back-btn" onclick="goBackFromDebrief()"
+                        class="absolute top-3 left-3 flex items-center justify-center bg-white border-2 border-slate-200 w-7 h-7 rounded-full text-slate-600 hover:border-slate-900 hover:text-slate-900 shadow-sm transition-all z-30 hidden"
+                        title="Retour"><i data-lucide="arrow-left" class="w-3 h-3"></i></button>
+                    <div class="flex flex-col h-full">
+                        <div class="flex items-center gap-2 mb-3 mt-1 shrink-0">
+                            <div id="debrief-emoji"
+                                class="text-2xl bg-emerald-100 w-10 h-10 flex items-center justify-center rounded-xl shadow-sm">
+                                🎯</div>
+                            <div>
+                                <p id="debrief-main-title"
+                                    class="text-slate-500 font-bold uppercase tracking-wider text-[9px]">Décision
+                                    Validée</p>
+                                <h2 id="debrief-title"
+                                    class="text-slate-800 font-black uppercase tracking-tight text-sm">Réflexe appliqué
+                                </h2>
                             </div>
-                            <button id="btn-next" onclick="nextStep()" class="bg-slate-900 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full">
-                                Suivant <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </button>
                         </div>
-                        <!-- Business Impact -->
-                        <div class="w-full sm:w-7/12 flex flex-col gap-1.5 min-h-0">
-                            <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact Projet &amp; Équipes</span>
-                            <div class="bg-slate-100/70 p-4 rounded-lg border border-slate-200 text-xs text-slate-800 font-medium leading-relaxed overflow-y-auto h-full relative">
-                                <div class="absolute top-3 right-3 text-2xl opacity-20">💡</div>
-                                <div id="debrief-text" class="relative z-10"></div>
-                             </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 flex-grow min-h-0">
+                            <!-- Clone Visuel + Button -->
+                            <div class="w-full sm:w-5/12 flex flex-col gap-2 shrink-0">
+                                <span
+                                    class="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Décision
+                                    Retenue</span>
+                                <div
+                                    class="bg-slate-50 border-2 border-emerald-400 rounded-lg p-3 shadow-sm flex flex-col gap-2 relative overflow-hidden flex-grow min-h-[140px]">
+                                    <div class="absolute inset-0 bg-emerald-400/5 z-0"></div>
+                                    <div class="font-black text-slate-800 text-xs uppercase tracking-tight relative z-10"
+                                        id="debrief-ui-title">Titre Décision</div>
+                                    <div class="w-full relative z-10 flex items-center justify-start mockup-container"
+                                        id="debrief-ui-visual"></div>
+                                </div>
+                                <button id="btn-next" onclick="nextStep()"
+                                    class="bg-slate-900 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full">
+                                    Suivant <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Business Impact -->
+                            <div class="w-full sm:w-7/12 flex flex-col gap-1.5 min-h-0">
+                                <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">Impact
+                                    Projet &amp; Équipes</span>
+                                <div
+                                    class="bg-slate-100/70 p-4 rounded-lg border border-slate-200 text-xs text-slate-800 font-medium leading-relaxed overflow-y-auto h-full relative">
+                                    <div class="absolute top-3 right-3 text-2xl opacity-20">💡</div>
+                                    <div id="debrief-text" class="relative z-10"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
+
+    <div id="exo-left-edge" class="edge-hint left-hint" onclick="prevStepNav()">
+        <div class="hint-card">
+            <i data-lucide="chevron-left" style="width: 28px; height: 28px; color: #475569;"></i>
+        </div>
     </div>
-</main>
-
-<div id="exo-left-edge" class="edge-hint left-hint" onclick="prevStepNav()">
-    <div class="hint-card">
-        <i data-lucide="chevron-left" style="width: 28px; height: 28px; color: #475569;"></i>
+    <div id="exo-right-edge" class="edge-hint right-hint" onclick="nextStepNav()">
+        <div class="hint-card">
+            <i data-lucide="chevron-right" style="width: 28px; height: 28px; color: #475569;"></i>
+        </div>
     </div>
-</div>
-<div id="exo-right-edge" class="edge-hint right-hint" onclick="nextStepNav()">
-    <div class="hint-card">
-        <i data-lucide="chevron-right" style="width: 28px; height: 28px; color: #475569;"></i>
-    </div>
-</div>
 
-<script>
-let ATELIERS_CONFIG = {};
-let CONFIG = null;
-let ATELIER_ID = "1-a";
-let reflexes = [];
-let TOTAL_STEPS = 10;
-let currentLevel = 0;
-let currentStepIdx = 0;
-let levelSteps = [];
-let currentPhase = 1;
-let answeredSteps = [];
-let EPICO_CONTEXT_SUFFIX = 'ESIS-3D';
+    <script>
+        let ATELIERS_CONFIG = {};
+        let CONFIG = null;
+        let ATELIER_ID = "1-a";
+        let reflexes = [];
+        let TOTAL_STEPS = 10;
+        let currentLevel = 0;
+        let currentStepIdx = 0;
+        let levelSteps = [];
+        let currentPhase = 1;
+        let answeredSteps = [];
+        let EPICO_CONTEXT_SUFFIX = 'ESIS-3D';
 
-async function loadEpicoConfig() {
-    try {
-        const res = await fetch('epico.json?v=' + Date.now());
-        const data = await res.json();
-        ATELIERS_CONFIG = data.workshops || {};
-        EPICO_CONTEXT_SUFFIX = data.app?.contextSuffix || 'ESIS-3D';
-        window.EPICO_APP_DESC = data.app?.description || '';
-        ATELIER_ID = new URLSearchParams(window.location.search).get('id') || "1-a";
-        if (!ATELIERS_CONFIG[ATELIER_ID]) {
-            window.location.href = './index.html';
-            return false;
-        }
-        CONFIG = ATELIERS_CONFIG[ATELIER_ID];
-        applyWorkshopConfig();
-        return true;
-    } catch (e) {
-        console.warn('epico.json not loaded, using fallback config');
-        ATELIERS_CONFIG = {
-            "1-a": { key: "po", title: "Atelier", h1: "Atelier", subtitle: "", themeClass: "po-theme", badge: "Réflexe", icon: "target", emoji: "🎯", resetConfirm: "la progression", phase1Label: "Orientation", phase2Label: "Réponse", phase2Info: "Sélectionnez la décision", phase3Label: "Décision Retenue", phase3Impact: "Impact Projet &amp; Équipes", levelNames: ["Facile", "Moyen", "Difficile"], levelDescriptions: ["Niveau facile.", "Niveau moyen.", "Niveau difficile."] }
-        };
-        ATELIER_ID = new URLSearchParams(window.location.search).get('id') || "1-a";
-        CONFIG = ATELIERS_CONFIG[ATELIER_ID] || ATELIERS_CONFIG["1-a"];
-        applyWorkshopConfig();
-        return true;
-    }
-}
-
-function applyWorkshopConfig() {
-    document.getElementById('page-title').innerText = CONFIG.title + ' - ' + EPICO_CONTEXT_SUFFIX;
-    document.getElementById('home-title').innerHTML = CONFIG.h1;
-    document.getElementById('home-subtitle').innerText = CONFIG.subtitle;
-    document.getElementById('scenario-emoji').innerText = CONFIG.emoji;
-    if (document.getElementById('header-context-label')) {
-        document.getElementById('header-context-label').innerText = CONFIG.title;
-    }
-    // skills-title now populated in buildSkillsContent
-    // subtitle removed
-
-    const homeSel = document.getElementById('home-atelier-selector');
-    if (homeSel) homeSel.value = './exo.html?id=' + ATELIER_ID;
-    const headerSel = document.getElementById('header-atelier-selector');
-    if (headerSel) headerSel.value = './exo.html?id=' + ATELIER_ID;
-
-    document.body.className = "flex flex-col relative";
-    document.getElementById('level-desc-0').innerText = CONFIG.levelDescriptions[0];
-    document.getElementById('level-desc-1').innerText = CONFIG.levelDescriptions[1];
-    document.getElementById('level-desc-2').innerText = CONFIG.levelDescriptions[2];
-
-    // Info modal in exo.html
-    const infoContent = document.getElementById('info-modal-content');
-    if (infoContent) {
-        infoContent.innerHTML = '<h3 class=\"text-lg font-black text-slate-800\">' + CONFIG.badge + '</h3><p class=\"text-sm text-slate-600 mt-2 leading-relaxed\">' + (window.EPICO_APP_DESC || '') + '</p>';
-    }
-}
-
-function populateWorkshopSelectors() {
-    const ids = Object.keys(ATELIERS_CONFIG);
-    const homeSel = document.getElementById('home-atelier-selector');
-    const headerSel = document.getElementById('header-atelier-selector');
-    if (homeSel) {
-        homeSel.innerHTML = ids.map(id =>
-            '<option value="./exo.html?id=' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
-        ).join('');
-        homeSel.value = './exo.html?id=' + ATELIER_ID;
-    }
-    if (headerSel) {
-        headerSel.innerHTML = ids.map(id =>
-            '<option value="./exo.html?id=' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
-        ).join('');
-        headerSel.value = './exo.html?id=' + ATELIER_ID;
-    }
-}
-
-// Initialisation de l'accueil
-function initHome() {
-    document.getElementById('home-screen').classList.remove('hidden');
-    buildSkillsContent();
-    
-    for (let i = 0; i < 3; i++) {
-        const score = localStorage.getItem(`${CONFIG.key}-score-lv${i}`);
-        document.getElementById(`score-lv${i}`).innerText = score ? `${score} / ${TOTAL_STEPS}` : `-- / ${TOTAL_STEPS}`;
-        
-        const card = document.querySelectorAll('.level-card')[i];
-        const unlocked = isLevelUnlocked(i);
-        const icon = document.getElementById(`level-icon-${i}`);
-        if (unlocked) {
-            card.style.opacity = '1';
-            card.style.cursor = 'pointer';
-            card.onclick = function() { startLevel(i); };
-            icon.setAttribute('data-lucide', ['signal-low', 'signal-medium', 'signal'][i]);
-        } else {
-            card.style.opacity = '0.5';
-            card.style.cursor = 'not-allowed';
-            card.onclick = null;
-            icon.setAttribute('data-lucide', 'lock');
-        }
-    }
-    lucide.createIcons();
-    updateHeaderLevelButtons();
-}
-
-function isLevelUnlocked(lv) {
-    if (lv === 0) return true;
-    const prevScore = localStorage.getItem(`${CONFIG.key}-score-lv${lv - 1}`);
-    return prevScore !== null && parseInt(prevScore) >= TOTAL_STEPS;
-}
-
-function startLevel(lv) {
-    if (!isLevelUnlocked(lv)) return;
-    localStorage.setItem('resume-' + CONFIG.key, lv);
-    currentLevel = lv;
-    currentStepIdx = 0;
-    answeredSteps = new Array(TOTAL_STEPS).fill(false);
-    
-    const lvlDisplay = document.getElementById('level-title-display');
-    if (lvlDisplay) {
-        lvlDisplay.innerText = `${CONFIG.levelNames[lv]}`;
-    }
-    
-    levelSteps = reflexes.map(r => ({
-        reflexId: r.id,
-        scenario: r.scenarios[lv]
-    })).sort(() => Math.random() - 0.5);
-
-    levelSteps.forEach((step, idx) => {
-        const savedProgress = localStorage.getItem(`${CONFIG.key}-progress-lv` + lv + '-reflex' + step.reflexId);
-        if (savedProgress === 'true') {
-            answeredSteps[idx] = true;
-        }
-    });
-
-    document.getElementById('home-screen').classList.add('hidden');
-    updateProgress();
-    
-    const firstPendingIdx = answeredSteps.findIndex(v => !v);
-    if (firstPendingIdx !== -1) {
-        currentStepIdx = firstPendingIdx;
-    } else {
-        currentStepIdx = 0;
-    }
-    
-    updateProgress();
-    if (answeredSteps[currentStepIdx]) {
-        const step = levelSteps[currentStepIdx];
-        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon || "check" });
-    } else {
-        loadStepPhase1();
-    }
-}
-
-function resetProgress() {
-    if (confirm(`Voulez-vous vraiment réinitialiser ${CONFIG.resetConfirm} ?`)) {
-        Object.keys(localStorage).forEach(key => {
-            if (key.startsWith(`${CONFIG.key}-`)) {
-                localStorage.removeItem(key);
+        async function loadEpicoConfig() {
+            try {
+                const res = await fetch('epico.json?v=' + Date.now());
+                const data = await res.json();
+                ATELIERS_CONFIG = data.workshops || {};
+                EPICO_CONTEXT_SUFFIX = data.app?.contextSuffix || 'ESIS-3D';
+                window.EPICO_APP_DESC = data.app?.description || '';
+                ATELIER_ID = new URLSearchParams(window.location.search).get('id') || "1-a";
+                if (!ATELIERS_CONFIG[ATELIER_ID]) {
+                    window.location.href = './index.html';
+                    return false;
+                }
+                CONFIG = ATELIERS_CONFIG[ATELIER_ID];
+                applyWorkshopConfig();
+                return true;
+            } catch (e) {
+                console.warn('epico.json not loaded, using fallback config');
+                ATELIERS_CONFIG = {
+                    "1-a": { key: "po", title: "Atelier", h1: "Atelier", subtitle: "", themeClass: "po-theme", badge: "Réflexe", icon: "target", emoji: "🎯", resetConfirm: "la progression", phase1Label: "Orientation", phase2Label: "Réponse", phase2Info: "Sélectionnez la décision", phase3Label: "Décision Retenue", phase3Impact: "Impact Projet &amp; Équipes", levelNames: ["Facile", "Moyen", "Difficile"], levelDescriptions: ["Niveau facile.", "Niveau moyen.", "Niveau difficile."] }
+                };
+                ATELIER_ID = new URLSearchParams(window.location.search).get('id') || "1-a";
+                CONFIG = ATELIERS_CONFIG[ATELIER_ID] || ATELIERS_CONFIG["1-a"];
+                applyWorkshopConfig();
+                return true;
             }
-        });
-        location.reload();
-    }
-}
+        }
 
-function resetLevelProgress() {
-    if (confirm("Réinitialiser uniquement ce niveau ?")) {
-        const prefix = `${CONFIG.key}-progress-lv` + currentLevel;
-        Object.keys(localStorage).forEach(key => {
-            if (key.startsWith(prefix)) {
-                localStorage.removeItem(key);
+        function applyWorkshopConfig() {
+            document.getElementById('page-title').innerText = CONFIG.title + ' - ' + EPICO_CONTEXT_SUFFIX;
+            document.getElementById('home-title').innerHTML = CONFIG.h1;
+            document.getElementById('home-subtitle').innerText = CONFIG.subtitle;
+            document.getElementById('scenario-emoji').innerText = CONFIG.emoji;
+            if (document.getElementById('header-context-label')) {
+                document.getElementById('header-context-label').innerText = CONFIG.title;
             }
-        });
-        localStorage.removeItem(`${CONFIG.key}-score-lv` + currentLevel);
-        location.reload();
-    }
-}
+            // skills-title now populated in buildSkillsContent
+            // subtitle removed
 
-function goHome() {
-    localStorage.removeItem('resume-' + CONFIG.key);
-    document.getElementById('home-screen').classList.remove('hidden');
-    initHome();
-}
+            const homeSel = document.getElementById('home-atelier-selector');
+            if (homeSel) homeSel.value = './exo.html?id=' + ATELIER_ID;
+            const headerSel = document.getElementById('header-atelier-selector');
+            if (headerSel) headerSel.value = './exo.html?id=' + ATELIER_ID;
 
-function updateProgress() {
-    document.getElementById('step-label').innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
-    
-    const container = document.getElementById('breadcrumb-container');
-    container.innerHTML = '';
-    
-    let completedCount = 0;
-    for (let i = 0; i < TOTAL_STEPS; i++) {
-        if (answeredSteps[i]) completedCount++;
-        
-        const dot = document.createElement('div');
-        dot.style.width = (i === currentStepIdx) ? '8px' : '6px';
-        dot.style.height = (i === currentStepIdx) ? '8px' : '6px';
-        dot.style.borderRadius = '50%';
-        dot.style.transition = 'all 0.3s ease';
-        dot.style.cursor = 'pointer';
-        
-        if (i === currentStepIdx) {
-            dot.style.background = 'var(--color-primary, #1e3a8a)';
-        } else if (answeredSteps[i]) {
-            dot.style.background = '#10b981';
-        } else {
-            dot.style.background = 'rgba(15, 23, 42, 0.15)';
+            document.body.className = "flex flex-col relative";
+            document.getElementById('level-desc-0').innerText = CONFIG.levelDescriptions[0];
+            document.getElementById('level-desc-1').innerText = CONFIG.levelDescriptions[1];
+            document.getElementById('level-desc-2').innerText = CONFIG.levelDescriptions[2];
+
+            // Info modal in exo.html
+            const infoContent = document.getElementById('info-modal-content');
+            if (infoContent) {
+                infoContent.innerHTML = '<h3 class=\"text-lg font-black text-slate-800\">' + CONFIG.badge + '</h3><p class=\"text-sm text-slate-600 mt-2 leading-relaxed\">' + (window.EPICO_APP_DESC || '') + '</p>';
+            }
         }
-        
-        dot.onclick = () => jumpToStep(i);
-        container.appendChild(dot);
-    }
-    
-    const pageLabel = document.createElement('span');
-    pageLabel.style.cssText = 'font-size:0.75rem;font-weight:700;color:#94a3b8;margin-left:6px;letter-spacing:0.02em;';
-    pageLabel.innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
-    container.appendChild(pageLabel);
-    
-    localStorage.setItem(`${CONFIG.key}-score-lv${currentLevel}`, completedCount);
-    updateHeaderLevelButtons();
-}
 
-function prevStepNav() {
-    let idx = (currentStepIdx - 1 + TOTAL_STEPS) % TOTAL_STEPS;
-    jumpToStep(idx);
-}
-
-function nextStepNav() {
-    let idx = (currentStepIdx + 1) % TOTAL_STEPS;
-    jumpToStep(idx);
-}
-
-function updateHeaderLevelButtons() {
-    const selector = document.getElementById('header-level-selector');
-    if (!selector) return;
-    
-    selector.value = currentLevel;
-    
-    for (let lv = 0; lv < 3; lv++) {
-        const opt = document.getElementById(`header-opt-lvl-${lv}`);
-        if (opt) {
-            opt.disabled = !isLevelUnlocked(lv);
-            
-            const isCompleted = localStorage.getItem(`${CONFIG.key}-score-lv${lv}`) !== null && parseInt(localStorage.getItem(`${CONFIG.key}-score-lv${lv}`)) >= TOTAL_STEPS;
-            const isUnlocked = isLevelUnlocked(lv);
-            const roman = ["I", "II", "III"][lv];
-            opt.text = `Niveau ${roman}`;
+        function populateWorkshopSelectors() {
+            const ids = Object.keys(ATELIERS_CONFIG);
+            const homeSel = document.getElementById('home-atelier-selector');
+            const headerSel = document.getElementById('header-atelier-selector');
+            if (homeSel) {
+                homeSel.innerHTML = ids.map(id =>
+                    '<option value="./exo.html?id=' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
+                ).join('');
+                homeSel.value = './exo.html?id=' + ATELIER_ID;
+            }
+            if (headerSel) {
+                headerSel.innerHTML = ids.map(id =>
+                    '<option value="./exo.html?id=' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
+                ).join('');
+                headerSel.value = './exo.html?id=' + ATELIER_ID;
+            }
         }
-    }
 
-}
+        // Initialisation de l'accueil
+        function initHome() {
+            document.getElementById('home-screen').classList.remove('hidden');
+            buildSkillsContent();
 
-function switchLevel(lv) {
-    if (!isLevelUnlocked(lv)) return;
-    startLevel(lv);
-}
+            for (let i = 0; i < 3; i++) {
+                const score = localStorage.getItem(`${CONFIG.key}-score-lv${i}`);
+                document.getElementById(`score-lv${i}`).innerText = score ? `${score} / ${TOTAL_STEPS}` : `-- / ${TOTAL_STEPS}`;
 
-function jumpToStep(idx) {
-    currentStepIdx = idx;
-    updateProgress();
-    if (answeredSteps[idx]) {
-        const step = levelSteps[idx];
-        showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon || "check" });
-    } else {
-        loadStepPhase1();
-    }
-}
-
-function loadStepPhase1() {
-    currentPhase = 1;
-    const step = levelSteps[currentStepIdx];
-    
-    document.getElementById('scenario-text').innerText = step.scenario.text;
-    
-    const problemVis = document.getElementById('scenario-visual');
-    if (step.scenario.problemVisual) {
-        problemVis.innerHTML = step.scenario.problemVisual;
-        problemVis.classList.remove('hidden');
-    } else {
-        problemVis.innerHTML = '';
-        problemVis.classList.add('hidden');
-    }
-    
-    document.getElementById('phase2-question-container').classList.add('hidden');
-    
-    document.getElementById('reflex-grid').classList.remove('hidden');
-    document.getElementById('ui-grid').classList.add('hidden');
-    document.getElementById('debriefing-card').classList.add('hidden');
-    
-    document.getElementById('phase-label-container').innerText = CONFIG.phase1Label;
-    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
-    document.getElementById('phase1-question-text').classList.remove('hidden');
-    
-    renderReflexChoices();
-}
-
-function renderReflexChoices(readOnly) {
-    const grid = document.getElementById('reflex-grid');
-    grid.innerHTML = '';
-    const correctId = levelSteps[currentStepIdx].reflexId;
-    const correctReflex = reflexes.find(r => r.id === correctId);
-    
-    const others = reflexes.filter(r => r.id !== correctId).sort(() => Math.random() - 0.5).slice(0, 3);
-    const options = [correctReflex, ...others].sort(() => Math.random() - 0.5);
-    
-    options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = "reflex-btn bg-white p-3 rounded-2xl text-left border-2 flex flex-row items-center gap-2 group w-full relative shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
-        if (readOnly && opt.id === correctId) {
-            btn.classList.add('correct');
+                const card = document.querySelectorAll('.level-card')[i];
+                const unlocked = isLevelUnlocked(i);
+                const icon = document.getElementById(`level-icon-${i}`);
+                if (unlocked) {
+                    card.style.opacity = '1';
+                    card.style.cursor = 'pointer';
+                    card.onclick = function () { startLevel(i); };
+                    icon.setAttribute('data-lucide', ['signal-low', 'signal-medium', 'signal'][i]);
+                } else {
+                    card.style.opacity = '0.5';
+                    card.style.cursor = 'not-allowed';
+                    card.onclick = null;
+                    icon.setAttribute('data-lucide', 'lock');
+                }
+            }
+            lucide.createIcons();
+            updateHeaderLevelButtons();
         }
-        btn.innerHTML = `
+
+        function isLevelUnlocked(lv) {
+            if (lv === 0) return true;
+            const prevScore = localStorage.getItem(`${CONFIG.key}-score-lv${lv - 1}`);
+            return prevScore !== null && parseInt(prevScore) >= TOTAL_STEPS;
+        }
+
+        function startLevel(lv) {
+            if (!isLevelUnlocked(lv)) return;
+            localStorage.setItem('resume-' + CONFIG.key, lv);
+            currentLevel = lv;
+            currentStepIdx = 0;
+            answeredSteps = new Array(TOTAL_STEPS).fill(false);
+
+            const lvlDisplay = document.getElementById('level-title-display');
+            if (lvlDisplay) {
+                lvlDisplay.innerText = `${CONFIG.levelNames[lv]}`;
+            }
+
+            levelSteps = reflexes.map(r => ({
+                reflexId: r.id,
+                scenario: r.scenarios[lv]
+            })).sort(() => Math.random() - 0.5);
+
+            levelSteps.forEach((step, idx) => {
+                const savedProgress = localStorage.getItem(`${CONFIG.key}-progress-lv` + lv + '-reflex' + step.reflexId);
+                if (savedProgress === 'true') {
+                    answeredSteps[idx] = true;
+                }
+            });
+
+            document.getElementById('home-screen').classList.add('hidden');
+            updateProgress();
+
+            const firstPendingIdx = answeredSteps.findIndex(v => !v);
+            if (firstPendingIdx !== -1) {
+                currentStepIdx = firstPendingIdx;
+            } else {
+                currentStepIdx = 0;
+            }
+
+            updateProgress();
+            if (answeredSteps[currentStepIdx]) {
+                const step = levelSteps[currentStepIdx];
+                showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon || "check" });
+            } else {
+                loadStepPhase1();
+            }
+        }
+
+        function resetProgress() {
+            if (confirm(`Voulez-vous vraiment réinitialiser ${CONFIG.resetConfirm} ?`)) {
+                Object.keys(localStorage).forEach(key => {
+                    if (key.startsWith(`${CONFIG.key}-`)) {
+                        localStorage.removeItem(key);
+                    }
+                });
+                location.reload();
+            }
+        }
+
+        function resetLevelProgress() {
+            if (confirm("Réinitialiser uniquement ce niveau ?")) {
+                const prefix = `${CONFIG.key}-progress-lv` + currentLevel;
+                Object.keys(localStorage).forEach(key => {
+                    if (key.startsWith(prefix)) {
+                        localStorage.removeItem(key);
+                    }
+                });
+                localStorage.removeItem(`${CONFIG.key}-score-lv` + currentLevel);
+                location.reload();
+            }
+        }
+
+        function goHome() {
+            localStorage.removeItem('resume-' + CONFIG.key);
+            document.getElementById('home-screen').classList.remove('hidden');
+            initHome();
+        }
+
+        function updateProgress() {
+            document.getElementById('step-label').innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
+
+            const container = document.getElementById('breadcrumb-container');
+            container.innerHTML = '';
+
+            let completedCount = 0;
+            for (let i = 0; i < TOTAL_STEPS; i++) {
+                if (answeredSteps[i]) completedCount++;
+
+                const dot = document.createElement('div');
+                dot.style.width = (i === currentStepIdx) ? '8px' : '6px';
+                dot.style.height = (i === currentStepIdx) ? '8px' : '6px';
+                dot.style.borderRadius = '50%';
+                dot.style.transition = 'all 0.3s ease';
+                dot.style.cursor = 'pointer';
+
+                if (i === currentStepIdx) {
+                    dot.style.background = 'var(--color-primary, #1e3a8a)';
+                } else if (answeredSteps[i]) {
+                    dot.style.background = '#10b981';
+                } else {
+                    dot.style.background = 'rgba(15, 23, 42, 0.15)';
+                }
+
+                dot.onclick = () => jumpToStep(i);
+                container.appendChild(dot);
+            }
+
+            const pageLabel = document.createElement('span');
+            pageLabel.style.cssText = 'font-size:0.75rem;font-weight:700;color:#94a3b8;margin-left:6px;letter-spacing:0.02em;';
+            pageLabel.innerText = `${currentStepIdx + 1} / ${TOTAL_STEPS}`;
+            container.appendChild(pageLabel);
+
+            localStorage.setItem(`${CONFIG.key}-score-lv${currentLevel}`, completedCount);
+            updateHeaderLevelButtons();
+        }
+
+        function prevStepNav() {
+            let idx = (currentStepIdx - 1 + TOTAL_STEPS) % TOTAL_STEPS;
+            jumpToStep(idx);
+        }
+
+        function nextStepNav() {
+            let idx = (currentStepIdx + 1) % TOTAL_STEPS;
+            jumpToStep(idx);
+        }
+
+        function updateHeaderLevelButtons() {
+            const selector = document.getElementById('header-level-selector');
+            if (!selector) return;
+
+            selector.value = currentLevel;
+
+            for (let lv = 0; lv < 3; lv++) {
+                const opt = document.getElementById(`header-opt-lvl-${lv}`);
+                if (opt) {
+                    opt.disabled = !isLevelUnlocked(lv);
+
+                    const isCompleted = localStorage.getItem(`${CONFIG.key}-score-lv${lv}`) !== null && parseInt(localStorage.getItem(`${CONFIG.key}-score-lv${lv}`)) >= TOTAL_STEPS;
+                    const isUnlocked = isLevelUnlocked(lv);
+                    const roman = ["I", "II", "III"][lv];
+                    opt.text = `Niveau ${roman}`;
+                }
+            }
+
+        }
+
+        function switchLevel(lv) {
+            if (!isLevelUnlocked(lv)) return;
+            startLevel(lv);
+        }
+
+        function jumpToStep(idx) {
+            currentStepIdx = idx;
+            updateProgress();
+            if (answeredSteps[idx]) {
+                const step = levelSteps[idx];
+                showDebriefing({ title: step.scenario.correct.title, visual: step.scenario.correct.visual, icon: step.scenario.correct.icon || "check" });
+            } else {
+                loadStepPhase1();
+            }
+        }
+
+        function loadStepPhase1() {
+            currentPhase = 1;
+            const step = levelSteps[currentStepIdx];
+
+            document.getElementById('scenario-text').innerText = step.scenario.text;
+
+            const problemVis = document.getElementById('scenario-visual');
+            if (step.scenario.problemVisual) {
+                problemVis.innerHTML = step.scenario.problemVisual;
+                problemVis.classList.remove('hidden');
+            } else {
+                problemVis.innerHTML = '';
+                problemVis.classList.add('hidden');
+            }
+
+            document.getElementById('phase2-question-container').classList.add('hidden');
+
+            document.getElementById('reflex-grid').classList.remove('hidden');
+            document.getElementById('ui-grid').classList.add('hidden');
+            document.getElementById('debriefing-card').classList.add('hidden');
+
+            document.getElementById('phase-label-container').innerText = CONFIG.phase1Label;
+            document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+            document.getElementById('phase1-question-text').classList.remove('hidden');
+
+            renderReflexChoices();
+        }
+
+        function renderReflexChoices(readOnly) {
+            const grid = document.getElementById('reflex-grid');
+            grid.innerHTML = '';
+            const correctId = levelSteps[currentStepIdx].reflexId;
+            const correctReflex = reflexes.find(r => r.id === correctId);
+
+            const others = reflexes.filter(r => r.id !== correctId).sort(() => Math.random() - 0.5).slice(0, 3);
+            const options = [correctReflex, ...others].sort(() => Math.random() - 0.5);
+
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "reflex-btn bg-white p-3 rounded-2xl text-left border-2 flex flex-row items-center gap-2 group w-full relative shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
+                if (readOnly && opt.id === correctId) {
+                    btn.classList.add('correct');
+                }
+                btn.innerHTML = `
             <div class="text-2xl sm:text-3xl shrink-0 filter drop-shadow-sm"><i data-lucide="${opt.icon || CONFIG.icon}" class="w-7 h-7 text-slate-800"></i></div>
             <div class="flex-grow">
                 <div class="font-black text-sm sm:text-base uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.id} - ${opt.title}</div>
@@ -1040,68 +1339,68 @@ function renderReflexChoices(readOnly) {
                 <i data-lucide="info" class="w-4 h-4"></i>
             </button>
         `;
-        
-        if (!readOnly) {
-            btn.onclick = () => handleReflexSelection(opt.id, btn);
+
+                if (!readOnly) {
+                    btn.onclick = () => handleReflexSelection(opt.id, btn);
+                }
+                grid.appendChild(btn);
+            });
+            lucide.createIcons();
         }
-        grid.appendChild(btn);
-    });
-    lucide.createIcons();
-}
 
-function handleReflexSelection(id, btn) {
-    if (currentPhase !== 1) return;
-    if (id === levelSteps[currentStepIdx].reflexId) {
-        btn.classList.add('correct');
-        setTimeout(loadStepPhase2, 500);
-    } else {
-        btn.classList.add('shake');
-        setTimeout(() => btn.classList.remove('shake'), 400);
-    }
-}
-
-function loadStepPhase2() {
-    currentPhase = 2;
-    const step = levelSteps[currentStepIdx];
-    const reflex = reflexes.find(r => r.id === step.reflexId);
-    
-    document.getElementById('reflex-grid').classList.add('hidden');
-    document.getElementById('ui-grid').classList.remove('hidden');
-    
-    document.getElementById('phase-label-container').innerText = CONFIG.phase2Label;
-    document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
-    document.getElementById('phase1-question-text').classList.add('hidden');
-    
-    const phase2Container = document.getElementById('phase2-question-container');
-    phase2Container.classList.remove('hidden');
-    phase2Container.querySelector('p').innerHTML = CONFIG.phase2Info;
-    
-    document.getElementById('validated-principle-title').innerText = `${reflex.id} - ${reflex.title}`;
-    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
-    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
-    lucide.createIcons();
-    
-    renderUIChoices();
-}
-
-function renderUIChoices(readOnly) {
-    const grid = document.getElementById('ui-choices-wrapper');
-    grid.innerHTML = '';
-    const step = levelSteps[currentStepIdx];
-    
-    let uiOptions = [
-        { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl, icon: step.scenario.correct.icon || "check" },
-        { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl, icon: step.scenario.wrong[0].icon || "alert-circle" },
-        { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl, icon: step.scenario.wrong[1].icon || "alert-circle" }
-    ].sort(() => Math.random() - 0.5);
-
-    uiOptions.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = "ui-btn p-3 sm:p-4 rounded-2xl flex flex-col sm:flex-row items-center gap-3 group w-full text-left relative overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
-        if (readOnly && opt.isCorrect) {
-            btn.classList.add('correct');
+        function handleReflexSelection(id, btn) {
+            if (currentPhase !== 1) return;
+            if (id === levelSteps[currentStepIdx].reflexId) {
+                btn.classList.add('correct');
+                setTimeout(loadStepPhase2, 500);
+            } else {
+                btn.classList.add('shake');
+                setTimeout(() => btn.classList.remove('shake'), 400);
+            }
         }
-        btn.innerHTML = `
+
+        function loadStepPhase2() {
+            currentPhase = 2;
+            const step = levelSteps[currentStepIdx];
+            const reflex = reflexes.find(r => r.id === step.reflexId);
+
+            document.getElementById('reflex-grid').classList.add('hidden');
+            document.getElementById('ui-grid').classList.remove('hidden');
+
+            document.getElementById('phase-label-container').innerText = CONFIG.phase2Label;
+            document.getElementById('phase-label-container').className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+            document.getElementById('phase1-question-text').classList.add('hidden');
+
+            const phase2Container = document.getElementById('phase2-question-container');
+            phase2Container.classList.remove('hidden');
+            phase2Container.querySelector('p').innerHTML = CONFIG.phase2Info;
+
+            document.getElementById('validated-principle-title').innerText = `${reflex.id} - ${reflex.title}`;
+            document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
+            document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
+            lucide.createIcons();
+
+            renderUIChoices();
+        }
+
+        function renderUIChoices(readOnly) {
+            const grid = document.getElementById('ui-choices-wrapper');
+            grid.innerHTML = '';
+            const step = levelSteps[currentStepIdx];
+
+            let uiOptions = [
+                { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl, icon: step.scenario.correct.icon || "check" },
+                { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl, icon: step.scenario.wrong[0].icon || "alert-circle" },
+                { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl, icon: step.scenario.wrong[1].icon || "alert-circle" }
+            ].sort(() => Math.random() - 0.5);
+
+            uiOptions.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "ui-btn p-3 sm:p-4 rounded-2xl flex flex-col sm:flex-row items-center gap-3 group w-full text-left relative overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.01] transition-all cursor-pointer";
+                if (readOnly && opt.isCorrect) {
+                    btn.classList.add('correct');
+                }
+                btn.innerHTML = `
             <div class="w-full sm:w-5/12 text-left shrink-0 z-10 flex flex-col gap-2">
                 <div class="font-black text-slate-800 text-sm sm:text-base uppercase tracking-tight leading-tight">${opt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</div>
                 <div class="text-[10px] sm:text-xs text-slate-500 font-semibold leading-normal pr-3">${opt.expl}</div>
@@ -1110,44 +1409,44 @@ function renderUIChoices(readOnly) {
                 ${opt.visual}
             </div>
         `;
-        
-        if (!readOnly) {
-            btn.onclick = () => handleUISelection(opt, btn);
+
+                if (!readOnly) {
+                    btn.onclick = () => handleUISelection(opt, btn);
+                }
+                grid.appendChild(btn);
+            });
+            lucide.createIcons();
         }
-        grid.appendChild(btn);
-    });
-    lucide.createIcons();
-}
 
-function handleUISelection(opt, btn) {
-    if (currentPhase !== 2) return;
-    if (opt.isCorrect) {
-        btn.classList.add('correct');
-        setTimeout(() => showDebriefing(opt), 500);
-    } else {
-        btn.classList.add('shake');
-        setTimeout(() => btn.classList.remove('shake'), 400);
-    }
-}
+        function handleUISelection(opt, btn) {
+            if (currentPhase !== 2) return;
+            if (opt.isCorrect) {
+                btn.classList.add('correct');
+                setTimeout(() => showDebriefing(opt), 500);
+            } else {
+                btn.classList.add('shake');
+                setTimeout(() => btn.classList.remove('shake'), 400);
+            }
+        }
 
-function showDebriefing(correctOpt) {
-    currentPhase = 3;
-    answeredSteps[currentStepIdx] = true;
-    
-    const step = levelSteps[currentStepIdx];
-    localStorage.setItem(`${CONFIG.key}-progress-lv` + currentLevel + '-reflex' + step.reflexId, 'true');
-    
-    updateProgress();
+        function showDebriefing(correctOpt) {
+            currentPhase = 3;
+            answeredSteps[currentStepIdx] = true;
 
-    const reflex = reflexes.find(r => r.id === step.reflexId);
-    
-    document.getElementById('debrief-title').innerText = `${reflex.title}`;
-    document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</span></div>`;
-    document.getElementById('debrief-ui-visual').innerHTML = reflex.explVisual || correctOpt.visual;
-    
-    let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl || ''}</p>`;
-    if (CONFIG.key === 'tln') {
-        compHtml += `
+            const step = levelSteps[currentStepIdx];
+            localStorage.setItem(`${CONFIG.key}-progress-lv` + currentLevel + '-reflex' + step.reflexId, 'true');
+
+            updateProgress();
+
+            const reflex = reflexes.find(r => r.id === step.reflexId);
+
+            document.getElementById('debrief-title').innerText = `${reflex.title}`;
+            document.getElementById('debrief-ui-title').innerHTML = `<div class="flex items-center gap-2"><i data-lucide="${correctOpt.icon}" class="w-5 h-5 text-emerald-600"></i> <span>${correctOpt.title.replace(/^[A-Z]\d+(?:\.\d+)+\.?\s*/i, '')}</span></div>`;
+            document.getElementById('debrief-ui-visual').innerHTML = reflex.explVisual || correctOpt.visual;
+
+            let compHtml = `<p class="mb-4 font-semibold text-slate-800">${step.scenario.expl || ''}</p>`;
+            if (CONFIG.key === 'tln') {
+                compHtml += `
             <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
                 <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative :</div>
                 <div class="space-y-2">
@@ -1166,8 +1465,8 @@ function showDebriefing(correctOpt) {
                 </div>
             </div>
         `;
-    } else {
-        compHtml += `
+            } else {
+                compHtml += `
             <div class="mt-4 pt-4 border-t border-slate-200/60 space-y-3">
                 <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Analyse comparative :</div>
                 <div class="space-y-2">
@@ -1186,112 +1485,112 @@ function showDebriefing(correctOpt) {
                 </div>
             </div>
         `;
-    }
-    document.getElementById('debrief-text').innerHTML = compHtml;
-    
-    document.getElementById('ui-grid').classList.add('hidden');
-    document.getElementById('phase2-question-container').classList.add('hidden');
-    document.getElementById('debriefing-card').classList.remove('hidden');
-    
-    document.getElementById('debrief-back-btn').classList.remove('hidden');
-    
-    const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = "Synthèse";
-    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-700 text-white shadow-md shrink-0 transition-colors";
-    document.getElementById('phase1-question-text').classList.add('hidden');
+            }
+            document.getElementById('debrief-text').innerHTML = compHtml;
 
-    const nextBtn = document.getElementById('btn-next');
-    if (answeredSteps.every(Boolean)) {
-        nextBtn.innerHTML = "Terminer <span class='text-lg ml-1'>🏆</span>";
-        nextBtn.className = "bg-emerald-600 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full cursor-pointer";
-    } else {
-        nextBtn.innerHTML = "Suivant <svg class=\"w-4 h-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
-        nextBtn.className = "bg-slate-900 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full cursor-pointer";
-    }
-    lucide.createIcons();
-}
+            document.getElementById('ui-grid').classList.add('hidden');
+            document.getElementById('phase2-question-container').classList.add('hidden');
+            document.getElementById('debriefing-card').classList.remove('hidden');
 
-function goBackFromDebrief() {
-    const step = levelSteps[currentStepIdx];
-    const reflex = reflexes.find(r => r.id === step.reflexId);
+            document.getElementById('debrief-back-btn').classList.remove('hidden');
 
-    document.getElementById('debriefing-card').classList.add('hidden');
-    document.getElementById('ui-grid').classList.remove('hidden');
-    document.getElementById('phase2-question-container').classList.remove('hidden');
-    document.getElementById('validated-principle-title').innerText = `${reflex.id} - ${reflex.title}`;
-    document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
-    document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
+            const phaseLabel = document.getElementById('phase-label-container');
+            phaseLabel.innerText = "Synthèse";
+            phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-emerald-700 text-white shadow-md shrink-0 transition-colors";
+            document.getElementById('phase1-question-text').classList.add('hidden');
 
-    const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = CONFIG.phase2Label;
-    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
-    document.getElementById('phase1-question-text').classList.add('hidden');
-
-    currentPhase = 2;
-    renderUIChoices();
-    lucide.createIcons();
-}
-
-function goBackToPhase1() {
-    document.getElementById('ui-grid').classList.add('hidden');
-    document.getElementById('phase2-question-container').classList.add('hidden');
-    document.getElementById('reflex-grid').classList.remove('hidden');
-
-    const phaseLabel = document.getElementById('phase-label-container');
-    phaseLabel.innerText = CONFIG.phase1Label;
-    phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
-    document.getElementById('phase1-question-text').classList.remove('hidden');
-
-    currentPhase = 1;
-    renderReflexChoices();
-}
-
-function nextStep() {
-    if (answeredSteps.every(Boolean)) {
-        goHome();
-        return;
-    }
-    
-    let nextIdx = currentStepIdx + 1;
-    for (let i = 0; i < TOTAL_STEPS; i++) {
-        const checkIdx = (nextIdx + i) % TOTAL_STEPS;
-        if (!answeredSteps[checkIdx]) {
-            currentStepIdx = checkIdx;
-            break;
+            const nextBtn = document.getElementById('btn-next');
+            if (answeredSteps.every(Boolean)) {
+                nextBtn.innerHTML = "Terminer <span class='text-lg ml-1'>🏆</span>";
+                nextBtn.className = "bg-emerald-600 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-emerald-500 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full cursor-pointer";
+            } else {
+                nextBtn.innerHTML = "Suivant <svg class=\"w-4 h-4\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M14 5l7 7m0 0l-7 7m7-7H3\"></path></svg>";
+                nextBtn.className = "bg-slate-900 text-white py-2.5 rounded-lg font-black uppercase tracking-widest text-xs hover:bg-blue-900 transition-colors shadow-lg flex items-center justify-center gap-2 shrink-0 w-full cursor-pointer";
+            }
+            lucide.createIcons();
         }
-    }
-    
-    updateProgress();
-    loadStepPhase1();
-}
 
-function buildSkillsContent() {
-    const container = document.getElementById('skills-content');
-    container.innerHTML = '';
-    
-    const titleSel = document.getElementById('skills-title');
-    if (titleSel) {
-        const ids = Object.keys(ATELIERS_CONFIG);
-        titleSel.innerHTML = ids.map(id =>
-            '<option value="' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
-        ).join('');
-        titleSel.value = ATELIER_ID;
-    }
-    
-    const selector = document.getElementById('skills-selector');
-    if (selector) {
-        selector.innerHTML = '<option value="">-- Aller au Réflexe --</option>';
-    }
-    
-    reflexes.forEach(r => {
-        if (selector) {
-            const opt = document.createElement('option');
-            opt.value = r.id;
-            opt.innerText = `${r.id} - ${r.title}`;
-            selector.appendChild(opt);
+        function goBackFromDebrief() {
+            const step = levelSteps[currentStepIdx];
+            const reflex = reflexes.find(r => r.id === step.reflexId);
+
+            document.getElementById('debriefing-card').classList.add('hidden');
+            document.getElementById('ui-grid').classList.remove('hidden');
+            document.getElementById('phase2-question-container').classList.remove('hidden');
+            document.getElementById('validated-principle-title').innerText = `${reflex.id} - ${reflex.title}`;
+            document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
+            document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
+
+            const phaseLabel = document.getElementById('phase-label-container');
+            phaseLabel.innerText = CONFIG.phase2Label;
+            phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+            document.getElementById('phase1-question-text').classList.add('hidden');
+
+            currentPhase = 2;
+            renderUIChoices();
+            lucide.createIcons();
         }
-        
-        let reflexHtml = `
+
+        function goBackToPhase1() {
+            document.getElementById('ui-grid').classList.add('hidden');
+            document.getElementById('phase2-question-container').classList.add('hidden');
+            document.getElementById('reflex-grid').classList.remove('hidden');
+
+            const phaseLabel = document.getElementById('phase-label-container');
+            phaseLabel.innerText = CONFIG.phase1Label;
+            phaseLabel.className = "px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest w-fit bg-blue-900 text-white shrink-0 shadow-md transition-colors";
+            document.getElementById('phase1-question-text').classList.remove('hidden');
+
+            currentPhase = 1;
+            renderReflexChoices();
+        }
+
+        function nextStep() {
+            if (answeredSteps.every(Boolean)) {
+                goHome();
+                return;
+            }
+
+            let nextIdx = currentStepIdx + 1;
+            for (let i = 0; i < TOTAL_STEPS; i++) {
+                const checkIdx = (nextIdx + i) % TOTAL_STEPS;
+                if (!answeredSteps[checkIdx]) {
+                    currentStepIdx = checkIdx;
+                    break;
+                }
+            }
+
+            updateProgress();
+            loadStepPhase1();
+        }
+
+        function buildSkillsContent() {
+            const container = document.getElementById('skills-content');
+            container.innerHTML = '';
+
+            const titleSel = document.getElementById('skills-title');
+            if (titleSel) {
+                const ids = Object.keys(ATELIERS_CONFIG);
+                titleSel.innerHTML = ids.map(id =>
+                    '<option value="' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
+                ).join('');
+                titleSel.value = ATELIER_ID;
+            }
+
+            const selector = document.getElementById('skills-selector');
+            if (selector) {
+                selector.innerHTML = '<option value="">-- Aller au Réflexe --</option>';
+            }
+
+            reflexes.forEach(r => {
+                if (selector) {
+                    const opt = document.createElement('option');
+                    opt.value = r.id;
+                    opt.innerText = `${r.id} - ${r.title}`;
+                    selector.appendChild(opt);
+                }
+
+                let reflexHtml = `
             <div id="ref-${r.id}" class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200">
                 <div class="flex items-center gap-2 mb-1">
                     <span class="text-2xl shrink-0"><i data-lucide="${r.icon || CONFIG.icon}" class="w-6 h-6 text-slate-800"></i></span>
@@ -1301,8 +1600,8 @@ function buildSkillsContent() {
                 <div class="space-y-2">
         `;
 
-        r.scenarios.forEach((scen, idx) => {
-            reflexHtml += `
+                r.scenarios.forEach((scen, idx) => {
+                    reflexHtml += `
                 <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 flex flex-col md:flex-row gap-3 items-center">
                     <div class="w-full md:w-4/12 flex items-center justify-center mockup-container p-1.5 bg-white border border-emerald-100 rounded-md shadow-sm relative overflow-hidden min-h-[80px] shrink-0">
                         <div class="absolute inset-0 bg-emerald-500/[0.01] z-0"></div>
@@ -1317,108 +1616,109 @@ function buildSkillsContent() {
                     </div>
                 </div>
             `;
-        });
+                });
 
-        reflexHtml += `</div></div>`;
-        container.innerHTML += reflexHtml;
-    });
-}
+                reflexHtml += `</div></div>`;
+                container.innerHTML += reflexHtml;
+            });
+        }
 
-async function switchSkillsWorkshop(id) {
-    if (!id || id === ATELIER_ID) return;
-    ATELIER_ID = id;
-    CONFIG = ATELIERS_CONFIG[id];
-    try {
-        const res = await fetch('./' + id + '.json?v=' + Date.now());
-        reflexes = await res.json();
-        buildSkillsContent();
-        document.getElementById('skills-content').scrollTop = 0;
-        lucide.createIcons();
-    } catch(e) {
-        console.warn('Failed to load workshop', id);
-    }
-}
+        async function switchSkillsWorkshop(id) {
+            if (!id || id === ATELIER_ID) return;
+            ATELIER_ID = id;
+            CONFIG = ATELIERS_CONFIG[id];
+            try {
+                const res = await fetch('./' + id + '.json?v=' + Date.now());
+                reflexes = await res.json();
+                buildSkillsContent();
+                document.getElementById('skills-content').scrollTop = 0;
+                lucide.createIcons();
+            } catch (e) {
+                console.warn('Failed to load workshop', id);
+            }
+        }
 
-function scrollToSkill(id) {
-    if (!id) return;
-    const el = document.getElementById(`ref-${id}`);
-    if (el) {
-        document.getElementById('skills-content').scrollTo({
-            top: el.offsetTop - 24,
-            behavior: 'smooth'
-        });
-    }
-}
-
-function openSkillsModal(focusId = null) {
-    document.getElementById('skills-modal').classList.remove('hidden');
-    if (focusId) {
-        setTimeout(() => {
-            const el = document.getElementById(`ref-${focusId}`);
-            if(el) {
+        function scrollToSkill(id) {
+            if (!id) return;
+            const el = document.getElementById(`ref-${id}`);
+            if (el) {
                 document.getElementById('skills-content').scrollTo({
                     top: el.offsetTop - 24,
                     behavior: 'smooth'
                 });
             }
-        }, 100);
-    }
-}
+        }
 
-function closeSkillsModal() {
-    document.getElementById('skills-modal').classList.add('hidden');
-}
-
-window.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeSkillsModal();
-        document.getElementById('info-modal').classList.add('hidden');
-    }
-    if (e.key === 'ArrowLeft' && document.getElementById('home-screen').classList.contains('hidden')) {
-        prevStepNav();
-    }
-    if (e.key === 'ArrowRight' && document.getElementById('home-screen').classList.contains('hidden')) {
-        nextStepNav();
-    }
-});
-
-async function initApp() {
-    const loaded = await loadEpicoConfig();
-    if (!loaded) return;
-    populateWorkshopSelectors();
-    try {
-        const response = await fetch('./' + ATELIER_ID + '.json?v=' + new Date().getTime());
-        reflexes = await response.json();
-        
-        buildSkillsContent();
-        
-        TOTAL_STEPS = reflexes.length;
-
-        const savedLevel = localStorage.getItem('resume-' + CONFIG.key);
-        let started = false;
-        if (savedLevel !== null && isLevelUnlocked(parseInt(savedLevel))) {
-            startLevel(parseInt(savedLevel));
-            started = true;
-        } else {
-            for (let i = 2; i >= 0; i--) {
-                if (isLevelUnlocked(i)) {
-                    startLevel(i);
-                    started = true;
-                    break;
-                }
+        function openSkillsModal(focusId = null) {
+            document.getElementById('skills-modal').classList.remove('hidden');
+            if (focusId) {
+                setTimeout(() => {
+                    const el = document.getElementById(`ref-${focusId}`);
+                    if (el) {
+                        document.getElementById('skills-content').scrollTo({
+                            top: el.offsetTop - 24,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
             }
         }
-        if (!started) {
-            initHome();
+
+        function closeSkillsModal() {
+            document.getElementById('skills-modal').classList.add('hidden');
         }
 
-        lucide.createIcons();
-    } catch (error) {
-        console.error("Error loading reflexes:", error);
-    }
-}
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeSkillsModal();
+                document.getElementById('info-modal').classList.add('hidden');
+            }
+            if (e.key === 'ArrowLeft' && document.getElementById('home-screen').classList.contains('hidden')) {
+                prevStepNav();
+            }
+            if (e.key === 'ArrowRight' && document.getElementById('home-screen').classList.contains('hidden')) {
+                nextStepNav();
+            }
+        });
 
-window.onload = initApp;
-</script>
+        async function initApp() {
+            const loaded = await loadEpicoConfig();
+            if (!loaded) return;
+            populateWorkshopSelectors();
+            try {
+                const response = await fetch('./' + ATELIER_ID + '.json?v=' + new Date().getTime());
+                reflexes = await response.json();
+
+                buildSkillsContent();
+
+                TOTAL_STEPS = reflexes.length;
+
+                const savedLevel = localStorage.getItem('resume-' + CONFIG.key);
+                let started = false;
+                if (savedLevel !== null && isLevelUnlocked(parseInt(savedLevel))) {
+                    startLevel(parseInt(savedLevel));
+                    started = true;
+                } else {
+                    for (let i = 2; i >= 0; i--) {
+                        if (isLevelUnlocked(i)) {
+                            startLevel(i);
+                            started = true;
+                            break;
+                        }
+                    }
+                }
+                if (!started) {
+                    initHome();
+                }
+
+                lucide.createIcons();
+            } catch (error) {
+                console.error("Error loading reflexes:", error);
+            }
+        }
+
+        window.onload = initApp;
+    </script>
 </body>
+
 </html>
