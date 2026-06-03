@@ -36,8 +36,8 @@
       "objective": "Anticiper les évolutions et construire la trajectoire produit.",
       "items": [
         { "cardId": "backlog-card", "icon": "layers", "title": "3 - Product Backlog", "infoTitle": "Voir les slides Product Backlog", "statusId": "road-slides-status-label", "maxSteps": 10, "description": "Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.", "action": "lesson", "actionParam": "3, 4" },
-        { "cardId": "roadmap-card", "icon": "mountain", "title": "E - Roadmap & Jalons", "infoTitle": "Voir les réflexes Roadmap & Jalons", "statusId": "road-status-label", "maxSteps": 36, "description": "Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.", "action": "lesson", "actionParam": "3, 6" },
-        { "cardId": "features-card", "icon": "telescope", "title": "F - Features Discovery", "infoTitle": "Voir les réflexes Features Discovery", "statusId": "feat-status-label", "maxSteps": 27, "description": "Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.", "action": "lesson", "actionParam": "3, 7" }
+        { "cardId": "roadmap-card", "icon": "mountain", "title": "E - Pilotage & Roadmap", "infoTitle": "Voir les réflexes Pilotage & Roadmap", "statusId": "road-status-label", "maxSteps": 36, "description": "Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.", "action": "lesson", "actionParam": "3, 6" },
+        { "cardId": "features-card", "icon": "telescope", "title": "F - Exploration terrain", "infoTitle": "Voir les réflexes Exploration terrain", "statusId": "feat-status-label", "maxSteps": 27, "description": "Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.", "action": "lesson", "actionParam": "3, 7" }
       ]
     },
     {
@@ -52,11 +52,11 @@
     },
     {
       "id": 5,
-      "name": "Innovation Product",
+      "name": "Recherche &amp; Développement",
       "objective": "Explorer de nouveaux horizons et valider des idées en rupture sans risque.",
       "items": [
-        { "cardId": "lean-card", "icon": "flask-conical", "title": "5 - Innovation", "infoTitle": "Voir les slides", "statusId": "lean-slides-status-label", "maxSteps": 7, "description": "Les principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses disruptives sans gaspiller de ressources.", "action": "lesson", "actionParam": "5, 0" },
-        { "cardId": "veille-card", "icon": "search", "title": "I - Veille & Benchmark", "infoTitle": "Voir les slides", "statusId": "veille-status-label", "maxSteps": 27, "description": "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.", "action": "lesson", "actionParam": "5, 0" },
+        { "cardId": "lean-card", "icon": "flask-conical", "title": "5 - Recherche &amp; Développement", "infoTitle": "Voir les slides", "statusId": "lean-slides-status-label", "maxSteps": 7, "description": "Les principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses disruptives sans gaspiller de ressources.", "action": "lesson", "actionParam": "5, 0" },
+        { "cardId": "veille-card", "icon": "search", "title": "I - Veille & Adoption", "infoTitle": "Voir les slides", "statusId": "veille-status-label", "maxSteps": 27, "description": "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.", "action": "lesson", "actionParam": "5, 0" },
         { "cardId": "poc-card", "icon": "flask-conical", "title": "J - Test & Learn", "infoTitle": "Voir les slides", "statusId": "tln-status-label", "maxSteps": 27, "description": "Expérimentez, testez et validez vos idées avant d'investir grâce au cycle discovery.", "action": "lesson", "actionParam": "5, 3" }
       ]
     },
@@ -76,7 +76,7 @@
     "Atelier 2 - Cadrage Product",
     "Atelier 3 - Vision Product",
     "Atelier 4 - Support Product",
-    "Atelier 5 - Innovation Product",
+    "Atelier 5 - Recherche &amp; Développement",
     "Atelier 6 - Data Product"
   ],
   "workshops": {
@@ -170,14 +170,14 @@
     },
     "3-e": {
       "key": "roadmap",
-      "title": "E - Roadmap &amp; Jalons",
-      "h1": "E - Roadmap &amp; <span class='text-slate-800'>Jalons</span>",
+      "title": "E - Pilotage &amp; Roadmap",
+      "h1": "E - Pilotage &amp; <span class='text-slate-800'>Roadmap</span>",
       "subtitle": "Planifier les jalons de livraison et la vision produit.",
       "themeClass": "roadmap-theme",
       "badge": "Réflexe Roadmap (Vision)",
       "icon": "mountain",
       "emoji": "⛰️",
-      "resetConfirm": "toute votre progression de Roadmap &amp; Jalons",
+      "resetConfirm": "toute votre progression de Pilotage &amp; Roadmap",
       "phase1Label": "Orientation",
       "phase2Label": "Réponse",
       "phase2Info": "Sélectionnez la décision de Roadmap correspondante à droite ➡️",
@@ -192,14 +192,14 @@
     },
     "3-f": {
       "key": "features",
-      "title": "F - Features Discovery",
+      "title": "F - Exploration terrain",
       "h1": "F - Features <span class='text-slate-800'>Discovery</span>",
       "subtitle": "Mener la phase de discovery et valider les fonctionnalités.",
       "themeClass": "features-theme",
       "badge": "Réflexe Features (Discovery)",
       "icon": "telescope",
       "emoji": "🔭",
-      "resetConfirm": "toute votre progression de Features Discovery",
+      "resetConfirm": "toute votre progression de Exploration terrain",
       "phase1Label": "Orientation",
       "phase2Label": "Réponse",
       "phase2Info": "Sélectionnez la stratégie de Discovery correspondante à droite ➡️",
@@ -258,14 +258,14 @@
     },
     "5-i": {
       "key": "veille",
-      "title": "I - Veille &amp; Benchmark",
+      "title": "I - Veille &amp; Adoption",
       "h1": "I - Veille &amp; <span class='text-slate-800'>Benchmark</span>",
       "subtitle": "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.",
       "themeClass": "innov-theme",
-      "badge": "Réflexe I - Veille &amp; Benchmark",
+      "badge": "Réflexe I - Veille &amp; Adoption",
       "icon": "search",
       "emoji": "🔍",
-      "resetConfirm": "toute votre progression de Veille &amp; Benchmark",
+      "resetConfirm": "toute votre progression de Veille &amp; Adoption",
       "phase1Label": "Orientation",
       "phase2Label": "Réponse",
       "phase2Info": "Sélectionnez la décision de veille correspondante à droite ➡️",
@@ -354,7 +354,7 @@
     "F": "Réflexe Features (Discovery)",
     "G": "Réflexe G - Diagnostic &amp; Résolution",
     "H": "Réflexe H - Assistance &amp; Connaissance",
-    "I": "Réflexe I - Veille &amp; Benchmark",
+    "I": "Réflexe I - Veille &amp; Adoption",
     "J": "Réflexe J - Test &amp; Learn",
     "K": "Réflexe Analytics &amp; Productivité",
     "L": "Réflexe Suivi &amp; Données"

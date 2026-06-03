@@ -98,7 +98,7 @@
 - **F** (Features) : badge `"Réflexe Features"`, icône `icon \|\| "telescope"`.
 - **G** (Diag) : badge `"Réflexe G - Diagnostic & Résolution"`, icône `icon \|\| "headset"`.
 - **H** (Assist) : badge `"Réflexe H - Assistance & Connaissance"`, icône `icon \|\| "book-open"`.
-- **I** (Veille) : badge `"Réflexe Veille & Benchmark"`, icône `"search"`.
+- **I** (Veille) : badge `"Réflexe Veille & Adoption"`, icône `"search"`.
 - **J** (Test & Learn) : badge `"Réflexe Test & Learn"`, icône `"flask"`.
 - **K** (Analytics) : badge `"Réflexe Analytics & Productivité"`, icône `"bar-chart-2"`.
 - **L** (KPIs) : badge `"Réflexe KPIs & Dashboard"`, icône `"database"`.
