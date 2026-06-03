@@ -433,7 +433,8 @@
         <!-- Header -->
         <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
             <div>
-                <h2 id="skills-title" class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Référentiel Réflexes</h2>
+                <select id="skills-title" onchange="switchSkillsWorkshop(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-sm font-black text-slate-800 uppercase tracking-tight shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800 cursor-pointer">
+                </select>
             </div>
             <!-- Selector -->
             <select id="skills-selector" onchange="scrollToSkill(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
@@ -757,7 +758,7 @@ function applyWorkshopConfig() {
     if (document.getElementById('header-context-label')) {
         document.getElementById('header-context-label').innerText = CONFIG.title;
     }
-    document.getElementById('skills-title').innerText = 'Référentiel - ' + CONFIG.title;
+    // skills-title now populated in buildSkillsContent
     // subtitle removed
 
     const homeSel = document.getElementById('home-atelier-selector');
@@ -1032,10 +1033,10 @@ function renderReflexChoices(readOnly) {
         btn.innerHTML = `
             <div class="text-2xl sm:text-3xl shrink-0 filter drop-shadow-sm"><i data-lucide="${opt.icon || CONFIG.icon}" class="w-7 h-7 text-slate-800"></i></div>
             <div class="flex-grow">
-                <div class="font-black text-sm sm:text-base uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
+                <div class="font-black text-sm sm:text-base uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.id} - ${opt.title}</div>
                 <div class="text-[10px] sm:text-xs text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <button onclick="event.stopPropagation(); openSkillsModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-1.5 right-1.5 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe">
+            <button onclick="event.stopPropagation(); openSkillsModal('${opt.id}')" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-1.5 right-1.5 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe">
                 <i data-lucide="info" class="w-4 h-4"></i>
             </button>
         `;
@@ -1075,7 +1076,7 @@ function loadStepPhase2() {
     phase2Container.classList.remove('hidden');
     phase2Container.querySelector('p').innerHTML = CONFIG.phase2Info;
     
-    document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+    document.getElementById('validated-principle-title').innerText = `${reflex.id} - ${reflex.title}`;
     document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
     document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
     lucide.createIcons();
@@ -1217,7 +1218,7 @@ function goBackFromDebrief() {
     document.getElementById('debriefing-card').classList.add('hidden');
     document.getElementById('ui-grid').classList.remove('hidden');
     document.getElementById('phase2-question-container').classList.remove('hidden');
-    document.getElementById('validated-principle-title').innerText = `${reflex.title}`;
+    document.getElementById('validated-principle-title').innerText = `${reflex.id} - ${reflex.title}`;
     document.getElementById('phase2-reflex-icon').innerHTML = `<i data-lucide="${reflex.icon || CONFIG.icon}" class="w-5 h-5"></i>`;
     document.getElementById('phase2-icon-container').innerHTML = `<i data-lucide="${step.scenario.correct.icon || 'check'}" class="w-4 h-4 text-white"></i>`;
 
@@ -1268,6 +1269,15 @@ function buildSkillsContent() {
     const container = document.getElementById('skills-content');
     container.innerHTML = '';
     
+    const titleSel = document.getElementById('skills-title');
+    if (titleSel) {
+        const ids = Object.keys(ATELIERS_CONFIG);
+        titleSel.innerHTML = ids.map(id =>
+            '<option value="' + id + '">' + ATELIERS_CONFIG[id].title + '</option>'
+        ).join('');
+        titleSel.value = ATELIER_ID;
+    }
+    
     const selector = document.getElementById('skills-selector');
     if (selector) {
         selector.innerHTML = '<option value="">-- Aller au Réflexe --</option>';
@@ -1277,7 +1287,7 @@ function buildSkillsContent() {
         if (selector) {
             const opt = document.createElement('option');
             opt.value = r.id;
-            opt.innerText = `${r.title}`;
+            opt.innerText = `${r.id} - ${r.title}`;
             selector.appendChild(opt);
         }
         
@@ -1285,7 +1295,7 @@ function buildSkillsContent() {
             <div id="ref-${r.id}" class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200">
                 <div class="flex items-center gap-2 mb-1">
                     <span class="text-2xl shrink-0"><i data-lucide="${r.icon || CONFIG.icon}" class="w-6 h-6 text-slate-800"></i></span>
-                    <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">${r.title}</h3>
+                    <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">${r.id} - ${r.title}</h3>
                 </div>
                 <p class="text-[11px] text-slate-500 font-semibold mb-2.5 pb-1.5 border-b border-slate-100">${r.intent}</p>
                 <div class="space-y-2">
@@ -1312,6 +1322,21 @@ function buildSkillsContent() {
         reflexHtml += `</div></div>`;
         container.innerHTML += reflexHtml;
     });
+}
+
+async function switchSkillsWorkshop(id) {
+    if (!id || id === ATELIER_ID) return;
+    ATELIER_ID = id;
+    CONFIG = ATELIERS_CONFIG[id];
+    try {
+        const res = await fetch('./' + id + '.json?v=' + Date.now());
+        reflexes = await res.json();
+        buildSkillsContent();
+        document.getElementById('skills-content').scrollTop = 0;
+        lucide.createIcons();
+    } catch(e) {
+        console.warn('Failed to load workshop', id);
+    }
 }
 
 function scrollToSkill(id) {
