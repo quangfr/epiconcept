@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "L1. Intégrer un outil BI à ses sources de données",
+    "id": "L1",
+    "title": "Intégrer un outil BI à ses sources de données",
     "intent": "Centraliser et valoriser les données issues de la production (dépistages), du développement (Jira) et de la relation client (CRM) pour piloter l'activité de santé publique.",
     "icon": "database",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Sources BI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1 justify-center text-[8px]\"><div class=\"bg-slate-100 p-1 rounded text-slate-600\">CRM</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-100 p-1 rounded text-slate-600\">ESIS</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-100 p-1 rounded text-slate-700 font-bold\">BI</div></div><div class=\"text-[7px] text-slate-500 text-center\">Intégration multi-sources</div></div></div>"
   },
   {
-    "id": 2,
-    "title": "L2. Arbitrer par les indicateurs business",
+    "id": "L4",
+    "title": "Arbitrer par les indicateurs business",
     "intent": "Prendre des décisions de priorisation objectives basées sur l'effort de développement, les économies générées pour les CRDCs et l'impact sur la santé publique.",
     "icon": "pie-chart",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Arbitrer</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 text-slate-800 p-1 rounded flex-1\">Urgent<br/>Important</div><div class=\"bg-slate-100 text-slate-800 p-1 rounded flex-1\">Important<br/>Pas urgent</div></div><div class=\"text-[7px] text-slate-500 text-center\">Matrice de priorisation</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "L3. Évaluer la viabilité d'une initiative",
+    "id": "L5",
+    "title": "Évaluer la viabilité d'une initiative",
     "intent": "Estimer l'investissement initial, les coûts de maintenance futurs et les recettes prévues pour valider la rentabilité et la durabilité à long terme d'un projet.",
     "icon": "wallet",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Viabilité</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Coût</div><div class=\"text-red-600 font-bold\">15 000€</div></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Bénéfice</div><div class=\"text-slate-600 font-bold\">45 000€</div></div></div><div class=\"text-[7px] text-slate-600 font-bold text-center\">ROI = 3x</div></div></div>"
   },
   {
-    "id": 4,
-    "title": "L4. Valider la qualité et l'intégrité de la donnée de santé",
+    "id": "L7",
+    "title": "Valider la qualité et l'intégrité de la donnée de santé",
     "intent": "S'assurer de la conformité, de l'exactitude et de la complétude des données de santé dès leur intégration pour garantir la fiabilité des décisions cliniques et administratives.",
     "icon": "shield-check",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Qualité Données</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Taux complétude: 87%</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"circle\" class=\"w-2 h-2\"></i><span>13% NIR manquants</span></div></div></div>"
   },
   {
-    "id": 5,
-    "title": "L5. Se brancher aux données des clients CRM",
+    "id": "L2",
+    "title": "Se brancher aux données des clients CRM",
     "intent": "Unifier les données clients issues du CRM avec les données d'usage produit pour optimiser la facturation, le support et prévenir le churn des grands comptes.",
     "icon": "users",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">CRM</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Données unifiées</span></div><div class=\"text-[7px] text-slate-500 text-center\">Vision 360° du bénéficiaire</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "L6. Garantir l'anonymisation et la conformité des données",
+    "id": "L8",
+    "title": "Garantir l'anonymisation et la conformité des données",
     "intent": "Sécuriser les exports de données médicales à des fins de recherche scientifique en appliquant des protocoles d'anonymisation stricts et en respectant le RGPD.",
     "icon": "shield",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Anonymisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"shield\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Données pseudonymisées</span></div><div class=\"text-[7px] text-slate-500 text-center\">RGPD compliant</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "L7. Mesurer la performance opérationnelle du parcours métier",
+    "id": "L3",
+    "title": "Mesurer la performance opérationnelle du parcours métier",
     "intent": "Suivre, analyser et optimiser les temps d'attente à chaque étape clé du dépistage pour éviter la perte de chance des patients.",
     "icon": "activity",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Performance</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><span class=\"font-bold text-slate-600\">Temps réponse</span><span class=\"text-amber-600 font-bold\">2.4s</span></div><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><span class=\"font-bold text-slate-600\">SLA</span><span class=\"font-black text-slate-600\">99.5%</span></div><div class=\"text-[7px] text-slate-500 text-center\">Tableau de bord technique</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "L8. Mesurer l'impact sur l'activité et les utilisateurs d'une évolution",
+    "id": "L6",
+    "title": "Mesurer l'impact sur l'activité et les utilisateurs d'une évolution",
     "intent": "Évaluer de manière objective et quantitative les conséquences réelles d'une mise à jour logicielle sur le comportement des utilisateurs et l'efficacité opérationnelle des soins.",
     "icon": "line-chart",
     "scenarios": [

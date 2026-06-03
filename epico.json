@@ -67,7 +67,7 @@
       "items": [
         { "cardId": "data-driven-card", "icon": "pie-chart", "title": "6 - Data Driven", "infoTitle": "Voir les slides", "statusId": "analytics-slides-status-label", "maxSteps": 7, "description": "Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.", "action": "lesson", "actionParam": "6, 0" },
         { "cardId": "analytics-card", "icon": "bar-chart-2", "title": "K - Analytics & Productivité", "infoTitle": "Voir les réflexes K", "statusId": "analytics-status-label", "maxSteps": 24, "description": "Analysez les données d'usage, identifiez les frictions et validez par les KPIs.", "action": "ref", "actionParam": "K1" },
-        { "cardId": "kpi-card", "icon": "line-chart", "title": "L - KPIs & Dashboard", "infoTitle": "Voir les réflexes L", "statusId": "kpi-status-label", "maxSteps": 24, "description": "Définissez les indicateurs clés et construisez des tableaux de bord décisionnels efficaces.", "action": "ref", "actionParam": "L1" }
+        { "cardId": "kpi-card", "icon": "line-chart", "title": "L - Suivi & Données", "infoTitle": "Voir les réflexes L", "statusId": "kpi-status-label", "maxSteps": 24, "description": "Suivez les indicateurs clés, pilotez la performance et construisez des tableaux de bord décisionnels.", "action": "ref", "actionParam": "L1" }
       ]
     }
   ],
@@ -324,19 +324,19 @@
     },
     "6-l": {
       "key": "kpi",
-      "title": "L - KPIs &amp; Dashboard",
-      "h1": "L - KPIs &amp; <span class='text-slate-800'>Dashboard</span>",
-      "subtitle": "Mesurer et piloter la performance produit, l'activité business et la viabilité des initiatives.",
+      "title": "L - Suivi &amp; Données",
+      "h1": "L - Suivi &amp; <span class='text-slate-800'>Données</span>",
+      "subtitle": "Suivez les indicateurs clés, pilotez la performance et construisez des tableaux de bord décisionnels.",
       "themeClass": "data-theme",
-      "badge": "Réflexe KPIs &amp; Dashboard",
+      "badge": "Réflexe Suivi &amp; Données",
       "icon": "database",
       "emoji": "📊",
-      "resetConfirm": "toute votre progression de KPIs &amp; Dashboard",
+      "resetConfirm": "toute votre progression de Suivi &amp; Données",
       "phase1Label": "Orientation",
       "phase2Label": "Réponse",
       "phase2Info": "Choisissez la réponse la plus stratégique à droite ➡️",
       "phase3Label": "Décision Retenue",
-      "phase3Impact": "Impact KPIs &amp; Performance",
+      "phase3Impact": "Impact Suivi &amp; Performance",
       "levelNames": ["Opérationnel (Facile)", "Décisionnel (Moyen)", "Stratégique (Difficile)"],
       "levelDescriptions": [
         "Connecter et centraliser les sources de données clés.",
@@ -357,7 +357,7 @@
     "I": "Réflexe I - Veille &amp; Benchmark",
     "J": "Réflexe J - Test &amp; Learn",
     "K": "Réflexe Analytics &amp; Productivité",
-    "L": "Réflexe KPIs &amp; Dashboard"
+    "L": "Réflexe Suivi &amp; Données"
   },
   "reflexIcons": {
     "A": "target",

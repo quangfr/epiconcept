@@ -118,10 +118,11 @@
 - `scenario.visual` : PO = interface métier ; Support = ticket ; Specs = mockup design/process. UX = 3 rendus côte-à-côte.
 
 ## 9. Bump, Commit & Déploiement
-- **Strictes restrictions** : **INTERDICTION** d'incrémenter la version (Bump), de commiter (Commit), de push ou de déployer (`git push` et `firebase deploy`) de manière automatique.
+- **Commit automatique après chaque tâche** : Après chaque modification de code fonctionnel (pas de simple recherche), exécuter `git add -A; if ($?) { git commit -m "<description concise de ce qui a été fait>" }`. Sauf si l'utilisateur demande explicitement de ne pas commit.
+- **Strictes restrictions** : **INTERDICTION** d'incrémenter la version (Bump), de push ou de déployer de manière automatique sans demande explicite.
 - **Bump** (Sur demande) : Incrémenter `APP_VERSION` dans `index.html` (format `YYYY.MM.DD.NN`). `NN` = 01, 02...
-- **Commit** (Sur demande) : `git add index.html [fichiers modifiés]; if ($?) { git commit -m "bump vYYYY.MM.DD.NN - <description>" }`
-- **Push & Deploy** (Sur demande) : `git push` et/ou `firebase deploy`.
+- **Commit message** : `git add -A; if ($?) { git commit -m "<description>" }`. Si bump + commit : `git add index.html [autres fichiers]; if ($?) { git commit -m "bump vYYYY.MM.DD.NN - <description>" }`
+- **Deploy** (Sur demande) : Si l'utilisateur demande "deploy" : bump APP_VERSION, `git add -A`, commit "bump vYYYY.MM.DD.NN - <description>", `git push`, `firebase deploy`.
 
 ## 10. Code Utile (Cheat Sheet)
 ```js

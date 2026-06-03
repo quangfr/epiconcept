@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "F1. Capter les signaux d'usage réels (La Douleur Terrain)",
+    "id": "F1",
+    "title": "Capter les signaux d'usage réels (La Douleur Terrain)",
     "intent": "Identifier les dysfonctionnements réels et observer les soignants dans leur routine pour capter les besoins à forte valeur.",
     "icon": "eye",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Signaux Usage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-red-50 border border-red-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"font-bold text-red-800\">2h/saisie manuelle</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer la douleur terrain</div></div></div>"
   },
   {
-    "id": 2,
-    "title": "F2. Filtrer et qualifier l'adéquation problème-solution",
+    "id": "F2",
+    "title": "Filtrer et qualifier l'adéquation problème-solution",
     "intent": "Évaluer la valeur clinique et le volume réel des demandes pour rejeter fermement les fonctionnalités gadgets ou hors-sujet.",
     "icon": "filter",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Shadowing</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"eye\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Immersion terrain</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer le rush réel des soignants</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "F3. Aligner l'équipe dès la phase d'exploration",
+    "id": "F3",
+    "title": "Aligner l'équipe dès la phase d'exploration",
     "intent": "Croiser immédiatement les visions métier, technique et UX pour écarter les fausses pistes avant d'écrire du code.",
     "icon": "users",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Filtrer Demandes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Fort impact</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"filter\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"text-slate-500\">Faible impact</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Prioriser à la valeur</div></div></div>"
   },
   {
-    "id": 4,
-    "title": "F4. Concevoir par le prisme de la clarté cognitive",
+    "id": "F4",
+    "title": "Concevoir par le prisme de la clarté cognitive",
     "intent": "Épurer le parcours et hiérarchiser les informations métier pour réduire la fatigue mentale et le risque d'erreur de saisie.",
     "icon": "eye",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Aligner Équipe</div><div class=\"flex flex-col gap-1.5\"><div class=\"relative h-12 bg-slate-50 rounded-lg border border-slate-200 flex\"><div class=\"absolute inset-0 flex items-center justify-center\"><div class=\"bg-slate-100 border-2 border-slate-200 rounded-full w-6 h-6 -ml-3\"></div><div class=\"bg-slate-100 border-2 border-slate-200 rounded-full w-6 h-6 -ml-1\"></div><div class=\"bg-amber-100 border-2 border-amber-400 rounded-full w-6 h-6\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Métier + Dev + Design alignés</div></div></div>"
   },
   {
-    "id": 5,
-    "title": "F5. Prototyper à faible coût (L'Ergonomie Low-Fi)",
+    "id": "F5",
+    "title": "Prototyper à faible coût (L'Ergonomie Low-Fi)",
     "intent": "Matérialiser le concept par des wireframes rapides ou interactifs simplifiés pour valider le squelette avant le dev.",
     "icon": "scissors",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Clarté Cognitive</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border-2 border-dashed border-slate-300 rounded-lg p-2 text-center\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Papier</div><div class=\"flex gap-1 justify-center mt-1\"><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-4 h-6 bg-slate-200 rounded\"></div><div class=\"w-8 h-6 bg-slate-300 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Wireframe simple avant codage</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "F6. Tester l'utilisabilité à blanc",
+    "id": "F6",
+    "title": "Tester l'utilisabilité à blanc",
     "intent": "Soumettre le prototype aux utilisateurs sans aide ni guide pour identifier les obstacles cognitifs réels de l'interface.",
     "icon": "user-check",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Prototypage Low-fi</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-2 flex flex-col gap-1\"><div class=\"h-1 w-full bg-slate-200 rounded\"></div><div class=\"h-3 w-3/4 bg-slate-100 rounded mx-auto\"></div><div class=\"flex gap-1 justify-center\"><div class=\"h-4 w-4 bg-slate-200 rounded\"></div><div class=\"h-4 w-4 bg-slate-200 rounded\"></div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Croquis papier pour valider le concept</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "F7. Lancer un pilote ultra-restreint (La Bêta qualitative)",
+    "id": "F7",
+    "title": "Lancer un pilote ultra-restreint (La Bêta qualitative)",
     "intent": "Déployer la V1 auprès d'un panel d'utilisateurs restreint et proactif avec une boucle de feedback ultra-courte.",
     "icon": "flask-conical",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Test Utilisabilité</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"video\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Session filmée</span></div><div class=\"text-[7px] text-slate-500 text-center\">3 utilisateurs testent le prototype</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "F8. Accompagner le déploiement et sécuriser l'adoption",
+    "id": "F8",
+    "title": "Accompagner le déploiement et sécuriser l'adoption",
     "intent": "Assumer la V1 épurée, former les ambassadeurs de terrain et structurer le changement pour garantir l'adoption finale.",
     "icon": "award",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Pilote Bêta</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Groupe pilote 5 centres</span></div><div class=\"text-[7px] text-slate-500 text-center\">Validation terrain avant déploiement</div></div></div>"
   },
   {
-    "id": 9,
-    "title": "F9. Trouver les quick-wins",
+    "id": "F9",
+    "title": "Trouver les quick-wins",
     "intent": "Identifier et prioriser les solutions simples à fort impact pour apporter de la valeur immédiate aux utilisateurs sans complexité technique.",
     "icon": "zap",
     "scenarios": [

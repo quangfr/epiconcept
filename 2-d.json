@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "D1. Découpler les couches applicatives",
+    "id": "D1",
+    "title": "Découpler les couches applicatives",
     "intent": "Isoler les trois couches logicielles — donnée brute, règle métier, composant d'interface — pour mieux spécifier chaque couche indépendamment.",
     "icon": "layers",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Architecture 3 Couches</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"layers\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-slate-800 uppercase\">Données</div><div class=\"text-[8px] text-slate-700\">Base brute, valeurs stockées</div></div></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"git-branch\" class=\"w-3 h-3 text-amber-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-amber-800 uppercase\">Règles métier</div><div class=\"text-[8px] text-amber-700\">Calcul risque HAS (versionnée)</div></div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"monitor\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-slate-800 uppercase\">Interface</div><div class=\"text-[8px] text-slate-700\">Affichage indépendant</div></div></div></div></div>"
   },
   {
-    "id": 2,
-    "title": "D2. Cartographier le parcours utilisateur",
+    "id": "D4",
+    "title": "Cartographier le parcours utilisateur",
     "intent": "Cartographier tous les chemins possibles du parcours utilisateur : le succès nominal, les variantes et les blocages.",
     "icon": "git-branch",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Arbre des Chemins</div><div class=\"flex flex-col gap-1\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-slate-800 uppercase\">Happy path</div><div class=\"text-[7px] text-slate-700\">Patient retrouvé → invitation envoyée</div></div></div><div class=\"ml-3 border-l-2 border-slate-200 pl-2 flex flex-col gap-1\"><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-1.5 flex items-center gap-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-amber-600 shrink-0\"></i><span class=\"text-[7px] text-amber-800 font-bold\">Cas sec. : Adresse invalide</span></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-1.5 flex items-center gap-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-amber-600 shrink-0\"></i><span class=\"text-[7px] text-amber-800 font-bold\">Cas sec. : Patient décédé</span></div></div><div class=\"ml-3 border-l-2 border-red-200 pl-2\"><div class=\"bg-red-50 border border-red-200 rounded-lg p-1.5 flex items-center gap-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-red-600 shrink-0\"></i><span class=\"text-[7px] text-red-800 font-bold\">Erreur : NIR non trouvé</span></div></div></div></div>"
   },
   {
-    "id": 3,
-    "title": "D3. Valider les règles de saisie",
+    "id": "D5",
+    "title": "Valider les règles de saisie",
     "intent": "Spécifier les règles de contrôle des données entrantes, les messages d'erreur et les actions correctives attendues.",
     "icon": "alert-triangle",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Validation de Saisie</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-bold text-slate-800\">NIR : 1 88 12 75 123 456 78</div><div class=\"text-[6px] text-slate-600\">Format valide — clé de contrôle OK</div></div></div><div class=\"flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg p-2\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-red-600 shrink-0\"></i><div><div class=\"text-[7px] font-bold text-red-800\">NIR : 1 88 12 75 123 456</div><div class=\"text-[6px] text-red-600\">Clé invalide — erreur détectée à la saisie</div></div></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2 text-center text-[8px] text-amber-700 font-bold\">Message d'erreur : \"Clé NIR incorrecte, vérifiez le numéro\"</div></div></div>"
   },
   {
-    "id": 4,
-    "title": "D4. Déterminer les champs requis",
+    "id": "D2",
+    "title": "Déterminer les champs requis",
     "intent": "Déterminer pour chaque champ son caractère obligatoire, sa valeur automatique et sa valeur par défaut, pour fluidifier la saisie.",
     "icon": "settings",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">États des Champs</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-between bg-red-50 border border-red-200 rounded-lg p-2\"><span class=\"text-[8px] font-bold text-red-800\">Type test <span class=\"text-red-500\">*</span></span><span class=\"text-[7px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold\">Obligatoire</span></div><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-2\"><span class=\"text-[8px] font-bold text-slate-800\">Date envoi</span><span class=\"text-[7px] bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded font-bold\">Auto : aujourd'hui</span></div><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-2\"><span class=\"text-[8px] font-bold text-slate-600\">Code facturation</span><span class=\"text-[7px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold\">Défaut : NGAP</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">50% de champs en moins à saisir</div></div></div>"
   },
   {
-    "id": 5,
-    "title": "D5. Identifier les dépendances techniques",
+    "id": "D6",
+    "title": "Identifier les dépendances techniques",
     "intent": "Identifier les conditions nécessaires avant de réaliser une action et les dépendances entre fonctionnalités.",
     "icon": "git-merge",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Prérequis & Dépendances</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i></div><span class=\"text-[8px] text-slate-800 font-bold\">Fichier adresses chargé</span></div><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i></div><span class=\"text-[8px] text-slate-800 font-bold\">API LDAP v2.1 disponible</span></div><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-amber-100 flex items-center justify-center shrink-0\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5 text-amber-600\"></i></div><span class=\"text-[8px] text-amber-800 font-bold\">Fournisseur portail patient ← J+15</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">2/3 prérequis validés</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "D6. Structurer les droits d'accès",
+    "id": "D7",
+    "title": "Structurer les droits d'accès",
     "intent": "Définir qui peut voir, créer, modifier ou supprimer chaque donnée ou fonctionnalité selon son profil et son périmètre.",
     "icon": "shield",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Matrice des Rôles</div><div class=\"grid grid-cols-4 gap-0.5 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Action</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Admin</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Médecin</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Secrétaire</div><div class=\"p-1 text-slate-600 text-left\">Voir</div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1 text-slate-600 text-left\">Créer</div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1 text-slate-300\">—</div><div class=\"p-1 text-slate-600 text-left\">Modifier</div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1 text-slate-300\">—</div><div class=\"p-1 text-left text-slate-600\">Supprimer</div><div class=\"p-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600 mx-auto\"></i></div><div class=\"p-1 text-slate-300\">—</div><div class=\"p-1 text-slate-300\">—</div></div><div class=\"mt-1 text-center text-[7px] text-slate-500\">Droits par profil et périmètre</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "D7. Modéliser la structure d'objet",
+    "id": "D3",
+    "title": "Modéliser la structure d'objet",
     "intent": "Comprendre quels sont les objets métier, leurs attributs et leurs relations (parents/enfants, agrégation, référence).",
     "icon": "database",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Objets & Relations</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"text-[7px] font-black text-slate-800 uppercase\">Patient</div><div class=\"text-[8px] text-slate-700\">ID unique, NIR, nom, date naissance</div><div class=\"flex items-center gap-1 mt-1 text-[7px]\"><i data-lucide=\"layers\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span>1 ← N résultats</span></div></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-2.5 h-2.5 text-slate-300\"></i><i data-lucide=\"arrow-up\" class=\"w-2.5 h-2.5 text-slate-300\"></i></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"text-[7px] font-black text-slate-800 uppercase\">Campagne</div><div class=\"text-[8px] text-slate-700\">Type, date début/fin, CRDC lié</div><div class=\"flex items-center gap-1 mt-1 text-[7px]\"><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span>1 → N envois</span></div></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2\"><div class=\"text-[7px] font-black text-amber-800 uppercase\">Envoi</div><div class=\"text-[8px] text-amber-700\">Date, statut, résultat</div></div></div></div>"
   },
   {
-    "id": 8,
-    "title": "D8. Définir les enchaînements logiques",
+    "id": "D8",
+    "title": "Définir les enchaînements logiques",
     "intent": "Définir la séquence des étapes, les transitions d'état et les actions automatisées ou manuelles à chaque étape.",
     "icon": "activity",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Workflow</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">1</div><span class=\"text-[8px] text-slate-800 font-bold\">Création campagne</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">2</div><span class=\"text-[8px] text-slate-800 font-bold\">Validation responsable</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">3</div><span class=\"text-[8px] text-slate-800 font-bold\">Envoi invitations</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-300 text-white text-[8px] font-black flex items-center justify-center shrink-0\">4</div><span class=\"text-[8px] text-slate-400\">Relance J+30</span></div><div class=\"mt-1 text-center text-[7px] bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-amber-700 font-bold\">Déclencheur automatique si J+30</div></div></div>"
   },
   {
-    "id": 9,
-    "title": "D9. Planifier les alertes temporelles",
+    "id": "D9",
+    "title": "Planifier les alertes temporelles",
     "intent": "Gérer les alertes temporelles, les délais réglementaires et les notifications automatiques vers les bons destinataires.",
     "icon": "clock",
     "scenarios": [
@@ -837,8 +837,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Gestion des Échéances</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center justify-between p-1.5 bg-slate-50 border border-slate-200 rounded\"><span class=\"text-[7px] font-bold text-slate-600\">Test J+0</span><span class=\"text-[7px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded\">En attente</span></div><div class=\"flex items-center justify-between p-1.5 bg-amber-50 border border-amber-200 rounded\"><span class=\"text-[7px] font-bold text-amber-800\">J+12 : Échantillon</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold\">⚠️ J-2</span></div><div class=\"flex items-center justify-between p-1.5 bg-red-50 border border-red-200 rounded\"><span class=\"text-[7px] font-bold text-red-800\">J+14 : Dégradation</span><span class=\"text-[7px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold\">🔴 Alarme critique</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Notification patient J-2 + médecin J+15</div></div></div>"
   },
   {
-    "id": 10,
-    "title": "D10. Établir les critères d'acceptation dans la US",
+    "id": "D10",
+    "title": "Établir les critères d'acceptation dans la US",
     "intent": "Formaliser le comportement attendu, les cas à la marge et les cas non-traités par la US pour lever toute ambiguïté.",
     "icon": "check-square",
     "scenarios": [

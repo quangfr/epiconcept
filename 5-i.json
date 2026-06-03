@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "I1. Réserver un créneau de veille",
+    "id": "I1",
+    "title": "Réserver un créneau de veille",
     "intent": "Sanctuariser un temps récurrent dédié à l'exploration, libre de toute pression opérationnelle.",
     "icon": "search",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Créneau Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Vendredi 14h-15h</span></div><div class=\"text-[7px] text-slate-500 text-center\">Temps dédié chaque semaine</div></div></div>"
   },
   {
-    "id": 2,
-    "title": "I2. Benchmarker les parcours concurrents",
+    "id": "I2",
+    "title": "Benchmarker les parcours concurrents",
     "intent": "Analyser l'expérience utilisateur et les fonctionnalités des solutions du marché pour identifier les meilleures pratiques.",
     "icon": "eye",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Benchmark</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 text-slate-600 p-1 rounded flex-1\">Nous<br/>Score: 3/5</div><div class=\"bg-slate-100 text-slate-700 p-1 rounded flex-1\">Concurrent A<br/>Score: 4/5</div><div class=\"bg-slate-100 text-slate-700 p-1 rounded flex-1\">Concurrent B<br/>Score: 5/5</div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparaison marché</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "I3. Prototyper l'interface avec l'IA",
+    "id": "I4",
+    "title": "Prototyper l'interface avec l'IA",
     "intent": "Exploiter les outils de génération visuelle pour produire rapidement des maquettes et valider les orientations avec les utilisateurs.",
     "icon": "wand-2",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Prototypage IA</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-white border border-slate-200 rounded-lg p-1.5\"><div class=\"text-[7px] text-slate-500 italic\">Prompt:</div><div class=\"text-[7px] text-slate-800 font-bold\">Génère un mockup de dashboard patient...</div></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"sparkles\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span>Explorer les possibilités IA</span></div></div></div>"
   },
   {
-    "id": 4,
-    "title": "I4. Adopter des standards UI modernes",
+    "id": "I6",
+    "title": "Adopter des standards UI modernes",
     "intent": "Appliquer des codes visuels familiers du grand public pour réduire l'effort d'apprentissage.",
     "icon": "layout",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Standards UI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"w-5 h-3 bg-slate-200 rounded\"></div><div class=\"w-5 h-3 bg-slate-300 rounded\"></div><div class=\"w-5 h-3 bg-slate-200 rounded\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">S&#39;inspirer des patterns connus</div></div></div>"
   },
   {
-    "id": 5,
-    "title": "I5. Intégrer des outils tiers spécialisés",
+    "id": "I7",
+    "title": "Intégrer des outils tiers spécialisés",
     "intent": "Raccorder des services existants du marché plutôt que de reconstruire une fonctionnalité complexe.",
     "icon": "plug",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Outils Tiers</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 justify-center\"><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-slate-500\"></i><span>Outil X</span></div><div class=\"bg-slate-50 border border-slate-200 rounded p-1 flex items-center gap-0.5 text-[7px]\"><i data-lucide=\"puzzle\" class=\"w-2 h-2 text-slate-500\"></i><span>Outil Y</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Écosystème et plugins</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "I6. Suivre les évolutions des partenaires",
+    "id": "I8",
+    "title": "Suivre les évolutions des partenaires",
     "intent": "Anticiper les changements de fonctionnement des services tiers avec lesquels on collabore.",
     "icon": "refresh-cw",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Évolutions Partenaires</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">API v3 dépréciée</span></div><div class=\"text-[7px] text-slate-500 text-center\">Anticiper les changements</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "I7. Exploiter la donnée externe publique",
+    "id": "I3",
+    "title": "Exploiter la donnée externe publique",
     "intent": "Utiliser les bases de données publiques de référence pour automatiser les saisies et fiabiliser l'information.",
     "icon": "database",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Données Externes</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"globe\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Open Data ARS</span></div><div class=\"text-[7px] text-slate-500 text-center\">Sources publiques exploitables</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "I8. Partager la veille en équipe",
+    "id": "I9",
+    "title": "Partager la veille en équipe",
     "intent": "Diffuser régulièrement les découvertes pour harmoniser la vision produit et inspirer tout le monde.",
     "icon": "users",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Partager Veille</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"share-2\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Flash veille mensuel</span></div><div class=\"text-[7px] text-slate-500 text-center\">Diffuser à l&#39;équipe</div></div></div>"
   },
   {
-    "id": 9,
-    "title": "I9. Tester les outils en conditions réelles",
+    "id": "I5",
+    "title": "Tester les outils en conditions réelles",
     "intent": "Évaluer une solution sur un cas concret avant de s'engager avec un fournisseur.",
     "icon": "flask",
     "scenarios": [

@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "C1. Évaluer la priorité et le niveau de risque",
+    "id": "C1",
+    "title": "Évaluer la priorité et le niveau de risque",
     "intent": "Savoir qualifier l'urgence et la criticité d'un incident en croisant l'impact métier et le nombre d'utilisateurs affectés, pour prioriser efficacement le traitement des tickets.",
     "icon": "alert-triangle",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Matrice de Priorité</div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold text-center mb-2\"><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Urgence\\Gravité</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Mineure</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Majeure</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Critique</div></div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold text-center\"><div class=\"bg-amber-100 p-1.5 rounded text-amber-800\">Immédiate</div><div class=\"bg-amber-100 p-1.5 rounded text-amber-800\">Haute</div><div class=\"bg-red-100 p-1.5 rounded text-red-800\">Critique</div><div class=\"bg-slate-100 p-1.5 rounded text-slate-800\">Normale</div><div class=\"bg-slate-100 p-1.5 rounded text-slate-500\">Planifiée</div><div class=\"bg-slate-100 p-1.5 rounded text-slate-500\">Basse</div></div><div class=\"mt-2 text-center text-[8px] text-slate-500\">Croiser impact × utilisateurs</div></div>"
   },
   {
-    "id": 2,
-    "title": "C2. Privilégier le contournement",
+    "id": "C4",
+    "title": "Privilégier le contournement",
     "intent": "Savoir débloquer rapidement un utilisateur par une action manuelle ou un contournement technique, avant d'envisager une correction en profondeur du code.",
     "icon": "wand-2",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Contournement</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><span class=\"text-[8px] font-bold text-slate-800\">Action manuelle en base</span></div><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"database\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><span class=\"text-[8px] font-bold text-slate-800\">Fusion des doublons NIR</span></div><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"settings\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><span class=\"text-[8px] font-bold text-slate-800\">Correction paramétrage âge</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Utilisateur débloqué en 15 min</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "C3. Assouplir les contraintes dans l'application",
+    "id": "C5",
+    "title": "Assouplir les contraintes dans l'application",
     "intent": "Transformer les blocages fonctionnels en alertes non-bloquantes pour donner de l'autonomie aux utilisateurs face aux cas particuliers, tout en gardant la maîtrise des données.",
     "icon": "unlock",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Assouplissement</div><div class=\"flex flex-col gap-2\"><div class=\"bg-red-50 border border-red-200 rounded-lg p-2 flex items-center gap-2 opacity-50\"><div class=\"w-6 h-6 rounded bg-red-200 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-red-600\"></i></div><div><div class=\"text-[7px] font-black text-red-700 uppercase\">Bloquant</div><div class=\"text-[8px] text-red-600\">Âge > 74 = refus système</div></div></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-3 h-3 text-slate-500\"></i></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><div class=\"w-6 h-6 rounded bg-slate-200 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-600\"></i></div><div><div class=\"text-[7px] font-black text-slate-700 uppercase\">Alerte non-bloquante</div><div class=\"text-[8px] text-slate-700\">Âge > 74 = alerte + validation manuelle possible</div></div></div></div></div>"
   },
   {
-    "id": 4,
-    "title": "C4. Ouvrir un accès étendu pour l'équipe support",
+    "id": "C7",
+    "title": "Ouvrir un accès étendu pour l'équipe support",
     "intent": "Permettre à l'équipe support de disposer des vues et outils nécessaires pour diagnostiquer et résoudre rapidement les incidents, sans compromettre la sécurité ni la traçabilité.",
     "icon": "eye",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Accès Support Étendu</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"eye\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-slate-800 uppercase\">Vue Support</div><div class=\"text-[8px] text-slate-700\">Logs détaillés + metadata campagne</div></div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-slate-800 uppercase\">Accès temporaire Data-Analyst</div><div class=\"text-[8px] text-slate-700\">Écart PMSI : 72h en lecture seule</div></div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Traçabilité complète préservée</div></div></div>"
   },
   {
-    "id": 5,
-    "title": "C5. Qualifier les demandes entrantes",
+    "id": "C2",
+    "title": "Qualifier les demandes entrantes",
     "intent": "Analyser et reformuler les demandes utilisateurs pour les transformer en tickets exploitables, en distinguant le bloquant du non-bloquant, le back du front, et le comportement attendu du bug.",
     "icon": "filter",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Qualification Ticket</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex flex-wrap gap-1 mb-1\"><span class=\"px-1.5 py-0.5 bg-amber-100 text-amber-800 text-[7px] font-bold rounded\">Bug front</span><span class=\"px-1.5 py-0.5 bg-slate-100 text-slate-800 text-[7px] font-bold rounded\">Bloquant</span><span class=\"px-1.5 py-0.5 bg-slate-100 text-slate-800 text-[7px] font-bold rounded\">1 utilisateur</span></div><div class=\"text-[8px] text-slate-600\">Bouton \"Valider bilan\" grisé — vérifier console JS</div></div><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"font-bold text-slate-500\">Type :</span><span class=\"bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-700\">Incident</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[8px] text-slate-700 font-bold\">Ticket exploitable pour le dev</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "C6. Formaliser la demande de correction",
+    "id": "C6",
+    "title": "Formaliser la demande de correction",
     "intent": "Savoir structurer une demande de correction complète et exploitable par l'équipe de développement, incluant contexte, données d'entrée, résultat attendu et éléments de preuve.",
     "icon": "clipboard-list",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Formalisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"camera\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Capture d'écran jointe</span></div><div class=\"text-[8px] text-slate-600\">Faute \"seins\" dans le PDF export — écran #3, ligne 12</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"list\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Étapes reproduction</span></div><div class=\"text-[8px] text-slate-600\">1. Ouvrir dossier → 2. Exporter PDF → 3. Observer texte</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Développeur peut corriger immédiatement</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "C7. Reproduire et investiguer le bug",
+    "id": "C3",
+    "title": "Reproduire et investiguer le bug",
     "intent": "Mettre en œuvre une démarche méthodique pour reproduire un bug, isoler ses conditions de déclenchement et déterminer sa cause racine, en environnement approprié.",
     "icon": "search",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Investigation</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"w-4 h-4 rounded-full bg-slate-100 text-slate-700 text-[7px] font-black flex items-center justify-center shrink-0\">1</span><span class=\"text-slate-600\">Reproduire en préprod</span></div><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"w-4 h-4 rounded-full bg-slate-100 text-slate-700 text-[7px] font-black flex items-center justify-center shrink-0\">2</span><span class=\"text-slate-600\">Isoler le NIR avec tirets</span></div><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"w-4 h-4 rounded-full bg-slate-100 text-slate-700 text-[7px] font-black flex items-center justify-center shrink-0\">3</span><span class=\"text-slate-600\">Vérifier logs PHP</span></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2 mt-1\"><div class=\"text-[7px] font-black text-amber-800 uppercase\">Cause racine</div><div class=\"text-[8px] text-amber-700\">Regex NIR rejette les séparateurs</div></div></div></div>"
   },
   {
-    "id": 8,
-    "title": "C8. Documenter les résolutions et remonter les bugs coûteux et récurrents",
+    "id": "C8",
+    "title": "Documenter les résolutions et remonter les bugs coûteux et récurrents",
     "intent": "Capitaliser les résolutions dans une base de connaissances partagée et alerter sur les bugs à fort coût récurrent pour prioriser leur correction définitive.",
     "icon": "book-open",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Capitalisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-500\"></i><span class=\"text-[7px] font-black text-blue-600 uppercase\">Base de connaissances</span></div><div class=\"text-[8px] text-slate-600 mt-0.5\">Bug âge décalé -1 an : solution documentée (3 occurrences/mois)</div></div><div class=\"bg-red-50 border border-red-200 rounded-lg p-2\"><div class=\"flex items-center gap-1\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-red-600\"></i><span class=\"text-[7px] font-black text-red-800 uppercase\">Alerte Coût Récurrent</span></div><div class=\"text-[8px] text-red-700 mt-0.5\">15j/homme cumulés → Prioriser correction définitive</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Résolution partagée + escalade</div></div></div>"
   },
   {
-    "id": 9,
-    "title": "C9. Assurer le suivi avec le client",
+    "id": "C9",
+    "title": "Assurer le suivi avec le client",
     "intent": "Maintenir une communication proactive et transparente avec les utilisateurs pendant et après la résolution d'un incident, en adaptant le ton et le niveau de détail au profil du client.",
     "icon": "message-square",
     "scenarios": [

@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "K1. Définir des indicateurs de performance clés",
+    "id": "K1",
+    "title": "Définir des indicateurs de performance clés",
     "intent": "Identifier les métriques qui mesurent réellement la réussite du parcours utilisateur plutôt que des indicateurs de volume trompeurs.",
     "icon": "bar-chart-3",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">KPI</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center bg-slate-50 border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Taux participation</span><span class=\"font-black text-slate-800\">42%</span></div><div class=\"flex justify-between items-center bg-slate-50 border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Délai moyen</span><span class=\"font-black text-slate-800\">12j</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Indicateurs clés de pilotage</div></div></div>"
   },
   {
-    "id": 2,
-    "title": "K2. Chiffrer les gains pour l'entreprise et les clients : recettes, temps, dépenses",
+    "id": "K2",
+    "title": "Chiffrer les gains pour l'entreprise et les clients : recettes, temps, dépenses",
     "intent": "Traduire les optimisations logicielles en gains concrets de temps de secrétariat, d'économies de santé et de réduction des délais de prise en charge.",
     "icon": "wallet",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Chiffrer Gains</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"trending-up\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Économie 18 250€/an</span></div><div class=\"text-[7px] text-slate-500 text-center\">ROI chiffré pour la décision</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "K3. Segmenter les utilisateurs par comportement",
+    "id": "K3",
+    "title": "Segmenter les utilisateurs par comportement",
     "intent": "Regrouper les acteurs (médecins, CRDC, patientes) selon leur usage effectif du logiciel pour adresser des réponses ciblées.",
     "icon": "users",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Segmenter</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1 text-[7px] font-bold text-center\"><div class=\"bg-slate-100 text-slate-800 p-1 rounded flex-1\">18-34 ans<br/>35%</div><div class=\"bg-slate-100 text-slate-800 p-1 rounded flex-1\">35-50 ans<br/>42%</div><div class=\"bg-amber-100 text-amber-800 p-1 rounded flex-1\">50+ ans<br/>23%</div></div><div class=\"text-[7px] text-slate-500 text-center\">Analyser par groupe d&#39;utilisateurs</div></div></div>"
   },
   {
-    "id": 4,
-    "title": "K4. Analyser les points de friction du parcours",
+    "id": "K4",
+    "title": "Analyser les points de friction du parcours",
     "intent": "Repérer les étapes précises du logiciel où les patients, médecins ou secrétaires rencontrent des blocages ou abandonnent leur action.",
     "icon": "alert-triangle",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Points Friction</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-1.5 bg-red-50 border border-red-200 rounded p-1.5 text-[8px]\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"font-bold text-red-800\">Étape 3 : 45% d&#39;abandon</span></div><div class=\"text-[7px] text-slate-500 text-center\">Identifier les goulots d&#39;étranglement</div></div></div></div>"
   },
   {
-    "id": 5,
-    "title": "K5. Tester les variantes du parcours",
+    "id": "K5",
+    "title": "Tester les variantes du parcours",
     "intent": "Utiliser des tests comparatifs (A/B testing) pour valider scientifiquement les choix d'ergonomie et de communication auprès des patients et des soignants.",
     "icon": "git-compare",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">A/B Testing</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Version A</div><div class=\"text-slate-600 font-bold\">42%</div></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[7px]\"><div class=\"font-bold text-slate-600\">Version B</div><div class=\"text-slate-600 font-bold\">58%</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Tester deux variantes</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "K6. Visualiser les données pour éclairer les décisions",
+    "id": "K6",
+    "title": "Visualiser les données pour éclairer les décisions",
     "intent": "Concevoir des représentations graphiques claires des parcours de dépistage pour aider les décideurs médicaux à identifier les freins.",
     "icon": "eye",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Visualiser</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-end justify-around h-10 bg-slate-50 border border-slate-200 rounded-lg p-1\"><div class=\"w-4 bg-slate-400 rounded-t\" style=\"height:60%\"></div><div class=\"w-4 bg-slate-400 rounded-t\" style=\"height:90%\"></div><div class=\"w-4 bg-amber-400 rounded-t\" style=\"height:40%\"></div><div class=\"w-4 bg-slate-400 rounded-t\" style=\"height:70%\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">Graphique pour l&#39;intuition</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "K7. Piloter l'optimisation continue du parcours",
+    "id": "K7",
+    "title": "Piloter l'optimisation continue du parcours",
     "intent": "Mettre en œuvre une démarche méthodique et incrémentale d'amélioration du logiciel pour augmenter les taux de dépistage étape par étape.",
     "icon": "trending-up",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Optimisation Continue</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex justify-center gap-1 text-[8px] font-bold\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white flex items-center justify-center\">M</div><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300 self-center\"></i><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white flex items-center justify-center\">A</div><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300 self-center\"></i><div class=\"w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center\">I</div></div><div class=\"text-[7px] text-slate-500 text-center\">Cycle Mesurer-Analyser-Itérer</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "K8. Automatiser les procédures internes fastidieuses",
+    "id": "K8",
+    "title": "Automatiser les procédures internes fastidieuses",
     "intent": "Remplacer les saisies de données manuelles redondantes et les relances téléphoniques chronophages par des flux automatisés et des connecteurs API sécurisés.",
     "icon": "cpu",
     "scenarios": [

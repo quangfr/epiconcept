@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "J1. Développer une preuve de concept (POC)",
+    "id": "J1",
+    "title": "Développer une preuve de concept (POC)",
     "intent": "Valider une idée technique ou métier avec un minimum d’effort avant d’investir massivement.",
     "icon": "beaker",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">POC</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center\"><div class=\"text-[9px] font-black text-slate-800 uppercase\">Proof of Concept</div><div class=\"text-[7px] text-slate-600\">Valider la faisabilité technique</div></div><div class=\"flex items-center gap-1 justify-center text-[7px] text-slate-500\"><i data-lucide=\"flask\" class=\"w-2.5 h-2.5\"></i><span>Test rapide avant engagement</span></div></div></div>"
   },
   {
-    "id": 2,
-    "title": "J2. Proposer à un client de bêta-tester",
+    "id": "J2",
+    "title": "Proposer à un client de bêta-tester",
     "intent": "Impliquer des utilisateurs réels dans la validation d’une fonctionnalité en conditions réelles.",
     "icon": "users",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Bêta Testeur</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Panel de testeurs</span></div><div class=\"text-[7px] text-slate-500 text-center\">Groupe restreint d&#39;utilisateurs</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "J3. Mesurer l’intérêt sur une idée",
+    "id": "J7",
+    "title": "Mesurer l’intérêt sur une idée",
     "intent": "Tester la demande réelle pour une fonctionnalité avant de l’investir, en minimisant les biais de déclaration.",
     "icon": "gauge",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Mesurer Intérêt</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-center gap-2 text-[8px]\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center\"><div class=\"font-bold text-slate-800\">78%</div><div class=\"text-[7px] text-slate-600\">Intéressés</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center\"><div class=\"font-bold text-slate-600\">22%</div><div class=\"text-[7px] text-slate-400\">Réticents</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Sonder avant de construire</div></div></div>"
   },
   {
-    "id": 4,
-    "title": "J4. Collecter du feedback utilisateur",
+    "id": "J4",
+    "title": "Collecter du feedback utilisateur",
     "intent": "Recueillir des retours d’expérience concrets auprès des utilisateurs pour améliorer les solutions existantes.",
     "icon": "message-square",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Feedback</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"message-square\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Collecte d&#39;avis</span></div><div class=\"flex gap-1 text-[7px]\"><div class=\"bg-slate-100 p-1 rounded flex-1 text-center\">NPS</div><div class=\"bg-slate-100 p-1 rounded flex-1 text-center\">Satisfaction</div></div></div></div>"
   },
   {
-    "id": 5,
-    "title": "J5. Co-conception & prototypage rapide",
+    "id": "J5",
+    "title": "Co-conception & prototypage rapide",
     "intent": "Impliquer les utilisateurs dans la conception pour créer des solutions adaptées dès le premier jet.",
     "icon": "pen-tool",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Co-conception</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"edit\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Atelier collaboratif</span></div><div class=\"text-[7px] text-slate-500 text-center\">Métier + équipe conçoivent ensemble</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "J6. Lancer un pilote minimal",
+    "id": "J8",
+    "title": "Lancer un pilote minimal",
     "intent": "Tester une solution en conditions réelles avec le strict minimum pour apprendre vite et à moindre coût.",
     "icon": "rocket",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Pilote Minimal</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"play\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">1 centre pilote</span></div><div class=\"text-[7px] text-slate-500 text-center\">Échelle minimale pour apprendre</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "J7. Étudier la faisabilité d’une techno tierce",
+    "id": "J3",
+    "title": "Étudier la faisabilité d’une techno tierce",
     "intent": "Évaluer une technologie externe sur des critères métier avant de s’engager dans une intégration.",
     "icon": "plug",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Faisabilité Tierce</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"shield\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Évaluation partenaire</span></div><div class=\"text-[7px] text-slate-500 text-center\">Vérifier la maturité technique</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "J8. Réaliser un test utilisateur filmé",
+    "id": "J6",
+    "title": "Réaliser un test utilisateur filmé",
     "intent": "Observer des utilisateurs réels interagir avec l’interface pour identifier les problèmes d’ergonomie et de compréhension.",
     "icon": "video",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Test Filmé</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-rose-50 border border-rose-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"video\" class=\"w-2.5 h-2.5 text-rose-600\"></i><span class=\"font-bold text-rose-800\">Session utilisateur filmée</span></div><div class=\"text-[7px] text-slate-500 text-center\">Observer les comportements réels</div></div></div>"
   },
   {
-    "id": 9,
-    "title": "J9. Décider de pivoter / poursuivre / arrêter",
+    "id": "J9",
+    "title": "Décider de pivoter / poursuivre / arrêter",
     "intent": "Prendre une décision éclairée sur la suite d’un projet en confrontant les résultats aux hypothèses initiales.",
     "icon": "git-merge",
     "scenarios": [

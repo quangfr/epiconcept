@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "A1. Dépasser la demande",
+    "id": "A1",
+    "title": "Dépasser la demande",
     "intent": "Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.",
     "icon": "target",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Dépasser la demande</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 2,
-    "title": "A2. Quantifier le problème",
+    "id": "A2",
+    "title": "Quantifier le problème",
     "intent": "Obtenir des données précises sur la fréquence et l'impact réel pour évaluer le coût du statu quo.",
     "icon": "bar-chart-2",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Quantifier le problème</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Obtenir une note d'impact chiffrée</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Mesurer le frein quotidien</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Justifier ou non un arbitrage</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 3,
-    "title": "A3. Reproduire l'irritant",
+    "id": "A5",
+    "title": "Reproduire l'irritant",
     "intent": "Observer le flux réel de l'utilisateur pour révéler des points de friction invisibles ou des bugs non exprimés.",
     "icon": "mouse-pointer-click",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Reproduire l'irritant</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Observer le flux de travail réel</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Repérer les frictions invisibles</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Identifier les anomalies cachées</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 4,
-    "title": "A4. Vérifier l'existant",
+    "id": "A6",
+    "title": "Vérifier l'existant",
     "intent": "Éviter de développer une nouvelle fonction si le problème peut être résolu par du paramétrage ou de la formation.",
     "icon": "folder-open",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Vérifier l'existant</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Étudier le contournement actuel</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Découvrir la fonction existante</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Former plutôt que développer</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 5,
-    "title": "A5. Vérifier l'historique",
+    "id": "A7",
+    "title": "Vérifier l'historique",
     "intent": "Comprendre les échecs passés pour éviter de proposer une solution qui a déjà échoué ou qui a été rejetée.",
     "icon": "file-text",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Vérifier l'historique</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 6,
-    "title": "A6. Évaluer la spécificité",
+    "id": "A9",
+    "title": "Évaluer la spécificité",
     "intent": "Déterminer si le besoin est spécifique au client et comment le généraliser pour d'autres utilisateurs.",
     "icon": "globe",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Évaluer la spécificité</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 7,
-    "title": "A7. Comparer les approches",
+    "id": "A10",
+    "title": "Comparer les approches",
     "intent": "Ouvrir le champ des possibles pour éviter de s'enfermer dans une solution unique et trouver la plus efficiente.",
     "icon": "scale",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Comparer les approches</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 8,
-    "title": "A8. Raccrocher aux besoins",
+    "id": "A3",
+    "title": "Raccrocher aux besoins",
     "intent": "Maximiser l'impact d'un développement en résolvant plusieurs problèmes à la fois par une vision transverse.",
     "icon": "link",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Raccrocher aux besoins</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 9,
-    "title": "A9. Aligner avec la roadmap",
+    "id": "A4",
+    "title": "Aligner avec la roadmap",
     "intent": "Vérifier si des solutions planifiées rendent le problème obsolète ou si la demande peut enrichir une conception future.",
     "icon": "calendar",
     "scenarios": [
@@ -837,8 +837,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Aligner avec la roadmap</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 10,
-    "title": "A10. Vérifier la complexité",
+    "id": "A8",
+    "title": "Vérifier la complexité",
     "intent": "Anticiper les effets de bord, la dette technique et les contradictions avec l'existant avant de s'engager.",
     "icon": "settings",
     "scenarios": [
@@ -930,8 +930,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Vérifier la complexité</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 11,
-    "title": "A11. Chercher les marges",
+    "id": "A11",
+    "title": "Chercher les marges",
     "intent": "Identifier ce que l'utilisateur est prêt à céder (délai, confort, coût) pour obtenir de la valeur plus rapidement.",
     "icon": "users",
     "scenarios": [
@@ -1023,8 +1023,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-sm\">\n  <div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Chercher les marges</div>\n  <div class=\"flex flex-col gap-1\">\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">1</span>\n      <span class=\"text-slate-600\">Écouter la demande utilisateur</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">2</span>\n      <span class=\"text-slate-600\">Identifier l'intention réelle</span>\n    </div>\n    <div class=\"flex items-center gap-2 text-[9px]\">\n      <span class=\"w-4 h-4 rounded-full bg-slate-200 text-[7px] font-black flex items-center justify-center shrink-0\">3</span>\n      <span class=\"text-slate-600\">Proposer la meilleure solution</span>\n    </div>\n  </div>\n</div>"
   },
   {
-    "id": 12,
-    "title": "A12. Valider la solution mini",
+    "id": "A12",
+    "title": "Valider la solution mini",
     "intent": "Identifier le plus petit incrément capable de générer de la valeur immédiate avec le moins d'effort possible.",
     "icon": "lightbulb",
     "scenarios": [

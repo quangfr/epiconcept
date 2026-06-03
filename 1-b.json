@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "B1. Assister la saisie",
+    "id": "B1",
+    "title": "Assister la saisie",
     "intent": "Remplacer la frappe clavier et les menus cachés par des clics directs pour limiter la fatigue cognitive.",
     "scenarios": [
       {
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Assistance Saisie</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1\"><button class=\"flex-1 bg-slate-50 border-2 border-slate-200 text-slate-800 rounded-lg text-center py-1.5 text-[8px] font-black\">Option 1</button><button class=\"flex-1 bg-white border border-slate-200 text-slate-500 rounded-lg text-center py-1.5 text-[8px] font-bold\">Option 2</button><button class=\"flex-1 bg-white border border-slate-200 text-slate-500 rounded-lg text-center py-1.5 text-[8px] font-bold\">Option 3</button></div><div class=\"text-[7px] text-slate-600 font-bold text-center\">Choix directs visibles, zéro clic de navigation</div></div></div>"
   },
   {
-    "id": 2,
-    "title": "B2. Ancrer les informations clés",
+    "id": "B5",
+    "title": "Ancrer les informations clés",
     "intent": "Maintenir l'information vitale ou l'action principale accrochée à l'écran lors du défilement.",
     "scenarios": [
       {
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Auto-Complétion</div><div class=\"flex flex-col gap-1.5\"><div class=\"relative\"><div class=\"border border-slate-300 bg-white rounded p-1.5 text-[8px] font-bold text-slate-800 flex items-center gap-1\"><i data-lucide=\"search\" class=\"w-2.5 h-2.5\"></i><span>Mar<span class=\"text-slate-600\">|</span></span></div><div class=\"absolute top-full left-0 right-0 mt-0.5 bg-white border border-slate-200 shadow rounded overflow-hidden\"><div class=\"px-2 py-1 text-[7px] border-b hover:bg-slate-50 font-bold text-slate-700\">Martin Sophie</div><div class=\"px-2 py-1 text-[7px] hover:bg-slate-50 text-slate-500\">Martinez Luc</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Suggestions filtrées en temps réel</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "B3. Prévenir activement les erreurs",
+    "id": "B8",
+    "title": "Prévenir activement les erreurs",
     "intent": "Contraindre l'interface ou alerter l'utilisateur avant même qu'il ne puisse soumettre une donnée fausse.",
     "scenarios": [
       {
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Pré-remplissage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-slate-200 bg-slate-50 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-700\">Anesthésie</span><span class=\"bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-bold\">Générale</span></div><div class=\"flex justify-between items-center border border-slate-200 bg-slate-50 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-700\">Salle</span><span class=\"bg-slate-100 text-slate-800 px-1 py-0.5 rounded font-bold\">Endoscopie 1</span></div></div><div class=\"text-[7px] text-slate-600 font-bold text-center\">Valeurs par défaut intelligentes</div></div></div>"
   },
   {
-    "id": 4,
-    "title": "B4. Épurer la présentation visuelle",
+    "id": "B11",
+    "title": "Épurer la présentation visuelle",
     "intent": "Utiliser un design épuré et minimaliste où la couleur est réservée aux statuts et alertes cliniques majeures.",
     "scenarios": [
       {
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Ancrage Info</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-700 text-white p-1.5 rounded-lg flex justify-between items-center text-[8px] font-black\"><span>DUPONT Jean</span><span class=\"bg-slate-800 px-1 py-0.5 rounded text-[7px]\">IPP: 9901</span></div><div class=\"h-6 bg-slate-100 rounded opacity-40\"></div><div class=\"text-[7px] text-slate-500 text-center\">Header fixe pendant le défilement</div></div></div>"
   },
   {
-    "id": 5,
-    "title": "B5. Guider par l'aide contextuelle",
+    "id": "B2",
+    "title": "Guider par l'aide contextuelle",
     "intent": "Guider l'utilisateur au bon moment avec des micro-informations non intrusives.",
     "scenarios": [
       {
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Barre Flottante</div><div class=\"flex flex-col gap-1.5\"><div class=\"h-8 bg-slate-100 rounded opacity-30\"></div><div class=\"flex justify-end gap-1 border-t border-slate-200 pt-1.5\"><div class=\"bg-slate-200 px-2 py-1 text-[7px] font-bold rounded\">Annuler</div><div class=\"bg-slate-700 text-white px-2 py-1 text-[7px] font-bold rounded\">Valider</div></div><div class=\"text-[7px] text-slate-500 text-center\">Actions toujours accessibles en bas</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "B6. Personnaliser l'espace utilisateur",
+    "id": "B3",
+    "title": "Personnaliser l'espace utilisateur",
     "intent": "Adapter l'interface au profil métier et sauvegarder les habitudes pour éviter la resaisie quotidienne.",
     "scenarios": [
       {
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Navigation Latérale</div><div class=\"flex gap-1.5\"><div class=\"w-1/3 bg-slate-50 border border-slate-200 rounded p-1 flex flex-col gap-1 text-[7px]\"><span class=\"font-bold text-slate-400\">1. ID</span><span class=\"font-black text-slate-800 bg-white rounded px-1\">2. Imagerie</span><span class=\"text-slate-400\">3. Bio</span></div><div class=\"w-2/3 bg-slate-100 rounded opacity-30\"></div></div><div class=\"text-[7px] text-slate-500 text-center\">Sommaire cliquable fixe à gauche</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "B7. Assurer la continuité d'action",
+    "id": "B9",
+    "title": "Assurer la continuité d'action",
     "intent": "Préserver le travail face aux imprévus techniques ou hospitaliers (coupure WiFi, erreur de clic, appel urgent).",
     "scenarios": [
       {
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Masque Saisie</div><div class=\"flex flex-col gap-1.5\"><div class=\"border border-slate-300 ring-2 ring-slate-200 rounded p-1.5 text-[9px] font-mono text-slate-800 tracking-widest bg-white\">06 <span class=\"text-slate-300\">_ _ _ _ _ _ _</span></div><div class=\"text-[7px] text-slate-600 font-bold text-center\">Seuls les chiffres sont acceptés</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "B8. Rendre l'interface accessible",
+    "id": "B12",
+    "title": "Rendre l'interface accessible",
     "intent": "Adapter l'interface visuelle aux réalités physiologiques (fatigue, obscurité, vieillesse) du milieu de la santé.",
     "scenarios": [
       {
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Validation Inline</div><div class=\"flex flex-col gap-1.5\"><div class=\"border border-red-300 bg-red-50 rounded p-1.5 text-[8px] text-slate-800 flex justify-between items-center\"><span>Champ obligatoire</span><span class=\"text-red-600 font-bold\">✖</span></div><div class=\"text-[7px] text-red-700 font-bold text-center\">Erreur visible immédiatement</div></div></div>"
   },
   {
-    "id": 9,
-    "title": "B9. Sécuriser les données sensibles",
+    "id": "B10",
+    "title": "Sécuriser les données sensibles",
     "intent": "Protéger par défaut le secret médical (RGPD) en garantissant la sécurité des accès, le moindre privilège et la traçabilité des modifications.",
     "scenarios": [
       {
@@ -837,8 +837,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Détection Doublon</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-amber-50 border border-amber-200 rounded p-1.5\"><div class=\"text-[8px] font-bold text-amber-800 flex items-center gap-1\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5\"></i>Doublon suspecté</div><div class=\"text-[7px] text-slate-600 mt-0.5\">MARTIN (née DUPONT) Jeanne</div></div><div class=\"flex gap-1 text-[7px] font-bold\"><button class=\"flex-1 bg-amber-600 text-white p-1 rounded\">Fusionner</button><button class=\"flex-1 bg-white border border-slate-200 p-1 rounded\">Consulter</button></div></div></div>"
   },
   {
-    "id": 10,
-    "title": "B10. Faciliter le guidage utilisateur",
+    "id": "B6",
+    "title": "Faciliter le guidage utilisateur",
     "intent": "Aider l'utilisateur à se repérer dans un protocole long ou lourd, sans le noyer sous la donnée d'un coup.",
     "scenarios": [
       {
@@ -930,8 +930,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Interface Épurée</div><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-slate-200 bg-white rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-700\">Dossier #9941</span><span class=\"bg-slate-100 text-slate-500 px-1 py-0.5 rounded font-bold\">Clos</span></div><div class=\"flex justify-between items-center border border-slate-200 bg-slate-50 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-800\">Dossier #9942</span><span class=\"bg-slate-700 text-white px-1 py-0.5 rounded font-bold\">À relire</span></div><div class=\"text-[7px] text-slate-500 text-center\">Monochrome, seule l&#39;action compte</div></div></div>"
   },
   {
-    "id": 11,
-    "title": "B11. Collaborer avec l'assistant IA",
+    "id": "B13",
+    "title": "Collaborer avec l'assistant IA",
     "intent": "Intégrer l'intelligence artificielle (agents conversationnels, lecture de documents, analyse de données) pour accélérer le traitement clinique sans jamais imposer de décision.",
     "scenarios": [
       {
@@ -1023,8 +1023,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Vocabulaire Visuel</div><div class=\"flex flex-wrap gap-1\"><span class=\"bg-amber-50 text-amber-800 border border-amber-100 text-[7px] px-1.5 py-0.5 rounded font-bold flex items-center gap-0.5\"><i data-lucide=\"clock\" class=\"w-2 h-2\"></i>En attente</span><span class=\"bg-slate-50 text-slate-700 border border-slate-200 text-[7px] px-1.5 py-0.5 rounded font-bold flex items-center gap-0.5\"><i data-lucide=\"circle\" class=\"w-2 h-2\"></i>Transmis</span><span class=\"bg-rose-50 text-rose-800 border border-rose-100 text-[7px] px-1.5 py-0.5 rounded font-bold flex items-center gap-0.5\"><i data-lucide=\"circle\" class=\"w-2 h-2\"></i>Bloqué</span></div><div class=\"text-[7px] text-slate-500 text-center\">Reconnaissance en 100ms par icône</div></div></div>"
   },
   {
-    "id": 12,
-    "title": "B12. Simplifier l'affichage complexe",
+    "id": "B7",
+    "title": "Simplifier l'affichage complexe",
     "intent": "Optimiser l'espace d'écran en utilisant des panneaux rétractables, des onglets dynamiques et des modales éphémères pour garder le contexte d'activité principal intact.",
     "scenarios": [
       {
@@ -1116,8 +1116,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Messages Clairs</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-red-50 border border-red-200 rounded-lg p-1.5 flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-red-600\"></i><span class=\"text-[8px] font-bold text-red-700\">IPP obligatoire pour continuer</span></div><div class=\"text-[7px] text-slate-500 text-center\">Court, métier, orienté action</div></div></div>"
   },
   {
-    "id": 13,
-    "title": "B13. Permettre le traitement groupé",
+    "id": "B4",
+    "title": "Permettre le traitement groupé",
     "intent": "Permettre d'éditer, de dupliquer ou de traiter plusieurs données simultanément pour accélérer le travail répétitif.",
     "scenarios": [
       {

@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "H1. Qualifier et prioriser la demande (Réception)",
+    "id": "H1",
+    "title": "Qualifier et prioriser la demande (Réception)",
     "intent": "Savoir identifier la nature d'une demande et en évaluer l'urgence réglementaire ou l'impact fonctionnel pour traiter les dossiers dans le bon ordre.",
     "icon": "tag",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Matrice de Qualification Support</div><div class=\"grid grid-cols-4 gap-1 text-[7px] font-bold text-center mb-1.5\"><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Demande</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Question</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Opération</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Anomalie</div></div><div class=\"grid grid-cols-4 gap-1 text-[7px] text-center\"><div class=\"bg-slate-50 p-1 rounded text-slate-700\">Action</div><div class=\"FAQ p-1 rounded text-slate-600\">Explication</div><div class=\"bg-amber-50 p-1 rounded text-amber-700\">Réactivation</div><div class=\"bg-red-50 p-1 rounded text-red-700\">Escalade N3</div></div></div>"
   },
   {
-    "id": 2,
-    "title": "H2. Rendre le ticket exploitable (Analyse)",
+    "id": "H2",
+    "title": "Rendre le ticket exploitable (Analyse)",
     "intent": "Être capable de documenter un problème de manière précise pour que le niveau supérieur puisse reproduire et résoudre le bug instantanément.",
     "icon": "clipboard-list",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Outils d'Analyse Recommandés</div><div class=\"flex justify-around items-center gap-2\"><div class=\"text-center p-1 bg-slate-50 rounded border border-slate-100 w-1/3\"><i data-lucide=\"image\" class=\"w-4 h-4 mx-auto text-slate-500 mb-1\"></i><span class=\"text-[7px] font-bold text-slate-600\">Capture d'écran (Bugs d'affichage)</span></div><div class=\"text-center p-1 bg-slate-50 rounded border border-slate-100 w-1/3\"><i data-lucide=\"list-ordered\" class=\"w-4 h-4 mx-auto text-slate-500 mb-1\"></i><span class=\"text-[7px] font-bold text-slate-600\">Pas-à-pas (Bugs fonctionnels)</span></div><div class=\"text-center p-1 bg-slate-50 rounded border border-slate-100 w-1/3\"><i data-lucide=\"video\" class=\"w-4 h-4 mx-auto text-slate-500 mb-1\"></i><span class=\"text-[7px] font-bold text-slate-600\">Vidéo / GIF (Bugs de gestes)</span></div></div></div>"
   },
   {
-    "id": 3,
-    "title": "H3. Préparer et valider l'escalade (Résolution)",
+    "id": "H3",
+    "title": "Préparer et valider l'escalade (Résolution)",
     "intent": "Savoir structurer son dossier de support en validant les prérequis pour s'assurer que le problème nécessite bien une intervention technique du niveau supérieur.",
     "icon": "share-2",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Structure d'une Synthèse d'Escalade</div><div class=\"space-y-1.5 text-[8px]\"><div class=\"flex items-center gap-1.5 text-slate-700 font-bold\"><div class=\"w-3 h-3 bg-red-100 rounded text-red-700 flex items-center justify-center text-[7px]\">1</div><span>Impact : volume de bénéficiaires et criticité métier</span></div><div class=\"flex items-center gap-1.5 text-slate-700 font-bold\"><div class=\"w-3 h-3 bg-slate-100 rounded text-slate-700 flex items-center justify-center text-[7px]\">2</div><span>Constats : captures d'écran, messages d'erreurs exacts</span></div><div class=\"flex items-center gap-1.5 text-slate-700 font-bold\"><div class=\"w-3 h-3 bg-slate-100 rounded text-slate-700 flex items-center justify-center text-[7px]\">3</div><span>Hypothèses : diagnostic du support (ex. certificat expiré)</span></div></div></div>"
   },
   {
-    "id": 4,
-    "title": "H4. Suivre, communiquer et clore proprement (Relation Client)",
+    "id": "H4",
+    "title": "Suivre, communiquer et clore proprement (Relation Client)",
     "intent": "Maîtriser le cycle de vie de la relation client en informant l'utilisateur de manière rassurante et pédagogique, tout en s'assurant de la résolution complète.",
     "icon": "message-circle",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Cycle de Vie de la Clôture</div><div class=\"flex justify-between items-center text-[7px] font-bold text-center gap-1\"><div class=\"bg-slate-50 text-slate-800 p-1 rounded w-1/3\">1. Validation terrain par l'usager</div><div class=\"bg-slate-50 text-slate-800 p-1 rounded w-1/3\">2. Explication pédagogique simple</div><div class=\"bg-slate-50 text-slate-800 p-1 rounded w-1/3\">3. Enregistrement des acquis</div></div></div>"
   },
   {
-    "id": 5,
-    "title": "H5. Rendre la documentation accessible (Self-Service)",
+    "id": "H5",
+    "title": "Rendre la documentation accessible (Self-Service)",
     "intent": "Savoir structurer une base de connaissances claire et accessible pour réduire les appels répétitifs et autonomiser les utilisateurs.",
     "icon": "book-open",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Format Préféré par les Usagers</div><div class=\"space-y-1.5 text-[8px]\"><div class=\"flex items-center gap-1.5 text-slate-600\"><i data-lucide=\"image\" class=\"w-3.5 h-3.5 text-slate-500\"></i><span><strong>85 %</strong> préfèrent une vidéo courte ou un GIF animé</span></div><div class=\"flex items-center gap-1.5 text-slate-600\"><i data-lucide=\"help-circle\" class=\"w-3.5 h-3.5 text-slate-500\"></i><span><strong>70 %</strong> résolvent leur question via une FAQ thématique</span></div></div></div>"
   },
   {
-    "id": 6,
-    "title": "H6. Accompagner la prise en main (Guides pas-à-pas)",
+    "id": "H6",
+    "title": "Accompagner la prise en main (Guides pas-à-pas)",
     "intent": "Assurer l'appropriation durable de l'outil en concevant des parcours d'intégration et des aides contextuelles pour autonomiser les nouveaux usagers.",
     "icon": "compass",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Les 3 Piliers de l'Onboarding Client</div><div class=\"grid grid-cols-3 gap-1.5 text-[7px] text-center\"><div class=\"p-1 bg-slate-50 border border-slate-100 rounded\"><i data-lucide=\"circle\" class=\"w-3.5 h-3.5 text-slate-500 mx-auto mb-1\"></i><strong>Checklist pas-à-pas</strong> d'intégration</div><div class=\"p-1 bg-slate-50 border border-slate-100 rounded\"><i data-lucide=\"help-circle\" class=\"w-3.5 h-3.5 text-slate-500 mx-auto mb-1\"></i><strong>Aide contextuelle</strong> (Infobulles)</div><div class=\"p-1 bg-slate-50 border border-slate-100 rounded\"><i data-lucide=\"external-link\" class=\"w-3.5 h-3.5 text-slate-500 mx-auto mb-1\"></i><strong>Portail Self-service</strong> unique</div></div></div>"
   },
   {
-    "id": 7,
-    "title": "H7. Soigner la lisibilité des supports (Mise en page)",
+    "id": "H7",
+    "title": "Soigner la lisibilité des supports (Mise en page)",
     "intent": "Savoir présenter et mettre en forme la documentation écrite pour la rendre engageante, aérée et immédiatement exploitable par un utilisateur non-technique.",
     "icon": "layout",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Règles de Style d'un Manuel Réussi</div><div class=\"flex flex-col gap-1.5 text-[7px] font-semibold text-slate-600\"><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500\"></i> Rubriques courtes (max. 10 lignes par paragraphe)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-amber-500\"></i> Badges visuels de couleur pour les points d'attention</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"link\" class=\"w-3 h-3 text-slate-500\"></i> Liens hypertextes directs pour les renvois de pages</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "H8. Harmoniser les réponses et templates (Modèles de messages)",
+    "id": "H8",
+    "title": "Harmoniser les réponses et templates (Modèles de messages)",
     "intent": "Savoir utiliser, concevoir et réviser des modèles de réponses types pour accélérer le traitement des tickets tout en garantissant un ton bienveillant et professionnel.",
     "icon": "mail",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full bg-white rounded-xl border border-slate-200 p-3 shadow-xs\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Les Bonnes Pratiques du Template</div><div class=\"flex flex-col gap-1.5 text-[7px] font-semibold text-slate-600\"><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-500\"></i> Personnaliser systématiquement (Nom, Numéro de ticket)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"shield\" class=\"w-3 h-3 text-slate-500\"></i> Valider réglementairement (DPO, Experts métiers)</div><div class=\"flex items-center gap-1 bg-slate-50 p-1 rounded border border-slate-100\"><i data-lucide=\"refresh-cw\" class=\"w-3 h-3 text-slate-500\"></i> Auditer périodiquement (chaque semestre au moins)</div></div></div>"
   },
   {
-    "id": 9,
-    "title": "H9. Construire une communauté d'utilisateurs",
+    "id": "H9",
+    "title": "Construire une communauté d'utilisateurs",
     "intent": "Fédérer, animer et s'appuyer sur un réseau d'utilisateurs experts et de relais supports pour diffuser les bonnes pratiques et co-construire le produit.",
     "icon": "users",
     "scenarios": [

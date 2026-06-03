@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "title": "G1. Qualifier la demande à l'arrivée",
+    "id": "G1",
+    "title": "Qualifier la demande à l'arrivée",
     "intent": "Savoir trier et catégoriser les demandes entrantes pour orienter le traitement au bon niveau et au bon rythme.",
     "icon": "inbox",
     "scenarios": [
@@ -93,8 +93,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Qualifier Demande</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"inbox\" class=\"w-2.5 h-2.5 text-amber-600\"></i><span class=\"font-bold text-amber-800\">Ticket entrant</span></div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold\"><div class=\"bg-slate-50 text-slate-700 p-1 rounded text-center\">Incident</div><div class=\"bg-slate-50 text-slate-700 p-1 rounded text-center\">Question</div><div class=\"bg-amber-50 text-amber-700 p-1 rounded text-center\">Évolution</div><div class=\"bg-slate-100 text-slate-500 p-1 rounded text-center\">Trainer</div></div><div class=\"text-[7px] text-slate-500 text-center\">Trier avant d&#39;agir</div></div></div>"
   },
   {
-    "id": 2,
-    "title": "G2. Questionner pour réduire le périmètre",
+    "id": "G2",
+    "title": "Questionner pour réduire le périmètre",
     "intent": "Isoler le problème en posant les bonnes questions fermées pour réduire la zone d'investigation et gagner du temps.",
     "icon": "search",
     "scenarios": [
@@ -186,8 +186,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Questionner</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1 text-[8px]\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-700\">Quel utilisateur ?</span></div><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5\"><i data-lucide=\"help-circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-700\">Quel module ?</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Narrow down par questions</div></div></div>"
   },
   {
-    "id": 3,
-    "title": "G3. Reproduire le bug sur instance de diagnostic",
+    "id": "G3",
+    "title": "Reproduire le bug sur instance de diagnostic",
     "intent": "Recréer les conditions exactes du signalement sur un environnement maîtrisé pour confirmer, analyser et documenter le problème.",
     "icon": "copy",
     "scenarios": [
@@ -279,8 +279,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Reproduire</div><div class=\"flex flex-col gap-1.5\"><ol class=\"list-decimal list-inside text-[8px] text-slate-700 space-y-0.5 font-bold\"><li>Ouvrir dossier patient</li><li>Cliquer Exporter PDF</li><li>Observer le texte</li></ol><div class=\"bg-amber-50 border border-amber-200 rounded p-1.5 text-[7px] text-amber-800 font-bold text-center\">Étapes exactes de reproduction</div></div></div>"
   },
   {
-    "id": 4,
-    "title": "G4. Consulter les données de production en lecture",
+    "id": "G4",
+    "title": "Consulter les données de production en lecture",
     "intent": "Accéder aux données réelles du client via des outils sécurisés en lecture seule pour objectiver le diagnostic.",
     "icon": "database",
     "scenarios": [
@@ -372,8 +372,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Données Production</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"database\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Accès lecture seule</span></div><div class=\"flex items-center gap-1.5 text-[7px] text-slate-500\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5\"></i><span>Requête SQL sur recette</span></div></div></div>"
   },
   {
-    "id": 5,
-    "title": "G5. Diagnostiquer par élimination et comparaison d'instances",
+    "id": "G5",
+    "title": "Diagnostiquer par élimination et comparaison d'instances",
     "intent": "Isoler la cause racine en comparant les configurations et en testant les variables une par une entre instances.",
     "icon": "git-branch",
     "scenarios": [
@@ -465,8 +465,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Élimination</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex gap-1.5\"><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance A</div><div class=\"text-slate-400\">Bug</div></div><div class=\"flex items-center\"><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-slate-300\"></i></div><div class=\"flex-1 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[7px] text-center\"><div class=\"font-bold text-slate-600\">Instance B</div><div class=\"text-slate-400\">OK</div></div></div><div class=\"text-[7px] text-slate-500 text-center\">Comparer pour isoler la cause</div></div></div>"
   },
   {
-    "id": 6,
-    "title": "G6. Corriger les petites anomalies directement sur les données",
+    "id": "G6",
+    "title": "Corriger les petites anomalies directement sur les données",
     "intent": "Appliquer des corrections ciblées (unitaire ou via script d'automatisation / import en masse), avec traçabilité obligatoire.",
     "icon": "pen-tool",
     "scenarios": [
@@ -558,8 +558,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Corriger Données</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"terminal\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Script de correction</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5\"></i><span>UPDATE patient SET statut = &#39;OK&#39;</span></div></div></div>"
   },
   {
-    "id": 7,
-    "title": "G7. Résoudre par le paramétrage ou les actions dans l'interface",
+    "id": "G7",
+    "title": "Résoudre par le paramétrage ou les actions dans l'interface",
     "intent": "Exploiter les leviers de configuration existants et les APIs pour résoudre sans développement.",
     "icon": "settings",
     "scenarios": [
@@ -651,8 +651,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Paramétrage</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col gap-1\"><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Seuil âge</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">74 ans</span></div><div class=\"flex justify-between items-center border border-slate-200 rounded p-1.5 text-[7px]\"><span class=\"font-bold text-slate-600\">Périmètre</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-bold\">Colorectal</span></div></div><div class=\"text-[7px] text-slate-500 text-center\">Configuration sans dev</div></div></div>"
   },
   {
-    "id": 8,
-    "title": "G8. Escalader pour poser des actions pérennes",
+    "id": "G8",
+    "title": "Escalader pour poser des actions pérennes",
     "intent": "Transmettre au support produit un dossier structuré qui permet de corriger durablement et d'automatiser les résolutions fréquentes.",
     "icon": "arrow-up-right",
     "scenarios": [
@@ -744,8 +744,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Escalader</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex flex-col items-center text-[7px] font-bold\"><div class=\"bg-slate-100 border border-slate-200 rounded p-1 w-full text-center text-slate-600\">N1 : Support</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-100 border border-slate-200 rounded p-1 w-full text-center text-slate-700\">N2 : Expert</div><i data-lucide=\"arrow-up\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-red-100 border border-red-200 rounded p-1 w-full text-center text-red-700\">N3 : Développement</div></div></div></div>"
   },
   {
-    "id": 9,
-    "title": "G9. Clôturer avec validation client et capitalisation",
+    "id": "G9",
+    "title": "Clôturer avec validation client et capitalisation",
     "intent": "S'assurer que le client confirme la résolution et enrichir le référentiel pour les prochains cas.",
     "icon": "check-circle",
     "scenarios": [
@@ -837,8 +837,8 @@
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Clôturer</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Validation terrain</span></div><div class=\"flex items-center gap-1 text-[7px] text-slate-500\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5\"></i><span>Utilisateur confirme la résolution</span></div></div></div>"
   },
   {
-    "id": 10,
-    "title": "G10. Détecter les tendances pour prévenir",
+    "id": "G10",
+    "title": "Détecter les tendances pour prévenir",
     "intent": "Analyser les tickets entrants pour repérer les patterns récurrents et alerter l'équipe produit avant que le problème ne devienne critique.",
     "icon": "trending-up",
     "scenarios": [

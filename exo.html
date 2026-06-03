@@ -197,10 +197,10 @@
                 min-height: 300px !important;
                 padding: 1rem !important;
             }
-            #modal-referentiel {
+            #skills-modal {
                 padding: 0 !important;
             }
-            #modal-referentiel > div {
+            #skills-modal > div {
                 margin: 0 !important;
                 border-radius: 0 !important;
                 height: 100vh !important;
@@ -215,7 +215,7 @@
         }
 
         @media (max-width: 500px) {
-            #home-screen, #debriefing-card, #modal-content, main, .p-4, .p-6, .p-8 {
+            #home-screen, #debriefing-card, #skills-content, main, .p-4, .p-6, .p-8 {
                 padding: 0.25rem !important;
             }
             .level-card, .glass-panel, .reflex-btn, .ui-btn, .mb-6, .mb-4, .my-4 {
@@ -315,7 +315,7 @@
             header a .bg-slate-100,
             header button[onclick="goHome()"] .bg-slate-100,
             header button[onclick="resetLevelProgress()"],
-            header button[onclick="openModal()"] {
+            header button[onclick="openSkillsModal()"] {
                 width: 26px !important;
                 height: 26px !important;
                 padding: 0 !important;
@@ -327,7 +327,7 @@
             header a .bg-slate-100 [data-lucide],
             header button[onclick="goHome()"] .bg-slate-100 [data-lucide],
             header button[onclick="resetLevelProgress()"] [data-lucide],
-            header button[onclick="openModal()"] [data-lucide] {
+            header button[onclick="openSkillsModal()"] [data-lucide] {
                 width: 11px !important;
                 height: 11px !important;
             }
@@ -423,27 +423,26 @@
 </head>
 <body class="flex flex-col relative">
 
-<div id="modal-referentiel" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
+<div id="skills-modal" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
         <!-- Close Button -->
-        <button onclick="closeModal()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">
+        <button onclick="closeSkillsModal()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">
             ✕
         </button>
         
         <!-- Header -->
         <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
             <div>
-                <h2 id="modal-title-display" class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Référentiel Réflexes</h2>
-                <p id="modal-subtitle-display" class="text-slate-500 text-xs font-medium leading-none">Les principes et réflexes associés.</p>
+                <h2 id="skills-title" class="text-base sm:text-lg font-black text-slate-800 uppercase tracking-tight">Référentiel Réflexes</h2>
             </div>
             <!-- Selector -->
-            <select id="reflex-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
+            <select id="skills-selector" onchange="scrollToSkill(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
                 <option value="">-- Aller au Réflexe --</option>
             </select>
         </div>
         
         <!-- Content -->
-        <div id="modal-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50 relative">
+        <div id="skills-content" class="p-3 sm:p-4 overflow-y-auto flex-grow flex flex-col gap-4 sm:gap-6 bg-slate-100/50 relative">
             <!-- Dynamically populated -->
         </div>
     </div>
@@ -480,14 +479,14 @@
                 <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
                 <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
                 <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
-                <option value="./exo.html?id=6-l">L - KPIs &amp; Dashboard</option>
+                <option value="./exo.html?id=6-l">L - Suivi &amp; Données</option>
             </select>
         </div>
         <div class="flex gap-2">
             <button onclick="resetProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-red-600 hover:text-white transition-colors" title="Réinitialiser la progression">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             </button>
-            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" title="Référentiel">
+            <button onclick="openSkillsModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg text-slate-600 hover:bg-blue-900 hover:text-white transition-colors" title="Référentiel">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
         </div>
@@ -561,14 +560,14 @@
                 <option value="./exo.html?id=5-i">I - Veille &amp; Benchmark</option>
                 <option value="./exo.html?id=5-j">J - Test &amp; Learn</option>
                 <option value="./exo.html?id=6-k">K - Analytics &amp; Productivité</option>
-                <option value="./exo.html?id=6-l">L - KPIs &amp; Dashboard</option>
+                <option value="./exo.html?id=6-l">L - Suivi &amp; Données</option>
             </select>
             <!-- Reset Level -->
             <button onclick="resetLevelProgress()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors shrink-0" title="Réinitialiser ce niveau">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             </button>
             <!-- Referentiel Button -->
-            <button onclick="openModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel">
+            <button onclick="openSkillsModal()" class="flex items-center justify-center bg-slate-100 p-2 rounded-lg hover:bg-blue-900 hover:text-white transition-colors shrink-0" title="Référentiel">
                 <i data-lucide="help-circle" class="w-4 h-4"></i>
             </button>
         </div>
@@ -758,8 +757,8 @@ function applyWorkshopConfig() {
     if (document.getElementById('header-context-label')) {
         document.getElementById('header-context-label').innerText = CONFIG.title;
     }
-    document.getElementById('modal-title-display').innerText = 'Référentiel - ' + CONFIG.title;
-    document.getElementById('modal-subtitle-display').innerText = 'Les réflexes et principes associés de l\'atelier ' + CONFIG.title + '.';
+    document.getElementById('skills-title').innerText = 'Référentiel - ' + CONFIG.title;
+    // subtitle removed
 
     const homeSel = document.getElementById('home-atelier-selector');
     if (homeSel) homeSel.value = './exo.html?id=' + ATELIER_ID;
@@ -799,7 +798,7 @@ function populateWorkshopSelectors() {
 // Initialisation de l'accueil
 function initHome() {
     document.getElementById('home-screen').classList.remove('hidden');
-    buildModalContent();
+    buildSkillsContent();
     
     for (let i = 0; i < 3; i++) {
         const score = localStorage.getItem(`${CONFIG.key}-score-lv${i}`);
@@ -1036,7 +1035,7 @@ function renderReflexChoices(readOnly) {
                 <div class="font-black text-sm sm:text-base uppercase tracking-tight text-slate-800 leading-tight mb-1">${opt.title}</div>
                 <div class="text-[10px] sm:text-xs text-slate-500 font-semibold leading-normal">${opt.intent}</div>
             </div>
-            <button onclick="event.stopPropagation(); openModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-1.5 right-1.5 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe">
+            <button onclick="event.stopPropagation(); openSkillsModal(${opt.id})" class="info-btn text-slate-400 hover:text-blue-900 transition-all hover:scale-110 absolute top-1.5 right-1.5 z-10 bg-slate-50 border border-slate-100 p-1.5 rounded-full shadow-sm shrink-0" title="Détail du Réflexe">
                 <i data-lucide="info" class="w-4 h-4"></i>
             </button>
         `;
@@ -1265,11 +1264,11 @@ function nextStep() {
     loadStepPhase1();
 }
 
-function buildModalContent() {
-    const container = document.getElementById('modal-content');
+function buildSkillsContent() {
+    const container = document.getElementById('skills-content');
     container.innerHTML = '';
     
-    const selector = document.getElementById('reflex-selector');
+    const selector = document.getElementById('skills-selector');
     if (selector) {
         selector.innerHTML = '<option value="">-- Aller au Réflexe --</option>';
     }
@@ -1315,24 +1314,24 @@ function buildModalContent() {
     });
 }
 
-function scrollToReflex(id) {
+function scrollToSkill(id) {
     if (!id) return;
     const el = document.getElementById(`ref-${id}`);
     if (el) {
-        document.getElementById('modal-content').scrollTo({
+        document.getElementById('skills-content').scrollTo({
             top: el.offsetTop - 24,
             behavior: 'smooth'
         });
     }
 }
 
-function openModal(focusId = null) {
-    document.getElementById('modal-referentiel').classList.remove('hidden');
+function openSkillsModal(focusId = null) {
+    document.getElementById('skills-modal').classList.remove('hidden');
     if (focusId) {
         setTimeout(() => {
             const el = document.getElementById(`ref-${focusId}`);
             if(el) {
-                document.getElementById('modal-content').scrollTo({
+                document.getElementById('skills-content').scrollTo({
                     top: el.offsetTop - 24,
                     behavior: 'smooth'
                 });
@@ -1341,13 +1340,13 @@ function openModal(focusId = null) {
     }
 }
 
-function closeModal() {
-    document.getElementById('modal-referentiel').classList.add('hidden');
+function closeSkillsModal() {
+    document.getElementById('skills-modal').classList.add('hidden');
 }
 
 window.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        closeModal();
+        closeSkillsModal();
         document.getElementById('info-modal').classList.add('hidden');
     }
     if (e.key === 'ArrowLeft' && document.getElementById('home-screen').classList.contains('hidden')) {
@@ -1366,7 +1365,7 @@ async function initApp() {
         const response = await fetch('./' + ATELIER_ID + '.json?v=' + new Date().getTime());
         reflexes = await response.json();
         
-        buildModalContent();
+        buildSkillsContent();
         
         TOTAL_STEPS = reflexes.length;
 
