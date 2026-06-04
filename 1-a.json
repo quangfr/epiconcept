@@ -1,7 +1,7 @@
 [
   {
     "id": "A1",
-    "title": "Dépasser la demande",
+    "title": "Dépasser la demande exprimée",
     "intent": "Chercher l'intention et l'objectif final derrière la fonctionnalité plutôt que de prendre une commande directe.",
     "icon": "target",
     "scenarios": [
@@ -94,7 +94,7 @@
   },
   {
     "id": "A2",
-    "title": "Quantifier le problème",
+    "title": "Quantifier le problème utilisateur",
     "intent": "Obtenir des données précises sur la fréquence et l'impact réel pour évaluer le coût du statu quo.",
     "icon": "bar-chart-2",
     "scenarios": [
@@ -187,7 +187,7 @@
   },
   {
     "id": "A5",
-    "title": "Reproduire l'irritant",
+    "title": "Reproduire l'irritant du métier",
     "intent": "Observer le flux réel de l'utilisateur pour révéler des points de friction invisibles ou des bugs non exprimés.",
     "icon": "mouse-pointer-click",
     "scenarios": [
@@ -280,7 +280,7 @@
   },
   {
     "id": "A6",
-    "title": "Vérifier l'existant",
+    "title": "Vérifier l'existant fonctionnel du besoin",
     "intent": "Éviter de développer une nouvelle fonction si le problème peut être résolu par du paramétrage ou de la formation.",
     "icon": "folder-open",
     "scenarios": [
@@ -373,7 +373,7 @@
   },
   {
     "id": "A7",
-    "title": "Vérifier l'historique",
+    "title": "Vérifier l'historique du besoin",
     "intent": "Comprendre les échecs passés pour éviter de proposer une solution qui a déjà échoué ou qui a été rejetée.",
     "icon": "file-text",
     "scenarios": [
@@ -466,7 +466,7 @@
   },
   {
     "id": "A9",
-    "title": "Évaluer la spécificité",
+    "title": "Évaluer la spécificité du besoin",
     "intent": "Déterminer si le besoin est spécifique au client et comment le généraliser pour d'autres utilisateurs.",
     "icon": "globe",
     "scenarios": [
@@ -559,7 +559,7 @@
   },
   {
     "id": "A10",
-    "title": "Comparer les approches",
+    "title": "Comparer les approches possibles",
     "intent": "Ouvrir le champ des possibles pour éviter de s'enfermer dans une solution unique et trouver la plus efficiente.",
     "icon": "scale",
     "scenarios": [
@@ -652,7 +652,7 @@
   },
   {
     "id": "A3",
-    "title": "Raccrocher aux besoins",
+    "title": "Raccrocher aux besoins initiaux",
     "intent": "Maximiser l'impact d'un développement en résolvant plusieurs problèmes à la fois par une vision transverse.",
     "icon": "link",
     "scenarios": [
@@ -838,7 +838,7 @@
   },
   {
     "id": "A8",
-    "title": "Vérifier la complexité",
+    "title": "Vérifier la complexité technique",
     "intent": "Anticiper les effets de bord, la dette technique et les contradictions avec l'existant avant de s'engager.",
     "icon": "settings",
     "scenarios": [
@@ -931,7 +931,7 @@
   },
   {
     "id": "A11",
-    "title": "Chercher les marges",
+    "title": "Chercher les marges d'amélioration",
     "intent": "Identifier ce que l'utilisateur est prêt à céder (délai, confort, coût) pour obtenir de la valeur plus rapidement.",
     "icon": "users",
     "scenarios": [

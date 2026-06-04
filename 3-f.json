@@ -1,7 +1,7 @@
 [
   {
     "id": "F1",
-    "title": "Capter les signaux d'usage réels (La Douleur Terrain)",
+    "title": "Capter les signaux d'usage réels",
     "intent": "Identifier les dysfonctionnements réels et observer les soignants dans leur routine pour capter les besoins à forte valeur.",
     "icon": "eye",
     "scenarios": [
@@ -280,7 +280,7 @@
   },
   {
     "id": "F4",
-    "title": "Concevoir par le prisme de la clarté cognitive",
+    "title": "Concevoir pour la clarté cognitive",
     "intent": "Épurer le parcours et hiérarchiser les informations métier pour réduire la fatigue mentale et le risque d'erreur de saisie.",
     "icon": "eye",
     "scenarios": [
@@ -559,7 +559,7 @@
   },
   {
     "id": "F7",
-    "title": "Lancer un pilote ultra-restreint (La Bêta qualitative)",
+    "title": "Lancer un pilote ultra-restreint",
     "intent": "Déployer la V1 auprès d'un panel d'utilisateurs restreint et proactif avec une boucle de feedback ultra-courte.",
     "icon": "flask-conical",
     "scenarios": [
@@ -745,7 +745,7 @@
   },
   {
     "id": "F9",
-    "title": "Trouver les quick-wins",
+    "title": "Trouver les quick-wins terrain",
     "intent": "Identifier et prioriser les solutions simples à fort impact pour apporter de la valeur immédiate aux utilisateurs sans complexité technique.",
     "icon": "zap",
     "scenarios": [

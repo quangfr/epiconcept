@@ -94,7 +94,7 @@
   },
   {
     "id": "K2",
-    "title": "Chiffrer les gains pour l'entreprise et les clients : recettes, temps, dépenses",
+    "title": "Chiffrer les gains pour l'entreprise",
     "intent": "Traduire les optimisations logicielles en gains concrets de temps de secrétariat, d'économies de santé et de réduction des délais de prise en charge.",
     "icon": "wallet",
     "scenarios": [
@@ -280,7 +280,7 @@
   },
   {
     "id": "K4",
-    "title": "Analyser les points de friction du parcours",
+    "title": "Analyser les frictions du parcours",
     "intent": "Repérer les étapes précises du logiciel où les patients, médecins ou secrétaires rencontrent des blocages ou abandonnent leur action.",
     "icon": "alert-triangle",
     "scenarios": [
@@ -466,7 +466,7 @@
   },
   {
     "id": "K6",
-    "title": "Visualiser les données pour éclairer les décisions",
+    "title": "Visualiser les données pour décider",
     "intent": "Concevoir des représentations graphiques claires des parcours de dépistage pour aider les décideurs médicaux à identifier les freins.",
     "icon": "eye",
     "scenarios": [

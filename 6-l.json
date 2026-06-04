@@ -1,7 +1,7 @@
 [
   {
     "id": "L1",
-    "title": "Intégrer un outil BI à ses sources de données",
+    "title": "Intégrer un outil BI aux données",
     "intent": "Centraliser et valoriser les données issues de la production (dépistages), du développement (Jira) et de la relation client (CRM) pour piloter l'activité de santé publique.",
     "icon": "database",
     "scenarios": [
@@ -280,7 +280,7 @@
   },
   {
     "id": "L7",
-    "title": "Valider la qualité et l'intégrité de la donnée de santé",
+    "title": "Valider la qualité des données santé",
     "intent": "S'assurer de la conformité, de l'exactitude et de la complétude des données de santé dès leur intégration pour garantir la fiabilité des décisions cliniques et administratives.",
     "icon": "shield-check",
     "scenarios": [
@@ -373,7 +373,7 @@
   },
   {
     "id": "L2",
-    "title": "Se brancher aux données des clients CRM",
+    "title": "Se brancher aux données CRM client",
     "intent": "Unifier les données clients issues du CRM avec les données d'usage produit pour optimiser la facturation, le support et prévenir le churn des grands comptes.",
     "icon": "users",
     "scenarios": [
@@ -466,7 +466,7 @@
   },
   {
     "id": "L8",
-    "title": "Garantir l'anonymisation et la conformité des données",
+    "title": "Garantir l'anonymisation des données",
     "intent": "Sécuriser les exports de données médicales à des fins de recherche scientifique en appliquant des protocoles d'anonymisation stricts et en respectant le RGPD.",
     "icon": "shield",
     "scenarios": [
@@ -559,7 +559,7 @@
   },
   {
     "id": "L3",
-    "title": "Mesurer la performance opérationnelle du parcours métier",
+    "title": "Mesurer la performance du parcours métier",
     "intent": "Suivre, analyser et optimiser les temps d'attente à chaque étape clé du dépistage pour éviter la perte de chance des patients.",
     "icon": "activity",
     "scenarios": [
@@ -652,7 +652,7 @@
   },
   {
     "id": "L6",
-    "title": "Mesurer l'impact sur l'activité et les utilisateurs d'une évolution",
+    "title": "Mesurer l'impact d'une évolution métier",
     "intent": "Évaluer de manière objective et quantitative les conséquences réelles d'une mise à jour logicielle sur le comportement des utilisateurs et l'efficacité opérationnelle des soins.",
     "icon": "line-chart",
     "scenarios": [

@@ -280,7 +280,7 @@
   },
   {
     "id": "H4",
-    "title": "Suivre, communiquer et clore proprement (Relation Client)",
+    "title": "Suivre et clore la relation client",
     "intent": "Maîtriser le cycle de vie de la relation client en informant l'utilisateur de manière rassurante et pédagogique, tout en s'assurant de la résolution complète.",
     "icon": "message-circle",
     "scenarios": [
@@ -466,7 +466,7 @@
   },
   {
     "id": "H6",
-    "title": "Accompagner la prise en main (Guides pas-à-pas)",
+    "title": "Accompagner la prise en main utilisateur",
     "intent": "Assurer l'appropriation durable de l'outil en concevant des parcours d'intégration et des aides contextuelles pour autonomiser les nouveaux usagers.",
     "icon": "compass",
     "scenarios": [
@@ -559,7 +559,7 @@
   },
   {
     "id": "H7",
-    "title": "Soigner la lisibilité des supports (Mise en page)",
+    "title": "Soigner la lisibilité des supports",
     "intent": "Savoir présenter et mettre en forme la documentation écrite pour la rendre engageante, aérée et immédiatement exploitable par un utilisateur non-technique.",
     "icon": "layout",
     "scenarios": [
@@ -652,7 +652,7 @@
   },
   {
     "id": "H8",
-    "title": "Harmoniser les réponses et templates (Modèles de messages)",
+    "title": "Harmoniser les templates de messages",
     "intent": "Savoir utiliser, concevoir et réviser des modèles de réponses types pour accélérer le traitement des tickets tout en garantissant un ton bienveillant et professionnel.",
     "icon": "mail",
     "scenarios": [

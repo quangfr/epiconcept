@@ -1,7 +1,7 @@
 [
   {
     "id": "C1",
-    "title": "Évaluer la priorité et le niveau de risque",
+    "title": "Évaluer la priorité du risque",
     "intent": "Savoir qualifier l'urgence et la criticité d'un incident en croisant l'impact métier et le nombre d'utilisateurs affectés, pour prioriser efficacement le traitement des tickets.",
     "icon": "alert-triangle",
     "scenarios": [
@@ -94,7 +94,7 @@
   },
   {
     "id": "C4",
-    "title": "Privilégier le contournement",
+    "title": "Privilégier le contournement rapide",
     "intent": "Savoir débloquer rapidement un utilisateur par une action manuelle ou un contournement technique, avant d'envisager une correction en profondeur du code.",
     "icon": "wand-2",
     "scenarios": [
@@ -280,7 +280,7 @@
   },
   {
     "id": "C7",
-    "title": "Ouvrir un accès étendu pour l'équipe support",
+    "title": "Ouvrir un accès à l'équipe support",
     "intent": "Permettre à l'équipe support de disposer des vues et outils nécessaires pour diagnostiquer et résoudre rapidement les incidents, sans compromettre la sécurité ni la traçabilité.",
     "icon": "eye",
     "scenarios": [
@@ -652,7 +652,7 @@
   },
   {
     "id": "C8",
-    "title": "Documenter les résolutions et remonter les bugs coûteux et récurrents",
+    "title": "Documenter et remonter les bugs récurrents",
     "intent": "Capitaliser les résolutions dans une base de connaissances partagée et alerter sur les bugs à fort coût récurrent pour prioriser leur correction définitive.",
     "icon": "book-open",
     "scenarios": [

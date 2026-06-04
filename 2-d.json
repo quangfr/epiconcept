@@ -838,7 +838,7 @@
   },
   {
     "id": "D10",
-    "title": "Établir les critères d'acceptation dans la US",
+    "title": "Établir les critères d'acceptation",
     "intent": "Formaliser le comportement attendu, les cas à la marge et les cas non-traités par la US pour lever toute ambiguïté.",
     "icon": "check-square",
     "scenarios": [

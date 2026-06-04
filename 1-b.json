@@ -1,7 +1,7 @@
 [
   {
     "id": "B1",
-    "title": "Assister la saisie",
+    "title": "Assister la saisie utilisateur",
     "intent": "Remplacer la frappe clavier et les menus cachés par des clics directs pour limiter la fatigue cognitive.",
     "scenarios": [
       {
@@ -466,7 +466,7 @@
   },
   {
     "id": "B3",
-    "title": "Personnaliser l'espace utilisateur",
+    "title": "Personnaliser l'espace de travail",
     "intent": "Adapter l'interface au profil métier et sauvegarder les habitudes pour éviter la resaisie quotidienne.",
     "scenarios": [
       {
@@ -652,7 +652,7 @@
   },
   {
     "id": "B12",
-    "title": "Rendre l'interface accessible",
+    "title": "Rendre l'interface accessible à tous",
     "intent": "Adapter l'interface visuelle aux réalités physiologiques (fatigue, obscurité, vieillesse) du milieu de la santé.",
     "scenarios": [
       {
@@ -1024,7 +1024,7 @@
   },
   {
     "id": "B7",
-    "title": "Simplifier l'affichage complexe",
+    "title": "Simplifier l'affichage des données",
     "intent": "Optimiser l'espace d'écran en utilisant des panneaux rétractables, des onglets dynamiques et des modales éphémères pour garder le contexte d'activité principal intact.",
     "scenarios": [
       {

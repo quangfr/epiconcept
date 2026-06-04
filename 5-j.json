@@ -745,7 +745,7 @@
   },
   {
     "id": "J9",
-    "title": "Décider de pivoter / poursuivre / arrêter",
+    "title": "Décider de pivoter ou arrêter",
     "intent": "Prendre une décision éclairée sur la suite d’un projet en confrontant les résultats aux hypothèses initiales.",
     "icon": "git-merge",
     "scenarios": [

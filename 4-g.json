@@ -187,7 +187,7 @@
   },
   {
     "id": "G3",
-    "title": "Reproduire le bug sur instance de diagnostic",
+    "title": "Reproduire le bug sur instance diagnostic",
     "intent": "Recréer les conditions exactes du signalement sur un environnement maîtrisé pour confirmer, analyser et documenter le problème.",
     "icon": "copy",
     "scenarios": [
@@ -280,7 +280,7 @@
   },
   {
     "id": "G4",
-    "title": "Consulter les données de production en lecture",
+    "title": "Consulter les données en lecture seule",
     "intent": "Accéder aux données réelles du client via des outils sécurisés en lecture seule pour objectiver le diagnostic.",
     "icon": "database",
     "scenarios": [
@@ -466,7 +466,7 @@
   },
   {
     "id": "G6",
-    "title": "Corriger les petites anomalies directement sur les données",
+    "title": "Corriger les anomalies sur les données",
     "intent": "Appliquer des corrections ciblées (unitaire ou via script d'automatisation / import en masse), avec traçabilité obligatoire.",
     "icon": "pen-tool",
     "scenarios": [
@@ -559,7 +559,7 @@
   },
   {
     "id": "G7",
-    "title": "Résoudre par le paramétrage ou les actions dans l'interface",
+    "title": "Résoudre par le paramétrage dans l'interface",
     "intent": "Exploiter les leviers de configuration existants et les APIs pour résoudre sans développement.",
     "icon": "settings",
     "scenarios": [
