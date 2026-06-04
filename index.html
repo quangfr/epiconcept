@@ -2295,13 +2295,13 @@
                                 </span>` : ''}
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <button class="eval-btn eval-decouverte ${actualLevel === 'decouverte' ? 'active' : ''}" onclick="toggleEval('${refId}', 'decouverte')" aria-label="Découverte"></button>
+                                <input type="radio" name="radio-${refId}" class="eval-radio eval-decouverte" ${actualLevel === 'decouverte' ? 'checked' : ''} onclick="toggleEval('${refId}', 'decouverte')" aria-label="Découverte">
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <button class="eval-btn eval-encours ${actualLevel === 'encours' ? 'active' : ''}" onclick="toggleEval('${refId}', 'encours')" aria-label="En cours"></button>
+                                <input type="radio" name="radio-${refId}" class="eval-radio eval-encours" ${actualLevel === 'encours' ? 'checked' : ''} onclick="toggleEval('${refId}', 'encours')" aria-label="En cours">
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <button class="eval-btn eval-maitrise ${actualLevel === 'maitrise' ? 'active' : ''}" onclick="toggleEval('${refId}', 'maitrise')" aria-label="Maîtrise"></button>
+                                <input type="radio" name="radio-${refId}" class="eval-radio eval-maitrise" ${actualLevel === 'maitrise' ? 'checked' : ''} onclick="toggleEval('${refId}', 'maitrise')" aria-label="Maîtrise">
                             </td>
                         `;
                         tbody.appendChild(row);
