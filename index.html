@@ -57,10 +57,6 @@
                         class="cursor-pointer" style="background: none; border: none; outline: none; padding: 0;">
                         <i data-lucide="info" style="width: 20px; height: 20px; color: #64748b;"></i>
                     </button>
-                    <button onclick="openProfileModal()" aria-label="Grille de progression des réflexes" title="Mon Profil & Progression"
-                        class="cursor-pointer" style="background: none; border: none; outline: none; padding: 0; margin-left: 8px;">
-                        <i data-lucide="user" style="width: 20px; height: 20px; color: #64748b;"></i>
-                    </button>
                 </div>
                 <p class="subtitle" id="desc" data-i18n="app-subtitle">
                     Développez vos réflexes Product chez Epiconcept
@@ -68,7 +64,11 @@
             </header>
 
             <!-- Compact Global Statistics -->
-            <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux">
+            <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux" style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem;">
+                <button onclick="openProfileModal()" aria-label="Grille de compétences" title="Grille de compétences"
+                    class="cursor-pointer flex items-center justify-center bg-slate-100 hover:bg-blue-900 hover:text-white p-2 rounded-lg text-slate-600 transition-colors" style="border: none; outline: none; width: 32px; height: 32px;">
+                    <i data-lucide="clipboard-check" style="width: 18px; height: 18px;"></i>
+                </button>
                 <div class="flex items-center gap-1.5">
                     <span id="hub-page-indicator"
                         style="font-size: 11px; font-weight: 700; color: #64748b; margin-right: 0.25rem;">1 / 2</span>
@@ -2216,6 +2216,22 @@
             l: 'kpi'
         };
 
+        function migrateLegacyGridScores() {
+            if (localStorage.getItem('progress-grid-migrated-v2') === 'true') return;
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith('progress-grid-')) {
+                    const val = localStorage.getItem(key);
+                    if (val === 'maitrise') {
+                        localStorage.setItem(key, 'encours');
+                    } else if (val === 'reflexe') {
+                        localStorage.setItem(key, 'maitrise');
+                    }
+                }
+            }
+            localStorage.setItem('progress-grid-migrated-v2', 'true');
+        }
+
         function renderProfileGrid() {
             const tbody = document.getElementById('profile-grid-body');
             if (!tbody) return;
@@ -2260,15 +2276,6 @@
 
                         let savedLevel = localStorage.getItem('progress-grid-' + refId) || '';
 
-                        // Migration values
-                        if (savedLevel === 'maitrise') {
-                            savedLevel = 'encours';
-                            localStorage.setItem('progress-grid-' + refId, 'encours');
-                        } else if (savedLevel === 'reflexe') {
-                            savedLevel = 'maitrise';
-                            localStorage.setItem('progress-grid-' + refId, 'maitrise');
-                        }
-
                         // Auto-check discovery if all 3 levels are completed
                         if (!savedLevel) {
                             const storageKey = THEME_STORAGE_KEY_MAP[theme.key];
@@ -2294,14 +2301,20 @@
                                     </span>
                                 </span>` : ''}
                             </td>
-                            <td style="text-align: center; vertical-align: middle; cursor: pointer;" onclick="toggleEval('${refId}', 'decouverte')">
-                                <input type="radio" name="radio-${refId}" class="eval-radio eval-decouverte" ${actualLevel === 'decouverte' ? 'checked' : ''} style="pointer-events: none;" aria-label="Découverte">
+                            <td style="text-align: center; vertical-align: middle; padding: 0;">
+                                <label style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 38px; cursor: default; margin: 0; padding: 0.6rem 0.8rem;">
+                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-decouverte" ${actualLevel === 'decouverte' ? 'checked' : ''} onclick="toggleEval('${refId}', 'decouverte')" style="cursor: pointer;" aria-label="Découverte">
+                                </label>
                             </td>
-                            <td style="text-align: center; vertical-align: middle; cursor: pointer;" onclick="toggleEval('${refId}', 'encours')">
-                                <input type="radio" name="radio-${refId}" class="eval-radio eval-encours" ${actualLevel === 'encours' ? 'checked' : ''} style="pointer-events: none;" aria-label="En cours">
+                            <td style="text-align: center; vertical-align: middle; padding: 0;">
+                                <label style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 38px; cursor: default; margin: 0; padding: 0.6rem 0.8rem;">
+                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-encours" ${actualLevel === 'encours' ? 'checked' : ''} onclick="toggleEval('${refId}', 'encours')" style="cursor: pointer;" aria-label="En cours">
+                                </label>
                             </td>
-                            <td style="text-align: center; vertical-align: middle; cursor: pointer;" onclick="toggleEval('${refId}', 'maitrise')">
-                                <input type="radio" name="radio-${refId}" class="eval-radio eval-maitrise" ${actualLevel === 'maitrise' ? 'checked' : ''} style="pointer-events: none;" aria-label="Maîtrise">
+                            <td style="text-align: center; vertical-align: middle; padding: 0;">
+                                <label style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 38px; cursor: default; margin: 0; padding: 0.6rem 0.8rem;">
+                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-maitrise" ${actualLevel === 'maitrise' ? 'checked' : ''} onclick="toggleEval('${refId}', 'maitrise')" style="cursor: pointer;" aria-label="Maîtrise">
+                                </label>
                             </td>
                         `;
                         tbody.appendChild(row);
@@ -2334,6 +2347,7 @@
             tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding: 2rem; font-weight: bold; color: #64748b;">Chargement de la grille de compétences...</td></tr>`;
 
             try {
+                migrateLegacyGridScores();
                 await ensureReflexesData();
                 await ensureSkillsSlidesData();
                 renderProfileGrid();
