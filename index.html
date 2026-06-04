@@ -2186,7 +2186,7 @@
                         const actualLevel = savedLevel === 'none' ? '' : savedLevel;
 
                         row.innerHTML = `
-                            <td style="vertical-align: middle;">
+                            <td style="vertical-align: middle; cursor: pointer;" onclick="openReflexBrowser('${theme.letter}', '${refId}')" title="Voir le détail">
                                 <span style="font-weight: 700; color: var(--color-primary);">${refId}</span> - ${reflexTitle}
                                 ${reflexIntent ? `
                                 <span class="profile-tooltip-trigger">
@@ -2557,6 +2557,7 @@
         </div>
     </div>
 
+    <script src="skills-modal.js"></script>
 </body>
 
 </html>
