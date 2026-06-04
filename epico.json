@@ -52,10 +52,10 @@
     },
     {
       "id": 5,
-      "name": "Recherche &amp; Développement",
-      "objective": "Explorer de nouveaux horizons et valider des idées en rupture sans risque.",
+      "name": "Innovation Product",
+      "objective": "Explorer de nouveaux horizons et valider des idées sans risque.",
       "items": [
-        { "cardId": "lean-card", "icon": "flask-conical", "title": "5 - Recherche &amp; Développement", "infoTitle": "Voir les slides", "statusId": "lean-slides-status-label", "maxSteps": 7, "description": "Les principes du Lean Startup et de l'expérimentation rapide pour valider des hypothèses disruptives sans gaspiller de ressources.", "action": "lesson", "actionParam": "5, 0" },
+        { "cardId": "lean-card", "icon": "flask-conical", "title": "5 - Recherche & Développement", "infoTitle": "Voir les slides", "statusId": "lean-slides-status-label", "maxSteps": 7, "description": "Menez des travaux de recherche et développement pour explorer, prototyper et industrialiser de nouvelles solutions métier.", "action": "lesson", "actionParam": "5, 0" },
         { "cardId": "veille-card", "icon": "search", "title": "I - Veille & Adoption", "infoTitle": "Voir les slides", "statusId": "veille-status-label", "maxSteps": 27, "description": "Analysez la concurrence et les signaux faibles pour nourrir la vision stratégique.", "action": "lesson", "actionParam": "5, 0" },
         { "cardId": "poc-card", "icon": "flask-conical", "title": "J - Test & Learn", "infoTitle": "Voir les slides", "statusId": "tln-status-label", "maxSteps": 27, "description": "Expérimentez, testez et validez vos idées avant d'investir grâce au cycle discovery.", "action": "lesson", "actionParam": "5, 3" }
       ]
@@ -66,7 +66,7 @@
       "objective": "Piloter le produit par la preuve et mesurer l'impact des fonctionnalités.",
       "items": [
         { "cardId": "data-driven-card", "icon": "pie-chart", "title": "6 - Data Driven", "infoTitle": "Voir les slides", "statusId": "analytics-slides-status-label", "maxSteps": 7, "description": "Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.", "action": "lesson", "actionParam": "6, 0" },
-        { "cardId": "analytics-card", "icon": "bar-chart-2", "title": "K - Analytics & Productivité", "infoTitle": "Voir les réflexes K", "statusId": "analytics-status-label", "maxSteps": 24, "description": "Analysez les données d'usage, identifiez les frictions et validez par les KPIs.", "action": "ref", "actionParam": "K1" },
+        { "cardId": "analytics-card", "icon": "bar-chart-2", "title": "K - Usage & Productivité", "infoTitle": "Voir les réflexes K", "statusId": "analytics-status-label", "maxSteps": 24, "description": "Analysez les données d'usage, identifiez les frictions et validez par les KPIs.", "action": "ref", "actionParam": "K1" },
         { "cardId": "kpi-card", "icon": "line-chart", "title": "L - Suivi & Données", "infoTitle": "Voir les réflexes L", "statusId": "kpi-status-label", "maxSteps": 24, "description": "Suivez les indicateurs clés, pilotez la performance et construisez des tableaux de bord décisionnels.", "action": "ref", "actionParam": "L1" }
       ]
     }
@@ -76,7 +76,7 @@
     "Atelier 2 - Cadrage Product",
     "Atelier 3 - Vision Product",
     "Atelier 4 - Support Product",
-    "Atelier 5 - Recherche &amp; Développement",
+    "Atelier 5 - Innovation Product",
     "Atelier 6 - Data Product"
   ],
   "workshops": {
@@ -302,14 +302,14 @@
     },
     "6-k": {
       "key": "analytics",
-      "title": "K - Analytics &amp; Productivité",
-      "h1": "K - Analytics &amp; <span class='text-slate-800'>Productivité</span>",
+      "title": "K - Usage &amp; Productivité",
+      "h1": "K - Usage &amp; <span class='text-slate-800'>Productivité</span>",
       "subtitle": "Mesurer et optimiser le parcours utilisateur et l'efficacité opérationnelle.",
       "themeClass": "data-theme",
-      "badge": "Réflexe Analytics &amp; Productivité",
+      "badge": "Réflexe Usage &amp; Productivité",
       "icon": "bar-chart-2",
       "emoji": "📊",
-      "resetConfirm": "toute votre progression d'Analytics &amp; Productivité",
+      "resetConfirm": "toute votre progression d'Usage &amp; Productivité",
       "phase1Label": "Orientation",
       "phase2Label": "Réponse",
       "phase2Info": "Choisissez l'action d'analytics ou d'optimisation à droite ➡️",
@@ -356,7 +356,7 @@
     "H": "Réflexe H - Assistance &amp; Connaissance",
     "I": "Réflexe I - Veille &amp; Adoption",
     "J": "Réflexe J - Test &amp; Learn",
-    "K": "Réflexe Analytics &amp; Productivité",
+    "K": "Réflexe Usage &amp; Productivité",
     "L": "Réflexe Suivi &amp; Données"
   },
   "reflexIcons": {

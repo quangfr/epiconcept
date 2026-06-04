@@ -39,6 +39,8 @@
 
 ## 5. Structures JSON
 
+**Règle `&` vs `&amp;`** : Dans les fichiers `.json`, toujours utiliser `&` littéral (pas `&amp;`). Les valeurs JSON sont insérées via `textContent`, pas `innerHTML` — les entités HTML ne seraient pas décodées et s'afficheraient littéralement (`&amp;` visible dans l'UI). Dans les fichiers `.html`, utiliser `&amp;` (contenu HTML statique).
+
 | Fichier | Top-level | `icon` | `scenarios[]` | `explVisual` |
 |---------|-----------|--------|---------------|--------------|
 | **1-a (PO)** | `[]` | Non | `{text, problemVisual, correct, wrong, expl}` | Oui |
@@ -100,7 +102,7 @@
 - **H** (Assist) : badge `"Réflexe H - Assistance & Connaissance"`, icône `icon \|\| "book-open"`.
 - **I** (Veille) : badge `"Réflexe Veille & Adoption"`, icône `"search"`.
 - **J** (Test & Learn) : badge `"Réflexe Test & Learn"`, icône `"flask"`.
-- **K** (Analytics) : badge `"Réflexe Analytics & Productivité"`, icône `"bar-chart-2"`.
+- **K** (Usage) : badge `"Réflexe Usage & Productivité"`, icône `"bar-chart-2"`.
 - **L** (KPIs) : badge `"Réflexe KPIs & Dashboard"`, icône `"database"`.
 
 **Modal DOM** : `#ref-examples-container` → `#ref-examples-list`. `#ref-visuals-container` → `#ref-visuals-list`.
