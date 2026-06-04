@@ -614,7 +614,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.04.05';
+        const APP_VERSION = '2026.06.04.06';
         let EPICO_CONFIG = null;
 
         async function loadEpicoConfig() {
@@ -2221,8 +2221,11 @@
                 noteRow.className = 'profile-note-row';
                 var noteKey = 'profile-note-' + theme.letter;
                 var savedNote = localStorage.getItem(noteKey) || '';
-                noteRow.innerHTML = '<td colspan="4" style="padding: 0.35rem 0.6rem;"><textarea data-note-key="' + noteKey + '" placeholder="Note ' + theme.name + '" style="width:100%;min-height:2.5em;border:1px solid #cbd5e1;border-radius:6px;padding:0.4rem 0.5rem;font-size:0.75rem;color:#334155;background:#f8fafc;resize:vertical;box-sizing:border-box;outline:none;font-family:inherit;" oninput="localStorage.setItem(this.getAttribute(\'data-note-key\'), this.value)">' + savedNote.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></td>';
+                noteRow.innerHTML = '<td colspan="4" style="padding: 0.35rem 0.6rem;"><textarea data-note-key="' + noteKey + '" placeholder="Note ' + theme.name + '" style="width:100%;min-height:2.5em;border:1px solid #cbd5e1;border-radius:6px;padding:0.4rem 0.5rem;font-size:0.75rem;color:#334155;background:#f8fafc;resize:none;overflow:hidden;box-sizing:border-box;outline:none;font-family:inherit;" oninput="this.style.height=\'auto\';this.style.height=this.scrollHeight+\'px\';localStorage.setItem(this.getAttribute(\'data-note-key\'), this.value)">' + savedNote.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></td>';
                 tbody.appendChild(noteRow);
+                // Auto-expand to fit saved content
+                var ta = noteRow.querySelector('textarea');
+                if (ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
             });
 
             if (window.lucide) {
