@@ -5,6 +5,7 @@
 - **Hub** : `index.html` (Hub + Lesson Modal + Ref Modal). Tous les ateliers via `exo.html?id={X}-{y}`.
 - **Data** : JSON en lecture seule via `fetch`. Bypass cache : `?v=` + timestamp.
 - **Slides** : `{1..6}-0.md` (format Marp-like, séparateur `\n---\n`).
+- **Serveur de test** : Le simulateur tourne localement sur le port `5500` (ex: `http://localhost:5500/index.html`). Toujours utiliser le port 5500 pour les outils de navigation/Playwright.
 
 ## 2. Directives UI & Frontend
 - **Style** : Tailwind CSS (CDN) + `style.css` (partagés, `.shake`, `.correct`).

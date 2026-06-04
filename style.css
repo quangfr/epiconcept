@@ -2297,6 +2297,11 @@
         overflow: visible !important;
     }
     
+    .profile-grid-container {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    
     #profile-grid-modal button,
     #profile-grid-modal .print-hide {
         display: none !important;
@@ -2326,25 +2331,24 @@
         print-color-adjust: exact;
     }
     
-    .eval-pill {
-        border: 1px solid #000 !important;
-        color: #000 !important;
-        background: none !important;
+    .eval-btn {
+        border: 1.5px solid #000 !important;
+        background: transparent !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
     
-    .eval-pill.active-decouverte {
+    .eval-btn.active.eval-decouverte {
         background: #bfdbfe !important;
         font-weight: bold !important;
     }
     
-    .eval-pill.active-maitrise {
+    .eval-btn.active.eval-encours {
         background: #fde68a !important;
         font-weight: bold !important;
     }
     
-    .eval-pill.active-reflexe {
+    .eval-btn.active.eval-maitrise {
         background: #a7f3d0 !important;
         font-weight: bold !important;
     }
