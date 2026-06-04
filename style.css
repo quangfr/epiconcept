@@ -2237,9 +2237,8 @@
     border-color: #93c5fd;
 }
 .eval-btn.eval-decouverte.active {
-    background: #eff6ff;
-    border-color: #3b82f6;
-    box-shadow: inset 0 0 0 4px #3b82f6;
+    background: #3b82f6 !important;
+    border-color: #2563eb !important;
 }
 
 /* En cours (Amber/Yellow) */
@@ -2247,9 +2246,8 @@
     border-color: #fde68a;
 }
 .eval-btn.eval-encours.active {
-    background: #fffbeb;
-    border-color: #f59e0b;
-    box-shadow: inset 0 0 0 4px #f59e0b;
+    background: #f59e0b !important;
+    border-color: #d97706 !important;
 }
 
 /* Maitrise (Emerald) */
@@ -2257,9 +2255,20 @@
     border-color: #a7f3d0;
 }
 .eval-btn.eval-maitrise.active {
-    background: #ecfdf5;
-    border-color: #10b981;
-    box-shadow: inset 0 0 0 4px #10b981;
+    background: #10b981 !important;
+    border-color: #059669 !important;
+}
+
+.eval-btn.active::after {
+    content: "✓";
+    font-size: 11px;
+    font-weight: 900;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
 }
 
 /* Media query for print styling */
