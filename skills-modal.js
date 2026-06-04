@@ -1,16 +1,16 @@
 const REFLEX_WORKSHOP_MAP = {
-    'A': { file: '1-a', key: 'po', title: 'PO - Besoins Utilisateurs', badge: 'Réflexe PO', icon: 'target' },
-    'B': { file: '1-b', key: 'ux', title: 'UX - Ergonomie UX/UI', badge: 'Réflexe UX', icon: 'mouse-pointer-click' },
-    'C': { file: '2-c', key: 'c', title: 'Support & Client', badge: 'Réflexe Support', icon: 'headset' },
-    'D': { file: '2-d', key: 'd', title: 'Évolutions & Specs', badge: 'Réflexe Spécs', icon: 'sparkles' },
-    'E': { file: '3-e', key: 'e', title: 'Pilotage & Roadmap', badge: 'Réflexe Roadmap', icon: 'mountain' },
-    'F': { file: '3-f', key: 'f', title: 'Exploration terrain', badge: 'Réflexe Features', icon: 'telescope' },
-    'G': { file: '4-g', key: 'g', title: 'Diagnostic & Résolution', badge: 'Réflexe Diagnostic & Résolution', icon: 'headset' },
-    'H': { file: '4-h', key: 'h', title: 'Assistance & Connaissance', badge: 'Réflexe Assistance & Connaissance', icon: 'book-open' },
-    'I': { file: '5-i', key: 'i', title: 'Veille & Adoption', badge: 'Réflexe Veille & Adoption', icon: 'search' },
-    'J': { file: '5-j', key: 'j', title: 'Test & Learn', badge: 'Réflexe Test & Learn', icon: 'flask' },
-    'K': { file: '6-k', key: 'k', title: 'Usage & Productivité', badge: 'Réflexe Usage & Productivité', icon: 'bar-chart-2' },
-    'L': { file: '6-l', key: 'l', title: 'Suivi & Données', badge: 'Réflexe KPIs & Dashboard', icon: 'database' }
+    'A': { file: '1-a', key: 'po', title: 'PO - Besoins Utilisateurs', label: 'A - PO - Besoins Utilisateurs', badge: 'Réflexe PO', icon: 'target' },
+    'B': { file: '1-b', key: 'ux', title: 'UX - Ergonomie UX/UI', label: 'B - UX - Ergonomie UX/UI', badge: 'Réflexe UX', icon: 'mouse-pointer-click' },
+    'C': { file: '2-c', key: 'c', title: 'Support & Client', label: 'C - Support & Client', badge: 'Réflexe Support', icon: 'headset' },
+    'D': { file: '2-d', key: 'd', title: 'Évolutions & Specs', label: 'D - Évolutions & Specs', badge: 'Réflexe Spécs', icon: 'sparkles' },
+    'E': { file: '3-e', key: 'e', title: 'Pilotage & Roadmap', label: 'E - Pilotage & Roadmap', badge: 'Réflexe Roadmap', icon: 'mountain' },
+    'F': { file: '3-f', key: 'f', title: 'Exploration terrain', label: 'F - Exploration terrain', badge: 'Réflexe Features', icon: 'telescope' },
+    'G': { file: '4-g', key: 'g', title: 'Diagnostic & Résolution', label: 'G - Diagnostic & Résolution', badge: 'Réflexe Diagnostic & Résolution', icon: 'headset' },
+    'H': { file: '4-h', key: 'h', title: 'Assistance & Connaissance', label: 'H - Assistance & Connaissance', badge: 'Réflexe Assistance & Connaissance', icon: 'book-open' },
+    'I': { file: '5-i', key: 'i', title: 'Veille & Adoption', label: 'I - Veille & Adoption', badge: 'Réflexe Veille & Adoption', icon: 'search' },
+    'J': { file: '5-j', key: 'j', title: 'Test & Learn', label: 'J - Test & Learn', badge: 'Réflexe Test & Learn', icon: 'flask' },
+    'K': { file: '6-k', key: 'k', title: 'Usage & Productivité', label: 'K - Usage & Productivité', badge: 'Réflexe Usage & Productivité', icon: 'bar-chart-2' },
+    'L': { file: '6-l', key: 'l', title: 'Suivi & Données', label: 'L - Suivi & Données', badge: 'Réflexe KPIs & Dashboard', icon: 'database' }
 };
 
 const LETTERS = Object.keys(REFLEX_WORKSHOP_MAP);
@@ -82,7 +82,7 @@ function _renderReflexContent(letter, focusRefId) {
 
     if (titleSel) {
         titleSel.innerHTML = LETTERS.map(function(l) {
-            return '<option value="' + l + '">' + REFLEX_WORKSHOP_MAP[l].title + '</option>';
+            return '<option value="' + l + '">' + REFLEX_WORKSHOP_MAP[l].label + '</option>';
         }).join('');
         titleSel.value = letter;
     }
