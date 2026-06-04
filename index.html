@@ -115,10 +115,6 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 1 - Design Thinking</h2>
-
-                            <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="dt-status-label">0 / 8</span></div>
-                            </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
                             <p class="card-description"
@@ -199,11 +195,6 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 2- Produit Minimum Viable</h2>
-
-                            <div
-                                style="margin-left: auto; display:flex; flex-direction: column; align-items:flex-end; gap:0.25rem;">
-                                <div class="card-status"><span id="mvp-status-label">0 / 7</span></div>
-                            </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
@@ -290,10 +281,6 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 3 - Product Backlog</h2>
-
-                            <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="road-slides-status-label">0 / 7</span></div>
-                            </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto; margin-bottom: 1rem;">
                             <p class="card-description"
@@ -379,10 +366,6 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 4 - Service-Level-Agreement</h2>
-
-                            <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="gsup-slides-status-label">0 / 0</span></div>
-                            </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
@@ -468,10 +451,6 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 5 - Recherche &amp; Développement</h2>
-
-                            <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="lean-slides-status-label">0 / 7</span></div>
-                            </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
@@ -557,10 +536,6 @@
                             <h2
                                 style="font-size: 0.82rem; font-weight: 900; margin: 0; line-height: 1.2; text-transform: uppercase; letter-spacing: -0.02em;">
                                 6 - Data Driven</h2>
-
-                            <div style="margin-left: auto; flex-shrink: 0;">
-                                <div class="card-status"><span id="analytics-slides-status-label">0 / 7</span></div>
-                            </div>
                         </div>
                         <div class="card-body-content" style="padding-top: 0; min-height: auto;">
                             <p class="card-description"
@@ -724,8 +699,7 @@
             parent.style.setProperty('--progress', `${percent}%`);
 
             let color, accent;
-            const isLessonLabel = ['dt-status-label', 'mvp-status-label', 'road-slides-status-label', 'gsup-slides-status-label', 'lean-slides-status-label', 'analytics-slides-status-label'].includes(labelEl.id);
-            if (percent === 100 || (isLessonLabel && y > 0 && x >= y - 1)) {
+            if (percent === 100) {
                 color = 'green';
                 accent = '#10b981';
             } else if (percent === 0) {
@@ -987,48 +961,6 @@
             const kpiLabel = document.getElementById('kpi-status-label');
             if (kpiLabel) {
                 window.updateCardStatusBadge(kpiLabel, totalKpiScore, maxKpiScore);
-            }
-
-            const savedLean = localStorage.getItem('veille-last-slide');
-            const leanSlideIdx = savedLean ? parseInt(savedLean, 10) : -1;
-            const leanSlidesStatusLabel = document.getElementById('lean-slides-status-label');
-            if (leanSlidesStatusLabel) {
-                window.updateCardStatusBadge(leanSlidesStatusLabel, leanSlideIdx + 1, 7);
-            }
-
-            const savedDt = localStorage.getItem('design-thinking-last-slide');
-            const dtSlideIdx = savedDt ? parseInt(savedDt, 10) : -1;
-            const dtStatusLabel = document.getElementById('dt-status-label');
-            if (dtStatusLabel) {
-                window.updateCardStatusBadge(dtStatusLabel, dtSlideIdx + 1, 8);
-            }
-
-            const savedMvp = localStorage.getItem('mvp-last-slide');
-            const mvpSlideIdx = savedMvp ? parseInt(savedMvp, 10) : -1;
-            const mvpStatusLabel = document.getElementById('mvp-status-label');
-            if (mvpStatusLabel) {
-                window.updateCardStatusBadge(mvpStatusLabel, mvpSlideIdx + 1, 7);
-            }
-
-            const savedRoadSlides = localStorage.getItem('roadmap-last-slide');
-            const roadSlidesIdx = savedRoadSlides ? parseInt(savedRoadSlides, 10) : -1;
-            const roadSlidesStatusLabel = document.getElementById('road-slides-status-label');
-            if (roadSlidesStatusLabel) {
-                window.updateCardStatusBadge(roadSlidesStatusLabel, roadSlidesIdx + 1, 10);
-            }
-
-            const savedGsupSlides = localStorage.getItem('gsup-last-slide');
-            const gsupSlidesIdx = savedGsupSlides ? parseInt(savedGsupSlides, 10) : -1;
-            const gsupSlidesStatusLabel = document.getElementById('gsup-slides-status-label');
-            if (gsupSlidesStatusLabel) {
-                window.updateCardStatusBadge(gsupSlidesStatusLabel, gsupSlidesIdx + 1, 6);
-            }
-
-            const savedAnalyticsSlides = localStorage.getItem('analytics-last-slide');
-            const analyticsSlidesIdx = savedAnalyticsSlides ? parseInt(savedAnalyticsSlides, 10) : -1;
-            const analyticsSlidesStatusLabel = document.getElementById('analytics-slides-status-label');
-            if (analyticsSlidesStatusLabel) {
-                window.updateCardStatusBadge(analyticsSlidesStatusLabel, analyticsSlidesIdx + 1, 7);
             }
 
             // Update individual atelier progress gauges (exercise scores)
@@ -1568,19 +1500,6 @@
             if (leftEdge) leftEdge.style.display = currentSlide > 0 ? '' : 'none';
             if (rightEdge) rightEdge.style.display = currentSlide < slides.length - 1 ? '' : 'none';
 
-            // Update progress badge on the card status dot
-            if (slides.length > 0) {
-                let statusLabelId = 'dt-status-label';
-                if (currentAtelierId === 2) statusLabelId = 'mvp-status-label';
-                else if (currentAtelierId === 3) statusLabelId = 'road-slides-status-label';
-                else if (currentAtelierId === 4) statusLabelId = 'gsup-slides-status-label';
-                else if (currentAtelierId === 5) statusLabelId = 'lean-slides-status-label';
-                else if (currentAtelierId === 6) statusLabelId = 'analytics-slides-status-label';
-                const statusLabel = document.getElementById(statusLabelId);
-                if (statusLabel) {
-                    window.updateCardStatusBadge(statusLabel, currentSlide + 1, slides.length);
-                }
-            }
         }
 
         document.addEventListener('keydown', (e) => {
