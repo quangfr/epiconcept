@@ -2064,7 +2064,6 @@
                 align-items: center !important;
                 box-sizing: border-box !important;
             }
-
             #header-level-selector {
                 height: 100% !important;
                 padding: 0 !important;
@@ -2113,3 +2112,231 @@
                 max-height: 62vh !important;
             }
         }
+
+/* Profile Progress Grid Modal CSS */
+.profile-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.profile-grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.profile-grid-table th, .profile-grid-table td {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.profile-grid-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+}
+
+.profile-theme-row {
+    background: rgba(30, 58, 138, 0.04) !important;
+    font-weight: 800;
+    color: #1e3a8a;
+    font-size: 0.85rem;
+}
+
+.profile-category-row {
+    background: rgba(15, 23, 42, 0.01) !important;
+    font-weight: 700;
+    color: #475569;
+    font-size: 0.78rem;
+    padding-left: 1.5rem !important;
+}
+
+.profile-reflex-row td:first-child {
+    padding-left: 2rem;
+    font-weight: 600;
+}
+
+/* Tooltip styles */
+.profile-tooltip-trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    cursor: help;
+    transition: color 0.2s;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+}
+
+.profile-tooltip-trigger:hover {
+    color: #1e3a8a;
+}
+
+.profile-tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0f172a;
+    color: #ffffff;
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    line-height: 1.4;
+    width: 250px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 10005;
+    opacity: 0;
+    transition: opacity 0.25s, visibility 0.25s;
+    pointer-events: none;
+}
+
+.profile-tooltip-trigger:hover .profile-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Evaluation buttons */
+.eval-pill-group {
+    display: inline-flex;
+    gap: 0.35rem;
+}
+
+.eval-pill {
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.eval-pill:hover {
+    background: #f1f5f9;
+    color: #334155;
+    border-color: #cbd5e1;
+}
+
+.eval-pill.active-decouverte {
+    background: #eff6ff !important;
+    border-color: #bfdbfe !important;
+    color: #1d4ed8 !important;
+    box-shadow: 0 2px 4px rgba(29, 78, 216, 0.05);
+}
+
+.eval-pill.active-maitrise {
+    background: #fffbeb !important;
+    border-color: #fde68a !important;
+    color: #b45309 !important;
+    box-shadow: 0 2px 4px rgba(180, 83, 9, 0.05);
+}
+
+.eval-pill.active-reflexe {
+    background: #ecfdf5 !important;
+    border-color: #a7f3d0 !important;
+    color: #047857 !important;
+    box-shadow: 0 2px 4px rgba(4, 120, 87, 0.05);
+}
+
+/* Media query for print styling */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    #profile-grid-modal, #profile-grid-modal * {
+        visibility: visible;
+    }
+    
+    #profile-grid-modal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100% !important;
+        height: auto !important;
+        background: white !important;
+        padding: 0 !important;
+        display: block !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    #profile-grid-modal .skills-modal-card {
+        background: white !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    
+    #profile-grid-modal button,
+    #profile-grid-modal .print-hide {
+        display: none !important;
+    }
+    
+    .profile-grid-table {
+        font-size: 10pt !important;
+        width: 100% !important;
+        border: 1px solid #000 !important;
+    }
+    
+    .profile-grid-table th, 
+    .profile-grid-table td {
+        border: 1px solid #000 !important;
+        padding: 4pt 6pt !important;
+    }
+    
+    .profile-theme-row {
+        background: #f1f5f9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .profile-category-row {
+        background: #f8fafc !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .eval-pill {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        background: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .eval-pill.active-decouverte {
+        background: #bfdbfe !important;
+        font-weight: bold !important;
+    }
+    
+    .eval-pill.active-maitrise {
+        background: #fde68a !important;
+        font-weight: bold !important;
+    }
+    
+    .eval-pill.active-reflexe {
+        background: #a7f3d0 !important;
+        font-weight: bold !important;
+    }
+}

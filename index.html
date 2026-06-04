@@ -57,6 +57,10 @@
                         class="cursor-pointer" style="background: none; border: none; outline: none; padding: 0;">
                         <i data-lucide="info" style="width: 20px; height: 20px; color: #64748b;"></i>
                     </button>
+                    <button onclick="openProfileModal()" aria-label="Grille de progression des réflexes" title="Mon Profil & Progression"
+                        class="cursor-pointer" style="background: none; border: none; outline: none; padding: 0; margin-left: 8px;">
+                        <i data-lucide="user" style="width: 20px; height: 20px; color: #64748b;"></i>
+                    </button>
                 </div>
                 <p class="subtitle" id="desc" data-i18n="app-subtitle">
                     Développez vos réflexes Product chez Epiconcept
@@ -1617,6 +1621,11 @@
                     closeSkillsRefModal();
                     return;
                 }
+                const profileModal = document.getElementById('profile-grid-modal');
+                if (profileModal && profileModal.style.display === 'flex') {
+                    closeProfileModal();
+                    return;
+                }
             }
 
             const lessonSkillsModal = document.getElementById('lesson-skills-modal');
@@ -1746,44 +1755,48 @@
         let skillsSlidesDataCache = {};
         let skillsTouchstartX = 0;
         let skillsTouchendX = 0;
+
+        async function ensureReflexesData() {
+            if (reflexesData) return;
+            const v = new Date().getTime();
+            const [poRes, uxRes, cRes, dRes, eRes, fRes, gRes, hRes, iRes, jRes, kRes, lRes] = await Promise.all([
+                fetch('1-a.json?v=' + v),
+                fetch('1-b.json?v=' + v),
+                fetch('2-c.json?v=' + v),
+                fetch('2-d.json?v=' + v),
+                fetch('3-e.json?v=' + v),
+                fetch('3-f.json?v=' + v),
+                fetch('4-g.json?v=' + v),
+                fetch('4-h.json?v=' + v),
+                fetch('5-i.json?v=' + v),
+                fetch('5-j.json?v=' + v),
+                fetch('6-k.json?v=' + v),
+                fetch('6-l.json?v=' + v)
+            ]);
+            const cRaw = await cRes.json();
+            reflexesData = {
+                po: await poRes.json(),
+                ux: await uxRes.json(),
+                c: cRaw.value || cRaw,
+                d: await dRes.json(),
+                e: await eRes.json(),
+                f: await fRes.json(),
+                g: await gRes.json(),
+                h: await hRes.json(),
+                i: await iRes.json(),
+                j: await jRes.json(),
+                k: await kRes.json(),
+                l: await lRes.json()
+            };
+        }
+
         async function showRef(reflexId) {
-            if (!reflexesData) {
-                try {
-                    const v = new Date().getTime();
-                    const [poRes, uxRes, cRes, dRes, eRes, fRes, gRes, hRes, iRes, jRes, kRes, lRes] = await Promise.all([
-                        fetch('1-a.json?v=' + v),
-                        fetch('1-b.json?v=' + v),
-                        fetch('2-c.json?v=' + v),
-                        fetch('2-d.json?v=' + v),
-                        fetch('3-e.json?v=' + v),
-                        fetch('3-f.json?v=' + v),
-                        fetch('4-g.json?v=' + v),
-                        fetch('4-h.json?v=' + v),
-                        fetch('5-i.json?v=' + v),
-                        fetch('5-j.json?v=' + v),
-                        fetch('6-k.json?v=' + v),
-                        fetch('6-l.json?v=' + v)
-                    ]);
-                    const cRaw = await cRes.json();
-                    reflexesData = {
-                        po: await poRes.json(),
-                        ux: await uxRes.json(),
-                        c: cRaw.value || cRaw,
-                        d: await dRes.json(),
-                        e: await eRes.json(),
-                        f: await fRes.json(),
-                        g: await gRes.json(),
-                        h: await hRes.json(),
-                        i: await iRes.json(),
-                        j: await jRes.json(),
-                        k: await kRes.json(),
-                        l: await lRes.json()
-                    };
-                } catch (e) {
-                    console.error("Error loading reflex data:", e);
-                    alert("Erreur de chargement des données de référence.");
-                    return;
-                }
+            try {
+                await ensureReflexesData();
+            } catch (e) {
+                console.error("Error loading reflex data:", e);
+                alert("Erreur de chargement des données de référence.");
+                return;
             }
 
             let title = "";
@@ -2123,6 +2136,192 @@
             if (modal) modal.style.display = 'none';
         }
 
+        // Profile Progress Grid Modal Javascript
+        const THEMES_MAPPING = [
+            { key: 'po', letter: 'A', name: 'A - Besoins Utilisateurs', atelierId: 1, slideIndex: 0 },
+            { key: 'ux', letter: 'B', name: 'B - Ergonomie UX/UI', atelierId: 1, slideIndex: 1 },
+            { key: 'c', letter: 'C', name: 'C - Support & Client', atelierId: 2, slideIndex: 0 },
+            { key: 'd', letter: 'D', name: 'D - Évolutions & Specs', atelierId: 2, slideIndex: 1 },
+            { key: 'e', letter: 'E', name: 'E - Pilotage & Roadmap', atelierId: 3, slideIndex: 0 },
+            { key: 'f', letter: 'F', name: 'F - Exploration terrain', atelierId: 3, slideIndex: 1 },
+            { key: 'g', letter: 'G', name: 'G - Diagnostic & Résolution', atelierId: 4, slideIndex: 0 },
+            { key: 'h', letter: 'H', name: 'H - Assistance & Connaissance', atelierId: 4, slideIndex: 1 },
+            { key: 'i', letter: 'I', name: 'I - Veille & Adoption', atelierId: 5, slideIndex: 0 },
+            { key: 'j', letter: 'J', name: 'J - Test & Learn', atelierId: 5, slideIndex: 1 },
+            { key: 'k', letter: 'K', name: 'K - Usage & Productivité', atelierId: 6, slideIndex: 0 },
+            { key: 'l', letter: 'L', name: 'L - Suivi & Données', atelierId: 6, slideIndex: 1 }
+        ];
+
+        async function ensureSkillsSlidesData() {
+            const files = ['1-0.md', '2-0.md', '3-0.md', '4-0.md', '5-0.md', '6-0.md'];
+            const v = new Date().getTime();
+            for (let i = 0; i < files.length; i++) {
+                const atelierId = i + 1;
+                if (!skillsSlidesDataCache[atelierId]) {
+                    try {
+                        const res = await fetch(files[i] + '?v=' + v);
+                        skillsSlidesDataCache[atelierId] = parseMarp(await res.text());
+                    } catch (e) {
+                        console.error('Error loading ' + files[i] + ':', e);
+                    }
+                }
+            }
+        }
+
+        function extractCategoriesAndReflexes(slide) {
+            const categories = [];
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = slide.content;
+
+            const h4s = tempDiv.querySelectorAll('h4');
+            h4s.forEach(h4 => {
+                const categoryTitle = h4.textContent.trim();
+                let card = h4;
+                while (card && card !== tempDiv && !card.querySelector('[onclick*="showRef"]')) {
+                    card = card.parentElement;
+                }
+                
+                if (card && card !== tempDiv) {
+                    const reflexes = [];
+                    const refEls = card.querySelectorAll('[onclick*="showRef"]');
+                    refEls.forEach(ref => {
+                        const match = ref.getAttribute('onclick').match(/showRef\('([^']+)'\)/);
+                        if (match) {
+                            reflexes.push(match[1]);
+                        }
+                    });
+                    if (reflexes.length > 0) {
+                        categories.push({
+                            title: categoryTitle,
+                            reflexIds: reflexes
+                        });
+                    }
+                }
+            });
+            return categories;
+        }
+
+        function renderProfileGrid() {
+            const tbody = document.getElementById('profile-grid-body');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            THEMES_MAPPING.forEach(theme => {
+                const themeRow = document.createElement('tr');
+                themeRow.className = 'profile-theme-row';
+                themeRow.innerHTML = `
+                    <td colspan="2">
+                        Thème ${theme.name}
+                    </td>
+                `;
+                tbody.appendChild(themeRow);
+
+                const slides = skillsSlidesDataCache[theme.atelierId];
+                if (!slides) return;
+                const slide = slides[slides.length - 2 + theme.slideIndex];
+                if (!slide) return;
+
+                const categories = extractCategoriesAndReflexes(slide);
+                categories.forEach(cat => {
+                    const catRow = document.createElement('tr');
+                    catRow.className = 'profile-category-row';
+                    catRow.innerHTML = `
+                        <td colspan="2">
+                            ${cat.title}
+                        </td>
+                    `;
+                    tbody.appendChild(catRow);
+
+                    cat.reflexIds.forEach(refId => {
+                        const key = theme.key;
+                        const dataArray = reflexesData[key] || [];
+                        const reflex = dataArray.find(r => r.id === refId);
+                        const reflexTitle = reflex ? reflex.title : '';
+                        const reflexIntent = reflex ? (reflex.intent || '') : '';
+
+                        const row = document.createElement('tr');
+                        row.className = 'profile-reflex-row';
+
+                        const savedLevel = localStorage.getItem('progress-grid-' + refId) || '';
+
+                        row.innerHTML = `
+                            <td style="vertical-align: middle;">
+                                <span style="font-weight: 700; color: var(--color-primary);">${refId}</span> - ${reflexTitle}
+                                ${reflexIntent ? `
+                                <span class="profile-tooltip-trigger">
+                                    <i data-lucide="info" style="width: 14px; height: 14px;"></i>
+                                    <span class="profile-tooltip">
+                                        <strong>Intention :</strong><br>${reflexIntent}
+                                    </span>
+                                </span>` : ''}
+                            </td>
+                            <td style="text-align: center; vertical-align: middle;">
+                                <div class="eval-pill-group">
+                                    <button class="eval-pill ${savedLevel === 'decouverte' ? 'active-decouverte' : ''}" onclick="toggleEval('${refId}', 'decouverte')">Découverte</button>
+                                    <button class="eval-pill ${savedLevel === 'maitrise' ? 'active-maitrise' : ''}" onclick="toggleEval('${refId}', 'maitrise')">Maîtrise</button>
+                                    <button class="eval-pill ${savedLevel === 'reflexe' ? 'active-reflexe' : ''}" onclick="toggleEval('${refId}', 'reflexe')">Réflexe</button>
+                                </div>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                });
+            });
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        function toggleEval(refId, level) {
+            const current = localStorage.getItem('progress-grid-' + refId);
+            if (current === level) {
+                localStorage.removeItem('progress-grid-' + refId);
+            } else {
+                localStorage.setItem('progress-grid-' + refId, level);
+            }
+            renderProfileGrid();
+        }
+
+        async function openProfileModal() {
+            const modal = document.getElementById('profile-grid-modal');
+            if (!modal) return;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            const tbody = document.getElementById('profile-grid-body');
+            tbody.innerHTML = `<tr><td colspan="2" style="text-align:center; padding: 2rem; font-weight: bold; color: #64748b;">Chargement de la grille de progression...</td></tr>`;
+
+            try {
+                await ensureReflexesData();
+                await ensureSkillsSlidesData();
+                renderProfileGrid();
+            } catch (e) {
+                console.error("Error loading profile data:", e);
+                tbody.innerHTML = `<tr><td colspan="2" style="text-align:center; padding: 2rem; font-weight: bold; color: #ef4444;">Erreur de chargement des données.</td></tr>`;
+            }
+
+            const handler = (e) => { 
+                if (e.key === 'Escape') { 
+                    closeProfileModal(); 
+                    document.removeEventListener('keydown', handler); 
+                } 
+            };
+            document.addEventListener('keydown', handler);
+        }
+
+        function closeProfileModal() {
+            const modal = document.getElementById('profile-grid-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+
+        function printProfileGrid() {
+            window.print();
+        }
+
     </script>
 
     <!-- Info Modal -->
@@ -2234,6 +2433,54 @@
                 <div id="skills-visuals-list" style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
                     <!-- Filled dynamically -->
                 </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Profile Grid Modal -->
+    <div id="profile-grid-modal" class="skills-modal-overlay"
+        style="display: none; position: fixed; inset: 0; z-index: 10001; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; transition: opacity 0.3s ease; padding: 1rem; box-sizing: border-box;">
+        <div class="skills-modal-card"
+            style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15); max-width: 950px; width: 95%; max-height: 90vh;">
+            
+            <!-- Modal Controls -->
+            <button onclick="closeProfileModal()" class="print-hide"
+                style="position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;"
+                onmouseover="this.style.color='#0f172a'" onmouseout="this.style.color='#64748b'">
+                <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+            </button>
+
+            <!-- Header / Title & Print -->
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-right: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Évaluation Personnelle</span>
+                        <h3 style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">Grille de progression des Réflexes</h3>
+                    </div>
+                </div>
+                <button onclick="printProfileGrid()" class="print-hide bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 cursor-pointer transition-colors" style="border: 1px solid rgba(15,23,42,0.06);">
+                    <i data-lucide="printer" style="width: 14px; height: 14px;"></i>
+                    <span>Imprimer / PDF</span>
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="profile-grid-container" style="max-height: calc(90vh - 120px); overflow-y: auto;">
+                <table class="profile-grid-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 55%;">Réflexe</th>
+                            <th style="width: 45%; text-align: center;">Niveau de Maîtrise</th>
+                        </tr>
+                    </thead>
+                    <tbody id="profile-grid-body">
+                        <!-- Filled dynamically -->
+                    </tbody>
+                </table>
             </div>
 
         </div>
