@@ -614,7 +614,7 @@
 
     <!-- Script to Load Score and Progress dynamically -->
     <script>
-        const APP_VERSION = '2026.06.04.03';
+        const APP_VERSION = '2026.06.04.04';
         let EPICO_CONFIG = null;
 
         async function loadEpicoConfig() {
@@ -2198,23 +2198,31 @@
                             </td>
                             <td style="text-align: center; vertical-align: middle; padding: 0;">
                                 <label style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 28px; cursor: pointer; margin: 0; padding: 0.3rem 0.5rem;">
-                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-decouverte" ${actualLevel === 'decouverte' ? 'checked' : ''} onclick="toggleEval('${refId}', 'decouverte')" aria-label="Découverte">
+                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-decouverte" ${actualLevel === 'decouverte' ? 'checked' : ''} onclick="toggleEval('${refId}', 'decouverte')" aria-label="Je découvre">
                                 </label>
                             </td>
                             <td style="text-align: center; vertical-align: middle; padding: 0;">
                                 <label style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 28px; cursor: pointer; margin: 0; padding: 0.3rem 0.5rem;">
-                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-encours" ${actualLevel === 'encours' ? 'checked' : ''} onclick="toggleEval('${refId}', 'encours')" aria-label="En cours">
+                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-encours" ${actualLevel === 'encours' ? 'checked' : ''} onclick="toggleEval('${refId}', 'encours')" aria-label="Je progresse">
                                 </label>
                             </td>
                             <td style="text-align: center; vertical-align: middle; padding: 0;">
                                 <label style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 28px; cursor: pointer; margin: 0; padding: 0.3rem 0.5rem;">
-                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-maitrise" ${actualLevel === 'maitrise' ? 'checked' : ''} onclick="toggleEval('${refId}', 'maitrise')" aria-label="Maîtrise">
+                                    <input type="radio" name="radio-${refId}" class="eval-radio eval-maitrise" ${actualLevel === 'maitrise' ? 'checked' : ''} onclick="toggleEval('${refId}', 'maitrise')" aria-label="Je maîtrise">
                                 </label>
                             </td>
                         `;
                         tbody.appendChild(row);
                     });
                 });
+
+                // Note textarea for this theme
+                var noteRow = document.createElement('tr');
+                noteRow.className = 'profile-note-row';
+                var noteKey = 'profile-note-' + theme.letter;
+                var savedNote = localStorage.getItem(noteKey) || '';
+                noteRow.innerHTML = '<td colspan="4" style="padding: 0.35rem 0.6rem;"><textarea data-note-key="' + noteKey + '" placeholder="Note ' + theme.name + '" style="width:100%;min-height:2.5em;border:1px solid #cbd5e1;border-radius:6px;padding:0.4rem 0.5rem;font-size:0.75rem;color:#334155;background:#f8fafc;resize:vertical;box-sizing:border-box;outline:none;font-family:inherit;" oninput="localStorage.setItem(this.getAttribute(\'data-note-key\'), this.value)">' + savedNote.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</textarea></td>';
+                tbody.appendChild(noteRow);
             });
 
             if (window.lucide) {
@@ -2280,6 +2288,13 @@
 
         function downloadProfileGrid() {
             let tableEl = document.querySelector('.profile-grid-table');
+
+            // Sync textarea values into innerHTML before serialization
+            var liveTextareas = tableEl.querySelectorAll('textarea');
+            for (var ti = 0; ti < liveTextareas.length; ti++) {
+                liveTextareas[ti].innerHTML = liveTextareas[ti].value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
             let tableHtml = tableEl.outerHTML;
 
             // Copy radio states from the live DOM before serializing
@@ -2287,9 +2302,7 @@
             const states = [];
             radios.forEach(r => states.push(r.checked));
 
-            // Re-serialize with checked states and replace radios with crosses
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(tableHtml, 'text/html');
+            // Replace radios with checkmarks
             const clonedRadios = doc.querySelectorAll('input[type="radio"]');
             clonedRadios.forEach((r, i) => {
                 if (states[i]) {
@@ -2297,6 +2310,12 @@
                 } else {
                     r.outerHTML = '';
                 }
+            });
+            // Convert textareas to styled divs for Word
+            const clonedTextareas = doc.querySelectorAll('textarea');
+            clonedTextareas.forEach(ta => {
+                var val = ta.textContent || '';
+                ta.outerHTML = '<div style="border:1px solid #cbd5e1;border-radius:4px;padding:4px 6px;font-size:9pt;color:#334155;background:#f8fafc;min-height:2em;white-space:pre-wrap;">' + val + '</div>';
             });
             let finalTableHtml = doc.body.innerHTML;
 
@@ -2475,8 +2494,8 @@
             <!-- Header / Title & Print -->
             <div style="display: flex; align-items: center; justify-content: space-between; padding-right: 1rem;">
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <div style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                        <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+                    <div style="background: rgba(30, 58, 138, 0.08); color: var(--color-primary); width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="user" style="width: 32px; height: 32px;"></i>
                     </div>
                     <div>
                         <span style="font-size: 0.65rem; font-weight: 800; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;">Évaluation Personnelle</span>
@@ -2494,10 +2513,10 @@
                 <table class="profile-grid-table">
                     <thead>
                         <tr>
-                            <th style="width: 55%; position: sticky; top: 0; z-index: 10;">Réflexe</th>
-                            <th style="width: 15%; text-align: center; position: sticky; top: 0; z-index: 10;">Découverte</th>
-                            <th style="width: 15%; text-align: center; position: sticky; top: 0; z-index: 10;">En cours</th>
-                            <th style="width: 15%; text-align: center; position: sticky; top: 0; z-index: 10;">Maîtrise</th>
+                            <th style="width: 55%; position: sticky; top: 0; z-index: 10;">Compétences</th>
+                            <th style="width: 15%; text-align: center; position: sticky; top: 0; z-index: 10;">Je découvre</th>
+                            <th style="width: 15%; text-align: center; position: sticky; top: 0; z-index: 10;">Je progresse</th>
+                            <th style="width: 15%; text-align: center; position: sticky; top: 0; z-index: 10;">Je maîtrise</th>
                         </tr>
                     </thead>
                     <tbody id="profile-grid-body">
