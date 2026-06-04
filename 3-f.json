@@ -95,7 +95,7 @@
   {
     "id": "F2",
     "title": "Filtrer et qualifier l'adéquation problème-solution",
-    "intent": "Évaluer la valeur clinique et le volume réel des demandes pour rejeter fermement les fonctionnalités gadgets ou hors-sujet.",
+    "intent": "Évaluer la valeur métier et le volume réel des demandes pour rejeter fermement les fonctionnalités gadgets ou hors-sujet.",
     "icon": "filter",
     "scenarios": [
       {

@@ -95,7 +95,7 @@
   {
     "id": "K2",
     "title": "Chiffrer les gains pour l'entreprise",
-    "intent": "Traduire les optimisations logicielles en gains concrets de temps de secrétariat, d'économies de santé et de réduction des délais de prise en charge.",
+    "intent": "Traduire les optimisations logicielles en gains concrets de temps, d'économies et de réduction des délais de traitement.",
     "icon": "wallet",
     "scenarios": [
       {
@@ -188,7 +188,7 @@
   {
     "id": "K3",
     "title": "Segmenter les utilisateurs par comportement",
-    "intent": "Regrouper les acteurs (médecins, CRDC, patientes) selon leur usage effectif du logiciel pour adresser des réponses ciblées.",
+    "intent": "Regrouper les acteurs (utilisateurs, clients) selon leur usage effectif du logiciel pour adresser des réponses ciblées.",
     "icon": "users",
     "scenarios": [
       {
@@ -281,7 +281,7 @@
   {
     "id": "K4",
     "title": "Analyser les frictions du parcours",
-    "intent": "Repérer les étapes précises du logiciel où les patients, médecins ou secrétaires rencontrent des blocages ou abandonnent leur action.",
+    "intent": "Repérer les étapes précises du logiciel où les utilisateurs rencontrent des blocages ou abandonnent leur action.",
     "icon": "alert-triangle",
     "scenarios": [
       {
@@ -374,7 +374,7 @@
   {
     "id": "K5",
     "title": "Tester les variantes du parcours",
-    "intent": "Utiliser des tests comparatifs (A/B testing) pour valider scientifiquement les choix d'ergonomie et de communication auprès des patients et des soignants.",
+    "intent": "Utiliser des tests comparatifs (A/B testing) pour valider scientifiquement les choix d'ergonomie et de communication auprès des utilisateurs.",
     "icon": "git-compare",
     "scenarios": [
       {

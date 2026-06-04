@@ -281,7 +281,7 @@
   {
     "id": "B11",
     "title": "Épurer la présentation visuelle",
-    "intent": "Utiliser un design épuré et minimaliste où la couleur est réservée aux statuts et alertes cliniques majeures.",
+    "intent": "Utiliser un design épuré et minimaliste où la couleur est réservée aux statuts et alertes majeures.",
     "scenarios": [
       {
         "text": "La file de travail affiche une palette criarde : Dossiers clos en bleu, en cours en vert, en attente en jaune, à relire en violet. Elle souhaite calmer ce bruit visuel en rendant l'interface totalement sobre et monochrome, pour que seule l'action prioritaire et critique ('À relire') soit mise en valeur par une couleur d'accentuation ciblée.",
@@ -746,7 +746,7 @@
   {
     "id": "B10",
     "title": "Sécuriser les données sensibles",
-    "intent": "Protéger par défaut le secret médical (RGPD) en garantissant la sécurité des accès, le moindre privilège et la traçabilité des modifications.",
+    "intent": "Protéger par défaut les données sensibles (RGPD) en garantissant la sécurité des accès, le moindre privilège et la traçabilité des modifications.",
     "scenarios": [
       {
         "text": "Pour se connecter à ESIS-3D en dehors de l'hôpital, le médecin saisit son identifiant et mot de passe. Toutefois, un pirate informatique pourrait facilement intercepter ces identifiants de base. Pour sécuriser l'accès à la base de données de santé contre les vols d'identité, le système doit exiger un second facteur de sécurité temporaire (MFA via code OTP ou notification sur application) lors de la détection d'une connexion extérieure.",
@@ -932,7 +932,7 @@
   {
     "id": "B13",
     "title": "Collaborer avec l'assistant IA",
-    "intent": "Intégrer l'intelligence artificielle (agents conversationnels, lecture de documents, analyse de données) pour accélérer le traitement clinique sans jamais imposer de décision.",
+    "intent": "Intégrer l'intelligence artificielle (agents conversationnels, lecture de documents, analyse de données) pour accélérer le traitement métier sans jamais imposer de décision.",
     "scenarios": [
       {
         "text": "Le médecin recherche des consignes cliniques précises ou des aides à la cotation dans les manuels officiels sans perdre de temps dans les dossiers. Il souhaite un chatbot d'assistance qui répond de manière personnalisée sur la base des règles du dépistage.",

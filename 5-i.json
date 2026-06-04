@@ -745,8 +745,8 @@
   },
   {
     "id": "I5",
-    "title": "Tester les outils en conditions réelles",
-    "intent": "Évaluer une solution sur un cas concret avant de s'engager avec un fournisseur.",
+    "title": "Comparer et tester les outils tiers",
+    "intent": "Comparer et tester les outils en conditions réelles avant de s'engager avec un fournisseur.",
     "icon": "flask",
     "scenarios": [
       {

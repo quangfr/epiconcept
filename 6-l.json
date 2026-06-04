@@ -2,7 +2,7 @@
   {
     "id": "L1",
     "title": "Intégrer un outil BI aux données",
-    "intent": "Centraliser et valoriser les données issues de la production (dépistages), du développement (Jira) et de la relation client (CRM) pour piloter l'activité de santé publique.",
+    "intent": "Centraliser et valoriser les données issues de la production, du développement (Jira) et de la relation client (CRM) pour piloter l'activité métier.",
     "icon": "database",
     "scenarios": [
       {
@@ -95,7 +95,7 @@
   {
     "id": "L4",
     "title": "Arbitrer par les indicateurs business",
-    "intent": "Prendre des décisions de priorisation objectives basées sur l'effort de développement, les économies générées pour les CRDCs et l'impact sur la santé publique.",
+    "intent": "Prendre des décisions de priorisation objectives basées sur l'effort de développement, les économies générées pour les clients et l'impact métier.",
     "icon": "pie-chart",
     "scenarios": [
       {
@@ -280,8 +280,8 @@
   },
   {
     "id": "L7",
-    "title": "Valider la qualité des données santé",
-    "intent": "S'assurer de la conformité, de l'exactitude et de la complétude des données de santé dès leur intégration pour garantir la fiabilité des décisions cliniques et administratives.",
+    "title": "Valider la qualité des données métier",
+    "intent": "S'assurer de la conformité, de l'exactitude et de la complétude des données métier dès leur intégration pour garantir la fiabilité des décisions.",
     "icon": "shield-check",
     "scenarios": [
       {
@@ -467,7 +467,7 @@
   {
     "id": "L8",
     "title": "Garantir l'anonymisation des données",
-    "intent": "Sécuriser les exports de données médicales à des fins de recherche scientifique en appliquant des protocoles d'anonymisation stricts et en respectant le RGPD.",
+    "intent": "Sécuriser les exports de données sensibles à des fins de recherche en appliquant des protocoles d'anonymisation stricts et en respectant le RGPD.",
     "icon": "shield",
     "scenarios": [
       {
@@ -560,7 +560,7 @@
   {
     "id": "L3",
     "title": "Mesurer la performance du parcours métier",
-    "intent": "Suivre, analyser et optimiser les temps d'attente à chaque étape clé du dépistage pour éviter la perte de chance des patients.",
+    "intent": "Suivre, analyser et optimiser les temps d'attente à chaque étape clé du processus pour éviter la perte de chances.",
     "icon": "activity",
     "scenarios": [
       {
