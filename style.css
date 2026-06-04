@@ -2220,10 +2220,8 @@
     display: block;
     outline: none;
 }
-
-/* Custom accent colors for levels */
 .eval-radio.eval-decouverte {
-    accent-color: #3b82f6;
+    accent-color: #94a3b8;
 }
 .eval-radio.eval-encours {
     accent-color: #f59e0b;
