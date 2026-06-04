@@ -2135,12 +2135,16 @@
 }
 
 .profile-grid-table th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     background: #f8fafc;
     color: #475569;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.7rem;
     letter-spacing: 0.05em;
+    border-bottom: 2px solid rgba(15, 23, 42, 0.08);
 }
 
 .profile-theme-row {
@@ -2207,50 +2211,55 @@
     opacity: 1;
 }
 
-/* Evaluation buttons */
-.eval-pill-group {
-    display: inline-flex;
-    gap: 0.35rem;
-}
-
-.eval-pill {
-    padding: 0.2rem 0.55rem;
-    border-radius: 9999px;
-    font-size: 0.68rem;
-    font-weight: 700;
-    border: 1px solid #e2e8f0;
+/* Evaluation Circle Buttons */
+.eval-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
     background: #f8fafc;
-    color: #64748b;
     cursor: pointer;
-    transition: all 0.2s ease;
-    user-select: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    outline: none;
 }
 
-.eval-pill:hover {
-    background: #f1f5f9;
-    color: #334155;
+.eval-btn:hover {
+    transform: scale(1.1);
     border-color: #cbd5e1;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-.eval-pill.active-decouverte {
-    background: #eff6ff !important;
-    border-color: #bfdbfe !important;
-    color: #1d4ed8 !important;
-    box-shadow: 0 2px 4px rgba(29, 78, 216, 0.05);
+/* Decouverte (Blue) */
+.eval-btn.eval-decouverte:hover {
+    border-color: #93c5fd;
+}
+.eval-btn.eval-decouverte.active {
+    background: #eff6ff;
+    border-color: #3b82f6;
+    box-shadow: inset 0 0 0 4px #3b82f6;
 }
 
-.eval-pill.active-maitrise {
-    background: #fffbeb !important;
-    border-color: #fde68a !important;
-    color: #b45309 !important;
-    box-shadow: 0 2px 4px rgba(180, 83, 9, 0.05);
+/* En cours (Amber/Yellow) */
+.eval-btn.eval-encours:hover {
+    border-color: #fde68a;
+}
+.eval-btn.eval-encours.active {
+    background: #fffbeb;
+    border-color: #f59e0b;
+    box-shadow: inset 0 0 0 4px #f59e0b;
 }
 
-.eval-pill.active-reflexe {
-    background: #ecfdf5 !important;
-    border-color: #a7f3d0 !important;
-    color: #047857 !important;
-    box-shadow: 0 2px 4px rgba(4, 120, 87, 0.05);
+/* Maitrise (Emerald) */
+.eval-btn.eval-maitrise:hover {
+    border-color: #a7f3d0;
+}
+.eval-btn.eval-maitrise.active {
+    background: #ecfdf5;
+    border-color: #10b981;
+    box-shadow: inset 0 0 0 4px #10b981;
 }
 
 /* Media query for print styling */
