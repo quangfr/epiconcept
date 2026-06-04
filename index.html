@@ -2383,121 +2383,67 @@
             }
         }
 
-        function printProfileGrid() {
-            const printWindow = window.open('', '_blank');
-            if (!printWindow) {
-                alert("Veuillez autoriser les fenêtres contextuelles (popups) pour pouvoir imprimer la grille.");
-                return;
-            }
-            
-            let tableHtml = document.querySelector('.profile-grid-table').outerHTML;
-            
+        function downloadProfileGrid() {
+            let tableEl = document.querySelector('.profile-grid-table');
+            let tableHtml = tableEl.outerHTML;
+
+            // Copy radio states from the live DOM before serializing
+            const radios = tableEl.querySelectorAll('input[type="radio"]');
+            const states = [];
+            radios.forEach(r => states.push(r.checked));
+
+            // Re-serialize with checked states
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(tableHtml, 'text/html');
+            const clonedRadios = doc.querySelectorAll('input[type="radio"]');
+            clonedRadios.forEach((r, i) => {
+                if (states[i]) r.setAttribute('checked', 'checked');
+            });
+            let finalTableHtml = doc.body.innerHTML;
+
             const html = `
-                <!DOCTYPE html>
-                <html>
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
                 <head>
-                    <title>Grille de compétences - GO EPICO</title>
                     <meta charset="utf-8">
+                    <title>Grille de compétences - GO EPICO</title>
+                    <!--[if gte mso 9]>
+                    <xml>
+                        <w:WordDocument>
+                            <w:View>Print</w:View>
+                        </w:WordDocument>
+                    </xml>
+                    <![endif]-->
                     <style>
-                        body {
-                            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
-                            color: #0f172a;
-                            padding: 20px;
-                            background: white;
-                        }
-                        h1 {
-                            font-size: 20px;
-                            margin-bottom: 5px;
-                            text-transform: uppercase;
-                            color: #1e3a8a;
-                        }
-                        h2 {
-                            font-size: 14px;
-                            color: #64748b;
-                            margin-top: 0;
-                            margin-bottom: 20px;
-                        }
-                        .profile-grid-table {
-                            width: 100%;
-                            border-collapse: collapse;
-                            font-size: 10pt;
-                        }
-                        .profile-grid-table th, .profile-grid-table td {
-                            border: 1px solid #cbd5e1;
-                            padding: 6px 8px;
-                            text-align: left;
-                        }
-                        .profile-grid-table th {
-                            background: #f8fafc;
-                            font-weight: bold;
-                            text-transform: uppercase;
-                            font-size: 8pt;
-                        }
-                        .profile-theme-row {
-                            background: #f1f5f9 !important;
-                            font-weight: bold;
-                            color: #1e3a8a;
-                            font-size: 11pt;
-                            -webkit-print-color-adjust: exact;
-                            print-color-adjust: exact;
-                        }
-                        .profile-category-row {
-                            background: #f8fafc !important;
-                            font-weight: bold;
-                            color: #475569;
-                            -webkit-print-color-adjust: exact;
-                            print-color-adjust: exact;
-                        }
-                        .profile-reflex-row td:first-child {
-                            padding-left: 15px;
-                        }
-                        /* Radio buttons print styling */
-                        input[type="radio"] {
-                            width: 16px;
-                            height: 16px;
-                            margin: 0 auto;
-                            display: block;
-                            accent-color: #1e3a8a;
-                        }
-                        .profile-tooltip-trigger {
-                            display: none !important;
-                        }
+                        body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; color: #0f172a; padding: 20px; }
+                        h1 { font-size: 20px; margin-bottom: 5px; text-transform: uppercase; color: #1e3a8a; }
+                        h2 { font-size: 14px; color: #64748b; margin-top: 0; margin-bottom: 20px; }
+                        table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+                        th, td { border: 1px solid #cbd5e1; padding: 6px 8px; text-align: left; }
+                        th { background: #f8fafc; font-weight: bold; text-transform: uppercase; font-size: 8pt; }
+                        .profile-theme-row { background: #f1f5f9; font-weight: bold; color: #1e3a8a; font-size: 11pt; }
+                        .profile-category-row { background: #f8fafc; font-weight: bold; color: #475569; }
+                        .profile-reflex-row td:first-child { padding-left: 15px; }
+                        input[type="radio"] { width: 16px; height: 16px; margin: 0 auto; display: block; }
+                        .profile-tooltip-trigger { display: none; }
                     </style>
                 </head>
                 <body>
                     <h1>Grille de compétences</h1>
                     <h2>GO EPICO - Simulateur de réflexes Product</h2>
-                    ${tableHtml}
-                    <script>
-                        window.onload = function() {
-                            const parentRadios = window.opener.document.querySelectorAll('.profile-grid-table input[type="radio"]');
-                            const printRadios = document.querySelectorAll('.profile-grid-table input[type="radio"]');
-                            parentRadios.forEach((pr, idx) => {
-                                if (pr.checked) {
-                                    printRadios[idx].checked = true;
-                                } else {
-                                    printRadios[idx].style.display = 'none'; // Only print checked/active radio buttons for better readability
-                                }
-                            });
-                            
-                            // Hide inputs that are unchecked completely to make it super clean on print
-                            printRadios.forEach(radio => {
-                                if (!radio.checked) {
-                                    // replace unchecked inputs with a light empty circle or hide
-                                    radio.style.opacity = '0.1';
-                                }
-                            });
-
-                            window.print();
-                            setTimeout(() => { window.close(); }, 500);
-                        }
-                    <\/script>
+                    ${finalTableHtml}
                 </body>
                 </html>
             `;
-            
-            printWindow.document.write(html);
-            printWindow.document.close();
+
+            const blob = new Blob(['\uFEFF' + html], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Grille_Competences_GO_EPICO.doc';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
     </script>
@@ -2622,7 +2568,7 @@
             style="background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(255, 255, 255, 0.6); overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; position: relative; scrollbar-width: thin; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15); max-width: 950px; width: 95%; max-height: 90vh;">
             
             <!-- Modal Controls -->
-            <button onclick="closeProfileModal()" class="print-hide"
+            <button onclick="closeProfileModal()"
                 style="position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: #64748b; padding: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;"
                 onmouseover="this.style.color='#0f172a'" onmouseout="this.style.color='#64748b'">
                 <i data-lucide="x" style="width: 16px; height: 16px;"></i>
@@ -2639,9 +2585,9 @@
                         <h3 style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin: 0;">Grille de compétences</h3>
                     </div>
                 </div>
-                <button onclick="printProfileGrid()" class="print-hide bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 cursor-pointer transition-colors" style="border: 1px solid rgba(15,23,42,0.06);">
-                    <i data-lucide="printer" style="width: 14px; height: 14px;"></i>
-                    <span>Imprimer / PDF</span>
+                <button onclick="downloadProfileGrid()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 cursor-pointer transition-colors" style="border: 1px solid rgba(15,23,42,0.06);">
+                    <i data-lucide="file-down" style="width: 14px; height: 14px;"></i>
+                    <span>Télécharger Word</span>
                 </button>
             </div>
 
