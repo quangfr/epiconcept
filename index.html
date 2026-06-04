@@ -2294,14 +2294,14 @@
                                     </span>
                                 </span>` : ''}
                             </td>
-                            <td style="text-align: center; vertical-align: middle;">
-                                <input type="radio" name="radio-${refId}" class="eval-radio eval-decouverte" ${actualLevel === 'decouverte' ? 'checked' : ''} onclick="toggleEval('${refId}', 'decouverte')" aria-label="Découverte">
+                            <td style="text-align: center; vertical-align: middle; cursor: pointer;" onclick="toggleEval('${refId}', 'decouverte')">
+                                <input type="radio" name="radio-${refId}" class="eval-radio eval-decouverte" ${actualLevel === 'decouverte' ? 'checked' : ''} style="pointer-events: none;" aria-label="Découverte">
                             </td>
-                            <td style="text-align: center; vertical-align: middle;">
-                                <input type="radio" name="radio-${refId}" class="eval-radio eval-encours" ${actualLevel === 'encours' ? 'checked' : ''} onclick="toggleEval('${refId}', 'encours')" aria-label="En cours">
+                            <td style="text-align: center; vertical-align: middle; cursor: pointer;" onclick="toggleEval('${refId}', 'encours')">
+                                <input type="radio" name="radio-${refId}" class="eval-radio eval-encours" ${actualLevel === 'encours' ? 'checked' : ''} style="pointer-events: none;" aria-label="En cours">
                             </td>
-                            <td style="text-align: center; vertical-align: middle;">
-                                <input type="radio" name="radio-${refId}" class="eval-radio eval-maitrise" ${actualLevel === 'maitrise' ? 'checked' : ''} onclick="toggleEval('${refId}', 'maitrise')" aria-label="Maîtrise">
+                            <td style="text-align: center; vertical-align: middle; cursor: pointer;" onclick="toggleEval('${refId}', 'maitrise')">
+                                <input type="radio" name="radio-${refId}" class="eval-radio eval-maitrise" ${actualLevel === 'maitrise' ? 'checked' : ''} style="pointer-events: none;" aria-label="Maîtrise">
                             </td>
                         `;
                         tbody.appendChild(row);
@@ -2370,7 +2370,120 @@
         }
 
         function printProfileGrid() {
-            window.print();
+            const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                alert("Veuillez autoriser les fenêtres contextuelles (popups) pour pouvoir imprimer la grille.");
+                return;
+            }
+            
+            let tableHtml = document.querySelector('.profile-grid-table').outerHTML;
+            
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Grille de compétences - GO EPICO</title>
+                    <meta charset="utf-8">
+                    <style>
+                        body {
+                            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+                            color: #0f172a;
+                            padding: 20px;
+                            background: white;
+                        }
+                        h1 {
+                            font-size: 20px;
+                            margin-bottom: 5px;
+                            text-transform: uppercase;
+                            color: #1e3a8a;
+                        }
+                        h2 {
+                            font-size: 14px;
+                            color: #64748b;
+                            margin-top: 0;
+                            margin-bottom: 20px;
+                        }
+                        .profile-grid-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            font-size: 10pt;
+                        }
+                        .profile-grid-table th, .profile-grid-table td {
+                            border: 1px solid #cbd5e1;
+                            padding: 6px 8px;
+                            text-align: left;
+                        }
+                        .profile-grid-table th {
+                            background: #f8fafc;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            font-size: 8pt;
+                        }
+                        .profile-theme-row {
+                            background: #f1f5f9 !important;
+                            font-weight: bold;
+                            color: #1e3a8a;
+                            font-size: 11pt;
+                            -webkit-print-color-adjust: exact;
+                            print-color-adjust: exact;
+                        }
+                        .profile-category-row {
+                            background: #f8fafc !important;
+                            font-weight: bold;
+                            color: #475569;
+                            -webkit-print-color-adjust: exact;
+                            print-color-adjust: exact;
+                        }
+                        .profile-reflex-row td:first-child {
+                            padding-left: 15px;
+                        }
+                        /* Radio buttons print styling */
+                        input[type="radio"] {
+                            width: 16px;
+                            height: 16px;
+                            margin: 0 auto;
+                            display: block;
+                            accent-color: #1e3a8a;
+                        }
+                        .profile-tooltip-trigger {
+                            display: none !important;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>Grille de compétences</h1>
+                    <h2>GO EPICO - Simulateur de réflexes Product</h2>
+                    ${tableHtml}
+                    <script>
+                        window.onload = function() {
+                            const parentRadios = window.opener.document.querySelectorAll('.profile-grid-table input[type="radio"]');
+                            const printRadios = document.querySelectorAll('.profile-grid-table input[type="radio"]');
+                            parentRadios.forEach((pr, idx) => {
+                                if (pr.checked) {
+                                    printRadios[idx].checked = true;
+                                } else {
+                                    printRadios[idx].style.display = 'none'; // Only print checked/active radio buttons for better readability
+                                }
+                            });
+                            
+                            // Hide inputs that are unchecked completely to make it super clean on print
+                            printRadios.forEach(radio => {
+                                if (!radio.checked) {
+                                    // replace unchecked inputs with a light empty circle or hide
+                                    radio.style.opacity = '0.1';
+                                }
+                            });
+
+                            window.print();
+                            setTimeout(() => { window.close(); }, 500);
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `;
+            
+            printWindow.document.write(html);
+            printWindow.document.close();
         }
 
     </script>
