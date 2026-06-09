@@ -568,7 +568,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Sprint de 4 Semaines Prévu</div><div class=\"flex justify-between items-center text-[8px] font-bold text-slate-700 bg-red-50 p-1.5 rounded\"><span>S1: Dev</span><span>➔</span><span>S2: Dev</span><span>➔</span><span>S3: Dev</span><span>➔</span><span>S4: Dev</span></div><div class=\"text-[8px] text-red-650 font-bold mt-1\">⚠️ Aucune période de test globale : Livraison risquée</div></div>",
         "correct": {
           "title": "Sanctuariser la période de stabilisation",
-          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Sprint Sécurisé (Marge 20%)</div><div class=\"flex justify-between items-center text-[7px] font-black text-slate-700 bg-white p-1 rounded border\"><span>S1: Dev</span><span>➔</span><span>S2: Dev</span><span>➔</span><span>S3: Dev</span><span>➔</span><span class=\"bg-slate-100 text-slate-800 px-1 rounded\">S4: Recette &amp; Bugfix</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Derniers 20% dédiés à la stabilisation : Zéro stress</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Sprint Sécurisé (Marge 20%)</div><div class=\"flex justify-between items-center text-[7px] font-black text-slate-700 bg-white p-1 rounded border\"><span>S1: Dev</span><span>➔</span><span>S2: Dev</span><span>➔</span><span>S3: Dev</span><span>➔</span><span class=\"bg-slate-100 text-slate-800 px-1 rounded\">S4: Recette & Bugfix</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Derniers 20% dédiés à la stabilisation : Zéro stress</div></div>",
           "expl": "Ne planifier aucun nouveau code dans les derniers 20% du calendrier d'un jalon, les dédier uniquement aux tests et corrections.",
           "debriefExpl": "Sanctuariser la période de stabilisation garantit que le produit livré le jour J est robuste et exempt de bugs majeurs.",
           "icon": "shield"
@@ -596,7 +596,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Chiffrage Écran Suivi</div><div class=\"bg-red-50 border p-1 rounded text-[8px] font-black text-slate-800 flex justify-between\"><span>Dev Écran :</span><span class=\"text-red-700\">3 jours calendaires (0 marge)</span></div></div>",
         "correct": {
           "title": "Inclure l'intégration et le déploiement dans les estimations",
-          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Chiffrage Complet</div><div class=\"bg-white border p-1.5 rounded text-[8px] font-black text-slate-800 flex flex-col gap-0.5\"><div>🛠 Dev : 3 jours</div><div>🧪 Recette &amp; Déploiement : 1 jour</div><div class=\"text-slate-700 font-bold\">Total : 4 jours</div></div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Chiffrage Complet</div><div class=\"bg-white border p-1.5 rounded text-[8px] font-black text-slate-800 flex flex-col gap-0.5\"><div>🛠 Dev : 3 jours</div><div>🧪 Recette & Déploiement : 1 jour</div><div class=\"text-slate-700 font-bold\">Total : 4 jours</div></div></div>",
           "expl": "Ne pas chiffrer uniquement le temps d'écriture du code, y ajouter systématiquement le temps de test et de mise en ligne.",
           "debriefExpl": "Inclure l'intégration dans l'estimation évite la mauvaise surprise du 'code fini mais non déployable'.",
           "icon": "plus-circle"
@@ -838,8 +838,8 @@
   },
   {
     "id": "E11",
-    "title": "Aligner la technique terrain",
-    "intent": "Faire tester l'outil en bac à sable et valider formellement la mise en service avec le support et la documentation prêts.",
+    "title": "Sécuriser la mise en production",
+    "intent": "Faire tester l'outil en bac à sable et s'assurer de l'accompagnement des utilisateurs et de la documentation adéquate",
     "icon": "rocket",
     "scenarios": [
       {
@@ -847,7 +847,7 @@
         "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Lancement Lundi 8h</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ Zéro documentation - Support non prévenu</div><div class=\"text-[7px] text-red-650\">⚠️ Risque extrême de panique et de surcharge du support</div></div>",
         "correct": {
           "title": "Rédiger la documentation en parallèle du code",
-          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Livraison Documentée</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800 flex justify-between\"><span>Aide en ligne &amp; Guide PDF :</span><span class=\"text-slate-700\">Disponibles le jour J ✅</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Secrétaires formées et autonomes grâce au guide de démarrage</div></div>",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Livraison Documentée</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800 flex justify-between\"><span>Aide en ligne & Guide PDF :</span><span class=\"text-slate-700\">Disponibles le jour J ✅</span></div><div class=\"text-[7px] text-slate-600 font-bold\">Secrétaires formées et autonomes grâce au guide de démarrage</div></div>",
           "expl": "Avoir les guides d'utilisation et la base de connaissances prêts et publiés en même temps que la fin des développements.",
           "debriefExpl": "Rédiger la documentation en parallèle évite le rejet du logiciel par les équipes terrain le jour de l'ouverture.",
           "icon": "book-open"
@@ -899,35 +899,35 @@
         "expl": "Manipuler le produit en conditions réelles dans un environnement bac à sable est la seule garantie de succès."
       },
       {
-        "text": "C'est le jour J du déploiement national du dépistage organisé cervical. Le serveur de production de secours n'a pas été configuré, la procédure d'escalade des pannes n'est pas rédigée et les directeurs de centres ne sont pas informés de l'heure d'ouverture.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Lancement National Cervical</div><div class=\"p-1.5 bg-red-100 rounded text-center text-[9px] text-red-800 font-bold\">✗ Lancement sauvage à l'aveugle (Risque maximum)</div></div>",
+        "text": "Lors de la bascule nationale vers le nouveau portail de dépistage, l'équipe s'apprête à couper l'ancienne application du jour au lendemain sans que les secrétaires médicales n'aient été formées à la nouvelle interface ni sensibilisées à la nouvelle organisation.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-red-50/50 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Bascule sans conduite du changement</div><div class=\"bg-red-100 p-2 rounded text-center text-[9px] text-red-800 font-bold\">✗ 500 utilisateurs non formés à la nouvelle interface</div><div class=\"text-[7px] text-red-650\">⚠️ Risque majeur d'arrêt de saisie et de rejet total</div></div>",
         "correct": {
-          "title": "Acter officiellement le \"Go / No-Go\" avec les décideurs",
-          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">COPIL d'arbitrage de lancement</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800\">Copil J-2 : Feu vert technique, support et métier acté</div><div class=\"text-[7px] text-slate-600 font-bold\">Feu vert formel de toutes les équipes : Lancement sécurisé</div></div>",
-          "expl": "Se réunir formellement et valider la mise en production sur la base de critères de réussite clairs et partagés (technique, support, métier).",
-          "debriefExpl": "Acter officiellement le GO/NO-GO responsabilise tous les acteurs et s'assure que le support et l'infrastructure sont prêts pour le choc.",
-          "icon": "shield-alert"
+          "title": "Faire la conduite du changement auprès des utilisateurs",
+          "visual": "<div class=\"w-full bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 relative overflow-hidden\"><div class=\"text-[9px] font-bold text-blue-600 uppercase\">Conduite du Changement</div><div class=\"bg-white border-2 border-slate-200 rounded p-1.5 text-[8px] font-black text-slate-800\">Webinaires de formation & fiches réflexes d'aide à la saisie</div><div class=\"text-[7px] text-slate-600 font-bold\">Adoption sereine : utilisateurs accompagnés et outillés</div></div>",
+          "expl": "Former les utilisateurs finaux et communiquer sur le sens du changement pour faciliter l'adoption du nouvel outil.",
+          "debriefExpl": "Former et guider les utilisateurs en amont désamorce la résistance naturelle au changement et garantit la continuité de la saisie.",
+          "icon": "users"
         },
         "wrong": [
           {
-            "title": "Mettre en ligne discrètement",
-            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Déployer en prod en pleine nuit à 2h</div>",
-            "expl": "Pousser le code en production de manière silencieuse sans en informer le comité de pilotage pour éviter les débats.",
-            "debriefExpl": "Déployer en douce expose le projet à un chaos total en cas de bug si le support n'est pas sur le pont.",
+            "title": "Imposer la nouvelle version sans formation",
+            "visual": "<div class=\"w-full bg-slate-100 p-2.5 text-center text-[9px] text-slate-500\">Bascule directe sans sensibilisation</div>",
+            "expl": "Remplacer l'outil immédiatement et laisser les secrétaires découvrir l'interface seules le jour J.",
+            "debriefExpl": "Une bascule forcée sans accompagnement entraîne une hausse massive du taux de rejet et des erreurs de saisie.",
             "icon": "alert-circle"
           },
           {
-            "title": "Annuler par défaut",
-            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Reporter le lancement par précaution</div>",
-            "expl": "Décaler le lancement de 2 mois par peur de rencontrer des bugs de jeunesse.",
-            "debriefExpl": "Reporter sans raison objective et sans copil d'arbitrage détruit la crédibilité commerciale de l'entreprise.",
-            "icon": "ban"
+            "title": "Fournir uniquement le changelog technique",
+            "visual": "<div class=\"w-full bg-slate-150 p-2.5 text-center text-[9px] text-slate-500\">Envoi de la note de version technique</div>",
+            "expl": "Envoyer par mail la liste brute des commits techniques et corrections de bugs aux centres de dépistage.",
+            "debriefExpl": "Les notes de version techniques sont incompréhensibles pour les secrétaires médicales et ne remplacent pas une vraie formation.",
+            "icon": "file-text"
           }
         ],
-        "expl": "Un arbitrage formel et collectif du GO/NO-GO sécurise le déploiement face aux risques médicaux et opérationnels."
+        "expl": "Un accompagnement structuré et pédagogique garantit une transition fluide et sécurise l'adoption du nouvel outil."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Aligner Terrain</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Validation CRDC pilote</span></div><div class=\"flex items-center gap-1.5 text-[7px] text-slate-500\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5\"></i><span>Sign-off utilisateur requis</span></div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Transition</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><span class=\"font-bold text-slate-600\">Ancien système</span><i data-lucide=\"arrow-right\" class=\"w-2.5 h-2.5 text-amber-500\"></i></div><div class=\"flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><span class=\"font-bold text-slate-800\">Nouveau système</span><span class=\"bg-slate-100 text-slate-700 px-1 py-0.5 rounded text-[7px] font-bold\">Sunset J+30</span></div></div></div>"
   },
   {
     "id": "E12",
