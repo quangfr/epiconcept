@@ -1,8 +1,8 @@
 [
   {
     "id": "L1",
-    "title": "Intégrer un outil BI aux données",
-    "intent": "Centraliser et valoriser les données issues de la production, du développement (Jira) et de la relation client (CRM) pour piloter l'activité métier.",
+    "title": "Intégrer un outil BI aux données de l'application",
+    "intent": "Centraliser et valoriser les données issues de la production pour piloter l'activité métier et le développement",
     "icon": "database",
     "scenarios": [
       {
@@ -373,96 +373,96 @@
   },
   {
     "id": "L2",
-    "title": "Se brancher aux données CRM client",
-    "intent": "Unifier les données clients issues du CRM avec les données d'usage produit pour optimiser la facturation, le support et prévenir le churn des grands comptes.",
+    "title": "S'ouvrir aux interfaces clients ou fournisseurs",
+    "intent": "Récupérer des événements, des informations d'un système tiers en entrée ou pousser des actions en sortie de l'application",
     "icon": "users",
     "scenarios": [
       {
-        "text": "Les agents du service client passent 10 minutes à chaque appel de CRDC à chercher si l'hôpital partenaire dispose d'un contrat actif pour le module colorectal ou sein. L'information contractuelle est cloisonnée dans le CRM HubSpot des commerciaux.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Cloisonnement CRM / Support</div><div class=\"flex justify-between text-[7px]\"><span>Support: Ticket urgent mammo</span><span>VS</span><span>CRM HubSpot: Statut contrat ?</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1.5\">⏳ 10 min de recherche par appel client</div></div>",
+        "text": "Un laboratoire partenaire souhaite transmettre les résultats de frottis utérins directement au CRDC. Actuellement, le secrétariat doit se connecter au portail du laboratoire pour copier-coller les conclusions dans l'application.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Intégration Manuelle Laboratoire</div><div class=\"flex justify-between items-center text-[7px]\"><span>Labo (Fichiers PDF) 📄</span><span>➔</span><span>Copie Manuelle Secrétaire ⏳</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1.5\">Perte de temps et risques de fautes de frappe</div></div>",
         "correct": {
-          "title": "Connecter le CRM à l'outil de helpdesk",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fiche Support Connectée</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>🏥 CH Amiens | Contrat: Actif (Dépistage Colorectal & Sein)</span><span class=\"text-slate-600 font-bold\">Prise en charge ticket immédiate (Zéro recherche)</span></div></div>",
-          "expl": "Afficher les informations contractuelles et le niveau de service du CRM directement sur l'interface du support client.",
-          "debriefExpl": "En connectant HubSpot à l'outil de helpdesk, les agents voient instantanément le statut contractuel du client lors d'un appel ou d'un ticket. Le temps de résolution diminue et la satisfaction client grimpe.",
+          "title": "Déployer une API de réception de résultats",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">API de Réception</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"arrow-right-left\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] text-slate-700\">POST /api/results ➔ <strong class=\"text-emerald-600\">201 Created</strong></span></div></div>",
+          "expl": "Mettre en place un point de terminaison sécurisé (API/Webhook) pour recevoir automatiquement les données structurées des laboratoires en entrée.",
+          "debriefExpl": "En exposant une API sécurisée, le laboratoire pousse directement les résultats de frottis au format standardisé. Plus aucun copier-coller pour le secrétariat, zéro erreur d'intégration et les relances se mettent à jour instantanément.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Donner un accès complet au CRM aux agents support",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Accès CRM Général</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"lock-open\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Les agents naviguent manuellement dans HubSpot</span></div></div>",
-            "expl": "Fournir de nouveaux accès outils complexes sans intégration de flux de travail.",
-            "debriefExpl": "Donner un accès HubSpot force les agents à changer d'application à chaque ticket, ce qui nuit à leur productivité et expose des données commerciales confidentielles inutiles.",
+            "title": "Demander des rapports PDF par e-mail",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Réception PDF</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Fichiers joints PDF ➔ Copie manuelle</span></div></div>",
+            "expl": "Faire envoyer les résultats au format PDF par mail sécurisé pour archivage manuel.",
+            "debriefExpl": "Les PDFs imposent une relecture et une double-saisie manuelle chronophage pour le secrétariat, sans valeur ajoutée.",
             "icon": "x"
           },
           {
-            "title": "Tenir à jour un fichier Excel des contrats actifs",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fichier Contrats Partagé</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"file-spreadsheet\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Excel mis à jour manuellement par les commerciaux</span></div></div>",
-            "expl": "Utiliser un tableur partagé nécessitant des saisies redondantes des ventes.",
-            "debriefExpl": "Le fichier Excel n'est jamais à jour. Les commerciaux oublient d'y inscrire les nouveaux contrats ou les résiliations, générant des conflits de facturation.",
+            "title": "Donner au labo un accès direct à la base",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Accès DB Direct</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"database\" class=\"w-3 h-3 text-red-500 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Connexion directe SQL externe (Risqué)</span></div></div>",
+            "expl": "Autoriser les serveurs du laboratoire à se connecter directement à la base de données de production du CRDC.",
+            "debriefExpl": "Partager un accès direct à la base pose des risques majeurs de sécurité et de corruption des données en cas de panne chez le partenaire.",
             "icon": "x"
           }
         ],
-        "expl": "La synchronisation automatique du CRM avec le support garantit la rapidité de traitement des incidents et la justesse réglementaire des accès."
+        "expl": "Mettre en place un point de terminaison sécurisé (API/Webhook) pour recevoir automatiquement les données structurées des laboratoires en entrée."
       },
       {
-        "text": "L'éditeur facture les hôpitaux au volume réel d'examens de dépistage enregistrés en production. Chaque fin de mois, l'administration de l'éditeur passe 2 jours complets à extraire les rapports SQL et à copier-coller les totaux dans le CRM pour générer les factures.",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Facturation à l'Usage</div><div class=\"flex flex-col gap-0.5 text-[7px]\"><span>Ventes SQL: 124 CHU ➔ Volumes mensuels</span><span class=\"text-red-500 font-bold\">⏳ 2 jours de saisies manuelles répétitives</span></div></div>",
+        "text": "Lorsqu'un frottis est détecté positif, le médecin traitant de la patiente doit en être averti immédiatement. Actuellement, le secrétariat recherche les coordonnées du praticien puis lui envoie un email classique de manière asynchrone.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Notification Asynchrone Médecin</div><div class=\"flex justify-between items-center text-[7px]\"><span>Alerte positive 🚨</span><span>➔</span><span>Recherche &amp; Mail Manuel 📧</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1.5\">Retard potentiel de prise en charge clinique</div></div>",
         "correct": {
-          "title": "Créer un pipeline d'usage automatisé vers le CRM",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Pipeline de Facturation Auto</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Synchro : Base SQL ➔ Propriété HubSpot \"Examens_Mois\"</span><span class=\"text-slate-600 font-bold\">124 factures envoyées automatiquement le 1er du mois</span></div></div>",
-          "expl": "Développer un flux automatisé qui alimente périodiquement le CRM avec les métriques réelles d'usage produit pour automatiser la facturation.",
-          "debriefExpl": "Le pipeline d'usage élimine totalement les 2 jours de saisie administrative par mois, supprime les risques d'erreurs de copie de facturation et accélère la trésorerie de l'éditeur.",
+          "title": "Pousser une alerte via MSSanté",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Messagerie MSSanté</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"send\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] text-slate-700\">Alerte positive envoyée au Dr. Martin</span></div></div>",
+          "expl": "Intégrer un connecteur de sortie pour envoyer automatiquement les comptes-rendus positifs vers la messagerie sécurisée du médecin traitant.",
+          "debriefExpl": "Le connecteur de sortie envoie l'alerte dès la validation médicale du dossier. Le médecin traitant est averti instantanément sur sa messagerie certifiée, lui permettant de planifier le suivi de sa patiente sans délai.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Facturer un forfait fixe mensuel standard",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Changement de Business Model</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"dollar-sign\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Abandonner le paiement à l'acte pour un forfait unique</span></div></div>",
-            "expl": "Modifier le modèle commercial de l'éditeur pour compenser une lacune technique de facturation.",
-            "debriefExpl": "Les petits centres refuseraient de payer le forfait fixe trop élevé pour eux, tandis que les très grands CHU profiteraient d'une sous-facturation massive.",
+            "title": "Envoyer les alertes par SMS standard",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">SMS Standard</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"message-square\" class=\"w-3 h-3 text-red-500 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">SMS non chiffré (Non conforme RGPD)</span></div></div>",
+            "expl": "Programmer un envoi de SMS automatique sur le mobile du médecin traitant avec les détails cliniques.",
+            "debriefExpl": "Envoyer des données de santé nominatives par SMS standard non chiffré viole le RGPD et le secret médical.",
             "icon": "x"
           },
           {
-            "title": "Recruter un alternant pour la saisie comptable",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Assistant Compta</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"user-plus\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un alternant compta dédié aux copier-coller de fin de mois</span></div></div>",
-            "expl": "Résoudre le problème par de la ressource humaine temporaire et peu valorisante.",
-            "debriefExpl": "Recruter coûte de l'argent et n'empêche pas les erreurs de copie. Un script automatique de 20 lignes fait ce travail en 2 secondes sans erreur.",
+            "title": "Imprimer et poster les relances",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Courrier Postal</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"printer\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Affranchissement et envoi postal (⏳ 3 jours)</span></div></div>",
+            "expl": "Imprimer les résultats d'alertes positives pour les envoyer par courrier postal traditionnel au médecin.",
+            "debriefExpl": "Le courrier postal engendre des délais de plusieurs jours et des coûts récurrents d'affranchissement, retardant la prise en charge médicale.",
             "icon": "x"
           }
         ],
-        "expl": "Connecter les données réelles de production (volumes) aux abonnements CRM permet d'automatiser entièrement la facturation à l'usage."
+        "expl": "Intégrer un connecteur de sortie pour envoyer automatiquement les comptes-rendus positifs vers la messagerie sécurisée du médecin traitant."
       },
       {
-        "text": "Un grand CRDC régional a acheté 250 licences d'accès pour ses secrétariats de dépistage. Le CRM HubSpot indique qu'ils ont signé un contrat annuel à 80 000€, mais personne n'a remarqué que les secrétaires ne se sont pas connectées depuis 3 mois, créant un risque majeur de non-renouvellement (churn).",
-        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Risque de Non-Renouvellement</div><div class=\"flex justify-between text-[7px]\"><span>Contrat: 80 000€ / an</span><span class=\"text-red-500 font-bold\">Usage réel: 0 connexion</span></div><div class=\"text-center text-[6px] text-red-500 font-bold mt-1\">Alerte Churn non détectée</div></div>",
+        "text": "Le CRDC souhaite maintenir à jour les cabinets et adresses des praticiens dans son annuaire régional. Actuellement, les coordonnées deviennent rapidement obsolètes, ce qui provoque de nombreux échecs d'envoi de comptes-rendus.",
+        "problemVisual": "<div class=\"w-full border border-red-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Annuaire Non Synchronisé</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>📬 Cabinet Dr. Dupont (Ancienne adresse)</span><span class=\"text-red-500 font-bold\">⚠️ Courriers cliniques retournés NPAI</span></div></div>",
         "correct": {
-          "title": "Déclencher une alerte d'inactivité CRM proactive",
-          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Alerte Proactive Chargé Client</div><div class=\"flex flex-col gap-0.5 text-[6.5px]\"><span>Synchro: Usage J30 = 0 ➔ Alerte HubSpot \"Compte en sommeil\"</span><span class=\"text-slate-600 font-bold\">Action : Le CSM appelle le directeur du CRDC pour formation</span></div></div>",
-          "expl": "Croiser le statut contractuel du CRM avec le taux d'activité réel pour générer des alertes de sous-utilisation automatique à l'attention des CSM.",
-          "debriefExpl": "En reliant l'activité de production à HubSpot, le chargé de clientèle reçoit une alerte immédiate. Il découvre un problème d'accès réseau chez le client et déploie une formation de rattrapage, sauvant le contrat annuel de 80k€.",
+          "title": "Synchroniser l'annuaire avec l'Annuaire Santé National",
+          "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Synchro RPPS</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"refresh-cw\" class=\"w-3 h-3 text-emerald-500 shrink-0\"></i><span class=\"text-[7px] text-slate-700\">Mise à jour en temps réel via l'annuaire RPPS</span></div></div>",
+          "expl": "Se connecter via API en temps réel à l'annuaire national de santé (RPPS) pour vérifier et mettre à jour automatiquement les données des professionnels.",
+          "debriefExpl": "L'application interroge automatiquement la base RPPS nationale. Les adresses des cabinets et statuts d'activité des médecins sont mis à jour sans aucun effort administratif, garantissant la bonne réception des comptes-rendus cliniques.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Attendre l'échéance du contrat pour relancer",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Attente passive</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"calendar\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Attendre la date anniversaire du contrat (M+9)</span></div></div>",
-            "expl": "Ignorer l'inactivité en espérant un renouvellement automatique aveugle.",
-            "debriefExpl": "À l'échéance du contrat, le CRDC refusera catégoriquement de renouveler, mécontent d'avoir payé 80 000€ pour un outil jamais utilisé par ses secrétariats.",
+            "title": "Créer un formulaire de mise à jour annuel",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Enquête Annuelle</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Questionnaire papier envoyé aux cabinets</span></div></div>",
+            "expl": "Envoyer chaque année un questionnaire papier ou en ligne à tous les médecins pour qu'ils déclarent leurs changements.",
+            "debriefExpl": "Les campagnes de mise à jour manuelle ont un taux de réponse très faible (souvent moins de 15%) et le répertoire redevient obsolète après quelques semaines.",
             "icon": "x"
           },
           {
-            "title": "Envoyer un e-mail automatique de relance aux secrétaires",
-            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Relance Auto</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"mail\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Un e-mail type : « Connectez-vous à votre espace ! »</span></div></div>",
-            "expl": "Utiliser un message automatique impersonnel pour traiter une panne d'usage majeure.",
-            "debriefExpl": "L'email automatique sera ignoré par les secrétaires car le blocage est structurel ou technique. Seul un appel humain ciblé du CSM peut débloquer la situation.",
+            "title": "Bloquer l'envoi si l'adresse est invalide",
+            "visual": "<div class=\"w-full border border-slate-200 bg-white rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Suspension d'Envois</div><div class=\"flex items-center gap-1.5 text-[7px]\"><i data-lucide=\"slash\" class=\"w-3 h-3 text-red-500 shrink-0\"></i><span class=\"text-[7px] text-slate-600\">Envoi bloqué suite à un NPAI (Non résolu)</span></div></div>",
+            "expl": "Suspendre simplement les envois vers les cabinets dont le courrier ou l'email a échoué.",
+            "debriefExpl": "Bloquer les envois sans chercher à corriger la destination rompt la continuité des soins et laisse les patientes concernées sans suivi de dossier.",
             "icon": "x"
           }
         ],
-        "expl": "La santé d'un compte client se mesure par son usage réel. Lier l'inactivité produit au CRM permet de sauver les comptes à forte valeur avant qu'il ne soit trop tard."
+        "expl": "Se connecter via API en temps réel à l'annuaire national de santé (RPPS) pour vérifier et mettre à jour automatiquement les données des professionnels."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">CRM</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[8px]\"><i data-lucide=\"users\" class=\"w-2.5 h-2.5 text-slate-600\"></i><span class=\"font-bold text-slate-800\">Données unifiées</span></div><div class=\"text-[7px] text-slate-500 text-center\">Vision 360° du bénéficiaire</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Interfaces</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center justify-between text-[8px]\"><span class=\"bg-slate-50 p-1.5 rounded\">Système Tiers</span><i data-lucide=\"arrow-right-left\" class=\"w-3 h-3 text-slate-400\"></i><span class=\"bg-blue-50 border border-blue-100 p-1.5 rounded font-bold text-blue-800\">Notre App</span></div><div class=\"text-[7px] text-slate-500 text-center\">Flux d'entrée / sortie (API)</div></div></div>"
   },
   {
     "id": "L8",
