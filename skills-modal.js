@@ -31,9 +31,9 @@ function _injectReflexBrowser() {
                 <div class="flex-grow">
                     <select id="reflex-browser-title" onchange="switchReflexBrowserWorkshop(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-sm font-black text-slate-800 uppercase tracking-tight shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800 cursor-pointer"></select>
                 </div>
-                <button onclick="downloadWordExport()" class="bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer shrink-0">
+                <button onclick="downloadWordExport()" class="bg-slate-100 hover:bg-blue-900 text-slate-600 hover:text-white transition-all cursor-pointer font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 border-none shadow-sm shrink-0">
                     <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                    Télécharger Word
+                    Télécharger
                 </button>
             </div>
             <select id="reflex-browser-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
@@ -97,6 +97,11 @@ function _renderReflexContent(letter, focusRefId) {
         selector.innerHTML = '<option value="">-- Aller au Réflexe --</option>';
     }
 
+    // Sort reflexes numerically by ID (e.g. A1...A12)
+    data.sort(function(a, b) {
+        return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
+    });
+
     container.innerHTML = '';
     for (var i = 0; i < data.length; i++) {
         var r = data[i];
@@ -117,7 +122,7 @@ function _renderReflexContent(letter, focusRefId) {
         html += '      <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">' + r.id + ' - ' + r.title + '</h3>';
         html += '    </div>';
         html += '    <div class="flex items-center gap-1.5 text-xs font-bold shrink-0">';
-        html += '      <button onclick="toggleModalEval(\'' + r.id + '\', \'decouverte\')" id="btn-modal-decouverte-' + r.id + '" class="px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer ' + (actualLevel === 'decouverte' ? 'bg-blue-900 text-white border-blue-900' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100') + '">Je découvre</button>';
+        html += '      <button onclick="toggleModalEval(\'' + r.id + '\', \'decouverte\')" id="btn-modal-decouverte-' + r.id + '" class="px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer ' + (actualLevel === 'decouverte' ? 'bg-slate-500 text-white border-slate-500' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100') + '">Je découvre</button>';
         html += '      <button onclick="toggleModalEval(\'' + r.id + '\', \'encours\')" id="btn-modal-encours-' + r.id + '" class="px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer ' + (actualLevel === 'encours' ? 'bg-amber-500 text-white border-amber-500' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100') + '">Je progresse</button>';
         html += '      <button onclick="toggleModalEval(\'' + r.id + '\', \'maitrise\')" id="btn-modal-maitrise-' + r.id + '" class="px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer ' + (actualLevel === 'maitrise' ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100') + '">Je maîtrise</button>';
         html += '    </div>';
@@ -215,7 +220,7 @@ window.toggleModalEval = function(refId, level) {
         btnMaitrise.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100";
         
         if (newLevel === 'decouverte') {
-            btnDecouverte.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-blue-900 text-white border-blue-900";
+            btnDecouverte.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-slate-500 text-white border-slate-500";
         } else if (newLevel === 'encours') {
             btnEncours.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-amber-500 text-white border-amber-500";
         } else if (newLevel === 'maitrise') {
@@ -238,7 +243,6 @@ window.downloadWordExport = async function() {
             h2 { color: #0f172a; font-size: 16px; margin-top: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
             .comp-card { border: 1px solid #cbd5e1; padding: 10px; margin-bottom: 12px; border-radius: 6px; background-color: #f8fafc; }
             .comp-title { font-weight: bold; font-size: 13px; color: #1e293b; }
-            .comp-level { font-style: italic; font-size: 11px; color: #2563eb; margin-bottom: 6px; }
             .sub-comp { margin-left: 12px; margin-bottom: 6px; padding-left: 6px; border-left: 2px solid #cbd5e1; }
             .sub-title { font-weight: bold; font-size: 12px; color: #334155; }
             .sub-desc { font-size: 11px; color: #475569; }
@@ -264,6 +268,11 @@ window.downloadWordExport = async function() {
         }
         
         const data = _reflexDataCache[letter];
+        // Sort reflexes numerically by ID (A1...A12) for Word export
+        data.sort(function(a, b) {
+            return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
+        });
+
         exportHtml += '<div class="theme-section">';
         exportHtml += '<h2>' + ws.label + '</h2>';
         
@@ -278,8 +287,12 @@ window.downloadWordExport = async function() {
             var savedNote = localStorage.getItem(noteKey) || '';
             
             exportHtml += '<div class="comp-card">';
-            exportHtml += '  <div class="comp-title">' + r.id + ' - ' + r.title + '</div>';
-            exportHtml += '  <div class="comp-level">Statut : ' + levelStr + '</div>';
+            exportHtml += '  <table style="width: 100%; border: none; margin-bottom: 6px;">';
+            exportHtml += '    <tr>';
+            exportHtml += '      <td style="font-weight: bold; font-size: 13px; color: #1e293b; border: none; padding: 0; text-align: left;">' + r.id + ' - ' + r.title + '</td>';
+            exportHtml += '      <td style="text-align: right; font-size: 11px; color: #2563eb; border: none; padding: 0; font-weight: bold;">[' + levelStr + ']</td>';
+            exportHtml += '    </tr>';
+            exportHtml += '  </table>';
             
             for (let scen of r.scenarios) {
                 exportHtml += '  <div class="sub-comp">';
