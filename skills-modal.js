@@ -27,8 +27,14 @@ function _injectReflexBrowser() {
     <div class="bg-white rounded-xl shadow-2xl w-full max-w-7xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden relative">
         <button onclick="closeReflexBrowser()" class="absolute top-3 right-3 z-10 text-slate-400 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold" aria-label="Fermer">✕</button>
         <div class="px-4 py-3 sm:px-6 sm:py-4 border-b border-slate-100 bg-slate-50 shrink-0 flex flex-col gap-2">
-            <div>
-                <select id="reflex-browser-title" onchange="switchReflexBrowserWorkshop(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-sm font-black text-slate-800 uppercase tracking-tight shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800 cursor-pointer"></select>
+            <div class="flex items-center justify-between gap-3 flex-wrap mr-8">
+                <div class="flex-grow">
+                    <select id="reflex-browser-title" onchange="switchReflexBrowserWorkshop(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-sm font-black text-slate-800 uppercase tracking-tight shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800 cursor-pointer"></select>
+                </div>
+                <button onclick="downloadWordExport()" class="bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer shrink-0">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                    Télécharger Word
+                </button>
             </div>
             <select id="reflex-browser-selector" onchange="scrollToReflex(this.value)" class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-800">
                 <option value="">-- Aller au Réflexe --</option>
@@ -101,33 +107,43 @@ function _renderReflexContent(letter, focusRefId) {
             selector.appendChild(opt);
         }
 
+        var actualLevel = localStorage.getItem('progress-grid-' + r.id) || 'none';
+
         var html = '';
         html += '<div id="ref-' + r.id + '" class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200">';
-        html += '  <div class="flex items-center gap-2 mb-1">';
-        html += '    <span class="text-2xl shrink-0"><i data-lucide="' + (r.icon || ws.icon) + '" class="w-6 h-6 text-slate-800"></i></span>';
-        html += '    <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">' + r.id + ' - ' + r.title + '</h3>';
+        html += '  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2 pb-2 border-b border-slate-100">';
+        html += '    <div class="flex items-center gap-2">';
+        html += '      <span class="text-2xl shrink-0"><i data-lucide="' + (r.icon || ws.icon) + '" class="w-6 h-6 text-slate-800"></i></span>';
+        html += '      <h3 class="text-base font-black uppercase text-slate-800 tracking-tight">' + r.id + ' - ' + r.title + '</h3>';
+        html += '    </div>';
+        html += '    <div class="flex items-center gap-1.5 text-xs font-bold shrink-0">';
+        html += '      <button onclick="toggleModalEval(\'' + r.id + '\', \'decouverte\')" id="btn-modal-decouverte-' + r.id + '" class="px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer ' + (actualLevel === 'decouverte' ? 'bg-blue-900 text-white border-blue-900' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100') + '">Je découvre</button>';
+        html += '      <button onclick="toggleModalEval(\'' + r.id + '\', \'encours\')" id="btn-modal-encours-' + r.id + '" class="px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer ' + (actualLevel === 'encours' ? 'bg-amber-500 text-white border-amber-500' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100') + '">Je progresse</button>';
+        html += '      <button onclick="toggleModalEval(\'' + r.id + '\', \'maitrise\')" id="btn-modal-maitrise-' + r.id + '" class="px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer ' + (actualLevel === 'maitrise' ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100') + '">Je maîtrise</button>';
+        html += '    </div>';
         html += '  </div>';
         html += '  <p class="text-[11px] text-slate-500 font-semibold mb-2.5 pb-1.5 border-b border-slate-100">' + (r.intent || '') + '</p>';
         html += '  <div class="space-y-2">';
 
         for (var j = 0; j < r.scenarios.length; j++) {
             var scen = r.scenarios[j];
-            html += '    <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 flex flex-col md:flex-row gap-3 items-center">';
-            html += '      <div class="w-full md:w-4/12 flex items-center justify-center mockup-container p-1.5 bg-white border border-emerald-100 rounded-md shadow-sm relative overflow-hidden min-h-[80px] shrink-0">';
-            html += '        <div class="absolute inset-0 bg-emerald-500/[0.01] z-0"></div>';
-            html += '        <div class="w-full relative z-10 transform scale-90">' + scen.correct.visual + '</div>';
+            html += '    <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 flex flex-col gap-1.5">';
+            html += '      <div class="flex items-center gap-1.5">';
+            html += '        <span class="text-sm font-black text-slate-900 uppercase tracking-tight">' + scen.correct.title + '</span>';
             html += '      </div>';
-            html += '      <div class="w-full md:w-8/12 flex flex-col gap-1.5">';
-            html += '        <div class="flex items-center gap-1.5">';
-            html += '          <span class="bg-emerald-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>';
-            html += '          <span class="text-sm font-black text-emerald-800 uppercase tracking-tight">' + scen.correct.title + '</span>';
-            html += '        </div>';
-            html += '        <p class="text-xs text-slate-600 font-semibold leading-relaxed">' + scen.correct.expl + '</p>';
-            html += '      </div>';
+            html += '      <p class="text-xs text-slate-600 font-semibold leading-relaxed">' + scen.correct.expl + '</p>';
             html += '    </div>';
         }
 
         html += '  </div>';
+        
+        // Note input
+        var noteKey = 'note-ref-' + r.id;
+        var savedNote = localStorage.getItem(noteKey) || '';
+        html += '  <div class="mt-3 pt-2 border-t border-slate-100">';
+        html += '    <textarea id="note-input-' + r.id + '" placeholder="Note ' + r.id + ' - ' + r.title + '" class="w-full text-xs font-medium text-slate-700 bg-slate-50 border border-slate-200 rounded-lg p-2 focus:outline-none focus:ring-1 focus:ring-slate-800" style="resize: vertical; min-height: 40px;" oninput="localStorage.setItem(\'' + noteKey + '\', this.value)">' + savedNote + '</textarea>';
+        html += '  </div>';
+
         html += '</div>';
         container.innerHTML += html;
     }
@@ -179,3 +195,123 @@ function closeReflexBrowser() {
     if (modal) modal.classList.add('hidden');
     _currentLetter = null;
 }
+
+window.toggleModalEval = function(refId, level) {
+    const current = localStorage.getItem('progress-grid-' + refId);
+    let newLevel = 'none';
+    if (current !== level) {
+        newLevel = level;
+    }
+    localStorage.setItem('progress-grid-' + refId, newLevel);
+    
+    // Update button styles in modal
+    const btnDecouverte = document.getElementById('btn-modal-decouverte-' + refId);
+    const btnEncours = document.getElementById('btn-modal-encours-' + refId);
+    const btnMaitrise = document.getElementById('btn-modal-maitrise-' + refId);
+    
+    if (btnDecouverte && btnEncours && btnMaitrise) {
+        btnDecouverte.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100";
+        btnEncours.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100";
+        btnMaitrise.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100";
+        
+        if (newLevel === 'decouverte') {
+            btnDecouverte.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-blue-900 text-white border-blue-900";
+        } else if (newLevel === 'encours') {
+            btnEncours.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-amber-500 text-white border-amber-500";
+        } else if (newLevel === 'maitrise') {
+            btnMaitrise.className = "px-2.5 py-1 rounded-md border text-[10px] font-bold transition-all cursor-pointer bg-emerald-600 text-white border-emerald-600";
+        }
+    }
+    
+    if (window.renderProfileGrid) { window.renderProfileGrid(); }
+};
+
+window.downloadWordExport = async function() {
+    let exportHtml = `
+    <html xmlns:o="urn:schemas-microsoft-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+        <meta charset="utf-8">
+        <title>Référentiel des Compétences</title>
+        <style>
+            body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.5; color: #333; }
+            h1 { color: #1e3a8a; font-size: 22px; border-bottom: 2px solid #1e3a8a; padding-bottom: 6px; }
+            h2 { color: #0f172a; font-size: 16px; margin-top: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+            .comp-card { border: 1px solid #cbd5e1; padding: 10px; margin-bottom: 12px; border-radius: 6px; background-color: #f8fafc; }
+            .comp-title { font-weight: bold; font-size: 13px; color: #1e293b; }
+            .comp-level { font-style: italic; font-size: 11px; color: #2563eb; margin-bottom: 6px; }
+            .sub-comp { margin-left: 12px; margin-bottom: 6px; padding-left: 6px; border-left: 2px solid #cbd5e1; }
+            .sub-title { font-weight: bold; font-size: 12px; color: #334155; }
+            .sub-desc { font-size: 11px; color: #475569; }
+            .note-box { margin-top: 6px; padding: 6px; background-color: #f1f5f9; border: 1px solid #cbd5e1; font-size: 11px; color: #334155; font-style: italic; }
+        </style>
+    </head>
+    <body>
+        <h1>Référentiel des Compétences - GO EPICO</h1>
+    `;
+
+    for (let letter of LETTERS) {
+        const ws = REFLEX_WORKSHOP_MAP[letter];
+        if (!ws) continue;
+        
+        if (!_reflexDataCache[letter]) {
+            try {
+                const res = await fetch('./' + ws.file + '.json?v=' + Date.now());
+                _reflexDataCache[letter] = await res.json();
+            } catch (e) {
+                console.warn('Failed to load workshop', ws.file);
+                continue;
+            }
+        }
+        
+        const data = _reflexDataCache[letter];
+        exportHtml += '<div class="theme-section">';
+        exportHtml += '<h2>' + ws.label + '</h2>';
+        
+        for (let r of data) {
+            var actualLevel = localStorage.getItem('progress-grid-' + r.id) || 'none';
+            var levelStr = "Non évalué";
+            if (actualLevel === 'decouverte') levelStr = "Je découvre";
+            else if (actualLevel === 'encours') levelStr = "Je progresse";
+            else if (actualLevel === 'maitrise') levelStr = "Je maîtrise";
+            
+            var noteKey = 'note-ref-' + r.id;
+            var savedNote = localStorage.getItem(noteKey) || '';
+            
+            exportHtml += '<div class="comp-card">';
+            exportHtml += '  <div class="comp-title">' + r.id + ' - ' + r.title + '</div>';
+            exportHtml += '  <div class="comp-level">Statut : ' + levelStr + '</div>';
+            
+            for (let scen of r.scenarios) {
+                exportHtml += '  <div class="sub-comp">';
+                exportHtml += '    <div class="sub-title">' + scen.correct.title + '</div>';
+                exportHtml += '    <div class="sub-desc">' + scen.correct.expl + '</div>';
+                exportHtml += '  </div>';
+            }
+            
+            if (savedNote) {
+                exportHtml += '  <div class="note-box"><strong>Note :</strong> ' + savedNote.replace(/\n/g, '<br>') + '</div>';
+            }
+            exportHtml += '</div>';
+        }
+        
+        exportHtml += '</div>';
+    }
+    
+    exportHtml += `
+    </body>
+    </html>
+    `;
+    
+    var blob = new Blob(['\ufeff' + exportHtml], {
+        type: 'application/msword'
+    });
+    
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'referentiel_competences.doc';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+};
