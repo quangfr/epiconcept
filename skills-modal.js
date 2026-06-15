@@ -313,7 +313,7 @@ window.downloadWordExport = async function() {
         
         for (let r of data) {
             var actualLevel = localStorage.getItem('progress-grid-' + r.id) || 'none';
-            var levelStr = "Non évalué";
+            var levelStr = "";
             if (actualLevel === 'decouverte') levelStr = "Je découvre";
             else if (actualLevel === 'encours') levelStr = "Je progresse";
             else if (actualLevel === 'maitrise') levelStr = "Je maîtrise";
@@ -321,11 +321,13 @@ window.downloadWordExport = async function() {
             var noteKey = 'note-ref-' + r.id;
             var savedNote = localStorage.getItem(noteKey) || '';
             
+            var levelCell = levelStr ? '<td style="text-align: right; font-size: 11px; color: #2563eb; border: none; padding: 0; font-weight: bold;">[' + levelStr + ']</td>' : '';
+            
             exportHtml += '<div class="comp-card">';
             exportHtml += '  <table style="width: 100%; border: none; margin-bottom: 6px;">';
             exportHtml += '    <tr>';
             exportHtml += '      <td style="font-weight: bold; font-size: 13px; color: #1e293b; border: none; padding: 0; text-align: left;">' + r.id + ' - ' + r.title + '</td>';
-            exportHtml += '      <td style="text-align: right; font-size: 11px; color: #2563eb; border: none; padding: 0; font-weight: bold;">[' + levelStr + ']</td>';
+            exportHtml += '      ' + levelCell;
             exportHtml += '    </tr>';
             exportHtml += '  </table>';
             
@@ -334,7 +336,7 @@ window.downloadWordExport = async function() {
                 var subKey = 'sub-status-' + r.id + '-' + j;
                 var subStatus = localStorage.getItem(subKey) || 'non';
                 
-                var subLevelStr = "[Non]";
+                var subLevelStr = "";
                 var subColor = "#64748b"; // gray
                 if (subStatus === 'encours') {
                     subLevelStr = "[En cours]";
@@ -344,11 +346,13 @@ window.downloadWordExport = async function() {
                     subColor = "#059669"; // emerald-600
                 }
 
+                var subCell = subLevelStr ? '<td style="text-align: right; font-size: 10px; color: ' + subColor + '; border: none; padding: 0; font-weight: bold;">' + subLevelStr + '</td>' : '';
+
                 exportHtml += '  <div class="sub-comp">';
                 exportHtml += '    <table style="width: 100%; border: none; margin-bottom: 2px;">';
                 exportHtml += '      <tr>';
                 exportHtml += '        <td style="font-weight: bold; font-size: 12px; color: #334155; border: none; padding: 0; text-align: left;">' + scen.correct.title + '</td>';
-                exportHtml += '        <td style="text-align: right; font-size: 10px; color: ' + subColor + '; border: none; padding: 0; font-weight: bold;">' + subLevelStr + '</td>';
+                exportHtml += '        ' + subCell;
                 exportHtml += '      </tr>';
                 exportHtml += '    </table>';
                 exportHtml += '    <div class="sub-desc">' + scen.correct.expl + '</div>';
