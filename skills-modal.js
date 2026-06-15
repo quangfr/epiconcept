@@ -268,6 +268,29 @@ window.toggleModalEval = function(refId, level) {
 };
 
 window.downloadWordExport = async function() {
+    const emojiMap = {
+        'target': '🎯',
+        'mouse-pointer-click': '🖱️',
+        'headset': '🎧',
+        'sparkles': '✨',
+        'mountain': '⛰️',
+        'telescope': '🔭',
+        'wrench': '🔧',
+        'book-open': '📖',
+        'clipboard-list': '📋',
+        'search': '🔍',
+        'flask': '🔬',
+        'bar-chart-2': '📊',
+        'database': '💾',
+        'line-chart': '📈',
+        'pie-chart': '🍰',
+        'tag': '🏷️',
+        'share-2': '🔗',
+        'users': '👥',
+        'activity': '⚡',
+        'shield-check': '🛡️'
+    };
+
     let exportHtml = `
     <html xmlns:o="urn:schemas-microsoft-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
     <head>
@@ -323,10 +346,13 @@ window.downloadWordExport = async function() {
             
             var levelCell = levelStr ? '<td style="text-align: right; font-size: 11px; color: #2563eb; border: none; padding: 0; font-weight: bold;">[' + levelStr + ']</td>' : '';
             
+            var iconName = r.icon || ws.icon;
+            var emoji = emojiMap[iconName] || '💎';
+
             exportHtml += '<div class="comp-card">';
             exportHtml += '  <table style="width: 100%; border: none; margin-bottom: 6px;">';
             exportHtml += '    <tr>';
-            exportHtml += '      <td style="font-weight: bold; font-size: 13px; color: #1e293b; border: none; padding: 0; text-align: left;">' + r.id + ' - ' + r.title + '</td>';
+            exportHtml += '      <td style="font-weight: bold; font-size: 13px; color: #1e293b; border: none; padding: 0; text-align: left;">' + emoji + ' ' + r.id + ' - ' + r.title + '</td>';
             exportHtml += '      ' + levelCell;
             exportHtml += '    </tr>';
             exportHtml += '  </table>';
