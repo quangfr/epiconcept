@@ -1,7 +1,7 @@
 [
   {
     "id": "L1",
-    "title": "Intégrer un outil BI aux données de l'application",
+    "title": "Intégrer un outil BI aux données",
     "intent": "Centraliser et valoriser les données issues de la production pour piloter l'activité métier et le développement",
     "icon": "database",
     "scenarios": [
@@ -373,7 +373,7 @@
   },
   {
     "id": "L2",
-    "title": "S'ouvrir aux interfaces clients ou fournisseurs",
+    "title": "Se connecter à des systèmes tiers",
     "intent": "Récupérer des événements, des informations d'un système tiers en entrée ou pousser des actions en sortie de l'application",
     "icon": "users",
     "scenarios": [
@@ -559,7 +559,7 @@
   },
   {
     "id": "L3",
-    "title": "Mesurer la performance du parcours métier",
+    "title": "Mesurer la performance du parcours",
     "intent": "Suivre, analyser et optimiser les temps d'attente à chaque étape clé du processus pour éviter la perte de chances.",
     "icon": "activity",
     "scenarios": [
@@ -745,7 +745,7 @@
   },
   {
     "id": "L9",
-    "title": "Sécuriser l'accès et les permissions aux données",
+    "title": "Sécuriser l'accès et les permissions",
     "intent": "Mettre en œuvre des habilitations strictes et des profils d'accès différenciés pour protéger les données médicales et administratives conformément aux contraintes réglementaires.",
     "icon": "shield-check",
     "scenarios": [

@@ -559,8 +559,8 @@
   },
   {
     "id": "K7",
-    "title": "Piloter l'optimisation continue du parcours",
-    "intent": "Mettre en œuvre une démarche méthodique et incrémentale d'amélioration du logiciel pour augmenter les taux de dépistage étape par étape.",
+    "title": "Collecter le feedback utilisateur",
+    "intent": "Mettre en œuvre une démarche d'amélioration continue du logiciel impliquant les retours utilisateurs.",
     "icon": "trending-up",
     "scenarios": [
       {
@@ -652,7 +652,7 @@
   },
   {
     "id": "K8",
-    "title": "Automatiser les procédures internes fastidieuses",
+    "title": "Automatiser les procédures fastidieuses",
     "intent": "Remplacer les saisies de données manuelles redondantes et les relances téléphoniques chronophages par des flux automatisés et des connecteurs API sécurisés.",
     "icon": "cpu",
     "scenarios": [

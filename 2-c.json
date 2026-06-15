@@ -1,7 +1,7 @@
 [
   {
     "id": "C1",
-    "title": "Évaluer la priorité du risque",
+    "title": "Évaluer la priorité d'une demande",
     "intent": "Savoir qualifier l'urgence et la criticité d'un incident en croisant l'impact métier et le nombre d'utilisateurs affectés, pour prioriser efficacement le traitement des tickets.",
     "icon": "alert-triangle",
     "scenarios": [

@@ -188,7 +188,7 @@
   {
     "id": "J7",
     "title": "Mesurer l’intérêt sur une idée",
-    "intent": "Tester la demande réelle pour une fonctionnalité avant de l’investir, en minimisant les biais de déclaration.",
+    "intent": "Tester la demande réelle pour une fonctionnalité avant de l’investir en impliquant les clients.",
     "icon": "gauge",
     "scenarios": [
       {
