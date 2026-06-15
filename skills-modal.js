@@ -132,9 +132,27 @@ function _renderReflexContent(letter, focusRefId) {
 
         for (var j = 0; j < r.scenarios.length; j++) {
             var scen = r.scenarios[j];
-            html += '    <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 flex flex-col gap-1.5">';
-            html += '      <div class="flex items-center gap-1.5">';
-            html += '        <span class="text-sm font-black text-slate-900 uppercase tracking-tight">' + scen.correct.title + '</span>';
+            var subKey = 'sub-status-' + r.id + '-' + j;
+            var subStatus = localStorage.getItem(subKey) || 'non';
+            
+            var cardClass = 'bg-slate-50 border-slate-200';
+            var badgeText = 'Non';
+            var badgeClass = 'text-slate-400 border-slate-200 bg-slate-100';
+            
+            if (subStatus === 'encours') {
+                cardClass = 'bg-amber-50/40 border-amber-200';
+                badgeText = 'En cours';
+                badgeClass = 'text-amber-700 border-amber-200 bg-amber-100';
+            } else if (subStatus === 'oui') {
+                cardClass = 'bg-emerald-50/40 border-emerald-200';
+                badgeText = 'Oui';
+                badgeClass = 'text-emerald-700 border-emerald-200 bg-emerald-100';
+            }
+
+            html += '    <div onclick="cycleSubStatus(\'' + r.id + '\', ' + j + ')" class="rounded-lg p-2.5 border flex flex-col gap-1.5 cursor-pointer hover:shadow-xs transition-all ' + cardClass + '">';
+            html += '      <div class="flex items-center justify-between gap-2">';
+            html += '        <span class="text-xs font-black text-slate-900 uppercase tracking-tight">' + scen.correct.title + '</span>';
+            html += '        <span class="text-[9px] font-bold px-1.5 py-0.5 rounded border shrink-0 ' + badgeClass + '">' + badgeText + '</span>';
             html += '      </div>';
             html += '      <p class="text-xs text-slate-600 font-semibold leading-relaxed">' + scen.correct.expl + '</p>';
             html += '    </div>';
@@ -200,6 +218,24 @@ function closeReflexBrowser() {
     if (modal) modal.classList.add('hidden');
     _currentLetter = null;
 }
+
+window.cycleSubStatus = function(refId, index) {
+    var subKey = 'sub-status-' + refId + '-' + index;
+    var current = localStorage.getItem(subKey) || 'non';
+    var next = 'non';
+    if (current === 'non') {
+        next = 'encours';
+    } else if (current === 'encours') {
+        next = 'oui';
+    } else {
+        next = 'non';
+    }
+    localStorage.setItem(subKey, next);
+    
+    if (_currentLetter) {
+        _renderReflexContent(_currentLetter, null);
+    }
+};
 
 window.toggleModalEval = function(refId, level) {
     const current = localStorage.getItem('progress-grid-' + refId);
@@ -268,7 +304,6 @@ window.downloadWordExport = async function() {
         }
         
         const data = _reflexDataCache[letter];
-        // Sort reflexes numerically by ID (A1...A12) for Word export
         data.sort(function(a, b) {
             return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
         });
@@ -294,9 +329,28 @@ window.downloadWordExport = async function() {
             exportHtml += '    </tr>';
             exportHtml += '  </table>';
             
-            for (let scen of r.scenarios) {
+            for (let j = 0; j < r.scenarios.length; j++) {
+                var scen = r.scenarios[j];
+                var subKey = 'sub-status-' + r.id + '-' + j;
+                var subStatus = localStorage.getItem(subKey) || 'non';
+                
+                var subLevelStr = "[Non]";
+                var subColor = "#64748b"; // gray
+                if (subStatus === 'encours') {
+                    subLevelStr = "[En cours]";
+                    subColor = "#d97706"; // amber-600
+                } else if (subStatus === 'oui') {
+                    subLevelStr = "[Oui]";
+                    subColor = "#059669"; // emerald-600
+                }
+
                 exportHtml += '  <div class="sub-comp">';
-                exportHtml += '    <div class="sub-title">' + scen.correct.title + '</div>';
+                exportHtml += '    <table style="width: 100%; border: none; margin-bottom: 2px;">';
+                exportHtml += '      <tr>';
+                exportHtml += '        <td style="font-weight: bold; font-size: 12px; color: #334155; border: none; padding: 0; text-align: left;">' + scen.correct.title + '</td>';
+                exportHtml += '        <td style="text-align: right; font-size: 10px; color: ' + subColor + '; border: none; padding: 0; font-weight: bold;">' + subLevelStr + '</td>';
+                exportHtml += '      </tr>';
+                exportHtml += '    </table>';
                 exportHtml += '    <div class="sub-desc">' + scen.correct.expl + '</div>';
                 exportHtml += '  </div>';
             }
