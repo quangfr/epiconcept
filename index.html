@@ -65,9 +65,10 @@
 
             <!-- Compact Global Statistics -->
             <section class="global-stats-container" id="stats-dashboard" aria-label="Tableau des scores globaux" style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem;">
-                <button onclick="openProfileModal()" aria-label="Grille de compétences" title="Grille de compétences"
-                    class="cursor-pointer flex items-center justify-center bg-slate-100 hover:bg-blue-900 hover:text-white p-2 rounded-lg text-slate-600 transition-colors" style="border: none; outline: none; width: 32px; height: 32px;">
-                    <i data-lucide="clipboard-check" style="width: 18px; height: 18px;"></i>
+                <button onclick="openProfileModal()" aria-label="Grille de compétences" title="Voir les compétences"
+                    class="cursor-pointer flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-blue-900 hover:text-white px-2.5 py-1.5 rounded-lg text-slate-600 transition-colors font-bold text-[11px]" style="border: none; outline: none; height: 32px;">
+                    <i data-lucide="clipboard-check" style="width: 15px; height: 15px;"></i>
+                    <span>Compétences</span>
                 </button>
                 <div class="flex items-center gap-1.5">
                     <span id="hub-page-indicator"
@@ -132,7 +133,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('A')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="po-status-label">0 / 36</span></div>
@@ -155,7 +156,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('B')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="ux-status-label">0 / 39</span></div>
@@ -215,7 +216,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('C')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="cso-status-label">0 / 27</span></div>
@@ -240,7 +241,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('D')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="evo-status-label">0 / 30</span></div>
@@ -301,7 +302,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('E')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="road-status-label">0 / 36</span></div>
@@ -325,7 +326,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('F')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="feat-status-label">0 / 27</span></div>
@@ -385,7 +386,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('G')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="gsup-status-label">0 / 30</span></div>
@@ -410,7 +411,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('H')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="ticketing-status-label">0 / 27</span></div>
@@ -470,7 +471,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('I')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="veille-status-label">0 / 27</span></div>
@@ -495,7 +496,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('J')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="tln-status-label">0 / 27</span></div>
@@ -556,7 +557,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('K')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="analytics-status-label">0 / 24</span></div>
@@ -580,7 +581,7 @@
                             <button onclick="event.stopPropagation(); openProfileModal('L')"
                                 style="background:none;border:none;color:#94a3b8;cursor:pointer;padding:2px;display:flex;flex-shrink:0;"
                                 onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#94a3b8'"
-                                title="Voir la grille de compétences">
+                                title="Voir les compétences">
                                 <i data-lucide="clipboard-check" style="width:15px;height:15px;"></i></button>
                             <div style="margin-left: auto; flex-shrink: 0;">
                                 <div class="card-status"><span id="kpi-status-label">0 / 24</span></div>

@@ -16,8 +16,8 @@
       "objective": "Réfléchir sur les besoins réels des utilisateurs.",
       "items": [
         { "cardId": "dt-card", "icon": "lightbulb", "title": "1 - Design Thinking", "infoTitle": "Voir les slides Design Thinking", "statusId": "dt-status-label", "maxSteps": 8, "description": "Principes du Design Thinking (Empathie, Définition, Idéation, Prototype, Test).", "action": "lesson", "actionParam": "1, 0" },
-        { "cardId": "po-card", "icon": "target", "title": "A - Besoins Utilisateurs", "infoTitle": "Voir les réflexes PO", "statusId": "po-status-label", "maxSteps": 36, "description": "Maîtrisez les réflexes PO face aux frictions : creusez l'intention et quantifiez l'irritant.", "action": "lesson", "actionParam": "1, 6" },
-        { "cardId": "ux-card", "icon": "palette", "title": "B - Ergonomie UX/UI", "infoTitle": "Voir les réflexes UX", "statusId": "ux-status-label", "maxSteps": 39, "description": "Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).", "action": "lesson", "actionParam": "1, 7" }
+        { "cardId": "po-card", "icon": "target", "title": "A - Besoins Utilisateurs", "infoTitle": "Voir les compétences PO", "statusId": "po-status-label", "maxSteps": 36, "description": "Maîtrisez les réflexes PO face aux frictions : creusez l'intention et quantifiez l'irritant.", "action": "lesson", "actionParam": "1, 6" },
+        { "cardId": "ux-card", "icon": "palette", "title": "B - Ergonomie UX/UI", "infoTitle": "Voir les compétences UX", "statusId": "ux-status-label", "maxSteps": 39, "description": "Validez les choix d'interface via les principes fondamentaux (saisie assistée, prévention).", "action": "lesson", "actionParam": "1, 7" }
       ]
     },
     {
@@ -26,8 +26,8 @@
       "objective": "Transformer le besoin en unités de développement actionnables",
       "items": [
         { "cardId": "mvp-card", "icon": "rocket", "title": "2- Produit Minimum Viable", "infoTitle": "Voir les slides MVP", "statusId": "mvp-status-label", "maxSteps": 7, "description": "Principes du Produit Minimum Viable pour décrire l'incrément minimal acceptable à tester et à livrer.", "action": "lesson", "actionParam": "2, 1" },
-        { "cardId": "cso-card", "icon": "headset", "title": "C - Support & Client", "infoTitle": "Voir les réflexes Support & Client", "statusId": "cso-status-label", "maxSteps": 27, "description": "Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.", "action": "lesson", "actionParam": "2, 5" },
-        { "cardId": "evo-card", "icon": "sparkles", "title": "D - Évolutions & Specs", "infoTitle": "Voir les réflexes Évolutions & Specs", "statusId": "evo-status-label", "maxSteps": 30, "description": "Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.", "action": "lesson", "actionParam": "2, 6" }
+        { "cardId": "cso-card", "icon": "headset", "title": "C - Support & Client", "infoTitle": "Voir les compétences Support & Client", "statusId": "cso-status-label", "maxSteps": 27, "description": "Gérez les demandes support : priorisation, contournement, accès étendu et suivi client.", "action": "lesson", "actionParam": "2, 5" },
+        { "cardId": "evo-card", "icon": "sparkles", "title": "D - Évolutions & Specs", "infoTitle": "Voir les compétences Évolutions & Specs", "statusId": "evo-status-label", "maxSteps": 30, "description": "Découpez les besoins en user stories, critères d'acceptation et priorisez par impact.", "action": "lesson", "actionParam": "2, 6" }
       ]
     },
     {
@@ -36,8 +36,8 @@
       "objective": "Anticiper les évolutions et construire la trajectoire produit.",
       "items": [
         { "cardId": "backlog-card", "icon": "layers", "title": "3 - Product Backlog", "infoTitle": "Voir les slides Product Backlog", "statusId": "road-slides-status-label", "maxSteps": 10, "description": "Les techniques de priorisation avancées pour construire une vision produit long terme équilibrée.", "action": "lesson", "actionParam": "3, 4" },
-        { "cardId": "roadmap-card", "icon": "mountain", "title": "E - Pilotage & Roadmap", "infoTitle": "Voir les réflexes Pilotage & Roadmap", "statusId": "road-status-label", "maxSteps": 36, "description": "Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.", "action": "lesson", "actionParam": "3, 6" },
-        { "cardId": "features-card", "icon": "telescope", "title": "F - Exploration terrain", "infoTitle": "Voir les réflexes Exploration terrain", "statusId": "feat-status-label", "maxSteps": 27, "description": "Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.", "action": "lesson", "actionParam": "3, 7" }
+        { "cardId": "roadmap-card", "icon": "mountain", "title": "E - Pilotage & Roadmap", "infoTitle": "Voir les compétences Pilotage & Roadmap", "statusId": "road-status-label", "maxSteps": 36, "description": "Découpez la roadmap en jalons mesurables et arbitrez les compromis stratégiques.", "action": "lesson", "actionParam": "3, 6" },
+        { "cardId": "features-card", "icon": "telescope", "title": "F - Exploration terrain", "infoTitle": "Voir les compétences Exploration terrain", "statusId": "feat-status-label", "maxSteps": 27, "description": "Explorez les signaux terrain, identifiez les besoins et testez de nouvelles hypothèses.", "action": "lesson", "actionParam": "3, 7" }
       ]
     },
     {
@@ -66,8 +66,8 @@
       "objective": "Piloter le produit par la preuve et mesurer l'impact des fonctionnalités.",
       "items": [
         { "cardId": "data-driven-card", "icon": "pie-chart", "title": "6 - Data Driven", "infoTitle": "Voir les slides", "statusId": "analytics-slides-status-label", "maxSteps": 7, "description": "Utilisez AARRR et HEART pour mesurer le succès et guider les décisions par la preuve.", "action": "lesson", "actionParam": "6, 0" },
-        { "cardId": "analytics-card", "icon": "bar-chart-2", "title": "K - Usage & Productivité", "infoTitle": "Voir les réflexes K", "statusId": "analytics-status-label", "maxSteps": 24, "description": "Analysez les données d'usage, identifiez les frictions et validez par les KPIs.", "action": "ref", "actionParam": "K1" },
-        { "cardId": "kpi-card", "icon": "line-chart", "title": "L - Suivi & Données", "infoTitle": "Voir les réflexes L", "statusId": "kpi-status-label", "maxSteps": 24, "description": "Suivez les indicateurs clés, pilotez la performance et construisez des tableaux de bord décisionnels.", "action": "ref", "actionParam": "L1" }
+        { "cardId": "analytics-card", "icon": "bar-chart-2", "title": "K - Usage & Productivité", "infoTitle": "Voir les compétences K", "statusId": "analytics-status-label", "maxSteps": 24, "description": "Analysez les données d'usage, identifiez les frictions et validez par les KPIs.", "action": "ref", "actionParam": "K1" },
+        { "cardId": "kpi-card", "icon": "line-chart", "title": "L - Suivi & Données", "infoTitle": "Voir les compétences L", "statusId": "kpi-status-label", "maxSteps": 24, "description": "Suivez les indicateurs clés, pilotez la performance et construisez des tableaux de bord décisionnels.", "action": "ref", "actionParam": "L1" }
       ]
     }
   ],

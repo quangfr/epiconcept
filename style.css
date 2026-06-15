@@ -1231,9 +1231,10 @@
         .skills-modal-card {
             width: 100%;
             max-width: 900px;
-            max-height: 85vh;
-            padding: 2.25rem;
-            margin: 1.5rem;
+            height: 98%;
+            max-height: 98vh;
+            padding: 1.25rem;
+            margin: 0.5rem;
             border-radius: 1.5rem;
             box-sizing: border-box;
         }
