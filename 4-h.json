@@ -1,7 +1,7 @@
 [
   {
     "id": "H1",
-    "title": "Qualifier et prioriser la demande (Réception)",
+    "title": "Qualifier et prioriser la demande",
     "intent": "Savoir identifier la nature d'une demande et en évaluer l'urgence réglementaire ou l'impact fonctionnel pour traiter les dossiers dans le bon ordre.",
     "icon": "tag",
     "scenarios": [
@@ -94,7 +94,7 @@
   },
   {
     "id": "H2",
-    "title": "Rendre le ticket exploitable (Analyse)",
+    "title": "Rendre le ticket exploitable",
     "intent": "Être capable de documenter un problème de manière précise pour que le niveau supérieur puisse reproduire et résoudre le bug instantanément.",
     "icon": "clipboard-list",
     "scenarios": [
@@ -187,7 +187,7 @@
   },
   {
     "id": "H3",
-    "title": "Préparer et valider l'escalade (Résolution)",
+    "title": "Préparer et valider l'escalade",
     "intent": "Savoir structurer son dossier de support en validant les prérequis pour s'assurer que le problème nécessite bien une intervention technique du niveau supérieur.",
     "icon": "share-2",
     "scenarios": [
@@ -373,7 +373,7 @@
   },
   {
     "id": "H5",
-    "title": "Rendre la documentation accessible (Self-Service)",
+    "title": "Rendre la documentation accessible",
     "intent": "Savoir structurer une base de connaissances claire et accessible pour réduire les appels répétitifs et autonomiser les utilisateurs.",
     "icon": "book-open",
     "scenarios": [
