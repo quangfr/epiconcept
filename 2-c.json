@@ -225,7 +225,7 @@
         "correct": {
           "title": "Partiel : importer les lignes valides",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Partiel importer les lig</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Partiel : importer les lignes valid</span></div></div>",
-          "expl": "Importer les données valides et signaler les lignes erronées plutôt que de tout bloquer.",
+          "expl": "Importer les données valides et recréer les quelques lignes erronées plutôt que de tout corriger.",
           "debriefExpl": "Un import CSV sur 5 000 lignes dont une seule est invalide ne devrait pas être bloqué. La bonne approche est d'importer les 4 999 lignes valides et d'afficher un rapport d'erreur pour la ligne rejetée (code département « 2B » inconnu). Le blocage « tout ou rien » est contre-productif.",
           "icon": "check"
         },
@@ -381,7 +381,7 @@
         "text": "Un médecin du CH de Valenciennes vous envoie un message vocal : « Bonjour, c'est le Dr Lefebvre. Le bouton vert pour valider le bilan de dépistage, il marche plus. Je clique, je clique, rien. Vous pouvez regarder ? » En rappelant le médecin, vous apprenez que : cela fait 2 jours que ça ne marche plus, il utilise Firefox version 120, et le bouton gris à côté (« Enregistrer brouillon ») fonctionne.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"filter\" class=\"w-4 h-4 text-amber-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Qualification ticket</span></div><div class=\"space-y-1.5 text-sm bg-slate-50 p-3 rounded-lg\"><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Signalement :</span><span class=\"text-xs text-slate-600\">« Le bouton vert marche plus »</span></div><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Qualifié :</span><span class=\"text-xs font-medium\">Bug front — Firefox 120 — Valider bilan inactif</span></div><hr class=\"border-slate-200\"><div class=\"flex gap-2\"><span>🧩 Front</span><span>⚠ Bloquant</span><span>🐛 Bug confirmé</span></div></div></div>",
         "correct": {
-          "title": "Technique : bouton inactif sur Firefox",
+          "title": "Technique : bug front sur un navigateur ou appareil",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Technique bouton inactif</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
           "expl": "Distinguer un bug technique d'une méconnaissance utilisateur en recueillant les faits précis.",
           "debriefExpl": "Le médecin dit « le bouton vert marche plus ». En questionnant, on apprend que le bouton « Valider bilan » est inactif sur Firefox 120, mais « Enregistrer brouillon » fonctionne. C'est un bug front-end (comportement attendu non atteint), pas une méconnaissance. La reformulation en ticket structuré est : « Bouton Valider bilan inactif sur Firefox 120. Bloquant. »",
@@ -396,7 +396,7 @@
             "icon": "x"
           },
           {
-            "title": "Technique : API indisponible en production",
+            "title": "Technique : serveur indisponible en production",
             "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Technique API indisponib</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
             "expl": "Qualifier le problème comme une indisponibilité de l'API back-end.",
             "debriefExpl": "Le bouton « Enregistrer brouillon » fonctionne, ce qui prouve que l'API back-end est opérationnelle. Le problème est bien côté front-end (interface utilisateur).",
@@ -409,7 +409,7 @@
         "text": "Le CRDC du Nord vous écrit : « Les statistiques ne sont pas à jour. On a lancé la campagne de dépistage mammographie la semaine dernière et le tableau de bord affiche toujours zéro invitation envoyée. » En questionnant, vous découvrez que les invitations ont bien été générées (le batch est passé), mais le tableau de bord a un cache de 24h non rafraîchi manuellement.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"filter\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Qualification ticket</span></div><div class=\"space-y-1.5 text-sm bg-slate-50 p-3 rounded-lg\"><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Signalement :</span><span class=\"text-xs text-slate-600\">« Stats pas à jour, tableau de bord à zéro »</span></div><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Qualifié :</span><span class=\"text-xs font-medium\">Comportement attendu (cache 24h) → méconnaissance</span></div><hr class=\"border-slate-200\"><div class=\"flex gap-2\"><span>📚 Documentation</span><span>⏳ Délai normal</span></div></div></div>",
         "correct": {
-          "title": "Fonctionnel : comportement attendu avec cache",
+          "title": "Fonctionnel : comportement attendu lié au cache",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fonctionnel comportement</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
           "expl": "Distinguer un bug (comportement attendu non atteint) d'un comportement normal méconnu.",
           "debriefExpl": "Les statistiques affichent zéro car le cache a un délai de 24h. Les invitations ont bien été envoyées. Ce n'est pas un bug mais un comportement attendu et documenté. La qualification correcte est : « comportement normal — expliquer le cache et proposer un rafraîchissement manuel si urgent »",
