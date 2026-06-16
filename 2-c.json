@@ -467,92 +467,92 @@
   {
     "id": "C6",
     "title": "Formaliser la demande de correction",
-    "intent": "Savoir structurer une demande de correction complète et exploitable par l'équipe de développement, incluant contexte, données d'entrée, résultat attendu et éléments de preuve.",
+    "intent": "Savoir structurer une demande de correction ou d'évolution complète et exploitable par l'équipe de développement en formalisant le besoin utilisateur, le comportement actuel vs comportement attendu, et la règle sous forme de logique conditionnelle (Sachant/Si/Alors ou Règle/Entrée/Sortie).",
     "icon": "clipboard-list",
     "scenarios": [
       {
-        "text": "Une gestionnaire du CRDC de la Somme vous signale un problème : le modèle de PDF d'invitation au dépistage du cancer du sein contient une faute d'orthographe. Le texte affiche « Dépistage organisé du cancer du seins » (avec un 's' à seins) dans l'en-tête du document. Ce PDF est envoyé à toutes les patientes du département.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Demande de correction #DC-005</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"bg-slate-50 rounded-lg p-2.5 text-xs\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Fichier</span><span class=\"font-medium\">invitation_sein_template.pdf</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Erreur</span><span class=\"text-red-500\">« seins » → « sein »</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Ligne</span><span class=\"font-medium\">En-tête, ligne 1</span></div></div><div class=\"flex gap-2 mt-1\"><span class=\"text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded\">📎 capture.pdf</span></div></div></div>",
+        "text": "Une gestionnaire du CRDC de la Somme signale que le PDF d'invitation au dépistage du cancer du sein contient une faute d'orthographe. Le document affiche « Dépistage organisé du cancer du seins » (avec un 's' à seins) dans l'en-tête du document. Ce PDF officiel est envoyé à toutes les patientes du département. Vous devez formaliser la demande de correction pour les développeurs.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"file-text\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Visualisation du PDF</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg font-mono text-slate-700\"><div>Dépistage organisé du cancer du <span class=\"text-red-600 font-bold underline\">seins</span></div></div></div>",
         "correct": {
-          "title": "Formaliser : ticket de correction mineure",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser ticket de cor</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-          "expl": "Formaliser une correction avec les éléments précis : capture, texte erroné, correction attendue.",
-          "debriefExpl": "Même une correction mineure (faute d'orthographe « seins » → « sein » dans le PDF d'invitation) doit être documentée correctement : capture d'écran du PDF, texte exact erroné, correction attendue. Cela permet le traçage et le déploiement via le cycle de release standard.",
+          "title": "Formaliser : Règle, Entrée et Comportement attendu",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formalisation Structurée</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Entrée :</strong> PDF Généré (invitation_sein_template.pdf)</div><div><strong>Comportement Actuel :</strong> « cancer du seins »</div><div><strong>Comportement Attendu :</strong> « cancer du sein »</div></div></div>",
+          "expl": "Décrire le besoin de correction en spécifiant les Entrées/Sorties et la règle sous forme de logique conditionnelle.",
+          "debriefExpl": "Un bon ticket de correction ne doit pas juste dire 'il y a une faute'. Il doit structurer la demande : Besoin (crédibilité médicale), Entrée (PDF d'invitation), Comportement Actuel (seins), et Comportement Attendu (sein). Le format 'Règle / Entrée / Sortie' ou 'Sachant / Si / Alors' rend le travail du développeur immédiat et sans ambiguïté.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Direct : corriger à chaud le PDF",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct corriger chaud le</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-            "expl": "Corriger directement le template PDF en production sans passer par le cycle de release.",
-            "debriefExpl": "Une modification directe en production contourne les contrôles de qualité et n'est pas tracée. Si le correctif doit être défaite plus tard, personne ne saura qu'une modification a eu lieu.",
+            "title": "Formaliser : ticket libre sans structure de données",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Ticket textuel libre</div><div class=\"text-[6.5px] text-slate-500\">« Il y a une faute d'orthographe dans le PDF d'invitation. Merci de corriger. »</div></div>",
+            "expl": "Rédiger une description textuelle simple décrivant globalement le problème rencontré.",
+            "debriefExpl": "Les tickets libres obligent les développeurs à chercher eux-mêmes dans quel PDF l'erreur se trouve, quelle ligne est concernée et quel est le mot correct à écrire, ce qui génère des allers-retours inutiles.",
             "icon": "x"
           },
           {
-            "title": "Différer : attendre la prochaine refonte",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Différer attendre la pro</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Différer : attendre la prochaine re</span></div></div>",
-            "expl": "Reporter la correction à la prochaine refonte des templates prévue dans 6 mois.",
-            "debriefExpl": "Laisser une faute d'orthographe visible dans un document officiel envoyé à toutes les patientes pendant 6 mois nuit à l'image de l'application. Une petite correction ne devrait pas attendre une refonte majeure.",
+            "title": "Technique : joindre uniquement le fichier PDF brut",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Ticket PDF Seul</div><div class=\"text-[6.5px] text-slate-500\">📎 invitation.pdf (Sans consignes ni texte explicatif)</div></div>",
+            "expl": "Envoyer le fichier PDF brut généré en PJ sans détailler les comportements actuel et attendu.",
+            "debriefExpl": "Transmettre un fichier volumineux sans cibler le texte à corriger force le développeur à relire tout le document pour trouver la coquille.",
             "icon": "x"
           }
         ],
         "expl": "C'est une demande de correction simple mais qui nécessite une formalisation précise : capture d'écran du PDF, texte exact erroné, correction attendue. Même une petite correction doit être correctement documentée pour être tracée et déployée via le cycle de release standard."
       },
       {
-        "text": "Le responsable technique du CRDC du Nord demande l'ajout d'un champ « Date de relance » dans le module colorectal. Actuellement, quand une patiente ne répond pas à l'invitation, la gestionnaire n'a aucun outil pour planifier une relance. Elle doit noter manuellement dans son agenda. Le besoin est clair mais non urgent.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Évolution #EV-023</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Module</span><span class=\"font-medium\">Colorectal — Relances</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Type</span><span class=\"text-slate-600 font-medium\">Évolution</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Priorité</span><span class=\"text-slate-600\">Souhaitable</span></div></div><div class=\"mt-2 p-2.5 bg-slate-50 rounded-lg text-xs\"><p class=\"font-medium\">Comportement attendu :</p><p class=\"text-slate-600 mt-0.5\">Ajouter champ « date de relance » sur le dossier patient avec notification automatique J+30.</p></div></div>",
+        "text": "Les gestionnaires du CRDC souhaitent un nouvel automatisme : si une patiente n'a pas répondu à son invitation de dépistage colorectal depuis 30 jours, un rappel SMS doit lui être envoyé. Actuellement, elles doivent vérifier manuellement le statut et envoyer les relances une par une. Vous devez formaliser la demande.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"bell\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Relances manuelles</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg text-slate-700\"><div>Saisie manuelle des dates et envois individuels dans l'agenda.</div></div></div>",
         "correct": {
-          "title": "Formaliser : ticket de demande d'évolution",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser ticket de dem</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-          "expl": "Distinguer une demande d'évolution d'une demande de correction, et formaliser en conséquence.",
-          "debriefExpl": "L'ajout d'un champ « Date de relance » n'est pas un bug mais une fonctionnalité manquante. La formalisation doit inclure le contexte métier (pourquoi c'est nécessaire), le comportement attendu, les critères d'acceptation. À qualifier comme ticket d'évolution, pas comme correction urgente.",
+          "title": "Formaliser : Règle Sachant / Si / Alors",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formalisation Fonctionnelle</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Sachant :</strong> Invitation envoyée et sans réponse</div><div><strong>Si :</strong> Délai = 30 jours</div><div><strong>Alors :</strong> Statut = À relancer &amp; Envoi SMS</div></div></div>",
+          "expl": "Formaliser la règle d'évolution sous la forme 'Sachant / Si / Alors' pour définir précisément le comportement attendu.",
+          "debriefExpl": "Formaliser une règle sous la forme 'Sachant / Si / Alors' permet aux développeurs de traduire instantanément la spécification en code ou en scénarios de test. Cela définit sans ambiguïté les prérequis (Sachant), le déclencheur (Si) et les conséquences (Alors).",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Bloquant : forcer un ticket urgent",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Bloquant forcer un ticke</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Bloquant : forcer un ticket urgent</span></div></div>",
-            "expl": "Forcer un ticket urgent comme si c'était une correction bloquante.",
-            "debriefExpl": "Ce n'est pas une urgence : les gestionnaires contournent avec leur agenda papier depuis des mois. Forcer un traitement urgent déshabille les vraies priorités.",
+            "title": "Formaliser : description de l'interface graphique souhaitée",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Design de l'interface</div><div class=\"text-[6.5px] text-slate-500\">« Ajouter un gros bouton de relance et un champ de date sur l'écran patient. »</div></div>",
+            "expl": "Décrire l'apparence visuelle des champs sans formaliser les règles logiques d'envoi automatique.",
+            "debriefExpl": "Décrire uniquement les éléments visuels de l'interface ne définit pas le comportement logique de l'automate en arrière-plan. Les développeurs risquent de coder un bouton inactif ou incomplet.",
             "icon": "x"
           },
           {
-            "title": "Direct : déployer sans validation",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct déployer sans val</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Direct : déployer sans validation</span></div></div>",
-            "expl": "Développer rapidement sans passer par le cycle de validation standard.",
-            "debriefExpl": "Contourner le cycle de release pour une fonctionnalité non critique expose à des risques de régression et de non-qualité.",
+            "title": "Technique : demander directement une table SQL de relance",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Requête Table SQL</div><div class=\"text-[6.5px] text-slate-500\">CREATE TABLE relance (id INT, date_envoi DATE...)</div></div>",
+            "expl": "Spécifier la structure de base de données à créer plutôt que la logique métier attendue.",
+            "debriefExpl": "Dicter la structure SQL technique est le rôle des développeurs. Le support ou le fonctionnel doit formaliser le besoin utilisateur et la logique fonctionnelle, pas le schéma physique de la base.",
             "icon": "x"
           }
         ],
         "expl": "Ce n'est pas une correction mais une demande d'évolution. La formalisation doit inclure : le contexte métier (pourquoi c'est nécessaire), le comportement attendu (un champ date avec notification), les critères d'acceptation (format, visibilité, droits). Ne pas confondre avec un bug : c'est une feature manquante."
       },
       {
-        "text": "Le comité de pilotage régional identifie une anomalie dans le calcul des taux de participation au dépistage organisé. Le taux affiché par EPICONCEPT pour le département de l'Oise est de 42,3 % alors que le calcul manuel à partir des données brutes donne 38,7 %. L'enjeu est politique : ce taux impacte les financements ARS.",
-        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Demande de correction #DC-012</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Indicateur</span><span class=\"font-medium\">Taux participation DO</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Département</span><span class=\"font-medium\">Oise (60)</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Valeur affichée</span><span class=\"text-red-600 font-medium\">42,3 %</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Valeur attendue</span><span class=\"text-slate-600 font-medium\">38,7 %</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Écart</span><span class=\"text-red-500 font-medium\">+3,6 pts</span></div></div></div>",
+        "text": "Le DSI de l'ARS signale une anomalie : le taux de participation affiché pour l'Oise est de 42,3 % alors que le calcul de leur statisticien donne 38,7 %. L'écart provient d'un filtre d'exclusion des patientes ayant déménagé hors du département. Vous devez formaliser la spécification du calcul corrigé.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"calculator\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Taux divergent</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg text-slate-700\"><div>Affiché : 42,3 % | Attendu : 38,7 % | Écart sur population active</div></div></div>",
         "correct": {
-          "title": "Formaliser : spécifications de calcul complètes",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser spécification</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Formaliser : spécifications de calc</span></div></div>",
-          "expl": "Pour une correction sensible, fournir une spécification exhaustive validée par le métier.",
-          "debriefExpl": "La correction du calcul du taux de participation (42,3% vs 38,7%) est stratégique car elle impacte les financements ARS. La formalisation doit être exhaustive : définir précisément le périmètre (dénominateur, numérateur, période), fournir la requête de calcul et les données brutes. Une validation par le métier est impérative avant correction.",
+          "title": "Formaliser : Règle d'exclusion Entrée / Sortie",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Règle de Filtrage</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Entrée :</strong> Population cible départementale</div><div><strong>Règle :</strong> Exclure si statut_adresse = 'Déménagé'</div><div><strong>Sortie :</strong> Dénominateur du taux de participation</div></div></div>",
+          "expl": "Définir la règle de calcul en précisant l'Entrée, le traitement d'exclusion et la Sortie attendue.",
+          "debriefExpl": "Pour corriger un calcul complexe, le ticket doit spécifier de manière rigoureuse la Règle (traitement d'exclusion), l'Entrée (population ciblée) et la Sortie (le dénominateur final). Cela évite toute interprétation divergente entre la DSI et l'équipe produit.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Direct : modifier la formule à chaud",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct modifier la formu</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-            "expl": "Corriger directement la formule de calcul en production pour aligner les chiffres rapidement.",
-            "debriefExpl": "Modifier la formule sans comprendre la cause de l'écart ni valider avec le métier peut produire un résultat tout aussi erroné, mais différent.",
+            "title": "Direct : demander une modification de la constante globale de calcul",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Ajustement du taux</div><div class=\"text-[6.5px] text-slate-500\">« Modifier le script pour retrancher 3,6 % d'office au département 60 »</div></div>",
+            "expl": "Demander l'application d'un correctif arithmétique brut sur le taux de l'Oise.",
+            "debriefExpl": "Appliquer une correction statistique brute ('hardcodée') est une mauvaise pratique. Le problème doit être résolu à la source par une règle de calcul propre.",
             "icon": "x"
           },
           {
-            "title": "Contourner : afficher une valeur saisie",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contourner afficher une </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Contourner : afficher une valeur sa</span></div></div>",
-            "expl": "Contourner en affichant la valeur calculée manuellement sans formalisation.",
-            "debriefExpl": "Afficher une valeur saisie manuellement contourne le problème mais n'apporte pas de solution durable et crée une dette technique.",
+            "title": "Process : demander une analyse globale de la base de données",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Audit Global Base</div><div class=\"text-[6.5px] text-slate-500\">« DSI demande aux développeurs d'auditer toutes les requêtes SQL du module »</div></div>",
+            "expl": "Lancer une demande d'investigation globale sans cibler la règle spécifique en cause.",
+            "debriefExpl": "Lancer une investigation globale sur toutes les requêtes fait perdre un temps précieux. Le ticket doit se focaliser sur la règle d'exclusion de l'adresse.",
             "icon": "x"
           }
         ],
-        "expl": "Cette demande de correction est stratégique et sensible. La formalisation doit être exhaustive : définir précisément le périmètre du calcul (dénominateur, numérateur, période), fournir la requête de calcul, les données brutes en entrée et le résultat attendu. Une validation par le métier est impérative avant correction."
+        "expl": "Cette demande de correction est stratégique et sensible. La formalisation doit être exhaustive : définir précisément le périmètre du calcul (dénominateur, numérateur, période), fournir la règle de calcul, les données brutes en entrée et le résultat attendu. Une validation par le métier est impérative avant correction."
       }
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Formalisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"camera\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Capture d'écran jointe</span></div><div class=\"text-[8px] text-slate-600\">Faute \"seins\" dans le PDF export — écran #3, ligne 12</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"list\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Étapes reproduction</span></div><div class=\"text-[8px] text-slate-600\">1. Ouvrir dossier → 2. Exporter PDF → 3. Observer texte</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Développeur peut corriger immédiatement</div></div></div>"
