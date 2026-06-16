@@ -2077,15 +2077,15 @@
             h4s.forEach(h4 => {
                 const categoryTitle = h4.textContent.trim();
                 let card = h4;
-                while (card && card !== tempDiv && !card.querySelector('[onclick*="showRef"]')) {
+                while (card && card !== tempDiv && !card.querySelector('[onclick*="openReflexBrowser"]')) {
                     card = card.parentElement;
                 }
                 
                 if (card && card !== tempDiv) {
                     const reflexes = [];
-                    const refEls = card.querySelectorAll('[onclick*="showRef"]');
+                    const refEls = card.querySelectorAll('[onclick*="openReflexBrowser"]');
                     refEls.forEach(ref => {
-                        const match = ref.getAttribute('onclick').match(/showRef\('([^']+)'\)/);
+                        const match = ref.getAttribute('onclick').match(/openReflexBrowser\(\s*['"]\w['"]\s*,\s*['"](\w+)['"]\s*\)/);
                         if (match) {
                             reflexes.push(match[1]);
                         }
