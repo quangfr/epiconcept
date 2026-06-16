@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">GO EPICO - Simulateur de réflexes Product</title>
-    <link rel="stylesheet" href="style.css?v=2026.06.16.06">
+    <link rel="stylesheet" href="style.css?v=2026.06.16.07">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -534,7 +534,7 @@
             levelSteps = reflexes.map(r => ({
                 reflexId: r.id,
                 scenario: r.scenarios[lv]
-            })).sort(() => Math.random() - 0.5);
+            }));
 
             levelSteps.forEach((step, idx) => {
                 const savedProgress = localStorage.getItem(`${CONFIG.key}-progress-lv` + lv + '-reflex' + step.reflexId);
