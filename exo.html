@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">GO EPICO - Simulateur de réflexes Product</title>
-    <link rel="stylesheet" href="style.css?v=2026.06.16.08">
+    <link rel="stylesheet" href="style.css?v=2026.06.16.09">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -514,9 +514,7 @@
         }
 
         function isLevelUnlocked(lv) {
-            if (lv === 0) return true;
-            const prevScore = localStorage.getItem(`${CONFIG.key}-score-lv${lv - 1}`);
-            return prevScore !== null && parseInt(prevScore) >= TOTAL_STEPS;
+            return true;
         }
 
         function startLevel(lv) {
