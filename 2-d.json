@@ -373,96 +373,68 @@
   },
   {
     "id": "D6",
-    "title": "Identifier les dépendances techniques",
-    "intent": "Identifier les conditions nécessaires avant de réaliser une action et les dépendances entre fonctionnalités.",
-    "icon": "git-merge",
+    "title": "Valider les prérequis et dépendances",
+    "intent": "Identifier les prérequis et les dépendances avec d'autres améliorations dans la rédaction d'une User Story.",
+    "icon": "alert-triangle",
     "scenarios": [
       {
-        "text": "Un gestionnaire du CRDC veut envoyer les invitations de dépistage du cancer du sein aux 5 000 femmes de la tranche d'âge. Il lance l'envoi groupé sans vérifier que le fichier des adresses a été mis à jour par son collègue la veille. 200 courriers reviennent avec \"N'habite plus à l'adresse indiquée\".",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Envoi Groupé</div><div class=\"p-2 bg-amber-50 border border-amber-200 rounded text-[10px]\"><span class=\"font-black text-amber-700\">⚠ Fichier adresse : version du 15/03</span><div class=\"text-amber-600\">200 adresses non vérifiées depuis > 30 jours</div></div></div>",
+        "text": "Vous rédigez la User Story (US) permettant aux gestionnaires du CRDC d'importer le fichier des résultats de frottis. Ce module d'import nécessite d'avoir déjà implémenté le dictionnaire de correspondance des codes de laboratoire (US de configuration de base), sans quoi les résultats ne pourront pas s'enregistrer.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Spécification US Import</div><div class=\"flex flex-col gap-1 text-[9px]\"><span class=\"text-red-700\">✗ Dépendance non identifiée</span><span class=\"text-slate-500\">US-12 : Import des frottis (Statut : Prêt)</span></div></div>",
         "correct": {
-          "title": "Bloquer l'action si prérequis manquants ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-bold text-blue-600 uppercase\">Bloquer l'action prérequ</span></div><div class=\"bg-slate-100 rounded px-2 py-1 text-[7px] font-bold text-slate-500 text-center\">Condition requise non satisfaite</div></div>",
-          "expl": "Bloquer une action tant que ses prérequis ne sont pas satisfaits, avec un message clair.",
-          "debriefExpl": "Avant de lancer un envoi groupé de 5000 invitations, le système doit vérifier que le fichier des adresses a été mis à jour récemment. Si ce n'est pas le cas, il bloque l'envoi et affiche \"Fichier adresse non actualisé depuis 30 jours. Merci de le mettre à jour avant de relancer.\"",
+          "title": "Spécifier la dépendance et le prérequis fonctionnel",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Dépendance Explicitée</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Prérequis : US-89 (Dictionnaire)</span></div></div>",
+          "expl": "Déclarer explicitement dans l'US les fonctionnalités prérequises ou techniques qui doivent être livrées au préalable.",
+          "debriefExpl": "L'US d'import dépend fonctionnellement de l'US du dictionnaire de correspondance. En spécifiant explicitement ce prérequis ('Dépend de US-89 : Configurer les codes labo'), l'équipe sait qu'elle ne peut pas tester l'import sans avoir finalisé le dictionnaire.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Traiter les erreurs après l'exécution ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Traiter erreurs après l'</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Traiter les erreurs après l'exécution</span></div></div>",
-            "expl": "Traiter les erreurs et les retours après l'exécution de l'action plutôt que de les anticiper.",
-            "debriefExpl": "200 courriers retournés signifient 200 patients perdus, 200 relances à gérer et un gaspillage d'argent public en affranchissement.",
+            "title": "Développer les deux en parallèle dans le même Sprint",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Sprint unique sans ordre</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Développer en parallèle</span></div></div>",
+            "expl": "Lancer le développement de l'import et du dictionnaire en même temps dans le sprint sans ordonnancer.",
+            "debriefExpl": "Si le dictionnaire prend du retard, le développement de l'import sera bloqué à la fin du sprint pour être testé, ce qui crée un goulot d'étranglement.",
             "icon": "x"
           },
           {
-            "title": "Fractionner en envois individuels uniquement ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fractionner envois indiv</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Fractionner en envois individuels unique</span></div></div>",
-            "expl": "Fractionner l'action en une série d'actions individuelles au lieu d'une action groupée.",
-            "debriefExpl": "Forcer le gestionnaire à envoyer un par un 5000 courriers est absurde. Le vrai problème est le fichier d'adresses, pas la méthode d'envoi.",
+            "title": "Faire une seule US géante regroupant tout",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">US unique géante</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Faire une seule US géante</span></div></div>",
+            "expl": "Fusionner le dictionnaire de codes et l'import de fichier dans une seule User Story massive.",
+            "debriefExpl": "Regrouper plusieurs gros besoins complexes dans une seule US géante rend l'estimation impossible, complique le test de validation et augmente le risque de retarder toute la livraison.",
             "icon": "x"
           }
         ],
-        "expl": "L'envoi groupé a un prérequis : le fichier des adresses doit être actualisé. Le système doit vérifier cette dépendance avant d'autoriser l'envoi, et signaler clairement les données manquantes."
+        "expl": "Déclarer explicitement les dépendances fonctionnelles ou techniques dans chaque User Story permet d'ordonnancer correctement le backlog et d'éviter les blocages en cours de Sprint."
       },
       {
-        "text": "Le module de gestion des rendez-vous de coloscopie doit s'intégrer au système d'information hospitalier (SIH) existant. L'équipe découvre en cours de développement que le SIH nécessite une version minimum de l'annuaire LDAP qui n'est pas installée, et que l'API des plages opératoires n'est pas documentée.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Dépendances SIH</div><div class=\"flex flex-col gap-1 text-[9px]\"><div class=\"bg-red-100 rounded p-1.5\">✗ Annuaire LDAP v2.1 requis</div><div class=\"bg-red-100 rounded p-1.5\">✗ API plages opératoires non doc.</div><div class=\"bg-slate-100 rounded p-1.5\">✓ Base patients OK</div></div></div>",
+        "text": "L'ARS demande l'ajout d'un rapport de performance mensuel. Pour générer ce rapport, l'application a besoin de requêter un historique consolidé sur 12 mois. Mais la base de données actuelle ne conserve les logs d'activité que pendant 30 jours pour des raisons de performance.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Rapport Performance</div><div class=\"p-2 bg-red-50 border border-red-200 rounded text-[10px]\"><span class=\"font-black text-red-700\">Données insuffisantes</span><div class=\"text-red-600 mt-1\">Historisation BDD : 30 jours maximum</div></div></div>",
         "correct": {
-          "title": "Vérifier les dépendances au démarrage ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Vérifier dépendances dém</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Vérifier les dépendances au démarrage</span></div></div>",
-          "expl": "Identifier et vérifier les dépendances techniques dès le début du projet, pas en cours de développement.",
-          "debriefExpl": "En vérifiant avant de commencer le développement que l'annuaire LDAP est en version suffisante et que l'API des plages opératoires est documentée, l'équipe évite les mauvaises surprises qui bloquent la livraison. Ces vérifications devraient faire partie du lancement de tout nouveau module.",
+          "title": "Identifier le prérequis d'architecture de données",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Prérequis Technique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">US : Table d'agrégation de données</span></div></div>",
+          "expl": "Poser comme prérequis de la US la modification de l'historisation des données ou la création d'une table d'agrégation.",
+          "debriefExpl": "Le rapport ne peut pas fonctionner sans les données historiques. Le prérequis technique de modifier la durée de conservation ou de créer une table de statistiques agrégées (US technique) doit être identifié et réalisé avant d'implémenter le rapport.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Gérer les dépendances au fil de l'eau ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Gérer dépendances l'eau</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Gérer les dépendances au fil de l'eau</span></div></div>",
-            "expl": "Gérer les dépendances au fil de l'eau, au fur et à mesure qu'elles se présentent.",
-            "debriefExpl": "Découvrir en cours de sprint que le LDAP n'est pas à jour signifie s'arrêter et attendre, ce qui retarde tout le planning.",
+            "title": "Coder le rapport et corriger les données plus tard",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Développer interface seule</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Développer immédiatement</span></div></div>",
+            "expl": "Développer l'interface du rapport immédiatement et s'occuper de la collecte d'historique après la livraison.",
+            "debriefExpl": "Coder l'interface d'un rapport vide ou incomplet est inutile pour l'utilisateur et génère de la frustration car le rapport affichera des données vides pendant un an.",
             "icon": "x"
           },
           {
-            "title": "Changer tout le système pour compatibilité ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Changer tout système pou</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Changer tout le système pour compatibili</span></div></div>",
-            "expl": "Changer l'ensemble du système existant pour le rendre compatible avec les dépendances.",
-            "debriefExpl": "Remplacer tout l'annuaire parce qu'une API n'est pas documentée, c'est jeter le bébé avec l'eau du bain. Mieux vaut documenter l'API existante ou prévoir un adaptateur.",
+            "title": "Faire injecter les données manuellement par la DSI",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Injection SQL manuelle</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Injection manuelle</span></div></div>",
+            "expl": "Faire saisir les données manquantes par un administrateur via des scripts SQL réguliers pour compenser l'absence d'historique.",
+            "debriefExpl": "Cette solution de contournement manuelle est chronophage, source d'erreurs et ne résout pas la dépendance de l'application à un historique automatique.",
             "icon": "x"
           }
         ],
-        "expl": "Les dépendances techniques (version LDAP, documentation API) doivent être identifiées et vérifiées en amont du développement. Spécifier les prérequis évite les découvertes tardives qui bloquent la livraison."
-      },
-      {
-        "text": "Le CRDC prévoit de déployer un portail patient en ligne pour la consultation des résultats de dépistage. Ce portail dépend de la mise en place de l'authentification via FranceConnect, de l'API des résultats du laboratoire, et d'un processus de consentement électronique. Trois dépendances portées par trois fournisseurs différents avec des calendriers incompatibles.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Portail Patient</div><div class=\"flex flex-col gap-1 text-[9px]\"><span class=\"text-amber-700\">⏳ FranceConnect : T2 2026</span><span class=\"text-amber-700\">⏳ API Labo : T3 2026</span><span class=\"text-red-700\">✗ Consentement : non planifié</span></div></div>",
-        "correct": {
-          "title": "Planifier selon les contraintes partenaires ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Planifier selon contrain</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Planifier selon les contraintes partenai</span></div></div>",
-          "expl": "Planifier le projet en intégrant les contraintes et calendriers des partenaires externes.",
-          "debriefExpl": "Le portail patient dépend de FranceConnect (T2 2026), de l'API laboratoire (T3 2026) et du consentement électronique (non planifié). Le planning doit intégrer ces étapes et prévoir des solutions de repli si un partenaire prend du retard, comme un accès temporaire par identifiants simples.",
-          "icon": "check"
-        },
-        "wrong": [
-          {
-            "title": "Attendre que toutes les dépendances soient prêtes ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Attendre toutes dépendan</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Attendre que toutes les dépendances soie</span></div></div>",
-            "expl": "Attendre que l'ensemble des dépendances externes soient toutes disponibles avant de démarrer le projet.",
-            "debriefExpl": "Si on attend FranceConnect ET l'API labo ET le consentement, on ne livrera jamais rien. Il faut prioriser et lancer ce qui est disponible.",
-            "icon": "x"
-          },
-          {
-            "title": "Démarrer le projet sans aucune planification ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Démarrer projet sans auc</div><div class=\"flex items-center gap-1 text-[7px]\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"font-semibold text-slate-600\">T1 2026</span></div></div>",
-            "expl": "Démarrer le projet sans aucune planification préalable des dépendances et contraintes.",
-            "debriefExpl": "Commencer à développer sans savoir quand les API partenaires seront disponibles, c'est risquer de tout jeter à 3 mois du lancement.",
-            "icon": "x"
-          }
-        ],
-        "expl": "Le planning doit intégrer les dépendances inter-projets : chaque fournisseur a son propre calendrier. Spécifier les dépendances critiques permet d'ordonnancer le déploiement par étapes ou de prévoir des solutions de repli."
+        "expl": "Chaque User Story doit lister ses dépendances de données. Si la structure ou l'historique requis n'existe pas en base de données, la création de ce prérequis doit faire l'objet d'une US technique distincte préalable."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Prérequis & Dépendances</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i></div><span class=\"text-[8px] text-slate-800 font-bold\">Fichier adresses chargé</span></div><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-2.5 h-2.5 text-slate-600\"></i></div><span class=\"text-[8px] text-slate-800 font-bold\">API LDAP v2.1 disponible</span></div><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-amber-100 flex items-center justify-center shrink-0\"><i data-lucide=\"clock\" class=\"w-2.5 h-2.5 text-amber-600\"></i></div><span class=\"text-[8px] text-amber-800 font-bold\">Fournisseur portail patient ← J+15</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">2/3 prérequis validés</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Gérer les Dépendances US</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center shrink-0\"><i data-lucide=\"check-circle-2\" class=\"w-3 h-3 text-emerald-600\"></i></div><span class=\"text-[8px] text-slate-800 font-bold\">US-89 : Dictionnaire (Prérequis)</span></div><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center shrink-0\"><i data-lucide=\"arrow-right\" class=\"w-3 h-3 text-slate-400\"></i></div><span class=\"text-[8px] text-slate-800\">US-12 : Import frottis</span></div><div class=\"flex items-center gap-2\"><div class=\"w-4 h-4 rounded-full bg-amber-100 flex items-center justify-center shrink-0\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-amber-600\"></i></div><span class=\"text-[8px] text-amber-800 font-bold\">Dépendance : US-15 (Statistiques)</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Ordonnancement du Backlog validé</div></div></div>"
   },
   {
     "id": "D7",
@@ -653,188 +625,188 @@
   {
     "id": "D8",
     "title": "Définir les enchaînements logiques",
-    "intent": "Définir la séquence des étapes, les transitions d'état et les actions automatisées ou manuelles à chaque étape.",
-    "icon": "activity",
+    "intent": "Définir la séquence des étapes, les changements d'état, les déclencheurs, les actions et les notifications associés.",
+    "icon": "git-branch",
     "scenarios": [
       {
-        "text": "Le flux actuel du dépistage colorectal est manuel : le médecin prescrit → le laboratoire analyse → le résultat papier est envoyé au médecin → le médecin le communique au patient. Le CRDC n'a aucune visibilité sur les dossiers bloqués entre l'analyse et la communication du résultat. Certains patients attendent 3 mois sans nouvelles.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Workflow Dépistage</div><div class=\"flex gap-0.5 text-[9px] items-center\"><span class=\"bg-slate-100 p-1 rounded\">Prescrit</span><span>→</span><span class=\"bg-slate-100 p-1 rounded\">Analyse</span><span>→</span><span class=\"bg-amber-200 p-1 rounded\">⚠ Résultat</span></div></div>",
+        "text": "Le suivi du test colorectal est complexe et les dossiers se perdent entre l'analyse du labo et la communication par le médecin. Vous devez spécifier l'enchaînement des étapes dans l'application pour éviter les pertes de dossier.",
+        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Workflow Dépistage</div><div class=\"flex gap-0.5 text-[9px] items-center\"><span class=\"bg-slate-100 p-1 rounded\">Prescrit</span><span>→</span><span class=\"bg-slate-100 p-1 rounded\">Analyse</span><span>→</span><span class=\"bg-amber-200 p-1 rounded\">⚠️ Résultat</span></div></div>",
         "correct": {
-          "title": "Définir des états et transitions explicites ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Définir états transition</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Définir des états et transitions explici</span></div></div>",
-          "expl": "Spécifier des états explicites et des transitions pour chaque étape d'un processus métier.",
-          "debriefExpl": "Le circuit du test colorectal doit passer par des états clairs : Prescrit → Analyse → Résultat transmis → Patient notifié. Chaque transition a un déclencheur (automatique ou manuel) et un délai maximal. Si le résultat reste bloqué à \"Analysé\" sans passer à \"Transmis\" au-delà de 7 jours, une alerte est levée.",
+          "title": "Définir les états UI, déclencheurs et notifications",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Définir états transition</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Définir les états UI, déclencheurs et notifications</span></div></div>",
+          "expl": "Spécifier les changements d'état de l'interface, les actions de transition et les notifications automatiques à chaque étape.",
+          "debriefExpl": "Dans l'interface, on définit la séquence d'états : 'Prescrit' (déclenché par le médecin) → 'Reçu Labo' (action automatisée par API) → 'Résultat Validé' (notification instantanée) → 'Patient Notifié' (clic final). Si le dossier reste bloqué plus de 7 jours dans un état intermédiaire, une alerte visuelle s'affiche.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Garder un processus manuel papier puis numériser ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Garder processus manuel </div><div class=\"flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"w-3.5 h-3.5 rounded bg-slate-200 flex items-center justify-center text-[6px] font-bold text-slate-500\">1</span><span class=\"text-[7px] text-slate-600\">Prescription</span></div><div class=\"flex items-center gap-1\"><span class=\"w-3.5 h-3.5 rounded bg-slate-200 flex items-center justify-center text-[6px] font-bold text-slate-500\">2</span><span class=\"text-[7px] text-slate-600\">Analyse</span></div><div class=\"flex items-center gap-1\"><span class=\"w-3.5 h-3.5 rounded bg-slate-200 flex items-center justify-center text-[6px] font-bold text-slate-500\">3</span><span class=\"text-[7px] text-slate-600\">Envoi</span></div></div></div>",
-            "expl": "Garder un processus manuel sur papier puis numériser les documents après coup.",
-            "debriefExpl": "Sans suivi numérique, le CRDC ne peut pas savoir que le résultat est bloqué entre le laboratoire et le médecin. Les patients attendent 3 mois sans nouvelles.",
+            "title": "Proposer un tableau de suivi statique",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Tableau statique sans act</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Proposer un tableau de suivi statique</span></div></div>",
+            "expl": "Créer un tableau de bord global listant tous les dossiers sans notion d'état ni d'action possible.",
+            "debriefExpl": "Un tableau statique liste les dossiers mais ne guide pas l'utilisateur sur l'action à mener ni ne notifie personne. Les dossiers continueront à stagner sans que personne ne s'en rende compte.",
             "icon": "x"
           },
           {
-            "title": "Créer un état générique unique sans contrainte ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Créer état générique uni</div><div class=\"flex items-center gap-1 text-[7px]\"><i data-lucide=\"calendar\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span class=\"font-semibold text-slate-600\">T1 2026</span></div></div>",
-            "expl": "Créer un état unique et générique pour tous les dossiers, sans contrainte de transition.",
-            "debriefExpl": "Si tous les dossiers sont simplement marqués \"En cours\", rien ne distingue un dossier fraîchement prescrit d'un dossier bloqué depuis 2 mois.",
+            "title": "Laisser les utilisateurs saisir manuellement l'état",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Saisie manuelle libre</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Laisser les utilisateurs saisir manuellement l'état</span></div></div>",
+            "expl": "Ajouter un champ de saisie libre dans l'interface où l'utilisateur tape lui-même l'état actuel du dossier.",
+            "debriefExpl": "La saisie libre d'états génère des incohérences (ex: 'en cours', 'analyse', 'reçu' pour la même étape) et empêche tout déclenchement d'actions automatiques ou de relances.",
             "icon": "x"
           }
         ],
-        "expl": "Le workflow doit être digitalisé avec des états explicites : Prescrit → Analysé → Résultat transmis → Patient notifié. Chaque transition a un déclencheur (humain ou automatique) et un délai maximal de tolérance."
+        "expl": "Le workflow doit être digitalisé avec des états explicites : Prescrit → Analysé → Résultat transmis → Patient notifié. Chaque transition a un déclencheur (humain ou automatique) et un délai de tolérance."
       },
       {
-        "text": "Lorsqu'une mammographie revient avec un résultat suspect, le protocole impose : 1) information de la patiente par le radiologue sous 48h, 2) envoi du dossier au comité de concertation pluridisciplinaire (CCP), 3) convocation à des examens complémentaires sous 15 jours. Actuellement, le radiologue doit suivre cette checklist manuellement et oublie régulièrement des étapes.",
+        "text": "Lorsqu'une mammographie révèle un résultat suspect, l'application doit guider l'utilisateur à travers le protocole obligatoire : informer la patiente sous 48h, créer la demande CCP et planifier la convocation sous 15 jours.",
         "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Protocole Résultat Suspect</div><div class=\"flex flex-col gap-1 text-[10px]\"><span class=\"bg-slate-100 p-1 rounded\">✅ Patiente informée (J+1)</span><span class=\"bg-amber-100 p-1 rounded\">⏳ CCP : à créer</span><span class=\"bg-red-100 p-1 rounded\">❌ Convocation : J+10 non faite</span></div></div>",
         "correct": {
-          "title": "Automatiser les transitions et relances ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Automatiser transitions </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Automatiser les transitions et relances</span></div></div>",
-          "expl": "Automatiser les actions séquentielles d'un protocole avec des relances en cas de non-respect des délais.",
-          "debriefExpl": "Quand une mammographie est suspecte, le système doit enchaîner automatiquement les 3 étapes : alerter le radiologue (48h), créer la demande de comité pluridisciplinaire (CCP), planifier la convocation (15 jours). Si une étape n'est pas réalisée dans les temps, une relance est envoyée à l'acteur concerné.",
+          "title": "Enchaîner les actions UI et changements d'état bloquants",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Automatiser transitions </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Enchaîner les actions UI et changements d'état bloquants</span></div></div>",
+          "expl": "Définir la séquence d'actions dans l'interface en bloquant les étapes suivantes tant que les déclencheurs et notifications requis ne sont pas validés.",
+          "debriefExpl": "Dès que l'état passe à 'Résultat Suspect', l'interface affiche l'action 'Informer patiente' en priorité. Une fois validée (déclencheur), l'état passe à 'Attente CCP' et débloque le bouton 'Créer CCP' (action), puis notifie le secrétariat pour planifier la convocation. L'ordre des étapes est garanti par l'application.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Embaucher un opérateur pour le contrôle manuel ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Embaucher opérateur pour</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Embaucher un opérateur pour le contrôle </span></div></div>",
-            "expl": "Embaucher un opérateur dédié pour contrôler manuellement le bon déroulement du protocole.",
-            "debriefExpl": "Un humain qui suit une checklist manuelle finit toujours par oublier une étape ou la reporter. L'automatisation est plus fiable.",
+            "title": "Afficher une simple checklist informative",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Checklist informative sim</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Afficher une simple checklist informative</span></div></div>",
+            "expl": "Présenter une liste de tâches textuelle dans l'application, laissant le radiologue cocher et effectuer les actions dans n'importe quel ordre.",
+            "debriefExpl": "Une simple checklist n'empêche pas les erreurs d'enchaînement (par exemple convoquer la patiente avant d'avoir envoyé la notification d'alerte), ce qui est source de stress ou d'oublis graves.",
             "icon": "x"
           },
           {
-            "title": "Laisser l'utilisateur libre de l'ordre d'exécution ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Laisser l'utilisateur li</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Laisser l'utilisateur libre de l'ordre d</span></div></div>",
-            "expl": "Laisser l'utilisateur libre de choisir l'ordre d'exécution des étapes du protocole.",
-            "debriefExpl": "Si le radiologue peut envoyer la convocation avant d'avoir informé la patiente, on crée une situation de stress inutile pour la patiente.",
+            "title": "Créer un bouton unique tout-en-un automatique",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Bouton tout-en-un</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Créer un bouton unique tout-en-un automatique</span></div></div>",
+            "expl": "Proposer un bouton unique 'Tout traiter' qui valide toutes les étapes et génère les notifications d'un coup sans contrôle humain.",
+            "debriefExpl": "Le protocole exige des vérifications humaines à des étapes clés (s'assurer que la patiente a bien été appelée). Tout automatiser à l'aveugle est dangereux pour la qualité du suivi.",
             "icon": "x"
           }
         ],
         "expl": "Le workflow doit automatiser les actions séquentielles : déclenché par le résultat suspect, le système alerte le radiologue (étape 1), crée la demande CCP (étape 2), planifie la convocation (étape 3) avec des relances si non effectué dans les délais."
       },
       {
-        "text": "Le CRDC souhaite automatiser les relances des patients qui n'ont pas réalisé leur dépistage col de l'utérus après 6 mois. La chaîne actuelle implique : extraction manuelle → création du courrier → affranchissement → envoi postal. Le taux de relance n'est que de 40% car le processus est trop long.",
+        "text": "Vous devez concevoir le module de relance automatique pour les patientes sans dépistage à jour depuis 6 mois, afin d'optimiser le travail de relance des gestionnaires.",
         "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Automate de Relance</div><div class=\"flex gap-1 text-[9px] items-center\"><span>J+180</span><span>→</span><span class=\"bg-slate-900 text-white p-1 rounded\">Générer</span><span>→</span><span class=\"bg-slate-900 text-white p-1 rounded\">Envoyer</span><span>→</span><span class=\"bg-slate-900 text-white p-1 rounded\">Traçabilité</span></div></div>",
         "correct": {
-          "title": "Configurer des règles séquentielles auto ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Configurer règles séquen</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Configurer des règles séquentielles auto</span></div></div>",
-          "expl": "Configurer des règles automatiques qui déclenchent des actions à partir de conditions prédéfinies.",
-          "debriefExpl": "Le système doit détecter automatiquement qu'un patient n'a pas réalisé son dépistage depuis 6 mois, générer le courrier ou SMS de relance, l'envoyer, et mettre à jour le dossier avec le statut \"Relancé\". Le gestionnaire n'a plus à faire l'extraction manuelle ni la création de courrier.",
+          "title": "Spécifier le déclencheur, l'état et l'action d'envoi automatisé",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Déclencheur, état, envoi</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Spécifier le déclencheur, l'état et l'action d'envoi automatisé</span></div></div>",
+          "expl": "Définir le déclencheur temporel, le changement d'état automatique du dossier et l'action d'envoi de notification intégrée.",
+          "debriefExpl": "On spécifie dans l'application : le Déclencheur (J+180 sans examen), le Changement d'état automatique du dossier ('À relancer' puis 'Relancée'), et l'Action associée (génération et envoi du SMS/courrier). L'interface offre un historique des relances envoyées et permet de débrayer l'automate si besoin.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Externaliser entièrement les processus de relance ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Externaliser entièrement</div><div class=\"flex items-center gap-1\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Échéance J+5</span></div></div>",
-            "expl": "Externaliser entièrement le processus de relance à un prestataire externe.",
-            "debriefExpl": "Le prestataire n'aura pas accès au dossier patient et ne pourra pas adapter la relance en fonction de la situation individuelle de chaque patient.",
+            "title": "Ajouter un écran d'extraction manuelle de fichiers",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Extraction de fichiers man</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Ajouter un écran d'extraction manuelle de fichiers</span></div></div>",
+            "expl": "Proposer une interface permettant aux gestionnaires d'extraire la liste des patientes en retard pour envoi manuel de SMS.",
+            "debriefExpl": "Cette approche conserve un processus lourd et manuel de gestion de fichiers en dehors de l'application, ce qui nuit à l'adoption et à la traçabilité des relances.",
             "icon": "x"
           },
           {
-            "title": "Recruter pour gérer manuellement tout le processus ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Recruter pour gérer manu</div><div class=\"flex flex-col gap-0.5\"><div class=\"flex items-center gap-1\"><span class=\"w-3.5 h-3.5 rounded bg-slate-200 flex items-center justify-center text-[6px] font-bold text-slate-500\">1</span><span class=\"text-[7px] text-slate-600\">Prescription</span></div><div class=\"flex items-center gap-1\"><span class=\"w-3.5 h-3.5 rounded bg-slate-200 flex items-center justify-center text-[6px] font-bold text-slate-500\">2</span><span class=\"text-[7px] text-slate-600\">Analyse</span></div><div class=\"flex items-center gap-1\"><span class=\"w-3.5 h-3.5 rounded bg-slate-200 flex items-center justify-center text-[6px] font-bold text-slate-500\">3</span><span class=\"text-[7px] text-slate-600\">Envoi</span></div></div></div>",
-            "expl": "Recruter du personnel pour gérer manuellement l'ensemble du processus de relance.",
-            "debriefExpl": "Une personne qui passe ses journées à extraire des fichiers et créer des courriers manuellement pourrait être mieux utilisée à des tâches à plus forte valeur ajoutée.",
+            "title": "Automatiser l'envoi sans historique d'état",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Envoi sans historique</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Automatiser l'envoi sans historique d'état</span></div></div>",
+            "expl": "Envoyer les relances SMS directement en tâche de fond chaque nuit sans changer l'état du dossier ni notifier l'interface.",
+            "debriefExpl": "Sans trace dans l'interface et sans changement d'état du dossier, les gestionnaires ne savent pas qui a été relancé, ce qui risque de provoquer des envois multiples et de la confusion.",
             "icon": "x"
           }
         ],
         "expl": "Le workflow de relance doit être entièrement automatisé : déclenché par la date (J+180 sans dépistage), il génère le courrier ou le SMS, l'envoie automatiquement, et met à jour le dossier patient avec un nouvel état \"Relancé\"."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Workflow</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">1</div><span class=\"text-[8px] text-slate-800 font-bold\">Création campagne</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">2</div><span class=\"text-[8px] text-slate-800 font-bold\">Validation responsable</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">3</div><span class=\"text-[8px] text-slate-800 font-bold\">Envoi invitations</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-300 text-white text-[8px] font-black flex items-center justify-center shrink-0\">4</div><span class=\"text-[8px] text-slate-400\">Relance J+30</span></div><div class=\"mt-1 text-center text-[7px] bg-amber-50 border border-amber-200 rounded-lg p-1.5 text-amber-700 font-bold\">Déclencheur automatique si J+30</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Workflow Applicatif</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">1</div><span class=\"text-[8px] text-slate-800 font-bold\">Déclencheur (J+180)</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">2</div><span class=\"text-[8px] text-slate-800 font-bold\">Action : SMS/Courrier</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-slate-700 text-white text-[8px] font-black flex items-center justify-center shrink-0\">3</div><span class=\"text-[8px] text-slate-800 font-bold\">Notification &amp; Traçabilité</span></div><div class=\"flex items-center gap-2\"><div class=\"w-5 h-5 rounded-full bg-emerald-600 text-white text-[8px] font-black flex items-center justify-center shrink-0\">4</div><span class=\"text-[8px] text-emerald-800 font-bold\">Nouvel état : Relancé</span></div></div></div>"
   },
   {
     "id": "D9",
-    "title": "Planifier les alertes temporelles",
-    "intent": "Gérer les alertes temporelles, les délais réglementaires et les notifications automatiques vers les bons destinataires.",
-    "icon": "clock",
+    "title": "Décrire les règles métiers",
+    "intent": "Savoir structurer une demande de correction en besoins, entrées vs sorties, comportement existant vs attendu et suivant la logique quand / si / alors",
+    "icon": "clipboard-list",
     "scenarios": [
       {
-        "text": "Le test de dépistage colorectal doit être réalisé dans les 2 semaines suivant la prescription, sinon l'échantillon se dégrade. Actuellement, aucun rappel n'est envoyé au patient passé ce délai. Le taux d'échantillons non analysables atteint 18%.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Alerte Échéance</div><div class=\"p-2 bg-amber-50 border border-amber-200 rounded text-[10px]\"><span class=\"font-bold text-amber-700\">Échantillon non reçu (J+13)</span><div class=\"text-amber-600\">Prévenir médecin pour represcription</div></div></div>",
+        "text": "Une gestionnaire du CRDC de la Somme signale que le PDF d'invitation au dépistage du cancer du sein contient une faute d'orthographe. Le document affiche « Dépistage organisé du cancer du seins » (avec un 's' à seins) dans l'en-tête du document. Ce PDF officiel est envoyé à toutes les patientes du département. Vous devez formaliser la demande de correction pour les développeurs.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"file-text\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Visualisation du PDF</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg font-mono text-slate-700\"><div>Dépistage organisé du cancer du <span class=\"text-red-600 font-bold underline\">seins</span></div></div></div>",
         "correct": {
-          "title": "Déclencher des alertes sur échéances ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Déclencher alertes échéa</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Déclencher des alertes sur échéances</span></div></div>",
-          "expl": "Paramétrer des notifications automatiques déclenchées par des échéances pour agir avant la deadline.",
-          "debriefExpl": "Le test colorectal doit être réalisé sous 14 jours. Le système envoie une notification au patient à J-2 de l'expiration (J+12) pour le motiver à agir. Si le test n'est toujours pas reçu à J+15, le médecin prescripteur est notifié pour reprogrammer. Cela permet de réduire les 18% d'échantillons non analysables.",
+          "title": "Formaliser : technique « Entrées/Sorties » et « Comportement existant vs attendu »",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formalisation Structurée</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Entrée :</strong> PDF Généré (invitation_sein_template.pdf)</div><div><strong>Comportement Actuel :</strong> « cancer du seins »</div><div><strong>Comportement Attendu :</strong> « cancer du sein »</div></div></div>",
+          "expl": "Décrire l'anomalie en appliquant la technique du comportement existant vs attendu couplée aux entrées/sorties.",
+          "debriefExpl": "Pour cette correction de coquille, appliquer les techniques 'Entrées/Sorties' et 'Comportement existant vs attendu' (Entrée : template PDF, Existant : « seins », Attendu : « sein ») permet de formaliser un besoin clair sans ambiguïté.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Notifier quotidiennement tous les comptes actifs ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Notifier quotidiennement</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Notifier quotidiennement tous les compte</span></div></div>",
-            "expl": "Notifier quotidiennement l'ensemble des utilisateurs concernés par une échéance.",
-            "debriefExpl": "Si le patient reçoit un rappel quotidien, il finira par ignorer les notifications, y compris la plus importante à J-2 de l'expiration.",
+            "title": "Formaliser : ticket libre sans structure de données",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Ticket textuel libre</div><div class=\"text-[6.5px] text-slate-500\">« Il y a une faute d'orthographe dans le PDF d'invitation. Merci de corriger. »</div></div>",
+            "expl": "Rédiger une description textuelle simple décrivant globalement le problème rencontré.",
+            "debriefExpl": "Les tickets libres obligent les développeurs à chercher eux-mêmes dans quel PDF l'erreur se trouve, quelle ligne est concernée et quel est le mot correct à écrire, ce qui génère des allers-retours inutiles.",
             "icon": "x"
           },
           {
-            "title": "Raccourcir drastiquement la validité des actions ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Raccourcir drastiquement</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Raccourcir drastiquement la validité des</span></div></div>",
-            "expl": "Raccourcir drastiquement la durée de validité des actions pour forcer la réactivité.",
-            "debriefExpl": "Imposer un test sous 7 jours au lieu de 14 ne fera qu'augmenter les échantillons non analysables sans donner plus de temps au patient pour s'organiser.",
+            "title": "Technique : joindre uniquement le fichier PDF brut",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Ticket PDF Seul</div><div class=\"text-[6.5px] text-slate-500\">📎 invitation.pdf (Sans consignes ni texte explicatif)</div></div>",
+            "expl": "Envoyer le fichier PDF brut généré en PJ sans détailler les comportements actuel et attendu.",
+            "debriefExpl": "Transmettre un fichier volumineux sans cibler le texte à corriger force le développeur à relire tout le document pour trouver la coquille.",
             "icon": "x"
           }
         ],
-        "expl": "Une notification doit être envoyée automatiquement au patient à J-2 de l'expiration (J+12) pour l'inciter à réaliser le test. À J+15, le médecin prescripteur est notifié pour reprogrammer si nécessaire."
+        "expl": "C'est une demande de correction simple mais qui nécessite une formalisation précise : capture d'écran du PDF, texte exact erroné, correction attendue. Même une petite correction doit être correctement documentée pour être tracée et déployée via le cycle de release standard."
       },
       {
-        "text": "Au CHU, le compte-rendu de mammographie doit être remis à la patiente sous 8 jours (délai réglementaire). Actuellement, le radiologue valide le CR mais aucune alerte n'existe si le document n'est pas transmis à la secrétaire pour mise sous pli. Certains CR restent en attente 3 semaines.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Délai Compte-Rendu</div><div class=\"flex justify-between text-[10px]\"><span>J+5 :</span><span class=\"text-amber-600\">Alerte responsable</span></div><div class=\"flex justify-between text-[10px]\"><span>J+8 :</span><span class=\"text-red-600 font-bold\">Alarme critique</span></div></div>",
+        "text": "Les gestionnaires du CRDC souhaitent un nouvel automatisme : si une patiente n'a pas répondu à son invitation de dépistage colorectal depuis 30 jours, un rappel SMS doit lui être envoyé. Actuellement, elles doivent vérifier manuellement le statut et envoyer les relances une par une. Vous devez formaliser la demande.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"bell\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Relances manuelles</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg text-slate-700\"><div>Saisie manuelle des dates et envois individuels dans l'agenda.</div></div></div>",
         "correct": {
-          "title": "Escalader les alertes progressivement ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Escalader alertes progre</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Escalader les alertes progressivement</span></div></div>",
-          "expl": "Définir des alertes avec escalade progressive : destinataire différent selon la gravité du dépassement.",
-          "debriefExpl": "Le compte-rendu de mammographie doit être transmis sous 8 jours (délai réglementaire). À J+5 sans transmission, le responsable de pôle est notifié. À J+8, une alarme critique s'affiche dans l'application pour le radiologue et sa secrétaire, avec copie email pour traçabilité.",
+          "title": "Formaliser : technique de logique conditionnelle « Quand / Si / Alors »",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formalisation Fonctionnelle</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Sachant :</strong> Invitation envoyée et sans réponse</div><div><strong>Si :</strong> Délai = 30 jours</div><div><strong>Alors :</strong> Statut = À relancer &amp; Envoi SMS</div></div></div>",
+          "expl": "Rédiger la règle fonctionnelle de relance automatique via la technique conditionnelle Quand / Si / Alors.",
+          "debriefExpl": "La technique 'Quand / Si / Alors' (Quand 30 jours se sont écoulés, si aucune réponse n'est reçue, alors envoyer le SMS) formalise parfaitement cet automatisme en définissant le déclencheur, la condition et l'action attendue.",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Spammer l'utilisateur jusqu'à résolution de l'alerte ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Spammer l'utilisateur ju</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Spammer l'utilisateur jusqu'à résolution</span></div></div>",
-            "expl": "Envoyer des notifications répétées à l'utilisateur jusqu'à ce qu'il résolve l'alerte.",
-            "debriefExpl": "Une notification toutes les heures n'incitera pas le radiologue à transmettre plus vite, mais le poussera à désactiver les alertes.",
+            "title": "Formaliser : description de l'interface graphique souhaitée",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Design de l'interface</div><div class=\"text-[6.5px] text-slate-500\">« Ajouter un gros bouton de relance et un champ de date sur l'écran patient. »</div></div>",
+            "expl": "Décrire l'apparence visuelle des champs sans formaliser les règles logiques d'envoi automatique.",
+            "debriefExpl": "Décrire uniquement les éléments visuels de l'interface ne définit pas le comportement logique de l'automate en arrière-plan. Les développeurs risquent de coder un bouton inactif ou incomplet.",
             "icon": "x"
           },
           {
-            "title": "Recruter un agent dédié au suivi d'alertes ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Recruter agent dédié sui</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Recruter un agent dédié au suivi d'alert</span></div></div>",
-            "expl": "Recruter un agent dédié dont la mission est de suivre et traiter les alertes en continu.",
-            "debriefExpl": "Un humain qui surveille des échéances pourrait faire ce travail, mais un système automatisé est plus fiable, moins coûteux et ne prend jamais de congés.",
+            "title": "Technique : demander directement une table SQL de relance",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Requête Table SQL</div><div class=\"text-[6.5px] text-slate-500\">CREATE TABLE relance (id INT, date_envoi DATE...)</div></div>",
+            "expl": "Spécifier la structure de base de données à créer plutôt que la logique métier attendue.",
+            "debriefExpl": "Dicter la structure SQL technique est le rôle des développeurs. Le support ou le fonctionnel doit formaliser le besoin utilisateur et la logique fonctionnelle, pas le schéma physique de la base.",
             "icon": "x"
           }
         ],
-        "expl": "Le workflow doit inclure une échéance : à J+5 sans transmission, le responsable de pôle est notifié. À J+8, une alarme critique s'affiche. Le canal de notification est intra-app pour les alertes professionnelles, avec copie email pour traçabilité."
+        "expl": "Ce n'est pas une correction mais une demande d'évolution. La formalisation doit inclure : le contexte métier (pourquoi c'est nécessaire), le comportement attendu (un champ date avec notification), les critères d'acceptation (format, visibilité, droits). Ne pas confondre avec un bug : c'est une feature manquante."
       },
       {
-        "text": "La campagne nationale de dépistage organisé du cancer du sein fixe des objectifs de participation par CRDC avec des échéances trimestrielles de reporting. Le système doit alerter le coordinateur régional si le taux de participation de sa région est inférieur de 10% à l'objectif à moins de 4 semaines de l'échéance.",
-        "problemVisual": "<div class=\"w-full border border-slate-200 rounded-xl bg-white p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase mb-2\">Tableau de Bord Participation</div><div class=\"flex justify-between text-[10px]\"><span>Objectif : 65%</span><span class=\"text-red-600 font-bold\">Actuel : 52%</span></div><div class=\"bg-red-50 p-1 rounded text-[9px] text-red-700\">⚠ Alerte T-4 semaines — écart 13%</div></div>",
+        "text": "Le DSI de l'ARS signale une anomalie : le taux de participation affiché pour l'Oise est de 42,3 % alors que le calcul de leur statisticien donne 38,7 %. L'écart provient d'un filtre d'exclusion des patientes ayant déménagé hors du département. Vous devez formaliser la spécification du calcul corrigé.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"calculator\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Taux divergent</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg text-slate-700\"><div>Affiché : 42,3 % | Attendu : 38,7 % | Écart sur population active</div></div></div>",
         "correct": {
-          "title": "Paramétrer seuils et destinataires d'alerte ",
-          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Paramétrer seuils destin</div><div class=\"flex items-center gap-1\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Échéance J+5</span></div></div>",
-          "expl": "Rendre les seuils, les destinataires et les canaux de notification configurables par l'utilisateur.",
-          "debriefExpl": "Le coordinateur régional doit pouvoir paramétrer ses propres seuils : être alerté si le taux de participation est inférieur de 10% à l'objectif à T-4 semaines, et recevoir un rapport automatique à chaque échéance trimestrielle. Les seuils et destinataires doivent être ajustables sans développement.",
+          "title": "Formaliser : technique « Besoin / Entrées-Sorties » et règle de filtrage",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Règle de Filtrage</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Entrée :</strong> Population cible départementale</div><div><strong>Règle :</strong> Exclure si statut_adresse = 'Déménagé'</div><div><strong>Sortie :</strong> Dénominateur du taux de participation</div></div></div>",
+          "expl": "Détailler la formule par la technique 'Besoin / Entrées-Sorties' combinée à une règle d'exclusion stricte.",
+          "debriefExpl": "On utilise ici les techniques 'Besoin / Entrées-Sorties' et la formulation d'une règle d'exclusion claire (Besoin : fiabilité, Entrée : population brute, Règle : exclure si l'adresse a le statut déménagé, Sortie : dénominateur).",
           "icon": "check"
         },
         "wrong": [
           {
-            "title": "Analyser les retards uniquement en fin d'exercice ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Analyser retards uniquem</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Analyser les retards uniquement en fin d</span></div></div>",
-            "expl": "Analyser les retards et les écarts uniquement en fin de période (exercice, trimestre).",
-            "debriefExpl": "Si on attend la fin du trimestre pour constater que l'objectif n'est pas atteint, il est trop tard pour redresser la barre.",
+            "title": "Direct : demander une modification de la constante globale de calcul",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Ajustement du taux</div><div class=\"text-[6.5px] text-slate-500\">« Modifier le script pour retrancher 3,6 % d'office au département 60 »</div></div>",
+            "expl": "Demander l'application d'un correctif arithmétique brut sur le taux de l'Oise.",
+            "debriefExpl": "Appliquer une correction statistique brute ('hardcodée') est une mauvaise pratique. Le problème doit être résolu à la source par une règle de calcul propre.",
             "icon": "x"
           },
           {
-            "title": "Alerter tout le monde au moindre événement ",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Alerter tout monde moind</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Alerter tout le monde au moindre événeme</span></div></div>",
-            "expl": "Alerter l'ensemble des contacts disponibles au moindre écart constaté.",
-            "debriefExpl": "Si 50 personnes reçoivent la même alerte, chacun pense que quelqu'un d'autre va agir. Le taux de participation continue de baisser sans que personne ne prenne les rênes.",
+            "title": "Process : demander une analyse globale de la base de données",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Audit Global Base</div><div class=\"text-[6.5px] text-slate-500\">« DSI demande aux développeurs d'auditer toutes les requêtes SQL du module »</div></div>",
+            "expl": "Lancer une demande d'investigation globale sans cibler la règle spécifique en cause.",
+            "debriefExpl": "Lancer une investigation globale sur toutes les requêtes fait perdre un temps précieux. Le ticket doit se focaliser sur la règle d'exclusion de l'adresse.",
             "icon": "x"
           }
         ],
-        "expl": "Les notifications doivent être paramétrables par seuil et par destinataire : alerte préventive (T-4 semaines, écart >10%), alerte critique (T-1 semaine, écart >20%), et rapport automatisé vers l'ARS à chaque échéance."
+        "expl": "Cette demande de correction est stratégique et sensible. La formalisation doit être exhaustive : définir précisément le périmètre du calcul (dénominateur, numérateur, période), fournir la règle de calcul, les données brutes en entrée et le résultat attendu. Une validation par le métier est impérative avant correction."
       }
     ],
-    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Gestion des Échéances</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center justify-between p-1.5 bg-slate-50 border border-slate-200 rounded\"><span class=\"text-[7px] font-bold text-slate-600\">Test J+0</span><span class=\"text-[7px] bg-slate-100 text-slate-500 px-1.5 py-0.5 rounded\">En attente</span></div><div class=\"flex items-center justify-between p-1.5 bg-amber-50 border border-amber-200 rounded\"><span class=\"text-[7px] font-bold text-amber-800\">J+12 : Échantillon</span><span class=\"text-[7px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold\">⚠️ J-2</span></div><div class=\"flex items-center justify-between p-1.5 bg-red-50 border border-red-200 rounded\"><span class=\"text-[7px] font-bold text-red-800\">J+14 : Dégradation</span><span class=\"text-[7px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold\">🔴 Alarme critique</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Notification patient J-2 + médecin J+15</div></div></div>"
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Formalisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"camera\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Capture d'écran jointe</span></div><div class=\"text-[8px] text-slate-600\">Faute \"seins\" dans le PDF export — écran #3, ligne 12</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"list\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Étapes reproduction</span></div><div class=\"text-[8px] text-slate-600\">1. Ouvrir dossier → 2. Exporter PDF → 3. Observer texte</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Développeur peut corriger immédiatement</div></div></div>"
   },
   {
     "id": "D10",
