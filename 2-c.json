@@ -464,845 +464,99 @@
     ],
     "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Qualification Ticket</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex flex-wrap gap-1 mb-1\"><span class=\"px-1.5 py-0.5 bg-amber-100 text-amber-800 text-[7px] font-bold rounded\">Bug front</span><span class=\"px-1.5 py-0.5 bg-slate-100 text-slate-800 text-[7px] font-bold rounded\">Bloquant</span><span class=\"px-1.5 py-0.5 bg-slate-100 text-slate-800 text-[7px] font-bold rounded\">1 utilisateur</span></div><div class=\"text-[8px] text-slate-600\">Bouton \"Valider bilan\" grisé — vérifier console JS</div></div><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"font-bold text-slate-500\">Type :</span><span class=\"bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-700\">Incident</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[8px] text-slate-700 font-bold\">Ticket exploitable pour le dev</div></div></div>"
   },
-  [
-    {
-      "id": "C1",
-      "title": "Évaluer la priorité d'une demande",
-      "intent": "Savoir qualifier l'urgence et la criticité d'un incident en croisant l'impact métier et le nombre d'utilisateurs affectés, pour prioriser efficacement le traitement des tickets.",
-      "icon": "alert-triangle",
-      "scenarios": [
-        {
-          "text": "Un médecin généraliste du CH de Valenciennes vous appelle : depuis ce matin, il ne parvient pas à valider le bilan de dépistage cervical d'une patiente de 52 ans. Le message d'erreur est « Échec d'enregistrement : statut invalide ». La patiente est présente et le médecin a besoin de finaliser la consultation avant midi. Aucun autre médecin du CH n'a signalé de problème similaire.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-amber-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Ticket INC-2024-0842</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Priorité</span><span class=\"px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium text-xs\">Haute</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Gravité</span><span class=\"text-slate-700\">Mineure</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Impact</span><span class=\"text-slate-700\">1 utilisateur</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Urgence</span><span class=\"text-amber-600 font-medium\">Immédiate</span></div></div><div class=\"mt-3 pt-2.5 border-t border-slate-100\"><p class=\"text-xs text-slate-400\">Matrice Urgence × Gravité → Haute</p></div></div>",
-          "correct": {
-            "title": "Priorité haute : incident bloquant isolé",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité haute incident </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité haute : incident bloquant </span></div></div>",
-            "expl": "Croiser l'urgence (délai) et la gravité (impact) pour classer la priorité d'un incident.",
-            "debriefExpl": "Le médecin est bloqué immédiatement (urgence forte) mais c'est un cas isolé (gravité mineure). La matrice Urgence × Gravité donne une priorité haute, pas critique. Pas besoin de mobiliser toute l'équipe — un traitement dans la journée suffit. Le contournement par saisie papier est possible.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Priorité critique : médecin totalement bloqué",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité critique médeci</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité critique : médecin totalem</span></div></div>",
-              "expl": "Qualifier l'incident en priorité critique, ce qui mobilise l'ensemble de l'équipe support.",
-              "debriefExpl": "Mobiliser toute l'équipe pour un incident qui touche un seul utilisateur avec un contournement possible, c'est surdimensionné et cela peut retarder le traitement d'autres incidents réellement critiques.",
-              "icon": "x"
-            },
-            {
-              "title": "Priorité basse : utilisateur unique impacté",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité basse utilisate</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité basse : utilisateur unique</span></div></div>",
-              "expl": "Qualifier l'incident en priorité basse, ce qui le place en fin de file de traitement.",
-              "debriefExpl": "Un médecin bloqué en consultation avec une patiente présente ne peut pas attendre la fin de semaine. L'urgence est forte même si l'impact est limité à un seul utilisateur.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Bien qu'urgent pour le médecin et la patiente, l'incident est isolé : un seul utilisateur, une seule patiente. Impact localisé et fonctionnellement mineur (contournement possible par saisie papier). Priorité haute pour réactivité, mais pas critique. Ne pas mobiliser toute l'équipe. La matrice priorité = Urgence × Gravité place ce ticket en « haute » mais pas « critique »."
+  {
+    "id": "C6",
+    "title": "Formaliser la demande de correction",
+    "intent": "Savoir structurer une demande de correction complète et exploitable par l'équipe de développement, incluant contexte, données d'entrée, résultat attendu et éléments de preuve.",
+    "icon": "clipboard-list",
+    "scenarios": [
+      {
+        "text": "Une gestionnaire du CRDC de la Somme vous signale un problème : le modèle de PDF d'invitation au dépistage du cancer du sein contient une faute d'orthographe. Le texte affiche « Dépistage organisé du cancer du seins » (avec un 's' à seins) dans l'en-tête du document. Ce PDF est envoyé à toutes les patientes du département.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Demande de correction #DC-005</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"bg-slate-50 rounded-lg p-2.5 text-xs\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Fichier</span><span class=\"font-medium\">invitation_sein_template.pdf</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Erreur</span><span class=\"text-red-500\">« seins » → « sein »</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Ligne</span><span class=\"font-medium\">En-tête, ligne 1</span></div></div><div class=\"flex gap-2 mt-1\"><span class=\"text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded\">📎 capture.pdf</span></div></div></div>",
+        "correct": {
+          "title": "Formaliser : ticket de correction mineure",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser ticket de cor</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
+          "expl": "Formaliser une correction avec les éléments précis : capture, texte erroné, correction attendue.",
+          "debriefExpl": "Même une correction mineure (faute d'orthographe « seins » → « sein » dans le PDF d'invitation) doit être documentée correctement : capture d'écran du PDF, texte exact erroné, correction attendue. Cela permet le traçage et le déploiement via le cycle de release standard.",
+          "icon": "check"
         },
-        {
-          "text": "Le CRDC de l'Oise vous contacte : « Depuis lundi, aucun rapport mensuel d'activité ne se génère. Tous les gestionnaires sont concernés, et nous devons transmettre les chiffres à l'ARS demain. » En vérifiant, vous constatez que le moteur de reporting est down, ce qui affecte les 12 CRDC partenaires, même si seuls 3 l'ont signalé pour l'instant.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Ticket INC-2024-0915</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Priorité</span><span class=\"px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium text-xs\">Critique</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Gravité</span><span class=\"text-slate-700\">Majeure</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Impact</span><span class=\"text-slate-700\">12 CRDC (12+ utilisateurs)</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Urgence</span><span class=\"text-red-600 font-medium\">Avant demain (deadline ARS)</span></div></div><div class=\"mt-3 pt-2.5 border-t border-slate-100\"><p class=\"text-xs text-slate-400\">Matrice Urgence × Gravité → Critique</p></div></div>",
-          "correct": {
-            "title": "Priorité critique : impact multi-sites stratégique",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité critique impact</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité critique : impact multi-si</span></div></div>",
-            "expl": "Un incident révélé sur quelques sites peut en cacher un bien plus large — investiguer avant de prioriser.",
-            "debriefExpl": "Seuls 3 CRDC sur 12 ont appelé, mais le diagnostic montre que le moteur de reporting est complètement down pour tous. Avec la deadline ARS demain, l'urgence est maximale et la gravité est élevée (12 CRDC impactés). C'est une priorité critique : mobilisation immédiate et communication en interne/externe.",
-            "icon": "check"
+        "wrong": [
+          {
+            "title": "Direct : corriger à chaud le PDF",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct corriger chaud le</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
+            "expl": "Corriger directement le template PDF en production sans passer par le cycle de release.",
+            "debriefExpl": "Une modification directe en production contourne les contrôles de qualité et n'est pas tracée. Si le correctif doit être défaite plus tard, personne ne saura qu'une modification a eu lieu.",
+            "icon": "x"
           },
-          "wrong": [
-            {
-              "title": "Priorité haute : incident multi-sites standard",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité haute incident </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité haute : incident multi-sit</span></div></div>",
-              "expl": "Qualifier l'incident en priorité haute en se basant sur le nombre de signalements reçus.",
-              "debriefExpl": "Si on se fie uniquement aux 3 CRDC qui ont appelé, on sous-estime l'impact réel (12 CRDC). Le diagnostic doit précéder la priorisation.",
-              "icon": "x"
-            },
-            {
-              "title": "Priorité moyenne : reporting non bloquant",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité moyenne reporti</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité moyenne : reporting non bl</span></div></div>",
-              "expl": "Qualifier l'incident en priorité moyenne en considérant le reporting comme non urgent.",
-              "debriefExpl": "Le reporting est stratégique et la deadline ARS est demain. Ce n'est pas une fonctionnalité secondaire — c'est une obligation réglementaire.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Le diagnostic révèle un impact bien plus large que le signalement initial. L'urgence est forte (deadline ARS) et la gravité est élevée (12 CRDC impactés). La matrice Urgence × Gravité → Critique. Il faut mobiliser immédiatement, communiquer en interne et en externe, et envisager un contournement urgent (export manuel temporaire)."
+          {
+            "title": "Différer : attendre la prochaine refonte",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Différer attendre la pro</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Différer : attendre la prochaine re</span></div></div>",
+            "expl": "Reporter la correction à la prochaine refonte des templates prévue dans 6 mois.",
+            "debriefExpl": "Laisser une faute d'orthographe visible dans un document officiel envoyé à toutes les patientes pendant 6 mois nuit à l'image de l'application. Une petite correction ne devrait pas attendre une refonte majeure.",
+            "icon": "x"
+          }
+        ],
+        "expl": "C'est une demande de correction simple mais qui nécessite une formalisation précise : capture d'écran du PDF, texte exact erroné, correction attendue. Même une petite correction doit être correctement documentée pour être tracée et déployée via le cycle de release standard."
+      },
+      {
+        "text": "Le responsable technique du CRDC du Nord demande l'ajout d'un champ « Date de relance » dans le module colorectal. Actuellement, quand une patiente ne répond pas à l'invitation, la gestionnaire n'a aucun outil pour planifier une relance. Elle doit noter manuellement dans son agenda. Le besoin est clair mais non urgent.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Évolution #EV-023</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Module</span><span class=\"font-medium\">Colorectal — Relances</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Type</span><span class=\"text-slate-600 font-medium\">Évolution</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Priorité</span><span class=\"text-slate-600\">Souhaitable</span></div></div><div class=\"mt-2 p-2.5 bg-slate-50 rounded-lg text-xs\"><p class=\"font-medium\">Comportement attendu :</p><p class=\"text-slate-600 mt-0.5\">Ajouter champ « date de relance » sur le dossier patient avec notification automatique J+30.</p></div></div>",
+        "correct": {
+          "title": "Formaliser : ticket de demande d'évolution",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser ticket de dem</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
+          "expl": "Distinguer une demande d'évolution d'une demande de correction, et formaliser en conséquence.",
+          "debriefExpl": "L'ajout d'un champ « Date de relance » n'est pas un bug mais une fonctionnalité manquante. La formalisation doit inclure le contexte métier (pourquoi c'est nécessaire), le comportement attendu, les critères d'acceptation. À qualifier comme ticket d'évolution, pas comme correction urgente.",
+          "icon": "check"
         },
-        {
-          "text": "Le directeur du CHU d'Amiens vous écrit directement : « L'outil EPICONCEPT a subi des ralentissements critiques pendant notre campagne de dépistage organisé du cancer colorectal. Nous avons dû reporter des rendez-vous et gérer les appels patients manuellement. Si cela se reproduit lors de notre prochaine campagne, nous remettrons en cause notre abonnement. » Le CHU représente 15 % de votre chiffre d'affaires régional.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-xs\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"building\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Réclamation CHU Amiens</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Type</span><span class=\"text-slate-700\">Réclamation contractuelle</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Risque</span><span class=\"px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium text-xs\">15 % CA régional</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Statut</span><span class=\"text-amber-600 font-medium\">Escalade CODIR requise</span></div></div><div class=\"mt-3 pt-2.5 border-t border-slate-200 space-y-1 text-xs text-slate-500\"><p class=\"font-medium text-slate-700\">Éléments de décision :</p><p>• Risque de résiliation d'abonnement</p><p>• Impact image réutilisable</p><p>• Cause racine non identifiée</p></div></div>",
-          "correct": {
-            "title": "Priorité stratégique : risque contractuel majeur",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité stratégique ris</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité stratégique : risque contr</span></div></div>",
-            "expl": "Un incident à fort risque stratégique (contrat, image, CA) justifie une escalade au plus haut niveau.",
-            "debriefExpl": "Il n'y a pas d'incident technique en cours aujourd'hui, mais le risque de reproduction est critique pour ce client qui représente 15% du CA régional. Cela nécessite une remontée au CODIR, une analyse des causes racines prioritaire et un plan d'action formel. La criticité est stratégique, pas seulement technique.",
-            "icon": "check"
+        "wrong": [
+          {
+            "title": "Bloquant : forcer un ticket urgent",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Bloquant forcer un ticke</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Bloquant : forcer un ticket urgent</span></div></div>",
+            "expl": "Forcer un ticket urgent comme si c'était une correction bloquante.",
+            "debriefExpl": "Ce n'est pas une urgence : les gestionnaires contournent avec leur agenda papier depuis des mois. Forcer un traitement urgent déshabille les vraies priorités.",
+            "icon": "x"
           },
-          "wrong": [
-            {
-              "title": "Priorité basse : aucun incident critique",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité basse aucun inc</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité basse : aucun incident cri</span></div></div>",
-              "expl": "Qualifier l'incident en priorité basse en l'absence d'incident technique actif.",
-              "debriefExpl": "Le risque contractuel et financier est bien réel même sans panne en cours. Attendre le prochain COPIL est trop tard pour un client qui menace de résilier.",
-              "icon": "x"
-            },
-            {
-              "title": "Priorité moyenne : impact image commercial",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Priorité moyenne impact </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Priorité moyenne : impact image com</span></div></div>",
-              "expl": "Qualifier l'incident en impact commercial à gérer par une réponse purement commerciale.",
-              "debriefExpl": "Une réponse commerciale rassurante sans plan technique concret ne convaincra pas un client exigeant. Il faut des actions tangibles.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Incident à fort impact stratégique : risque contractuel et financier. Bien qu'il n'y ait pas d'incident technique en cours aujourd'hui, le risque de reproduction est critique. Cela justifie une remontée au CODIR, une analyse des causes racines prioritaire et un plan d'action formel avec le client. La criticité est stratégique, pas seulement technique."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Matrice de Priorité</div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold text-center mb-2\"><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Urgence\\Gravité</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Mineure</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Majeure</div><div class=\"bg-slate-100 p-1 rounded text-slate-500\">Critique</div></div><div class=\"grid grid-cols-2 gap-1 text-[7px] font-bold text-center\"><div class=\"bg-amber-100 p-1.5 rounded text-amber-800\">Immédiate</div><div class=\"bg-amber-100 p-1.5 rounded text-amber-800\">Haute</div><div class=\"bg-red-100 p-1.5 rounded text-red-800\">Critique</div><div class=\"bg-slate-100 p-1.5 rounded text-slate-800\">Normale</div><div class=\"bg-slate-100 p-1.5 rounded text-slate-500\">Planifiée</div><div class=\"bg-slate-100 p-1.5 rounded text-slate-500\">Basse</div></div><div class=\"mt-2 text-center text-[8px] text-slate-500\">Croiser impact × utilisateurs</div></div>"
-    },
-    {
-      "id": "C4",
-      "title": "Privilégier le contournement rapide",
-      "intent": "Savoir débloquer rapidement un utilisateur par une action manuelle ou un contournement technique, avant d'envisager une correction en profondeur du code.",
-      "icon": "wand-2",
-      "scenarios": [
-        {
-          "text": "Une gestionnaire du CRDC du Pas-de-Calais essaie d'importer le résultat de mammographie de Mme Legrand (NIR 2 87 01 456 789 123) depuis le CRIDON, mais l'import échoue car un doublon patient existe déjà avec le NIR 2 87 01 456 789 124 (homonyme, NIR mal saisi). La gestionnaire ne peut pas avancer dans sa campagne de relance.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"users\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Fusions patients</span></div><div class=\"space-y-2 text-sm\"><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2.5\"><div class=\"flex items-center gap-2\"><span class=\"text-xs font-medium text-amber-700\">Doublon détecté</span></div><p class=\"text-xs text-amber-600 mt-1\">Mme LEGRAND (NIR 789123) ↔ Mme LEGRAND (NIR 789124)</p></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Patient conservé</span><span class=\"font-medium\">NIR 789123 (campagne active)</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Patient fusionné</span><span class=\"font-medium\">NIR 789124 (doublon)</span></div><button class=\"w-full mt-2 bg-blue-600 text-white text-sm font-medium py-1.5 rounded-lg\">Fusionner les fiches</button></div></div>",
-          "correct": {
-            "title": "Contourner : fusionner manuellement les doublons",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contourner fusionner man</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-            "expl": "Débloquer l'utilisateur par une action manuelle rapide avant d'envisager un correctif code long.",
-            "debriefExpl": "La fusion manuelle des fiches doublons dans l'interface d'administration débloque immédiatement la gestionnaire. Pas besoin d'attendre un cycle de correction qui prendrait des jours. Il faut tracer l'action pour audit mais cela évite un blocage prolongé.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Corriger : UPDATE direct SQL en production",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Corriger UPDATE direct S</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Corriger directement en base de production par une commande SQL.",
-              "debriefExpl": "Un UPDATE SQL direct en production est risqué : pas de traçabilité, pas de rollback facile, et cela contourne les contrôles de l'application. Le risque d'erreur est élevé.",
-              "icon": "x"
-            },
-            {
-              "title": "Évoluer : modifier la règle d'unicité",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Évoluer modifier la règl</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Ouvrir un ticket d'évolution pour que le produit corrige la règle métier.",
-              "debriefExpl": "Un cycle d'évolution complet prend des semaines. La gestionnaire a besoin d'être débloquée maintenant, pas dans la prochaine release.",
-              "icon": "x"
-            }
-          ],
-          "expl": "La fusion manuelle des fiches doublons dans l'interface d'administration est le contournement le plus rapide. Elle débloque immédiatement la gestionnaire sans nécessiter de correctif code. Il faut tracer l'action pour audit mais cela évite un cycle complet de correction qui prendrait des jours."
+          {
+            "title": "Direct : déployer sans validation",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct déployer sans val</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Direct : déployer sans validation</span></div></div>",
+            "expl": "Développer rapidement sans passer par le cycle de validation standard.",
+            "debriefExpl": "Contourner le cycle de release pour une fonctionnalité non critique expose à des risques de régression et de non-qualité.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Ce n'est pas une correction mais une demande d'évolution. La formalisation doit inclure : le contexte métier (pourquoi c'est nécessaire), le comportement attendu (un champ date avec notification), les critères d'acceptation (format, visibilité, droits). Ne pas confondre avec un bug : c'est une feature manquante."
+      },
+      {
+        "text": "Le comité de pilotage régional identifie une anomalie dans le calcul des taux de participation au dépistage organisé. Le taux affiché par EPICONCEPT pour le département de l'Oise est de 42,3 % alors que le calcul manuel à partir des données brutes donne 38,7 %. L'enjeu est politique : ce taux impacte les financements ARS.",
+        "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Demande de correction #DC-012</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Indicateur</span><span class=\"font-medium\">Taux participation DO</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Département</span><span class=\"font-medium\">Oise (60)</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Valeur affichée</span><span class=\"text-red-600 font-medium\">42,3 %</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Valeur attendue</span><span class=\"text-slate-600 font-medium\">38,7 %</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Écart</span><span class=\"text-red-500 font-medium\">+3,6 pts</span></div></div></div>",
+        "correct": {
+          "title": "Formaliser : spécifications de calcul complètes",
+          "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser spécification</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Formaliser : spécifications de calc</span></div></div>",
+          "expl": "Pour une correction sensible, fournir une spécification exhaustive validée par le métier.",
+          "debriefExpl": "La correction du calcul du taux de participation (42,3% vs 38,7%) est stratégique car elle impacte les financements ARS. La formalisation doit être exhaustive : définir précisément le périmètre (dénominateur, numérateur, période), fournir la requête de calcul et les données brutes. Une validation par le métier est impérative avant correction.",
+          "icon": "check"
         },
-        {
-          "text": "Le CRDC de la Somme vous informe que la synchronisation entre EPICONCEPT et leur système d'information (SI) est bloquée depuis 48h. En investiguant, vous identifiez qu'un unique enregistrement patient contenant un caractère spécial « ø » dans le nom provoque une erreur de sérialisation. Le flux reprend dès que ce record est retiré de la file.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"refresh-cw\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Synchronisation SI CRDC80</span></div><div class=\"space-y-2 text-sm\"><div class=\"bg-red-50 border border-red-200 rounded-lg p-2.5\"><div class=\"text-xs text-red-700 font-medium\">⛔ Bloqué — Erreur de sérialisation</div><p class=\"text-xs text-red-500 mt-0.5\">Record incriminé : PAT-4521 — Nom: « Hjorthøj »</p></div><div class=\"text-xs text-slate-600\"><span class=\"font-medium\">File d'attente :</span> 10 234 en attente</div><div class=\"flex gap-2 mt-1\"><button class=\"bg-red-100 text-red-600 text-xs px-2 py-1 rounded\">Retirer record</button><button class=\"bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded\">Forcer reprise</button></div></div></div>",
-          "correct": {
-            "title": "Contourner : exclure temporairement l'enregistrement rejeté",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contourner exclure tempo</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-            "expl": "Isoler et retirer l'élément problématique pour débloquer le flux, traiter le correctif plus tard.",
-            "debriefExpl": "Retirer manuellement l'enregistrement problématique (caractère « ø » dans le nom) de la file de synchronisation permet de rétablir le flux pour les 10 000 autres patients en attente. Le correctif définitif (gérer les caractères spéciaux) sera traité séparément.",
-            "icon": "check"
+        "wrong": [
+          {
+            "title": "Direct : modifier la formule à chaud",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct modifier la formu</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
+            "expl": "Corriger directement la formule de calcul en production pour aligner les chiffres rapidement.",
+            "debriefExpl": "Modifier la formule sans comprendre la cause de l'écart ni valider avec le métier peut produire un résultat tout aussi erroné, mais différent.",
+            "icon": "x"
           },
-          "wrong": [
-            {
-              "title": "Corriger : modifier le sérialiseur de production",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Corriger modifier le sér</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Corriger directement le code du sérialiseur en production.",
-              "debriefExpl": "Modifier le code en production est risqué et le cycle de déploiement peut prendre 2 semaines. Pendant ce temps, la synchronisation reste bloquée pour tous les patients.",
-              "icon": "x"
-            },
-            {
-              "title": "Réinitialiser : vider toute la file",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Réinitialiser vider tout</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Réinitialiser : vider toute la file</span></div></div>",
-              "expl": "Vider complètement la file de synchronisation pour repartir de zéro.",
-              "debriefExpl": "Vider toute la file ferait perdre la trace des 10 000 enregistrements en attente. Certains pourraient ne jamais être resynchronisés.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Contournement rapide : retirer manuellement l'enregistrement problématique de la file et contacter le CRDC pour corriger le nom. Cela permet de rétablir la synchronisation pour les 10 000 autres patients en attente. La correction définitive (gérer les caractères spéciaux dans le sérialiseur) sera traitée séparément."
-        },
-        {
-          "text": "Le responsable régional du dépistage colorectal vous alerte : une campagne de dépistage pour le département de l'Aisne (02) a été paramétrée avec des critères d'âge 50-64 ans au lieu de 50-74 ans (recommandation nationale HAS). Les invitations sont déjà parties pour 2 000 patients. L'erreur n'a pas encore été détectée en externe mais le prochain envoi est programmé dans 2 jours.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"megaphone\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Campagne Colorectal Aisne</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Paramètre actuel</span><span class=\"text-red-600 font-medium\">50-64 ans ❌</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Paramètre attendu</span><span class=\"text-slate-600 font-medium\">50-74 ans ✅</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Invit. déjà envoyées</span><span class=\"font-medium\">2 034</span></div></div><div class=\"mt-2 p-2 bg-amber-50 rounded-lg flex items-center gap-1.5 text-xs text-amber-700\"><i data-lucide=\"clock\" class=\"w-3.5 h-3.5\"></i> Prochain envoi dans 2 jours</div></div>",
-          "correct": {
-            "title": "Contourner : modifier rapidement le paramétrage",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contourner modifier rapi</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-            "expl": "Corriger rapidement les paramètres en base pour stopper l'erreur, gérer les impacts déjà subis à part.",
-            "debriefExpl": "Corriger le paramétrage de la campagne (50-64 → 50-74 ans) en base est rapide et peu risqué. En parallèle, il faut gérer les 2 000 invitations déjà envoyées avec le mauvais âge : envoyer un correctif postal ou un complément d'information. Le correctif définitif portera sur les règles de validation des paramètres.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Différer : ouvrir un ticket V3",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Différer ouvrir un ticke</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-              "expl": "Reporter la correction à la prochaine version majeure du produit.",
-              "debriefExpl": "Le prochain envoi est dans 2 jours. Attendre la V3 signifie envoyer 2 000 nouvelles invitations erronées et aggraver l'impact.",
-              "icon": "x"
-            },
-            {
-              "title": "Réinitialiser : stopper et relancer tout",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Réinitialiser stopper et</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Réinitialiser : stopper et relancer</span></div></div>",
-              "expl": "Stopper la campagne et tout réinitialiser depuis le début avec le bon paramétrage.",
-              "debriefExpl": "Supprimer les 2 000 invitations déjà envoyées et les refaire intégralement est un gaspillage de temps et d'argent. Une simple correction des prochains envois suffit.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Contournement d'urgence : corriger le paramétrage de la campagne pour la suite, puis gérer les 2 000 invitations déjà envoyées (envoyer un correctif ou un complément d'information). Une correction en base de la campagne est plus rapide et moins risquée qu'un cycle complet de correction logicielle. Le correctif définitif portera sur les règles de validation des paramètres de campagne."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Contournement</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"terminal\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><span class=\"text-[8px] font-bold text-slate-800\">Action manuelle en base</span></div><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"database\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><span class=\"text-[8px] font-bold text-slate-800\">Fusion des doublons NIR</span></div><div class=\"flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2\"><i data-lucide=\"settings\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><span class=\"text-[8px] font-bold text-slate-800\">Correction paramétrage âge</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Utilisateur débloqué en 15 min</div></div></div>"
-    },
-    {
-      "id": "C5",
-      "title": "Assouplir les contraintes dans l'application",
-      "intent": "Transformer les blocages fonctionnels en alertes non-bloquantes pour donner de l'autonomie aux utilisateurs face aux cas particuliers, tout en gardant la maîtrise des données.",
-      "icon": "unlock",
-      "scenarios": [
-        {
-          "text": "Une gestionnaire du CRDC d'Arras essaie d'enregistrer une invitation pour une patiente de 78 ans au dépistage du cancer du sein. Le formulaire refuse la saisie avec le message « Âge dépassé : 78 ans > 74 ans maximum ». La patiente a été adressée par son médecin traitant suite à un retard de dépistage lié à un déménagement.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"circle\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Invitation dépistage sein</span></div><div class=\"space-y-2 text-sm\"><div class=\"bg-red-50 border border-red-200 rounded-lg p-2.5\"><p class=\"text-xs text-red-700 font-medium\">⛔ Âge dépassé : 78 ans > 74 ans max</p><p class=\"text-xs text-red-500 mt-0.5\">Saisie impossible</p></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Patiente</span><span class=\"font-medium\">Mme DUPONT, 78 ans</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Motif</span><span class=\"font-medium\">Retard dépistage (déménagement)</span></div></div></div>",
-          "correct": {
-            "title": "Alerter : transformer le blocage en avertissement",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Alerter transformer le b</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"bell\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600 font-semibold\">Avertissement</span></div></div>",
-            "expl": "Transformer un blocage strict en alerte non-bloquante pour laisser l'utilisateur décider.",
-            "debriefExpl": "Le blocage strict empêche la gestionnaire de saisir une patiente légitime (retard de dépistage, prescription médicale). Une alerte non-bloquante avec validation explicite (« Âge inhabituel, confirmez-vous ? ») serait plus adaptée : l'utilisateur peut passer outre en conscience, avec traçabilité.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Bloquer : maintenir strictement les limites HAS",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Bloquer maintenir strict</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Bloquer : maintenir strictement les</span></div></div>",
-              "expl": "Maintenir le blocage strict basé sur les limites réglementaires sans possibilité de dérogation.",
-              "debriefExpl": "Les bornes d'âge HAS sont une recommandation, pas une interdiction absolue. Un médecin peut prescrire un dépistage au-delà de 74 ans si le contexte clinique le justifie.",
-              "icon": "x"
-            },
-            {
-              "title": "Exception : forcer manuellement une dérogation",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Exception forcer manuell</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Exception : forcer manuellement une</span></div></div>",
-              "expl": "Contourner par une exception manuelle au cas par cas en base de données.",
-              "debriefExpl": "Ajouter une exception manuelle en base pour chaque cas particulier n'est pas scalable. Si le cas est légitime, l'application devrait le permettre directement.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Le blocage strict empêche la gestionnaire de faire son travail pour un cas clinique pourtant légitime (retard de dépistage, prescription médicale). Une alerte non-bloquante avec validation explicite (« Âge inhabituel, confirmez-vous ? ») serait plus adaptée : l'utilisateur peut passer outre en conscience."
-        },
-        {
-          "text": "Le CRDC du Nord tente d'importer un fichier CSV contenant 5 000 résultats de tests HPV pour le dépistage cervical. L'import échoue car le fichier contient une ligne avec un code département « 2B » (Corse) qui n'existe pas dans le référentiel EPICONCEPT qui ne référence que les départements des Hauts-de-France. L'import complet est bloqué pour une seule ligne erronée.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"file-input\" class=\"w-4 h-4 text-amber-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Import CSV — Test HPV</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Total lignes</span><span class=\"font-medium\">5 000</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Lignes valides</span><span class=\"text-slate-600 font-medium\">4 999 ✅</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Lignes en erreur</span><span class=\"text-red-600 font-medium\">1 ❌ (dépt. 2B)</span></div></div><div class=\"mt-2 p-2 bg-amber-50 rounded-lg text-xs text-amber-700\">⛔ Import bloqué : erreur fatale sur ligne 3 847</div></div>",
-          "correct": {
-            "title": "Partiel : importer les lignes valides",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Partiel importer les lig</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Partiel : importer les lignes valid</span></div></div>",
-            "expl": "Importer les données valides et recréer les quelques lignes erronées plutôt que de tout corriger.",
-            "debriefExpl": "Un import CSV sur 5 000 lignes dont une seule est invalide ne devrait pas être bloqué. La bonne approche est d'importer les 4 999 lignes valides et d'afficher un rapport d'erreur pour la ligne rejetée (code département « 2B » inconnu). Le blocage « tout ou rien » est contre-productif.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Bloquant : corriger le référentiel d'abord",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Bloquant corriger le réf</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Corriger le référentiel en amont puis relancer l'import complet.",
-              "debriefExpl": "Attendre la correction du référentiel (qui peut prendre des jours) pour importer 4 999 lignes valides n'a pas de sens. L'import partiel débloque l'utilisateur immédiatement.",
-              "icon": "x"
-            },
-            {
-              "title": "Strict : exiger un import tout ou rien",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Strict exiger un import</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Strict : exiger un import tout ou r</span></div></div>",
-              "expl": "Maintenir un import atomique : tout valider ou tout rejeter pour garantir l'intégrité.",
-              "debriefExpl": "Un import « tout ou rien » bloque 4 999 données utilisables à cause d'une seule anomalie. L'import partiel avec rapport d'erreur est plus pragmatique.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Un import CSV ne devrait pas être bloqué par une seule ligne invalide. La bonne approche est d'importer les lignes valides, de logger les lignes rejetées, et d'afficher un rapport d'erreur à l'utilisateur. Le blocage strict (« tout ou rien ») est contre-productif quand 99,98% des données sont valides."
-        },
-        {
-          "text": "Le CHU de Lille configure une campagne de dépistage du cancer colorectal. L'application refuse de valider la campagne car 15 % des patients ciblés résident en dehors du secteur géographique défini par le CRDC (l'ancien découpage sanitaire de 2018 n'inclut pas certaines communes rattachées depuis 2022 à la métropole lilloise). Ces patients existent et sont suivis par le CHU.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"map-pin\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Campagne Colorectal CHU Lille</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Patients ciblés</span><span class=\"font-medium\">12 450</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Hors secteur (obsolète)</span><span class=\"font-medium text-amber-600\">1 867 (15 %)</span></div></div><div class=\"mt-2 p-2.5 bg-amber-50 border border-amber-200 rounded-lg text-xs\"><p class=\"text-amber-700 font-medium\">⚠ Blocage : secteur géographique invalide</p><p class=\"text-amber-600 mt-0.5\">Référentiel datant de 2018</p></div></div>",
-          "correct": {
-            "title": "Tolérant : autoriser l'envoi avec avertissement",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Tolérant autoriser l'env</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"bell\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] text-slate-600 font-semibold\">Avertissement</span></div></div>",
-            "expl": "Permettre à l'utilisateur de passer outre un blocage lié à une donnée de référence obsolète.",
-            "debriefExpl": "Un référentiel géographique datant de 2018 ne devrait pas empêcher une campagne médicalement justifiée en 2026. L'alerte non-bloquante avec possibilité de forcer la campagne et de signaler l'anomalie du référentiel est la bonne approche. Le correctif du référentiel est traité en parallèle.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Strict : mettre à jour le référentiel",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Strict mettre jour le</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Strict : mettre à jour le référenti</span></div></div>",
-              "expl": "Mettre à jour le référentiel avant de lancer la campagne, ce qui peut prendre 4 à 6 semaines.",
-              "debriefExpl": "Reporter la campagne de 4 à 6 semaines pour mettre à jour un référentiel pénalise les patients qui ont besoin d'un dépistage maintenant.",
-              "icon": "x"
-            },
-            {
-              "title": "Restreint : exclure d'office les anomalies",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Restreint exclure d'offi</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Exclure les patients hors secteur pour respecter strictement le découpage existant.",
-              "debriefExpl": "Exclure 15% des patients ciblés par le CHU parce que le référentiel n'est pas à jour, c'est priver ces personnes d'un dépistage nécessaire.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Un référentiel géographique obsolète ne devrait pas empêcher une campagne médicalement justifiée. L'alerte non-bloquante avec possibilité de forcer la campagne et de signaler l'anomalie du référentiel est la bonne approche. Le correctif du référentiel est traité en parallèle sans bloquer l'opérationnel."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Assouplissement</div><div class=\"flex flex-col gap-2\"><div class=\"bg-red-50 border border-red-200 rounded-lg p-2 flex items-center gap-2 opacity-50\"><div class=\"w-6 h-6 rounded bg-red-200 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-red-600\"></i></div><div><div class=\"text-[7px] font-black text-red-700 uppercase\">Bloquant</div><div class=\"text-[8px] text-red-600\">Âge > 74 = refus système</div></div></div><div class=\"flex justify-center\"><i data-lucide=\"arrow-down\" class=\"w-3 h-3 text-slate-500\"></i></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><div class=\"w-6 h-6 rounded bg-slate-200 flex items-center justify-center shrink-0\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-600\"></i></div><div><div class=\"text-[7px] font-black text-slate-700 uppercase\">Alerte non-bloquante</div><div class=\"text-[8px] text-slate-700\">Âge > 74 = alerte + validation manuelle possible</div></div></div></div></div>"
-    },
-    {
-      "id": "C7",
-      "title": "Ouvrir un accès à l'équipe support",
-      "intent": "Permettre à l'équipe support de disposer des vues et outils nécessaires pour diagnostiquer et résoudre rapidement les incidents, sans compromettre la sécurité ni la traçabilité.",
-      "icon": "eye",
-      "scenarios": [
-        {
-          "text": "Les gestionnaires du CRDC signalent régulièrement des dossiers patients bloqués suite à des erreurs de saisie sur le statut du protocole. Actuellement, l'équipe support doit ouvrir un ticket de correction de données en BDD à l'équipe technique pour débloquer chaque dossier, ce qui ralentit la résolution et surcharge les développeurs.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"lock\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Dossier DOS-7842 Bloqué</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg\"><div class=\"text-red-600 font-semibold\">Statut invalide : Double saisie</div><div class=\"text-slate-500\">Ticket support #1249 : « En attente de correction BDD par l'équipe dev »</div></div></div>",
-          "correct": {
-            "title": "Support : Ouvrir un accès super-admin dans l'outil",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Mode Super-Admin Support</div><div class=\"flex items-center gap-1.5\"><span class=\"bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded text-[6.5px] font-bold\">Rôle Super-Admin</span><span class=\"text-[6.5px] text-slate-500\">Action : Forcer le déblocage statut (tracé)</span></div></div>",
-            "expl": "Donner un rôle d'administration étendu dans l'application pour résoudre les blocages fréquents sans dépendance technique.",
-            "debriefExpl": "Un rôle super-admin intégré pour l'équipe support au sein de l'application permet de corriger les statuts erronés et débloquer les dossiers de manière autonome et sécurisée, sans solliciter les développeurs ni faire de requêtes SQL manuelles.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Direct : accorder un accès en écriture sur la base de données de production",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Accès Direct BDD</div><div class=\"flex items-center gap-1.5 text-[6.5px] text-slate-500\"><i data-lucide=\"database\" class=\"w-3 h-3 text-red-500\"></i><span>UPDATE patient SET status_id = 1 (Risque critique)</span></div></div>",
-              "expl": "Attribuer aux agents support des identifiants avec droit d'écriture SQL sur la BDD de production.",
-              "debriefExpl": "Donner un accès direct en écriture sur la BDD de production comporte des risques majeurs d'altération accidentelle des données cliniques et viole les principes de sécurité et de traçabilité applicative.",
-              "icon": "x"
-            },
-            {
-              "title": "Process : exiger un double ticket de validation technique pour chaque correction",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Double validation tech</div><div class=\"flex items-center gap-1.5 text-[6.5px] text-slate-500\"><span class=\"bg-slate-100 px-1 py-0.5 rounded\">Validation DSI</span><span>→</span><span class=\"bg-slate-100 px-1 py-0.5 rounded\">Validation Lead Dev</span></div></div>",
-              "expl": "Ajouter des étapes d'approbation humaine côté technique pour chaque demande de correction manuelle.",
-              "debriefExpl": "Multiplier les validations manuelles côté technique ne fait qu'alourdir le processus sans résoudre le problème d'autonomie du support ni de charge pour les développeurs.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Le support a besoin d'un rôle super-admin dans l'application pour résoudre de manière autonome et sécurisée les anomalies d'état sur les dossiers sans dépendance technique."
-        },
-        {
-          "text": "L'administrateur du CRDC de l'Aisne vous demande de l'aide pour auditer les modifications récentes apportées aux campagnes de dépistage. Plusieurs rendez-vous ont été annulés sans explication et il soupçonne une action malveillante ou une erreur de manipulation. Il n'existe pas d'interface d'historique des actions administrateurs.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"history\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Audit — Campagnes CRDC02</span></div><div class=\"space-y-1.5 text-xs\"><div class=\"flex justify-between items-center\"><span class=\"text-slate-500\">12/05 14:32</span><span class=\"font-medium\">Supression campagne COL-02</span><span class=\"text-red-500\">admin@ch</span></div><div class=\"flex justify-between items-center\"><span class=\"text-slate-500\">12/05 14:30</span><span class=\"font-medium\">Modif statut DOS-892</span><span class=\"text-slate-600\">gest@crdc02</span></div><div class=\"flex justify-between items-center\"><span class=\"text-slate-500\">12/05 11:15</span><span class=\"font-medium\">Annulation RDV x24</span><span class=\"text-red-500\">admin@ch</span></div></div></div>",
-          "correct": {
-            "title": "Support : ouvrir les logs d'audit",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Support ouvrir les logs</div><div class=\"flex gap-1 text-[7px]\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded font-semibold text-slate-600\">Vue support</div><div class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Métadonnées</div></div></div>",
-            "expl": "Mettre à disposition du support les logs d'audit pour tracer les actions sensibles.",
-            "debriefExpl": "Sans accès aux logs d'audit, impossible de mener une investigation sur des actions suspectes (rendez-vous annulés sans explication). Une vue « audit trail » en lecture seule doit être disponible pour tracer toute action sensible (création/suppression de campagne, modification de statut).",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Direct : restaurer la base de données",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct restaurer la base</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Direct : restaurer la base de donné</span></div></div>",
-              "expl": "Restaurer la base de données de la veille pour annuler les modifications suspectes.",
-              "debriefExpl": "Restaurer une base de données est une opération lourde qui fait perdre toutes les données valides de la journée. C'est un marteau-pilon pour écraser une mouche.",
-              "icon": "x"
-            },
-            {
-              "title": "Direct : réinitialiser tous les accès",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct réinitialiser tou</div><div class=\"flex gap-1 text-[7px]\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded font-semibold text-slate-600\">Vue support</div><div class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Métadonnées</div></div></div>",
-              "expl": "Réinitialiser tous les mots de passe des administrateurs par précaution.",
-              "debriefExpl": "Changer tous les mots de passe sans comprendre ce qui s'est passé ne résout rien. L'investigation doit précéder les mesures correctives.",
-              "icon": "x"
-            }
-          ],
-          "expl": "L'équipe support doit pouvoir accéder aux logs d'audit (qui a fait quoi et quand). Sans cette visibilité, il est impossible de mener une investigation. Une vue « audit trail » doit être disponible, même en lecture seule, pour tracer toute action sensible (création/suppression de campagne, modification de statut)."
-        },
-        {
-          "text": "Le DSI d'un établissement de santé partenaire constate une incohérence de facturation sur les actes de dépistage et demande à l'équipe support un accès en lecture sur la base de données de production pour investiguer et extraire directement les données brutes afin de les réimporter dans son outil d'audit.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"shield-alert\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Demande d'accès BDD externe</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg text-slate-700\"><div>DSI CHU Amiens : « Besoin d'un accès en lecture directe (port 5432) sur la prod pour extraire 50 000 lignes d'actes »</div></div></div>",
-          "correct": {
-            "title": "Support : ouvrir un accès sécurisé aux données de production",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Réplication en lecture seule</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><span class=\"bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded text-[6.5px]\">VPN / Bastion</span><span>Replica Read-Only</span></div></div>",
-            "expl": "Fournir un accès sécurisé et tracé à une réplique en lecture seule pour les analyses de données massives sans impacter la production.",
-            "debriefExpl": "Pour les besoins d'extractions massives ou d'audits complexes par des tiers, il faut ouvrir un accès sécurisé via un bastion ou VPN, ciblant une réplique de base de données en lecture seule. Cela protège la base de production principale des ralentissements et sécurise la traçabilité des accès aux données de santé.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Direct : transmettre les identifiants administrateur de la base de production",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Envoi d'identifiants admin</div><div class=\"flex items-center gap-1.5 text-[6.5px] text-slate-500\"><i data-lucide=\"key\" class=\"w-3 h-3 text-red-500\"></i><span>host: prod-db | user: postgres | pass: *****</span></div></div>",
-              "expl": "Envoyer par e-mail les accès de l'administrateur principal de la base de données de production.",
-              "debriefExpl": "Partager les accès d'administration de la BDD principale de production est une faille de sécurité majeure, cela compromet la confidentialité des données de santé et expose à des risques de destruction de données.",
-              "icon": "x"
-            },
-            {
-              "title": "Technique : exporter manuellement des fichiers Excel non chiffrés",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Export Excel brut</div><div class=\"flex items-center gap-1.5 text-[6.5px] text-slate-500\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-400\"></i><span>donnees_facturation.xlsx (Non chiffré)</span></div></div>",
-              "expl": "Générer un fichier Excel brut contenant toutes les données nominatives et l'envoyer par messagerie standard.",
-              "debriefExpl": "L'envoi de données brutes et nominatives dans un fichier Excel non chiffré par e-mail contrevient aux règles élémentaires du RGPD et à la sécurité des données de santé personnelles.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Pour les extractions massives par des tiers, il convient d'ouvrir un accès sécurisé à une réplique en lecture seule afin de ne pas ralentir la production ni violer la sécurité."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Accès Support Étendu</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"eye\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-slate-800 uppercase\">Vue Support</div><div class=\"text-[8px] text-slate-700\">Logs détaillés + metadata campagne</div></div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center gap-2\"><i data-lucide=\"clock\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-black text-slate-800 uppercase\">Accès temporaire Data-Analyst</div><div class=\"text-[8px] text-slate-700\">Écart PMSI : 72h en lecture seule</div></div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Traçabilité complète préservée</div></div></div>"
-    },
-    {
-      "id": "C2",
-      "title": "Qualifier les demandes entrantes",
-      "intent": "Analyser et reformuler les demandes utilisateurs pour les transformer en tickets exploitables, en distinguant le bloquant du non-bloquant, le back du front, et le comportement attendu du bug.",
-      "icon": "filter",
-      "scenarios": [
-        {
-          "text": "Un médecin du CH de Valenciennes vous envoie un message vocal : « Bonjour, c'est le Dr Lefebvre. Le bouton vert pour valider le bilan de dépistage, il marche plus. Je clique, je clique, rien. Vous pouvez regarder ? » En rappelant le médecin, vous apprenez que : cela fait 2 jours que ça ne marche plus, il utilise Firefox version 120, et le bouton gris à côté (« Enregistrer brouillon ») fonctionne.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"filter\" class=\"w-4 h-4 text-amber-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Qualification ticket</span></div><div class=\"space-y-1.5 text-sm bg-slate-50 p-3 rounded-lg\"><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Signalement :</span><span class=\"text-xs text-slate-600\">« Le bouton vert marche plus »</span></div><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Qualifié :</span><span class=\"text-xs font-medium\">Bug front — Firefox 120 — Valider bilan inactif</span></div><hr class=\"border-slate-200\"><div class=\"flex gap-2\"><span>🧩 Front</span><span>⚠ Bloquant</span><span>🐛 Bug confirmé</span></div></div></div>",
-          "correct": {
-            "title": "Technique : bug front sur un navigateur ou appareil",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Technique bouton inactif</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-            "expl": "Distinguer un bug technique d'une méconnaissance utilisateur en recueillant les faits précis.",
-            "debriefExpl": "Le médecin dit « le bouton vert marche plus ». En questionnant, on apprend que le bouton « Valider bilan » est inactif sur Firefox 120, mais « Enregistrer brouillon » fonctionne. C'est un bug front-end (comportement attendu non atteint), pas une méconnaissance. La reformulation en ticket structuré est : « Bouton Valider bilan inactif sur Firefox 120. Bloquant. »",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Fonctionnel : mauvaise utilisation suspectée",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fonctionnel mauvaise uti</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-              "expl": "Qualifier le problème comme une mauvaise utilisation de l'outil par le médecin.",
-              "debriefExpl": "Dire au Dr Lefebvre qu'il « clique mal » est incorrect et contre-productif. Le bug est reproductible sur Firefox. Il faut reconnaître le problème technique.",
-              "icon": "x"
-            },
-            {
-              "title": "Technique : serveur indisponible en production",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Technique API indisponib</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-              "expl": "Qualifier le problème comme une indisponibilité de l'API back-end.",
-              "debriefExpl": "Le bouton « Enregistrer brouillon » fonctionne, ce qui prouve que l'API back-end est opérationnelle. Le problème est bien côté front-end (interface utilisateur).",
-              "icon": "x"
-            }
-          ],
-          "expl": "Première étape de qualification : c'est un bug (comportement attendu non atteint vs. méconnaissance). C'est côté front (bouton spécifique ne répond pas). Impact : bloquant pour le médecin. La reformulation en ticket structuré est : « Le bouton Valider bilan reste inactif sur Firefox 120 — le bouton Enregistrer brouillon fonctionne. Bloquant. »"
-        },
-        {
-          "text": "Le CRDC du Nord vous écrit : « Les statistiques ne sont pas à jour. On a lancé la campagne de dépistage mammographie la semaine dernière et le tableau de bord affiche toujours zéro invitation envoyée. » En questionnant, vous découvrez que les invitations ont bien été générées (le batch est passé), mais le tableau de bord a un cache de 24h non rafraîchi manuellement.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"filter\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Qualification ticket</span></div><div class=\"space-y-1.5 text-sm bg-slate-50 p-3 rounded-lg\"><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Signalement :</span><span class=\"text-xs text-slate-600\">« Stats pas à jour, tableau de bord à zéro »</span></div><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-20 shrink-0\">Qualifié :</span><span class=\"text-xs font-medium\">Comportement attendu (cache 24h) → méconnaissance</span></div><hr class=\"border-slate-200\"><div class=\"flex gap-2\"><span>📚 Documentation</span><span>⏳ Délai normal</span></div></div></div>",
-          "correct": {
-            "title": "Fonctionnel : comportement attendu lié au cache",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fonctionnel comportement</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-            "expl": "Distinguer un bug (comportement attendu non atteint) d'un comportement normal méconnu.",
-            "debriefExpl": "Les statistiques affichent zéro car le cache a un délai de 24h. Les invitations ont bien été envoyées. Ce n'est pas un bug mais un comportement attendu et documenté. La qualification correcte est : « comportement normal — expliquer le cache et proposer un rafraîchissement manuel si urgent »",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Technique : batch back-end en erreur",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Technique batch back-end</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-              "expl": "Qualifier le problème comme un bug du batch back-end.",
-              "debriefExpl": "Le batch est passé et les invitations ont été générées. Investiguer le batch ferait perdre du temps sur une fausse piste. Le problème est un délai de cache, pas un dysfonctionnement.",
-              "icon": "x"
-            },
-            {
-              "title": "Technique : problème d'affichage front-end",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Technique problème d'aff</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-              "expl": "Qualifier le problème comme un bug d'affichage du tableau de bord.",
-              "debriefExpl": "Le tableau de bord n'a pas de bug d'affichage. Il suit simplement son cycle de rafraîchissement normal de 24h. Le comportement est conforme à la documentation.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Ce n'est pas un bug mais un comportement attendu (cache à 24h). La qualification doit distinguer ce qui est technique (le cache existe et est documenté) de ce qui est une méconnaissance. La réponse est : expliquer le délai de rafraîchissement, proposer le rafraîchissement manuel si urgent, et éventuellement un ticket d'amélioration pour réduire le cache."
-        },
-        {
-          "text": "L'ARS Hauts-de-France vous interpelle : « Nous venons de recevoir les indicateurs régionaux de participation au dépistage colorectal. Vos chiffres divergent de 8 % par rapport aux remontées nationales de la Cham. Qui a raison ? » Le sujet remonte au directoire régional. Vous avez 48h pour répondre.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"filter\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Qualification — ARS vs Cham</span></div><div class=\"space-y-1.5 text-sm bg-slate-50 p-3 rounded-lg\"><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-24 shrink-0\">Signalement :</span><span class=\"text-xs text-slate-600\">« Écart 8 % indicateurs participation »</span></div><div class=\"flex gap-2\"><span class=\"text-xs text-slate-400 w-24 shrink-0\">Qualifié :</span><span class=\"text-xs font-medium\">Écart de périmètre data → expertise nécessaire</span></div><hr class=\"border-slate-200\"><div class=\"flex gap-2 text-sm\"><span>📊 Data</span><span>🏛 ARS</span><span>⏳ 48h</span></div></div></div>",
-          "correct": {
-            "title": "Expertise : analyser les règles de calcul",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Expertise analyser les r</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-            "expl": "Identifier quand un écart de données est un problème de périmètre, pas un bug de calcul.",
-            "debriefExpl": "L'écart de 8% entre EPICONCEPT et la Cham sur les indicateurs de participation n'est probablement pas un bug mais une différence de périmètre (dates de référence, zone géographique, population cible). C'est un ticket d'expertise data qui nécessite une analyse transverse avant toute correction de code.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Technique : corriger pour forcer l'alignement",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Technique corriger pour </div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Qualifier le problème comme un bug dans le rapport EPICONCEPT à corriger.",
-              "debriefExpl": "Corriger le calcul sans comprendre la source de l'écart peut introduire une erreur inverse. Il faut d'abord aligner les périmètres entre les deux sources.",
-              "icon": "x"
-            },
-            {
-              "title": "Client : rejeter l'erreur sur l'ARS",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Client rejeter l'erreur </div><div class=\"flex items-center gap-1 text-[7px]\"><i data-lucide=\"message-square\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"font-semibold text-slate-600\">Rapport transmis</span></div></div>",
-              "expl": "Rejeter l'écart sur la source partenaire sans investigation.",
-              "debriefExpl": "Répondre à l'ARS que « c'est la Cham qui a tort » sans analyse est une réponse politique risquée. Il faut des preuves techniques pour étayer la position.",
-              "icon": "x"
-            }
-          ],
-          "expl": "C'est un incident stratégique et transverse : ni un bug simple ni une méconnaissance. La qualification doit identifier qu'il s'agit d'un problème de périmètre de données (définitions, périmètres de calcul, dates de référence différents entre EPICONCEPT et la Cham). C'est un ticket d'expertise data qui nécessite une analyse transverse."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Qualification Ticket</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex flex-wrap gap-1 mb-1\"><span class=\"px-1.5 py-0.5 bg-amber-100 text-amber-800 text-[7px] font-bold rounded\">Bug front</span><span class=\"px-1.5 py-0.5 bg-slate-100 text-slate-800 text-[7px] font-bold rounded\">Bloquant</span><span class=\"px-1.5 py-0.5 bg-slate-100 text-slate-800 text-[7px] font-bold rounded\">1 utilisateur</span></div><div class=\"text-[8px] text-slate-600\">Bouton \"Valider bilan\" grisé — vérifier console JS</div></div><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"font-bold text-slate-500\">Type :</span><span class=\"bg-slate-100 px-1.5 py-0.5 rounded font-bold text-slate-700\">Incident</span></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-center text-[8px] text-slate-700 font-bold\">Ticket exploitable pour le dev</div></div></div>"
-    },
-    {
-      "id": "C6",
-      "title": "Formaliser la demande de correction",
-      "intent": "Savoir structurer une demande de correction complète et exploitable par l'équipe de développement, incluant contexte, données d'entrée, résultat attendu et éléments de preuve.",
-      "icon": "clipboard-list",
-      "scenarios": [
-        {
-          "text": "Une gestionnaire du CRDC de la Somme vous signale un problème : le modèle de PDF d'invitation au dépistage du cancer du sein contient une faute d'orthographe. Le texte affiche « Dépistage organisé du cancer du seins » (avec un 's' à seins) dans l'en-tête du document. Ce PDF est envoyé à toutes les patientes du département.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Demande de correction #DC-005</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"bg-slate-50 rounded-lg p-2.5 text-xs\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Fichier</span><span class=\"font-medium\">invitation_sein_template.pdf</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Erreur</span><span class=\"text-red-500\">« seins » → « sein »</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Ligne</span><span class=\"font-medium\">En-tête, ligne 1</span></div></div><div class=\"flex gap-2 mt-1\"><span class=\"text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded\">📎 capture.pdf</span></div></div></div>",
-          "correct": {
-            "title": "Formaliser : ticket de correction mineure",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser ticket de cor</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-            "expl": "Formaliser une correction avec les éléments précis : capture, texte erroné, correction attendue.",
-            "debriefExpl": "Même une correction mineure (faute d'orthographe « seins » → « sein » dans le PDF d'invitation) doit être documentée correctement : capture d'écran du PDF, texte exact erroné, correction attendue. Cela permet le traçage et le déploiement via le cycle de release standard.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Direct : corriger à chaud le PDF",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct corriger chaud le</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Corriger directement le template PDF en production sans passer par le cycle de release.",
-              "debriefExpl": "Une modification directe en production contourne les contrôles de qualité et n'est pas tracée. Si le correctif doit être défaite plus tard, personne ne saura qu'une modification a eu lieu.",
-              "icon": "x"
-            },
-            {
-              "title": "Différer : attendre la prochaine refonte",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Différer attendre la pro</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Différer : attendre la prochaine re</span></div></div>",
-              "expl": "Reporter la correction à la prochaine refonte des templates prévue dans 6 mois.",
-              "debriefExpl": "Laisser une faute d'orthographe visible dans un document officiel envoyé à toutes les patientes pendant 6 mois nuit à l'image de l'application. Une petite correction ne devrait pas attendre une refonte majeure.",
-              "icon": "x"
-            }
-          ],
-          "expl": "C'est une demande de correction simple mais qui nécessite une formalisation précise : capture d'écran du PDF, texte exact erroné, correction attendue. Même une petite correction doit être correctement documentée pour être tracée et déployée via le cycle de release standard."
-        },
-        {
-          "text": "Le responsable technique du CRDC du Nord demande l'ajout d'un champ « Date de relance » dans le module colorectal. Actuellement, quand une patiente ne répond pas à l'invitation, la gestionnaire n'a aucun outil pour planifier une relance. Elle doit noter manuellement dans son agenda. Le besoin est clair mais non urgent.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Évolution #EV-023</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Module</span><span class=\"font-medium\">Colorectal — Relances</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Type</span><span class=\"text-slate-600 font-medium\">Évolution</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Priorité</span><span class=\"text-slate-600\">Souhaitable</span></div></div><div class=\"mt-2 p-2.5 bg-slate-50 rounded-lg text-xs\"><p class=\"font-medium\">Comportement attendu :</p><p class=\"text-slate-600 mt-0.5\">Ajouter champ « date de relance » sur le dossier patient avec notification automatique J+30.</p></div></div>",
-          "correct": {
-            "title": "Formaliser : ticket de demande d'évolution",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser ticket de dem</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-            "expl": "Distinguer une demande d'évolution d'une demande de correction, et formaliser en conséquence.",
-            "debriefExpl": "L'ajout d'un champ « Date de relance » n'est pas un bug mais une fonctionnalité manquante. La formalisation doit inclure le contexte métier (pourquoi c'est nécessaire), le comportement attendu, les critères d'acceptation. À qualifier comme ticket d'évolution, pas comme correction urgente.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Bloquant : forcer un ticket urgent",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Bloquant forcer un ticke</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"text-[7px] font-semibold text-slate-600\">Bloquant : forcer un ticket urgent</span></div></div>",
-              "expl": "Forcer un ticket urgent comme si c'était une correction bloquante.",
-              "debriefExpl": "Ce n'est pas une urgence : les gestionnaires contournent avec leur agenda papier depuis des mois. Forcer un traitement urgent déshabille les vraies priorités.",
-              "icon": "x"
-            },
-            {
-              "title": "Direct : déployer sans validation",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct déployer sans val</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Direct : déployer sans validation</span></div></div>",
-              "expl": "Développer rapidement sans passer par le cycle de validation standard.",
-              "debriefExpl": "Contourner le cycle de release pour une fonctionnalité non critique expose à des risques de régression et de non-qualité.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Ce n'est pas une correction mais une demande d'évolution. La formalisation doit inclure : le contexte métier (pourquoi c'est nécessaire), le comportement attendu (un champ date avec notification), les critères d'acceptation (format, visibilité, droits). Ne pas confondre avec un bug : c'est une feature manquante."
-        },
-        {
-          "text": "Le comité de pilotage régional identifie une anomalie dans le calcul des taux de participation au dépistage organisé. Le taux affiché par EPICONCEPT pour le département de l'Oise est de 42,3 % alors que le calcul manuel à partir des données brutes donne 38,7 %. L'enjeu est politique : ce taux impacte les financements ARS.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"clipboard-list\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Demande de correction #DC-012</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Indicateur</span><span class=\"font-medium\">Taux participation DO</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Département</span><span class=\"font-medium\">Oise (60)</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Valeur affichée</span><span class=\"text-red-600 font-medium\">42,3 %</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Valeur attendue</span><span class=\"text-slate-600 font-medium\">38,7 %</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Écart</span><span class=\"text-red-500 font-medium\">+3,6 pts</span></div></div></div>",
-          "correct": {
-            "title": "Formaliser : spécifications de calcul complètes",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formaliser spécification</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Formaliser : spécifications de calc</span></div></div>",
-            "expl": "Pour une correction sensible, fournir une spécification exhaustive validée par le métier.",
-            "debriefExpl": "La correction du calcul du taux de participation (42,3% vs 38,7%) est stratégique car elle impacte les financements ARS. La formalisation doit être exhaustive : définir précisément le périmètre (dénominateur, numérateur, période), fournir la requête de calcul et les données brutes. Une validation par le métier est impérative avant correction.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Direct : modifier la formule à chaud",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Direct modifier la formu</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded\">Action manuelle</div><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><div class=\"bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150\">Résultat</div></div></div>",
-              "expl": "Corriger directement la formule de calcul en production pour aligner les chiffres rapidement.",
-              "debriefExpl": "Modifier la formule sans comprendre la cause de l'écart ni valider avec le métier peut produire un résultat tout aussi erroné, mais différent.",
-              "icon": "x"
-            },
-            {
-              "title": "Contourner : afficher une valeur saisie",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contourner afficher une </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Contourner : afficher une valeur sa</span></div></div>",
-              "expl": "Contourner en affichant la valeur calculée manuellement sans formalisation.",
-              "debriefExpl": "Afficher une valeur saisie manuellement contourne le problème mais n'apporte pas de solution durable et crée une dette technique.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Cette demande de correction est stratégique et sensible. La formalisation doit être exhaustive : définir précisément le périmètre du calcul (dénominateur, numérateur, période), fournir la requête de calcul, les données brutes en entrée et le résultat attendu. Une validation par le métier est impérative avant correction."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Formalisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"camera\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Capture d'écran jointe</span></div><div class=\"text-[8px] text-slate-600\">Faute \"seins\" dans le PDF export — écran #3, ligne 12</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"list\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Étapes reproduction</span></div><div class=\"text-[8px] text-slate-600\">1. Ouvrir dossier → 2. Exporter PDF → 3. Observer texte</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Développeur peut corriger immédiatement</div></div></div>"
-    },
-    {
-      "id": "C3",
-      "title": "Reproduire et investiguer le bug",
-      "intent": "Mettre en œuvre une démarche méthodique pour reproduire un bug, isoler ses conditions de déclenchement et déterminer sa cause racine, en environnement approprié.",
-      "icon": "search",
-      "scenarios": [
-        {
-          "text": "Une gestionnaire du CRDC de l'Aisne vous signale un bug : « Quand je clique sur Enregistrer dans le formulaire d'édition d'un dossier patient, la page se vide et tout disparaît. Je perds ma saisie. » Vous êtes en ligne avec elle et pouvez observer son écran partagé.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"search\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Reproduction bug</span></div><div class=\"space-y-1.5 text-sm bg-slate-50 p-2.5 rounded-lg\"><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Étape 1</span><span class=\"text-slate-700\">Ouvrir dossier DOS-4521</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Étape 2</span><span class=\"text-slate-700\">Saisir NIR « 2-87-01-456-789-123 »</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Étape 3</span><span class=\"text-slate-700\">Cliquer Enregistrer</span></div><div class=\"flex justify-between text-xs\"><span class=\"text-slate-500\">Résultat</span><span class=\"text-red-500\">❌ Page blanche, saisie perdue</span></div></div><div class=\"mt-2 text-xs text-amber-600\"><i data-lucide=\"lightbulb\" class=\"w-3 h-3 inline\"></i> Piste : NIR avec tirets ?</div></div>",
-          "correct": {
-            "title": "Observer le problème en partage d'écran",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Observer le problème en</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><i data-lucide=\"search\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span>Reproduction</span><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><span class=\"text-slate-400\">Cause identifiée</span></div></div>",
-            "expl": "Observer le bug en direct, identifier des patterns, puis reproduire en environnement de test.",
-            "debriefExpl": "En partage d'écran, vous remarquez que le bug (page blanche au clic sur Enregistrer) survient uniquement quand le champ NIR contient un tiret. C'est une piste d'investigation à reproduire sur la préproduction pour confirmer avant de transférer aux développeurs.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Transférer directement le ticket sans analyse",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Transférer directement l</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-              "expl": "Transférer le ticket directement aux développeurs sans investigation préalable.",
-              "debriefExpl": "Transmettre un ticket sans analyse (« ça marche pas ») force le développeur à refaire tout le diagnostic à votre place. Le temps de résolution s'allonge.",
-              "icon": "x"
-            },
-            {
-              "title": "Suggérer de changer de navigateur web",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Suggérer de changer de</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Suggérer de changer de navigateur w</span></div></div>",
-              "expl": "Suggérer un contournement générique sans chercher la cause.",
-              "debriefExpl": "Dire à la gestionnaire de changer de navigateur ne résout pas le bug et reporte le problème à plus tard sans le traiter.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Première approche méthodique : demander si le bug est systématique (oui, à chaque fois), sur quel navigateur (Chrome 120), quelles données exactes (elle vous montre). En observant le partage d'écran, vous remarquez que le bug survient uniquement quand le champ « NIR » contient un tiret. C'est une piste d'investigation — à reproduire sur la préprod pour confirmer."
-        },
-        {
-          "text": "Le CRDC du Nord remonte que l'export des données de dépistage mammographique échoue « de temps en temps » sur les gros volumes (> 50 000 lignes). L'export fonctionne tantôt, tantôt non, sans message d'erreur clair. Le CRDC doit transmettre ces données à l'ARS dans 3 jours.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"search\" class=\"w-4 h-4 text-amber-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Investigation — Export mammo</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Volume</span><span class=\"font-medium\">&gt; 50 000 lignes</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Fréquence</span><span class=\"text-amber-600 font-medium\">Intermittent (3/10)</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Environnement</span><span class=\"font-medium\">Production</span></div></div><div class=\"mt-2 p-2.5 bg-slate-50 rounded-lg text-xs\"><p class=\"font-medium\">Pistes d'investigation :</p><p class=\"text-slate-600\">• Logs serveur : timeouts ?</p><p class=\"text-slate-600\">• Mémoire PHP/Memory limit ?</p><p class=\"text-slate-600\">• Test volumétrique sur préprod</p></div></div>",
-          "correct": {
-            "title": "Analyser les logs serveur sous charge",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Analyser les logs serveu</div><div class=\"flex gap-1 text-[7px]\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded font-semibold text-slate-600\">Vue support</div><div class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Métadonnées</div></div></div>",
-            "expl": "Analyser les logs serveur pour trouver des patterns sur un bug intermittent avant d'investiguer.",
-            "debriefExpl": "Un bug intermittent qui survient 3 fois sur 10 sur des exports > 50 000 lignes suggère un problème de ressource (mémoire/timeout). La méthodologie : analyser les logs serveur pour trouver des patterns temporels ou volumétriques, puis reproduire en préproduction avec des jeux de données croissants.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Limiter arbitrairement les exports en production",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Limiter arbitrairement l</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Limiter arbitrairement les exports </span></div></div>",
-              "expl": "Contourner en limitant le volume d'export en production.",
-              "debriefExpl": "Limiter les exports à 10 000 lignes ne résout pas le problème et pénalise les utilisateurs qui ont besoin de gros volumes. Il faut corriger la cause profonde.",
-              "icon": "x"
-            },
-            {
-              "title": "Suggérer de répéter l'action plusieurs fois",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Suggérer de répéter l'ac</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Suggérer de répéter l'action plusie</span></div></div>",
-              "expl": "Conseiller à l'utilisateur de répéter l'action jusqu'à ce que cela fonctionne.",
-              "debriefExpl": "Demander à l'utilisateur de relancer plusieurs fois un export aléatoire jusqu'à ce que ça marche n'est pas un service support acceptable et ne résout rien.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Bug intermittent → méthodologie : analyser les logs serveur pour trouver des patterns temporels ou volumétriques, tenter de reproduire en préprod avec des jeux de données croissants, vérifier les timeouts applicatifs et les limites mémoire. L'intermittence suggère un problème de ressource (mémoire/timeout) plutôt qu'un bogue logique."
-        },
-        {
-          "text": "L'ARS Hauts-de-France détecte des discordances entre les données de participation fournies par l'API EPICONCEPT et les données extraites du système d'information de la CPAM. L'écart est d'environ 2,3 % et n'est pas constant — il varie selon les mois. L'enjeu est la fiabilisation des données de remontée nationale.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"search\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Investigation — Discordance API</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Source A</span><span class=\"font-medium\">API EPICONCEPT</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Source B</span><span class=\"font-medium\">SI CPAM</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Écart</span><span class=\"text-red-600 font-medium\">2,3 % variable</span></div></div><div class=\"mt-2 p-2.5 border border-amber-200 bg-amber-50 rounded-lg text-xs\"><p class=\"text-amber-700 font-medium\">Plan d'investigation :</p><p class=\"text-amber-600\">1. Aligner les périmètres de jointure</p><p class=\"text-amber-600\">2. Vérifier les règles d'éligibilité</p><p class=\"text-amber-600\">3. Comparer pipelines mois par mois</p></div></div>",
-          "correct": {
-            "title": "Comparer les pipelines de données transverses",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Comparer les pipelines d</div><div class=\"flex items-center gap-1 text-[7px] font-semibold text-slate-600\"><i data-lucide=\"search\" class=\"w-2.5 h-2.5 text-slate-400\"></i><span>Reproduction</span><i data-lucide=\"arrow-right\" class=\"w-2 h-2 text-slate-300\"></i><span class=\"text-slate-400\">Cause identifiée</span></div></div>",
-            "expl": "Comparer les pipelines de données sur un périmètre identique avant de corriger.",
-            "debriefExpl": "Un écart de 2,3% variable entre l'API EPICONCEPT et le SI CPAM nécessite une investigation transverse. La méthodologie : comparer les deux sources sur un périmètre strictement identique (mêmes dates, même zone, même population), vérifier les règles métier, et identifier le point de divergence dans les pipelines respectifs.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Aligner artificiellement les données du produit",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Aligner artificiellement</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Aligner artificiellement les donnée</span></div></div>",
-              "expl": "Corriger les données dans EPICONCEPT pour coller à la référence CPAM.",
-              "debriefExpl": "Aligner les données sans comprendre la cause de l'écart peut masquer un vrai bug. Si l'écart provient d'un périmètre différent, la correction sera fausse.",
-              "icon": "x"
-            },
-            {
-              "title": "Appliquer un correctif arbitraire de l'écart",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Appliquer un correctif a</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Appliquer un correctif arbitraire d</span></div></div>",
-              "expl": "Appliquer un correctif fixe de +2,3% à l'API pour compenser automatiquement.",
-              "debriefExpl": "Un correctif arbitraire qui ajoute 2,3% sans comprendre la cause est une très mauvaise pratique. Si l'écart change ou disparaît, les données seront faussées.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Bug complexe et stratégique : nécessite une investigation transverse. La méthodologie : comparer les deux sources de données sur un périmètre strictement identique (mêmes dates, même zone géographique, même périmètre de population), vérifier les règles métier applicables (période de carence, critères d'éligibilité), et identifier le point de divergence dans les pipelines de données respectifs."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Investigation</div><div class=\"flex flex-col gap-1.5\"><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"w-4 h-4 rounded-full bg-slate-100 text-slate-700 text-[7px] font-black flex items-center justify-center shrink-0\">1</span><span class=\"text-slate-600\">Reproduire en préprod</span></div><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"w-4 h-4 rounded-full bg-slate-100 text-slate-700 text-[7px] font-black flex items-center justify-center shrink-0\">2</span><span class=\"text-slate-600\">Isoler le NIR avec tirets</span></div><div class=\"flex items-center gap-2 text-[8px]\"><span class=\"w-4 h-4 rounded-full bg-slate-100 text-slate-700 text-[7px] font-black flex items-center justify-center shrink-0\">3</span><span class=\"text-slate-600\">Vérifier logs PHP</span></div><div class=\"bg-amber-50 border border-amber-200 rounded-lg p-2 mt-1\"><div class=\"text-[7px] font-black text-amber-800 uppercase\">Cause racine</div><div class=\"text-[8px] text-amber-700\">Regex NIR rejette les séparateurs</div></div></div></div>"
-    },
-    {
-      "id": "C8",
-      "title": "Documenter et remonter les bugs récurrents",
-      "intent": "Capitaliser les résolutions dans une base de connaissances partagée et alerter sur les bugs à fort coût récurrent pour prioriser leur correction définitive.",
-      "icon": "book-open",
-      "scenarios": [
-        {
-          "text": "Vous intervenez pour la troisième fois ce mois-ci sur le même problème : l'affichage des âges des patientes dans le tableau de bord du dépistage cervical est décalé d'un an pour les patientes nées en janvier. Chaque fois, vous corrigez manuellement en base de données (UPDATE age_calc), mais le correctif tient jusqu'au prochain rafraîchissement du cache.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center\"><i data-lucide=\"book-open\" class=\"w-4 h-4 text-amber-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">KB — Bug récurrent #KB-045</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Problème</span><span class=\"font-medium\">Âge décalé (-1) pour nés en janvier</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Occurrences</span><span class=\"text-red-600 font-medium\">3 ce mois</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Coût estimé</span><span class=\"font-medium\">1h30 support + erreurs aval</span></div></div><div class=\"mt-2 p-2.5 bg-slate-50 rounded-lg text-xs\"><p class=\"font-medium\">Contournement documenté :</p><p class=\"text-slate-600\">UPDATE patient_age SET age = DATEDIFF(...) WHERE MONTH(birth)=1</p></div></div>",
-          "correct": {
-            "title": "Documenter l'alternative et qualifier le bug",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Documenter l'alternative</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-            "expl": "Documenter le contournement dans la base de connaissances ET remonter le bug pour correction définitive.",
-            "debriefExpl": "3 interventions par mois sur le même problème (âge décalé pour les patientes nées en janvier) = coût support cumulé élevé. La double action est nécessaire : documenter le contournement immédiat dans la base de connaissances pour les prochaines occurrences, ET remonter le bug en priorité avec son coût cumulé pour justifier la correction définitive.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Continuer les corrections manuelles à l'infini",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Continuer les correction</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Continuer les corrections manuelles</span></div></div>",
-              "expl": "Continuer les corrections manuelles sans documenter ni remonter le problème.",
-              "debriefExpl": "Corriger manuellement chaque mois sans s'arrêter sur le problème de fond, c'est accepter un coût récurrent sans fin. Le cumul dépasse rapidement le coût de la correction définitive.",
-              "icon": "x"
-            },
-            {
-              "title": "Automatiser temporairement par script nocturne",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Automatiser temporaireme</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Automatiser temporairement par scri</span></div></div>",
-              "expl": "Automatiser le contournement par un script nocturne en attendant la correction.",
-              "debriefExpl": "Un script SQL nocturne qui corrige en cachette crée une dette technique : si le bug est corrigé plus tard mais que le script reste, il écrasera la correction ou créera des incohérences.",
-              "icon": "x"
-            }
-          ],
-          "expl": "C'est l'exemple typique du bug récurrent à fort coût : 3 interventions × 30 min × salaire support = coût visible. Mais aussi l'impact utilisateur (confiance) et le risque d'erreur de calcul. Ce bug doit être documenté dans la base de connaissances AVEC le contournement, ET remonté en priorité pour correction définitive."
-        },
-        {
-          "text": "Plusieurs CRDC (Nord, Pas-de-Calais, Somme) signalent indépendamment un timeout lors de l'export PDF du rapport annuel d'activité. Chacun a ouvert son propre ticket, et votre équipe a passé au total 2 jours à diagnostiquer individuellement. En réunion d'équipe, vous réalisez que le problème est identique partout : le rapport contient un tableau récapitulatif dont la requête n'est pas optimisée.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"book-open\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Analyse coût — Export PDF</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">CRDC concernés</span><span class=\"font-medium\">3/12</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Coût support cumulé</span><span class=\"font-medium\">~6 jours-homme</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Tickets ouverts</span><span class=\"font-medium\">3 séparés</span></div><div class=\"flex justify-between border-t border-slate-100 pt-1\"><span class=\"text-slate-500\">Coût correction déf.</span><span class=\"text-slate-600 font-medium\">~2 jours-dev</span></div></div></div>",
-          "correct": {
-            "title": "Alerter sur le coût cumulé support",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Alerter sur le coût</div><div class=\"flex gap-1 text-[7px]\"><div class=\"bg-slate-100 px-1.5 py-0.5 rounded font-semibold text-slate-600\">Vue support</div><div class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Métadonnées</div></div></div>",
-            "expl": "Centraliser les signalements et alerter sur le coût cumulé pour justifier une correction prioritaire.",
-            "debriefExpl": "3 CRDC différents, 3 tickets séparés, 2 jours de diagnostic chacun = 6 jours support cumulés. La correction définitive (optimiser la requête) est estimée à 2 jours de développement. Le ROI est évident. Il faut regrouper les tickets, créer un article KB partagé, et escalader le coût cumulé pour prioriser la correction.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Ajuster individuellement les timeouts serveurs",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Ajuster individuellement</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Ajuster individuellement les timeou</span></div></div>",
-              "expl": "Traiter chaque CRDC individuellement en ajustant les timeouts serveur au cas par cas.",
-              "debriefExpl": "Augmenter le timeout pour chaque instance ne résout pas le problème. D'autres CRDC rencontreront le même problème et les timeouts continueront d'augmenter sans fin.",
-              "icon": "x"
-            },
-            {
-              "title": "Fermer les tickets avec contournement lourd",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fermer les tickets avec</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Fermer les tickets avec contourneme</span></div></div>",
-              "expl": "Fermer les tickets en proposant un contournement lourd et dégradé.",
-              "debriefExpl": "Demander au CRDC d'exporter par morceaux puis d'assembler manuellement est une régression par rapport à la fonctionnalité attendue. Le produit doit fonctionner correctement.",
-              "icon": "x"
-            }
-          ],
-          "expl": "La capitalisation est cruciale ici : au lieu de traiter chaque CRDC séparément, il faut : 1) créer un article de base de connaissances partagée sur le problème, 2) identifier le coût agrégé (3 CRDC × 2 jours de diagnostic = 6 jours + tickets individuels), 3) remonter le bug en priorité car son coût cumulé dépasse largement le coût de la correction définitive."
-        },
-        {
-          "text": "Vous êtes alerté par le directeur du CRDC du Nord : l'écart de comptage des doublons inducteurs (patients comptés dans deux départements) sur les indicateurs de performance atteint 15 % ce trimestre. Ce problème de doublons existe depuis 2 ans, chaque nouvelle campagne l'aggrave, et il dégrade la confiance des financeurs (ARS, Cham) dans les données remontées. Le coût indirect est énorme (défiance, audits supplémentaires, pénalités retard).",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"book-open\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Rapport coût KB-2024-015</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Bug</span><span class=\"font-medium\">Doublons inducteurs</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Ancienneté</span><span class=\"text-red-600 font-medium\">2 ans</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Impact indicateurs</span><span class=\"text-red-600 font-medium\">-15 %</span></div></div><div class=\"mt-2 p-2.5 bg-red-50 border border-red-200 rounded-lg text-xs\"><p class=\"text-red-700 font-medium\">📊 Coût total estimé :</p><p class=\"text-red-600\">Support : ~25 j/h cumulés | Perte confiance : majeur | Risque pénalités</p></div></div>",
-          "correct": {
-            "title": "Présenter un bilan financier au COPIL",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Présenter un bilan finan</div><div class=\"flex items-center gap-1 text-[7px]\"><i data-lucide=\"message-square\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"font-semibold text-slate-600\">Rapport transmis</span></div></div>",
-            "expl": "Préparer un dossier de coût total (TCO) pour justifier une correction structurelle au comité de pilotage.",
-            "debriefExpl": "Un bug de doublons qui dure depuis 2 ans et dégrade les indicateurs de 15% a un coût indirect énorme : temps support (25 jours/homme cumulés), perte de confiance des financeurs, risques de pénalités. Chaque contournement individuel est « facile » mais le coût total est massif. Il faut chiffrer ce coût et le présenter au COPIL.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Maintenir un script de nettoyage hebdomadaire",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Maintenir un script de</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Maintenir un script de nettoyage he</span></div></div>",
-              "expl": "Maintenir un script de nettoyage hebdomadaire pour contenir les doublons sous les 5%.",
-              "debriefExpl": "Un script de nettoyage régulier traite le symptôme, pas la cause. Les doublons continueront d'être créés et le coût de maintenance du script s'ajoute au coût du bug.",
-              "icon": "x"
-            },
-            {
-              "title": "Notifier l'existence des doublons en documentation",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Notifier l'existence des</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Notifier l'existence des doublons e</span></div></div>",
-              "expl": "Notifier l'existence des doublons dans la documentation sans corriger le problème.",
-              "debriefExpl": "Ajouter une note « les doublons peuvent fausser les données » est une déresponsabilisation. Les utilisateurs ont besoin de données fiables, pas d'avertissements sur leur manque de fiabilité.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Bug à coût récurrent très élevé mais qui n'a jamais été priorisé car chaque correction individuelle est « facile » (contournement). Il faut formaliser une analyse de coût total (TCO du bug) incluant le temps support, les corrections aval, l'impact réputation, et le présenter au comité de pilotage pour justifier une correction structurelle. C'est le rôle de l'escalade avec données chiffrées."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Capitalisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1\"><i data-lucide=\"book-open\" class=\"w-3 h-3 text-slate-500\"></i><span class=\"text-[7px] font-black text-blue-600 uppercase\">Base de connaissances</span></div><div class=\"text-[8px] text-slate-600 mt-0.5\">Bug âge décalé -1 an : solution documentée (3 occurrences/mois)</div></div><div class=\"bg-red-50 border border-red-200 rounded-lg p-2\"><div class=\"flex items-center gap-1\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-red-600\"></i><span class=\"text-[7px] font-black text-red-800 uppercase\">Alerte Coût Récurrent</span></div><div class=\"text-[8px] text-red-700 mt-0.5\">15j/homme cumulés → Prioriser correction définitive</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Résolution partagée + escalade</div></div></div>"
-    },
-    {
-      "id": "C9",
-      "title": "Assurer le suivi avec le client",
-      "intent": "Maintenir une communication proactive et transparente avec les utilisateurs pendant et après la résolution d'un incident, en adaptant le ton et le niveau de détail au profil du client.",
-      "icon": "message-square",
-      "scenarios": [
-        {
-          "text": "Un médecin urgentiste au CH de Valenciennes a signalé un bug bloquant : impossible de consulter les antécédents de dépistage d'une patiente arrivée aux urgences. Vous avez identifié le problème (mauvaise jointure sur le NIR bis), et le correctif est déployé. Il est 16h, le médecin a fini sa garde et ne vous a pas relancé.",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"message-square\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Suivi client — Dr Lefebvre</span></div><div class=\"bg-slate-50 rounded-lg p-3 text-xs\"><p class=\"font-medium text-slate-800\">Message envoyé le 12/05 à 16h15 :</p><p class=\"text-slate-700 mt-1\">« Bonjour Dr Lefebvre, le bug d'affichage des antécédents est corrigé. La cause était une erreur de liaison entre les dossiers. Vous pouvez dès à présent accéder à l'historique de vos patientes. N'hésitez pas à nous recontacter. »</p></div><div class=\"mt-1.5 text-xs text-slate-400 flex justify-between\"><span>✓ Lu</span><span>Délai : 4h</span></div></div>",
-          "correct": {
-            "title": "Contacter proactivement le médecin après correction",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contacter proactivement </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Contacter proactivement le médecin </span></div></div>",
-            "expl": "Contacter proactivement le client après une correction, même s'il n'a pas relancé.",
-            "debriefExpl": "Le médecin a signalé un bug bloquant à 16h, le correctif est déployé. Même s'il a fini sa garde et n'a pas relancé, il attend un retour. Le contacter proactivement pour l'informer de la correction (cause expliquée simplement) et lui demander de confirmer montre que son signalement a été pris au sérieux.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Fermer le ticket sans retour client",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Fermer le ticket sans</div><div class=\"flex gap-1.5 text-[6px] font-bold\"><span class=\"bg-slate-100 px-1.5 py-0.5 rounded text-slate-600\">Bug</span><span class=\"bg-slate-50 px-1.5 py-0.5 rounded text-slate-400\">Back</span></div></div>",
-              "expl": "Fermer le ticket sans contacter le client, en partant du principe qu'il rappellera si besoin.",
-              "debriefExpl": "Le médecin ne sait pas que le correctif a été déployé. Il risque de ne plus utiliser la fonctionnalité ou de perdre confiance. Un retour proactif est essentiel pour la satisfaction.",
-              "icon": "x"
-            },
-            {
-              "title": "Attendre passivement un nouvel appel médecin",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Attendre passivement un </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Attendre passivement un nouvel appe</span></div></div>",
-              "expl": "Attendre que le médecin rappelle pour lui annoncer la bonne nouvelle.",
-              "debriefExpl": "Le médecin ne sait pas que le bug est corrigé. Si la prochaine fois qu'il en a besoin c'est dans 3 jours, il passera 3 jours à penser que l'outil est en panne.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Même si le médecin n'a pas relancé, il attend un retour. Un contact proactif est essentiel : informer que le bug est corrigé, expliquer brièvement la cause (sans jargon technique), et s'assurer que tout fonctionne. Un client informé est un client satisfait — il saura que son signalement a été pris au sérieux."
-        },
-        {
-          "text": "Le CRDC du Nord a signalé un bug critique sur la génération des invitations il y a 2 semaines. Le correctif a été identifié mais repoussé à la prochaine release (Sprint+3, dans 3 semaines). Le CRDC relance aujourd'hui : « On n'a pas de nouvelles, est-ce que c'est pris en compte ? On doit lancer notre campagne de dépistage dans 10 jours. »",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-red-100 flex items-center justify-center\"><i data-lucide=\"message-square\" class=\"w-4 h-4 text-red-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">CRDC Nord — Suivi INC-0915</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Ticket ouvert</span><span class=\"font-medium\">Il y a 14 jours</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Dernier contact</span><span class=\"text-red-600 font-medium\">J0 (ouverture)</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Deadline client</span><span class=\"text-red-600 font-medium\">Dans 10 jours</span></div></div><div class=\"mt-2 p-2.5 bg-amber-50 rounded-lg text-xs text-amber-700\">⚠ Aucune communication depuis 14 jours — risque d'escalade client</div></div>",
-          "correct": {
-            "title": "Informer immédiatement avec point d'avancement régulier",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Informer immédiatement a</div><div class=\"flex items-center gap-1 text-[7px]\"><i data-lucide=\"message-square\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"font-semibold text-slate-600\">Rapport transmis</span></div></div>",
-            "expl": "Maintenir une communication régulière avec le client sur l'avancement, surtout en cas de délai.",
-            "debriefExpl": "2 semaines sans nouvelle après un signalement, c'est un échec du suivi. Le CRDC relance car il a une campagne dans 10 jours. Il faut immédiatement contacter le client, expliquer le planning, proposer un contournement pour la campagne, et s'engager sur une fréquence de mise à jour (point hebdomadaire) jusqu'à la résolution.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Forcer un développement et déploiement immédiat",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Forcer un développement </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Forcer un développement et déploiem</span></div></div>",
-              "expl": "Prioriser le correctif en urgence et le déployer en contournant le cycle de release.",
-              "debriefExpl": "Forcer un déploiement non planifié pour rattraper l'absence de communication est risqué. Mieux vaut communiquer clairement sur le délai et proposer un contournement que de précipiter un correctif non testé.",
-              "icon": "x"
-            },
-            {
-              "title": "Imposer le cycle de livraison standard",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Imposer le cycle de</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Imposer le cycle de livraison stand</span></div></div>",
-              "expl": "Maintenir le planning standard et attendre la fin du sprint sans communication spécifique.",
-              "debriefExpl": "Imposer le cycle standard sans communication alors que la campagne du client est dans 10 jours, c'est l'abandonner. Il faut au minimum un plan de contournement et une explication.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Le silence est toxique : 2 semaines sans communication, c'est un échec du suivi. Il faut immédiatement rappeler le CRDC, expliquer le planning, proposer un plan de contournement pour leur campagne (le correctif n'arrivera pas à temps), et s'engager sur une fréquence de mise à jour (hebdomadaire) jusqu'à la résolution."
-        },
-        {
-          "text": "Le directeur du CRDC de l'Oise vous reçoit en visio et annonce : « Nous rencontrons votre direction la semaine prochaine pour discuter du renouvellement de notre convention. L'outil a dysfonctionné pendant l'audit ARS du mois dernier — le taux de participation n'a pas pu être extrait pendant 3 jours. Si je n'ai pas de garanties solides sur la fiabilité, je ne signe pas. »",
-          "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"message-square\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">CRDC Oise — Renouvellement</span></div><div class=\"space-y-1.5 text-sm\"><div class=\"flex justify-between\"><span class=\"text-slate-500\">Enjeu</span><span class=\"text-slate-600 font-medium\">Renouvellement convention</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Incident</span><span class=\"font-medium\">Extraction impossible 3j (audit ARS)</span></div><div class=\"flex justify-between\"><span class=\"text-slate-500\">Échéance</span><span class=\"text-red-600 font-medium\">Réunion direction J+7</span></div></div><div class=\"mt-2 p-2.5 border border-slate-200 bg-slate-50 rounded-lg text-xs\"><p class=\"text-slate-700 font-medium\">📋 Actions requises :</p><p class=\"text-slate-600\">Préparer RAC + plan correctif + SLA + proposition commerciale avec la direction</p></div></div>",
-          "correct": {
-            "title": "Présenter un dossier de rétablissement complet",
-            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Présenter un dossier de</div><div class=\"flex items-center gap-1 text-[7px]\"><i data-lucide=\"message-square\" class=\"w-3 h-3 text-slate-400 shrink-0\"></i><span class=\"font-semibold text-slate-600\">Rapport transmis</span></div></div>",
-            "expl": "Préparer une réponse structurée avec la direction pour les enjeux stratégiques et contractuels.",
-            "debriefExpl": "Le directeur du CRDC lie le renouvellement de sa convention à la fiabilité de l'outil. Le cadre n'est plus le support technique mais la gestion de compte. Il faut préparer avec la direction : une analyse des causes racines, un plan d'action correctif, des mesures préventives (monitoring, SLA), et une proposition commerciale adaptée.",
-            "icon": "check"
-          },
-          "wrong": [
-            {
-              "title": "Rassurer oralement sans engagement écrit formel",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Rassurer oralement sans </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Rassurer oralement sans engagement </span></div></div>",
-              "expl": "Rassurer verbalement le directeur sans engagement écrit ni plan d'action formel.",
-              "debriefExpl": "Des paroles rassurantes sans document écrit ni plan d'action ne suffiront pas à convaincre un directeur qui menace de résilier son contrat.",
-              "icon": "x"
-            },
-            {
-              "title": "Offrir un geste commercial immédiat d'évitement",
-              "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Offrir un geste commerci</div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Offrir un geste commercial immédiat</span></div></div>",
-              "expl": "Proposer un geste commercial pour éviter la résiliation sans traiter le problème technique.",
-              "debriefExpl": "Une réduction d'abonnement sans plan correctif ne résout pas le problème de fond. Le client a besoin de garanties sur la fiabilité future, pas d'une ristourne.",
-              "icon": "x"
-            }
-          ],
-          "expl": "Situation stratégique : le suivi client dépasse le cadre technique. Il faut préparer une réponse structurée avec la direction : analyse des causes racines de l'incident, plan d'action correctif, mesures préventives (monitoring, alerting, SLA), et proposition commerciale. Le suivi n'est plus du support — c'est de la gestion de compte avec accompagnement direction."
-        }
-      ],
-      "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Suivi Client</div><div class=\"flex flex-col gap-1\"><div class=\"flex items-center gap-2 p-1.5 bg-slate-50 border border-slate-200 rounded\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-bold text-slate-800\">J0 : Contact proactif</div><div class=\"text-[7px] text-slate-600\">\"Correctif déployé à 16h, pouvez-vous tester ?\"</div></div></div><div class=\"flex items-center gap-2 p-1.5 bg-slate-50 border border-slate-200 rounded\"><i data-lucide=\"refresh-cw\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-bold text-slate-800\">J+7 : Point hebdo</div><div class=\"text-[7px] text-slate-600\">Contournement + calendrier correctif</div></div></div><div class=\"flex items-center gap-2 p-1.5 bg-slate-50 border border-slate-200 rounded\"><i data-lucide=\"file-text\" class=\"w-3 h-3 text-slate-600 shrink-0\"></i><div><div class=\"text-[7px] font-bold text-slate-800\">J+30 : Rapport RAC + SLA</div><div class=\"text-[7px] text-slate-600\">Dossier transmis à la direction</div></div></div></div></div>"
-    }
-  ],
+          {
+            "title": "Contourner : afficher une valeur saisie",
+            "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Contourner afficher une </div><div class=\"flex items-center gap-1.5\"><i data-lucide=\"circle\" class=\"w-3 h-3 text-slate-300\"></i><span class=\"text-[8px] font-semibold text-slate-600\">Contourner : afficher une valeur sa</span></div></div>",
+            "expl": "Contourner en affichant la valeur calculée manuellement sans formalisation.",
+            "debriefExpl": "Afficher une valeur saisie manuellement contourne le problème mais n'apporte pas de solution durable et crée une dette technique.",
+            "icon": "x"
+          }
+        ],
+        "expl": "Cette demande de correction est stratégique et sensible. La formalisation doit être exhaustive : définir précisément le périmètre du calcul (dénominateur, numérateur, période), fournir la requête de calcul, les données brutes en entrée et le résultat attendu. Une validation par le métier est impérative avant correction."
+      }
+    ],
+    "explVisual": "<div class=\"w-full max-w-[240px] bg-white rounded-xl border border-slate-200 p-3 shadow-sm\"><div class=\"text-[9px] font-bold text-blue-600 uppercase tracking-wider mb-2\">Formalisation</div><div class=\"flex flex-col gap-1.5\"><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"camera\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Capture d'écran jointe</span></div><div class=\"text-[8px] text-slate-600\">Faute \"seins\" dans le PDF export — écran #3, ligne 12</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2\"><div class=\"flex items-center gap-1 mb-1\"><i data-lucide=\"list\" class=\"w-2.5 h-2.5 text-slate-500\"></i><span class=\"text-[7px] font-bold text-slate-500\">Étapes reproduction</span></div><div class=\"text-[8px] text-slate-600\">1. Ouvrir dossier → 2. Exporter PDF → 3. Observer texte</div></div><div class=\"bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-[8px] text-slate-700 font-bold\">Développeur peut corriger immédiatement</div></div></div>"
+  },
   {
     "id": "C3",
     "title": "Reproduire et investiguer le bug",
