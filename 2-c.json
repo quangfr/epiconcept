@@ -474,10 +474,10 @@
         "text": "Une gestionnaire du CRDC de la Somme signale que le PDF d'invitation au dépistage du cancer du sein contient une faute d'orthographe. Le document affiche « Dépistage organisé du cancer du seins » (avec un 's' à seins) dans l'en-tête du document. Ce PDF officiel est envoyé à toutes les patientes du département. Vous devez formaliser la demande de correction pour les développeurs.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"file-text\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Visualisation du PDF</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg font-mono text-slate-700\"><div>Dépistage organisé du cancer du <span class=\"text-red-600 font-bold underline\">seins</span></div></div></div>",
         "correct": {
-          "title": "Formaliser : besoin, entrées/sorties et comportement attendu",
+          "title": "Formaliser : technique « Entrées/Sorties » et « Comportement existant vs attendu »",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formalisation Structurée</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Entrée :</strong> PDF Généré (invitation_sein_template.pdf)</div><div><strong>Comportement Actuel :</strong> « cancer du seins »</div><div><strong>Comportement Attendu :</strong> « cancer du sein »</div></div></div>",
-          "expl": "Décrire le besoin de correction en spécifiant le besoin, les entrées/sorties, le comportement existant vs attendu, et la logique conditionnelle.",
-          "debriefExpl": "Pour cette correction, structurer le ticket permet d'éviter toute ambiguïté : le Besoin (crédibilité et image professionnelle), l'Entrée (génération du PDF d'invitation), la Sortie/Comportement actuel (« seins ») vs Comportement attendu (« sein »), suivant la logique 'Quand le PDF d'invitation est généré, alors l'en-tête doit afficher « sein » au singulier'.",
+          "expl": "Décrire l'anomalie en appliquant la technique du comportement existant vs attendu couplée aux entrées/sorties.",
+          "debriefExpl": "Pour cette correction de coquille, appliquer les techniques 'Entrées/Sorties' et 'Comportement existant vs attendu' (Entrée : template PDF, Existant : « seins », Attendu : « sein ») permet de formaliser un besoin clair sans ambiguïté.",
           "icon": "check"
         },
         "wrong": [
@@ -502,10 +502,10 @@
         "text": "Les gestionnaires du CRDC souhaitent un nouvel automatisme : si une patiente n'a pas répondu à son invitation de dépistage colorectal depuis 30 jours, un rappel SMS doit lui être envoyé. Actuellement, elles doivent vérifier manuellement le statut et envoyer les relances une par une. Vous devez formaliser la demande.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"bell\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Relances manuelles</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg text-slate-700\"><div>Saisie manuelle des dates et envois individuels dans l'agenda.</div></div></div>",
         "correct": {
-          "title": "Formaliser : besoins, entrées/sorties et logique Quand / Si / Alors",
+          "title": "Formaliser : technique de logique conditionnelle « Quand / Si / Alors »",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Formalisation Fonctionnelle</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Sachant :</strong> Invitation envoyée et sans réponse</div><div><strong>Si :</strong> Délai = 30 jours</div><div><strong>Alors :</strong> Statut = À relancer &amp; Envoi SMS</div></div></div>",
-          "expl": "Formaliser la demande en décrivant le besoin, les entrées/sorties, le comportement existant vs attendu, et la règle sous le format Quand / Si / Alors.",
-          "debriefExpl": "Ce nouvel automatisme doit être structuré de façon complète : le Besoin (gagner du temps), l'Entrée (statut d'invitation sans réponse), la Sortie/Comportement attendu (relance automatique par SMS), suivant la logique 'Quand 30 jours sont écoulés, si aucune réponse n'est reçue, alors envoyer le SMS de relance'.",
+          "expl": "Rédiger la règle fonctionnelle de relance automatique via la technique conditionnelle Quand / Si / Alors.",
+          "debriefExpl": "La technique 'Quand / Si / Alors' (Quand 30 jours se sont écoulés, si aucune réponse n'est reçue, alors envoyer le SMS) formalise parfaitement cet automatisme en définissant le déclencheur, la condition et l'action attendue.",
           "icon": "check"
         },
         "wrong": [
@@ -530,10 +530,10 @@
         "text": "Le DSI de l'ARS signale une anomalie : le taux de participation affiché pour l'Oise est de 42,3 % alors que le calcul de leur statisticien donne 38,7 %. L'écart provient d'un filtre d'exclusion des patientes ayant déménagé hors du département. Vous devez formaliser la spécification du calcul corrigé.",
         "problemVisual": "<div class=\"bg-white rounded-xl border border-slate-200 p-4 shadow-sm max-w-sm\"><div class=\"flex items-center gap-2 mb-3\"><div class=\"w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center\"><i data-lucide=\"calculator\" class=\"w-4 h-4 text-slate-600\"></i></div><span class=\"font-semibold text-sm text-slate-800\">Taux divergent</span></div><div class=\"space-y-1.5 text-xs bg-slate-50 p-2.5 rounded-lg text-slate-700\"><div>Affiché : 42,3 % | Attendu : 38,7 % | Écart sur population active</div></div></div>",
         "correct": {
-          "title": "Formaliser : besoin, entrées/sorties et règle logique d'exclusion",
+          "title": "Formaliser : technique « Besoin / Entrées-Sorties » et règle de filtrage",
           "visual": "<div class=\"w-full bg-white border border-slate-200 rounded-xl p-2.5 shadow-sm\"><div class=\"text-[7px] font-bold text-blue-600 uppercase mb-1\">Règle de Filtrage</div><div class=\"space-y-0.5 text-[6.5px] text-slate-500\"><div><strong>Entrée :</strong> Population cible départementale</div><div><strong>Règle :</strong> Exclure si statut_adresse = 'Déménagé'</div><div><strong>Sortie :</strong> Dénominateur du taux de participation</div></div></div>",
-          "expl": "Détailler la correction du calcul en spécifiant le besoin, les entrées/sorties, le comportement actuel vs attendu, et la règle logique d'exclusion.",
-          "debriefExpl": "La divergence de taux se résout en structurant la demande : le Besoin (fiabilité des indicateurs ARS), l'Entrée (population départementale active), le Comportement actuel (inclusion à tort des déménagés), le Comportement attendu (exclusion), et la règle : 'Quand on calcule le taux de participation, si la patiente a déménagé, alors l'exclure du dénominateur'.",
+          "expl": "Détailler la formule par la technique 'Besoin / Entrées-Sorties' combinée à une règle d'exclusion stricte.",
+          "debriefExpl": "On utilise ici les techniques 'Besoin / Entrées-Sorties' et la formulation d'une règle d'exclusion claire (Besoin : fiabilité, Entrée : population brute, Règle : exclure si l'adresse a le statut déménagé, Sortie : dénominateur).",
           "icon": "check"
         },
         "wrong": [
