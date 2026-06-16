@@ -319,6 +319,7 @@ window.downloadWordExport = async function() {
         if (!_reflexDataCache[letter]) {
             try {
                 const res = await fetch('./' + ws.file + '.json?v=' + Date.now());
+                if (!res.ok) throw new Error('HTTP ' + res.status);
                 _reflexDataCache[letter] = await res.json();
             } catch (e) {
                 console.warn('Failed to load workshop', ws.file);
@@ -327,6 +328,10 @@ window.downloadWordExport = async function() {
         }
         
         const data = _reflexDataCache[letter];
+        if (!data || !Array.isArray(data)) {
+            continue;
+        }
+
         data.sort(function(a, b) {
             return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
         });
