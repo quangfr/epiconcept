@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">GO EPICO - Simulateur de réflexes Product</title>
-    <link rel="stylesheet" href="style.css?v=2026.06.16.07">
+    <link rel="stylesheet" href="style.css?v=2026.06.16.08">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -710,8 +710,8 @@
             const correctId = levelSteps[currentStepIdx].reflexId;
             const correctReflex = reflexes.find(r => r.id === correctId);
 
-            const others = reflexes.filter(r => r.id !== correctId).sort(() => Math.random() - 0.5).slice(0, 3);
-            const options = [correctReflex, ...others].sort(() => Math.random() - 0.5);
+            const others = reflexes.filter(r => r.id !== correctId).sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true })).slice(0, 3);
+            const options = [correctReflex, ...others].sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
 
             options.forEach(opt => {
                 const btn = document.createElement('button');
@@ -782,7 +782,7 @@
                 { isCorrect: true, title: step.scenario.correct.title, visual: step.scenario.correct.visual, expl: step.scenario.correct.expl, icon: step.scenario.correct.icon || "check" },
                 { isCorrect: false, title: step.scenario.wrong[0].title, visual: step.scenario.wrong[0].visual, expl: step.scenario.wrong[0].expl, icon: step.scenario.wrong[0].icon || "alert-circle" },
                 { isCorrect: false, title: step.scenario.wrong[1].title, visual: step.scenario.wrong[1].visual, expl: step.scenario.wrong[1].expl, icon: step.scenario.wrong[1].icon || "alert-circle" }
-            ].sort(() => Math.random() - 0.5);
+            ].sort((a, b) => a.title.localeCompare(b.title));
 
             uiOptions.forEach(opt => {
                 const btn = document.createElement('button');
